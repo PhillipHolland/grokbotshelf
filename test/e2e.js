@@ -9,8 +9,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.setViewport({ width: 1280, height: 900 });
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   const n = () => p.$$eval('.card', c => c.length);
-  ok(await n() === 26, 'renders 26 cards (' + await n() + ')');
-  ok((await p.$eval('#count', e => e.textContent)) === '26 bots', 'count says 26 bots');
+  ok(await n() === 28, 'renders 28 cards (' + await n() + ')');
+  ok((await p.$eval('#count', e => e.textContent)) === '28 bots', 'count says 28 bots');
   // typo search
   await p.type('#q', 'secruity');
   const names = await p.$$eval('.card h3', h => h.map(x => x.textContent));
@@ -24,7 +24,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(['Grokbot Mail', 'Mail in X Chat'].includes(n2[0]) && ['Grokbot Mail', 'Mail in X Chat'].includes(n2[1]), 'name matches rank first for "mail": ' + n2.slice(0, 3).join(', '));
   // Esc clears
   await p.keyboard.press('Escape');
-  ok(await n() === 26 && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
+  ok(await n() === 28 && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
   // keyboard nav: Down from search focuses first card, Right moves, Enter opens
   await p.focus('#q'); await p.keyboard.press('ArrowDown');
   let act = await p.evaluate(() => document.activeElement.id);
@@ -67,7 +67,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(BASE + '?q=zzzzqqq', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#empty', e => !e.hidden), 'empty state shows');
   await p.click('#empty-clear');
-  ok(await n() === 26 && !p.url().includes('?'), 'clear filters restores 26');
+  ok(await n() === 28 && !p.url().includes('?'), 'clear filters restores 28');
   // deep link
   await p.goto(BASE + '?creator=phil_holland#bot-vuln-scout', { waitUntil: 'networkidle0' });
   await new Promise(r => setTimeout(r, 300));
