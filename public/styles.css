@@ -63,8 +63,8 @@ header,main,footer,section{position:relative;z-index:1}
 .brand img{border-radius:8px;display:block}
 .toplink{font-size:15px;color:var(--text2);text-decoration:none;padding:8px 12px;border-radius:999px}
 .toplink:hover{color:var(--text)}
-.hero{padding-top:56px;padding-bottom:36px}
-h1{font-size:clamp(44px,7vw,72px);line-height:1.04;letter-spacing:-.045em;font-weight:700;margin:0 0 16px}
+.hero{padding-top:48px;padding-bottom:28px}
+h1{font-size:clamp(44px,7vw,72px);line-height:1.04;letter-spacing:-.045em;font-weight:700;margin:0}
 .lede{font-size:clamp(19px,2.2vw,22px);line-height:1.38;letter-spacing:-.02em;color:var(--text2);max-width:34ch;margin:0 0 14px}
 .fine{font-size:13px;color:var(--text3);margin:0}
 .fine a,.foot a{color:var(--text2);text-underline-offset:3px;text-decoration-color:var(--hair)}
