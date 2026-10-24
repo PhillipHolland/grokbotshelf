@@ -520,5 +520,18 @@
     "source_post": "https://x.com/mag_minnesota/status/2114131377004191902",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/mag_minnesota.webp"
+  },
+  {
+    "name": "Local AI Manager",
+    "emoji": "🖥️",
+    "description": "Sets up an AI model on your own computer, keeps it running, and handles day-to-day local AI use through Grok Bot.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/yQvAz8GjmB73Bv6G30iX8",
+    "creator_name": "Chef McMakin",
+    "creator_handle": "@ChefMcMakin",
+    "creator_url": "https://x.com/ChefMcMakin",
+    "source_post": "https://x.com/ChefMcMakin/status/2114134238702293032",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/chefmcmakin.webp"
   }
 ]

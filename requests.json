@@ -104,6 +104,13 @@
       "bot": "Shopping Agent",
       "url": "https://x.com/mag_minnesota/status/2114131377004191902",
       "date": "2026-10-24"
+    },
+    "2114134238702293032": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Local AI Manager",
+      "url": "https://x.com/ChefMcMakin/status/2114134238702293032",
+      "date": "2026-10-24"
     }
   }
 }
