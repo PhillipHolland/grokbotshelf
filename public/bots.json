@@ -416,5 +416,44 @@
     "added": "2026-10-24",
     "source_post": "https://x.com/KentBWeber/status/2114055027463762247",
     "creator_avatar": "/avatars/kentbweber.webp"
+  },
+  {
+    "name": "Apple Mac Tools",
+    "emoji": "🍎",
+    "description": "Installs tested Mac command-line tools so your bots can use iMessage, Mail, Reminders, Photos, and Notes.",
+    "category": "Apple & Mac",
+    "url": "https://x.ai/bot/_qhDx4CZfm2-h1RkRyef1",
+    "source_post": "https://x.com/Kevin_Logan/status/2112699134490935720",
+    "creator_name": "Kevin Logan",
+    "creator_handle": "@Kevin_Logan",
+    "creator_url": "https://x.com/Kevin_Logan",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/kevin_logan.webp"
+  },
+  {
+    "name": "Script This Routine",
+    "emoji": "📜",
+    "description": "Audits your bots' routines and turns mechanical checks into small tested scripts that wake the bot only when needed.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/9E8iw2zlg2fTWzUT6RUsP",
+    "source_post": "https://x.com/Kevin_Logan/status/2112505666942407076",
+    "creator_name": "Kevin Logan",
+    "creator_handle": "@Kevin_Logan",
+    "creator_url": "https://x.com/Kevin_Logan",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/kevin_logan.webp"
+  },
+  {
+    "name": "Junk Mail Stopper",
+    "emoji": "📭",
+    "description": "Snap a photo of junk mail and it files the sender's removal request, then logs and follows up on each one.",
+    "category": "Home",
+    "url": "https://x.ai/bot/F1XZoNusJXMm92YTTT6kR",
+    "source_post": "https://x.com/Kevin_Logan/status/2113836395508969832",
+    "creator_name": "Kevin Logan",
+    "creator_handle": "@Kevin_Logan",
+    "creator_url": "https://x.com/Kevin_Logan",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/kevin_logan.webp"
   }
 ]
