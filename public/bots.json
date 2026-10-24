@@ -364,5 +364,31 @@
     "added": "2026-10-24",
     "source_post": "https://x.com/Jprz1321/status/2114065243320340643",
     "creator_avatar": "/avatars/jprz1321.webp"
+  },
+  {
+    "name": ".mail",
+    "emoji": "📬",
+    "description": "Gives your Grok Bot its own email inbox with morning digests, follow-up nudges, and reply drafts you approve.",
+    "category": "Communication",
+    "url": "https://x.ai/bot/HdN8nshqGbNy_Le0fSi_6",
+    "creator_name": "greedfi",
+    "creator_handle": "@greedfi",
+    "creator_url": "https://x.com/greedfi",
+    "added": "2026-10-24",
+    "source_post": "https://x.com/greedfi/status/2114063323788673399",
+    "creator_avatar": "/avatars/greedfi.webp"
+  },
+  {
+    "name": ".promo",
+    "emoji": "🎬",
+    "description": "Makes keynote-style launch videos for any product, showing stills for approval before rendering the full MP4.",
+    "category": "Marketing",
+    "url": "https://x.ai/bot/k-Vww5TQVS0FR5BoGCqtT",
+    "creator_name": "greedfi",
+    "creator_handle": "@greedfi",
+    "creator_url": "https://x.com/greedfi",
+    "added": "2026-10-24",
+    "source_post": "https://x.com/greedfi/status/2114063323788673399",
+    "creator_avatar": "/avatars/greedfi.webp"
   }
 ]

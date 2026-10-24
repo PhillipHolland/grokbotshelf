@@ -187,7 +187,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const by = {
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
       newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
-      az: (a, b) => a[0].name.localeCompare(b[0].name),
+      az: (a, b) => a[0].name.replace(/^[^\p{L}\p{N}]+/u, "").localeCompare(b[0].name.replace(/^[^\p{L}\p{N}]+/u, "")),
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
     }[st.sort];
     list.sort(by);

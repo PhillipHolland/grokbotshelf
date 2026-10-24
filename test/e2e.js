@@ -6,11 +6,11 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => m.type() === 'error' && errs.push(m.text()));
-  await p.setViewport({ width: 1280, height: 900 });
+  await p.setViewport({ width: 1300, height: 900 });
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   const n = () => p.$$eval('.card', c => c.length);
-  ok(await n() === 28, 'renders 28 cards (' + await n() + ')');
-  ok((await p.$eval('#count', e => e.textContent)) === '28 bots', 'count says 28 bots');
+  ok(await n() === 30, 'renders 30 cards (' + await n() + ')');
+  ok((await p.$eval('#count', e => e.textContent)) === '30 bots', 'count says 30 bots');
   // typo search
   await p.type('#q', 'secruity');
   const names = await p.$$eval('.card h3', h => h.map(x => x.textContent));
@@ -24,7 +24,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(['Grokbot Mail', 'Mail in X Chat'].includes(n2[0]) && ['Grokbot Mail', 'Mail in X Chat'].includes(n2[1]), 'name matches rank first for "mail": ' + n2.slice(0, 3).join(', '));
   // Esc clears
   await p.keyboard.press('Escape');
-  ok(await n() === 28 && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
+  ok(await n() === 30 && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
   // keyboard nav: Down from search focuses first card, Right moves, Enter opens
   await p.focus('#q'); await p.keyboard.press('ArrowDown');
   let act = await p.evaluate(() => document.activeElement.id);
@@ -67,7 +67,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(BASE + '?q=zzzzqqq', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#empty', e => !e.hidden), 'empty state shows');
   await p.click('#empty-clear');
-  ok(await n() === 28 && !p.url().includes('?'), 'clear filters restores 28');
+  ok(await n() === 30 && !p.url().includes('?'), 'clear filters restores 30');
   // deep link
   await p.goto(BASE + '?creator=phil_holland#bot-vuln-scout', { waitUntil: 'networkidle0' });
   await new Promise(r => setTimeout(r, 300));
@@ -85,14 +85,14 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
     for (const scheme of ['light', 'dark']) {
       await p.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
       await p.evaluate((s) => localStorage.setItem('theme', s), scheme);
-      for (const [w, h, dpr, tag] of [[390, 844, 3, 'mobile-390'], [1280, 900, 2, 'desktop-1280']]) {
+      for (const [w, h, dpr, tag] of [[390, 844, 3, 'mobile-390'], [1300, 900, 2, 'desktop-1300']]) {
         await p.setViewport({ width: w, height: h, deviceScaleFactor: dpr, isMobile: w < 500, hasTouch: w < 500 });
         await p.goto(BASE, { waitUntil: 'networkidle0' }); await new Promise(r => setTimeout(r, 400));
         await p.screenshot({ path: `${SHOTS}/${tag}-${scheme}.png` });
         await p.setViewport({ width: w, height: h, deviceScaleFactor: w < 500 ? 2 : 1, isMobile: w < 500, hasTouch: w < 500 });
         await p.screenshot({ path: `${SHOTS}/${tag}-${scheme}-full.png`, fullPage: true });
       }
-      await p.setViewport({ width: 1280, height: 900, deviceScaleFactor: 2 });
+      await p.setViewport({ width: 1300, height: 900, deviceScaleFactor: 2 });
       await p.goto(BASE + '?q=secruity', { waitUntil: 'networkidle0' }); await new Promise(r => setTimeout(r, 300));
       await p.screenshot({ path: `${SHOTS}/search-typo-${scheme}.png` });
       await p.setViewport({ width: 390, height: 844, deviceScaleFactor: 3, isMobile: true, hasTouch: true });
