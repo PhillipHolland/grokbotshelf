@@ -13,7 +13,7 @@
 
   // Launch post link lives in config.js. Plain text until it is set.
   const launch = (window.LAUNCH_POST_URL || "").trim();
-  if (/^https:\/\//.test(launch)) $("#add-text").innerHTML = 'Reply to the <a href="' + esc(launch) + '" rel="noopener">launch post on X</a> with your x.ai/bot link and a one-line description, and it gets reviewed and added.';
+  if (/^https:\/\//.test(launch)) $("#launch").outerHTML = '<a href="' + esc(launch) + '" rel="noopener" target="_blank">launch post</a>';
 
   /* ---------- Fuzzy search ---------- */
   // Optimal string alignment distance, capped at max+1.
