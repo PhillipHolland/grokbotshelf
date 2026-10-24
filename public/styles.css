@@ -28,7 +28,10 @@ a{color:inherit}
 /* Hero: title and add link */
 .hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:max(28px,env(safe-area-inset-top));padding-bottom:20px}
 h1{display:flex;align-items:center;gap:12px;margin:0;white-space:nowrap;min-width:0;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
-h1 img{border-radius:9px;display:block;flex:none}
+/* Bot face from iBot: the body never moves, only the eyes group does (app.js sets its transform). */
+.botface{display:block;flex:none;width:36px;height:36px;transform:rotate(-35deg);overflow:visible}
+.bf-body{fill:var(--text)}
+.bf-eye{fill:var(--bg)}
 .pill-outline{flex:none;display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:9999px;border:1px solid var(--line2);font-weight:700;font-size:15px;text-decoration:none;transition:background .2s}
 .pill-outline:hover{background:var(--hover)}
 .hero-actions{display:flex;align-items:center;gap:8px;flex:none}
@@ -131,5 +134,5 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:50;padding:12px 16px;border-radius:4px;background:var(--blue);color:#fff;font-size:15px;
   box-shadow:0 0 15px rgba(101,119,134,.2),0 0 3px 1px rgba(101,119,134,.15);transform:translate(-50%,16px);opacity:0;transition:transform .2s,opacity .2s;pointer-events:none}
 .toast.show{transform:translate(-50%,0);opacity:1}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{gap:10px}.hero h1{font-size:22px;gap:8px}.hero h1 img{width:28px;height:28px;border-radius:7px}.hero .pill-outline{height:36px;padding:0 14px;font-size:14px}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{gap:10px}.hero h1{font-size:22px;gap:8px}.hero .botface{width:28px;height:28px}.hero .pill-outline{height:36px;padding:0 14px;font-size:14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
