@@ -13,8 +13,9 @@ html[data-theme="light"]{
   --pill:#0f1419; --pill-ink:#fff; --pill-h:#272c30;
   --head:rgba(255,255,255,.85);
 }
-html{color-scheme:dark;background:var(--bg)}
+:root{color-scheme:dark}
 html[data-theme="light"]{color-scheme:light}
+html,body{background:var(--bg);overscroll-behavior-y:auto}
 html.theme-anim,html.theme-anim *{transition:background-color .2s ease,color .2s ease,border-color .2s ease,fill .2s ease,stroke .2s ease!important}
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
@@ -43,7 +44,7 @@ html[data-theme="light"] .theme-btn .sun{display:block}
 html[data-theme="light"] .theme-btn .moon{display:none}
 
 /* Sticky header with search, the only translucent surface */
-.dock{position:sticky;top:0;z-index:20;padding:8px 0;background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.dock{position:sticky;top:0;z-index:20;padding:max(8px,env(safe-area-inset-top)) 0 8px;background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 @supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.dock{background:var(--bg)}}
 .capsule{display:flex;align-items:center;height:44px;border-radius:9999px;background:var(--field);border:1px solid transparent;padding:0 4px 0 16px;transition:border-color .15s,background .15s}
 .capsule:focus-within{background:var(--bg);border-color:var(--blue)}
