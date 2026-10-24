@@ -83,7 +83,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(errs.length === 0, 'no console errors ' + errs.join(' | '));
   if (SHOTS) {
     for (const scheme of ['light', 'dark']) {
-      await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: scheme }, { name: 'prefers-reduced-motion', value: 'reduce' }]);
+      await p.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+      await p.evaluate((s) => localStorage.setItem('theme', s), scheme);
       for (const [w, h, dpr, tag] of [[390, 844, 3, 'mobile-390'], [1280, 900, 2, 'desktop-1280']]) {
         await p.setViewport({ width: w, height: h, deviceScaleFactor: dpr, isMobile: w < 500, hasTouch: w < 500 });
         await p.goto(BASE, { waitUntil: 'networkidle0' }); await new Promise(r => setTimeout(r, 400));

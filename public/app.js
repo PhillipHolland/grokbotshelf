@@ -15,6 +15,22 @@
   const launch = (window.LAUNCH_POST_URL || "").trim();
   if (/^https:\/\//.test(launch)) $("#launch").outerHTML = '<a href="' + esc(launch) + '" rel="noopener" target="_blank">launch post</a>';
 
+  /* ---------- Theme toggle: dark by default, choice kept in localStorage ---------- */
+  const root = document.documentElement, themeBtn = $("#theme");
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    document.querySelector('meta[name="theme-color"]').content = t === "light" ? "#ffffff" : "#000000";
+    document.querySelector('meta[name="color-scheme"]').content = t;
+    themeBtn.setAttribute("aria-pressed", String(t === "dark"));
+  }
+  applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+  themeBtn.addEventListener("click", () => {
+    const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { root.classList.add("theme-anim"); setTimeout(() => root.classList.remove("theme-anim"), 250); }
+    applyTheme(next);
+    try { localStorage.setItem("theme", next); } catch {}
+  });
+
   /* ---------- Fuzzy search ---------- */
   // Optimal string alignment distance, capped at max+1.
   function dist(a, b, max) {

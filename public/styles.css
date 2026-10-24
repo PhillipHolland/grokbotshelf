@@ -1,21 +1,23 @@
-/* Grok Bot Shelf. X styling: Lights out dark, X light. */
+/* Grok Bot Shelf. X styling: Lights out dark by default, X light via data-theme. */
 :root{
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --blue:#1d9bf0; --blue-h:#1a8cd8;
+    --bg:#000; --text:#e7e9ea; --text2:#71767b; --line:#2f3336; --line2:#536471; --hover:#16181c; --field:#202327;
+    --menu:#16181c; --mark:rgba(29,155,240,.28);
+    --pill:#eff3f4; --pill-ink:#0f1419; --pill-h:#d7dbdc;
+    --head:rgba(0,0,0,.65);
+}
+html[data-theme="light"]{
   --bg:#fff; --text:#0f1419; --text2:#536471; --line:#eff3f4; --line2:#cfd9de; --hover:#f7f9f9; --field:#eff3f4;
   --menu:#fff; --blue:#1d9bf0; --blue-h:#1a8cd8; --mark:rgba(29,155,240,.18);
   --pill:#0f1419; --pill-ink:#fff; --pill-h:#272c30;
   --head:rgba(255,255,255,.85);
 }
-@media (prefers-color-scheme:dark){
-  :root{
-    --bg:#000; --text:#e7e9ea; --text2:#71767b; --line:#2f3336; --line2:#536471; --hover:#16181c; --field:#202327;
-    --menu:#16181c; --mark:rgba(29,155,240,.28);
-    --pill:#eff3f4; --pill-ink:#0f1419; --pill-h:#d7dbdc;
-    --head:rgba(0,0,0,.65);
-  }
-}
+html{color-scheme:dark;background:var(--bg)}
+html[data-theme="light"]{color-scheme:light}
+html.theme-anim,html.theme-anim *{transition:background-color .2s ease,color .2s ease,border-color .2s ease,fill .2s ease,stroke .2s ease!important}
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:84px;color-scheme:light dark}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
 body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.4 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -29,6 +31,13 @@ h1{display:flex;align-items:center;gap:12px;margin:0;font-size:clamp(26px,4vw,34
 h1 img{border-radius:9px;display:block;flex:none}
 .pill-outline{flex:none;display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:9999px;border:1px solid var(--line2);font-weight:700;font-size:15px;text-decoration:none;transition:background .2s}
 .pill-outline:hover{background:var(--hover)}
+.hero-actions{display:flex;align-items:center;gap:8px;flex:none}
+.theme-btn{display:inline-grid;place-items:center;width:36px;height:36px;padding:0;border-radius:9999px;border:1px solid var(--line2);background:transparent;color:var(--text);cursor:pointer;transition:background .2s}
+.theme-btn:hover{background:var(--hover)}
+.theme-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.theme-btn .sun{display:none}
+html[data-theme="light"] .theme-btn .sun{display:block}
+html[data-theme="light"] .theme-btn .moon{display:none}
 
 /* Sticky header with search, the only translucent surface */
 .dock{position:sticky;top:0;z-index:20;padding:8px 0;background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
