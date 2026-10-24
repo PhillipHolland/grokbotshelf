@@ -494,5 +494,31 @@
     "source_post": "https://x.com/legallyrenee/status/2114100398038634611",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/legallyrenee.webp"
+  },
+  {
+    "name": "Trend Scout for X",
+    "emoji": "📡",
+    "description": "Hands you the freshest X trending stories tailored to who you are, every time you ask.",
+    "category": "Creator",
+    "url": "https://x.ai/bot/Q6YX1p5zlhRZZjEmDYfzA",
+    "creator_name": "Ashley Schendel",
+    "creator_handle": "@ashleyschendel",
+    "creator_url": "https://x.com/ashleyschendel",
+    "source_post": "https://x.com/ashleyschendel/status/2114131979146776621",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/ashleyschendel.webp"
+  },
+  {
+    "name": "Shopping Agent",
+    "emoji": "🛒",
+    "description": "Builds staples and weekly lists, fills online carts, and aisle-orders your list from receipts or history.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/0hvGU2tKpk__HjUgxDS7S",
+    "creator_name": "Minnesota Mag",
+    "creator_handle": "@mag_minnesota",
+    "creator_url": "https://x.com/mag_minnesota",
+    "source_post": "https://x.com/mag_minnesota/status/2114131377004191902",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/mag_minnesota.webp"
   }
 ]
