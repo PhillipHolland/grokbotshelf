@@ -481,5 +481,18 @@
     "creator_url": "https://x.com/Kevin_Logan",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/kevin_logan.webp"
+  },
+  {
+    "name": "Vcardbot",
+    "emoji": "📇",
+    "description": "Builds a professional virtual business card with your photo, colors, social links, QR code, and a one-tap Save contact button.",
+    "category": "Business",
+    "url": "https://x.ai/bot/PVXoG6cwqxR5waSXdWzb5",
+    "creator_name": "Renee Thompson",
+    "creator_handle": "@legallyrenee",
+    "creator_url": "https://x.com/legallyrenee",
+    "source_post": "https://x.com/legallyrenee/status/2114100398038634611",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/legallyrenee.webp"
   }
 ]
