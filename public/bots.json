@@ -663,5 +663,18 @@
     "source_post": "https://x.com/xenappblog/status/2114142125356945493",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/xenappblog.webp"
+  },
+  {
+    "name": "Tacks",
+    "emoji": "🧾",
+    "description": "Personal tax preparer for US individual returns, federal and state: interviews you, then prepares the return line by line.",
+    "category": "Money",
+    "url": "https://x.ai/bot/Y1Xy91EjTxvZkVviy_J7W",
+    "creator_name": "Josh Meyer",
+    "creator_handle": "@JoshMeyer",
+    "creator_url": "https://x.com/JoshMeyer",
+    "source_post": "https://x.com/JoshMeyer/status/2114141128354320839",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/joshmeyer.webp"
   }
 ]
