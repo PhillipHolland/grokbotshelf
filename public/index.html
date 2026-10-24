@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grok Bot Shelf · Community templates you can import</title>
+<meta name="description" content="A community directory of shared Grok Bot templates. Browse, search, and import a bot in one tap. Curated by Phillip Holland.">
+<meta name="theme-color" content="#0b0b0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f5f2" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://grokbotshelf.vercel.app/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grok Bot Shelf">
+<meta property="og:title" content="Grok Bot Shelf">
+<meta property="og:description" content="Community-shared Grok Bot templates. Browse, search, and import one in a tap.">
+<meta property="og:url" content="https://grokbotshelf.vercel.app/">
+<meta property="og:image" content="https://grokbotshelf.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Grok Bot Shelf: community-shared Grok Bot templates">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grok Bot Shelf">
+<meta name="twitter:description" content="Community-shared Grok Bot templates. Browse, search, and import one in a tap.">
+<meta name="twitter:image" content="https://grokbotshelf.vercel.app/og.png">
+<meta name="twitter:creator" content="@Phil_Holland">
+<link rel="stylesheet" href="/styles.css">
+<script src="/config.js"></script>
+<script src="/app.js" defer></script>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<header class="hero wrap">
+  <a class="brand" href="/" aria-label="Grok Bot Shelf home"><img class="logo" src="/favicon.svg" alt="" width="24" height="24"> Grok Bot Shelf</a>
+  <h1>Bots people built.<br><span>Ready to make yours.</span></h1>
+  <p class="lede">A hand-picked shelf of Grok Bot templates shared by their creators. Find one you like, tap <em>Get this bot</em>, and it opens on x.ai ready to import.</p>
+  <p class="note">A community directory by <a href="https://x.com/Phil_Holland" rel="noopener">Phillip Holland</a>. Not affiliated with xAI.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar" role="search">
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search bots, e.g. mac, email, food" autocomplete="off" aria-label="Search bots">
+      <kbd>/</kbd>
+    </label>
+    <div class="chips" id="creators" aria-label="Filter by creator"></div>
+    <div class="chips scroll" id="cats" aria-label="Filter by category"></div>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="shelf"></div>
+  <p class="empty" id="empty" hidden>No bots match that. Try a shorter search or clear the filters.</p>
+
+  <section class="add" id="add">
+    <div>
+      <h2>Add your bot</h2>
+      <p id="add-text">Reply to the launch post on X with your x.ai/bot link and a one-line description, and it gets reviewed and added.</p>
+    </div>
+    <ol>
+      <li><b>Share</b> your template on x.ai and copy its link.</li>
+      <li><b>Reply</b> with the link and one line about what it does.</li>
+      <li><b>Review</b>: approved bots land on the shelf with credit to you.</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Grok Bot Shelf is a community directory curated by <a href="https://x.com/Phil_Holland" rel="noopener">Phillip Holland</a>. Each bot belongs to its creator. Grok Bot is a product of xAI; this site is independent.</p>
+</footer>
+<noscript><p class="wrap">Turn on JavaScript to browse the shelf, or open <a href="/bots.json">bots.json</a>.</p></noscript>
+</body>
+</html>
