@@ -55,6 +55,34 @@
       "bot": "Bridge Bot",
       "url": "https://x.com/moritzkremb/status/2114051840102768922",
       "date": "2026-10-24"
+    },
+    "2113802396791164951": {
+      "status": "not_a_request",
+      "note": "posted before the shelf launch, not an ask to be added",
+      "bot": "Brand Design Bot",
+      "url": "https://x.com/createwithima/status/2113802396791164951",
+      "date": "2026-10-24"
+    },
+    "2113797469041545319": {
+      "status": "not_a_request",
+      "note": "posted before the shelf launch, not an ask to be added",
+      "bot": "PHP2Shell Patcher and Vuln Scout",
+      "url": "https://x.com/heroictripod297/status/2113797469041545319",
+      "date": "2026-10-24"
+    },
+    "2113647645512306751": {
+      "status": "not_a_request",
+      "note": "posted before the shelf launch, not an ask to be added",
+      "bot": "List Front Page",
+      "url": "https://x.com/teeRex247/status/2113647645512306751",
+      "date": "2026-10-24"
+    },
+    "2114108671840190518": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Clip & Credit",
+      "url": "https://x.com/Kevin_Logan/status/2114108671840190518",
+      "date": "2026-10-24"
     }
   }
 }
