@@ -611,5 +611,31 @@
     "source_post": "https://x.com/drbellahqw/status/2114138284297220327",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/drbellahqw.webp"
+  },
+  {
+    "name": "Health Concierge",
+    "emoji": "🏥",
+    "description": "Tracks insurance, labs, doctors, and reimbursements for your family, and preps you for appointments.",
+    "category": "Health",
+    "url": "https://x.ai/bot/48ehVK1SKr4ztzMjR2Qyu",
+    "creator_name": "Dave Gambrill",
+    "creator_handle": "@gambrill",
+    "creator_url": "https://x.com/gambrill",
+    "source_post": "https://x.com/gambrill/status/2114139706061668686",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/gambrill.webp"
+  },
+  {
+    "name": "NFL GameDay Insider",
+    "emoji": "🏈",
+    "description": "NFL week previews, injury alerts, game-day briefings, and fantasy start/sit reads from live sourced info.",
+    "category": "Sports",
+    "url": "https://x.ai/bot/LH7aMNtORfDuAIyxlDF1X",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "source_post": "https://x.com/drbellahqw/status/2114138942542926252",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/drbellahqw.webp"
   }
 ]

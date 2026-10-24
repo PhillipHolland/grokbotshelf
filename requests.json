@@ -160,6 +160,20 @@
       "bot": "Visit Ready",
       "url": "https://x.com/drbellahqw/status/2114138284297220327",
       "date": "2026-10-24"
+    },
+    "2114139706061668686": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Health Concierge",
+      "url": "https://x.com/gambrill/status/2114139706061668686",
+      "date": "2026-10-24"
+    },
+    "2114138942542926252": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "NFL GameDay Insider",
+      "url": "https://x.com/drbellahqw/status/2114138942542926252",
+      "date": "2026-10-24"
     }
   }
 }
