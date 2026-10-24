@@ -455,5 +455,18 @@
     "creator_url": "https://x.com/Kevin_Logan",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/kevin_logan.webp"
+  },
+  {
+    "name": "Bridge Bot",
+    "emoji": "🔗",
+    "description": "Lets ChatGPT, Claude Code, or any other tool send tasks to your Grok Bot over a webhook.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/GHoerhXVqIMYC2VmYI_fZ",
+    "creator_name": "Moritz Kremb",
+    "creator_handle": "@moritzkremb",
+    "creator_url": "https://x.com/moritzkremb",
+    "added": "2026-10-24",
+    "source_post": "https://x.com/moritzkremb/status/2114051840102768922",
+    "creator_avatar": "/avatars/moritzkremb.webp"
   }
 ]
