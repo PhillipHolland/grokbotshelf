@@ -195,6 +195,34 @@
       "bot": "Tacks",
       "url": "https://x.com/JoshMeyer/status/2114141128354320839",
       "date": "2026-10-24"
+    },
+    "2114141973640814772": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Mom Journey",
+      "url": "https://x.com/drbellahqw/status/2114141973640814772",
+      "date": "2026-10-24"
+    },
+    "2114142317472887075": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Research",
+      "url": "https://x.com/xenappblog/status/2114142317472887075",
+      "date": "2026-10-24"
+    },
+    "2114143473041363176": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Finance, Net Watch, Parks, Brick Scout, Meetup Bot, Bouncer, X Hygiene",
+      "url": "https://x.com/bradshannon/status/2114143473041363176",
+      "date": "2026-10-24"
+    },
+    "2114141557637206037": {
+      "status": "not_a_request",
+      "note": "Pep post linked Ghost; skipped (Ghost already on shelf)",
+      "bot": "Pep",
+      "url": "https://x.com/gambrill/status/2114141557637206037",
+      "date": "2026-10-24"
     }
   }
 }
