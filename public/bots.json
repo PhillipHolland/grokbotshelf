@@ -546,5 +546,31 @@
     "source_post": "https://x.com/ALL_Jonah/status/2114134746720522659",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/all_jonah.webp"
+  },
+  {
+    "name": "Unmute America",
+    "emoji": "🗳️",
+    "description": "Helps with voter registration, sample ballots, custom voter guides, and tracking your reps, bills, and votes.",
+    "category": "Civic",
+    "url": "https://x.ai/bot/ppyKGpiWQmGkXxWqbeyCL",
+    "creator_name": "Jonah Anthony",
+    "creator_handle": "@ALL_Jonah",
+    "creator_url": "https://x.com/ALL_Jonah",
+    "source_post": "https://x.com/ALL_Jonah/status/2114136808346771499",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/all_jonah.webp"
+  },
+  {
+    "name": "Mixtape Maker",
+    "emoji": "🎧",
+    "description": "Digs Bandcamp, indie labels, and archives for music that fits your taste, then builds playlists in your streaming app.",
+    "category": "Music",
+    "url": "https://x.ai/bot/QKg0ymNH6JmvoyfyseTdt",
+    "creator_name": "Addison",
+    "creator_handle": "@addisonhoover",
+    "creator_url": "https://x.com/addisonhoover",
+    "source_post": "https://x.com/addisonhoover/status/2114137519755309505",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/addisonhoover.webp"
   }
 ]
