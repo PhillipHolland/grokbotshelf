@@ -572,5 +572,44 @@
     "source_post": "https://x.com/addisonhoover/status/2114137519755309505",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/addisonhoover.webp"
+  },
+  {
+    "name": "Wedding OS",
+    "emoji": "💍",
+    "description": "Wedding ops for couples: a flex checklist, budget breakdown, approve-gated vendor calls, and guest/RSVP tools.",
+    "category": "Home",
+    "url": "https://x.ai/bot/G5AcR1QDzXxoX3iURnl_4",
+    "creator_name": "Addison",
+    "creator_handle": "@addisonhoover",
+    "creator_url": "https://x.com/addisonhoover",
+    "source_post": "https://x.com/addisonhoover/status/2114138576090759205",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/addisonhoover.webp"
+  },
+  {
+    "name": "Doctor Visit Prep for Women",
+    "emoji": "🩺",
+    "description": "Turns your age, concerns, and history into a clear visit plan so you walk in ready and don't get brushed off.",
+    "category": "Health",
+    "url": "https://x.ai/bot/djlVFbW-J-pFXRdpIq0mP",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "source_post": "https://x.com/drbellahqw/status/2114138475029045555",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/drbellahqw.webp"
+  },
+  {
+    "name": "Visit Ready",
+    "emoji": "📋",
+    "description": "Builds a short list of appointment questions from your age and what's bugging you, then helps you follow up after.",
+    "category": "Health",
+    "url": "https://x.ai/bot/j-fWXj5KKAe7rNUTezGC0",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "source_post": "https://x.com/drbellahqw/status/2114138284297220327",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/drbellahqw.webp"
   }
 ]
