@@ -20,12 +20,15 @@ Add an object to the array in `public/bots.json`:
   "creator_name": "Nick",
   "creator_handle": "@thecsguy",
   "creator_url": "https://x.com/thecsguy",
+  "creator_avatar": "/avatars/thecsguy.webp",
   "source_post": "https://x.com/thecsguy/status/123",
   "added": "2026-10-24"
 }
 ```
 
-Optional: `"code_url"` adds a source-code button. A new `creator_url` gets its own
+Optional: `"code_url"` adds a source-code button. For a new creator, save their X
+profile photo as a 128px WebP in `public/avatars/` and point `creator_avatar` at it.
+Keep descriptions to one plain sentence under about 110 characters. A new `creator_url` gets its own
 section and filter chip automatically; a new `category` gets its own chip.
 
 Check the template link works first: `curl -sI https://x.ai/bot/XXXXXXXX | head -1`
@@ -48,4 +51,13 @@ and redeploy. Until it is set, the "Add your bot" section shows plain text with 
 ```sh
 google-chrome --headless=new --no-sandbox --hide-scrollbars --window-size=1200,630 \
   --screenshot=public/og.png file://$PWD/build/og.html
+```
+
+## Tests
+
+`test/e2e.js` drives headless Chrome through search, filters, URL state, keyboard
+navigation and copy link. It needs `puppeteer-core` installed outside the repo:
+
+```sh
+NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.vercel.app/ [shots-dir]
 ```

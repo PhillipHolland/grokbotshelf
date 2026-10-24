@@ -2,19 +2,20 @@
   {
     "name": "Archivist",
     "emoji": "📚",
-    "description": "Reads your chats with your other bots for standing rules like \"always\" and \"never\", then with your OK writes the missing ones into each bot so they stop forgetting.",
+    "description": "Finds standing rules you gave your other bots and, with your OK, writes the missing ones into each bot.",
     "category": "Productivity",
     "url": "https://x.ai/bot/vAgUsbH4SHOudh96KXEk0",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "iBot Player",
     "emoji": "🎼",
-    "description": "Your own iPod-style player for Apple Music, deployed to your Vercel in about 15 minutes. Click wheel included.",
+    "description": "Deploys your own iPod-style Apple Music player to your Vercel account in about 15 minutes.",
     "category": "Music",
     "url": "https://x.ai/bot/jK9aaa6Pypf_WjnaIHWah",
     "creator_name": "Phillip Holland",
@@ -22,12 +23,13 @@
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
     "added": "2026-10-24",
-    "code_url": "https://github.com/PhillipHolland/ibot"
+    "code_url": "https://github.com/PhillipHolland/ibot",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Security Audit Bot",
     "emoji": "🔐",
-    "description": "Audits code you own, from a GitHub link or a folder, and hands back a private report that opens with the fixes to make first.",
+    "description": "Reviews code you own and returns a private security report that starts with up to five fixes.",
     "category": "Security",
     "url": "https://x.ai/bot/ksa8bHwOSris1UoZtCUhU",
     "creator_name": "Phillip Holland",
@@ -35,270 +37,293 @@
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
     "added": "2026-10-24",
-    "code_url": "https://github.com/PhillipHolland/security-audit-bot"
+    "code_url": "https://github.com/PhillipHolland/security-audit-bot",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Christian Devotional Bot",
     "emoji": "✝️",
-    "description": "A daily devotional fitted to your tradition and translation: Scripture quoted accurately, a short reflection, a prayer, and one thing to practice.",
+    "description": "Sends a daily devotional in your tradition and Bible translation, with a reflection and a prayer.",
     "category": "Faith",
     "url": "https://x.ai/bot/Nfwkt1S4xtLJZpkENJZ3Q",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Terminal Boss",
     "emoji": "🖥️",
-    "description": "Run terminal jobs and coding agents like Claude Code, Codex or Grok Build on your own computer, straight from chat.",
+    "description": "Runs shell jobs and coding agents like Claude Code or Codex on your computer from chat.",
     "category": "Developer",
     "url": "https://x.ai/bot/aU_t4X-Yf6w9DHfhIGD9n",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Apple Inventory & Deal Bot",
     "emoji": "🍎",
-    "description": "Finds the exact Apple product you want in stock and shows who can get it to you soonest and cheapest.",
+    "description": "Finds the Apple product you want in stock and shows who can get it to you soonest and cheapest.",
     "category": "Shopping",
     "url": "https://x.ai/bot/Vx13jzt30gpYEztDQbueA",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Sushi & Ramen",
     "emoji": "🍣",
-    "description": "Finds sushi and ramen worth eating and gets it to your door with one yes.",
+    "description": "Finds sushi and ramen worth eating nearby and orders delivery or takeout after you say yes.",
     "category": "Food",
     "url": "https://x.ai/bot/EDD4ZIp4WLARWks1Ij6SE",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "BotBagger",
     "emoji": "🛍️",
-    "description": "Your bot designs products, runs its own shop, and sells them on the BotBagger store.",
+    "description": "Has your bot design products and sell them from its own shop on the BotBagger store.",
     "category": "Business",
     "url": "https://x.ai/bot/IngmF6O2mzhx5ya3SqcA4",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Site Coach",
     "emoji": "🕸️",
-    "description": "A plain-English coach for your site's Google traffic and SEO, with a weekly brief and a look at where AI search skips you.",
+    "description": "Reads your Search Console and GA4, sends a weekly brief, and tracks how AI search sees your site.",
     "category": "Marketing",
     "url": "https://x.ai/bot/nk0jtBcOKfzIKbkfWjHzU",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Apple Desk",
     "emoji": "🍏",
-    "description": "Connects your bot to Reminders, Calendar, Notes, Contacts and Messages on your Mac.",
+    "description": "Lets your bot use Reminders, Calendar, Notes, Contacts and Messages on your Mac.",
     "category": "Apple & Mac",
     "url": "https://x.ai/bot/vVST27b0qMvGLrEfxZ3nj",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Grokbot Mail",
     "emoji": "✉️",
-    "description": "A Liquid Glass, iPhone-first mailbox for your Grok Bot's own email address, hosted on your own Vercel.",
+    "description": "An iPhone-first web mailbox for your bot's own email address, hosted on your Vercel account.",
     "category": "Communication",
     "url": "https://x.ai/bot/vHWtUqHtdpfhnwTFOfEVT",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "App Store Connect",
     "emoji": "📱",
-    "description": "Walks you through shipping an iOS app: API key, TestFlight, listing copy, framed screenshots, and a pre-review check.",
+    "description": "Connects your App Store Connect key, checks TestFlight, drafts listing copy and frames screenshots.",
     "category": "Developer",
     "url": "https://x.ai/bot/1kQ8p3TAKx2FgvYXir2Ta",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Coach",
     "emoji": "🏋️",
-    "description": "Plans your workouts, logs sets and meals from a quick text or a plate photo, and adjusts to your WHOOP, Oura or Fitbit recovery.",
+    "description": "Plans workouts and logs sets and meals from texts or plate photos, adjusting to WHOOP, Oura or Fitbit.",
     "category": "Fitness",
     "url": "https://x.ai/bot/3zE_2sCWH3YTIyIVw8ieK",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Mail in X Chat",
     "emoji": "📬",
-    "description": "Your important email as short cards in one X Chat. Reply from there, and nothing sends until you say yes.",
+    "description": "Posts your important email to one X Chat as short cards and replies only after you say yes.",
     "category": "Communication",
     "url": "https://x.ai/bot/h1bJOR_y1RysAZrmkN05m",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "iMessage Relay",
     "emoji": "💬",
-    "description": "Your iMessages in X Chat, so you can read and reply from there. Setup on your Mac takes about a minute.",
+    "description": "Forwards your iMessages to X Chat so you can reply there, after a one-minute setup on your Mac.",
     "category": "Communication",
     "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Reel ➡️ 𝕏",
     "emoji": "🎬",
-    "description": "Paste an Instagram, TikTok or YouTube Shorts link and get back an X-ready MP4 plus a post that credits the creator.",
+    "description": "Turns an Instagram, TikTok or YouTube Shorts link into an X-ready MP4 and a post crediting the creator.",
     "category": "Creator",
     "url": "https://x.ai/bot/ydje9SAP_d0lIHxOdu2_j",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
     "source_post": "",
-    "added": "2026-10-24"
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
     "name": "Disk Doctor",
     "emoji": "💽",
-    "description": "Finds what's eating your Mac's storage, scans before touching anything, and deletes only the groups you approve.",
+    "description": "Scans your Mac's storage and deletes only the groups of files you approve.",
     "category": "Apple & Mac",
     "url": "https://x.ai/bot/EVQ-0yhShRgL-2qAfdD-8",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113644614066520409"
+    "source_post": "https://x.com/thecsguy/status/2113644614066520409",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Claude Remote",
     "emoji": "📲",
-    "description": "Text it a task from your phone. It runs it in Claude Code on your Mac and pings you when it's done.",
+    "description": "Sends tasks you text from your phone to Claude Code on your Mac and messages you the result.",
     "category": "Developer",
     "url": "https://x.ai/bot/aB0M7wQOAcFgd_G0rTEWF",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2111986186784743932"
+    "source_post": "https://x.com/thecsguy/status/2111986186784743932",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Package Pal",
     "emoji": "📦",
-    "description": "Reads your shipping emails and sends one daily digest of everything in transit, plus alerts when something changes.",
+    "description": "Reads your shipping emails and sends one daily digest of packages in transit, with change alerts.",
     "category": "Productivity",
     "url": "https://x.ai/bot/JG4RGdYlakSid0hw1woj1",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113593023925981258"
+    "source_post": "https://x.com/thecsguy/status/2113593023925981258",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Home Scout",
     "emoji": "🏡",
-    "description": "Watches new listings and checks each good fit against real comps, commute, schools and permits.",
+    "description": "Watches new home listings and checks each good fit against comps, commute, schools and permits.",
     "category": "Home",
     "url": "https://x.ai/bot/gIPVW_A1Ygg3QBaKpOqTg",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113797119043846177"
+    "source_post": "https://x.com/thecsguy/status/2113797119043846177",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Afterglow",
     "emoji": "📈",
-    "description": "A daily read on your X posts: what moved, what got replies, and what died.",
+    "description": "Charts how your X posts did each morning and tells you which ones worked.",
     "category": "Creator",
     "url": "https://x.ai/bot/0pfVoOQLOV4O8Ujlk27x8",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113727912637759660"
+    "source_post": "https://x.com/thecsguy/status/2113727912637759660",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Starlink Check",
     "emoji": "🛰️",
-    "description": "Checks whether Starlink home internet reaches your address, with plans, prices and promos, and can ping you when it does.",
+    "description": "Checks whether Starlink home internet reaches your address and lists the plans and prices.",
     "category": "Home",
     "url": "https://x.ai/bot/WA8NMMcNsQjCe3OGRr2Qz",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113015216514711844"
+    "source_post": "https://x.com/thecsguy/status/2113015216514711844",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Vuln Scout",
     "emoji": "🛡️",
-    "description": "Watches public CVE and patch advisories and drops short defensive digests as Pages.",
+    "description": "Tracks public CVE and patch advisories and posts short digests to Pages.",
     "category": "Security",
     "url": "https://x.ai/bot/IiV3YZZ2TAF63sPORZmWy",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113469893115072691"
+    "source_post": "https://x.com/thecsguy/status/2113469893115072691",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Last Call",
     "emoji": "⏰",
-    "description": "Catches the trials you sign up for, warns you a few days before they charge, and offers to cancel.",
+    "description": "Tracks trials you sign up for, warns you a few days before they charge, and offers to cancel.",
     "category": "Money",
     "url": "https://x.ai/bot/YuGzbyI7jVfZedsRUOLCm",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2113829582868562344"
+    "source_post": "https://x.com/thecsguy/status/2113829582868562344",
+    "creator_avatar": "/avatars/thecsguy.webp"
   },
   {
     "name": "Burn Rate",
     "emoji": "🔥",
-    "description": "A weekly audit that trims your bots' wasteful routines, with your approval.",
+    "description": "Audits your bots' routines each week and trims the wasteful ones after you approve.",
     "category": "Productivity",
     "url": "https://x.ai/bot/XfW7A4ilcsOkPbnP2_cvr",
     "creator_name": "Nick",
     "creator_handle": "@thecsguy",
     "creator_url": "https://x.com/thecsguy",
     "added": "2026-10-24",
-    "source_post": "https://x.com/thecsguy/status/2112329315853746503"
+    "source_post": "https://x.com/thecsguy/status/2112329315853746503",
+    "creator_avatar": "/avatars/thecsguy.webp"
   }
 ]

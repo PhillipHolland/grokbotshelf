@@ -1,93 +1,287 @@
 (() => {
+  "use strict";
   const $ = (s) => document.querySelector(s);
-  const state = { q: "", creator: "all", cat: "all" };
-  let bots = [];
+  const q = $("#q"), sortEl = $("#sort"), results = $("#results"), segEl = $("#creators"), catsEl = $("#cats");
+  const SORTS = ["featured", "newest", "az", "creator"];
+  let bots = [], creators = [], cats = [], st = blank(), active = -1;
 
-  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const norm = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
-  const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
-  const code = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>';
-  const post = '<svg viewBox="0 0 24 24" aria-hidden="true" style="fill:currentColor;stroke:none"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>';
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured" }; }
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+  const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const ckey = (b) => b.creator_handle.replace(/^@/, "").toLowerCase();
 
-  // Launch post link: set in config.js. Plain text until it's set.
+  // Launch post link lives in config.js. Plain text until it is set.
   const launch = (window.LAUNCH_POST_URL || "").trim();
-  if (launch) {
-    $("#add-text").innerHTML = 'Reply to the <a href="' + esc(launch) + '" rel="noopener">launch post on X</a> with your x.ai/bot link and a one-line description, and it gets reviewed and added.';
+  if (/^https:\/\//.test(launch)) $("#add-text").innerHTML = 'Reply to the <a href="' + esc(launch) + '" rel="noopener">launch post on X</a> with your x.ai/bot link and a one-line description, and it gets reviewed and added.';
+
+  /* ---------- Fuzzy search ---------- */
+  // Optimal string alignment distance, capped at max+1.
+  function dist(a, b, max) {
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    let p2 = null, p = Array.from({ length: b.length + 1 }, (_, i) => i);
+    for (let i = 1; i <= a.length; i++) {
+      const c = [i]; let lo = i;
+      for (let j = 1; j <= b.length; j++) {
+        let v = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+        if (p2 && i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, p2[j - 2] + 1);
+        c[j] = v; if (v < lo) lo = v;
+      }
+      if (lo > max) return max + 1;
+      p2 = p; p = c;
+    }
+    return p[b.length];
+  }
+  // Score one query token against one field. Returns [score, [start, end]] or null.
+  function tokenIn(tok, text, isName) {
+    const i = text.indexOf(tok);
+    if (i >= 0) return [12 + (i === 0 || /[^a-z0-9]/.test(text[i - 1]) ? 6 : 0) + (isName && i === 0 ? 4 : 0), [i, i + tok.length]];
+    if (tok.length < 4) return null;
+    const max = tok.length >= 7 ? 2 : 1;
+    let best = null;
+    for (const m of text.matchAll(/[a-z0-9]+/g)) {
+      const w = m[0];
+      const d = Math.min(dist(tok, w, max), w.length > tok.length ? dist(tok, w.slice(0, tok.length), max) : max + 1);
+      if (d <= max && (!best || 8 - d * 3 > best[0])) best = [8 - d * 3, [m.index, m.index + w.length]];
+    }
+    if (best || !isName) return best;
+    let k = 0, start = -1; // subsequence fallback on names only
+    for (let j = 0; j < text.length && k < tok.length; j++) if (text[j] === tok[k]) { if (start < 0) start = j; k++; }
+    return k === tok.length ? [2, [start, start + 1]] : null;
+  }
+  const FIELDS = [["name", 3], ["category", 1.6], ["creator", 1.3], ["description", 1]];
+  function match(b, toks) {
+    let total = 0; const hits = { name: [], description: [] };
+    for (const t of toks) {
+      let best = 0, bestF = null, bestR = null;
+      for (const [f, w] of FIELDS) {
+        const r = tokenIn(t, b._f[f], f === "name");
+        if (r && r[0] * w > best) { best = r[0] * w; bestF = f; bestR = r[1]; }
+      }
+      if (!best) return null;
+      total += best;
+      if (hits[bestF]) hits[bestF].push(bestR);
+    }
+    return { score: total, hits };
+  }
+  function hl(text, ranges) {
+    if (!ranges || !ranges.length) return esc(text);
+    const rs = ranges.slice().sort((a, b) => a[0] - b[0]); let out = "", pos = 0;
+    for (const [s, e] of rs) { if (e <= pos) continue; const a = Math.max(s, pos); out += esc(text.slice(pos, a)) + "<mark>" + esc(text.slice(a, e)) + "</mark>"; pos = e; }
+    return out + esc(text.slice(pos));
   }
 
-  const creators = () => {
-    const m = new Map();
-    for (const b of bots) if (!m.has(b.creator_url)) m.set(b.creator_url, { name: b.creator_name, handle: b.creator_handle, url: b.creator_url, n: 0 });
-    for (const b of bots) m.get(b.creator_url).n++;
-    return [...m.values()];
+  /* ---------- URL state ---------- */
+  function readURL() {
+    const p = new URLSearchParams(location.search), s = blank();
+    s.q = p.get("q") || "";
+    const c = (p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
+    s.cats = (p.get("cat") || "").split(",").map((x) => cats.find((c) => slug(c) === slug(x))).filter(Boolean);
+    const so = p.get("sort"); s.sort = SORTS.includes(so) ? so : "featured";
+    return s;
+  }
+  function writeURL(push) {
+    const p = new URLSearchParams();
+    if (st.q) p.set("q", st.q);
+    if (st.creator) p.set("creator", st.creator);
+    if (st.cats.length) p.set("cat", st.cats.map(slug).join(","));
+    if (st.sort !== "featured") p.set("sort", st.sort);
+    const url = location.pathname + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
+    if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
+  }
+
+  /* ---------- Rendering ---------- */
+  const I = {
+    copy: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>',
+    code: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>',
+    x: '<svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
   };
-  const label = (c) => (c.name === "Phillip Holland" ? c.name : c.name + " (" + c.handle + ")");
-
-  function chips() {
-    const cs = creators();
-    $("#creators").innerHTML =
-      chip("creator", "all", "All creators", bots.length) + cs.map((c) => chip("creator", c.url, label(c), c.n)).join("");
-    const cats = [...new Set(bots.map((b) => b.category))].sort();
-    $("#cats").innerHTML = chip("cat", "all", "All categories") + cats.map((c) => chip("cat", c, c, bots.filter((b) => b.category === c).length)).join("");
-  }
-  function chip(kind, val, text, n) {
-    const on = state[kind] === val;
-    return `<button class="chip" type="button" data-kind="${kind}" data-val="${esc(val)}" aria-pressed="${on}">${esc(text)}${n != null ? ` <small>${n}</small>` : ""}</button>`;
-  }
-
-  function card(b, i) {
-    return `<article class="card" style="animation-delay:${Math.min(i, 12) * 30}ms" data-name="${esc(b.name)}">
-  <div class="top"><div class="emoji" aria-hidden="true">${esc(b.emoji)}</div>
-    <div><h3>${esc(b.name)}</h3><span class="tag">${esc(b.category)}</span></div></div>
-  <p class="desc">${esc(b.description)}</p>
-  <div class="meta">
-    <span class="by">by <a href="${esc(b.creator_url)}" rel="noopener">${esc(b.creator_name)}</a></span>
-    <span class="actions">
-      ${b.code_url ? `<a class="ghost" href="${esc(b.code_url)}" rel="noopener" title="Source code" aria-label="${esc(b.name)} source code">${code}</a>` : ""}
-      ${b.source_post ? `<a class="ghost" href="${esc(b.source_post)}" rel="noopener" title="Original post on X" aria-label="${esc(b.name)} original post on X">${post}</a>` : ""}
-      <a class="get" href="${esc(b.url)}" rel="noopener" aria-label="Get ${esc(b.name)}">Get this bot ${arrow}</a>
-    </span>
-  </div>
+  function card(b, m) {
+    const h = m ? m.hits : {};
+    return `<article class="card" id="${b._slug}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${b._slug}-t">
+<div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
+<h3 id="${b._slug}-t"><a href="#${b._slug}">${hl(b.name, h.name)}</a></h3>
+<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16" loading="lazy" decoding="async"><span>${esc(b.creator_name)}</span></div>
+</div></div>
+<p class="desc">${hl(b.description, h.description)}</p>
+<div class="foot-row"><div class="tools">
+<button type="button" class="ib" data-copy="${esc(b.url)}" aria-label="Copy link to ${esc(b.name)}" title="Copy link">${I.copy}</button>
+${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
+${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
+</div><a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div>
 </article>`;
   }
-
+  function filtered(ignore) {
+    const toks = fold(st.q).split(/\s+/).filter(Boolean);
+    const out = [];
+    for (const b of bots) {
+      if (ignore !== "creator" && st.creator && ckey(b) !== st.creator) continue;
+      if (ignore !== "cat" && st.cats.length && !st.cats.includes(b.category)) continue;
+      const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
+      if (m) out.push([b, m]);
+    }
+    return out;
+  }
   function render() {
-    const q = norm(state.q.trim());
-    const hit = bots.filter((b) =>
-      (state.creator === "all" || b.creator_url === state.creator) &&
-      (state.cat === "all" || b.category === state.cat) &&
-      (!q || norm([b.name, b.description, b.category, b.creator_name, b.creator_handle].join(" ")).includes(q)));
-    let i = 0;
-    $("#shelf").innerHTML = creators().map((c) => {
-      const list = hit.filter((b) => b.creator_url === c.url);
-      if (!list.length) return "";
-      const initial = c.name.trim()[0].toUpperCase();
-      return `<section class="group" aria-label="${esc(label(c))}">
-  <div class="ghead"><div class="avatar${c.name === "Phillip Holland" ? "" : " alt"}" aria-hidden="true">${esc(initial)}</div>
-    <div><h2>${esc(label(c))}</h2><p><a href="${esc(c.url)}" rel="noopener">${esc(c.handle)} on X</a> · ${list.length} bot${list.length === 1 ? "" : "s"}</p></div></div>
-  <div class="grid">${list.map((b) => card(b, i++)).join("")}</div></section>`;
+    const list = filtered(), searching = !!st.q.trim();
+    const by = {
+      featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
+      newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
+      az: (a, b) => a[0].name.localeCompare(b[0].name),
+      creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
+    }[st.sort];
+    list.sort(by);
+    const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
+    if (grouped) {
+      results.innerHTML = creators.map((c) => {
+        const g = list.filter(([b]) => ckey(b) === c.key);
+        if (!g.length) return "";
+        return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.avatar)}" alt="" width="40" height="40" decoding="async">
+<div><h2 id="g-${c.key}">${esc(c.label)}</h2><p><a href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</p></div></div>
+<div class="grid">${g.map(([b, m]) => card(b, m)).join("")}</div></section>`;
+      }).join("");
+    } else {
+      results.innerHTML = list.length ? `<div class="grid flat">${list.map(([b, m]) => card(b, m)).join("")}</div>` : "";
+    }
+    $("#empty").hidden = list.length > 0;
+    $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
+    $("#clear").hidden = !(st.q || st.creator || st.cats.length || st.sort !== "featured");
+    active = -1;
+    renderFilters();
+  }
+  function renderFilters() {
+    const byCreator = filtered("creator"), byCat = filtered("cat");
+    const cn = (k) => byCreator.filter(([b]) => !k || ckey(b) === k).length;
+    segEl.querySelectorAll("button").forEach((b) => b.remove());
+    segEl.insertAdjacentHTML("beforeend",
+      `<button type="button" role="radio" class="all" data-creator="" aria-checked="${!st.creator}">All <span class="n">${cn("")}</span></button>` +
+      creators.map((c) => `<button type="button" role="radio" data-creator="${c.key}" aria-checked="${st.creator === c.key}"><img src="${esc(c.avatar)}" alt="" width="22" height="22" decoding="async">${esc(c.short)} <span class="n">${cn(c.key)}</span></button>`).join(""));
+    catsEl.innerHTML = cats.map((c) => {
+      const n = byCat.filter(([b]) => b.category === c).length, on = st.cats.includes(c);
+      return `<button type="button" class="chip${n ? "" : " zero"}" data-cat="${esc(c)}" aria-pressed="${on}">${esc(c)} <span class="n">${n}</span></button>`;
     }).join("");
-    $("#empty").hidden = hit.length > 0;
-    $("#count").textContent = hit.length === bots.length ? `${bots.length} bots on the shelf` : `Showing ${hit.length} of ${bots.length} bots`;
-    chips();
+    moveThumb();
+  }
+  function moveThumb() {
+    const on = segEl.querySelector('[aria-checked="true"]'), th = segEl.querySelector(".thumb");
+    if (on && th) { th.style.setProperty("--tx", on.offsetLeft + "px"); th.style.setProperty("--tw", on.offsetWidth + "px"); }
   }
 
-  document.addEventListener("click", (e) => {
-    const c = e.target.closest(".chip");
-    if (!c) return;
-    state[c.dataset.kind] = c.dataset.val;
-    render();
-  });
-  $("#q").addEventListener("input", (e) => { state.q = e.target.value; render(); });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
-    if (e.key === "Escape" && document.activeElement === $("#q")) { $("#q").value = ""; state.q = ""; render(); }
-  });
-  const tb = $(".toolbar");
-  new IntersectionObserver(([en]) => tb.classList.toggle("stuck", en.intersectionRatio < 1), { threshold: [1], rootMargin: "-1px 0px 0px 0px" }).observe(tb);
+  function set(patch, push) { Object.assign(st, patch); render(); writeURL(push); }
+  function syncInputs() { q.value = st.q; sortEl.value = st.sort; }
 
-  fetch("/bots.json", { cache: "no-cache" })
-    .then((r) => r.json())
-    .then((data) => { bots = data; render(); })
-    .catch(() => { $("#shelf").innerHTML = '<p class="empty">Couldn\'t load the shelf. Refresh to try again.</p>'; });
+  /* ---------- Events ---------- */
+  let typing;
+  q.addEventListener("input", () => { st.q = q.value; render(); clearTimeout(typing); typing = setTimeout(() => writeURL(false), 250); });
+  sortEl.addEventListener("change", () => set({ sort: sortEl.value }, true));
+  segEl.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) set({ creator: b.dataset.creator }, true); });
+  segEl.addEventListener("keydown", (e) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    e.preventDefault(); e.stopPropagation();
+    const bs = [...segEl.querySelectorAll("button")], i = bs.findIndex((b) => b.getAttribute("aria-checked") === "true");
+    const n = bs[(i + (e.key === "ArrowRight" ? 1 : -1) + bs.length) % bs.length];
+    set({ creator: n.dataset.creator }, true);
+    segEl.querySelector(`[data-creator="${n.dataset.creator}"]`).focus();
+  });
+  catsEl.addEventListener("click", (e) => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    const c = b.dataset.cat, cs = st.cats.includes(c) ? st.cats.filter((x) => x !== c) : [...st.cats, c];
+    set({ cats: cs }, true);
+    catsEl.querySelector(`[data-cat="${CSS.escape(c)}"]`)?.focus();
+  });
+  const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
+  $("#clear").addEventListener("click", clearAll);
+  $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
+  window.addEventListener("popstate", () => { st = readURL(); syncInputs(); render(); });
+  window.addEventListener("resize", moveThumb, { passive: true });
+
+  // Copy link + toast
+  const toast = $("#toast"); let tt;
+  function say(msg) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("show"), 1800); }
+  async function copy(text) {
+    try { await navigator.clipboard.writeText(text); }
+    catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
+  }
+  results.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied")); });
+
+  // Pointer-tracked highlight on cards
+  if (matchMedia("(hover:hover)").matches) {
+    let raf = 0, ev = null;
+    results.addEventListener("pointermove", (e) => {
+      ev = e; if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0; const c = ev.target.closest(".card"); if (!c) return;
+        const r = c.getBoundingClientRect();
+        c.style.setProperty("--mx", ev.clientX - r.left + "px"); c.style.setProperty("--my", ev.clientY - r.top + "px");
+      });
+    }, { passive: true });
+  }
+
+  // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
+  const cardsNow = () => [...results.querySelectorAll(".card")];
+  function focusCard(i) {
+    const cs = cardsNow(); if (!cs.length) return;
+    active = Math.max(0, Math.min(cs.length - 1, i));
+    cs.forEach((c, j) => c.classList.toggle("active", j === active));
+    cs[active].focus({ preventScroll: true });
+    cs[active].scrollIntoView({ block: "nearest", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+  function step(dir) {
+    const cs = cardsNow(); if (!cs.length) return;
+    if (active < 0 || !cs[active]) return focusCard(0);
+    if (dir === "left") return focusCard(active - 1);
+    if (dir === "right") return focusCard(active + 1);
+    const r0 = cs[active].getBoundingClientRect(); let best = -1, bd = Infinity;
+    cs.forEach((c, j) => {
+      const r = c.getBoundingClientRect(), dy = dir === "down" ? r.top - r0.top : r0.top - r.top;
+      if (dy < 8) return;
+      const d = dy * 4 + Math.abs(r.left - r0.left);
+      if (d < bd) { bd = d; best = j; }
+    });
+    if (best >= 0) focusCard(best); else if (dir === "up") { active = -1; cs.forEach((c) => c.classList.remove("active")); q.focus(); }
+  }
+  document.addEventListener("keydown", (e) => {
+    const t = document.activeElement, inSearch = t === q, onCard = t && t.classList && t.classList.contains("card");
+    if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !inSearch && !/INPUT|SELECT|TEXTAREA/.test(t.tagName))) {
+      e.preventDefault(); q.focus(); q.select(); return;
+    }
+    if (e.key === "Escape") {
+      if (inSearch && q.value) { e.preventDefault(); st.q = ""; q.value = ""; render(); writeURL(false); }
+      else if (onCard) { q.focus(); }
+      else if (inSearch) q.blur();
+      return;
+    }
+    const dirs = { ArrowDown: "down", ArrowUp: "up", ArrowLeft: "left", ArrowRight: "right" };
+    if (dirs[e.key] && (onCard || (inSearch && e.key === "ArrowDown") || t === document.body)) {
+      e.preventDefault(); if (inSearch) focusCard(0); else step(dirs[e.key]); return;
+    }
+    if (e.key === "Enter") {
+      if (onCard) { e.preventDefault(); window.open(t.dataset.url, "_blank", "noopener"); }
+      else if (inSearch && cardsNow().length) { e.preventDefault(); focusCard(0); }
+    }
+  });
+  results.addEventListener("focusin", (e) => { if (e.target.classList.contains("card")) { const i = cardsNow().indexOf(e.target); if (i >= 0) active = i; } });
+
+  // Deep links: #bot-slug scrolls to and highlights a card
+  function openHash() {
+    const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
+    let el = document.getElementById(id);
+    if (!el) { st = blank(); syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
+    el.scrollIntoView({ block: "center" });
+    el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+  }
+  window.addEventListener("hashchange", openHash);
+
+  /* ---------- Boot ---------- */
+  fetch("/bots.json").then((r) => r.json()).then((data) => {
+    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+    const seen = new Map();
+    for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, short: b.creator_name, label: b.creator_name });
+    creators = [...seen.values()];
+    bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
+    cats = [...new Set(bots.map((b) => b.category))].sort();
+    st = readURL(); syncInputs(); render();
+    const pc = catsEl.querySelector('[aria-pressed="true"]'); if (pc) catsEl.scrollLeft = pc.offsetLeft - 20;
+    if (location.hash) requestAnimationFrame(openHash);
+  }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
