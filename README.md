@@ -1,7 +1,7 @@
 # Grok Bot Shelf
 
 A community directory of shared Grok Bot templates, curated by Phillip Holland.
-Live at https://grokbotshelf.vercel.app
+Live at https://grokbotshelf.com
 
 Plain static site: `public/index.html`, `public/styles.css`, `public/app.js`.
 Every card comes from `public/bots.json`.
@@ -59,5 +59,5 @@ google-chrome --headless=new --no-sandbox --hide-scrollbars --window-size=1200,6
 navigation and copy link. It needs `puppeteer-core` installed outside the repo:
 
 ```sh
-NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.vercel.app/ [shots-dir]
+NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.com/ [shots-dir]
 ```
