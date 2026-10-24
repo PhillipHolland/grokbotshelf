@@ -137,7 +137,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.avatar)}" alt="" width="40" height="40" decoding="async">
-<div><h2 id="g-${c.key}">${esc(c.label)}</h2><p><a href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</p></div></div>
+<h2 id="g-${c.key}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2></div>
 <div class="grid">${g.map(([b, m]) => card(b, m)).join("")}</div></section>`;
       }).join("");
     } else {
@@ -203,19 +203,6 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
   }
   results.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied")); });
-
-  // Pointer-tracked highlight on cards
-  if (matchMedia("(hover:hover)").matches) {
-    let raf = 0, ev = null;
-    results.addEventListener("pointermove", (e) => {
-      ev = e; if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0; const c = ev.target.closest(".card"); if (!c) return;
-        const r = c.getBoundingClientRect();
-        c.style.setProperty("--mx", ev.clientX - r.left + "px"); c.style.setProperty("--my", ev.clientY - r.top + "px");
-      });
-    }, { passive: true });
-  }
 
   // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
   const cardsNow = () => [...results.querySelectorAll(".card")];
