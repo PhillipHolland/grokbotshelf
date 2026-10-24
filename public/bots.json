@@ -650,5 +650,18 @@
     "source_post": "https://x.com/gambrill/status/2114140260007297438",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/gambrill.webp"
+  },
+  {
+    "name": "CSO",
+    "emoji": "🛡️",
+    "description": "Finds leaked keys, walks credential rotations, tightens access to least privilege, and audits MFA and related controls.",
+    "category": "Security",
+    "url": "https://x.ai/bot/IryynPCY3xK65akHLcubp",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "source_post": "https://x.com/xenappblog/status/2114142125356945493",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/xenappblog.webp"
   }
 ]
