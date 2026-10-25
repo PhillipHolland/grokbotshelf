@@ -424,6 +424,11 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   const dock = document.getElementById("dock");
   const syncDock = () => document.documentElement.style.setProperty("--dock-h", dock.offsetHeight + "px");
   syncDock(); if (window.ResizeObserver) new ResizeObserver(syncDock).observe(dock);
+  // Phones: filter row scrolls sideways; the arrow scrolls it and hides once the end is reached
+  const fbar = dock.querySelector(".filterbar"), fbMore = $("#fb-more");
+  const syncFb = () => dock.classList.toggle("fb-end", fbar.scrollLeft + fbar.clientWidth >= fbar.scrollWidth - 4);
+  fbar.addEventListener("scroll", syncFb, { passive: true }); window.addEventListener("resize", syncFb); syncFb();
+  fbMore.addEventListener("click", () => fbar.scrollBy({ left: fbar.clientWidth * 0.7, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
 
   // "Add your bot": render all cards first so content-visibility can't undershoot, then scroll
   let jumpT;
