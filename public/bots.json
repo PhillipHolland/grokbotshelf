@@ -3094,5 +3094,44 @@
     "creator_avatar": "/avatars/lowtimeprefrenz.webp",
     "source_post": "https://x.com/LowTimePrefrenz/status/2114225278897803354",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Is This Health Claim True?",
+    "emoji": "🔍",
+    "description": "Paste a health claim from a group chat or TikTok and get a clear verdict, real sources, and a kind reply you can send back.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/oXjpkueeC6BqnKnKBLRCN",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "creator_avatar": "/avatars/drbellahqw.webp",
+    "source_post": "https://x.com/drbellahqw/status/2114223189580726390",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Curriculum Researcher",
+    "emoji": "📚",
+    "description": "Finds free, open courses on anything you want to learn and turns them into a course plan with readings, pictures and videos.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/nDaANSe7a9uFU0gMGVJ-h",
+    "creator_name": "Minnesota Mag",
+    "creator_handle": "@mag_minnesota",
+    "creator_url": "https://x.com/mag_minnesota",
+    "creator_avatar": "/avatars/mag_minnesota.webp",
+    "source_post": "https://x.com/mag_minnesota/status/2114234862722789445",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Teacher Agent",
+    "emoji": "🎓",
+    "description": "A patient personal teacher for high school and college subjects that teaches one lesson at a time with examples and practice questions.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/9lDCcDT4BwtO1SkW07iF4",
+    "creator_name": "Minnesota Mag",
+    "creator_handle": "@mag_minnesota",
+    "creator_url": "https://x.com/mag_minnesota",
+    "creator_avatar": "/avatars/mag_minnesota.webp",
+    "source_post": "https://x.com/mag_minnesota/status/2114234862722789445",
+    "added": "2026-10-24"
   }
 ]
