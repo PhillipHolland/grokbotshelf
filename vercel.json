@@ -6,8 +6,8 @@
   "outputDirectory": "public",
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/@:handle", "destination": "/index.html" },
-    { "source": "/u/:handle", "destination": "/index.html" }
+    { "source": "/@:handle", "destination": "/" },
+    { "source": "/u/:handle", "destination": "/" }
   ],
   "headers": [
     { "source": "/bots.json", "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }] },
