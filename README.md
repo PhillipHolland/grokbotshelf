@@ -62,6 +62,14 @@ navigation and copy link. It needs `puppeteer-core` installed outside the repo:
 NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.com/ [shots-dir]
 ```
 
+`test/run.js` runs the whole suite: a build smoke test (`test/build.js`, on a temporary copy),
+then every browser test against `test/serve.js`, a small local server that follows `vercel.json`
+(clean URLs, the `/@handle` rewrite, the 404 page). Pass a URL to test a deployment instead:
+
+```sh
+NODE_PATH=/path/to/node_modules node test/run.js [https://preview-url/]
+```
+
 ## Search API (for bots)
 
 Bots (and anything else) can search the shelf without loading the full catalog:
