@@ -1755,5 +1755,44 @@
     "creator_avatar": "/avatars/suddenlyjon.webp",
     "source_post": "https://x.com/SuddenlyJon/status/2114168667105575096",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Cancer Caregiver Hub",
+    "emoji": "🎗️",
+    "description": "Keeps a cancer patient's meds, appointments, and family updates in one place, shared only as they wish.",
+    "category": "Health",
+    "url": "https://x.ai/bot/XRoOSGXRcJkW75i8m2YRT",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "creator_avatar": "/avatars/drbellahqw.webp",
+    "source_post": "https://x.com/drbellahqw/status/2114179167327793198",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Local Concert Scout",
+    "emoji": "🎸",
+    "description": "Finds live shows near home and in cities you're traveling to, based on your Spotify or Apple Music taste.",
+    "category": "Music",
+    "url": "https://x.ai/bot/AM17wqUeEmweEHWn58rEL",
+    "creator_name": "Chaney",
+    "creator_handle": "@chaney_tx",
+    "creator_url": "https://x.com/chaney_tx",
+    "creator_avatar": "/avatars/chaney_tx.webp",
+    "source_post": "https://x.com/chaney_tx/status/2105455307057250792",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "TinkaBot",
+    "emoji": "🔌",
+    "description": "Helps you build Grok Bot plugins: reads your APIs, makes an MCP or skills, and packages it for approval.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/br5f3C4mc75QCMEHaszXd",
+    "creator_name": "lauren",
+    "creator_handle": "@poteto",
+    "creator_url": "https://x.com/poteto",
+    "creator_avatar": "/avatars/poteto.webp",
+    "source_post": "https://x.com/poteto/status/2094883369188499937",
+    "added": "2026-10-24"
   }
 ]
