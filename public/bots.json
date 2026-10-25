@@ -5120,5 +5120,31 @@
     "creator_avatar": "/avatars/nahjuin.webp",
     "source_post": "https://x.com/nahjuin/status/2114479380088889785",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Household Herald",
+    "emoji": "📰",
+    "description": "Reads your email and calendar so school forms, family plans, and bills don't slip — weekday digests and a printable kitchen newspaper, draft-only.",
+    "category": "Home",
+    "url": "https://x.ai/bot/09zmjtbww3viDLKyrtOz5",
+    "creator_name": "Raina Hornaday",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Family History",
+    "emoji": "🌳",
+    "description": "A warm genealogy researcher that builds your family tree from public records, cites every fact, and turns stories into tree posters and old-time newspapers.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/4aeQ6EcPhLvJX5eq6nD06",
+    "creator_name": "Raina Hornaday",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
   }
 ]

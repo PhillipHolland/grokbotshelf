@@ -2466,6 +2466,26 @@
       "url": "https://x.com/BurkevonRiddern/status/2114025117412159523",
       "note": "site queue; ping 2114488976900022618",
       "date": "2026-10-25"
+    },
+    "site-61": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Household Herald",
+      "author": "Raina Hornaday",
+      "template_url": "https://x.ai/bot/09zmjtbww3viDLKyrtOz5",
+      "url": "",
+      "note": "site form #61; no X handle found; shelved with creator_name only",
+      "date": "2026-10-25"
+    },
+    "site-60": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Family History",
+      "author": "Raina Hornaday",
+      "template_url": "https://x.ai/bot/4aeQ6EcPhLvJX5eq6nD06",
+      "url": "",
+      "note": "site form #60; no X handle found; shelved with creator_name only",
+      "date": "2026-10-25"
     }
   }
 }
