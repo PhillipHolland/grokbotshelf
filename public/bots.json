@@ -1040,5 +1040,44 @@
     "source_post": "https://x.com/SuddenlyJon/status/2114153770183426338",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Dead Man's Bot",
+    "emoji": "⏳",
+    "description": "Dead-man's switch you load yourself — pick a clock and a payload; miss a ping and only that loadout fires.",
+    "category": "Security",
+    "url": "https://x.ai/bot/XCaz2bKzsJ4J1DmkaYyc4",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114154058936098850",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Code Red",
+    "emoji": "🚨",
+    "description": "Kill-switch for your own stack — six keywords, dry-run first, then two keys to go dark.",
+    "category": "Security",
+    "url": "https://x.ai/bot/4y3jlvwxFNqcP76eJgpuD",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114154254080348176",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "4 Panez",
+    "emoji": "📱",
+    "description": "Format bot that turns one 16:9 shot into four vertical swipe panes for short-form feeds.",
+    "category": "Media",
+    "url": "https://x.ai/bot/91R37-rUOh9sS1tZkIF9d",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114154450776449498",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
