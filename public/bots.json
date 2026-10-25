@@ -2977,5 +2977,44 @@
     "creator_avatar": "/avatars/ortix008.webp",
     "source_post": "https://x.com/Ortix008/status/2114217477731201159",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Template Safety Checker",
+    "emoji": "🛡️",
+    "description": "Paste any Grok Bot template, link, or JSON to see what it can access, any red flags, and whether it is safe to install. Read-only.",
+    "category": "Security",
+    "url": "https://x.ai/bot/8JbRKMaD-VrcN_QyitMXN",
+    "creator_name": "Jorhan",
+    "creator_handle": "@Jorhan",
+    "creator_url": "https://x.com/Jorhan",
+    "creator_avatar": "/avatars/jorhan.webp",
+    "source_post": "https://x.com/Jorhan/status/2114198334370173163",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "ChangeLens",
+    "emoji": "🛰️",
+    "description": "Give it any place on Earth and get before and after satellite image cards, in true color and SWIR, from Copernicus Sentinel imagery.",
+    "category": "Media",
+    "url": "https://x.ai/bot/CXhCaQsmxAm1ym5qLwrvz",
+    "creator_name": "Marshall",
+    "creator_handle": "@marshallfrith",
+    "creator_url": "https://x.com/marshallfrith",
+    "creator_avatar": "/avatars/marshallfrith.webp",
+    "source_post": "https://x.com/marshallfrith/status/2114197784421413211",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "ATC Baby",
+    "emoji": "🎙️",
+    "description": "Fan-facing helper for a live show or podcast: search transcripts, get weekly recaps, and read speaker profiles.",
+    "category": "Media",
+    "url": "https://x.ai/bot/qS6fp4SprYzn1AwfynJru",
+    "creator_name": "DCBK2LA",
+    "creator_handle": "@DCBK2LA",
+    "creator_url": "https://x.com/DCBK2LA",
+    "creator_avatar": "/avatars/dcbk2la.webp",
+    "source_post": "https://x.com/DCBK2LA/status/2114100377062899751",
+    "added": "2026-10-25"
   }
 ]
