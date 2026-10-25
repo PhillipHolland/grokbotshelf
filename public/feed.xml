@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 14:17:12 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 15:22:30 GMT</lastBuildDate>
+  <item>
+    <title>🌟 STAR Interview Coach by Lisa</title>
+    <link>https://grokbotshelf.com/bot/star-interview-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/by3SNDqjk73XxC5ZXaSoP</guid>
+    <description>Turns your work stories into crisp STAR answers, runs mock behavioral interviews, and keeps a story bank page.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:43 GMT</pubDate>
+  </item>
   <item>
     <title>🪞 Second Opinion by Glen Little</title>
     <link>https://grokbotshelf.com/bot/second-opinion</link>
@@ -447,15 +456,6 @@
     <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Sat, 24 Oct 2026 12:03:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔐 Personal Cybersecurity Coach by Grease</title>
-    <link>https://grokbotshelf.com/bot/personal-cybersecurity-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/vEl_iMl8eLa6pOYAeey--</guid>
-    <description>Walks you through six weekend sessions to lock down your accounts, phone, Wi-Fi, credit and family against hacks, identity theft and AI scams.</description>
-    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
-    <category>Security</category>
-    <pubDate>Sat, 24 Oct 2026 12:03:56 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -22,7 +22,7 @@ p{font-size:32px;line-height:1.3;margin:0;color:#a8adb2;letter-spacing:-.01em;di
 .s svg{width:36px;height:36px}
 </style></head><body><div class="c"><div class="e">${esc(b.emoji)}</div><h1>${esc(b.name)}</h1><p>${esc(b.description)}</p></div>
 <div class="f"><div class="by">${dataUri(b.creator_avatar) ? `<img src="${dataUri(b.creator_avatar)}">` : ""}<span>${esc(b.creator_name)} ${esc(b.creator_handle)}</span></div>
-<div class="s"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#e7e9ea"/><rect x="32" y="50" width="12" height="26" rx="6" fill="#000"/><rect x="56" y="50" width="12" height="26" rx="6" fill="#000"/></svg>grokbotshelf.com</div></div></body></html>`;
+<div class="s"><svg viewBox="0 0 16 16" fill="#e7e9ea"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>grokbotshelf.com</div></div></body></html>`;
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const keep = new Set(bots.map((b) => slugify(b.name) + ".png"));
