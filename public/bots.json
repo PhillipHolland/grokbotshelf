@@ -2652,5 +2652,57 @@
     "creator_avatar": "/avatars/wikiwayne.webp",
     "source_post": "https://x.com/wikiwayne/status/2114205952836563205",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Livestream Raffle Host",
+    "emoji": "🎟️",
+    "description": "Runs chat-command raffles during your X livestreams, draws winners, publishes a results dashboard and prepares X Money payouts.",
+    "category": "Creator",
+    "url": "https://x.ai/bot/sNboSbbA20-MunJhJLqlk",
+    "creator_name": "J",
+    "creator_handle": "@0xGramajo",
+    "creator_url": "https://x.com/0xGramajo",
+    "creator_avatar": "/avatars/0xgramajo.webp",
+    "source_post": "https://x.com/0xGramajo/status/2114213114304712739",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Blitz",
+    "emoji": "🏈",
+    "description": "Runs one or more fantasy football leagues with start/sit calls, waiver and matchup briefs, trade takes and lineup reminders.",
+    "category": "Sports",
+    "url": "https://x.ai/bot/907qRmkDz_RUtjPwuZJO-",
+    "creator_name": "Kyle",
+    "creator_handle": "@KGtheGent88",
+    "creator_url": "https://x.com/KGtheGent88",
+    "creator_avatar": "/avatars/kgthegent88.webp",
+    "source_post": "https://x.com/KGtheGent88/status/2114211429079490645",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "micDrop",
+    "emoji": "🎙️",
+    "description": "Turns X Spaces into short branded audiogram clips with the speaker's photo, an audio-reactive ring and word-by-word captions.",
+    "category": "Media",
+    "url": "https://x.ai/bot/ESqSHz53pQUFjs3oAzMXF",
+    "creator_name": "dcbk2la",
+    "creator_handle": "@DCBK2LA",
+    "creator_url": "https://x.com/DCBK2LA",
+    "creator_avatar": "/avatars/dcbk2la.webp",
+    "source_post": "https://x.com/DCBK2LA/status/2114210252648333667",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Kilo",
+    "emoji": "🧹",
+    "description": "Keeps bots light by cleaning up leftover files and moving any bot over 10 MB to a fresh chat to save usage.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/KaC99w7qlJ0QTtrKwxqFm",
+    "creator_name": "Terry",
+    "creator_handle": "@Tchap248",
+    "creator_url": "https://x.com/Tchap248",
+    "creator_avatar": "/avatars/tchap248.webp",
+    "source_post": "https://x.com/Tchap248/status/2114209744898466139",
+    "added": "2026-10-24"
   }
 ]
