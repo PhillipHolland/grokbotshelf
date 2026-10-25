@@ -137,3 +137,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .toast.show{transform:translate(-50%,0);opacity:1}
 @media (max-width:640px){.grid{grid-template-columns:1fr}.hero{gap:10px}.hero h1{font-size:22px;gap:8px}.hero .botface{width:28px;height:28px}.hero .pill-outline{height:36px;padding:0 14px;font-size:14px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Site footer */
+.site-foot{padding:8px 0 max(32px,env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:8px}
+.site-foot p{margin:0;font-size:12px;line-height:1.4;color:var(--text2);text-align:center}
