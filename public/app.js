@@ -114,6 +114,15 @@
     s.oneJob = p.get("one_job") === "1";
     return s;
   }
+  // Unknown /@handle (served the home page by the catch-all rewrite): say so, and keep it out of search results
+  let notFound = null;
+  function showNotFound(h) {
+    const m = document.createElement("meta"); m.name = "robots"; m.content = "noindex"; document.head.append(m);
+    notFound = document.createElement("div"); notFound.className = "empty notfound"; notFound.setAttribute("role", "status");
+    notFound.innerHTML = `<p class="empty-t">Creator not found</p><p class="empty-s">No bots by @${esc(h)} are on the shelf. Pick a creator above, or browse every bot below.</p>`;
+    notFound._meta = m; results.before(notFound);
+    document.title = "Creator not found · Grok Bot Shelf";
+  }
   function writeURL(push) {
     const p = new URLSearchParams();
     if (st.q) p.set("q", st.q);
@@ -125,6 +134,7 @@
     if (st.sort !== "featured") p.set("sort", st.sort);
     const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
+    if (notFound) { notFound._meta.remove(); notFound.remove(); notFound = null; }
   }
 
   /* ---------- Rendering ---------- */
@@ -474,7 +484,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     st = readURL(); syncInputs();
     const show = () => {
       if (shelfReady) return;
-      shelfReady = true; render(); writeURL(false);
+      shelfReady = true; render();
+      const pc = pathCreator();
+      if (pc && !creators.some((c) => c.key === pc)) showNotFound(pc); else writeURL(false);
       if (location.hash) requestAnimationFrame(openHash);
     };
     // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.

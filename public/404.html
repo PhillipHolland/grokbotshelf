@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · Grok Bot Shelf</title>
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})();(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()</script>
+<style>html,body{background:#000;color-scheme:dark}html[data-theme="light"],html[data-theme="light"] body{background:#fff;color-scheme:light}</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body class="botpage">
+<header class="wrap hero">
+  <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
+  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
+  <p class="affil">Not affiliated with SpaceXSI.</p>
+</header>
+<main class="wrap bp" id="main">
+  <article class="bp-card">
+    <h1 style="margin-bottom:10px">Page not found</h1>
+    <p class="bp-desc">There is nothing at this address. The bot may have been renamed or removed, or the link has a typo.</p>
+    <div class="bp-actions"><a class="get" href="/">Browse the shelf</a><a class="app" id="nf-search" href="/" hidden>Search for it</a></div>
+    <p class="bp-links"><a href="/#add">Add a bot</a><a href="/sitemap.xml">Every page</a></p>
+  </article>
+</main>
+<footer class="site-foot wrap">
+  <p>Not affiliated with SpaceXSI.</p>
+  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
+</footer>
+<script>
+// /bot/<slug> that is not on the shelf: offer a search for the words in the slug
+(function () {
+  var m = location.pathname.match(/^\/bot\/([a-z0-9-]+)\/?$/i), a = document.getElementById("nf-search");
+  if (!m || !a) return;
+  a.href = "/?q=" + encodeURIComponent(m[1].replace(/-/g, " "));
+  a.hidden = false;
+})();
+</script>
+</body>
+</html>
