@@ -2041,5 +2041,18 @@
     "creator_avatar": "/avatars/calilumberjack.webp",
     "source_post": "https://x.com/CaliLumberJack/status/2114186567422288248",
     "added": "2026-10-24"
+  },
+  {
+    "name": "FTC Report Scam Call",
+    "emoji": "☎️",
+    "description": "Paste a scam call's voicemail, script or number and it fills out the FTC fraud report for you, then sends back the confirmation.",
+    "category": "Security",
+    "url": "https://x.ai/bot/qZcBjyxPRa1kWJ_sel0gv",
+    "creator_name": "Tim Sonner",
+    "creator_handle": "@timsonner",
+    "creator_url": "https://x.com/timsonner",
+    "creator_avatar": "/avatars/timsonner.webp",
+    "source_post": "https://x.com/timsonner/status/2114180957385474281",
+    "added": "2026-10-24"
   }
 ]
