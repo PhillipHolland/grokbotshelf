@@ -102,7 +102,8 @@ no npm dependencies). Schema: `db/schema.sql`, applied with `node db/migrate.js`
 ## From the builders strip
 
 `window.BUILDERS` in `public/config.js` lists the handles and the exact bot names shown in the strip on the
-home Featured view (hidden when searching, filtering, or sorting).
+home Featured view (hidden when searching, filtering, or sorting). Phil's first three picks lead; each handle gets
+an avatar and an "All N bots" pill (live count) linking to its `/@handle` page.
 
 ## Bot pages, sitemap, feed, llms.txt (generated)
 

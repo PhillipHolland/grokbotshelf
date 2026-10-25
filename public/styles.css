@@ -142,17 +142,20 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .site-foot a{color:var(--text2);text-decoration:none}
 .site-foot a:hover{color:var(--blue);text-decoration:underline}
 
-/* From the builders strip: plain heading, normal cards */
-.builders{margin:16px 0 36px}
-.bhead{margin:0 0 12px}
-.bhead h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
-.bsub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin:2px 0 0;font-size:15px;color:var(--text2)}
-.bsub a{color:var(--text2);text-decoration:none}
-.bsub a:hover{color:var(--blue);text-decoration:underline}
-.bsub a.all{display:inline-block;margin-left:2px;padding:2px 9px;font-size:13px;font-weight:600;color:var(--blue);border:1px solid var(--border,rgba(127,127,127,.35));border-radius:999px;line-height:1.4}
-.bsub a.all:hover{text-decoration:none;background:rgba(29,155,240,.1);border-color:var(--blue)}
-.bsub .who>a:first-child{color:var(--text);font-weight:600}
-.bsub .dot{margin:0 2px}
+/* From the builders strip: a quiet panel, founder handles with an obvious "All N bots" pill */
+.builders{margin:16px 0 36px;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(29,155,240,.045)}
+.bhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin:0 0 16px}
+.bhead h2{margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
+.bsub{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0;font-size:15px;color:var(--text2)}
+.bsub .who{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.bsub .who img{width:24px;height:24px;border-radius:50%;flex:none}
+.bsub a{text-decoration:none}
+.bsub a.h{color:var(--text);font-weight:700}
+.bsub a.h:hover{color:var(--blue);text-decoration:underline}
+.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:#fff;background:var(--blue);border:1px solid var(--blue);border-radius:999px;line-height:1.3}
+.bsub a.all:hover{filter:brightness(1.08);text-decoration:none}
+.bsub a.all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media (max-width:640px){.builders{padding:14px 12px 16px;border-radius:14px}.bhead h2{font-size:19px}}
 
 /* Up / down votes: quiet arrows and a net score */
 .foot-row{flex-wrap:wrap;row-gap:6px}
@@ -164,7 +167,6 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .vote .up[aria-pressed="true"]{color:var(--blue)}
 .vote .dn[aria-pressed="true"]{color:#f4212e}
 .vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
-.bsub .who{white-space:nowrap}
 
 /* Add to Bot app: small icon on desktop, full-width primary on phones (html.mobile set in <head>) */
 .gets{display:flex;align-items:center;gap:4px;margin-left:auto}
@@ -206,7 +208,6 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
   .fb-more svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
   .dock.fb-end .fb-more{opacity:0;pointer-events:none}
 }
-@media (max-width:640px){.bsub .dot{display:none}.bsub{gap:6px 14px}}
 @media (min-width:700px){.selwrap.sm{flex:0 1 180px}}
 .meta-note{margin:4px 0 0;font-size:12px;color:var(--text2)}
 

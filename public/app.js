@@ -207,10 +207,12 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const picks = names.map((n) => bots.find((b) => b.name === n)).filter(Boolean);
     if (!picks.length) return "";
     const people = (cfg.handles || []).map((h) => {
-      const c = creators.find((x) => x.key === h.replace(/^@/, "").toLowerCase());
+      const k = h.replace(/^@/, "").toLowerCase(), c = creators.find((x) => x.key === k);
       const u = c ? c.url : "https://x.com/" + h.replace(/^@/, "");
-      return `<span class="who"><a href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? ` <a class="all" href="${esc(profilePath(c.key))}" aria-label="All bots by ${esc(c.label)}">All bots →</a>` : "") + "</span>";
-    }).join('<span class="dot" aria-hidden="true">·</span>');
+      const n = c ? bots.filter((b) => ckey(b) === k).length : 0;
+      const av = c && c.sm ? `<img src="${esc(c.sm)}" alt="" width="24" height="24" loading="lazy" decoding="async">` : "";
+      return `<span class="who">${av}<a class="h" href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? `<a class="all" href="${esc(profilePath(c.key))}" aria-label="All ${n} bots by ${esc(c.label)}">All ${n} bots →</a>` : "") + "</span>";
+    }).join("");
     return `<section class="builders" aria-labelledby="builders-h"><div class="bhead"><h2 id="builders-h">From the builders</h2><p class="bsub">${people}</p></div>
 <div class="grid">${picks.map((b) => card(b, null, "f-")).join("")}</div></section>`;
   }
