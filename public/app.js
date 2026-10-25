@@ -347,3 +347,25 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (location.hash) requestAnimationFrame(openHash);
   }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
+
+// Post on X: native app on mobile, web composer fallback / desktop.
+(function () {
+  var a = document.getElementById("post-x");
+  if (!a) return;
+  var T = encodeURIComponent("Hey @Phil_Holland, add my bot to Grok Bot Shelf 🤖\nx.ai/bot/");
+  var web = "https://twitter.com/intent/tweet?text=" + T;
+  a.href = web;
+  var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!mobile) return;
+  a.addEventListener("click", function (e) {
+    e.preventDefault();
+    var t = setTimeout(function () {
+      if (document.visibilityState === "visible") window.location.href = web;
+    }, 1200);
+    document.addEventListener("visibilitychange", function h() {
+      if (document.visibilityState === "hidden") { clearTimeout(t); document.removeEventListener("visibilitychange", h); }
+    });
+    window.location.href = "twitter://post?message=" + T;
+  });
+})();
