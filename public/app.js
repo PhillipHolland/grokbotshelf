@@ -192,7 +192,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const people = (cfg.handles || []).map((h) => {
       const c = creators.find((x) => x.key === h.replace(/^@/, "").toLowerCase());
       const u = c ? c.url : "https://x.com/" + h.replace(/^@/, "");
-      return `<span class="who"><a href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? ` <a class="all" href="${esc(profilePath(c.key))}" aria-label="All bots by ${esc(c.label)}">all bots</a>` : "") + "</span>";
+      return `<span class="who"><a href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? ` <a class="all" href="${esc(profilePath(c.key))}" aria-label="All bots by ${esc(c.label)}">All bots →</a>` : "") + "</span>";
     }).join('<span class="dot" aria-hidden="true">·</span>');
     return `<section class="builders" aria-labelledby="builders-h"><div class="bhead"><h2 id="builders-h">From the builders</h2><p class="bsub">${people}</p></div>
 <div class="grid">${picks.map((b) => card(b, null, "f-")).join("")}</div></section>`;
@@ -365,7 +365,13 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (ap) { if (MOBILE) { const bot = bots.find((x) => x._slug === ap.dataset.app); if (bot) { e.preventDefault(); openApp(bot._app, bot.url); } } return; }
     const sx = e.target.closest("[data-sharex]");
     if (sx) { if (MOBILE) { const bot = bots.find((x) => x._slug === sx.dataset.sharex); if (bot) { e.preventDefault(); openShareX(shareX(bot)); } } return; }
-    const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied"));
+    const b = e.target.closest("[data-copy]"); if (b) { copy(b.dataset.copy).then(() => say("Link copied")); return; }
+    // Whole card opens the bot's own page (same as creator views); real controls keep their behavior
+    if (e.target.closest("a,button,input,select,textarea,label,summary,[role=button]")) return;
+    const card = e.target.closest(".card"); if (!card) return;
+    if (String(window.getSelection && window.getSelection()) ) return;
+    const link = card.querySelector("h3 a[href]"); if (!link) return;
+    if (e.metaKey || e.ctrlKey) window.open(link.href, "_blank", "noopener"); else location.href = link.href;
   });
 
   // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
