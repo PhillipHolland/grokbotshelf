@@ -191,7 +191,7 @@ ${voteHTML(b)}
 <a class="ib" href="${esc(shareX(b).web)}" data-sharex="${b._slug}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X" title="Share ${esc(b.name)} on X">${I.share}</a>
 ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
-</div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add ${esc(b.name)} to the Grok Bot app" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div></div>
+</div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add to Bot app: ${esc(b.name)}" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get this bot: ${esc(b.name)} on x.ai">Get this bot</a></div></div>
 </article>`;
   }
   /* ---------- From the builders strip (home Featured view only) ---------- */
@@ -424,7 +424,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       e.preventDefault(); if (inSearch) focusCard(0); else step(dirs[e.key]); return;
     }
     if (e.key === "Enter") {
-      if (onCard) { e.preventDefault(); window.open(t.dataset.url, "_blank", "noopener"); }
+      // Same as a click on the card: open the bot's own page (Cmd/Ctrl+Enter opens it in a new tab)
+      const link = onCard && t.querySelector("h3 a[href]");
+      if (link) { e.preventDefault(); if (e.metaKey || e.ctrlKey) window.open(link.href, "_blank", "noopener"); else location.href = link.href; }
       else if (inSearch && cardsNow().length) { e.preventDefault(); focusCard(0); }
     }
   });
