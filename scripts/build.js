@@ -1,5 +1,5 @@
 // Writes the static pages that come from bots.json: one page per bot (public/bot/<slug>/index.html),
-// sitemap.xml, robots.txt, feed.xml and llms.txt. No dependencies. Runs on every Vercel build
+// one page per creator (public/@<handle>/index.html), sitemap.xml, robots.txt, feed.xml and llms.txt. No dependencies. Runs on every Vercel build
 // (vercel.json buildCommand) and can be run locally: node scripts/build.js
 const fs = require("fs"), path = require("path");
 const { slugify, templateId, appLink, postId } = require("./shelf");
@@ -19,19 +19,40 @@ const items = bots.map((b, i) => {
   return { ...b, _i: i, slug, page: `/bot/${slug}`, app: appLink(b.url), agency: m.agency || "", works_with: m.works_with || [], social: s };
 });
 const handleOf = (b) => b.creator_handle.replace(/^@/, "");
-const ogImg = (b) => fs.existsSync(path.join(PUB, "og", "bot", b.slug + ".png")) ? `${SITE}/og/bot/${b.slug}.png` : `${SITE}/og.png?v=2`;
-const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
-const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
+const ckey = (b) => handleOf(b).toLowerCase();
+const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? `${SITE}/og/${dir}/${name}.png` : `${SITE}/og.png?v=2`;
+const ogImg = (b) => ogFile("bot", b.slug);
 
-function page(b, related) {
-  const title = `${b.emoji} ${b.name} by ${b.creator_name} · Grok Bot Shelf`;
-  const desc = b.description, url = SITE + b.page, img = ogImg(b);
-  const badges = [b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
-  const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} bookmarks on X</span>` : "";
-  const ld = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: b.name, description: desc, applicationCategory: b.category, url, sameAs: b.url,
-    author: { "@type": "Person", name: b.creator_name, url: b.creator_url }, datePublished: b.added };
-  const shareT = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${url}`);
-  return `<!doctype html>
+// Similar bots: same category, shared works_with apps, and shared description words weighted by rarity.
+// Other creators only (their own bots are already in "More from"). Ties break by name, so output is stable.
+const STOP = new Set("a an and any are as at be by can for from get gets go has have how in into is it its just keep keeps make makes more most my no not of on one or out over own so than that the them then they this to up use uses using what when where which while who will with you your bot bots grok grokbot template".split(" ")
+  .concat("about after again against all also back based before between both down each every few first like new off only other same some such through way within without ai agent app apps assistant helper partner tool tools help helps turn turns read reads write writes find finds tell tells give gives quick clear real right facing".split(" ")));
+const words = (b) => new Set(`${b.name} ${b.description}`.toLowerCase().replace(/[^a-z0-9\s]+/g, " ").split(/\s+/)
+  .map((w) => (w.length > 3 && /[^s]s$/.test(w) ? w.slice(0, -1) : w)).filter((w) => w.length > 2 && !STOP.has(w)));
+for (const b of items) b._words = words(b);
+const df = new Map();
+for (const b of items) for (const w of b._words) df.set(w, (df.get(w) || 0) + 1);
+const idf = (w) => Math.log(items.length / df.get(w));
+function similarTo(b) {
+  const apps = new Set(b.works_with);
+  return items.filter((o) => ckey(o) !== ckey(b)).map((o) => {
+    const shared = [...o._words].filter((w) => b._words.has(w)), sharedApps = o.works_with.filter((w) => apps.has(w));
+    const score = (o.category === b.category ? 4 : 0) + 3 * sharedApps.length + shared.reduce((t, w) => t + idf(w), 0);
+    return { o, score, topical: shared.length + sharedApps.length };
+  }).filter((r) => r.topical && r.score >= 5)
+    .sort((x, y) => y.score - x.score || (x.o.name < y.o.name ? -1 : x.o.name > y.o.name ? 1 : 0))
+    .slice(0, 3).map((r) => r.o);
+}
+const HEADER = `<header class="wrap hero">
+  <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
+  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
+  <p class="affil">Not affiliated with SpaceXSI.</p>
+</header>`;
+const FOOTER = `<footer class="site-foot wrap">
+  <p>Not affiliated with SpaceXSI.</p>
+  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
+</footer>`;
+const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -49,30 +70,63 @@ function page(b, related) {
 <link rel="alternate" type="application/rss+xml" title="Grok Bot Shelf, newest bots" href="/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grok Bot Shelf">
-<meta property="og:title" content="${esc(`${b.emoji} ${b.name} by ${b.creator_name}`)}">
+<meta property="og:title" content="${esc(ogTitle)}">
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(`${b.name}, a Grok Bot template by ${b.creator_name}`)}">
+<meta property="og:image:alt" content="${esc(alt)}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(`${b.emoji} ${b.name} by ${b.creator_name}`)}">
+<meta name="twitter:title" content="${esc(ogTitle)}">
 <meta name="twitter:description" content="${esc(desc)}">
 <meta name="twitter:image" content="${img}">
 <meta name="twitter:site" content="@Phil_Holland">
-<meta name="twitter:creator" content="${esc(b.creator_handle)}">
+<meta name="twitter:creator" content="${esc(creator)}">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
 <link rel="stylesheet" href="/styles.css">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
-</head>
+</head>`;
+// "Under the hood" appears only when the creator supplied at least one of these optional bots.json fields:
+// connectors, routines [{name, schedule}], sends/posts/spends (true or false), permissions_note. Only those rows show.
+const CREATOR_SUPPLIED = `<span class="src">Creator-supplied</span>`;
+const yes = (v) => (v ? "Yes" : "No");
+function underTheHood(b) {
+  const list = (a) => Array.isArray(a) && a.length ? a : null;
+  const conn = list(b.connectors), rts = list(b.routines);
+  const acts = ["sends", "posts", "spends"].filter((k) => typeof b[k] === "boolean");
+  const rows = [
+    ["Connectors and apps", conn && conn.map((c) => `<span class="badge">${esc(c)}</span>`).join("")],
+    ["Routines and schedule", rts && `<ul>${rts.map((r) => `<li>${esc(r.name)}${r.schedule ? ` <span class="nl">· ${esc(r.schedule)}</span>` : ""}</li>`).join("")}</ul>`],
+    ["Sends, posts or spends", acts.length && acts.map((k) => `${k[0].toUpperCase() + k.slice(1)}: ${yes(b[k])}`).join(" · ")],
+    ["Permissions", b.permissions_note && esc(b.permissions_note)],
+  ].filter(([, v]) => v);
+  if (!rows.length) return "";
+  return `<section class="bp-panel" aria-labelledby="bi-h">
+    <h2 id="bi-h">Under the hood</h2>
+    <dl>
+${rows.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v} ${CREATOR_SUPPLIED}</dd></div>`).join("\n")}
+    </dl>
+  </section>`;
+}
+const BADGE = { light: `${SITE}/badge.svg`, dark: `${SITE}/badge-dark.svg` };
+const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
+const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
+
+function page(b, related, similar) {
+  const title = `${b.emoji} ${b.name} by ${b.creator_name} · Grok Bot Shelf`;
+  const desc = b.description, url = SITE + b.page, img = ogImg(b);
+  const badges = [b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
+  const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} bookmarks on X</span>` : "";
+  const ld = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: b.name, description: desc, applicationCategory: b.category, url, sameAs: b.url,
+    author: { "@type": "Person", name: b.creator_name, url: b.creator_url }, datePublished: b.added };
+  const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
+  const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
+  const shareT = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${url}`);
+  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${b.name} by ${b.creator_name}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle, ld })}
 <body class="botpage">
-<header class="wrap hero">
-  <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
-  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
-  <p class="affil">Not affiliated with SpaceXSI.</p>
-</header>
+${HEADER}
 <main class="wrap bp" id="main">
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
@@ -94,12 +148,19 @@ function page(b, related) {
     </p>
     ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
+  ${underTheHood(b)}
+  ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}
   ${related.length ? `<section class="bp-more"><h2>More from ${esc(b.creator_name)}</h2><ul>${related.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}</a></li>`).join("")}</ul></section>` : ""}
+  <section class="bp-embed" aria-labelledby="em-h">
+    <h2 id="em-h">Featured badge</h2>
+    <p class="fine">Made this bot? Put the badge in your README or site. It links back to this page.</p>
+    <p class="em-prev"><img src="/badge.svg" alt="Featured on Grok Bot Shelf" width="220" height="44"><img src="/badge-dark.svg" alt="Featured on Grok Bot Shelf, dark" width="220" height="44"></p>
+    <div class="snip"><div class="snip-h"><span>HTML</span><button type="button" class="clear" data-copy="em-html">Copy</button></div><pre id="em-html">${esc(snipHtml)}</pre></div>
+    <div class="snip"><div class="snip-h"><span>Markdown</span><button type="button" class="clear" data-copy="em-md">Copy</button></div><pre id="em-md">${esc(snipMd)}</pre></div>
+    <p class="fine">On a dark background, use <code>${BADGE.dark}</code> instead.</p>
+  </section>
 </main>
-<footer class="site-foot wrap">
-  <p>Not affiliated with SpaceXSI.</p>
-  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
-</footer>
+${FOOTER}
 <script src="/bot-page.js" defer></script>
 </body>
 </html>
@@ -113,7 +174,49 @@ for (const b of items) {
   const related = items.filter((r) => r.creator_handle === b.creator_handle && r !== b).slice(0, 8);
   const dir = path.join(BOTDIR, b.slug);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), page(b, related));
+  fs.writeFileSync(path.join(dir, "index.html"), page(b, related, similarTo(b)));
+}
+
+// Creator pages at /@<handle>. The file wins over the /@:handle rewrite in vercel.json, which stays as
+// the fallback for unknown handles and other casings. A handle seen in more than one casing gets a page per casing,
+// all with the same canonical URL (the first casing in bots.json, as on the shelf).
+const groups = new Map();
+for (const b of items) { if (!groups.has(ckey(b))) groups.set(ckey(b), []); groups.get(ckey(b)).push(b); }
+const creatorList = [...groups.values()].map((g) => ({ bots: g, handle: handleOf(g[0]), name: g[0].creator_name, url: g[0].creator_url, avatar: g[0].creator_avatar, page: "/@" + handleOf(g[0]) }));
+const fmtDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
+function creatorPage(c) {
+  const n = c.bots.length, nb = `${n} ${n === 1 ? "bot" : "bots"}`, url = SITE + c.page;
+  const cats = [...new Set(c.bots.map((b) => b.category))].sort();
+  const dates = c.bots.map((b) => b.added).filter((d) => fmtDate(d)).sort();
+  const desc = `${nb} by ${c.name} (@${c.handle}) on Grok Bot Shelf: ${c.bots.slice(0, 4).map((b) => b.name).join(", ")}${n > 4 ? " and more" : ""}.`;
+  const ld = { "@context": "https://schema.org", "@type": "ProfilePage", url, mainEntity: { "@type": "Person", name: c.name, alternateName: "@" + c.handle, url: c.url, image: SITE + c.avatar },
+    hasPart: c.bots.map((b) => ({ "@type": "SoftwareApplication", name: b.name, url: SITE + b.page })) };
+  return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld })}
+<body class="botpage">
+${HEADER}
+<main class="wrap bp" id="main">
+  <article class="bp-card">
+    <div class="bp-head"><img class="cp-av" src="${esc(c.avatar)}" alt="" width="56" height="56"><div>
+      <h1>${esc(c.name)}</h1>
+      <p class="sub"><a href="${esc(c.url)}" rel="noopener" target="_blank">@${esc(c.handle)} on X</a><span class="dot" aria-hidden="true">·</span><span>${nb} on the shelf</span></p>
+    </div></div>
+    <p class="bp-desc">Shares Grok Bot templates in ${cats.map(esc).join(", ")}.${dates.length ? ` On the shelf since ${fmtDate(dates[0])}${dates.length > 1 && dates[dates.length - 1] !== dates[0] ? `, newest added ${fmtDate(dates[dates.length - 1])}` : ""}.` : ""}</p>
+    <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
+  </article>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
+</main>
+${FOOTER}
+</body>
+</html>
+`;
+}
+for (const f of fs.readdirSync(PUB)) if (f.startsWith("@")) fs.rmSync(path.join(PUB, f), { recursive: true, force: true });
+for (const c of creatorList) {
+  const html = creatorPage(c);
+  for (const h of new Set(c.bots.map(handleOf))) {
+    fs.mkdirSync(path.join(PUB, "@" + h), { recursive: true });
+    fs.writeFileSync(path.join(PUB, "@" + h, "index.html"), html);
+  }
 }
 
 // sitemap.xml
@@ -123,6 +226,7 @@ fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="U
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${lastmod(newest)}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 ${items.map((b) => `  <url><loc>${SITE}${b.page}</loc><lastmod>${lastmod(b.added)}</lastmod></url>`).join("\n")}
+${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c.bots.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 </urlset>
 `);
 
@@ -166,7 +270,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 - [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names. Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
-- [sitemap.xml](${SITE}/sitemap.xml): every bot page.
+- [sitemap.xml](${SITE}/sitemap.xml): every bot page and creator page.
 - [feed.xml](${SITE}/feed.xml): RSS of the 50 newest bots.
 
 ## Pages
@@ -214,4 +318,4 @@ curl -X POST ${SITE}/api/submit \\
 \`\`\`
 `);
 
-console.log(`built ${items.length} bot pages, sitemap, robots, feed (${recent.length}), llms.txt`);
+console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, sitemap, robots, feed (${recent.length}), llms.txt`);

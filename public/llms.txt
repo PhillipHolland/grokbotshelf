@@ -8,7 +8,7 @@
 - [bot-meta.json](https://grokbotshelf.com/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names. Set by the shelf; missing means unknown.
 - [social.json](https://grokbotshelf.com/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](https://grokbotshelf.com/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
-- [sitemap.xml](https://grokbotshelf.com/sitemap.xml): every bot page.
+- [sitemap.xml](https://grokbotshelf.com/sitemap.xml): every bot page and creator page.
 - [feed.xml](https://grokbotshelf.com/feed.xml): RSS of the 50 newest bots.
 
 ## Pages

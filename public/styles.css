@@ -231,3 +231,25 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp-more ul{list-style:none;margin:0 0 32px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
 .bp-more a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
 .bp-more a:hover{background:var(--hover)}
+
+/* Bot page: under the hood, similar bots, featured badge. Creator pages reuse .bp-card and .bp-more */
+.bp-panel,.bp-embed{border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 24px}
+.bp-panel h2,.bp-embed h2{font-size:17px;margin:0 0 10px}
+.bp-panel dl{margin:0}
+.bp-panel dl>div{display:grid;grid-template-columns:180px 1fr;gap:4px 16px;padding:10px 0;border-top:1px solid var(--line)}
+.bp-panel dt{font-size:14px;font-weight:700}
+.bp-panel dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14px;line-height:1.4}
+.bp-panel .nl{color:var(--text2)}
+@media (max-width:560px){.bp-panel dl>div{grid-template-columns:1fr}}
+.bp-more a small{display:block;margin-top:2px;font-size:13px;font-weight:400;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp-list a small{white-space:normal}
+.cp-av{flex:none;width:56px;height:56px;border-radius:50%;border:1px solid var(--line)}
+.bp-embed .fine{margin:0 0 12px}
+.em-prev{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
+.em-prev img{max-width:100%;height:auto}
+.snip{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;overflow:hidden}
+.snip-h{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 2px 12px;background:var(--hover);font-size:13px;font-weight:700;color:var(--text2)}
+.snip pre{margin:0;padding:10px 12px;font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all;color:var(--text)}
+.bp-embed code{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+.bp-panel .src{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:9999px;background:var(--field);color:var(--text2);font:600 11px/1 var(--font);white-space:nowrap}
+.bp-panel dd ul{list-style:none;margin:0;padding:0}

@@ -108,7 +108,19 @@ Vercel runs it on every deploy (`buildCommand` in `vercel.json`), and the output
 editing `bots.json` so the repo matches. Share images live in `public/og/bot/<slug>.png`; draw any missing ones with
 `NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/og.js` (add `--all` to redraw), then rerun the build.
 
+- `public/@<handle>/index.html`: one static page per creator at `/@<handle>` (name, X link, avatar, bot count, categories,
+  bot list), also in the sitemap. The file is served before the `/@:handle` rewrite, which stays as the fallback for other
+  casings and unknown handles. Share images: `public/og/creator/<handle>.png`, drawn by `scripts/og.js`.
+- Each bot page also gets "Under the hood" when the creator supplied details (see below), up to 3 "Similar bots" from other creators (same category, shared works_with apps, shared
+  description words weighted by rarity; ties by name), and a "Featured badge" embed (`/badge.svg`, `/badge-dark.svg`).
+
 Homepage hash links (`/#bot-archivist`) still scroll to the card. Card titles and the X share link now use `/bot/<slug>`.
+
+## Under the hood
+
+Hidden unless the creator supplied at least one optional field on the bot in `bots.json`. Only those rows show,
+labeled "Creator-supplied": `"connectors": ["Gmail"]`, `"routines": [{ "name": "Morning digest", "schedule": "daily 8am" }]`,
+`"sends"`, `"posts"`, `"spends"` (true or false), `"permissions_note": "one plain sentence"`.
 
 ## Add to Bot app
 
