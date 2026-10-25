@@ -2054,5 +2054,18 @@
     "creator_avatar": "/avatars/timsonner.webp",
     "source_post": "https://x.com/timsonner/status/2114180957385474281",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Save Usage Bot",
+    "emoji": "♻️",
+    "description": "Audits what your bots do on repeat, splits routines into steps, and turns the ones that need no judgment into python3 scripts that only wake a bot on a change (or after 3 failed checks).",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/fSPQ2Eng6g8gZppDTf0QV",
+    "creator_name": "ollie",
+    "creator_handle": "@howdyollie",
+    "creator_url": "https://x.com/howdyollie",
+    "creator_avatar": "/avatars/howdyollie.webp",
+    "source_post": "https://x.com/howdyollie/status/2114191797828403533",
+    "added": "2026-10-24"
   }
 ]
