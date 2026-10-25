@@ -600,6 +600,13 @@
       "status": "denied",
       "note": "Phillip said do not add",
       "date": "2026-10-24"
+    },
+    "2114167082032271621": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Obsidian",
+      "url": "https://x.com/weeb3dev/status/2114167082032271621",
+      "date": "2026-10-24"
     }
   }
 }

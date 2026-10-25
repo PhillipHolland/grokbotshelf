@@ -1495,5 +1495,18 @@
     "source_post": "https://x.com/drbellahqw/status/2114161923168014648",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/drbellahqw.webp"
+  },
+  {
+    "name": "Obsidian",
+    "emoji": "🗃️",
+    "description": "CLI-first Obsidian specialist that owns a local vault as your second brain: create, link, and search Markdown notes.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/tukhb8f4XyUJFkRWlHWaz",
+    "creator_name": "Alberto Jauregui",
+    "creator_handle": "@weeb3dev",
+    "creator_url": "https://x.com/weeb3dev",
+    "source_post": "https://x.com/weeb3dev/status/2114167082032271621",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/weeb3dev.webp"
   }
 ]
