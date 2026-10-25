@@ -59,7 +59,7 @@ const items = bots.map((b, i) => {
 });
 const handleOf = (b) => b.creator_handle.replace(/^@/, "");
 const ckey = (b) => handleOf(b).toLowerCase();
-const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? `${SITE}/og/${dir}/${name}.png` : `${SITE}/og.png?v=2`;
+const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}/og.png?v=2`;
 const ogImg = (b) => ogFile("bot", b.slug);
 
 // Similar bots: same category, shared works_with apps, and shared description words weighted by rarity.
