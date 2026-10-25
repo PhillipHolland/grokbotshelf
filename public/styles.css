@@ -195,7 +195,17 @@ html.mobile .bp-actions .app{background:var(--blue);border-color:var(--blue);col
 .chip{flex:none;height:36px;padding:0 14px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:700 14px var(--font);cursor:pointer;white-space:nowrap}
 .chip:hover{background:var(--hover)}
 .chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
-@media (max-width:699px){.filterbar{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-16px;margin-right:-16px;padding:0 16px}.filterbar::-webkit-scrollbar{display:none}.selwrap{flex:0 0 auto;min-width:140px;max-width:180px}}
+@media (max-width:699px){.filterbar{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-16px;margin-right:-16px;padding:0 16px}.filterbar::-webkit-scrollbar{display:none}.selwrap{flex:0 0 auto;min-width:140px;max-width:180px}
+  .filterbar .selwrap select,.filterbar .chip{height:44px}.filterbar::after{content:"";flex:0 0 32px}}
+/* Phones: the filter row scrolls sideways, so a right-edge fade and arrow show there is more (hidden at the end) */
+.fb-more{display:none}
+@media (max-width:699px){
+  .dock .wrap{position:relative}
+  .fb-more{display:grid;place-items:center end;position:absolute;right:0;bottom:0;width:64px;height:44px;padding:0 10px 0 0;border:0;background:linear-gradient(to right,transparent,var(--bg) 60%);color:var(--text);cursor:pointer;transition:opacity .15s}
+  .fb-more svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .dock.fb-end .fb-more{opacity:0;pointer-events:none}
+}
+@media (max-width:640px){.bsub .dot{display:none}.bsub{gap:6px 14px}}
 @media (min-width:700px){.selwrap.sm{flex:0 1 180px}}
 .meta-note{margin:4px 0 0;font-size:12px;color:var(--text2)}
 
