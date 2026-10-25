@@ -221,11 +221,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     renderFilters();
   }
   function renderFilters() {
-    const byCreator = filtered("creator"), byCat = filtered("cat");
-    const cn = (k) => byCreator.filter(([b]) => !k || ckey(b) === k).length;
     const opt = (v, label, on) => `<option value="${esc(v)}"${on ? " selected" : ""}>${esc(label)}</option>`;
-    creatorEl.innerHTML = opt("", `All creators (${cn("")})`, !st.creator) +
-      creators.map((c) => opt(c.key, `${c.short} (${cn(c.key)})`, st.creator === c.key)).join("");
+    creatorEl.innerHTML = opt("", "All creators", !st.creator) +
+      creators.map((c) => opt(c.key, c.short, st.creator === c.key)).join("");
     creatorEl.value = st.creator;
     creatorEl.classList.toggle("on", !!st.creator);
     const multi = st.cats.length > 1;
@@ -323,7 +321,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
     const seen = new Map();
     for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, short: b.creator_name, label: b.creator_name });
-    creators = [...seen.values()];
+    creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
     bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
     cats = [...new Set(bots.map((b) => b.category))].sort();
     st = readURL(); syncInputs(); render(); writeURL(false);
