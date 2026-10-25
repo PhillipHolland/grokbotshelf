@@ -510,27 +510,37 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   rail.className = "rail"; rail.id = "rail"; rail.hidden = true;
   rail.setAttribute("aria-label", "Jump to creators by letter");
   document.body.append(rail);
-  let railLetters = [];
+  const pop = document.createElement("div");
+  pop.className = "rail-pop"; pop.hidden = true; pop.setAttribute("aria-hidden", "true");
+  document.body.append(pop);
+  let railLetters = [], railLock = "", railTop = -1;
   function renderRail(grouped) {
     const seen = [];
     if (grouped) for (const h of results.querySelectorAll(".group h2[data-letter]")) if (!seen.includes(h.dataset.letter)) seen.push(h.dataset.letter);
     const show = seen.length > 1;
     document.documentElement.classList.toggle("has-rail", show);
     if (seen.join() === railLetters.join() && rail.hidden === !show) { syncRail(); return; }
-    railLetters = seen; rail.hidden = !show;
+    railLetters = seen; rail.hidden = !show; railLock = ""; railTop = -1;
     rail.innerHTML = show ? seen.map((L, i) => `<button type="button" data-l="${L}" tabindex="${i ? -1 : 0}" aria-label="Jump to creators starting with ${L === "#" ? "a number or symbol" : L}">${L}</button>`).join("") : "";
     syncRail();
   }
+  // Far jumps land instantly most of the way, then glide the last stretch (Z from the top: ~0.5s instead of ~2s, and it
+  // still reads as movement). Drag-scrub and reduced motion jump instantly. The chosen letter stays highlighted until
+  // you scroll yourself: the last few groups can't reach the top of the page, so the in-view letter would be wrong.
+  const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
   function jumpTo(L, focus) {
     const h = results.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return;
     const sec = h.closest(".group"), root = document.documentElement;
     clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void sec.offsetTop;
-    sec.scrollIntoView({ block: "start", behavior: focus === "drag" || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    railLock = L; markRail(L);
+    const pad = dock.offsetHeight + 12, dy = sec.getBoundingClientRect().top - pad, instant = focus === "drag" || reduced();
+    if (!instant && Math.abs(dy) > innerHeight * 1.5) window.scrollBy(0, dy - Math.sign(dy) * innerHeight * 0.6);
+    sec.scrollIntoView({ block: "start", behavior: instant ? "auto" : "smooth" });
     if (focus === true) h.focus({ preventScroll: true });
     // Keep every card rendered until the scroll settles so content-visibility estimates can't move the target
-    const done = () => { clearTimeout(jumpT); root.classList.remove("jumping"); syncRail(); window.removeEventListener("scrollend", done); };
-    window.addEventListener("scrollend", done); jumpT = setTimeout(done, 3000);
-    markRail(L);
+    const landed = () => Math.abs(sec.getBoundingClientRect().top - pad) < 3 || scrollY + innerHeight >= root.scrollHeight - 2;
+    const done = (e) => { if (e && !landed()) return; clearTimeout(jumpT); root.classList.remove("jumping"); window.removeEventListener("scrollend", done); };
+    window.addEventListener("scrollend", done); jumpT = setTimeout(done, 1500);
   }
   function markRail(L) {
     for (const b of rail.children) { const on = b.dataset.l === L; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); }
@@ -539,11 +549,18 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   let railRaf = 0;
   function syncRail() {
     if (rail.hidden) return;
+    // At the top of the page the dock sits below the hero; start the rail under the dock's real bottom, not its stuck one
+    const t = Math.round(Math.max(0, dock.getBoundingClientRect().bottom)) + 10;
+    if (t !== railTop) { railTop = t; rail.style.top = t + "px"; }
+    if (railLock) return markRail(railLock);
     const top = dock.offsetHeight + 24; let cur = "";
     for (const h of results.querySelectorAll(".group h2[data-letter]")) { if (h.closest(".group").getBoundingClientRect().top <= top) cur = h.dataset.letter; else break; }
     markRail(cur);
   }
   window.addEventListener("scroll", () => { if (!railRaf) railRaf = requestAnimationFrame(() => { railRaf = 0; syncRail(); }); }, { passive: true });
+  // Your own scrolling (wheel, touch, keys outside the rail) hands the highlight back to the in-view letter
+  const unlock = (e) => { if (railLock && !rail.contains(e.target)) { railLock = ""; } };
+  for (const ev of ["wheel", "touchstart", "keydown", "mousedown"]) window.addEventListener(ev, unlock, { passive: true, capture: true });
   let dragging = false;
   rail.addEventListener("click", (e) => { const b = e.target.closest("button[data-l]"); if (b && !dragging) jumpTo(b.dataset.l, e.detail === 0); });
   rail.addEventListener("keydown", (e) => {
@@ -554,15 +571,21 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const n = bs[Math.max(0, Math.min(bs.length - 1, j))];
     bs.forEach((b) => b.tabIndex = b === n ? 0 : -1); n.focus();
   });
-  // Touch: drag along the rail to scrub through letters
-  let lastL = "";
-  const atPoint = (e) => { const el = document.elementFromPoint(rail.getBoundingClientRect().left + rail.offsetWidth / 2, e.clientY); return el && el.closest && el.closest("#rail button[data-l]"); };
-  rail.addEventListener("pointerdown", (e) => { if (e.pointerType !== "touch") return; dragging = false; lastL = ""; });
+  // Touch: drag along the rail to scrub (contacts-style). The finger's height maps onto the letter list, so tiny letters
+  // on short screens, overshooting the ends or sliding off the strip still land; a big letter bubble shows where you are.
+  let lastL = "", popT;
+  const atY = (y) => {
+    const bs = rail.children, a = bs[0].getBoundingClientRect().top, z = bs[bs.length - 1].getBoundingClientRect().bottom;
+    return bs[Math.max(0, Math.min(bs.length - 1, Math.floor((y - a) / ((z - a) / bs.length))))];
+  };
+  const showPop = (b) => { const r = b.getBoundingClientRect(); pop.textContent = b.dataset.l; pop.style.top = Math.max(40, Math.min(innerHeight - 40, r.top + r.height / 2)) + "px"; pop.hidden = false; clearTimeout(popT); };
+  rail.addEventListener("touchstart", (e) => { const t = e.touches[0], b = t && atY(t.clientY); dragging = false; lastL = b ? b.dataset.l : ""; if (b) showPop(b); }, { passive: true });
   rail.addEventListener("touchmove", (e) => {
-    const t = e.touches[0], b = t && atPoint(t); e.preventDefault();
-    if (b && b.dataset.l !== lastL) { dragging = true; lastL = b.dataset.l; jumpTo(lastL, "drag"); }
+    const t = e.touches[0], b = t && atY(t.clientY); e.preventDefault();
+    if (b && b.dataset.l !== lastL) { dragging = true; lastL = b.dataset.l; showPop(b); jumpTo(lastL, "drag"); }
   }, { passive: false });
-  rail.addEventListener("touchend", () => { if (dragging) setTimeout(() => { dragging = false; }, 50); });
+  const endTouch = () => { clearTimeout(popT); popT = setTimeout(() => { pop.hidden = true; }, 450); if (dragging) setTimeout(() => { dragging = false; }, 50); };
+  rail.addEventListener("touchend", endTouch); rail.addEventListener("touchcancel", endTouch);
 
   /* ---------- Boot ---------- */
   const deep = (u) => { const m = String(u || "").match(/^https:\/\/x\.ai\/bot\/([A-Za-z0-9_-]+)\/?$/); return m ? "grokbot://app/v1/bot-template?id=" + m[1] : ""; };
