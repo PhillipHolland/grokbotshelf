@@ -1183,5 +1183,31 @@
     "source_post": "https://x.com/SuddenlyJon/status/2114155995546988616",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Adventure Bot",
+    "emoji": "🧭",
+    "description": "One GPS pin for something to do right now — learns your taste over time with Pick Adventure + Learn Adventure Taste.",
+    "category": "Life",
+    "url": "https://x.ai/bot/sA0TXuMkDDSgBx52Z2D6f",
+    "source_post": "https://x.com/SuddenlyJon/status/2114156229899506152",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Guide",
+    "emoji": "🗺️",
+    "description": "Post-booking trip mapper — approve an email check for flights and hotels, then get a day-by-day itinerary.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/TbFMZABkeH7gyIIGxjfdU",
+    "source_post": "https://x.com/SuddenlyJon/status/2114156430030750128",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]

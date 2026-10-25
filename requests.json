@@ -432,6 +432,20 @@
       "bot": "RezBot",
       "url": "https://x.com/SuddenlyJon/status/2114155995546988616",
       "date": "2026-10-24"
+    },
+    "2114156229899506152": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Adventure Bot",
+      "url": "https://x.com/SuddenlyJon/status/2114156229899506152",
+      "date": "2026-10-24"
+    },
+    "2114156430030750128": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Guide",
+      "url": "https://x.com/SuddenlyJon/status/2114156430030750128",
+      "date": "2026-10-24"
     }
   }
 }
