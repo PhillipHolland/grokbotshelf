@@ -1,6 +1,6 @@
 # Grok Bot Shelf
 
-> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 283 bots right now. Not affiliated with SpaceXSI.
+> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 284 bots right now. Not affiliated with SpaceXSI.
 
 ## Data
 

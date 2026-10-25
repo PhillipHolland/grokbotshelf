@@ -35,50 +35,6 @@
     try { localStorage.setItem("theme", next); } catch {}
   });
 
-  /* ---------- Bot face eyes, ported from iBot's eyes.js (ball character) ---------- */
-  (() => {
-    const eyes = document.querySelector("#botface .eyes"); if (!eyes) return;
-    const ROWS = [[-16, -14, 14], [-12, -14, 14], [-8, -14, 14], [-4, -14, 14], [0, -14, 14], [4, -14, 14], [8, -14, 14], [10, -12, 12]];
-    const rm = matchMedia("(prefers-reduced-motion: reduce)"), now = () => performance.now();
-    const lerp = (a, b, t) => a + (b - a) * t, R = (a) => lerp(a[0], a[1], Math.random());
-    const span = (dy) => { let lo = ROWS[0], hi = ROWS[ROWS.length - 1]; for (const r of ROWS) { if (r[0] <= dy) lo = r; if (r[0] >= dy) { hi = r; break; } } return [Math.max(lo[1], hi[1]), Math.min(lo[2], hi[2])]; };
-    const spot = () => { if (Math.random() < 0.2) return [0, 0]; const y = lerp(-16, 10, Math.random()), s = span(y); return [lerp(s[0], s[1], Math.random()), y]; };
-    const ease = (t) => 0.5 - Math.cos(Math.PI * Math.min(1, Math.max(0, t))) / 2;
-    const st = { x: 0, y: 0, from: [0, 0], to: [0, 0], ms: 0, t0: 0, hold: 0, blinkAt: 0, bStart: -1, bDur: 200, bQ: 0, raf: 0, timer: 0, last: "" };
-    const schedBlink = (t) => { const g = R([1600, 3500]); st.blinkAt = t + (rm.matches ? g * 2.5 : g); st.bDur = R([180, 220]); st.bQ = !rm.matches && Math.random() < 0.25 ? 1 : 0; };
-    function write(k) {
-      const r = (n) => Math.round(n * 100) / 100;
-      const tf = k >= 0.999 ? `translate(${r(st.x)} ${r(st.y)})` : `translate(${r(st.x)} ${r(st.y + 63 * (1 - k))}) scale(1 ${r(k)})`;
-      if (tf !== st.last) { eyes.setAttribute("transform", tf); st.last = tf; }
-    }
-    function frame() {
-      st.raf = 0; if (document.hidden) return;
-      const t = now();
-      if (st.ms > 0) { const k = (t - st.t0) / st.ms, e = ease(k); st.x = lerp(st.from[0], st.to[0], e); st.y = lerp(st.from[1], st.to[1], e); if (k >= 1) st.ms = 0; }
-      if (!st.ms && t >= st.hold) {
-        if (rm.matches) { st.x = 0; st.y = 0; st.hold = Infinity; }
-        else { const [x, y] = spot(), m = R([150, 210]); st.from = [st.x, st.y]; st.to = [x, y]; st.t0 = t; st.ms = m; st.hold = t + m + R([300, 1400]); }
-      }
-      let k = 1;
-      if (st.bStart >= 0) {
-        const bt = t - st.bStart;
-        k = bt >= 0 && bt < st.bDur ? 1 - 0.9 * Math.sin(Math.PI * bt / st.bDur) : 1;
-        if (bt >= st.bDur) { if (st.bQ > 0) { st.bQ--; st.bStart = t + 60; } else { st.bStart = -1; schedBlink(t); } }
-      } else if (t >= st.blinkAt) st.bStart = t;
-      write(k); plan(t);
-    }
-    function plan(t) {
-      clearTimeout(st.timer); if (document.hidden) return;
-      if (st.ms > 0 || st.bStart >= 0) { st.raf ||= requestAnimationFrame(frame); return; }
-      const wait = Math.min(st.blinkAt, st.hold) - t;
-      if (Number.isFinite(wait)) st.timer = setTimeout(() => { st.raf ||= requestAnimationFrame(frame); }, Math.max(0, wait));
-    }
-    const kick = () => { cancelAnimationFrame(st.raf); st.raf = requestAnimationFrame(frame); };
-    document.addEventListener("visibilitychange", () => { if (document.hidden) { cancelAnimationFrame(st.raf); st.raf = 0; clearTimeout(st.timer); } else kick(); });
-    rm.addEventListener?.("change", () => { st.hold = 0; kick(); });
-    const t = now(); st.hold = t + 900; st.bStart = t; schedBlink(t); kick();
-  })();
-
   /* ---------- Fuzzy search ---------- */
   // Optimal string alignment distance, capped at max+1.
   function dist(a, b, max) {
