@@ -1950,5 +1950,18 @@
     "creator_avatar": "/avatars/poteto.webp",
     "source_post": "https://x.com/hauntedbrowser/status/2112293931920871579",
     "added": "2026-10-24"
+  },
+  {
+    "name": "PhotoFix",
+    "emoji": "📸",
+    "description": "Brightens, straightens and cleans up real estate listing photos without faking the home, then files them in folders by property address.",
+    "category": "Media",
+    "url": "https://x.ai/bot/PRdnJ63L8h0FVlMAA1UN4",
+    "creator_name": "Mars",
+    "creator_handle": "@MarsHomestead",
+    "creator_url": "https://x.com/MarsHomestead",
+    "creator_avatar": "/avatars/marshomestead.webp",
+    "source_post": "https://x.com/MarsHomestead/status/2114181764570911028",
+    "added": "2026-10-24"
   }
 ]
