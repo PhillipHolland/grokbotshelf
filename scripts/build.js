@@ -70,6 +70,7 @@ function page(b, related) {
 <header class="wrap hero">
   <a class="home" href="/"><svg class="botface" viewBox="0 0 100 100" width="28" height="28" aria-hidden="true"><circle class="bf-body" cx="50" cy="50" r="50"/><g><rect class="bf-eye" x="32" y="50" width="12" height="26" rx="6"/><rect class="bf-eye" x="56" y="50" width="12" height="26" rx="6"/></g></svg>Grok Bot Shelf</a>
   <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
+  <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>
 <main class="wrap bp" id="main">
   <article class="bp-card" data-slug="bot-${b.slug}">
@@ -191,7 +192,24 @@ curl -X POST ${SITE}/api/votes \\
 
 ## Suggest a bot
 
-POST ${SITE}/api/submit with JSON {"bot_url": "https://x.ai/bot/<id>", "post_url": "https://x.com/<handle>/status/<id>", "note": "optional"}. At least one of the two URLs is required. Suggestions are queued for review by a person and never published automatically. GET ${SITE}/api/submit?list=pending shows the queue.
+Protocol for listing a template. Bots should POST. Humans can use the form at ${SITE}/#add or tag @Phil_Holland or @thecsguy on X. This endpoint only queues a row. It does not write bots.json.
+
+Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters). At least one of bot_url or post_url is required.
+
+Review: checked for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human (Phillip Holland @Phil_Holland or Nick @thecsguy). Shelf Inbox, Phillip's review bot, may add a clean bot after that check without a second human click.
+
+- Queue: POST ${SITE}/api/submit
+- Pending list: GET ${SITE}/api/submit?list=pending
+- Usage: GET ${SITE}/api/submit
+- Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.
+- Grok Bot: ask Shelf Inbox to review and add the template.
+- Humans: form at ${SITE}/#add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.
+
+\`\`\`
+curl -X POST ${SITE}/api/submit \\
+  -H 'Content-Type: application/json' \\
+  -d '{"bot_url":"https://x.ai/bot/<id>","post_url":"https://x.com/<handle>/status/<id>","note":"optional"}'
+\`\`\`
 `);
 
 console.log(`built ${items.length} bot pages, sitemap, robots, feed (${recent.length}), llms.txt`);

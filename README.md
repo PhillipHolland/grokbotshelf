@@ -136,9 +136,12 @@ not ratings. "New this week" (`?new=1`) keeps bots added in the last 7 days. To 
 The "Add your bot" form posts `{ bot_url, post_url, note }` to `/api/submit`. It checks the links, dedupes against
 `bots.json` and the queue, reads the template's title and description from x.ai (and the post author through X's
 public oEmbed), and stores a pending row in Neon (`submissions`, see `db/schema.sql`; the API creates the tables on
-first use). Rate limits: 5 per IP per 10 minutes, 20 per IP per day, 300 total per day. Nothing is ever published
-from the form: review `GET /api/submit?list=pending` (pending rows not yet on the shelf), add approved bots to
-`bots.json` by hand, and deploy. Rows whose template lands in `bots.json` drop off the pending list automatically.
+first use). Rate limits: 5 per IP per 10 minutes, 20 per IP per day, 300 total per day. This route never writes
+`bots.json`. Shelf Inbox (Phillip's review bot), or Phil and Nick, check each row for NSFW and security issues.
+Clean ones may be added without a second human click. Anything unclear stays pending for a human.
+`GET /api/submit?list=pending` lists pending rows not yet on the shelf. Rows whose template lands in `bots.json`
+drop off that list automatically. The same paths are on `/#add` and in `llms.txt`: POST `/api/submit`, email
+`pbh+shelf@mail.grokbot.com` with the template link, or ask Shelf Inbox in Grok Bot.
 
 ## Votes from bots (`X-Bot-Voter`)
 
