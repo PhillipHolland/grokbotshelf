@@ -3497,5 +3497,31 @@
     "creator_avatar": "/avatars/gambrill.webp",
     "source_post": "https://x.com/gambrill/status/2114275013629214794",
     "added": "2026-10-25"
+  },
+  {
+    "name": "HubSpot Helper",
+    "emoji": "🧰",
+    "description": "Answers your HubSpot CRM, workflow, reporting and API questions with numbered steps checked against HubSpot's live docs.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/YELCIJ_5UrbwjP-4pm_Fx",
+    "creator_name": "Jon",
+    "creator_handle": "@TheJonMartin",
+    "creator_url": "https://x.com/TheJonMartin",
+    "creator_avatar": "/avatars/thejonmartin.webp",
+    "source_post": "https://x.com/TheJonMartin/status/2114322622653649056",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Sift",
+    "emoji": "🔎",
+    "description": "Sorts the comments on an X post into a ranked shortlist for whatever you're picking, like giveaway winners, hires, feedback or leads.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/PX8eADZlGTF6uPc9LyO4j",
+    "creator_name": "Texas Based G-Pa",
+    "creator_handle": "@TexasBasedGpa",
+    "creator_url": "https://x.com/TexasBasedGpa",
+    "creator_avatar": "/avatars/texasbasedgpa.webp",
+    "source_post": "https://x.com/TexasBasedGpa/status/2114321775743889474",
+    "added": "2026-10-25"
   }
 ]
