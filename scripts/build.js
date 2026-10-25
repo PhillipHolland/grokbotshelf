@@ -145,7 +145,7 @@ ${HEADER}
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
-      <p class="sub"><a href="/${"@" + esc(handleOf(b))}"><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a><span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
+      <p class="sub"><a href="/${"@" + esc(ckey(b))}"><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a><span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
     </div></div>
     <p class="bp-desc">${esc(desc)}</p>
     ${badges ? `<div class="badges">${badges}</div>` : ""}
@@ -185,18 +185,28 @@ ${FOOTER}
 const BOTDIR = path.join(PUB, "bot");
 fs.rmSync(BOTDIR, { recursive: true, force: true });
 for (const b of items) {
-  const related = items.filter((r) => r.creator_handle === b.creator_handle && r !== b).slice(0, 8);
+  const related = items.filter((r) => ckey(r) === ckey(b) && r !== b).slice(0, 8);
   const dir = path.join(BOTDIR, b.slug);
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), page(b, related, similarTo(b)));
 }
 
-// Creator pages at /@<handle>. The file wins over the /@:handle rewrite in vercel.json, which stays as
-// the fallback for unknown handles and other casings. A handle seen in more than one casing gets a page per casing,
-// all with the same canonical URL (the first casing in bots.json, as on the shelf).
+// Creator pages: one per handle, at /@<handle in lowercase> (the canonical URL used in links, sitemap and canonical tags).
+// The file wins over the /@:handle rewrite in vercel.json, which stays as the fallback for unknown handles and other
+// casings (index.html sends a mixed-case /@Handle to the lowercase URL). No page per casing: on a case-insensitive disk
+// /@Handle and /@handle would be the same folder.
+// Display name, handle casing, X link and avatar: the most frequent value across the creator's bots; a tie goes to the
+// value on the most recently added bot (later in bots.json breaks a same-day tie).
 const groups = new Map();
 for (const b of items) { if (!groups.has(ckey(b))) groups.set(ckey(b), []); groups.get(ckey(b)).push(b); }
-const creatorList = [...groups.values()].map((g) => ({ bots: g, handle: handleOf(g[0]), name: g[0].creator_name, url: g[0].creator_url, avatar: g[0].creator_avatar, page: "/@" + handleOf(g[0]) }));
+const newestFirst = (x, y) => (y.added || "").localeCompare(x.added || "") || y._i - x._i;
+function pick(g, f) {
+  const n = new Map();
+  for (const b of g) n.set(f(b), (n.get(f(b)) || 0) + 1);
+  const top = Math.max(...n.values());
+  return f(g.slice().sort(newestFirst).find((b) => n.get(f(b)) === top));
+}
+const creatorList = [...groups].map(([k, g]) => ({ bots: g, handle: pick(g, handleOf), name: pick(g, (b) => b.creator_name), url: pick(g, (b) => b.creator_url), avatar: pick(g, (b) => b.creator_avatar), page: "/@" + k }));
 const fmtDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
 function creatorPage(c) {
   const n = c.bots.length, nb = `${n} ${n === 1 ? "bot" : "bots"}`, url = SITE + c.page;
@@ -226,11 +236,8 @@ ${FOOTER}
 }
 for (const f of fs.readdirSync(PUB)) if (f.startsWith("@")) fs.rmSync(path.join(PUB, f), { recursive: true, force: true });
 for (const c of creatorList) {
-  const html = creatorPage(c);
-  for (const h of new Set(c.bots.map(handleOf))) {
-    fs.mkdirSync(path.join(PUB, "@" + h), { recursive: true });
-    fs.writeFileSync(path.join(PUB, "@" + h, "index.html"), html);
-  }
+  fs.mkdirSync(path.join(PUB, c.page.slice(1)), { recursive: true });
+  fs.writeFileSync(path.join(PUB, c.page.slice(1), "index.html"), creatorPage(c));
 }
 
 // sitemap.xml

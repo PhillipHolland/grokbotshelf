@@ -8,6 +8,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
 <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})();(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()</script>
+<script>(function(){var p=location.pathname,m=p.match(/^\/(?:@|%40)([A-Za-z0-9_]+)\/?$/);if(m&&m[1]!==m[1].toLowerCase())location.replace("/@"+m[1].toLowerCase()+location.search+location.hash)})()</script>
 <style>html,body{background:#000;color-scheme:dark}html[data-theme="light"],html[data-theme="light"] body{background:#fff;color-scheme:light}</style>
 <link rel="canonical" href="https://grokbotshelf.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
