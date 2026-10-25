@@ -2457,6 +2457,15 @@
       "url": "https://x.com/nahjuin/status/2114080870483296689",
       "note": "site form #44; skipped by Phillip",
       "date": "2026-10-25"
+    },
+    "2114025117412159523": {
+      "status": "added",
+      "author": "@BurkevonRiddern",
+      "bot": "Christmas Card Bot",
+      "template": "https://x.ai/bot/TH7jKAIh3FOdIkTwZSsZ0",
+      "url": "https://x.com/BurkevonRiddern/status/2114025117412159523",
+      "note": "site queue; ping 2114488976900022618",
+      "date": "2026-10-25"
     }
   }
 }
