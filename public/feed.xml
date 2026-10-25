@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 20:40:59 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 21:38:31 GMT</lastBuildDate>
+  <item>
+    <title>📊 Table Charts by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/table-charts</link>
+    <guid isPermaLink="false">https://x.ai/bot/t_8yyYApjp-KpOi77RujV</guid>
+    <description>Turns a pasted table, CSV or JSON into a live chart or dashboard you can share.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:09 GMT</pubDate>
+  </item>
   <item>
     <title>💪 Mr. Health by Jonathan</title>
     <link>https://grokbotshelf.com/bot/mr-health</link>
@@ -447,15 +456,6 @@
     <dc:creator>WorldWideVibes (@W0rldwid3vib3s)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sun, 25 Oct 2026 12:05:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 Review Brief by T1000</title>
-    <link>https://grokbotshelf.com/bot/review-brief</link>
-    <guid isPermaLink="false">https://x.ai/bot/XftMzXd6cq-DT_ZLvdoy5</guid>
-    <description>Paste a pull request and get a reviewer&apos;s brief: what changed versus the ticket, risky spots with file and line, what to test by hand and questions for the author.</description>
-    <dc:creator>T1000 (@teeRex247)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:19 GMT</pubDate>
   </item>
 </channel>
 </rss>
