@@ -9,9 +9,12 @@
   let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1;
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, more: [] }; }
-  // Unfiltered grouped views show the first GROUP_CAP cards per creator (all of them when only a few more) plus a
-  // "Show N more" button; expanded groups are kept in ?more=a,b. Search and filters always show every match.
-  const GROUP_CAP = 12;
+  // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
+  // kept in ?more=a,b. Featured (the home view) keeps it to one desktop row so the A-Z rail and scrolling stay quick;
+  // Creator sort is for browsing whole catalogs, so it keeps 12 (as before). Small leftovers are shown rather than
+  // hidden behind "Show 1 more". Search and filters always show every match.
+  const GROUP_CAP = { featured: 3, creator: 12 }, GROUP_SLACK = { featured: 1, creator: 3 };
+  let capNow = Infinity;
   const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
@@ -317,14 +320,14 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
     const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() : "";
-    const cap = searching || filtering() ? Infinity : GROUP_CAP;
+    const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
       results.innerHTML = strip + creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
-        const shown = st.more.includes(c.key) || g.length <= cap + 3 ? g : g.slice(0, cap);
+        const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">
-<h2 id="g-${c.key}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button></div>
+<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button></div>
 <div class="grid">${shown.map(([b, m]) => card(b, m)).join("")}</div>${shown.length < g.length ? `<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}">Show ${g.length - shown.length} more</button>` : ""}</section>`;
       }).join("");
     } else {
@@ -334,6 +337,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
     $("#clear").hidden = !(st.q || filtering() || st.sort !== "featured");
     results.removeAttribute("aria-busy");
+    renderRail(grouped);
     active = -1;
     setTitle();
     renderFilters();
@@ -386,7 +390,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   function showMore(key) {
     if (!st.more.includes(key)) st.more = [...st.more, key];
     render(); writeURL(false);
-    const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[GROUP_CAP];
+    const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[capNow];
     if (next) next.focus({ preventScroll: true });
   }
   results.addEventListener("click", (e) => {
@@ -488,11 +492,77 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     let el = document.getElementById(id);
     const hb = bots.find((b) => b._slug === id);
     if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; render(); writeURL(false); el = document.getElementById(id); }
-    if (!el) { st = blank(); syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
+    if (!el) { st = blank(); st.more = [ckey(hb)]; syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
+    if (!el) return;
     el.scrollIntoView({ block: "center" });
     el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
   }
   window.addEventListener("hashchange", openHash);
+
+  /* ---------- A-Z rail: jump to the first creator group under a letter ---------- */
+  // Fixed to the right edge, under the dock. Only letters with a visible group show; it hides on flat views and when
+  // fewer than two letters are left. Tap or click jumps; on touch you can also drag along it (contacts-style).
+  function letterOf(name) {
+    const ch = String(name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/^[^\p{L}\p{N}]+/u, "").charAt(0).toUpperCase();
+    return /[A-Z]/.test(ch) ? ch : "#";
+  }
+  const rail = document.createElement("nav");
+  rail.className = "rail"; rail.id = "rail"; rail.hidden = true;
+  rail.setAttribute("aria-label", "Jump to creators by letter");
+  document.body.append(rail);
+  let railLetters = [];
+  function renderRail(grouped) {
+    const seen = [];
+    if (grouped) for (const h of results.querySelectorAll(".group h2[data-letter]")) if (!seen.includes(h.dataset.letter)) seen.push(h.dataset.letter);
+    const show = seen.length > 1;
+    document.documentElement.classList.toggle("has-rail", show);
+    if (seen.join() === railLetters.join() && rail.hidden === !show) { syncRail(); return; }
+    railLetters = seen; rail.hidden = !show;
+    rail.innerHTML = show ? seen.map((L, i) => `<button type="button" data-l="${L}" tabindex="${i ? -1 : 0}" aria-label="Jump to creators starting with ${L === "#" ? "a number or symbol" : L}">${L}</button>`).join("") : "";
+    syncRail();
+  }
+  function jumpTo(L, focus) {
+    const h = results.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return;
+    const sec = h.closest(".group"), root = document.documentElement;
+    clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void sec.offsetTop;
+    sec.scrollIntoView({ block: "start", behavior: focus === "drag" || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    if (focus === true) h.focus({ preventScroll: true });
+    // Keep every card rendered until the scroll settles so content-visibility estimates can't move the target
+    const done = () => { clearTimeout(jumpT); root.classList.remove("jumping"); syncRail(); window.removeEventListener("scrollend", done); };
+    window.addEventListener("scrollend", done); jumpT = setTimeout(done, 3000);
+    markRail(L);
+  }
+  function markRail(L) {
+    for (const b of rail.children) { const on = b.dataset.l === L; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); }
+  }
+  // Highlight the letter of the group at the top of the screen
+  let railRaf = 0;
+  function syncRail() {
+    if (rail.hidden) return;
+    const top = dock.offsetHeight + 24; let cur = "";
+    for (const h of results.querySelectorAll(".group h2[data-letter]")) { if (h.closest(".group").getBoundingClientRect().top <= top) cur = h.dataset.letter; else break; }
+    markRail(cur);
+  }
+  window.addEventListener("scroll", () => { if (!railRaf) railRaf = requestAnimationFrame(() => { railRaf = 0; syncRail(); }); }, { passive: true });
+  let dragging = false;
+  rail.addEventListener("click", (e) => { const b = e.target.closest("button[data-l]"); if (b && !dragging) jumpTo(b.dataset.l, e.detail === 0); });
+  rail.addEventListener("keydown", (e) => {
+    const bs = [...rail.children], i = bs.indexOf(document.activeElement); if (i < 0) return;
+    const j = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: bs.length - 1 }[e.key];
+    if (j === undefined) return;
+    e.preventDefault(); e.stopPropagation();
+    const n = bs[Math.max(0, Math.min(bs.length - 1, j))];
+    bs.forEach((b) => b.tabIndex = b === n ? 0 : -1); n.focus();
+  });
+  // Touch: drag along the rail to scrub through letters
+  let lastL = "";
+  const atPoint = (e) => { const el = document.elementFromPoint(rail.getBoundingClientRect().left + rail.offsetWidth / 2, e.clientY); return el && el.closest && el.closest("#rail button[data-l]"); };
+  rail.addEventListener("pointerdown", (e) => { if (e.pointerType !== "touch") return; dragging = false; lastL = ""; });
+  rail.addEventListener("touchmove", (e) => {
+    const t = e.touches[0], b = t && atPoint(t); e.preventDefault();
+    if (b && b.dataset.l !== lastL) { dragging = true; lastL = b.dataset.l; jumpTo(lastL, "drag"); }
+  }, { passive: false });
+  rail.addEventListener("touchend", () => { if (dragging) setTimeout(() => { dragging = false; }, 50); });
 
   /* ---------- Boot ---------- */
   const deep = (u) => { const m = String(u || "").match(/^https:\/\/x\.ai\/bot\/([A-Za-z0-9_-]+)\/?$/); return m ? "grokbot://app/v1/bot-template?id=" + m[1] : ""; };

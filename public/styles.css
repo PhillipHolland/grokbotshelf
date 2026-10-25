@@ -271,3 +271,17 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp-panel dd ul{list-style:none;margin:0;padding:0}
 
 .card{cursor:pointer}
+
+/* A-Z rail: fixed to the right edge under the dock, jumps to the first creator group per letter (app.js) */
+.rail{position:fixed;z-index:15;right:max(4px,env(safe-area-inset-right));top:calc(var(--dock-h,110px) + 10px);bottom:max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;width:26px;pointer-events:none}
+.rail[hidden]{display:none}
+.rail button{pointer-events:auto;flex:0 1 22px;min-height:12px;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.rail button:hover{background:var(--mark);color:var(--blue)}
+.rail button.on{color:var(--blue)}
+.rail button:focus-visible{box-shadow:0 0 0 2px var(--blue)}
+.ghead h2:focus{outline:none}
+/* Wide screens: the rail sits in the empty margin beside the 1120px column */
+@media (min-width:1200px){.rail{right:max(12px,calc((100vw - 1120px) / 2 - 44px))}}
+/* Narrower screens: a thin strip on the edge; give the main column a little extra right padding so cards never sit under it */
+@media (max-width:1199px){html.has-rail main.wrap{padding-right:max(30px,calc(env(safe-area-inset-right) + 28px))}}
+@media (max-width:640px){.rail{width:20px;right:max(2px,env(safe-area-inset-right))}.rail button{width:20px;font-size:10px;touch-action:none}html.has-rail main.wrap{padding-right:max(24px,calc(env(safe-area-inset-right) + 22px))}}

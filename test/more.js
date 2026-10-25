@@ -1,4 +1,4 @@
-// Home page speed work: 12 cards per creator with Show more (kept in ?more=), search and filters over every bot,
+// Home page speed work: 3 cards per creator on Featured with Show more (kept in ?more=), search and filters over every bot,
 // deep links to a card hidden by the cap, the single shelf-data.json request, and the 48px avatars.
 // Usage: NODE_PATH=/path/to/node_modules node test/more.js [base-url]
 const puppeteer = require('puppeteer-core');
@@ -8,8 +8,8 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
 const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
-  const by = (h) => BOTS.filter((x) => ckey(x) === h), CAP = 12;
-  const capped = [...new Set(BOTS.map(ckey))].filter((k) => by(k).length > CAP + 3).sort((a, b) => by(b).length - by(a).length);
+  const by = (h) => BOTS.filter((x) => ckey(x) === h), CAP = 3;
+  const capped = [...new Set(BOTS.map(ckey))].filter((k) => by(k).length > CAP + 1).sort((a, b) => by(b).length - by(a).length);
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   const errs = []; p.on('pageerror', e => errs.push(e.message));
@@ -19,7 +19,7 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   ok(json.length === 1 && /^\/shelf-data\.json\?v=[0-9a-f]{10}$/.test(json[0]), 'home loads one data file at a versioned URL: ' + json.join(', '));
   const inGroup = (k) => p.$$eval(`[aria-labelledby="g-${k}"] .card`, c => c.map(x => x.querySelector('h3').textContent));
   const btn = (k) => p.$(`[data-more="${k}"]`);
-  ok(capped.length > 0, `${capped.length} creators have more than ${CAP + 3} bots: ${capped.join(', ')}`);
+  ok(capped.length > 0, `${capped.length} creators have more than ${CAP + 1} bots: ${capped.join(', ')}`);
   let good = true;
   for (const k of capped) { const names = await inGroup(k), t = await p.$eval(`[data-more="${k}"]`, e => e.textContent).catch(() => ''); if (names.length !== CAP || t !== `Show ${by(k).length - CAP} more`) good = false; }
   ok(good, `each long group shows ${CAP} cards and a "Show N more" button`);

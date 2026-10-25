@@ -8,9 +8,9 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const TOTAL = BOTS.length, by = (h) => BOTS.filter((x) => ckey(x) === h);
-  // The unfiltered home shows the first 12 bots per creator (all of them when a creator has 15 or fewer) plus a Show more button
-  const CAP = 12, groups = [...new Set(BOTS.map(ckey))].map((k) => [k, by(k).length]);
-  const HOME = groups.reduce((t, [, c]) => t + (c <= CAP + 3 ? c : CAP), 0), capped = groups.filter(([, c]) => c > CAP + 3);
+  // The unfiltered home shows the first 3 bots per creator (all of them when a creator has 4 or fewer) plus a Show more button
+  const CAP = 3, groups = [...new Set(BOTS.map(ckey))].map((k) => [k, by(k).length]);
+  const HOME = groups.reduce((t, [, c]) => t + (c <= CAP + 1 ? c : CAP), 0), capped = groups.filter(([, c]) => c > CAP + 1);
   // typing re-renders after a 100ms debounce
   const settle = () => new Promise(r => setTimeout(r, 250));
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
@@ -23,7 +23,7 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   // Shelf cards only; the "From the builders" strip repeats a few bots with f- ids
   const n = () => p.$$eval('#results .card:not([id^="f-"])', c => c.length);
-  ok(await n() === HOME, `home renders ${HOME} of ${TOTAL} cards, 12 per long group (${await n()})`);
+  ok(await n() === HOME, `home renders ${HOME} of ${TOTAL} cards, ${CAP} per long group (${await n()})`);
   ok((await p.$eval('#count', e => e.textContent)) === `${TOTAL} bots`, `count says ${TOTAL} bots`);
   // typo search
   await p.type('#q', 'secruity'); await settle();
