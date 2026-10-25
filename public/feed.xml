@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 14:16:20 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 14:17:12 GMT</lastBuildDate>
+  <item>
+    <title>🪞 Second Opinion by Glen Little</title>
+    <link>https://grokbotshelf.com/bot/second-opinion</link>
+    <guid isPermaLink="false">https://x.ai/bot/_UobKTa_U-a7K6MSQrgmL</guid>
+    <description>A calm, kind second look at messages, posts, purchases, and decisions before you send them.</description>
+    <dc:creator>Glen Little (@glenlittle)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:42 GMT</pubDate>
+  </item>
   <item>
     <title>☕ Gate Coffee by Randy Hentz</title>
     <link>https://grokbotshelf.com/bot/gate-coffee</link>
@@ -447,15 +456,6 @@
     <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
     <category>Security</category>
     <pubDate>Sat, 24 Oct 2026 12:03:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧳 Family Travel &amp; PTO Planner by Grease</title>
-    <link>https://grokbotshelf.com/bot/family-travel-and-pto-planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/CAboHRIpMlLDU6mwnByCq</guid>
-    <description>Plans family trips around your PTO balance, compares flights and lodging, and builds road-trip and National Park sheets with permit deadlines.</description>
-    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
-    <category>Travel</category>
-    <pubDate>Sat, 24 Oct 2026 12:03:55 GMT</pubDate>
   </item>
 </channel>
 </rss>

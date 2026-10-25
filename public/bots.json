@@ -3666,5 +3666,18 @@
     "creator_avatar": "/avatars/j3pup.webp",
     "source_post": "https://x.com/j3pup/status/2114350649353949208",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Second Opinion",
+    "emoji": "🪞",
+    "description": "A calm, kind second look at messages, posts, purchases, and decisions before you send them.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/_UobKTa_U-a7K6MSQrgmL",
+    "creator_name": "Glen Little",
+    "creator_handle": "@glenlittle",
+    "creator_url": "https://x.com/glenlittle",
+    "creator_avatar": "/avatars/glenlittle.webp",
+    "source_post": "https://x.com/glenlittle/status/2114351470149861648",
+    "added": "2026-10-25"
   }
 ]
