@@ -3471,5 +3471,18 @@
     "creator_avatar": "/avatars/probpolemicist.webp",
     "source_post": "https://x.com/ProbPolemicist/status/2114224367118746039",
     "added": "2026-10-25"
+  },
+  {
+    "name": "OmaBot",
+    "emoji": "🐧",
+    "description": "Runs Omarchy, DHH's Arch + Hyprland desktop, in the Try Omarchy VM on its own computer and does your Omarchy tasks there: themes, plugins, packages.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/u6bOakyX1Y3CO3S_aHYIx",
+    "creator_name": "Tom Ballard",
+    "creator_handle": "@tcballard",
+    "creator_url": "https://x.com/tcballard",
+    "creator_avatar": "/avatars/tcballard.webp",
+    "source_post": "https://x.com/tcballard/status/2114279750630055950",
+    "added": "2026-10-25"
   }
 ]
