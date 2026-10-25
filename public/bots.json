@@ -2106,5 +2106,44 @@
     "creator_avatar": "/avatars/lisamausa.webp",
     "source_post": "https://x.com/lisamausa/status/2114193637047185833",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Vet Bill & Pet Care Buddy",
+    "emoji": "🐾",
+    "description": "Snap a vet estimate, invoice, lab sheet, or pet food label for plain-English explanations, questions to ask your vet, and a Pet Health Board.",
+    "category": "Health",
+    "url": "https://x.ai/bot/ke89GCZ0ed3B9OXyuIJ-r",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114197732671803791",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Strong & Graceful Fitness",
+    "emoji": "💪",
+    "description": "Realistic 20-minute joint-friendly strength workouts, walking plans, spoken pep talks, and 30g protein meal ideas for busy women.",
+    "category": "Fitness",
+    "url": "https://x.ai/bot/zb-IMGVSmOd-EmlA9-8dR",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114197732671803791",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Daily Grace & Prayer Closet",
+    "emoji": "🙏",
+    "description": "Spoken 2-minute morning audio devotional, scripture encouragement for your season, and a private Prayer & Answered-Prayers Journal Page.",
+    "category": "Faith",
+    "url": "https://x.ai/bot/kZm_QX-CTAOEAiBD4721G",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114197732671803791",
+    "added": "2026-10-24"
   }
 ]
