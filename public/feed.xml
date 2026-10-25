@@ -6,7 +6,79 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 21:50:41 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 22:07:12 GMT</lastBuildDate>
+  <item>
+    <title>🏈 Fantasy Sports by Chef</title>
+    <link>https://grokbotshelf.com/bot/fantasy-sports</link>
+    <guid isPermaLink="false">https://x.ai/bot/zdtZr6guuUGo0niY7AxtV</guid>
+    <description>Sets fantasy football and basketball lineups and suggests adds, drops and trades on ESPN, Yahoo or Sleeper, with your OK.</description>
+    <dc:creator>Chef ()</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛡️ Bot Budget Guard by MikeysMolecules</title>
+    <link>https://grokbotshelf.com/bot/bot-budget-guard</link>
+    <guid isPermaLink="false">https://x.ai/bot/CFNwEKsM5nPPRQhPVZMCD</guid>
+    <description>Keeps a team of Grok Bots inside a weekly usage budget.</description>
+    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎨 Art Bot by MikeysMolecules</title>
+    <link>https://grokbotshelf.com/bot/art-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/uMHJk_yjZLpxC0GQfT4aK</guid>
+    <description>A creative director that builds your brand style guide and keeps visuals on-brand.</description>
+    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
+    <category>Design</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Growth Coach by MikeysMolecules</title>
+    <link>https://grokbotshelf.com/bot/growth-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/RoXlJdzMAG7i-eSLOs1dy</guid>
+    <description>Tracks your daily X growth pace and gives feedback on your posts. Read-only.</description>
+    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 Dig by iLytzki</title>
+    <link>https://grokbotshelf.com/bot/dig</link>
+    <guid isPermaLink="false">https://x.ai/bot/WfsIMbuNYJ0RuzGCIB3ql</guid>
+    <description>Deep research on any question, with sources and diagrams.</description>
+    <dc:creator>iLytzki (@iLytzki)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>⛏️ Solo Pleb by Bolster_15</title>
+    <link>https://grokbotshelf.com/bot/solo-pleb</link>
+    <guid isPermaLink="false">https://x.ai/bot/oChSdlBrXdqrlHBmYCvhT</guid>
+    <description>Watches your solo Bitcoin miner, pool and node, and pings you on notable events. Never moves money.</description>
+    <dc:creator>Bolster_15 (@Bolster_15)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🥊 Contrarian by CaliLumberJack</title>
+    <link>https://grokbotshelf.com/bot/contrarian</link>
+    <guid isPermaLink="false">https://x.ai/bot/BawAoz1FeYXd6HzBqWntt</guid>
+    <description>A thinking partner that argues the other side of your plan and runs a pre-mortem before you commit.</description>
+    <dc:creator>CaliLumberJack (@CaliLumberJack)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Podcast Clipper for X by wayneb</title>
+    <link>https://grokbotshelf.com/bot/podcast-clipper-for-x</link>
+    <guid isPermaLink="false">https://x.ai/bot/9Lqx9JK4j4sGUwPBr2O2w</guid>
+    <description>Turns a podcast or YouTube episode into 8 to 12 captioned square clips, each with an X post draft.</description>
+    <dc:creator>wayneb (@wayneb)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:20 GMT</pubDate>
+  </item>
   <item>
     <title>🔭 Rivaldo bot by nahjuin</title>
     <link>https://grokbotshelf.com/bot/rivaldo-bot</link>
@@ -384,78 +456,6 @@
     <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
     <category>Money</category>
     <pubDate>Sun, 25 Oct 2026 12:05:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎲 Small Bets Radar by Gladstone</title>
-    <link>https://grokbotshelf.com/bot/small-bets-radar</link>
-    <guid isPermaLink="false">https://x.ai/bot/Vf_cDXA2hceSf1A7TVxEF</guid>
-    <description>Builds a queue of cheap, fast experiments that fit in a few hours and aim to buy you money, information or a new opportunity.</description>
-    <dc:creator>Gladstone (@maverickmath)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥫 Tasha from Remake by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/tasha-from-remake</link>
-    <guid isPermaLink="false">https://x.ai/bot/6uiMlKHynvYyO4v4D8yq2</guid>
-    <description>Explains food label ingredients in plain words, suggests allergy-friendly swaps, and shares simple family recipes.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:36 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏘️ Realtor Reply Desk by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/realtor-reply-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/Mgc3ST0aZZMl0usyiaoe_</guid>
-    <description>Builds public-fact realtor lists by ZIP, finds realtor groups and their organizers, and drafts soft outreach for Realtor Reply AI.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:35 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Agency Pilot by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/agency-pilot</link>
-    <guid isPermaLink="false">https://x.ai/bot/ZSu98od4TaQFG4-2gpAVf</guid>
-    <description>Gives your bots an agency team for SEO posts, social posts, client reports, GA4 insights, competitor research and content calendars.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎨 POD &amp; Printable Boutique Studio by Lisa</title>
-    <link>https://grokbotshelf.com/bot/pod-and-printable-boutique-studio</link>
-    <guid isPermaLink="false">https://x.ai/bot/uFPjya5oVUr0-Oo_9dVnS</guid>
-    <description>A coach for Etsy, Shopify, Printify and Gumroad sellers that writes SEO titles and tags, audits product mockups and works out net profit after platform fees.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🀄 Mahjong, Pickleball &amp; Book Club Hostess HQ by Lisa</title>
-    <link>https://grokbotshelf.com/bot/mahjong-pickleball-and-book-club-hostess-hq</link>
-    <guid isPermaLink="false">https://x.ai/bot/GLDFD6EeedS4QrVZ7FMMh</guid>
-    <description>Plans club nights for Mahjong groups, Pickleball round-robins and book clubs, with balanced brackets and table rotations, hostess and potluck sign-ups, and a shareable club page.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏡 Mortgage Payoff &amp; Bonus Snowball Planner by Lisa</title>
-    <link>https://grokbotshelf.com/bot/mortgage-payoff-and-bonus-snowball-planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/zSos6gcvyO5J2kbU0Z6GZ</guid>
-    <description>Shows how extra principal, biweekly payments and yearly bonuses can shorten your mortgage and cut interest, on an interactive payoff simulator page.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔨 Roof, Water &amp; Contractor Bid Auditor by Lisa</title>
-    <link>https://grokbotshelf.com/bot/roof-water-and-contractor-bid-auditor</link>
-    <guid isPermaLink="false">https://x.ai/bot/QwHVGj9mw3pfvInaS27NE</guid>
-    <description>Audits roofing, water-mitigation, plumbing, HVAC and remodel bids line by line, flags padded markups, vague lump sums and missing specs, and builds a side-by-side bid scorecard.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:30 GMT</pubDate>
   </item>
 </channel>
 </rss>

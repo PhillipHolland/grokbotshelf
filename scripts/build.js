@@ -171,7 +171,7 @@ ${HEADER}
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
-      <p class="sub"><a href="/${"@" + esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a><span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
+      <p class="sub">${ckey(b) ? `<a href="/@${esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a>` : esc(b.creator_name)}<span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
     </div></div>
     <p class="bp-desc">${esc(desc)}</p>
     ${badges ? `<div class="badges">${badges}</div>` : ""}
@@ -184,7 +184,7 @@ ${HEADER}
       ${b.source_post ? `<a href="${esc(b.source_post)}" rel="noopener" target="_blank">Original post</a>` : ""}
       ${b.code_url ? `<a href="${esc(b.code_url)}" rel="noopener" target="_blank">Source code</a>` : ""}
       <a href="/#bot-${b.slug}">See it on the shelf</a>
-      <a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>
+      ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}
     </p>
     ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
@@ -232,6 +232,7 @@ function pick(g, f) {
   const top = Math.max(...n.values());
   return f(g.slice().sort(newestFirst).find((b) => n.get(f(b)) === top));
 }
+groups.delete(""); // bots with no known handle get no creator page
 const creatorList = [...groups].map(([k, g]) => ({ bots: g, handle: pick(g, handleOf), name: pick(g, (b) => b.creator_name), url: pick(g, (b) => b.creator_url), avatar: pick(g, (b) => b.creator_avatar), page: "/@" + k }));
 const fmtDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
 function creatorPage(c) {
