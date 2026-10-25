@@ -237,6 +237,54 @@
       "bot": "Kindle Courier",
       "url": "https://x.com/DomainMaster/status/2114023099570254249",
       "date": "2026-10-24"
+    },
+    "2114138832966910246": {
+      "status": "pending",
+      "bot": "NBA Daily Insider",
+      "author": "@drbellahqw",
+      "template_url": "https://x.ai/bot/WTU_wWHNyJfXqjPv_ES_C",
+      "url": "https://x.com/drbellahqw/status/2114138832966910246",
+      "date": "2026-10-24"
+    },
+    "2114140818646642935": {
+      "status": "pending",
+      "bot": "Kitchen, News Desk",
+      "author": "@jayzetd",
+      "template_url": "https://x.ai/bot/5eVWbPiZUJt8HPqnjVlpG, https://x.ai/bot/BdGz16p0hr4r9xTq1hq7U",
+      "url": "https://x.com/jayzetd/status/2114140818646642935",
+      "date": "2026-10-24"
+    },
+    "2114143491173585155": {
+      "status": "pending",
+      "bot": "Usage Meter",
+      "author": "@testafortedev",
+      "template_url": "https://x.ai/bot/ghQHDlYosLrZMB3pU0iEg",
+      "url": "https://x.com/testafortedev/status/2114143491173585155",
+      "date": "2026-10-24"
+    },
+    "2114143722610803142": {
+      "status": "pending",
+      "bot": "Game Dev Pro",
+      "author": "@testafortedev",
+      "template_url": "https://x.ai/bot/d4fN8HvCtpn8DLwP5fTyq",
+      "url": "https://x.com/testafortedev/status/2114143722610803142",
+      "date": "2026-10-24"
+    },
+    "2114145266509230329": {
+      "status": "added",
+      "bot": "Digger",
+      "author": "@gambrill",
+      "template_url": "https://x.ai/bot/bc99j3Rwo4m3Qv6bnIOkG",
+      "url": "https://x.com/gambrill/status/2114145266509230329",
+      "date": "2026-10-24"
+    },
+    "2114144886341636292": {
+      "status": "not_a_request",
+      "bot": "Kindle Courier (already on shelf)",
+      "author": "@DomainMaster",
+      "template_url": "https://x.ai/bot/LXZMn9iFYykfjhOdwffV6",
+      "url": "https://x.com/DomainMaster/status/2114144886341636292",
+      "date": "2026-10-24"
     }
   }
 }
