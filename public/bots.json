@@ -1144,5 +1144,44 @@
     "source_post": "https://x.com/SuddenlyJon/status/2114155308410937645",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "OweNo",
+    "emoji": "💳",
+    "description": "Debt payoff planner — statements first, ranked payoff plans, and Rate Trap Radar for bad APR deals.",
+    "category": "Finance",
+    "url": "https://x.ai/bot/V2dAQ_bDsv2OvNNOf_8et",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114155504096236021",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Payday Pilot",
+    "emoji": "🏦",
+    "description": "Cash floor coach that keeps everyday checking above a floor until payday — one briefing, never pays for you.",
+    "category": "Finance",
+    "url": "https://x.ai/bot/2Kp147ZrxyeIV3JJfQy1X",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114155724607512738",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "RezBot",
+    "emoji": "🍽️",
+    "description": "Books restaurant reservations on OpenTable, Resy, Tock, or the restaurant site — you confirm, it places it.",
+    "category": "Food",
+    "url": "https://x.ai/bot/JnDyu7X7D2qZDR1R3IcPU",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114155995546988616",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
