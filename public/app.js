@@ -292,7 +292,12 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   }
   const weekAgo = () => { const d = new Date(Date.now() - 6 * 864e5); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
   const bmOf = (b) => (b._social ? b._social.bookmarks : -1);
+  // Typing re-renders at most every 100ms; anything that reads the cards right away calls flush() first
+  let renderT = 0;
+  const renderSoon = () => { clearTimeout(renderT); renderT = setTimeout(render, 100); };
+  const flush = () => { if (renderT) render(); };
   function render() {
+    clearTimeout(renderT); renderT = 0;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
@@ -349,7 +354,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
 
   /* ---------- Events ---------- */
   let typing;
-  q.addEventListener("input", () => { st.q = q.value; render(); clearTimeout(typing); typing = setTimeout(() => writeURL(false), 250); });
+  q.addEventListener("input", () => { st.q = q.value; renderSoon(); clearTimeout(typing); typing = setTimeout(() => writeURL(false), 250); });
   sortEl.addEventListener("change", () => set({ sort: sortEl.value }, true));
   creatorEl.addEventListener("change", () => set({ creator: creatorEl.value }, true));
   catsEl.addEventListener("change", () => { if (catsEl.value !== "__multi") set({ cats: catsEl.value ? [catsEl.value] : [] }, true); });
@@ -412,6 +417,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   }
   document.addEventListener("keydown", (e) => {
     const t = document.activeElement, inSearch = t === q, onCard = t && t.classList && t.classList.contains("card");
+    if (inSearch && /^(Arrow|Enter$)/.test(e.key)) flush();
     if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !inSearch && !/INPUT|SELECT|TEXTAREA/.test(t.tagName))) {
       e.preventDefault(); q.focus(); q.select(); return;
     }
