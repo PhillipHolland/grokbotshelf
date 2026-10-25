@@ -3484,5 +3484,18 @@
     "creator_avatar": "/avatars/tcballard.webp",
     "source_post": "https://x.com/tcballard/status/2114279750630055950",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Pep",
+    "emoji": "🧪",
+    "description": "Tracks your peptide protocol: reconstitution math, dose log, vial inventory and shot-day reminders. It calculates and logs what you already decided; it never prescribes or sources.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/3OBkFpa32HssSRWc_0zfD",
+    "creator_name": "Dave Gambrill",
+    "creator_handle": "@gambrill",
+    "creator_url": "https://x.com/gambrill",
+    "creator_avatar": "/avatars/gambrill.webp",
+    "source_post": "https://x.com/gambrill/status/2114275013629214794",
+    "added": "2026-10-25"
   }
 ]
