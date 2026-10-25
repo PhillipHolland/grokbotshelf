@@ -6,7 +6,322 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 20:16:51 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 20:40:59 GMT</lastBuildDate>
+  <item>
+    <title>💪 Mr. Health by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/mr-health</link>
+    <guid isPermaLink="false">https://x.ai/bot/wUGvc7oqCZPj_mHaYxYbi</guid>
+    <description>A firm, practical fitness coach that tracks wearable and weight data and builds weekly workouts at three difficulty levels.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛒 Mr. Cartwright by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/mr-cartwright</link>
+    <guid isPermaLink="false">https://x.ai/bot/w4d1Qj-byuNtISAyyitYa</guid>
+    <description>Compares real grocery and household prices, builds weekly deal sheets and a coupon wallet, and stops at the cart until you approve.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚡ Grok by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/grok</link>
+    <guid isPermaLink="false">https://x.ai/bot/Wcrnj5KLs35EV2LO1Jxq7</guid>
+    <description>An on-the-go field desk for quick questions, brainstorming, and plain-English research takes with rough odds and real sources.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 Job Search Operator by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/job-search-operator</link>
+    <guid isPermaLink="false">https://x.ai/bot/8kas3kfny1p0N7PsT5jAT</guid>
+    <description>Finds openings that fit you, scores them, and drafts application packets and LinkedIn notes; never submits without your OK.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>🖥️ PC Steward by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/pc-steward</link>
+    <guid isPermaLink="false">https://x.ai/bot/TeEdtOdobgymTchbFqzzW</guid>
+    <description>Keeps a Windows PC fast and safe with weekday read-only health checks, Defender and firewall watch, and approval-gated fixes.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>✍️ Ms. Scribe by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/ms-scribe</link>
+    <guid isPermaLink="false">https://x.ai/bot/_z8j7TViBpvmQ9mlxRDec</guid>
+    <description>Turns notes into clean prose, drafts email replies, preps meeting briefs, and writes search-ready content briefs.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 Research Desk by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/research-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/z7pQN9VX-vOK5Bo69G9OJ</guid>
+    <description>Cited public-source research for digests and weekly topic watches, with every claim linked and nothing invented.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>💹 Finance Advisor by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/finance-advisor</link>
+    <guid isPermaLink="false">https://x.ai/bot/1gepkjYj4Ogl2nKxgopZV</guid>
+    <description>Read-only portfolio advisor for holdings digests, valuation and filings checks, large-flow alerts and research; never places trades.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧐 Ms. Reviewenstein by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/ms-reviewenstein</link>
+    <guid isPermaLink="false">https://x.ai/bot/PHDJvQ4Zi_2rjLzrsB3mo</guid>
+    <description>Peer-critique bot that reviews teammates&apos; big calls on workflow, architecture, spend and skills for up to 3 rounds.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚪 Pyloros by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/pyloros</link>
+    <guid isPermaLink="false">https://x.ai/bot/AhIWTST8c-hlJdC4Bdu8W</guid>
+    <description>A skill-quality gate that tests skills like code with planted-bad evals, held-out checks and rollback on regression; proposals only.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>⭐ StarMind by Jonathan</title>
+    <link>https://grokbotshelf.com/bot/starmind</link>
+    <guid isPermaLink="false">https://x.ai/bot/gpPjBLipn7IDb7AWPBnmV</guid>
+    <description>A chief-of-staff bot that delegates every request to specialist bots, checks their work, and only brings you real decisions.</description>
+    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧟 Igor by Carolina</title>
+    <link>https://grokbotshelf.com/bot/igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/rlsYKIwQ5gb1W95xvIwb1</guid>
+    <description>A helper for your main bot-builder bot that takes heavy drafting and checking jobs for your fleet, works in files, and reports back.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>♊ Gemini by Carolina</title>
+    <link>https://grokbotshelf.com/bot/gemini</link>
+    <guid isPermaLink="false">https://x.ai/bot/WfZ3x5iRCgsCJOzmdIc0n</guid>
+    <description>Sends your questions to Google Gemini and brings back its answers, labeled, using your own free Gemini API key.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔭 GrokBotScout by Carolina</title>
+    <link>https://grokbotshelf.com/bot/grokbotscout</link>
+    <guid isPermaLink="false">https://x.ai/bot/_KMuKhK4yVbCD8BVLhvAP</guid>
+    <description>Scouts public Grok Bot templates and shares batches of 7 with ADD, ADD-NARROW or SKIP verdicts; read-only on X.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>📬 YahooMail by Carolina</title>
+    <link>https://grokbotshelf.com/bot/yahoomail</link>
+    <guid isPermaLink="false">https://x.ai/bot/Aa6nFqk71RxxweZrhJ4MJ</guid>
+    <description>Clears and files your Yahoo Mail by exact sender when you ask, with a Next 10 list of the busiest senders.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>📧 Gmail by Carolina</title>
+    <link>https://grokbotshelf.com/bot/gmail</link>
+    <guid isPermaLink="false">https://x.ai/bot/ApK8jWrzfQJP9LZOjNkSp</guid>
+    <description>Clears and files your Gmail on request (trash, trash plus filter, or file to label) and ranks the senders cluttering your inbox.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:53 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧳 TripConcierge by Carolina</title>
+    <link>https://grokbotshelf.com/bot/tripconcierge</link>
+    <guid isPermaLink="false">https://x.ai/bot/bze8MHCEZCkRP_Dw7uqw5</guid>
+    <description>Researches a sourced trip brief for any destination (flights, hotels, sights, safety, day-by-day, budget) and only recommends.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>📖 KJVBible by Carolina</title>
+    <link>https://grokbotshelf.com/bot/kjvbible</link>
+    <guid isPermaLink="false">https://x.ai/bot/A7LELRVRh9WorYfGaTaXT</guid>
+    <description>Answers what the King James Bible says on any subject with book, chapter and verse, plus an optional Spanish Reina Valera answer.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗽 ImmigrationGuide by Carolina</title>
+    <link>https://grokbotshelf.com/bot/immigrationguide</link>
+    <guid isPermaLink="false">https://x.ai/bot/GtZXU_8Lia_a2DZKAIhOO</guid>
+    <description>Explains legal ways to immigrate to or stay in the U.S. and how to spot immigration scams, citing live official government pages.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:50 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐷 FamilyBank by Carolina</title>
+    <link>https://grokbotshelf.com/bot/familybank</link>
+    <guid isPermaLink="false">https://x.ai/bot/DKZKpx6r0GTrfLUUxqkWx</guid>
+    <description>A pretend family bank that tracks each person&apos;s money in a private ledger, pays compound interest at your rate, and makes friendly statements.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:49 GMT</pubDate>
+  </item>
+  <item>
+    <title>🇨🇴 SpanishReviewer by Carolina</title>
+    <link>https://grokbotshelf.com/bot/spanishreviewer</link>
+    <guid isPermaLink="false">https://x.ai/bot/wFJC3guVIn2Ke-OV9_Yuy</guid>
+    <description>Reviews Spanish copy for natural Colombian Spanish and returns Pass or Fail with paste-ready fixes.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:48 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧽 CleanText by Carolina</title>
+    <link>https://grokbotshelf.com/bot/cleantext</link>
+    <guid isPermaLink="false">https://x.ai/bot/Bz7NPA38GwTUNZNuy6Fgb</guid>
+    <description>Finds hidden invisible characters (zero-width spaces, tag characters, direction marks, odd spaces) in pasted text, screenshots or files.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:47 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏷️ DealScout by Carolina</title>
+    <link>https://grokbotshelf.com/bot/dealscout</link>
+    <guid isPermaLink="false">https://x.ai/bot/cYyDDpxpj7v6Yz9fct4Pk</guid>
+    <description>Finds the best-reviewed products at good prices, compares options across stores, and can watch for price drops.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:46 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤝 FounderSales by Carolina</title>
+    <link>https://grokbotshelf.com/bot/foundersales</link>
+    <guid isPermaLink="false">https://x.ai/bot/NWZOp_PkJhy87qGDCzGKi</guid>
+    <description>A founder-led sales helper that researches prospects, drafts outreach for you to approve, and keeps follow-ups from slipping.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:45 GMT</pubDate>
+  </item>
+  <item>
+    <title>🥗 Meal Planner (Tobi) by Tobi</title>
+    <link>https://grokbotshelf.com/bot/meal-planner-tobi</link>
+    <guid isPermaLink="false">https://x.ai/bot/eR7mprRgakZkbxZyC2rz_</guid>
+    <description>Plans your week&apos;s meals around what your household likes, what&apos;s on sale nearby and what&apos;s in the fridge, with one shopping list.</description>
+    <dc:creator>Tobi (@webgebraeu)</dc:creator>
+    <category>Food</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎁 Grokmas Elf by Kyle</title>
+    <link>https://grokbotshelf.com/bot/grokmas-elf</link>
+    <guid isPermaLink="false">https://x.ai/bot/9KHKFs8BhzSwRkL9-3D9T</guid>
+    <description>Enrolls your bot in Grokmas, a US-only bot-to-bot Secret Santa, builds your wishlist, and buys and ships a gift for your match.</description>
+    <dc:creator>Kyle (@SnarfLab)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌐 Domain Scout by Kyle</title>
+    <link>https://grokbotshelf.com/bot/domain-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/J4vRgDCnJcK5EaUUlP-FR</guid>
+    <description>Finds brand-new domain names across .com, .ai, .io and more, confirms they&apos;re free at the registry, and compares registrar prices.</description>
+    <dc:creator>Kyle (@SnarfLab)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>👶 Kids&apos; Trump Account, Roth &amp; 529 Coach by Lisa</title>
+    <link>https://grokbotshelf.com/bot/kids-trump-account-roth-and-529-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/iLJ4-ty77DF67lbm-AIa7</guid>
+    <description>Plain-English family wealth coach for Kids&apos; Trump Accounts (530A), teen custodial Roth IRAs, 529 plans and 529-to-Roth rollovers.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Mr Bot Goes to Washington by Marshall</title>
+    <link>https://grokbotshelf.com/bot/mr-bot-goes-to-washington</link>
+    <guid isPermaLink="false">https://x.ai/bot/a5ImxsxRQtzDo-qAKWdkG</guid>
+    <description>A nonpartisan Capitol Hill desk that tracks new bills twice daily and writes plain-English bill briefs for anyone who works with Congress.</description>
+    <dc:creator>Marshall (@marshallfrith)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>💍 Super Wedding Planning Bot by Marshall</title>
+    <link>https://grokbotshelf.com/bot/super-wedding-planning-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/WyyMPlEpIvd_7so5LGvNH</guid>
+    <description>A warm, organized wedding planner that builds your guest list, compares venues, keeps a master schedule, and drafts vendor emails.</description>
+    <dc:creator>Marshall (@marshallfrith)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Scholarship Scout by Hudson S.</title>
+    <link>https://grokbotshelf.com/bot/scholarship-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/TVjmqBUvLv0baNwDl8xcd</guid>
+    <description>Finds scholarships, grants and fellowships you or a family member qualify for, flags scams, and drafts essays for your review.</description>
+    <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎲 Small Bets Radar by Gladstone</title>
+    <link>https://grokbotshelf.com/bot/small-bets-radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/Vf_cDXA2hceSf1A7TVxEF</guid>
+    <description>Builds a queue of cheap, fast experiments that fit in a few hours and aim to buy you money, information or a new opportunity.</description>
+    <dc:creator>Gladstone (@maverickmath)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>🥫 Tasha from Remake by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/tasha-from-remake</link>
+    <guid isPermaLink="false">https://x.ai/bot/6uiMlKHynvYyO4v4D8yq2</guid>
+    <description>Explains food label ingredients in plain words, suggests allergy-friendly swaps, and shares simple family recipes.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Food</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏘️ Realtor Reply Desk by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/realtor-reply-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/Mgc3ST0aZZMl0usyiaoe_</guid>
+    <description>Builds public-fact realtor lists by ZIP, finds realtor groups and their organizers, and drafts soft outreach for Realtor Reply AI.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Agency Pilot by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/agency-pilot</link>
+    <guid isPermaLink="false">https://x.ai/bot/ZSu98od4TaQFG4-2gpAVf</guid>
+    <description>Gives your bots an agency team for SEO posts, social posts, client reports, GA4 insights, competitor research and content calendars.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:34 GMT</pubDate>
+  </item>
   <item>
     <title>🎨 POD &amp; Printable Boutique Studio by Lisa</title>
     <link>https://grokbotshelf.com/bot/pod-and-printable-boutique-studio</link>
@@ -28,7 +343,7 @@
   <item>
     <title>🏡 Mortgage Payoff &amp; Bonus Snowball Planner by Lisa</title>
     <link>https://grokbotshelf.com/bot/mortgage-payoff-and-bonus-snowball-planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/zSos6gcvyO5j2kbU0Z6GZ</guid>
+    <guid isPermaLink="false">https://x.ai/bot/zSos6gcvyO5J2kbU0Z6GZ</guid>
     <description>Shows how extra principal, biweekly payments and yearly bonuses can shorten your mortgage and cut interest, on an interactive payoff simulator page.</description>
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Money</category>
@@ -141,321 +456,6 @@
     <dc:creator>T1000 (@teeRex247)</dc:creator>
     <category>Developer</category>
     <pubDate>Sun, 25 Oct 2026 12:05:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 Side-Hustle Scout by Lisa</title>
-    <link>https://grokbotshelf.com/bot/side-hustle-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/EaSQSG9AAeUBWnQa1y--4</guid>
-    <description>Scans X, creator platforms and print-on-demand marketplaces for legitimate low-time income ideas, filters out scams and course sellers, and scores each one.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>📚 JAMB Practice Coach by Adebusola</title>
-    <link>https://grokbotshelf.com/bot/jamb-practice-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/3wHK_ZpMXb6QpIo31aM-m</guid>
-    <description>Turns your JAMB UTME date into a daily 15-minute plan, quizzes you, and tracks the topics you keep missing.</description>
-    <dc:creator>Adebusola (@drbellahqw)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>🦷 Create and Defend your Clinical Note by Guillermo</title>
-    <link>https://grokbotshelf.com/bot/create-and-defend-your-clinical-note</link>
-    <guid isPermaLink="false">https://x.ai/bot/LIrj8NNdiKTxDV8FwTNNQ</guid>
-    <description>Archy turns dentists&apos; shorthand, dictation or recordings into a clean SOAP note with a defensibility score.</description>
-    <dc:creator>Guillermo (@ScribeArchAI)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎬 Stream Night Producer by Mark</title>
-    <link>https://grokbotshelf.com/bot/stream-night-producer</link>
-    <guid isPermaLink="false">https://x.ai/bot/AOKZSCcTiE2lcv6EaRGWJ</guid>
-    <description>Turns a finished stream into a ready-to-post pack: best-moment timestamps, hooks, captions and titles.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Viral Content Engine by Mark</title>
-    <link>https://grokbotshelf.com/bot/viral-content-engine</link>
-    <guid isPermaLink="false">https://x.ai/bot/YoKjYXQZ4OMNtznET-95p</guid>
-    <description>Studies what&apos;s going viral in your niches and writes scroll-stopping X and Facebook posts in your voice.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎙️ Podcast Booker by Mark</title>
-    <link>https://grokbotshelf.com/bot/podcast-booker</link>
-    <guid isPermaLink="false">https://x.ai/bot/WlP9evowgZU7_-byLSttT</guid>
-    <description>Finds guests who fit your podcast, writes personal pitches and tracks every follow-up. It also preps each guest with a research brief and questions, and turns episodes into show notes and promo posts.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪺 Threadroost by Dallin</title>
-    <link>https://grokbotshelf.com/bot/threadroost</link>
-    <guid isPermaLink="false">https://x.ai/bot/y8jcsoZFQCZDHcQ8eaUPN</guid>
-    <description>Files your SuperGrok and Claude chats into this bot word for word through your own free Threadroost connector, each as a clean transcript.</description>
-    <dc:creator>Dallin (@DallinWatts)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 Fleet Doctor by Dallin</title>
-    <link>https://grokbotshelf.com/bot/fleet-doctor</link>
-    <guid isPermaLink="false">https://x.ai/bot/v4t3NW6yfGuvTB5JKHyQm</guid>
-    <description>Finds which of your Grok Bots are most likely burning your usage and hands you one safe, reversible fix to paste.</description>
-    <dc:creator>Dallin (@DallinWatts)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚖️ Second Opinion Council by Dallin</title>
-    <link>https://grokbotshelf.com/bot/second-opinion-council</link>
-    <guid isPermaLink="false">https://x.ai/bot/S-spqOuA8DK-H0ACtXiay</guid>
-    <description>Bring a decision: an Advocate, a Red Team, and a Skeptic argue it, then you get one verdict, how strongly they agree, and the tradeoff.</description>
-    <dc:creator>Dallin (@DallinWatts)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧑‍🍳 Sous-Chef by Ramy</title>
-    <link>https://grokbotshelf.com/bot/sous-chef</link>
-    <guid isPermaLink="false">https://x.ai/bot/4iAr6AgL4BImxyKBFMrpY</guid>
-    <description>Meal planner that starts from grocery deals: emails a menu you can reply to tweak, then fills a cart with the ingredients.</description>
-    <dc:creator>Ramy (@majouji)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎮 Free Games Scout by Elven</title>
-    <link>https://grokbotshelf.com/bot/free-games-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/_XHjQqGRcbbhdkdeNyb9k</guid>
-    <description>Finds games that are free to keep on official stores and sends you a ranked list with scores, claim links, and deadlines.</description>
-    <dc:creator>Elven (@elvenmaidinn)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏠 HomeKeepbot by Renee Thompson</title>
-    <link>https://grokbotshelf.com/bot/homekeepbot</link>
-    <guid isPermaLink="false">https://x.ai/bot/ozF1SpAaswVhWbietmPfw</guid>
-    <description>Builds a Page that tracks every appliance in your home, including models, serials, warranties, and manuals, with maintenance reminders and exact replacement parts.</description>
-    <dc:creator>Renee Thompson (@legallyrenee)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎙️ Character Voice Desk by Ben</title>
-    <link>https://grokbotshelf.com/bot/character-voice-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/mHYKHg9XU9CHnb3B13Nni</guid>
-    <description>Clones and tunes a character&apos;s text-to-speech voice for short videos, then hands back small A/B test WAVs so you can pick by ear.</description>
-    <dc:creator>Ben (@Arhianddad)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎞️ Film Code by Ben</title>
-    <link>https://grokbotshelf.com/bot/film-code</link>
-    <guid isPermaLink="false">https://x.ai/bot/5xrE8FXbta8Ww4NdzKP0z</guid>
-    <description>Writes and fixes the build code for kids&apos; cartoon 9:16 Shorts so they move like real limited animation, open with your brand sting, and hook fast.</description>
-    <dc:creator>Ben (@Arhianddad)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 Kids Short Auditor by Ben</title>
-    <link>https://grokbotshelf.com/bot/kids-short-auditor</link>
-    <guid isPermaLink="false">https://x.ai/bot/hi1YOvYeky_w_L34YQMwr</guid>
-    <description>Scores finished kids&apos; cartoon Shorts PASS or KILL before you see them, with exact timestamped fixes for your builder bot.</description>
-    <dc:creator>Ben (@Arhianddad)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎬 Kids&apos; Channel CEO by Ben</title>
-    <link>https://grokbotshelf.com/bot/kids-channel-ceo</link>
-    <guid isPermaLink="false">https://x.ai/bot/aTylO_Bg0LOu5SGvTCvUM</guid>
-    <description>Runs a family kids&apos; science cartoon channel: plans 9:16 Shorts, briefs your animation and voice bots, reviews each film, and posts to YouTube and X.</description>
-    <dc:creator>Ben (@Arhianddad)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎲 Bones — Casino &amp; Craps Strategy Tutor by Bill</title>
-    <link>https://grokbotshelf.com/bot/bones-casino-and-craps-strategy-tutor</link>
-    <guid isPermaLink="false">https://x.ai/bot/TLuBDv4tdpbPjtxjSTX-g</guid>
-    <description>Your Vegas table-games mathematician and strategy coach for craps press ladders, Buy/Place math, and blackjack basic strategy.</description>
-    <dc:creator>Bill (@wjenson)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏈 Eddie — Fantasy Football GM by Bill</title>
-    <link>https://grokbotshelf.com/bot/eddie-fantasy-football-gm</link>
-    <guid isPermaLink="false">https://x.ai/bot/J5Dsc4MCyILO40ejMMELk</guid>
-    <description>Your Fantasy Football GM and optional league commissioner assistant for Fantrax, Sleeper, ESPN, or Yahoo, across Standard, PPR, Superflex, or IDP.</description>
-    <dc:creator>Bill (@wjenson)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 Shipper Hunter by Mark</title>
-    <link>https://grokbotshelf.com/bot/shipper-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/DTs9dbErT3H3Gn___HxXf</guid>
-    <description>Prospecting engine for independent freight brokers: each morning it finds small-to-mid shippers that fit your niche and logs them in Notion.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>👻 Ghost Subscription Hunter by Mark</title>
-    <link>https://grokbotshelf.com/bot/ghost-subscription-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/JBGmdDCvfaTuYaNEpI938</guid>
-    <description>Finds and cancels forgotten subscriptions for small-business owners and creators, building a ledger from your receipts or statements and flagging waste.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Brand Deal Bouncer by Mark</title>
-    <link>https://grokbotshelf.com/bot/brand-deal-bouncer</link>
-    <guid isPermaLink="false">https://x.ai/bot/8O-xrNV8vAMjpFVn176K8</guid>
-    <description>Scans your inbox for sponsorship pitches, scores each one Legit, Verify or Trash without clicking anything, drafts replies from your rate card and tracks deals in Notion.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>💬 Review Reply Desk by Mark</title>
-    <link>https://grokbotshelf.com/bot/review-reply-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/-aDV4wi34U-bnLV-mXDG6</guid>
-    <description>Drafts replies to your Google and Yelp reviews in your voice, flags 1–3 star reviews the same day and sends you a weekly trends report. Nothing posts without your OK.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>📅 Family Schedule Manager by Bella</title>
-    <link>https://grokbotshelf.com/bot/family-schedule-manager</link>
-    <guid isPermaLink="false">https://x.ai/bot/kssxC0DcZBpYevW-0iTBs</guid>
-    <description>Keeps family appointments, school events, and routines in order, and asks for your approval before adding anything to the calendar.</description>
-    <dc:creator>Bella (@drbellahqw)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚚 Lane Carrier Finder by Mark</title>
-    <link>https://grokbotshelf.com/bot/lane-carrier-finder</link>
-    <guid isPermaLink="false">https://x.ai/bot/eVkuTHcfSkuiIQh4Y4TmM</guid>
-    <description>Finds FMCSA carriers near your freight lanes, flags fraud risks, and drafts intro messages.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 Read &amp; Decide by George Hong</title>
-    <link>https://grokbotshelf.com/bot/read-and-decide</link>
-    <guid isPermaLink="false">https://x.ai/bot/p23Ddk9YaomESF7ujUDw0</guid>
-    <description>Scores any post, thread, or article as Keep, Try, or Skip so you know what&apos;s worth your time.</description>
-    <dc:creator>George Hong (@DomainMaster)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>📐 Quote Closer by Mark</title>
-    <link>https://grokbotshelf.com/bot/quote-closer</link>
-    <guid isPermaLink="false">https://x.ai/bot/lnEBRA4mvuYRbZC003NdY</guid>
-    <description>Keeps flooring quotes in Notion, runs the quote math, and drafts Gmail follow-ups for you to approve before anything is sent.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔧 Home Maintenance Tracker by Kelly</title>
-    <link>https://grokbotshelf.com/bot/home-maintenance-tracker</link>
-    <guid isPermaLink="false">https://x.ai/bot/Fq4fzudPhdDaIPhbgxAgG</guid>
-    <description>Seasonal home checklists, a repairs and warranties log, rough cost ranges, and draft notes to a landlord or contractor. Nothing is hired or sent without your KEEP.</description>
-    <dc:creator>Kelly (@createwithima)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:52 GMT</pubDate>
-  </item>
-  <item>
-    <title>🍽️ Meal Planner by Kelly</title>
-    <link>https://grokbotshelf.com/bot/meal-planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/BR_bVaj5zOasyjWX6ygGg</guid>
-    <description>Weekly menus, aisle-sorted grocery lists, leftovers plans, and allergy or budget tags for households that want less dinner stress. Drafts only — no grocery orders without your KEEP.</description>
-    <dc:creator>Kelly (@createwithima)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐾 Pet Care Pal by Kelly</title>
-    <link>https://grokbotshelf.com/bot/pet-care-pal</link>
-    <guid isPermaLink="false">https://x.ai/bot/5VXqJG2T-QHyT6Kl4S6vj</guid>
-    <description>For multi-pet households of any mix — dogs, cats, birds, fish, reptiles, small mammals, and more. Builds care sheets covering allergies, sitter notes, grooming, and boarding prefs. Drafts and reminds only; nothing is sent or booked without your KEEP.</description>
-    <dc:creator>Kelly (@createwithima)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Caregiving Coordinator by Kelly</title>
-    <link>https://grokbotshelf.com/bot/caregiving-coordinator</link>
-    <guid isPermaLink="false">https://x.ai/bot/MBgNztJN__hshML0k_vU5</guid>
-    <description>Helps caregivers and siblings share care: drafts schedules, handoff notes, and supply lists. Nothing goes to the care team without your KEEP.</description>
-    <dc:creator>Kelly (@createwithima)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>📡 Buyer Radar by Mark</title>
-    <link>https://grokbotshelf.com/bot/buyer-radar</link>
-    <guid isPermaLink="false">https://x.ai/bot/UceojgdFdoUTtn9ytuEWS</guid>
-    <description>Finds people publicly asking for your service on Reddit, X and other public sources, scores each lead, logs it in Notion with the link, and drafts a helpful reply for you to review and send yourself. It only reads public posts and only drafts: it never posts, replies or DMs for you.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>💸 Invoice Chaser by Mark</title>
-    <link>https://grokbotshelf.com/bot/invoice-chaser</link>
-    <guid isPermaLink="false">https://x.ai/bot/90sITfSWBOYbcnx6uyfun</guid>
-    <description>Keeps a Notion invoices database, builds a daily who-owes-me list sorted by how overdue each invoice is, and drafts polite-to-firm payment reminders in Gmail. It only drafts, so you approve and send every reminder yourself.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>📞 Missed Call Rescuer by Mark</title>
-    <link>https://grokbotshelf.com/bot/missed-call-rescuer</link>
-    <guid isPermaLink="false">https://x.ai/bot/I4_nQ-HaHcSjKikmsIO4R</guid>
-    <description>Reads your missed-call, voicemail and web-form notification emails, writes a one-line summary of each lead and logs it in Notion. It drafts a friendly reply for each one but never sends it, so you always press send.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛠️ Techy by Turnup2ez</title>
-    <link>https://grokbotshelf.com/bot/techy</link>
-    <guid isPermaLink="false">https://x.ai/bot/oghCXejHEEnkvS0aQlkpt</guid>
-    <description>A friendly IT helper that fixes PC, phone, Wi-Fi and printer problems step by step in plain English, spots scams and tracks your warranties.</description>
-    <dc:creator>Turnup2ez (@Turnup2ez)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>📝 Test Date Coach by Bella</title>
-    <link>https://grokbotshelf.com/bot/test-date-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/47BqVfxMqjyE0V05u5wI2</guid>
-    <description>Builds a daily 15–30 minute study plan for the GRE, GMAT, LSAT or MCAT from your test date, quizzes you and tracks the topics you keep missing.</description>
-    <dc:creator>Bella (@drbellahqw)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:44 GMT</pubDate>
   </item>
 </channel>
 </rss>
