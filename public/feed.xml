@@ -6,7 +6,97 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 21:38:31 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 21:50:41 GMT</lastBuildDate>
+  <item>
+    <title>🔭 Rivaldo bot by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/rivaldo-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/l6KBRHcgf7o0epen41gB5</guid>
+    <description>Scans public X three times a day for popular, active accounts worth following in your niches.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:19 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 First AI Side Job by Bella</title>
+    <link>https://grokbotshelf.com/bot/first-ai-side-job</link>
+    <guid isPermaLink="false">https://x.ai/bot/O1mtl2pO3yVt7Phprsa1p</guid>
+    <description>Helps you pick one simple AI side job and walks you to a first paying client, with scam warnings.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Study Abroad Scholarship Finder by Bella</title>
+    <link>https://grokbotshelf.com/bot/study-abroad-scholarship-finder</link>
+    <guid isPermaLink="false">https://x.ai/bot/poKOJobwYYf5L1n2CmqcU</guid>
+    <description>Finds study-abroad scholarships open now for your course and country, with links and deadlines.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:17 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌡️ Heat Safety Coach by Bella</title>
+    <link>https://grokbotshelf.com/bot/heat-safety-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/0OIsBURL9NYAwHF9jBdz2</guid>
+    <description>Warns you when the National Weather Service shows real heat nearby, with a short safety plan.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧙 Wise Old Bot by ManaEngineer</title>
+    <link>https://grokbotshelf.com/bot/wise-old-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/Dolfa9jSFeIgkZcEgq-zw</guid>
+    <description>Sets a new Grok Bot owner up with a small, well-run team of bots, then stays on as a how-to coach.</description>
+    <dc:creator>ManaEngineer (@ManaEngineer)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏋️ Coach Sam by John</title>
+    <link>https://grokbotshelf.com/bot/coach-sam</link>
+    <guid isPermaLink="false">https://x.ai/bot/xD5CDo0JbqHI9Eio_3hn1</guid>
+    <description>A no-nonsense fitness and nutrition coach that checks your real training and food data first.</description>
+    <dc:creator>John (@JohnKlacynski)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪓 Chop Bot v6 by Calix</title>
+    <link>https://grokbotshelf.com/bot/chop-bot-v6</link>
+    <guid isPermaLink="false">https://x.ai/bot/3ITYjIFCSujYyq6rp5VAq</guid>
+    <description>Chops your inbox, calendar and X replies down to one daily brief with follow-up nudges.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:13 GMT</pubDate>
+  </item>
+  <item>
+    <title>📣 Your Echo by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/your-echo</link>
+    <guid isPermaLink="false">https://x.ai/bot/7nmRrkN_5YS-dXc6PGBys</guid>
+    <description>Finds events, podcasts and communities in your niche, then drafts warm outreach that references them.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏡 Show Up AI by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/show-up-ai</link>
+    <guid isPermaLink="false">https://x.ai/bot/cU9gx42JBW2PQH2NKLKd_</guid>
+    <description>Checks how visible a real estate agent&apos;s site is to AI search, shows the gaps and drafts fixes.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>🍳 PlatePal by Natasha Soleil</title>
+    <link>https://grokbotshelf.com/bot/platepal</link>
+    <guid isPermaLink="false">https://x.ai/bot/f4nkPC09h3YZ673A3bVX1</guid>
+    <description>Tell it what&apos;s in your fridge for quick recipes, leftover ideas and easy shopping lists.</description>
+    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
+    <category>Food</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:10 GMT</pubDate>
+  </item>
   <item>
     <title>📊 Table Charts by Natasha Soleil</title>
     <link>https://grokbotshelf.com/bot/table-charts</link>
@@ -366,96 +456,6 @@
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Home</category>
     <pubDate>Sun, 25 Oct 2026 12:05:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗂️ Inbox Triage by Calix</title>
-    <link>https://grokbotshelf.com/bot/inbox-triage</link>
-    <guid isPermaLink="false">https://x.ai/bot/4O78A68DNAm84UP4GK3QE</guid>
-    <description>Sorts your Gmail or Outlook into Act now, Reply soon, FYI, and Noise, then sends you one short read-only list and stays quiet when nothing matters.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>✨ Midas for the Inbox by Twilight Surfers</title>
-    <link>https://grokbotshelf.com/bot/midas-for-the-inbox</link>
-    <guid isPermaLink="false">https://x.ai/bot/7JAxnSahL4mx-cWpOv1tY</guid>
-    <description>Turns promo and announcement emails into ready-to-review posts for X, Facebook, and LinkedIn.</description>
-    <dc:creator>Twilight Surfers (@TwilightSurfers)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛠️ Renovation Planner by Michael Glashouwer</title>
-    <link>https://grokbotshelf.com/bot/renovation-planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/jHCMjCW17rXgGxJdrHLcQ</guid>
-    <description>Guides a bathroom, kitchen, or attic renovation step by step with a measured model and floor plans.</description>
-    <dc:creator>Michael Glashouwer (@mglashouwer)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎧 Crate by Miloni Adams</title>
-    <link>https://grokbotshelf.com/bot/crate</link>
-    <guid isPermaLink="false">https://x.ai/bot/8YJVd-nz5I2-jhFqSRPvd</guid>
-    <description>Spotify curator that keeps learning your taste and builds long discovery playlists every week.</description>
-    <dc:creator>Miloni Adams (@MiloniAdams)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 Porch by Miloni Adams</title>
-    <link>https://grokbotshelf.com/bot/porch</link>
-    <guid isPermaLink="false">https://x.ai/bot/R_o82f2Mjkqo1PZKwL-NK</guid>
-    <description>Reads your USPS Informed Delivery each day and posts a clear list of incoming mail and packages.</description>
-    <dc:creator>Miloni Adams (@MiloniAdams)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎗️ VA Claims Coach by Hudson S.</title>
-    <link>https://grokbotshelf.com/bot/va-claims-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/kDlUASxJC7kf-T4OAH9_O</guid>
-    <description>Educational coach that walks veterans through VA disability claims, from intake to clear next steps.</description>
-    <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚗 Drivr by Bill French</title>
-    <link>https://grokbotshelf.com/bot/drivr</link>
-    <guid isPermaLink="false">https://x.ai/bot/TDbL2EAyGVmW2isqGPRwx</guid>
-    <description>Ramble out loud in the car, say &quot;done&quot;, and it files your thoughts into organized notes.</description>
-    <dc:creator>Bill French (@bfrench)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎖️ Small Business General by Zaardaar</title>
-    <link>https://grokbotshelf.com/bot/small-business-general</link>
-    <guid isPermaLink="false">https://x.ai/bot/_NRNnBxSmJRX4GTMKACFz</guid>
-    <description>Runs your other business bots: daily cross-bot briefs, passing orders along, ready-to-copy outputs.</description>
-    <dc:creator>Zaardaar (@Zaardaar)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧪 Body Lab by Dave Gambrill</title>
-    <link>https://grokbotshelf.com/bot/body-lab</link>
-    <guid isPermaLink="false">https://x.ai/bot/PivGbBN3dBMmD-xAbb63r</guid>
-    <description>Log what you ate, took, or trained in chat or photos and it keeps verified health records.</description>
-    <dc:creator>Dave Gambrill (@gambrill)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 What Would Elon Do? by WorldWideVibes</title>
-    <link>https://grokbotshelf.com/bot/what-would-elon-do</link>
-    <guid isPermaLink="false">https://x.ai/bot/J2UPsryIUiwJ3YYeI4Gla</guid>
-    <description>An unofficial first-principles thinking partner for solo founders that checks your real numbers, tells you what to cut and ends each answer with one small, dated next step.</description>
-    <dc:creator>WorldWideVibes (@W0rldwid3vib3s)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:20 GMT</pubDate>
   </item>
 </channel>
 </rss>
