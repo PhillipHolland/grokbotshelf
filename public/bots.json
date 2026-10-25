@@ -5042,5 +5042,31 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Alphabot Raffle Bot",
+    "emoji": "🎟️",
+    "description": "Creates Alphabot collab raffles from partner docs, then pulls the winners into Google Sheets.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/j9tPpQruZZILltC0tn6m7",
+    "creator_name": "orpheuzkaze",
+    "creator_handle": "@orpheuskaze",
+    "creator_url": "https://x.com/orpheuskaze",
+    "creator_avatar": "/avatars/orpheuskaze.webp",
+    "source_post": "https://x.com/orpheuskaze/status/2114481745777377487",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "VibeYourTV",
+    "emoji": "📺",
+    "description": "Sets up your Android TV or Google TV from your PC over Wi-Fi with adb, with a reversible debloat.",
+    "category": "Home",
+    "url": "https://x.ai/bot/7iH14dp1VnBLUbqq2oEne",
+    "creator_name": "orpheuzkaze",
+    "creator_handle": "@orpheuskaze",
+    "creator_url": "https://x.com/orpheuskaze",
+    "creator_avatar": "/avatars/orpheuskaze.webp",
+    "source_post": "https://x.com/orpheuskaze/status/2113917783583097056",
+    "added": "2026-10-25"
   }
 ]
