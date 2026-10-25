@@ -95,7 +95,7 @@
   // Creator profile links: /@handle and /u/handle (any case), plus legacy ?creator=handle.
   const pathCreator = () => { const m = location.pathname.match(/^\/(?:@|%40|u\/)([A-Za-z0-9_]+)\/?$/i); return m ? m[1].toLowerCase() : ""; };
   const SITE = "https://grokbotshelf.com";
-  const profilePath = (key) => { const c = creators.find((x) => x.key === key); return "/@" + (c ? c.handle.replace(/^@/, "") : key); };
+  const profilePath = (key) => "/@" + key; // creator pages live at the lowercase handle
   const BASE_TITLE = document.title;
   function setTitle() {
     const c = st.creator && creators.find((x) => x.key === st.creator);
