@@ -166,6 +166,19 @@
     code: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>',
     x: '<svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
   };
+  // Share a bot on X: web intent everywhere; native app first on mobile (same pattern as #post-x)
+  const MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  function shareX(b) {
+    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${SITE}/#${b._slug}`);
+    return { web: "https://twitter.com/intent/tweet?text=" + T, app: "twitter://post?message=" + T };
+  }
+  function openShareX(u) {
+    const t = setTimeout(() => { if (document.visibilityState === "visible") window.location.href = u.web; }, 1200);
+    document.addEventListener("visibilitychange", function h() {
+      if (document.visibilityState === "hidden") { clearTimeout(t); document.removeEventListener("visibilitychange", h); }
+    });
+    window.location.href = u.app;
+  }
   function card(b, m) {
     const h = m ? m.hits : {};
     return `<article class="card" id="${b._slug}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${b._slug}-t">
@@ -176,6 +189,7 @@
 <p class="desc">${hl(b.description, h.description)}</p>
 <div class="foot-row"><div class="tools">
 <button type="button" class="ib" data-copy="${esc(b.url)}" aria-label="Copy link to ${esc(b.name)}" title="Copy link">${I.copy}</button>
+<a class="ib" href="${esc(shareX(b).web)}" data-sharex="${b._slug}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X" title="Share ${esc(b.name)} on X">${I.share}</a>
 ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
 </div><a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div>
@@ -258,6 +272,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   results.addEventListener("click", (e) => {
     const pl = e.target.closest("[data-plink]");
     if (pl) { copy(pl.dataset.plink).then(() => { pl.classList.add("done"); clearTimeout(pl._t); pl._t = setTimeout(() => pl.classList.remove("done"), 1400); }); return; }
+    const sx = e.target.closest("[data-sharex]");
+    if (sx) { if (MOBILE) { const bot = bots.find((x) => x._slug === sx.dataset.sharex); if (bot) { e.preventDefault(); openShareX(shareX(bot)); } } return; }
     const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied"));
   });
 
