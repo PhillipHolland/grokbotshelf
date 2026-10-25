@@ -1924,5 +1924,31 @@
     "creator_avatar": "/avatars/spacecowgirltx.webp",
     "source_post": "https://x.com/SpaceCowgirlTX/status/2114183512630710552",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Deal Hunting",
+    "emoji": "🏷️",
+    "description": "Finds real landed prices with shipping and tax at your preferred stores, with an optional watchlist; never buys unless asked.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/marketplace/bots/deal-hunting",
+    "creator_name": "Ivan Simic",
+    "creator_handle": "@Shimecki",
+    "creator_url": "https://x.com/Shimecki",
+    "creator_avatar": "/avatars/shimecki.webp",
+    "source_post": "https://x.com/N3v3rmd/status/2111816949864743049",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "dr eggbot",
+    "emoji": "🥚",
+    "description": "Designs and creates new Grok Bots for you after a few quick questions, each with one clear job.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/marketplace/bots/dr-eggbot-v2",
+    "creator_name": "Lauren",
+    "creator_handle": "@poteto",
+    "creator_url": "https://x.com/poteto",
+    "creator_avatar": "/avatars/poteto.webp",
+    "source_post": "https://x.com/hauntedbrowser/status/2112293931920871579",
+    "added": "2026-10-24"
   }
 ]
