@@ -1001,5 +1001,44 @@
     "source_post": "https://x.com/legallyrenee/status/2111607682708676960",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/legallyrenee.webp"
+  },
+  {
+    "name": "Motion Director",
+    "emoji": "🎬",
+    "description": "Designs, animates, scores and QAs short films and character music videos in code with real lip sync.",
+    "category": "Media",
+    "url": "https://x.ai/bot/MdpeJPD6eiY7YWUa9bfes",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114151494261875053",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "The Sponsor",
+    "emoji": "🔐",
+    "description": "Two-key accountability lock — you ARM a rule, and only a paired friend can let you off the hook.",
+    "category": "Life",
+    "url": "https://x.ai/bot/mGckETBjE4Of6S78zeetJ",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114153495402013049",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Likeness",
+    "emoji": "🪞",
+    "description": "Name a face from photos, a folder, a clip, or a link — then Imagine stills and clips keep looking like them.",
+    "category": "Media",
+    "url": "https://x.ai/bot/-h0DhS9ty87dr0UGXLjDD",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114153770183426338",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
