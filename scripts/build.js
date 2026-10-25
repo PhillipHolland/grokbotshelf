@@ -25,12 +25,26 @@ const GOOGLE_HEAD = [
   const n = h.replace(/<!-- google:start -->[\s\S]*?<!-- google:end -->/, `<!-- google:start -->${GOOGLE_HEAD ? "\n" + GOOGLE_HEAD + "\n" : ""}<!-- google:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
+// Local asset URLs get a content-hash ?v= so a changed file is a new URL. Avatars: cards and small spots use the 48px
+// copy from scripts/avatars.js when its manifest says it was made from the current original; otherwise the original.
+const fileHash = (() => { const seen = new Map(); return (rel) => {
+  const f = path.join(PUB, String(rel).split("?")[0]);
+  if (!seen.has(f)) { try { seen.set(f, require("crypto").createHash("sha256").update(fs.readFileSync(f)).digest("hex").slice(0, 10)); } catch { seen.set(f, ""); } }
+  return seen.get(f);
+}; })();
+const versioned = (rel) => (/^\/[^/]/.test(rel || "") && !String(rel).includes("?") && fileHash(rel) ? `${rel}?v=${fileHash(rel)}` : rel);
+const AVATARS_SM = read("avatars/48/manifest.json", {});
+const avatarSm = (src) => {
+  const m = /^\/avatars\/([^/?]+)$/.exec(src || ""), sm = m && "/avatars/48/" + m[1].replace(/\.\w+$/, ".webp");
+  return m && AVATARS_SM[m[1]] && AVATARS_SM[m[1]] === fileHash(src) && fileHash(sm) ? versioned(sm) : versioned(src);
+};
 // One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
-  const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]) })) });
+  const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+    creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) })) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
@@ -157,7 +171,7 @@ ${HEADER}
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
-      <p class="sub"><a href="/${"@" + esc(ckey(b))}"><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a><span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
+      <p class="sub"><a href="/${"@" + esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a><span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
     </div></div>
     <p class="bp-desc">${esc(desc)}</p>
     ${badges ? `<div class="badges">${badges}</div>` : ""}
@@ -232,7 +246,7 @@ function creatorPage(c) {
 ${HEADER}
 <main class="wrap bp" id="main">
   <article class="bp-card">
-    <div class="bp-head"><img class="cp-av" src="${esc(c.avatar)}" alt="" width="56" height="56"><div>
+    <div class="bp-head"><img class="cp-av" src="${esc(versioned(c.avatar))}" alt="" width="56" height="56"><div>
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="${esc(c.url)}" rel="noopener" target="_blank">@${esc(c.handle)} on X</a><span class="dot" aria-hidden="true">·</span><span>${nb} on the shelf</span></p>
     </div></div>
