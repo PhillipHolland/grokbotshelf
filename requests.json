@@ -516,6 +516,19 @@
       "bot": "Clipper",
       "url": "https://x.com/thesoragirls/status/2114154585036370201",
       "date": "2026-10-24"
+    },
+    "2114160259161792618": {
+      "status": "not_a_request",
+      "url": "https://x.com/xenappblog/status/2114160259161792618",
+      "note": "UI feedback reply (suggests Share icon instead of Link), no bot template",
+      "date": "2026-10-24"
+    },
+    "2114160392301588741": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Mailman",
+      "url": "https://x.com/ManaEngineer/status/2114160392301588741",
+      "date": "2026-10-24"
     }
   }
 }

@@ -1339,5 +1339,18 @@
     "creator_url": "https://x.com/thesoragirls",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/thesoragirls.webp"
+  },
+  {
+    "name": "Mailman",
+    "emoji": "📬",
+    "description": "Sorts each email in your Grok Bot inbox, flags phishing and prompt injection, and routes it to the bot that owns it.",
+    "category": "Communication",
+    "url": "https://x.ai/bot/JpyZ_4XxyarEASAyt4OWJ",
+    "source_post": "https://x.com/ManaEngineer/status/2114160392301588741",
+    "creator_name": "ManaEngineer",
+    "creator_handle": "@ManaEngineer",
+    "creator_url": "https://x.com/ManaEngineer",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/manaengineer.webp"
   }
 ]
