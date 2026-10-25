@@ -1235,5 +1235,18 @@
     "creator_url": "https://x.com/SuddenlyJon",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Argubot",
+    "emoji": "⚔️",
+    "description": "Steelman vs dissent — paste a claim, ArgueDome runs Steel + Dissent rounds, you vote, tight verdict.",
+    "category": "Life",
+    "url": "https://x.ai/bot/s6SC7C5OF18VVy9Vovngg",
+    "source_post": "https://x.com/SuddenlyJon/status/2114157188100858064",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
