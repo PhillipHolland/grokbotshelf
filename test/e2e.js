@@ -8,6 +8,11 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const TOTAL = BOTS.length, by = (h) => BOTS.filter((x) => ckey(x) === h);
+  // The unfiltered home shows the first 12 bots per creator (all of them when a creator has 15 or fewer) plus a Show more button
+  const CAP = 12, groups = [...new Set(BOTS.map(ckey))].map((k) => [k, by(k).length]);
+  const HOME = groups.reduce((t, [, c]) => t + (c <= CAP + 3 ? c : CAP), 0), capped = groups.filter(([, c]) => c > CAP + 3);
+  // typing re-renders after a 100ms debounce
+  const settle = () => new Promise(r => setTimeout(r, 250));
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   // /api/* and /_vercel/* only exist on Vercel, so the local server 404s them; any other failed request counts as an error
@@ -18,24 +23,24 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   // Shelf cards only; the "From the builders" strip repeats a few bots with f- ids
   const n = () => p.$$eval('#results .card:not([id^="f-"])', c => c.length);
-  ok(await n() === TOTAL, `renders ${TOTAL} cards (${await n()})`);
+  ok(await n() === HOME, `home renders ${HOME} of ${TOTAL} cards, 12 per long group (${await n()})`);
   ok((await p.$eval('#count', e => e.textContent)) === `${TOTAL} bots`, `count says ${TOTAL} bots`);
   // typo search
-  await p.type('#q', 'secruity');
+  await p.type('#q', 'secruity'); await settle();
   const names = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   ok(names[0] === 'Security Audit Bot', 'typo "secruity" -> first result ' + names[0] + ' (' + names.length + ' results)');
   ok(await p.$$eval('.card mark', m => m.length) > 0, 'match highlighted with <mark>');
   await new Promise(r => setTimeout(r, 400));
   ok(p.url().includes('q=secruity'), 'URL has q: ' + p.url());
   // name ranking
-  await p.click('#q', { clickCount: 3 }); await p.type('#q', 'mail');
+  await p.click('#q', { clickCount: 3 }); await p.type('#q', 'mail'); await settle();
   const n2 = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   const named = BOTS.filter((x) => fold(x.name).includes('mail')).map((x) => x.name);
   ok(named.length >= 2 && named.includes('Grokbot Mail') && JSON.stringify(n2.slice(0, named.length).sort()) === JSON.stringify(named.slice().sort()) && n2.length > named.length,
     `bots named "mail" (${named.length}) rank before description-only matches: ` + n2.slice(0, named.length + 1).join(', '));
   // Esc clears
   await p.keyboard.press('Escape');
-  ok(await n() === TOTAL && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
+  ok(await n() === HOME && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
   // keyboard nav: Down from search focuses first card, Right moves, Enter opens
   await p.focus('#q'); await p.keyboard.press('ArrowDown');
   // On the home Featured view the first cards are the builders strip (ids f-bot-<slug>, in config.js order)
@@ -86,7 +91,7 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   await p.goto(BASE + '?q=zzzzqqq', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#empty', e => !e.hidden), 'empty state shows');
   await p.click('#empty-clear');
-  ok(await n() === TOTAL && !p.url().includes('?'), `clear filters restores ${TOTAL}`);
+  ok(await n() === HOME && !p.url().includes('?') && await p.$eval('#count', e => e.textContent) === `${TOTAL} bots`, `clear filters restores the home view (${HOME} shown of ${TOTAL})`);
   // deep link
   await p.goto(BASE + '?creator=phil_holland#bot-vuln-scout', { waitUntil: 'networkidle0' });
   await new Promise(r => setTimeout(r, 360));
