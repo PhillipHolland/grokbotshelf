@@ -1937,6 +1937,50 @@
       "bot": "Threadroost",
       "url": "https://x.com/DallinWatts/status/2112350278557323610",
       "date": "2026-10-25"
+    },
+    "2114409182568866095": {
+      "status": "already_on_shelf",
+      "bot": "Podcast Booker",
+      "author": "TheMarkGShow",
+      "template": "https://x.ai/bot/WlP9evowgZU7_-byLSttT",
+      "url": "https://x.com/TheMarkGShow/status/2114409182568866095",
+      "date": "2026-10-25"
+    },
+    "2114416921428803981": {
+      "status": "added",
+      "bot": "Viral Content Engine",
+      "author": "TheMarkGShow",
+      "template": "https://x.ai/bot/YoKjYXQZ4OMNtznET-95p",
+      "url": "https://x.com/TheMarkGShow/status/2114416921428803981",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114412940967248353": {
+      "status": "added",
+      "bot": "Stream Night Producer",
+      "author": "TheMarkGShow",
+      "template": "https://x.ai/bot/AOKZSCcTiE2lcv6EaRGWJ",
+      "url": "https://x.com/TheMarkGShow/status/2114412940967248353",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114410284072976576": {
+      "status": "added",
+      "bot": "Create and Defend your Clinical Note",
+      "author": "ScribeArchAI",
+      "template": "https://x.ai/bot/LIrj8NNdiKTxDV8FwTNNQ",
+      "url": "https://x.com/ScribeArchAI/status/2114410284072976576",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114407753292931508": {
+      "status": "added",
+      "bot": "JAMB Practice Coach",
+      "author": "drbellahqw",
+      "template": "https://x.ai/bot/3wHK_ZpMXb6QpIo31aM-m",
+      "url": "https://x.com/drbellahqw/status/2114407753292931508",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
     }
   }
 }
