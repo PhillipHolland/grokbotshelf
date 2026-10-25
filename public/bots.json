@@ -1300,5 +1300,44 @@
     "creator_url": "https://x.com/JennyMarquis",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/jennymarquis.webp"
+  },
+  {
+    "name": "Fit Finder",
+    "emoji": "🛍️",
+    "description": "Shop the look from a photo — exact or close matches, near matches, cheaper lookalikes, plus closet-match outfits.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/Qrv02EVXpc3aZJJxZd_JM",
+    "source_post": "https://x.com/SuddenlyJon/status/2114158914283471278",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Intune Architect",
+    "emoji": "🪟",
+    "description": "Audits and manages Microsoft Intune via Lokka MCP and Graph — read-first, pilot-ring writes, daily drift audit.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/eM7PHgoKyJJNdTMgEbx_W",
+    "source_post": "https://x.com/jorgeasaurus/status/2114157821600411851",
+    "creator_name": "Jorgeasaurus",
+    "creator_handle": "@jorgeasaurus",
+    "creator_url": "https://x.com/jorgeasaurus",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/jorgeasaurus.webp"
+  },
+  {
+    "name": "Clipper",
+    "emoji": "✂️",
+    "description": "Tastefully cuts clips and GIFs from your videos on X.",
+    "category": "Media",
+    "url": "https://x.ai/bot/ozEfaAFJMDGoB-ysym8_V",
+    "source_post": "https://x.com/thesoragirls/status/2114154585036370201",
+    "creator_name": "X Girls",
+    "creator_handle": "@thesoragirls",
+    "creator_url": "https://x.com/thesoragirls",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/thesoragirls.webp"
   }
 ]
