@@ -86,7 +86,7 @@ module.exports = function handler(req, res) {
   let pool = bots.slice();
   if (category) {
     const c = norm(category);
-    pool = pool.filter((b) => norm(b.category) === c || norm(b.category).includes(c));
+    pool = pool.filter((b) => norm(b.category) === c);
   }
   if (creator) {
     const c = norm(creator);
