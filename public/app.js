@@ -307,6 +307,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
     $("#clear").hidden = !(st.q || filtering() || st.sort !== "featured");
+    results.removeAttribute("aria-busy");
     active = -1;
     setTitle();
     renderFilters();
@@ -474,7 +475,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
     if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
     else { show(); loadVotes(); }
-  }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
+  }).catch(() => { results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
 
 // Post on X: native app on mobile, web composer fallback / desktop.
