@@ -493,13 +493,12 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   window.addEventListener("hashchange", openHash);
 
   /* ---------- Boot ---------- */
-  const getJSON = (u) => fetch(u).then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
-  const tid = (u) => String(u || "").replace(/^https:\/\/x\.ai\/(bot\/)?/, "");
   const deep = (u) => { const m = String(u || "").match(/^https:\/\/x\.ai\/bot\/([A-Za-z0-9_-]+)\/?$/); return m ? "grokbot://app/v1/bot-template?id=" + m[1] : ""; };
-  const pid = (u) => (String(u || "").match(/\/status\/(\d+)/) || [])[1];
-  Promise.all([fetch("/bots.json").then((r) => r.json()), getJSON("/bot-meta.json"), getJSON("/social.json")]).then(([data, metaF, socialF]) => {
-    const META = metaF.bots || {}, SOC = socialF.posts || {};
-    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: META[tid(b.url)] || null, _social: SOC[pid(b.source_post)] || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+  // One request: shelf-data.json (built by scripts/build.js from bots.json, bot-meta.json and social.json), at the
+  // versioned URL index.html preloads
+  const dataURL = (document.querySelector('link[rel="preload"][href^="/shelf-data.json"]') || {}).href || "/shelf-data.json";
+  fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
+    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
     const seen = new Map();
     for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, short: b.creator_name, label: b.creator_name });
     creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
