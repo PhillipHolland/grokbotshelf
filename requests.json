@@ -1629,6 +1629,89 @@
       "bot": "OmaBot",
       "url": "https://x.com/tcballard/status/2114279750630055950",
       "date": "2026-10-25"
+    },
+    "2114308492421222480": {
+      "status": "added",
+      "author": "@MichaelGannotti",
+      "bot": "Grok Bot Video Studio",
+      "template_url": "https://x.ai/bot/wVv54dUKjA2MYaq1XMCzN",
+      "url": "https://x.com/MichaelGannotti/status/2114308492421222480",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114315630346174758": {
+      "status": "added",
+      "author": "@maverickmath",
+      "bot": "Asymmetric Opportunity Radar",
+      "template_url": "https://x.ai/bot/B26pHlsc6Eb0m1_SlEtiK",
+      "url": "https://x.com/maverickmath/status/2114315630346174758",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114328171789058126": {
+      "status": "added",
+      "author": "@gambrill",
+      "bot": "Syllabot",
+      "template_url": "https://x.ai/bot/uLaiAPTZzDV7vfptofUov",
+      "url": "https://x.com/gambrill/status/2114328171789058126",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114332327761625422": {
+      "status": "added",
+      "author": "@kamilbanc",
+      "bot": "Claudia, Chief of Staff",
+      "template_url": "https://x.ai/bot/AkJewmJ9D2DlMpBD5XaCG",
+      "url": "https://x.com/kamilbanc/status/2114332327761625422",
+      "date": "2026-10-25",
+      "note": "also asked in 2114332245464920503 (quote)",
+      "approved_by": "Phillip Holland"
+    },
+    "2114334678702289351": {
+      "status": "denied",
+      "author": "@LisaMAUSA",
+      "bot": "STAR Interview Coach, Teen Side-Hustle Coach",
+      "template_url": "https://x.ai/bot/by3SNDqjk73XxC5ZXaSoP https://x.ai/bot/wwSzLYFlrjTwbNuXPs6Rv",
+      "url": "https://x.com/LisaMAUSA/status/2114334678702289351",
+      "date": "2026-10-25",
+      "reason": "Phillip declined"
+    },
+    "2114347901203648985": {
+      "status": "denied",
+      "author": "@LisaMAUSA",
+      "bot": "Side-Hustle Scout",
+      "template_url": "https://x.ai/bot/EaSQSG9AAeUBWnQa1y--4",
+      "url": "https://x.com/LisaMAUSA/status/2114347901203648985",
+      "date": "2026-10-25",
+      "reason": "Phillip declined"
+    },
+    "2114341680958603504": {
+      "status": "added",
+      "author": "@liam_fallen",
+      "bot": "Agent Zero, Included, Quoted, Claimed",
+      "template_url": "https://x.ai/bot/DFnZYjCELW2QdywUWZRiG https://x.ai/bot/9y2DTpeGSxGLvevkCRTDI https://x.ai/bot/NLw7vTHF4uuyaP_SGF659 https://x.ai/bot/wIxb391-9pDKoWXQ8xrbD",
+      "url": "https://x.com/liam_fallen/status/2114341680958603504",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114343263549489650": {
+      "status": "added",
+      "author": "@KentBWeber",
+      "bot": "Car Deal Scout, Receipt Keeper",
+      "template_url": "https://x.ai/bot/4-ai7JQWpKpOUiK1Ih0J3 https://x.ai/bot/3ZpWwU-KhU953eArYJ8ST",
+      "url": "https://x.com/KentBWeber/status/2114343263549489650",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114335832811483549": {
+      "status": "denied",
+      "author": "@lv_chen2006",
+      "bot": "知到刷课 (Zhihuishu course auto-player)",
+      "template_url": "https://x.ai/bot/ITlcCg5qmofuiQwUvSg3w",
+      "url": "https://x.com/lv_chen2006/status/2114335832811483549",
+      "date": "2026-10-25",
+      "note": "borderline: auto-plays online course lectures to complete progress",
+      "reason": "Phillip declined (course auto-player)"
     }
   }
 }
