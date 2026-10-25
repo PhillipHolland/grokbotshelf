@@ -682,7 +682,7 @@
     },
     "2114174034384400404": {
       "status": "added",
-      "bot": "Résumé and Cover Letter Helper",
+      "bot": "R\u00e9sum\u00e9 and Cover Letter Helper",
       "author": "@drbellahqw",
       "template_url": "https://x.ai/bot/E__kB7edZXGomFaPRsW-e",
       "url": "https://x.com/drbellahqw/status/2114174034384400404",
@@ -1078,6 +1078,73 @@
       "reason": "already on shelf (Fashion Stylist)",
       "bot": "Fashion Stylist",
       "url": "https://x.com/jennymarquis/status/2114214030567244056",
+      "date": "2026-10-24"
+    },
+    "2114203167474737599": {
+      "status": "skipped",
+      "reason": "already on shelf (Local Concert Scout)",
+      "url": "https://x.com/chaney_tx/status/2114203167474737599",
+      "date": "2026-10-24",
+      "bot": "Local Concert Scout"
+    },
+    "2114189609525543199": {
+      "status": "skipped",
+      "reason": "marketplace link not a template",
+      "url": "https://x.com/Ortix008/status/2114189609525543199",
+      "date": "2026-10-24"
+    },
+    "2114184032837652866": {
+      "status": "skipped",
+      "reason": "plain x.ai/bot; Organizer CEO via 10-bot thread",
+      "url": "https://x.com/jimaggie/status/2114184032837652866",
+      "date": "2026-10-24"
+    },
+    "2114182279874716053": {
+      "status": "skipped",
+      "reason": "already on shelf (Shelf Scout)",
+      "url": "https://x.com/JayinEly/status/2114182279874716053",
+      "date": "2026-10-24"
+    },
+    "2114215997989118409": {
+      "status": "skipped",
+      "reason": "thank-you no link",
+      "url": "https://x.com/JennyMarquis/status/2114215997989118409",
+      "date": "2026-10-24"
+    },
+    "2114215046792237499": {
+      "status": "skipped",
+      "reason": "own reply",
+      "url": "https://x.com/Phil_Holland/status/2114215046792237499",
+      "date": "2026-10-24"
+    },
+    "2114219968837365931": {
+      "status": "added",
+      "bot": "Skywatcher Buzz, Phil Connors",
+      "author": "@jimaggie",
+      "url": "https://x.com/jimaggie/status/2114219968837365931",
+      "date": "2026-10-24"
+    },
+    "2114219971341357313": {
+      "status": "added",
+      "bot": "Max News, Goldie Gems, Silver Dollar Duke",
+      "author": "@jimaggie",
+      "url": "https://x.com/jimaggie/status/2114219971341357313",
+      "date": "2026-10-24"
+    },
+    "2114115912504852679": {
+      "status": "added",
+      "bot": "Show Companion",
+      "author": "@DCBK2LA",
+      "template_url": "https://x.ai/bot/KY9qJ0MPz4F8rcOMPFT2Y",
+      "url": "https://x.com/DCBK2LA/status/2114115912504852679",
+      "date": "2026-10-24"
+    },
+    "2114219917646111091": {
+      "status": "added",
+      "bot": "Show Companion",
+      "author": "@DCBK2LA",
+      "reason": "newer KY9q full-skills link used; qS6fp4 is ATC Baby (not requested); micDrop already on shelf; atcspaces.com not a template",
+      "url": "https://x.com/dcbk2la/status/2114219917646111091",
       "date": "2026-10-24"
     }
   }
