@@ -383,6 +383,34 @@
       "bot": "Vibe Coder",
       "url": "https://x.com/xenappblog/status/2114155746245906853",
       "date": "2026-10-24"
+    },
+    "2114154664706859013": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Token Accountant",
+      "url": "https://x.com/SuddenlyJon/status/2114154664706859013",
+      "date": "2026-10-24"
+    },
+    "2114154881875415467": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Box Inspector",
+      "url": "https://x.com/SuddenlyJon/status/2114154881875415467",
+      "date": "2026-10-24"
+    },
+    "2114155101308801423": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Tab Janitor",
+      "url": "https://x.com/SuddenlyJon/status/2114155101308801423",
+      "date": "2026-10-24"
+    },
+    "2114155308410937645": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Rosettabot",
+      "url": "https://x.com/SuddenlyJon/status/2114155308410937645",
+      "date": "2026-10-24"
     }
   }
 }

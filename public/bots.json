@@ -1092,5 +1092,57 @@
     "source_post": "https://x.com/xenappblog/status/2114155746245906853",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/xenappblog.webp"
+  },
+  {
+    "name": "Token Accountant",
+    "emoji": "📊",
+    "description": "Tracks Cursor, other models, and Grok Bot weekly — warns at 25/50/75/90 and audits wasteful automations.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/EQYrGNoU4R2bgpsltxI2B",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114154664706859013",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Box Inspector",
+    "emoji": "🔍",
+    "description": "Peeks under a Grok Bot share link and dumps the template insides before anyone hits Add.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/q7GLbLhMZDpJXBGuuci1J",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114154881875415467",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Tab Janitor",
+    "emoji": "🧹",
+    "description": "Shared-browser hygiene for Grok Bot — dry-run first, then closes junk tabs with a receipt.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/E_j1gMmT7KLW4HWbMV2nK",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114155101308801423",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Rosettabot",
+    "emoji": "🌐",
+    "description": "Paste a foreign-language Grok Bot Add link before you add it — fetches the card and explains what that bot does.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/eegdusTdLPabH7xTLQfgG",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114155308410937645",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
