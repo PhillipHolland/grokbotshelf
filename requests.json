@@ -57,8 +57,8 @@
       "date": "2026-10-24"
     },
     "2113802396791164951": {
-      "status": "not_a_request",
-      "note": "posted before the shelf launch, not an ask to be added",
+      "status": "added",
+      "approved_by": "Phillip Holland",
       "bot": "Brand Design Bot",
       "url": "https://x.com/createwithima/status/2113802396791164951",
       "date": "2026-10-24"
@@ -71,8 +71,8 @@
       "date": "2026-10-24"
     },
     "2113647645512306751": {
-      "status": "not_a_request",
-      "note": "posted before the shelf launch, not an ask to be added",
+      "status": "added",
+      "approved_by": "Phillip Holland",
       "bot": "List Front Page",
       "url": "https://x.com/teeRex247/status/2113647645512306751",
       "date": "2026-10-24"
@@ -291,6 +291,41 @@
       "note": "Recommends @ashleyschendel bots; Trend Scout already on shelf; no new template link",
       "author": "@Kevin_Logan",
       "url": "https://x.com/Kevin_Logan/status/2114149095107379283",
+      "date": "2026-10-24"
+    },
+    "2113759949046079777": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Sports Fan Desk",
+      "url": "https://x.com/ashleyschendel/status/2113759949046079777",
+      "date": "2026-10-24"
+    },
+    "2113649500631818571": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Inbox Zero",
+      "url": "https://x.com/ashleyschendel/status/2113649500631818571",
+      "date": "2026-10-24"
+    },
+    "2113248678580523239": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Deal Detective",
+      "url": "https://x.com/ashleyschendel/status/2113248678580523239",
+      "date": "2026-10-24"
+    },
+    "2113760049700995377": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Creative Video Studio",
+      "url": "https://x.com/ashleyschendel/status/2113760049700995377",
+      "date": "2026-10-24"
+    },
+    "2112584743757770786": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Security",
+      "url": "https://x.com/PerWendelboe/status/2112584743757770786",
       "date": "2026-10-24"
     }
   }
