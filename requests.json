@@ -670,6 +670,117 @@
       "bot": "Small Business Marketing Crew",
       "url": "https://x.com/createwithima/status/2114167357929066858",
       "date": "2026-10-24"
+    },
+    "2114175160638923091": {
+      "status": "added",
+      "bot": "Backup",
+      "author": "@razzzu1",
+      "template_url": "https://x.ai/bot/xMGHBEGffLuoS9sAf-Udk",
+      "url": "https://x.com/razzzu1/status/2114175160638923091",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114174034384400404": {
+      "status": "added",
+      "bot": "Résumé and Cover Letter Helper",
+      "author": "@drbellahqw",
+      "template_url": "https://x.ai/bot/E__kB7edZXGomFaPRsW-e",
+      "url": "https://x.com/drbellahqw/status/2114174034384400404",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114166626757009461": {
+      "status": "added",
+      "bot": "Home Manager",
+      "author": "@drbellahqw",
+      "template_url": "https://x.ai/bot/nP-NP2COMJTZTVdFXCR1z",
+      "url": "https://x.com/drbellahqw/status/2114166626757009461",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114170080208859298": {
+      "status": "added",
+      "bot": "Car Shopper",
+      "author": "@HudsonSutherla2",
+      "template_url": "https://x.ai/bot/8WiZYRSX5anHltj81J1w4",
+      "url": "https://x.com/HudsonSutherla2/status/2114170080208859298",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114164658076635236": {
+      "status": "added",
+      "bot": "Deep Research",
+      "author": "@ALL_Jonah",
+      "template_url": "https://x.ai/bot/T_ywHG8O1Wa-haah7ot9K",
+      "url": "https://x.com/ALL_Jonah/status/2114164658076635236",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114170170155364625": {
+      "status": "added",
+      "bot": "Twain",
+      "author": "@SuddenlyJon",
+      "template_url": "https://x.ai/bot/_OV6ItDEAbbpvi3qg3VKH",
+      "url": "https://x.com/SuddenlyJon/status/2114170170155364625",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114169970414248338": {
+      "status": "added",
+      "bot": "Dickinson",
+      "author": "@SuddenlyJon",
+      "template_url": "https://x.ai/bot/UUZnEDx7jk_nNkkLJTvfo",
+      "url": "https://x.com/SuddenlyJon/status/2114169970414248338",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114169186049991150": {
+      "status": "added",
+      "bot": "Kafka",
+      "author": "@SuddenlyJon",
+      "template_url": "https://x.ai/bot/ewFkIRV929jhuW5mHqL_a",
+      "url": "https://x.com/SuddenlyJon/status/2114169186049991150",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114168911545401410": {
+      "status": "added",
+      "bot": "Streamer's Dream",
+      "author": "@SuddenlyJon",
+      "template_url": "https://x.ai/bot/imJQgO-GFQ11w1W5tatxD",
+      "url": "https://x.com/SuddenlyJon/status/2114168911545401410",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114168667105575096": {
+      "status": "added",
+      "bot": "Pin Bot",
+      "author": "@SuddenlyJon",
+      "template_url": "https://x.ai/bot/U2it9uoAiBGz5W_Qf7h81",
+      "url": "https://x.com/SuddenlyJon/status/2114168667105575096",
+      "date": "2026-10-24",
+      "approved_by": "Phillip Holland"
+    },
+    "2114172952812134768": {
+      "status": "dead_link",
+      "note": "template 404",
+      "bot": "school flyer bot",
+      "author": "@drbellahqw",
+      "template_url": "https://x.ai/bot/kssxC0DcZBpYevW-0iTB",
+      "url": "https://x.com/drbellahqw/status/2114172952812134768",
+      "date": "2026-10-24"
+    },
+    "2114157048476598618": {
+      "status": "not_a_request",
+      "note": "GIPHY link, Clipper already on shelf",
+      "url": "https://x.com/thesoragirls/status/2114157048476598618",
+      "date": "2026-10-24"
+    },
+    "2114165350845562924": {
+      "status": "already_on_shelf",
+      "bot": "Costume Lab",
+      "url": "https://x.com/SuddenlyJon/status/2114165350845562924",
+      "date": "2026-10-24"
     }
   }
 }
