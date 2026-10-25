@@ -2327,5 +2327,18 @@
     "creator_avatar": "/avatars/jimaggie.webp",
     "source_post": "https://x.com/jimaggie/status/2114189717230985345",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Bot Terminator",
+    "emoji": "🤖",
+    "description": "Clean bot, spam, and long-inactive followers off your X account, and remove your account from unwanted lists. You review and decide what happens.",
+    "category": "Security",
+    "url": "https://x.ai/bot/6sN-FSvkf_ntuqe-3Ofjz",
+    "creator_name": "Empress",
+    "creator_handle": "@HeavyMetalShip",
+    "creator_url": "https://x.com/HeavyMetalShip",
+    "creator_avatar": "/avatars/heavymetalship.webp",
+    "source_post": "https://x.com/HeavyMetalShip/status/2114204576119451842",
+    "added": "2026-10-24"
   }
 ]
