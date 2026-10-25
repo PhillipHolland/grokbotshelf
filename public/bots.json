@@ -5081,5 +5081,44 @@
     "creator_avatar": "/avatars/burkevonriddern.webp",
     "source_post": "https://x.com/BurkevonRiddern/status/2114025117412159523",
     "added": "2026-10-25"
+  },
+  {
+    "name": "X Growth Coach",
+    "emoji": "📈",
+    "description": "Set an X follower goal; it checks your analytics each morning, explains your posts, and scores your drafts.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/paAB-Sc86QahFqHEzzHba",
+    "creator_name": "Ivan",
+    "creator_handle": "@0ooooo0",
+    "creator_url": "https://x.com/0ooooo0",
+    "creator_avatar": "/avatars/0ooooo0.webp",
+    "source_post": "https://x.com/0ooooo0/status/2114361666737766857",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "T1D Helper",
+    "emoji": "🩸",
+    "description": "A free type 1 diabetes helper: carb estimates from food photos, check-in alerts, glucose patterns, and clinic prep.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/1LuLrox7FYQecsxtqDEhT",
+    "creator_name": "Dean",
+    "creator_handle": "@DeanCockett",
+    "creator_url": "https://x.com/DeanCockett",
+    "creator_avatar": "/avatars/deancockett.webp",
+    "source_post": "https://x.com/DeanCockett/status/2114460780343312457",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "IT Resume Roaster",
+    "emoji": "🔥",
+    "description": "Honest, Reddit-style feedback on your IT resume without posting it publicly: ranked problems and exact fixes.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/PTt3mjgXUMqL8W8iUxlHb",
+    "creator_name": "nahjuin",
+    "creator_handle": "@nahjuin",
+    "creator_url": "https://x.com/nahjuin",
+    "creator_avatar": "/avatars/nahjuin.webp",
+    "source_post": "https://x.com/nahjuin/status/2114479380088889785",
+    "added": "2026-10-25"
   }
 ]
