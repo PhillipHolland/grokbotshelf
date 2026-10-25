@@ -2262,6 +2262,16 @@
       "url": "",
       "note": "site form #4; Phillip OK to add, but template and X search show no creator, and the shelf needs an X handle (creator pages key on it). Held until a creator is known.",
       "date": "2026-10-25"
+    },
+    "2114457484610208242": {
+      "status": "added",
+      "author": "@LadySoleil33",
+      "bot": "Table Charts",
+      "template_url": "https://x.ai/bot/t_8yyYApjp-KpOi77RujV",
+      "url": "https://x.com/LadySoleil33/status/2114457484610208242",
+      "note": "credited as Natasha Soleil; template title 'Table Charts by Lola'",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
     }
   }
 }
