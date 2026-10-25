@@ -1767,6 +1767,106 @@
       "bot": "Second Opinion",
       "url": "https://x.com/glenlittle/status/2114351470149861648",
       "date": "2026-10-25"
+    },
+    "2114386591539978354": {
+      "status": "added",
+      "author": "@TheMarkGShow",
+      "bot": "Quote Closer",
+      "template_url": "https://x.ai/bot/lnEBRA4mvuYRbZC003NdY",
+      "url": "https://x.com/TheMarkGShow/status/2114386591539978354",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114384443838226739": {
+      "status": "added",
+      "author": "@DomainMaster",
+      "bot": "Read & Decide",
+      "template_url": "https://x.ai/bot/p23Ddk9YaomESF7ujUDw0",
+      "url": "https://x.com/DomainMaster/status/2114384443838226739",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114384167760957886": {
+      "status": "not_a_request",
+      "author": "@DomainMaster",
+      "url": "https://x.com/DomainMaster/status/2114384167760957886",
+      "note": "same Read & Decide request as 2114384443838226739",
+      "date": "2026-10-25"
+    },
+    "2114382740351033464": {
+      "status": "added",
+      "author": "@TheMarkGShow",
+      "bot": "Lane Carrier Finder",
+      "template_url": "https://x.ai/bot/eVkuTHcfSkuiIQh4Y4TmM",
+      "url": "https://x.com/TheMarkGShow/status/2114382740351033464",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114370494883332248": {
+      "status": "added",
+      "author": "@drbellahqw",
+      "bot": "Family Schedule Manager",
+      "template_url": "https://x.ai/bot/kssxC0DcZBpYevW-0iTBs",
+      "url": "https://x.com/drbellahqw/status/2114370494883332248",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114379028790477059": {
+      "status": "already_on_shelf",
+      "author": "@TheMarkGShow",
+      "bot": "Invoice Chaser",
+      "template_url": "https://x.ai/bot/90sITfSWBOYbcnx6uyfun",
+      "url": "https://x.com/TheMarkGShow/status/2114379028790477059",
+      "date": "2026-10-25"
+    },
+    "2114375240021119438": {
+      "status": "already_on_shelf",
+      "author": "@TheMarkGShow",
+      "bot": "Missed Call Rescuer",
+      "template_url": "https://x.ai/bot/I4_nQ-HaHcSjKikmsIO4R",
+      "url": "https://x.com/TheMarkGShow/status/2114375240021119438",
+      "date": "2026-10-25"
+    },
+    "2114372697941778806": {
+      "status": "already_on_shelf",
+      "author": "@drbellahqw",
+      "bot": "Test Date Coach",
+      "template_url": "https://x.ai/bot/47BqVfxMqjyE0V05u5wI2",
+      "url": "https://x.com/drbellahqw/status/2114372697941778806",
+      "date": "2026-10-25"
+    },
+    "2114372444538707996": {
+      "status": "already_on_shelf",
+      "author": "@Turnup2ez",
+      "bot": "Techy",
+      "template_url": "https://x.ai/bot/oghCXejHEEnkvS0aQlkpt",
+      "url": "https://x.com/Turnup2ez/status/2114372444538707996",
+      "date": "2026-10-25"
+    },
+    "2114367672620102066": {
+      "status": "already_on_shelf",
+      "author": "@TheMarkGShow",
+      "bot": "Buyer Radar",
+      "template_url": "",
+      "url": "https://x.com/TheMarkGShow/status/2114367672620102066",
+      "date": "2026-10-25"
+    },
+    "2114354525184070115": {
+      "status": "already_on_shelf",
+      "author": "@createwithima",
+      "bot": "Senior Care Helper + 4 more",
+      "template_url": "",
+      "url": "https://x.com/createwithima/status/2114354525184070115",
+      "date": "2026-10-25"
+    },
+    "2114361179967512761": {
+      "status": "denied",
+      "author": "@LisaMAUSA",
+      "bot": "Side-Hustle Scout",
+      "template_url": "https://x.ai/bot/EaSQSG9AAeUBWnQa1y--4",
+      "url": "https://x.com/LisaMAUSA/status/2114361179967512761",
+      "reason": "resubmission of a template Phillip already declined",
+      "date": "2026-10-25"
     }
   }
 }

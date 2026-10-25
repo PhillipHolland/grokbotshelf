@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 16:04:25 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 17:13:35 GMT</lastBuildDate>
+  <item>
+    <title>📅 Family Schedule Manager by Bella</title>
+    <link>https://grokbotshelf.com/bot/family-schedule-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/kssxC0DcZBpYevW-0iTBs</guid>
+    <description>Keeps family appointments, school events, and routines in order, and asks for your approval before adding anything to the calendar.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚚 Lane Carrier Finder by Mark</title>
+    <link>https://grokbotshelf.com/bot/lane-carrier-finder</link>
+    <guid isPermaLink="false">https://x.ai/bot/eVkuTHcfSkuiIQh4Y4TmM</guid>
+    <description>Finds FMCSA carriers near your freight lanes, flags fraud risks, and drafts intro messages.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧭 Read &amp; Decide by George Hong</title>
+    <link>https://grokbotshelf.com/bot/read-and-decide</link>
+    <guid isPermaLink="false">https://x.ai/bot/p23Ddk9YaomESF7ujUDw0</guid>
+    <description>Scores any post, thread, or article as Keep, Try, or Skip so you know what&apos;s worth your time.</description>
+    <dc:creator>George Hong (@DomainMaster)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>📐 Quote Closer by Mark</title>
+    <link>https://grokbotshelf.com/bot/quote-closer</link>
+    <guid isPermaLink="false">https://x.ai/bot/lnEBRA4mvuYRbZC003NdY</guid>
+    <description>Keeps flooring quotes in Notion, runs the quote math, and drafts Gmail follow-ups for you to approve before anything is sent.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:53 GMT</pubDate>
+  </item>
   <item>
     <title>🔧 Home Maintenance Tracker by Kelly</title>
     <link>https://grokbotshelf.com/bot/home-maintenance-tracker</link>
@@ -420,42 +456,6 @@
     <dc:creator>Eugene Ray (@monomyth)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Sun, 25 Oct 2026 12:04:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>📊 Data Ink by Eugene Ray</title>
-    <link>https://grokbotshelf.com/bot/data-ink</link>
-    <guid isPermaLink="false">https://x.ai/bot/Y2-3YXQhppPkm5IwYWqTE</guid>
-    <description>Turns a CSV, pasted data or a public table into clean R plots and maps.</description>
-    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Space Monkey by Eugene Ray</title>
-    <link>https://grokbotshelf.com/bot/space-monkey</link>
-    <guid isPermaLink="false">https://x.ai/bot/438hek2SIHhpHn9FDlQCe</guid>
-    <description>Builds launch brief cards for any orbital or suborbital flight with specs, photo, video and three flight facts.</description>
-    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎼 Handel by Eugene Ray</title>
-    <link>https://grokbotshelf.com/bot/handel</link>
-    <guid isPermaLink="false">https://x.ai/bot/ex1gjM_9lKmE4pLJG8o_M</guid>
-    <description>Listens to a track playing on your computer or an attached clip, works out its style, and makes similar Suno songs with limits on credit spend.</description>
-    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌐 Rosetta by Eugene Ray</title>
-    <link>https://grokbotshelf.com/bot/rosetta</link>
-    <guid isPermaLink="false">https://x.ai/bot/hP_XdYFX8RBWp1teD2twd</guid>
-    <description>Turns X videos into captioned quote posts in your language, then drafts the quote for your OK.</description>
-    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:03 GMT</pubDate>
   </item>
 </channel>
 </rss>
