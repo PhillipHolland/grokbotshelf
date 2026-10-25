@@ -132,10 +132,20 @@
   }
 
   /* ---------- URL state ---------- */
+  // Creator profile links: /@handle and /u/handle (any case), plus legacy ?creator=handle.
+  const pathCreator = () => { const m = location.pathname.match(/^\/(?:@|%40|u\/)([A-Za-z0-9_]+)\/?$/i); return m ? m[1].toLowerCase() : ""; };
+  const SITE = "https://grokbotshelf.com";
+  const profilePath = (key) => { const c = creators.find((x) => x.key === key); return "/@" + (c ? c.handle.replace(/^@/, "") : key); };
+  const BASE_TITLE = document.title;
+  function setTitle() {
+    const c = st.creator && creators.find((x) => x.key === st.creator);
+    document.title = c ? `${c.label} · Grok Bot Shelf` : BASE_TITLE;
+    const canon = document.querySelector('link[rel="canonical"]'); if (canon) canon.href = SITE + (c ? profilePath(c.key) : "/");
+  }
   function readURL() {
     const p = new URLSearchParams(location.search), s = blank();
     s.q = p.get("q") || "";
-    const c = (p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
+    const c = (pathCreator() || p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
     s.cats = (p.get("cat") || "").split(",").map((x) => cats.find((c) => slug(c) === slug(x))).filter(Boolean);
     const so = p.get("sort"); s.sort = SORTS.includes(so) ? so : "featured";
     return s;
@@ -143,10 +153,9 @@
   function writeURL(push) {
     const p = new URLSearchParams();
     if (st.q) p.set("q", st.q);
-    if (st.creator) p.set("creator", st.creator);
     if (st.cats.length) p.set("cat", st.cats.map(slug).join(","));
     if (st.sort !== "featured") p.set("sort", st.sort);
-    const url = location.pathname + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
+    const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
   }
 
@@ -197,7 +206,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.avatar)}" alt="" width="40" height="40" decoding="async">
-<h2 id="g-${c.key}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2></div>
+<h2 id="g-${c.key}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Copy link to ${esc(c.label)}'s bots" title="Copy link to ${esc(c.handle)}'s bots">${I.copy}<span class="ok" aria-hidden="true">Copied</span></button></div>
 <div class="grid">${g.map(([b, m]) => card(b, m)).join("")}</div></section>`;
       }).join("");
     } else {
@@ -207,6 +216,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
     $("#clear").hidden = !(st.q || st.creator || st.cats.length || st.sort !== "featured");
     active = -1;
+    setTitle();
     renderFilters();
   }
   function renderFilters() {
@@ -262,7 +272,11 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     try { await navigator.clipboard.writeText(text); }
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
   }
-  results.addEventListener("click", (e) => { const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied")); });
+  results.addEventListener("click", (e) => {
+    const pl = e.target.closest("[data-plink]");
+    if (pl) { copy(pl.dataset.plink).then(() => { pl.classList.add("done"); clearTimeout(pl._t); pl._t = setTimeout(() => pl.classList.remove("done"), 1400); }); return; }
+    const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied"));
+  });
 
   // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
   const cardsNow = () => [...results.querySelectorAll(".card")];
@@ -327,7 +341,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     creators = [...seen.values()];
     bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
     cats = [...new Set(bots.map((b) => b.category))].sort();
-    st = readURL(); syncInputs(); render();
+    st = readURL(); syncInputs(); render(); writeURL(false);
     const pc = catsEl.querySelector('[aria-pressed="true"]'); if (pc) catsEl.scrollLeft = pc.offsetLeft - 20;
     if (location.hash) requestAnimationFrame(openHash);
   }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });

@@ -94,6 +94,9 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .ghead h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25;min-width:0}
 .ghead .handle,.ghead .gn{font-size:15px;font-weight:400;color:var(--text2);text-decoration:none}
 .ghead .handle:hover{text-decoration:underline}
+.ghead .plink{flex:none;width:auto;min-width:34px;padding:0 8px;gap:6px;grid-auto-flow:column}
+.ghead .plink .ok{display:none;font-size:13px;font-weight:600;color:var(--blue)}
+.ghead .plink.done svg{display:none}.ghead .plink.done .ok{display:inline}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .flat{margin-top:16px;margin-bottom:36px}
 .card{display:flex;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--bg);outline:none;transition:background .2s;content-visibility:auto;contain-intrinsic-size:auto 200px}
