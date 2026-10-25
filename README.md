@@ -61,3 +61,17 @@ navigation and copy link. It needs `puppeteer-core` installed outside the repo:
 ```sh
 NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.com/ [shots-dir]
 ```
+
+## Search API (for bots)
+
+Bots (and anything else) can search the shelf without loading the full catalog:
+
+```
+GET https://grokbotshelf.com/api/search?q=fitness
+GET https://grokbotshelf.com/api/search?q=mail&category=Productivity&limit=10
+GET https://grokbotshelf.com/api/search?creator=SuddenlyJon
+```
+
+Query params: `q` (optional free text), `category`, `creator` (handle or name), `limit` (1–100, default 20).
+CORS is open. Full dump remains at https://grokbotshelf.com/bots.json.
+
