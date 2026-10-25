@@ -2053,6 +2053,31 @@
       "bot": "Burn Watch",
       "url": "https://x.ai/bot/JEpich3S4Dlid1ACt3I6v",
       "date": "2026-10-25"
+    },
+    "2114440706425278585": {
+      "status": "added",
+      "bot": "Inbox Triage",
+      "author": "@CaliLumberJack",
+      "template_url": "https://x.ai/bot/4O78A68DNAm84UP4GK3QE",
+      "url": "https://x.com/CaliLumberJack/status/2114440706425278585",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114424956494954686": {
+      "status": "dead_link",
+      "author": "@HudsonSutherla2",
+      "template_url": "https://x.ai/bot/",
+      "url": "https://x.com/HudsonSutherla2/status/2114424956494954686",
+      "date": "2026-10-25",
+      "note": "link points to bare x.ai/bot with no template id"
+    },
+    "2114423607493337267": {
+      "status": "dead_link",
+      "author": "@HudsonSutherla2",
+      "template_url": "https://x.ai/bot/",
+      "url": "https://x.com/HudsonSutherla2/status/2114423607493337267",
+      "date": "2026-10-25",
+      "note": "link points to bare x.ai/bot with no template id"
     }
   }
 }

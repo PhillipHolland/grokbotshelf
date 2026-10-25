@@ -4276,5 +4276,18 @@
     "creator_url": "https://x.com/TwilightSurfers",
     "creator_avatar": "/avatars/twilightsurfers.webp",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Inbox Triage",
+    "emoji": "🗂️",
+    "description": "Sorts your Gmail or Outlook into Act now, Reply soon, FYI, and Noise, then sends you one short read-only list and stays quiet when nothing matters.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/4O78A68DNAm84UP4GK3QE",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114440706425278585",
+    "added": "2026-10-25"
   }
 ]
