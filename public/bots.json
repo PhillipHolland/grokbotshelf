@@ -1430,5 +1430,70 @@
     "source_post": "https://x.com/drbellahqw/status/2114164822619164951",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/drbellahqw.webp"
+  },
+  {
+    "name": "Veil & Vane",
+    "emoji": "🕵️",
+    "description": "Hides secret messages inside images and finds hidden data in images, audio, and PDFs.",
+    "category": "Security",
+    "url": "https://x.ai/bot/eBRHmCqvGlOuGfiEJk42a",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114166161587785776",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Rebrander",
+    "emoji": "🏷️",
+    "description": "Finds every trace of your old brand name online and builds a step-by-step switchover plan and PDF report.",
+    "category": "Business",
+    "url": "https://x.ai/bot/HGorKc5KDQLynW4JONxn_",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114165904724328952",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Delegatron 9000",
+    "emoji": "🤖",
+    "description": "Give it a goal and it splits the work, gets your approval, and runs your other bots until it's done.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/NJvHVpGC81PjsH4234BPJ",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "https://x.com/SuddenlyJon/status/2114165628198088977",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Solo",
+    "emoji": "✍️",
+    "description": "One-person helper that drafts social posts and social ads for small brands, students, and job seekers.",
+    "category": "Marketing",
+    "url": "https://x.ai/bot/N2-FOxfkfvp37JL0oi_FZ",
+    "creator_name": "Kelly",
+    "creator_handle": "@createwithima",
+    "creator_url": "https://x.com/createwithima",
+    "source_post": "https://x.com/createwithima/status/2114162891276398672",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/createwithima.webp"
+  },
+  {
+    "name": "Claim Denied",
+    "emoji": "🧾",
+    "description": "Explains an insurance claim denial in plain words, then drafts a review letter, doctor checklist, and call log.",
+    "category": "Health",
+    "url": "https://x.ai/bot/ujhvQUxYqeCwXMqZW1sSK",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "source_post": "https://x.com/drbellahqw/status/2114161923168014648",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/drbellahqw.webp"
   }
 ]
