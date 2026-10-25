@@ -522,7 +522,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   });
 })();
 
-// Suggest a bot: POST /api/submit. Queued for review, never published automatically.
+// Suggest a bot: POST /api/submit. Shelf Inbox (or Phil/Nick) reviews for NSFW and security issues. Clean bots may be added without a second human click.
 (function () {
   var f = document.getElementById("sub-form");
   if (!f) return;

@@ -1,5 +1,6 @@
 // Suggest a bot for the shelf. Queues a pending row in Neon (table submissions, see db/schema.sql).
-// Nothing here ever writes bots.json: a person reviews the queue and adds approved bots by hand.
+// This route never writes bots.json. Shelf Inbox (or Phil/Nick) reviews the queue for NSFW and
+// security issues. Clean submissions may be added without a second human click; unclear ones stay pending.
 //
 // POST /api/submit  { bot_url?, post_url?, note? }   (at least one URL)
 //   -> { ok, status: "queued" | "already_queued" | "already_listed", ... }
@@ -119,7 +120,7 @@ module.exports = async (req, res) => {
           .map(({ template_id, post_id, ...r }) => r);
         return send(res, 200, { pending, count: pending.length });
       }
-      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note } with at least one URL. Suggestions are reviewed by a person; nothing is published automatically. GET ?list=pending to see the queue." });
+      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note } with at least one URL. Reviewed for NSFW and security issues by Shelf Inbox (or Phil/Nick). Clean submissions may be added without a second human click; anything unclear stays pending. GET ?list=pending to see the queue. Email pbh+shelf@mail.grokbot.com or ask Shelf Inbox in Grok Bot. See https://grokbotshelf.com/llms.txt." });
     }
     if (req.method !== "POST") return send(res, 405, { error: "GET or POST" }, { Allow: "GET, POST" });
 
@@ -165,7 +166,7 @@ module.exports = async (req, res) => {
       [templateId, botUrl || null, postId, postUrl || null, tm.title || null, tm.description || null, pm.author || null, pm.text || null, note || null, ih]);
     if (!row) return send(res, 200, { ok: true, status: "already_queued", message: "Thanks! That one is already in the review queue." });
     return send(res, 200, { ok: true, status: "queued", id: +row.id, title: tm.title || null,
-      message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " A person checks each one before it is added." });
+      message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human." });
   } catch (e) {
     console.error("submit", e && e.message);
     return send(res, 500, { error: "That did not go through. Try again in a minute." });

@@ -30,7 +30,8 @@ a{color:inherit}
 :where(a,button,select,.card):focus-visible{box-shadow:0 0 0 2px var(--blue)}
 
 /* Hero: title and add link */
-.hero{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:max(28px,env(safe-area-inset-top));padding-bottom:20px}
+.hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;column-gap:16px;row-gap:6px;padding-top:max(28px,env(safe-area-inset-top));padding-bottom:20px}
+.affil{flex:1 0 100%;margin:0;font-size:12px;font-weight:400;letter-spacing:0;color:var(--text2);line-height:1.35}
 h1{display:flex;align-items:center;gap:12px;margin:0;white-space:nowrap;min-width:0;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
 /* Bot face from iBot: the body never moves, only the eyes group does (app.js sets its transform). */
 .botface{display:block;flex:none;width:36px;height:36px;transform:rotate(-35deg);overflow:visible}
@@ -119,7 +120,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .empty-s{margin:0 0 16px;color:var(--text2)}
 .add{scroll-margin-top:8px;border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 max(48px,env(safe-area-inset-bottom));max-width:640px}
 .add h2{margin:0 0 6px;font-size:20px;font-weight:800;letter-spacing:-.02em}
-.add p{margin:0 0 16px;color:var(--text2);line-height:1.45}
+.add p{margin:0 0 16px;color:var(--text2);line-height:1.45;overflow-wrap:anywhere}
 .add p a{color:var(--blue);text-decoration:none}
 .add p a:hover{text-decoration:underline}
 .btn.post{background:var(--blue);color:#fff;height:36px}
@@ -130,7 +131,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:50;padding:12px 16px;border-radius:4px;background:var(--blue);color:#fff;font-size:15px;
   box-shadow:0 0 15px rgba(101,119,134,.2),0 0 3px 1px rgba(101,119,134,.15);transform:translate(-50%,16px);opacity:0;transition:transform .2s,opacity .2s;pointer-events:none}
 .toast.show{transform:translate(-50%,0);opacity:1}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{gap:10px}.hero h1{font-size:22px;gap:8px}.hero .botface{width:28px;height:28px}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{column-gap:10px}.hero h1{font-size:22px;gap:8px}.hero .botface{width:28px;height:28px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Site footer */
