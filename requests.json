@@ -859,6 +859,50 @@
       "bot": "Backseat Buddy, Shop Everywhere",
       "url": "https://x.com/SpaceCowgirlTX/status/2114183512630710552",
       "date": "2026-10-24"
+    },
+    "2114186033172500607": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Login Ledger",
+      "url": "https://x.com/agent_nick_/status/2114186033172500607",
+      "date": "2026-10-24"
+    },
+    "2114184249427493253": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Head of Content",
+      "url": "https://x.com/ryangrowthh/status/2114184249427493253",
+      "date": "2026-10-24",
+      "note": "template link now opens a template titled Sponsorship Hunter; listed as Head of Content per approval"
+    },
+    "2114188187505705008": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Fleet Lead",
+      "url": "https://x.com/CaliLumberJack/status/2114188187505705008",
+      "date": "2026-10-24"
+    },
+    "2114187624231715238": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Xcavator",
+      "url": "https://x.com/CaliLumberJack/status/2114187624231715238",
+      "date": "2026-10-24"
+    },
+    "2114187054523498961": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Burn Watch",
+      "url": "https://x.com/CaliLumberJack/status/2114187054523498961",
+      "date": "2026-10-24"
+    },
+    "2114186567422288248": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Model Bridge",
+      "url": "https://x.com/CaliLumberJack/status/2114186567422288248",
+      "date": "2026-10-24",
+      "note": "template is titled Bridge Bot; shown as Model Bridge to avoid a clash with @moritzkremb's Bridge Bot"
     }
   }
 }

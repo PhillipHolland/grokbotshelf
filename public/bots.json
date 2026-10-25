@@ -1963,5 +1963,83 @@
     "creator_avatar": "/avatars/marshomestead.webp",
     "source_post": "https://x.com/MarsHomestead/status/2114181764570911028",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Login Ledger",
+    "emoji": "🔑",
+    "description": "Tracks which email or username you used for each account, built from your inbox. Never stores passwords.",
+    "category": "Security",
+    "url": "https://x.ai/bot/61VJpKKuiAnaJAZakWjdH",
+    "creator_name": "Nicholas",
+    "creator_handle": "@agent_nick_",
+    "creator_url": "https://x.com/agent_nick_",
+    "creator_avatar": "/avatars/agent_nick_.webp",
+    "source_post": "https://x.com/agent_nick_/status/2114186033172500607",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Head of Content",
+    "emoji": "🎬",
+    "description": "Sets your brand voice and runs a team of content subagents that research, draft and review your X posts.",
+    "category": "Creator",
+    "url": "https://x.ai/bot/WWdl6r61XsoZR3nyXwLzj",
+    "creator_name": "Ryan",
+    "creator_handle": "@ryangrowthh",
+    "creator_url": "https://x.com/ryangrowthh",
+    "creator_avatar": "/avatars/ryangrowthh.webp",
+    "source_post": "https://x.com/ryangrowthh/status/2114184249427493253",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Fleet Lead",
+    "emoji": "🧭",
+    "description": "Runs your other bots, makes them take turns in the browser, and only brings you finished work for your yes.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/mOunuXA9lKjg8sWImIzgy",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114188187505705008",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Xcavator",
+    "emoji": "⛏️",
+    "description": "Finds the would-be buyers hiding in your X replies and drafts an answer for each. Nothing posts without you.",
+    "category": "Marketing",
+    "url": "https://x.ai/bot/3Zh8kZfUGFUZh0ZQ6z_83",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114187624231715238",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Burn Watch",
+    "emoji": "📉",
+    "description": "Estimates how much usage a task will burn, stops before costly work, and audits routines to cut waste.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/lkvHvaZoGSoOz-zHZ0XDn",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114187054523498961",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Model Bridge",
+    "emoji": "🌉",
+    "description": "Puts Grok, ChatGPT, Gemini, Claude and Copilot on one private GitHub repo so they share files and notes.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/ThxY2BewUlyeEsywSdz4h",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114186567422288248",
+    "added": "2026-10-24"
   }
 ]
