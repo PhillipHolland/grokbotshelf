@@ -806,5 +806,18 @@
     "source_post": "https://x.com/xenappblog/status/2114144732829868193",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/xenappblog.webp"
+  },
+  {
+    "name": "Kindle Courier",
+    "emoji": "📕",
+    "description": "Turns articles, X posts, and video links into checked EPUBs and emails them to your Kindle, forwarding PDFs and DOCX unchanged.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/LXZMn9iFYykfjhOdwffV6",
+    "creator_name": "George Hong",
+    "creator_handle": "@DomainMaster",
+    "creator_url": "https://x.com/DomainMaster",
+    "source_post": "https://x.com/DomainMaster/status/2114023099570254249",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/domainmaster.webp"
   }
 ]
