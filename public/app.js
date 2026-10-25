@@ -335,7 +335,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
 (function () {
   var a = document.getElementById("post-x");
   if (!a) return;
-  var T = encodeURIComponent("Hey @Phil_Holland, add my bot to Grok Bot Shelf 🤖\nx.ai/bot/");
+  var T = encodeURIComponent("Hey @Phil_Holland @thecsguy, add my bot to Grok Bot Shelf 🤖\nx.ai/bot/");
   var web = "https://twitter.com/intent/tweet?text=" + T;
   a.href = web;
   var mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) ||
