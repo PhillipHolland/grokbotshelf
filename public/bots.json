@@ -3016,5 +3016,18 @@
     "creator_avatar": "/avatars/dcbk2la.webp",
     "source_post": "https://x.com/DCBK2LA/status/2114100377062899751",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Screening Reminder",
+    "emoji": "🩺",
+    "description": "Tracks which health screenings you're due for and reminds you before each one, with optional monthly breast-awareness check-ins and a family cancer-history map.",
+    "category": "Health",
+    "url": "https://x.ai/bot/HXt7ldBAhPJJZNFh-H9Vj",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "creator_avatar": "/avatars/drbellahqw.webp",
+    "source_post": "https://x.com/drbellahqw/status/2114222856892788984",
+    "added": "2026-10-24"
   }
 ]
