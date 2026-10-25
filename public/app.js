@@ -2,10 +2,14 @@
   "use strict";
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
-  const SORTS = ["featured", "newest", "az", "creator"];
-  let bots = [], creators = [], cats = [], st = blank(), active = -1;
+  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh");
+  const SORTS = ["featured", "newest", "bookmarks", "az", "creator"];
+  const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
+  const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
+  let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1;
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured" }; }
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false }; }
+  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -148,12 +152,18 @@
     const c = (pathCreator() || p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
     s.cats = (p.get("cat") || "").split(",").map((x) => cats.find((c) => slug(c) === slug(x))).filter(Boolean);
     const so = p.get("sort"); s.sort = SORTS.includes(so) ? so : "featured";
+    const ap = p.get("app"); s.app = ap && apps.some((a) => a.key === ap) ? ap : "";
+    const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
+    s.fresh = p.get("new") === "1";
     return s;
   }
   function writeURL(push) {
     const p = new URLSearchParams();
     if (st.q) p.set("q", st.q);
     if (st.cats.length) p.set("cat", st.cats.map(slug).join(","));
+    if (st.app) p.set("app", st.app);
+    if (st.agency) p.set("does", st.agency);
+    if (st.fresh) p.set("new", "1");
     if (st.sort !== "featured") p.set("sort", st.sort);
     const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
@@ -166,12 +176,14 @@
     code: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>',
     up: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg>',
     down: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg>',
+    app: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M12 8v6M9 11h6"/></svg>',
+    bm: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
     x: '<svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
   };
   // Share a bot on X: web intent everywhere; native app first on mobile (same pattern as #post-x)
   const MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   function shareX(b) {
-    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${SITE}/#${b._slug}`);
+    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${SITE}${b._page}`);
     return { web: "https://twitter.com/intent/tweet?text=" + T, app: "twitter://post?message=" + T };
   }
   function openShareX(u) {
@@ -181,21 +193,37 @@
     });
     window.location.href = u.app;
   }
+  // Add to Bot app: grokbot:// deep link; on phones fall back to x.ai if the app does not open
+  function openApp(deep, web) {
+    const t = setTimeout(() => { if (document.visibilityState === "visible") window.location.href = web; }, 1500);
+    document.addEventListener("visibilitychange", function h() {
+      if (document.visibilityState === "hidden") { clearTimeout(t); document.removeEventListener("visibilitychange", h); }
+    });
+    window.location.href = deep;
+  }
+  function badgesHTML(b) {
+    const m = b._meta; if (!m) return "";
+    const out = (m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
+      .concat((m.works_with || []).map((w) => `<span class="badge">${esc(w)}</span>`));
+    return out.length ? `<div class="badges" title="Set by the shelf from the bot's description">${out.join("")}</div>` : "";
+  }
   function card(b, m, pre) {
     const h = m ? m.hits : {}, id = (pre || "") + b._slug;
+    const bk = b._social && b._social.bookmarks ? `<span class="dot" aria-hidden="true">·</span><span class="bm" title="${b._social.bookmarks} bookmarks on the original X post (not a rating)">${I.bm}${b._social.bookmarks.toLocaleString("en-US")}<span class="sr"> bookmarks on X</span></span>` : "";
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
-<h3 id="${id}-t"><a href="#${b._slug}">${hl(b.name, h.name)}</a></h3>
-<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16" loading="lazy" decoding="async"><span>${esc(b.creator_name)}</span></div>
+<h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
+<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16" loading="lazy" decoding="async"><span>${esc(b.creator_name)}</span>${bk}</div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
+${badgesHTML(b)}
 <div class="foot-row"><div class="tools">
 ${voteHTML(b)}
 <button type="button" class="ib" data-copy="${esc(b.url)}" aria-label="Copy link to ${esc(b.name)}" title="Copy link">${I.copy}</button>
 <a class="ib" href="${esc(shareX(b).web)}" data-sharex="${b._slug}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X" title="Share ${esc(b.name)} on X">${I.share}</a>
 ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
-</div><a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div>
+</div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add ${esc(b.name)} to the Grok Bot app" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div></div>
 </article>`;
   }
   /* ---------- From the builders strip (home Featured view only) ---------- */
@@ -280,22 +308,28 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     for (const b of bots) {
       if (ignore !== "creator" && st.creator && ckey(b) !== st.creator) continue;
       if (ignore !== "cat" && st.cats.length && !st.cats.includes(b.category)) continue;
+      if (st.app && !(b._meta && (b._meta.works_with || []).some((w) => slug(w) === st.app))) continue;
+      if (st.agency && !(b._meta && b._meta.agency === st.agency)) continue;
+      if (st.fresh && !(b.added >= weekAgo())) continue;
       const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
       if (m) out.push([b, m]);
     }
     return out;
   }
+  const weekAgo = () => { const d = new Date(Date.now() - 6 * 864e5); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
+  const bmOf = (b) => (b._social ? b._social.bookmarks : -1);
   function render() {
     const list = filtered(), searching = !!st.q.trim();
     const by = {
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
       newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
+      bookmarks: (a, b) => bmOf(b[0]) - bmOf(a[0]) || ((b[0]._social || {}).likes || 0) - ((a[0]._social || {}).likes || 0) || a[0]._i - b[0]._i,
       az: (a, b) => a[0].name.replace(/^[^\p{L}\p{N}]+/u, "").localeCompare(b[0].name.replace(/^[^\p{L}\p{N}]+/u, "")),
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
     }[st.sort];
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
-    const strip = st.sort === "featured" && !searching && !st.creator && !st.cats.length ? buildersHTML() : "";
+    const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() : "";
     if (grouped) {
       results.innerHTML = strip + creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
@@ -309,7 +343,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
-    $("#clear").hidden = !(st.q || st.creator || st.cats.length || st.sort !== "featured");
+    $("#clear").hidden = !(st.q || filtering() || st.sort !== "featured");
     active = -1;
     setTitle();
     renderFilters();
@@ -326,6 +360,11 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       cats.map((c) => opt(c, c, !multi && st.cats[0] === c)).join("");
     catsEl.value = multi ? "__multi" : (st.cats[0] || "");
     catsEl.classList.toggle("on", st.cats.length > 0);
+    appsEl.innerHTML = opt("", "Works with any app", !st.app) + apps.map((a) => opt(a.key, `${a.label} (${a.n})`, st.app === a.key)).join("");
+    appsEl.value = st.app; appsEl.classList.toggle("on", !!st.app);
+    agencyEl.innerHTML = opt("", "Can it act?", !st.agency) + Object.entries(AGENCY).map(([k, v]) => opt(k, v, st.agency === k)).join("");
+    agencyEl.value = st.agency; agencyEl.classList.toggle("on", !!st.agency);
+    freshEl.setAttribute("aria-pressed", String(st.fresh));
   }
 
   function set(patch, push) { Object.assign(st, patch); render(); writeURL(push); }
@@ -337,6 +376,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   sortEl.addEventListener("change", () => set({ sort: sortEl.value }, true));
   creatorEl.addEventListener("change", () => set({ creator: creatorEl.value }, true));
   catsEl.addEventListener("change", () => { if (catsEl.value !== "__multi") set({ cats: catsEl.value ? [catsEl.value] : [] }, true); });
+  appsEl.addEventListener("change", () => set({ app: appsEl.value }, true));
+  agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
+  freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
   $("#clear").addEventListener("click", clearAll);
   $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
@@ -354,6 +396,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (vb) { castVote(vb.closest(".vote").dataset.vote, Number(vb.dataset.v)); return; }
     const pl = e.target.closest("[data-plink]");
     if (pl) { copy(pl.dataset.plink).then(() => { pl.classList.add("done"); clearTimeout(pl._t); pl._t = setTimeout(() => pl.classList.remove("done"), 1400); }); return; }
+    const ap = e.target.closest("[data-app]");
+    if (ap) { if (MOBILE) { const bot = bots.find((x) => x._slug === ap.dataset.app); if (bot) { e.preventDefault(); openApp(bot._app, bot.url); } } return; }
     const sx = e.target.closest("[data-sharex]");
     if (sx) { if (MOBILE) { const bot = bots.find((x) => x._slug === sx.dataset.sharex); if (bot) { e.preventDefault(); openShareX(shareX(bot)); } } return; }
     const b = e.target.closest("[data-copy]"); if (b) copy(b.dataset.copy).then(() => say("Link copied"));
@@ -435,13 +479,21 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   window.addEventListener("hashchange", openHash);
 
   /* ---------- Boot ---------- */
-  fetch("/bots.json").then((r) => r.json()).then((data) => {
-    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+  const getJSON = (u) => fetch(u).then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  const tid = (u) => String(u || "").replace(/^https:\/\/x\.ai\/(bot\/)?/, "");
+  const deep = (u) => { const m = String(u || "").match(/^https:\/\/x\.ai\/bot\/([A-Za-z0-9_-]+)\/?$/); return m ? "grokbot://app/v1/bot-template?id=" + m[1] : ""; };
+  const pid = (u) => (String(u || "").match(/\/status\/(\d+)/) || [])[1];
+  Promise.all([fetch("/bots.json").then((r) => r.json()), getJSON("/bot-meta.json"), getJSON("/social.json")]).then(([data, metaF, socialF]) => {
+    const META = metaF.bots || {}, SOC = socialF.posts || {};
+    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: META[tid(b.url)] || null, _social: SOC[pid(b.source_post)] || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
     const seen = new Map();
     for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, short: b.creator_name, label: b.creator_name });
     creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
     bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
     cats = [...new Set(bots.map((b) => b.category))].sort();
+    const am = new Map();
+    for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
+    apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
     st = readURL(); syncInputs(); render(); writeURL(false);
     if (location.hash) requestAnimationFrame(openHash);
     loadVotes();
@@ -467,5 +519,32 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       if (document.visibilityState === "hidden") { clearTimeout(t); document.removeEventListener("visibilitychange", h); }
     });
     window.location.href = "twitter://post?message=" + T;
+  });
+})();
+
+// Suggest a bot: POST /api/submit. Queued for review, never published automatically.
+(function () {
+  var f = document.getElementById("sub-form");
+  if (!f) return;
+  var msg = document.getElementById("sub-msg"), go = document.getElementById("sub-go");
+  function show(t, cls) { msg.textContent = t; msg.className = "sub-msg" + (cls ? " " + cls : ""); }
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var bot = f.bot_url.value.trim(), post = f.post_url.value.trim();
+    if (!bot && !post) { show("Paste an x.ai/bot link or an X post link.", "err"); f.bot_url.focus(); return; }
+    go.disabled = true; show("Checking…");
+    fetch("/api/submit", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ bot_url: bot, post_url: post, note: f.note.value.trim(), website: f.website.value }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r, d]; }); })
+      .then(function (rd) {
+        var r = rd[0], d = rd[1];
+        if (r.ok && d.ok) {
+          show(d.message || "Thanks! It is in the review queue.", "ok");
+          if (d.status !== "already_listed") f.reset();
+          if (window.va) window.va("event", { name: "submit_bot" });
+        } else show(d.error || "That did not go through. Try again in a minute.", "err");
+      })
+      .catch(function () { show("That did not go through. Try again in a minute.", "err"); })
+      .then(function () { go.disabled = false; });
   });
 })();

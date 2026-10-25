@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+  <title>Grok Bot Shelf, newest bots</title>
+  <link>https://grokbotshelf.com/</link>
+  <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
+  <language>en</language>
+  <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Sun, 25 Oct 2026 14:06:36 GMT</lastBuildDate>
+  <item>
+    <title>🧾 Receipt Keeper by Kent Weber</title>
+    <link>https://grokbotshelf.com/bot/receipt-keeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/3ZpWwU-KhU953eArYJ8ST</guid>
+    <description>Logs receipts from photos or forwarded emails into your own spreadsheet.</description>
+    <dc:creator>Kent Weber (@KentBWeber)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚙 Car Deal Scout by Kent Weber</title>
+    <link>https://grokbotshelf.com/bot/car-deal-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/4-ai7JQWpKpOUiK1Ih0J3</guid>
+    <description>Watches listing sites for a car that matches your model, years, budget and must-haves.</description>
+    <dc:creator>Kent Weber (@KentBWeber)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>💸 Claimed by Liam</title>
+    <link>https://grokbotshelf.com/bot/claimed</link>
+    <guid isPermaLink="false">https://x.ai/bot/wIxb391-9pDKoWXQ8xrbD</guid>
+    <description>Searches official refunds, settlements and compensation programs for money you may be owed.</description>
+    <dc:creator>Liam (@liam_fallen)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>📋 Quoted by Liam</title>
+    <link>https://grokbotshelf.com/bot/quoted</link>
+    <guid isPermaLink="false">https://x.ai/bot/NLw7vTHF4uuyaP_SGF659</guid>
+    <description>Contacts providers, collects real quotes, and compares the true cost.</description>
+    <dc:creator>Liam (@liam_fallen)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎁 Included by Liam</title>
+    <link>https://grokbotshelf.com/bot/included</link>
+    <guid isPermaLink="false">https://x.ai/bot/9y2DTpeGSxGLvevkCRTDI</guid>
+    <description>Finds perks and protections you already get through plans and memberships you pay for.</description>
+    <dc:creator>Liam (@liam_fallen)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕵️ Agent Zero by Liam</title>
+    <link>https://grokbotshelf.com/bot/agent-zero</link>
+    <guid isPermaLink="false">https://x.ai/bot/DFnZYjCELW2QdywUWZRiG</guid>
+    <description>Finds your listings on people-search and data-broker sites and files removal requests, with your consent.</description>
+    <dc:creator>Liam (@liam_fallen)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗂️ Claudia, Chief of Staff by Kamil Banc</title>
+    <link>https://grokbotshelf.com/bot/claudia-chief-of-staff</link>
+    <guid isPermaLink="false">https://x.ai/bot/AkJewmJ9D2DlMpBD5XaCG</guid>
+    <description>Tracks the promises you make across email, Slack and calls, flags contacts who&apos;ve gone quiet, and sends a morning brief.</description>
+    <dc:creator>Kamil Banc (@kamilbanc)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:34 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Syllabot by Dave Gambrill</title>
+    <link>https://grokbotshelf.com/bot/syllabot</link>
+    <guid isPermaLink="false">https://x.ai/bot/uLaiAPTZzDV7vfptofUov</guid>
+    <description>Helps you build and manage courses on Kajabi.</description>
+    <dc:creator>Dave Gambrill (@gambrill)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>📡 Asymmetric Opportunity Radar by Gladstone</title>
+    <link>https://grokbotshelf.com/bot/asymmetric-opportunity-radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/B26pHlsc6Eb0m1_SlEtiK</guid>
+    <description>Sends a weekly ranked digest of bounties, contests, AI evaluation gigs and early-adopter programs.</description>
+    <dc:creator>Gladstone (@maverickmath)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Grok Bot Video Studio by Mike Gannotti</title>
+    <link>https://grokbotshelf.com/bot/grok-bot-video-studio</link>
+    <guid isPermaLink="false">https://x.ai/bot/wVv54dUKjA2MYaq1XMCzN</guid>
+    <description>Makes explainer, news, podcast and music videos with Grok Imagine, starting each project from a menu of formats.</description>
+    <dc:creator>Mike Gannotti (@MichaelGannotti)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 Sift by Texas Based G-Pa</title>
+    <link>https://grokbotshelf.com/bot/sift</link>
+    <guid isPermaLink="false">https://x.ai/bot/PX8eADZlGTF6uPc9LyO4j</guid>
+    <description>Sorts the comments on an X post into a ranked shortlist for whatever you&apos;re picking, like giveaway winners, hires, feedback or leads.</description>
+    <dc:creator>Texas Based G-Pa (@TexasBasedGpa)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧰 HubSpot Helper by Jon</title>
+    <link>https://grokbotshelf.com/bot/hubspot-helper</link>
+    <guid isPermaLink="false">https://x.ai/bot/YELCIJ_5UrbwjP-4pm_Fx</guid>
+    <description>Answers your HubSpot CRM, workflow, reporting and API questions with numbered steps checked against HubSpot&apos;s live docs.</description>
+    <dc:creator>Jon (@TheJonMartin)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧪 Pep by Dave Gambrill</title>
+    <link>https://grokbotshelf.com/bot/pep</link>
+    <guid isPermaLink="false">https://x.ai/bot/3OBkFpa32HssSRWc_0zfD</guid>
+    <description>Tracks your peptide protocol: reconstitution math, dose log, vial inventory and shot-day reminders. It calculates and logs what you already decided; it never prescribes or sources.</description>
+    <dc:creator>Dave Gambrill (@gambrill)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐧 OmaBot by Tom Ballard</title>
+    <link>https://grokbotshelf.com/bot/omabot</link>
+    <guid isPermaLink="false">https://x.ai/bot/u6bOakyX1Y3CO3S_aHYIx</guid>
+    <description>Runs Omarchy, DHH&apos;s Arch + Hyprland desktop, in the Try Omarchy VM on its own computer and does your Omarchy tasks there: themes, plugins, packages.</description>
+    <dc:creator>Tom Ballard (@tcballard)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>👥 Bot Team Pack by Problematic Polemicist.</title>
+    <link>https://grokbotshelf.com/bot/bot-team-pack</link>
+    <guid isPermaLink="false">https://x.ai/bot/fAUrTIWIfCHpf6glito1Q</guid>
+    <description>Sets up a team of six bots (Hub, Email &amp; Calendar, Tasks, Finance, Critic, Architect) that share one set of rules.</description>
+    <dc:creator>Problematic Polemicist. (@ProbPolemicist)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>📣 Social Media Manager by Upesh</title>
+    <link>https://grokbotshelf.com/bot/social-media-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/EN9Ftdn8ZaoLEg-SLPkZL</guid>
+    <description>Turns your news emails and story into short posts for X and Threads and publishes them through Buffer.</description>
+    <dc:creator>Upesh (@upeshinmars)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤝 Collaboration Bot by realMattAbrams</title>
+    <link>https://grokbotshelf.com/bot/collaboration-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/SVz86tYbkiggizWQ_9vca</guid>
+    <description>Connects your bot team with other people&apos;s bot teams on shared projects through a shared repo.</description>
+    <dc:creator>realMattAbrams (@realMattAbrams)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Usage Bot by realMattAbrams</title>
+    <link>https://grokbotshelf.com/bot/usage-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/_3UoUiKLsONyyF62RWf1F</guid>
+    <description>Tracks your Grok Bot usage and tells your other bots to slow down before you run out.</description>
+    <dc:creator>realMattAbrams (@realMattAbrams)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>💉 Vaccine and Checkup Tracker by Bella</title>
+    <link>https://grokbotshelf.com/bot/vaccine-and-checkup-tracker</link>
+    <guid isPermaLink="false">https://x.ai/bot/R00XcSMfn6tHHIi0LH-qK</guid>
+    <description>Keeps each child&apos;s checkups, shots and school forms in one list with reminders.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎀 Breast Awareness Coach by Bella</title>
+    <link>https://grokbotshelf.com/bot/breast-awareness-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/HBt6yvX8rVmSsFmUST2ZX</guid>
+    <description>A gentle monthly reminder to check what is normal for your breasts so you notice changes early.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>📰 Daily News in 5 Minutes by Bella</title>
+    <link>https://grokbotshelf.com/bot/daily-news-in-5-minutes</link>
+    <guid isPermaLink="false">https://x.ai/bot/QaF0ZV3dXphLna9zYHSUN</guid>
+    <description>A short, neutral daily local news brief with every story linked to a source.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:20 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏗️ Business Creation Bot by Grease</title>
+    <link>https://grokbotshelf.com/bot/business-creation-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/mNxMU6MzMIn8uJrf7e49f</guid>
+    <description>Helps you build a business selling websites to local trade businesses that don&apos;t have one, from finding leads to closing.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:19 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕊️ Spiritual Advisor by Grease</title>
+    <link>https://grokbotshelf.com/bot/spiritual-advisor</link>
+    <guid isPermaLink="false">https://x.ai/bot/t-Ag2GaAJ8zzUAXEaoKab</guid>
+    <description>A scripture and history mentor that prepares lessons and talks and sends a daily reflection question.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧳 Group Tour Trip Planner by Grease</title>
+    <link>https://grokbotshelf.com/bot/group-tour-trip-planner</link>
+    <guid isPermaLink="false">https://x.ai/bot/B2ukfMxvHbJF5t-UOl4ab</guid>
+    <description>Plans group tour trips, flags passport and visa risks, and tracks bookings, deposits and deadlines.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:17 GMT</pubDate>
+  </item>
+  <item>
+    <title>📖 Elders Quorum Companion by Grease</title>
+    <link>https://grokbotshelf.com/bot/elders-quorum-companion</link>
+    <guid isPermaLink="false">https://x.ai/bot/qmgxPUlB0uVwOP0nzci-J</guid>
+    <description>Helps an LDS elders quorum presidency organize ministering assignments, interviews, lessons and agendas.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔧 Launch Coach (Apprentice) by Grease</title>
+    <link>https://grokbotshelf.com/bot/launch-coach-apprentice</link>
+    <guid isPermaLink="false">https://x.ai/bot/Dxom6wzVP24aw5RQpMhBQ</guid>
+    <description>A daily coach for a trade apprentice that tracks hours, licensing classes, habits and an optional weekly parent report.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Launch Coach by Grease</title>
+    <link>https://grokbotshelf.com/bot/launch-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/ZzHTmSlVcOkcdqhIKGsOW</guid>
+    <description>A daily coach for a young adult finishing the GED and landing a trade apprenticeship, with habit nudges and tutoring.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪝 Hookline by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/hookline</link>
+    <guid isPermaLink="false">https://x.ai/bot/MRlJQnA1DLo-zePHw8Xai</guid>
+    <description>Drafts LinkedIn and X posts, comments and reply cards in your voice each morning for you to post yourself.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:13 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏋️ Mend &amp; Move by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/mend-and-move</link>
+    <guid isPermaLink="false">https://x.ai/bot/oslk813R6omf07tzuvR5n</guid>
+    <description>A fitness coach that builds and progresses workouts, plans meals to your targets, and switches to gentle days when you&apos;re hurt.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>⭐ North Star by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/north-star</link>
+    <guid isPermaLink="false">https://x.ai/bot/TB48ius3yYWqvUFaxnM33</guid>
+    <description>Keeps one master copy of your voice, rules and promises for all your bots, with a weekly drift report.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>✂️ Bill Buster by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/bill-buster</link>
+    <guid isPermaLink="false">https://x.ai/bot/ji90nMN5S8qAPDtyVyjfi</guid>
+    <description>Finds overspending on bills, subscriptions, card fees and insurance, then drafts a call script and email to win it back.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:10 GMT</pubDate>
+  </item>
+  <item>
+    <title>💵 Money Brief by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/money-brief</link>
+    <guid isPermaLink="false">https://x.ai/bot/gEhyTHxwNx2kAvbQ7AtLn</guid>
+    <description>Weekday read-only money alerts for bills due, new charges and odd activity, plus weekly spending and monthly net worth reports.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:09 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗂️ XO by Oliver Parsons</title>
+    <link>https://grokbotshelf.com/bot/xo</link>
+    <guid isPermaLink="false">https://x.ai/bot/GpfSXlyQGc1kbScfa8Sx0</guid>
+    <description>A chief of staff bot that turns your asks into tracked tasks and sends each one to the right specialist bot.</description>
+    <dc:creator>Oliver Parsons (@oliverparsons)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎤 Yusician by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/yusician</link>
+    <guid isPermaLink="false">https://x.ai/bot/xpTH6yslvNJuuPq5mO01a</guid>
+    <description>Makes songs from a style and lyrics on Apple Silicon using yue2-mlx, with output as WAV files.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>📊 Data Ink by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/data-ink</link>
+    <guid isPermaLink="false">https://x.ai/bot/Y2-3YXQhppPkm5IwYWqTE</guid>
+    <description>Turns a CSV, pasted data or a public table into clean R plots and maps.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚀 Space Monkey by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/space-monkey</link>
+    <guid isPermaLink="false">https://x.ai/bot/438hek2SIHhpHn9FDlQCe</guid>
+    <description>Builds launch brief cards for any orbital or suborbital flight with specs, photo, video and three flight facts.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎼 Handel by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/handel</link>
+    <guid isPermaLink="false">https://x.ai/bot/ex1gjM_9lKmE4pLJG8o_M</guid>
+    <description>Listens to a track playing on your computer or an attached clip, works out its style, and makes similar Suno songs with limits on credit spend.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌐 Rosetta by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/rosetta</link>
+    <guid isPermaLink="false">https://x.ai/bot/hP_XdYFX8RBWp1teD2twd</guid>
+    <description>Turns X videos into captioned quote posts in your language, then drafts the quote for your OK.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>🍄 Truffle by Eugene Ray</title>
+    <link>https://grokbotshelf.com/bot/truffle</link>
+    <guid isPermaLink="false">https://x.ai/bot/22XPum6Dznc_jnPeuWGTt</guid>
+    <description>Finds small, quality X accounts in your interests that you don&apos;t follow yet and sends digests with a draft intro line for each.</description>
+    <dc:creator>Eugene Ray (@monomyth)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧮 Parent Math Helper by Bella</title>
+    <link>https://grokbotshelf.com/bot/parent-math-helper</link>
+    <guid isPermaLink="false">https://x.ai/bot/-HQf7A1KZQhpWjU51xYT5</guid>
+    <description>Explains your kid&apos;s K-12 math homework to you step by step, with one sentence to say to your child and a quick way to check the answer.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:04:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎙️ ATC Baby by DCBK2LA</title>
+    <link>https://grokbotshelf.com/bot/atc-baby</link>
+    <guid isPermaLink="false">https://x.ai/bot/qS6fp4SprYzn1AwfynJru</guid>
+    <description>Fan-facing helper for a live show or podcast: search transcripts, get weekly recaps, and read speaker profiles.</description>
+    <dc:creator>DCBK2LA (@DCBK2LA)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:03:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛰️ ChangeLens by Marshall</title>
+    <link>https://grokbotshelf.com/bot/changelens</link>
+    <guid isPermaLink="false">https://x.ai/bot/CXhCaQsmxAm1ym5qLwrvz</guid>
+    <description>Give it any place on Earth and get before and after satellite image cards, in true color and SWIR, from Copernicus Sentinel imagery.</description>
+    <dc:creator>Marshall (@marshallfrith)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:03:50 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛡️ Template Safety Checker by Jorhan</title>
+    <link>https://grokbotshelf.com/bot/template-safety-checker</link>
+    <guid isPermaLink="false">https://x.ai/bot/8JbRKMaD-VrcN_QyitMXN</guid>
+    <description>Paste any Grok Bot template, link, or JSON to see what it can access, any red flags, and whether it is safe to install. Read-only.</description>
+    <dc:creator>Jorhan (@Jorhan)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 25 Oct 2026 12:03:49 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Teacher Agent by Minnesota Mag</title>
+    <link>https://grokbotshelf.com/bot/teacher-agent</link>
+    <guid isPermaLink="false">https://x.ai/bot/9lDCcDT4BwtO1SkW07iF4</guid>
+    <description>A patient personal teacher for high school and college subjects that teaches one lesson at a time with examples and practice questions.</description>
+    <dc:creator>Minnesota Mag (@mag_minnesota)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sat, 24 Oct 2026 12:04:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>📚 Curriculum Researcher by Minnesota Mag</title>
+    <link>https://grokbotshelf.com/bot/curriculum-researcher</link>
+    <guid isPermaLink="false">https://x.ai/bot/nDaANSe7a9uFU0gMGVJ-h</guid>
+    <description>Finds free, open courses on anything you want to learn and turns them into a course plan with readings, pictures and videos.</description>
+    <dc:creator>Minnesota Mag (@mag_minnesota)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔍 Is This Health Claim True? by Bella</title>
+    <link>https://grokbotshelf.com/bot/is-this-health-claim-true</link>
+    <guid isPermaLink="false">https://x.ai/bot/oXjpkueeC6BqnKnKBLRCN</guid>
+    <description>Paste a health claim from a group chat or TikTok and get a clear verdict, real sources, and a kind reply you can send back.</description>
+    <dc:creator>Bella (@drbellahqw)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>💪 Fitness Coach by Grease</title>
+    <link>https://grokbotshelf.com/bot/fitness-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/cA9uzca3M66V1hk6Au94p</guid>
+    <description>Builds a strength and mobility plan around your gear and injuries, sends daily workouts, and logs sets and meals to a spreadsheet.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔐 Personal Cybersecurity Coach by Grease</title>
+    <link>https://grokbotshelf.com/bot/personal-cybersecurity-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/vEl_iMl8eLa6pOYAeey--</guid>
+    <description>Walks you through six weekend sessions to lock down your accounts, phone, Wi-Fi, credit and family against hacks, identity theft and AI scams.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧳 Family Travel &amp; PTO Planner by Grease</title>
+    <link>https://grokbotshelf.com/bot/family-travel-and-pto-planner</link>
+    <guid isPermaLink="false">https://x.ai/bot/CAboHRIpMlLDU6mwnByCq</guid>
+    <description>Plans family trips around your PTO balance, compares flights and lodging, and builds road-trip and National Park sheets with permit deadlines.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔧 Home &amp; Garage by Grease</title>
+    <link>https://grokbotshelf.com/bot/home-and-garage</link>
+    <guid isPermaLink="false">https://x.ai/bot/RW2Wetx6ovZG5aAyBDDwy</guid>
+    <description>Tracks home maintenance, vehicle service, registrations and warranties in one specs sheet, with a monthly heads-up 45 days before anything is due.</description>
+    <dc:creator>Grease (@LowTimePrefrenz)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 24 Oct 2026 12:03:54 GMT</pubDate>
+  </item>
+</channel>
+</rss>

@@ -7,13 +7,14 @@
 <meta name="description" content="Grok Bot templates you can import in one tap.">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
-<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()</script>
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})();(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()</script>
 <style>html,body{background:#000;color-scheme:dark}html[data-theme="light"],html[data-theme="light"] body{background:#fff;color-scheme:light}</style>
 <link rel="canonical" href="https://grokbotshelf.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/bots.json" as="fetch" crossorigin>
+<link rel="alternate" type="application/rss+xml" title="Grok Bot Shelf, newest bots" href="/feed.xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grok Bot Shelf">
 <meta property="og:title" content="Grok Bot Shelf">
@@ -61,6 +62,7 @@
       <select id="sort">
         <option value="featured">Featured</option>
         <option value="newest">Newest</option>
+        <option value="bookmarks">Most bookmarked</option>
         <option value="az">A–Z</option>
         <option value="creator">Creator</option>
       </select>
@@ -78,6 +80,17 @@
       <select id="cats"><option value="">All categories</option></select>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
     </div>
+    <div class="selwrap sm">
+      <label class="sr" for="apps">Works with</label>
+      <select id="apps" title="Apps named in the bot's description, set by the shelf"><option value="">Works with any app</option></select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </div>
+    <div class="selwrap sm">
+      <label class="sr" for="agency">Can it act</label>
+      <select id="agency" title="Reads only, drafts for you, or takes actions. Set by the shelf"><option value="">Can it act?</option></select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </div>
+    <button type="button" class="chip" id="fresh" aria-pressed="false">New this week</button>
   </div>
 </div></div>
 
@@ -97,8 +110,19 @@
 
   <section class="add" id="add" aria-labelledby="add-h">
     <h2 id="add-h">Add your bot</h2>
-    <p id="add-text">Reply to the <span id="launch">launch post</span> or tag <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> or <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a> on X with your x.ai/bot link and a one-line description, and it gets reviewed and added.</p>
-    <a class="btn post" id="post-x" href="https://twitter.com/intent/tweet?text=Hey%20%40Phil_Holland%20%40thecsguy%2C%20add%20my%20bot%20to%20Grok%20Bot%20Shelf%20%F0%9F%A4%96%0Ax.ai%2Fbot%2F" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
+    <p>Paste your x.ai/bot link, the X post where you shared it, or both. Every suggestion is reviewed by a person before it shows up here.</p>
+    <form class="sub-form" id="sub-form" novalidate>
+      <label for="sub-bot">Template link</label>
+      <input id="sub-bot" name="bot_url" type="url" inputmode="url" placeholder="https://x.ai/bot/..." autocomplete="off" autocapitalize="off" spellcheck="false">
+      <label for="sub-post">X post (optional if you have the template link)</label>
+      <input id="sub-post" name="post_url" type="url" inputmode="url" placeholder="https://x.com/you/status/..." autocomplete="off" autocapitalize="off" spellcheck="false">
+      <label for="sub-note">Anything we should know (optional)</label>
+      <textarea id="sub-note" name="note" maxlength="280" placeholder="One line about what it does"></textarea>
+      <input type="text" name="website" id="sub-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
+      <div class="row"><button type="submit" class="btn post" id="sub-go">Suggest this bot</button><p class="sub-msg" id="sub-msg" role="status" aria-live="polite"></p></div>
+    </form>
+    <p id="add-text" class="or">Or reply to the <span id="launch">launch post</span>, or tag <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> or <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a> on X with your x.ai/bot link and a one-line description.</p>
+    <a class="btn" id="post-x" href="https://twitter.com/intent/tweet?text=Hey%20%40Phil_Holland%20%40thecsguy%2C%20add%20my%20bot%20to%20Grok%20Bot%20Shelf%20%F0%9F%A4%96%0Ax.ai%2Fbot%2F" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" style="fill:currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
     <p class="fine">Added bots credit you by name and link to your X profile.</p>
   </section>
 </main>
@@ -106,6 +130,8 @@
 
 <footer class="site-foot wrap">
   <p>Not affiliated with SpaceXSI.</p>
+  <p class="by">Agency and app badges are set by the shelf from each bot's description. Bookmark counts come from X and are not ratings.</p>
+  <p class="by"><a href="/feed.xml">RSS</a> · <a href="/bots.json">bots.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>
 

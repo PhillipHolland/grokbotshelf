@@ -161,3 +161,74 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .vote .dn[aria-pressed="true"]{color:#f4212e}
 .vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
 .bsub .who{white-space:nowrap}
+
+/* Add to Bot app: small icon on desktop, full-width primary on phones (html.mobile set in <head>) */
+.gets{display:flex;align-items:center;gap:4px;margin-left:auto}
+.foot-row{flex-wrap:wrap;row-gap:8px}
+.card .app{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9999px;color:var(--text2);text-decoration:none;transition:background .15s,color .15s}
+.card .app:hover{background:var(--mark);color:var(--blue)}
+.card .app svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card .app .t{display:none}
+html.mobile .card .gets{width:100%;margin-left:0}
+html.mobile .card .app{flex:1;display:inline-flex;justify-content:center;gap:6px;width:auto;background:var(--blue);color:#fff;font:700 14px var(--font)}
+html.mobile .card .app .t{display:inline}
+html.mobile .card .app:hover{background:var(--blue-h);color:#fff}
+html.mobile .card .gets .get{background:transparent;color:var(--text);border:1px solid var(--line2);padding:0 14px}
+.app.big,.bp-actions .app{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:9999px;color:var(--text);font:700 15px var(--font);text-decoration:none}
+.bp-actions .app:hover{background:var(--hover)}
+html.mobile .bp-actions .app{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* Badges: agency + works with */
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin:-6px 0 12px}
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:9999px;border:1px solid var(--line);color:var(--text2);font:600 12px/1 var(--font);white-space:nowrap}
+.badge.ag-acts{border-color:rgba(249,24,128,.45);color:#f91880}
+.badge.ag-drafts{border-color:rgba(255,212,0,.45);color:#d4a500}
+.badge.ag-reads{border-color:rgba(0,186,124,.45);color:#00ba7c}
+.sub .bm{display:inline-flex;align-items:center;gap:3px}
+.sub .bm svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+
+/* Extra filters */
+.filterbar{align-items:center}
+.chip{flex:none;height:36px;padding:0 14px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:700 14px var(--font);cursor:pointer;white-space:nowrap}
+.chip:hover{background:var(--hover)}
+.chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
+@media (max-width:699px){.filterbar{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-16px;margin-right:-16px;padding:0 16px}.filterbar::-webkit-scrollbar{display:none}.selwrap{flex:0 0 auto;min-width:140px;max-width:180px}}
+@media (min-width:700px){.selwrap.sm{flex:0 1 180px}}
+.meta-note{margin:4px 0 0;font-size:12px;color:var(--text2)}
+
+/* Submit form */
+.sub-form{display:grid;gap:10px;margin:0 0 16px}
+.sub-form label{font-size:13px;font-weight:700;color:var(--text)}
+.sub-form input,.sub-form textarea{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:400 15px var(--font);padding:0 12px}
+.sub-form textarea{height:64px;padding:10px 12px;resize:vertical}
+.sub-form input:focus,.sub-form textarea:focus{outline:none;border-color:var(--blue)}
+.sub-form .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sub-msg{margin:0;font-size:14px;color:var(--text2)}
+.sub-msg.ok{color:#00ba7c}.sub-msg.err{color:#f4212e}
+.or{margin:4px 0 12px!important;font-size:13px}
+
+/* Per-bot page */
+.home{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.bp{max-width:720px}
+.bp-card{border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 24px}
+.bp-head{display:flex;gap:14px;align-items:center;margin-bottom:14px}
+.icon.big{width:56px;height:56px;font-size:30px;border-radius:14px}
+.bp h1{margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.bp .sub{flex-wrap:wrap;white-space:normal}
+.bp .sub a{color:var(--text2);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.bp .sub a:hover{text-decoration:underline}
+.bp-desc{margin:0 0 16px;font-size:17px;line-height:1.45}
+.bp .badges{margin:0 0 16px}
+.bp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.bp-actions .get,.bp-actions .app{height:40px;padding:0 18px;font-size:15px}
+html.mobile .bp-actions{flex-direction:column}
+html.mobile .bp-actions .app{order:-1;justify-content:center}
+html.mobile .bp-actions .get{justify-content:center;background:transparent;color:var(--text);border:1px solid var(--line2)}
+.bp-links{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0;font-size:14px}
+.bp-links a{color:var(--blue);text-decoration:none}
+.bp-links a:hover{text-decoration:underline}
+.bp .fine{margin:14px 0 0;font-size:12px;color:var(--text2)}
+.bp-more h2{font-size:17px;margin:0 0 10px}
+.bp-more ul{list-style:none;margin:0 0 32px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.bp-more a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+.bp-more a:hover{background:var(--hover)}

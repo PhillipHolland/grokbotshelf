@@ -6,6 +6,10 @@
 // GET  /api/votes?mine=1      -> adds { mine: { [slug]: 1|-1 } } for this visitor (never cached)
 // POST /api/votes  { slug, value: 1 | -1 | 0 }  (0 clears)  -> { global, slug, value, up, down, score }
 //
+// Bots and agents: send header `X-Bot-Voter: <stable id>` (1-128 printable chars) on POST and on
+// GET ?mine=1. The voter key becomes "bot:" + a salted SHA-256 of that id, no cookie is set, and the
+// same rate limits apply (a slightly higher per-voter cap so a bot can rate a batch of shelf bots).
+//
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
 // first vote. No login, no IP stored as identity. The client IP is only kept as a salted SHA-256
 // hash for burst rate limiting. If DATABASE_URL is not set the API answers { global: false } and
@@ -20,7 +24,8 @@ const SLUGS = new Set(bots.map((b) => "bot-" + slugify(b.name)));
 const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.env.POSTGRES_URL || "";
 const SALT = process.env.VOTE_SALT || "grokbotshelf-votes";
 const COOKIE = "gbs_vid";
-const LIMITS = { ip: 40, voter: 25, windowSec: 60 }; // writes per window
+const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per window
+const BOT_HEADER = "x-bot-voter";
 
 async function sql(query, params = []) {
   const host = new URL(DB).hostname;
@@ -42,6 +47,14 @@ function send(res, code, body, headers = {}) {
 const cookieOf = (req) => {
   const m = String(req.headers.cookie || "").match(/(?:^|;\s*)gbs_vid=([0-9a-f-]{36})(?:;|$)/i);
   return m ? m[1].toLowerCase() : "";
+};
+// Returns undefined when the header is absent, null when it is present but invalid, else the voter key.
+const botKey = (req) => {
+  const raw = req.headers[BOT_HEADER];
+  if (raw === undefined) return undefined;
+  const id = String(Array.isArray(raw) ? raw[0] : raw).trim();
+  if (!/^[\x21-\x7e][\x20-\x7e]{0,127}$/.test(id)) return null;
+  return "bot:" + crypto.createHash("sha256").update(SALT + "|bot|" + id).digest("hex").slice(0, 32);
 };
 const ipHash = (req) => {
   const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
@@ -71,7 +84,9 @@ module.exports = async (req, res) => {
         : await sql("SELECT bot_slug, up, down, score FROM vote_totals");
       const body = { global: true, scores: shape(rows) };
       if (url.searchParams.get("mine")) {
-        const vid = cookieOf(req), mine = {};
+        const bk = botKey(req);
+        if (bk === null) return send(res, 400, { error: "X-Bot-Voter must be 1 to 128 printable characters" }, { "Cache-Control": "no-store" });
+        const vid = bk || cookieOf(req), mine = {};
         if (vid) for (const r of await sql("SELECT bot_slug, value FROM votes WHERE voter_key = $1", [vid])) mine[r.bot_slug] = +r.value;
         body.mine = mine;
         return send(res, 200, body, { "Cache-Control": "private, no-store" });
@@ -87,7 +102,9 @@ module.exports = async (req, res) => {
       if (!SLUGS.has(slug)) return send(res, 400, { error: "unknown bot" }, noStore);
       if (![1, -1, 0].includes(value)) return send(res, 400, { error: "value must be 1, -1 or 0" }, noStore);
 
-      let vid = cookieOf(req); const headers = { ...noStore };
+      const bk = botKey(req);
+      if (bk === null) return send(res, 400, { error: "X-Bot-Voter must be 1 to 128 printable characters" }, noStore);
+      let vid = bk || cookieOf(req); const headers = { ...noStore };
       if (!vid) {
         vid = crypto.randomUUID();
         headers["Set-Cookie"] = `${COOKIE}=${vid}; Path=/api/votes; Max-Age=63072000; HttpOnly; Secure; SameSite=Lax`;
@@ -98,7 +115,7 @@ module.exports = async (req, res) => {
         `SELECT COUNT(*) FILTER (WHERE ip_hash = $1)::int AS ip, COUNT(*) FILTER (WHERE voter_key = $2)::int AS voter
            FROM vote_events WHERE at > now() - make_interval(secs => $3) AND (ip_hash = $1 OR voter_key = $2)`,
         [ih, vid, LIMITS.windowSec]);
-      if (rl.ip >= LIMITS.ip || rl.voter >= LIMITS.voter)
+      if (rl.ip >= LIMITS.ip || rl.voter >= (bk ? LIMITS.botVoter : LIMITS.voter))
         return send(res, 429, { error: "slow down a little" }, { ...headers, "Retry-After": String(LIMITS.windowSec) });
 
       await sql("INSERT INTO vote_events (ip_hash, voter_key) VALUES ($1, $2)", [ih, vid]);
@@ -110,7 +127,7 @@ module.exports = async (req, res) => {
       if (Math.random() < 0.05) sql("DELETE FROM vote_events WHERE at < now() - interval '1 day'").catch(() => {});
 
       const [t] = await sql("SELECT up, down, score FROM vote_totals WHERE bot_slug = $1", [slug]);
-      return send(res, 200, { global: true, slug, value, up: t ? +t.up : 0, down: t ? +t.down : 0, score: t ? +t.score : 0 }, headers);
+      return send(res, 200, { global: true, slug, value, voter: bk ? "bot" : "browser", up: t ? +t.up : 0, down: t ? +t.down : 0, score: t ? +t.score : 0 }, headers);
     }
 
     return send(res, 405, { error: "GET or POST" }, { Allow: "GET, POST" });

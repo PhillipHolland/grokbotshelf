@@ -1,0 +1,708 @@
+{
+ "note": "Set by the shelf from each bot's own description, keyed by template id (the part after x.ai/bot/). agency: reads = looks and reports, drafts = prepares things for you to send, acts = takes actions (usually after your OK). works_with lists only apps the description names. Leave a bot out rather than guess.",
+ "bots": {
+  "vAgUsbH4SHOudh96KXEk0": {
+   "name": "Archivist",
+   "agency": "acts"
+  },
+  "jK9aaa6Pypf_WjnaIHWah": {
+   "name": "iBot Player",
+   "agency": "acts",
+   "works_with": [
+    "Vercel",
+    "Apple Music"
+   ]
+  },
+  "ksa8bHwOSris1UoZtCUhU": {
+   "name": "Security Audit Bot",
+   "agency": "reads"
+  },
+  "aU_t4X-Yf6w9DHfhIGD9n": {
+   "name": "Terminal Boss",
+   "agency": "acts",
+   "works_with": [
+    "Claude Code",
+    "Codex"
+   ]
+  },
+  "Vx13jzt30gpYEztDQbueA": {
+   "name": "Apple Inventory & Deal Bot",
+   "agency": "reads"
+  },
+  "EDD4ZIp4WLARWks1Ij6SE": {
+   "name": "Sushi & Ramen",
+   "agency": "acts"
+  },
+  "IngmF6O2mzhx5ya3SqcA4": {
+   "name": "BotBagger",
+   "agency": "acts"
+  },
+  "nk0jtBcOKfzIKbkfWjHzU": {
+   "name": "Site Coach",
+   "agency": "reads",
+   "works_with": [
+    "Search Console",
+    "GA4"
+   ]
+  },
+  "vVST27b0qMvGLrEfxZ3nj": {
+   "name": "Apple Desk",
+   "agency": "acts",
+   "works_with": [
+    "Reminders",
+    "Apple Calendar",
+    "Apple Notes",
+    "Contacts",
+    "iMessage"
+   ]
+  },
+  "vHWtUqHtdpfhnwTFOfEVT": {
+   "name": "Grokbot Mail",
+   "agency": "acts",
+   "works_with": [
+    "Vercel",
+    "Email"
+   ]
+  },
+  "1kQ8p3TAKx2FgvYXir2Ta": {
+   "name": "App Store Connect",
+   "agency": "drafts",
+   "works_with": [
+    "App Store Connect",
+    "TestFlight"
+   ]
+  },
+  "3zE_2sCWH3YTIyIVw8ieK": {
+   "name": "Coach",
+   "works_with": [
+    "WHOOP",
+    "Oura",
+    "Fitbit"
+   ]
+  },
+  "h1bJOR_y1RysAZrmkN05m": {
+   "name": "Mail in X Chat",
+   "agency": "acts",
+   "works_with": [
+    "Email",
+    "X Chat"
+   ]
+  },
+  "BYaLwjYHrWUAcUlyZVbgP": {
+   "name": "iMessage Relay",
+   "agency": "acts",
+   "works_with": [
+    "iMessage",
+    "X Chat"
+   ]
+  },
+  "ydje9SAP_d0lIHxOdu2_j": {
+   "name": "Reel ➡️ 𝕏",
+   "agency": "drafts",
+   "works_with": [
+    "Instagram",
+    "TikTok",
+    "YouTube",
+    "X"
+   ]
+  },
+  "EVQ-0yhShRgL-2qAfdD-8": {
+   "name": "Disk Doctor",
+   "agency": "acts"
+  },
+  "aB0M7wQOAcFgd_G0rTEWF": {
+   "name": "Claude Remote",
+   "agency": "acts",
+   "works_with": [
+    "Claude Code"
+   ]
+  },
+  "JG4RGdYlakSid0hw1woj1": {
+   "name": "Package Pal",
+   "agency": "reads",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "gIPVW_A1Ygg3QBaKpOqTg": {
+   "name": "Home Scout",
+   "agency": "reads"
+  },
+  "0pfVoOQLOV4O8Ujlk27x8": {
+   "name": "Afterglow",
+   "agency": "reads",
+   "works_with": [
+    "X"
+   ]
+  },
+  "WA8NMMcNsQjCe3OGRr2Qz": {
+   "name": "Starlink Check",
+   "agency": "reads"
+  },
+  "IiV3YZZ2TAF63sPORZmWy": {
+   "name": "Vuln Scout",
+   "agency": "reads"
+  },
+  "YuGzbyI7jVfZedsRUOLCm": {
+   "name": "Last Call",
+   "agency": "acts"
+  },
+  "XfW7A4ilcsOkPbnP2_cvr": {
+   "name": "Burn Rate",
+   "agency": "acts"
+  },
+  "HdN8nshqGbNy_Le0fSi_6": {
+   "name": ".mail",
+   "agency": "drafts",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "_qhDx4CZfm2-h1RkRyef1": {
+   "name": "Apple Mac Tools",
+   "agency": "acts",
+   "works_with": [
+    "iMessage",
+    "Apple Mail",
+    "Reminders",
+    "Photos",
+    "Apple Notes"
+   ]
+  },
+  "F1XZoNusJXMm92YTTT6kR": {
+   "name": "Junk Mail Stopper",
+   "agency": "acts"
+  },
+  "GHoerhXVqIMYC2VmYI_fZ": {
+   "name": "Bridge Bot",
+   "agency": "acts",
+   "works_with": [
+    "ChatGPT",
+    "Claude Code"
+   ]
+  },
+  "nIZEY9uZwEw4B7CYLTrdS": {
+   "name": "Clip & Credit",
+   "agency": "drafts",
+   "works_with": [
+    "YouTube",
+    "X"
+   ]
+  },
+  "Q6YX1p5zlhRZZjEmDYfzA": {
+   "name": "Trend Scout for X",
+   "agency": "reads",
+   "works_with": [
+    "X"
+   ]
+  },
+  "0hvGU2tKpk__HjUgxDS7S": {
+   "name": "Shopping Agent",
+   "agency": "acts"
+  },
+  "HbgK5ztHyhY8Kcrc1e0H-": {
+   "name": "Librarian",
+   "agency": "acts"
+  },
+  "QKg0ymNH6JmvoyfyseTdt": {
+   "name": "Mixtape Maker",
+   "agency": "acts",
+   "works_with": [
+    "Bandcamp"
+   ]
+  },
+  "852IE_26SAlD0C02ZUoDR": {
+   "name": "Ghost",
+   "agency": "acts"
+  },
+  "Y1Xy91EjTxvZkVviy_J7W": {
+   "name": "Tacks",
+   "agency": "drafts"
+  },
+  "v3WI0YuJAr1DLoYdYVXh8": {
+   "name": "Research",
+   "agency": "reads",
+   "works_with": [
+    "X",
+    "Reddit"
+   ]
+  },
+  "-QmsSGUOmddnC9ZAm7zdR": {
+   "name": "Finance",
+   "agency": "reads"
+  },
+  "0vuunQUBFlb4SnStUCtLt": {
+   "name": "Net Watch",
+   "agency": "reads"
+  },
+  "RHVbp2I2y0fIkZI54fcdf": {
+   "name": "Brick Scout",
+   "works_with": [
+    "BrickLink",
+    "Rebrickable"
+   ]
+  },
+  "t-003szrfP5UlKnp26c0K": {
+   "name": "Meetup Bot",
+   "agency": "drafts",
+   "works_with": [
+    "Luma"
+   ]
+  },
+  "o2OyTjWlNOUdYwr61prw_": {
+   "name": "Bouncer",
+   "agency": "reads"
+  },
+  "joKOyN0KrQlgNHpda7iii": {
+   "name": "X Hygiene",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "LXZMn9iFYykfjhOdwffV6": {
+   "name": "Kindle Courier",
+   "agency": "acts",
+   "works_with": [
+    "Kindle",
+    "Email"
+   ]
+  },
+  "bc99j3Rwo4m3Qv6bnIOkG": {
+   "name": "Digger",
+   "works_with": [
+    "Google Drive",
+    "Email"
+   ]
+  },
+  "ghQHDlYosLrZMB3pU0iEg": {
+   "name": "Usage Meter",
+   "agency": "reads"
+  },
+  "d4fN8HvCtpn8DLwP5fTyq": {
+   "name": "Game Dev Pro",
+   "agency": "acts"
+  },
+  "9UjZlzLTiCHz5iPNilWMd": {
+   "name": "Inbox Zero",
+   "agency": "drafts",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "eNVipDxJyXSULmlDJfNJp": {
+   "name": "List Front Page",
+   "agency": "reads",
+   "works_with": [
+    "X"
+   ]
+  },
+  "-qkf41F4R1MtZRetyUrxW": {
+   "name": "Security",
+   "agency": "reads",
+   "works_with": [
+    "GitHub",
+    "Cloudflare"
+   ]
+  },
+  "VXZIFzim31x3jeBtGnvl5": {
+   "name": "Duobot",
+   "agency": "acts",
+   "works_with": [
+    "Google Calendar",
+    "Trello"
+   ]
+  },
+  "EQYrGNoU4R2bgpsltxI2B": {
+   "name": "Token Accountant",
+   "agency": "reads",
+   "works_with": [
+    "Cursor"
+   ]
+  },
+  "q7GLbLhMZDpJXBGuuci1J": {
+   "name": "Box Inspector",
+   "agency": "reads"
+  },
+  "E_j1gMmT7KLW4HWbMV2nK": {
+   "name": "Tab Janitor",
+   "agency": "acts"
+  },
+  "eegdusTdLPabH7xTLQfgG": {
+   "name": "Rosettabot",
+   "agency": "reads"
+  },
+  "2Kp147ZrxyeIV3JJfQy1X": {
+   "name": "Payday Pilot",
+   "agency": "reads"
+  },
+  "JnDyu7X7D2qZDR1R3IcPU": {
+   "name": "RezBot",
+   "agency": "acts",
+   "works_with": [
+    "OpenTable",
+    "Resy",
+    "Tock"
+   ]
+  },
+  "TbFMZABkeH7gyIIGxjfdU": {
+   "name": "Guide",
+   "agency": "reads",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "eM7PHgoKyJJNdTMgEbx_W": {
+   "name": "Intune Architect",
+   "agency": "acts",
+   "works_with": [
+    "Microsoft Intune",
+    "Microsoft Graph"
+   ]
+  },
+  "ozEfaAFJMDGoB-ysym8_V": {
+   "name": "Clipper",
+   "works_with": [
+    "X"
+   ]
+  },
+  "JpyZ_4XxyarEASAyt4OWJ": {
+   "name": "Mailman",
+   "agency": "acts",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "gMrnNpgylgu11PImcWTdy": {
+   "name": "Personal Chef",
+   "agency": "acts",
+   "works_with": [
+    "Walmart"
+   ]
+  },
+  "NJvHVpGC81PjsH4234BPJ": {
+   "name": "Delegatron 9000",
+   "agency": "acts"
+  },
+  "N2-FOxfkfvp37JL0oi_FZ": {
+   "name": "Solo",
+   "agency": "drafts"
+  },
+  "ujhvQUxYqeCwXMqZW1sSK": {
+   "name": "Claim Denied",
+   "agency": "drafts"
+  },
+  "tukhb8f4XyUJFkRWlHWaz": {
+   "name": "Obsidian",
+   "agency": "acts",
+   "works_with": [
+    "Obsidian"
+   ]
+  },
+  "jwVA_1zmbZBdEHpJHfID6": {
+   "name": "IRS Bot",
+   "agency": "drafts"
+  },
+  "HsqCRD8q_eZII9ewRNkpm": {
+   "name": "Omnipresence",
+   "agency": "reads"
+  },
+  "2ctevo34dOOaP94S4AtU8": {
+   "name": "Prime Day",
+   "agency": "acts",
+   "works_with": [
+    "Amazon"
+   ]
+  },
+  "xMGHBEGffLuoS9sAf-Udk": {
+   "name": "Backup",
+   "agency": "acts",
+   "works_with": [
+    "GitHub",
+    "Google Drive"
+   ]
+  },
+  "8WiZYRSX5anHltj81J1w4": {
+   "name": "Car Shopper",
+   "agency": "drafts"
+  },
+  "U2it9uoAiBGz5W_Qf7h81": {
+   "name": "Pin Bot",
+   "agency": "acts"
+  },
+  "AM17wqUeEmweEHWn58rEL": {
+   "name": "Local Concert Scout",
+   "agency": "reads",
+   "works_with": [
+    "Spotify",
+    "Apple Music"
+   ]
+  },
+  "br5f3C4mc75QCMEHaszXd": {
+   "name": "TinkaBot",
+   "agency": "acts"
+  },
+  "zapy1WsErYi7bvuFrlrB9": {
+   "name": "Viral Content Radar",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "_0TjcaGRDNxZK1Tx-1gtB": {
+   "name": "Shop Everywhere",
+   "agency": "acts"
+  },
+  "marketplace/bots/deal-hunting": {
+   "name": "Deal Hunting",
+   "agency": "reads"
+  },
+  "61VJpKKuiAnaJAZakWjdH": {
+   "name": "Login Ledger",
+   "agency": "reads",
+   "works_with": [
+    "Email"
+   ]
+  },
+  "WWdl6r61XsoZR3nyXwLzj": {
+   "name": "Head of Content",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "mOunuXA9lKjg8sWImIzgy": {
+   "name": "Fleet Lead",
+   "agency": "acts"
+  },
+  "3Zh8kZfUGFUZh0ZQ6z_83": {
+   "name": "Xcavator",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "ThxY2BewUlyeEsywSdz4h": {
+   "name": "Model Bridge",
+   "agency": "acts",
+   "works_with": [
+    "GitHub",
+    "ChatGPT",
+    "Gemini",
+    "Claude",
+    "Copilot"
+   ]
+  },
+  "qZcBjyxPRa1kWJ_sel0gv": {
+   "name": "FTC Report Scam Call",
+   "agency": "acts"
+  },
+  "fSPQ2Eng6g8gZppDTf0QV": {
+   "name": "Save Usage Bot",
+   "agency": "acts"
+  },
+  "Gc9F_A9k2bFnWAgYNP3-z": {
+   "name": "Snap & Flip",
+   "agency": "drafts",
+   "works_with": [
+    "eBay"
+   ]
+  },
+  "VMgzGAG8M5slayjBsKGM5": {
+   "name": "Carvana Truck Buyer",
+   "agency": "reads",
+   "works_with": [
+    "Carvana"
+   ]
+  },
+  "xwAkiiQRwbuxAASGkaCPs": {
+   "name": "Computer Shop Bot",
+   "agency": "acts",
+   "works_with": [
+    "eBay"
+   ]
+  },
+  "qTPLJ7D8X0QwW1orQy3Bd": {
+   "name": "Stock Ladder Bot",
+   "agency": "reads"
+  },
+  "25biN96GINlZc7oouZlhU": {
+   "name": "eBay Seller Assistant",
+   "agency": "acts",
+   "works_with": [
+    "eBay",
+    "USPS"
+   ]
+  },
+  "KSXfBuFK1GZbJ0GusU2Xu": {
+   "name": "Jenny Genealogy",
+   "agency": "acts",
+   "works_with": [
+    "Ancestry"
+   ]
+  },
+  "6sN-FSvkf_ntuqe-3Ofjz": {
+   "name": "Bot Terminator",
+   "works_with": [
+    "X"
+   ]
+  },
+  "GsgpmqqJ4aUMtHBYZlDgJ": {
+   "name": "Small Business Bookkeeper",
+   "agency": "acts"
+  },
+  "5VOzTZvBuUv2bhQUqIXjj": {
+   "name": "Phone Call Bot",
+   "agency": "acts"
+  },
+  "J2KcLtVxkvCjXiChu2j_f": {
+   "name": "Ops Bot",
+   "agency": "acts"
+  },
+  "S2LodAIjlLw0mB30vN3Gl": {
+   "name": "Asana Task Master",
+   "agency": "acts",
+   "works_with": [
+    "Gmail",
+    "Outlook",
+    "Asana"
+   ]
+  },
+  "sNboSbbA20-MunJhJLqlk": {
+   "name": "Livestream Raffle Host",
+   "agency": "acts",
+   "works_with": [
+    "X",
+    "X Money"
+   ]
+  },
+  "ESqSHz53pQUFjs3oAzMXF": {
+   "name": "micDrop",
+   "works_with": [
+    "X"
+   ]
+  },
+  "Ks3X7JpD-6I86s3zkJFRh": {
+   "name": "Engineering Lead",
+   "agency": "acts"
+  },
+  "tIas6udS9kSXpcAz6LFd1": {
+   "name": "dial bot",
+   "agency": "acts",
+   "works_with": [
+    "Bland AI"
+   ]
+  },
+  "wtq-j01kD7o8gQFx7E9zv": {
+   "name": "Writing Bot",
+   "agency": "drafts"
+  },
+  "PaYvPhWPSynlUwFqMX7nc": {
+   "name": "Tech Demos",
+   "agency": "acts",
+   "works_with": [
+    "X",
+    "Cursor"
+   ]
+  },
+  "XjCU_de7y8cuw4T1YRnGD": {
+   "name": "Genie",
+   "agency": "acts"
+  },
+  "IaDl5OFMo0PYF2NasZl_2": {
+   "name": "Scriptopher Nolan",
+   "agency": "drafts"
+  },
+  "8JbRKMaD-VrcN_QyitMXN": {
+   "name": "Template Safety Checker",
+   "agency": "reads"
+  },
+  "I5_3GqD6I9YL9qebuc0te": {
+   "name": "Fine Print",
+   "agency": "drafts"
+  },
+  "22XPum6Dznc_jnPeuWGTt": {
+   "name": "Truffle",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "hP_XdYFX8RBWp1teD2twd": {
+   "name": "Rosetta",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "ex1gjM_9lKmE4pLJG8o_M": {
+   "name": "Handel",
+   "agency": "acts",
+   "works_with": [
+    "Suno"
+   ]
+  },
+  "gEhyTHxwNx2kAvbQ7AtLn": {
+   "name": "Money Brief",
+   "agency": "reads"
+  },
+  "ji90nMN5S8qAPDtyVyjfi": {
+   "name": "Bill Buster",
+   "agency": "drafts"
+  },
+  "MRlJQnA1DLo-zePHw8Xai": {
+   "name": "Hookline",
+   "agency": "drafts",
+   "works_with": [
+    "LinkedIn",
+    "X"
+   ]
+  },
+  "EN9Ftdn8ZaoLEg-SLPkZL": {
+   "name": "Social Media Manager",
+   "agency": "acts",
+   "works_with": [
+    "X",
+    "Threads",
+    "Buffer",
+    "Email"
+   ]
+  },
+  "YELCIJ_5UrbwjP-4pm_Fx": {
+   "name": "HubSpot Helper",
+   "agency": "reads",
+   "works_with": [
+    "HubSpot"
+   ]
+  },
+  "PX8eADZlGTF6uPc9LyO4j": {
+   "name": "Sift",
+   "agency": "reads",
+   "works_with": [
+    "X"
+   ]
+  },
+  "uLaiAPTZzDV7vfptofUov": {
+   "name": "Syllabot",
+   "works_with": [
+    "Kajabi"
+   ]
+  },
+  "AkJewmJ9D2DlMpBD5XaCG": {
+   "name": "Claudia, Chief of Staff",
+   "agency": "reads",
+   "works_with": [
+    "Email",
+    "Slack"
+   ]
+  },
+  "DFnZYjCELW2QdywUWZRiG": {
+   "name": "Agent Zero",
+   "agency": "acts"
+  },
+  "NLw7vTHF4uuyaP_SGF659": {
+   "name": "Quoted",
+   "agency": "acts"
+  }
+ }
+}

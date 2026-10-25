@@ -1712,6 +1712,47 @@
       "date": "2026-10-25",
       "note": "borderline: auto-plays online course lectures to complete progress",
       "reason": "Phillip declined (course auto-player)"
+    },
+    "2114322622653649056": {
+      "status": "already_on_shelf",
+      "author": "@TheJonMartin",
+      "bot": "HubSpot Helper",
+      "template_url": "https://x.ai/bot/YELCIJ_5UrbwjP-4pm_Fx",
+      "url": "https://x.com/TheJonMartin/status/2114322622653649056",
+      "date": "2026-10-25"
+    },
+    "2114321775743889474": {
+      "status": "already_on_shelf",
+      "author": "@TexasBasedGpa",
+      "bot": "Sift",
+      "template_url": "https://x.ai/bot/PX8eADZlGTF6uPc9LyO4j",
+      "url": "https://x.com/TexasBasedGpa/status/2114321775743889474",
+      "date": "2026-10-25"
+    },
+    "2114327847103762652": {
+      "status": "not_a_request",
+      "author": "@CantTameFire",
+      "url": "https://x.com/CantTameFire/status/2114327847103762652",
+      "date": "2026-10-25"
+    },
+    "2114101234999132543": {
+      "status": "not_a_request",
+      "author": "@Kevin_Logan",
+      "url": "https://x.com/Kevin_Logan/status/2114101234999132543",
+      "date": "2026-10-25",
+      "note": "quote, no new link"
+    },
+    "2114076553201975497": {
+      "status": "not_a_request",
+      "author": "@greedfi",
+      "url": "https://x.com/greedfi/status/2114076553201975497",
+      "date": "2026-10-25"
+    },
+    "2114057123659407442": {
+      "status": "not_a_request",
+      "author": "@thecsguy",
+      "url": "https://x.com/thecsguy/status/2114057123659407442",
+      "date": "2026-10-25"
     }
   }
 }
