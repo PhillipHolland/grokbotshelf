@@ -3029,5 +3029,70 @@
     "creator_avatar": "/avatars/drbellahqw.webp",
     "source_post": "https://x.com/drbellahqw/status/2114222856892788984",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Fine Print",
+    "emoji": "🔎",
+    "description": "Reads contracts, leases, bills and terms before you sign or pay, explains them in plain English, flags hidden fees and auto-renewals, and drafts pushback.",
+    "category": "Money",
+    "url": "https://x.ai/bot/I5_3GqD6I9YL9qebuc0te",
+    "creator_name": "Grease",
+    "creator_handle": "@LowTimePrefrenz",
+    "creator_url": "https://x.com/LowTimePrefrenz",
+    "creator_avatar": "/avatars/lowtimeprefrenz.webp",
+    "source_post": "https://x.com/LowTimePrefrenz/status/2114222599949750413",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Home & Garage",
+    "emoji": "🔧",
+    "description": "Tracks home maintenance, vehicle service, registrations and warranties in one specs sheet, with a monthly heads-up 45 days before anything is due.",
+    "category": "Home",
+    "url": "https://x.ai/bot/RW2Wetx6ovZG5aAyBDDwy",
+    "creator_name": "Grease",
+    "creator_handle": "@LowTimePrefrenz",
+    "creator_url": "https://x.com/LowTimePrefrenz",
+    "creator_avatar": "/avatars/lowtimeprefrenz.webp",
+    "source_post": "https://x.com/LowTimePrefrenz/status/2114227786777014400",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Family Travel & PTO Planner",
+    "emoji": "🧳",
+    "description": "Plans family trips around your PTO balance, compares flights and lodging, and builds road-trip and National Park sheets with permit deadlines.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/CAboHRIpMlLDU6mwnByCq",
+    "creator_name": "Grease",
+    "creator_handle": "@LowTimePrefrenz",
+    "creator_url": "https://x.com/LowTimePrefrenz",
+    "creator_avatar": "/avatars/lowtimeprefrenz.webp",
+    "source_post": "https://x.com/LowTimePrefrenz/status/2114228041329365294",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Personal Cybersecurity Coach",
+    "emoji": "🔐",
+    "description": "Walks you through six weekend sessions to lock down your accounts, phone, Wi-Fi, credit and family against hacks, identity theft and AI scams.",
+    "category": "Security",
+    "url": "https://x.ai/bot/vEl_iMl8eLa6pOYAeey--",
+    "creator_name": "Grease",
+    "creator_handle": "@LowTimePrefrenz",
+    "creator_url": "https://x.com/LowTimePrefrenz",
+    "creator_avatar": "/avatars/lowtimeprefrenz.webp",
+    "source_post": "https://x.com/LowTimePrefrenz/status/2114224052252643819",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Fitness Coach",
+    "emoji": "💪",
+    "description": "Builds a strength and mobility plan around your gear and injuries, sends daily workouts, and logs sets and meals to a spreadsheet.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/cA9uzca3M66V1hk6Au94p",
+    "creator_name": "Grease",
+    "creator_handle": "@LowTimePrefrenz",
+    "creator_url": "https://x.com/LowTimePrefrenz",
+    "creator_avatar": "/avatars/lowtimeprefrenz.webp",
+    "source_post": "https://x.com/LowTimePrefrenz/status/2114225278897803354",
+    "added": "2026-10-24"
   }
 ]
