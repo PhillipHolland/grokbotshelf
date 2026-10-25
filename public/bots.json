@@ -2067,5 +2067,18 @@
     "creator_avatar": "/avatars/howdyollie.webp",
     "source_post": "https://x.com/howdyollie/status/2114191797828403533",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Backup Bot",
+    "emoji": "💾",
+    "description": "Audits any of your bots and saves a restore pack with its profile, skills, routines and key notes.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/rqXQbdE-1PSCsqgjRyFVz",
+    "creator_name": "ollie",
+    "creator_handle": "@howdyollie",
+    "creator_url": "https://x.com/howdyollie",
+    "creator_avatar": "/avatars/howdyollie.webp",
+    "source_post": "https://x.com/howdyollie/status/2114191473809981654",
+    "added": "2026-10-24"
   }
 ]
