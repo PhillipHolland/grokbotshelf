@@ -793,5 +793,18 @@
     "source_post": "https://x.com/bradshannon/status/2114143473041363176",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/bradshannon.webp"
+  },
+  {
+    "name": "3D Maker",
+    "emoji": "🖨️",
+    "description": "Designs parametric parts, renders previews for your OK, slices uploaded STLs, and tracks filament per print.",
+    "category": "Design",
+    "url": "https://x.ai/bot/EJwyXgbhYp4xL2Keh7cw1",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "source_post": "https://x.com/xenappblog/status/2114144732829868193",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/xenappblog.webp"
   }
 ]
