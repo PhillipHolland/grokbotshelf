@@ -10,11 +10,12 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
   const st = () => p.evaluate(() => ({ theme: document.documentElement.dataset.theme, bg: getComputedStyle(document.body).backgroundColor,
     meta: document.querySelector('meta[name="theme-color"]').content, cs: document.querySelector('meta[name="color-scheme"]').content,
-    pressed: document.querySelector('#theme').getAttribute('aria-pressed'), cards: document.querySelectorAll('#results .card:not([id^="f-"])').length }));
+    pressed: document.querySelector('#theme').getAttribute('aria-pressed'), cards: document.querySelectorAll('#results .card:not([id^="f-"])').length, count: document.querySelector('#count').textContent }));
   await p.goto(BASE + '?t=' + Date.now(), { waitUntil: 'networkidle0' });
   let s = await st();
   ok(s.theme === 'dark' && s.bg === 'rgb(0, 0, 0)' && s.meta === '#000000' && s.cs === 'dark' && s.pressed === 'true', 'first load is dark even with system light: ' + JSON.stringify(s));
-  ok(s.cards === TOTAL, `${TOTAL} cards (${s.cards})`);
+  // the home view caps long creator groups at 12 cards, so check the count line and that nothing is missing beyond the cap
+  ok(s.cards > 0 && s.cards <= TOTAL && s.count === `${TOTAL} bots`, `${TOTAL} bots (${s.cards} cards on the home view)`);
   if (SHOTS) await p.screenshot({ path: SHOTS + '/header-390-dark.png', clip: { x: 0, y: 0, width: 390, height: 260 } });
   await p.click('#theme'); await new Promise(r => setTimeout(r, 400));
   s = await st();

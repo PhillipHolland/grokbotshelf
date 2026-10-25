@@ -22,14 +22,14 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   const arch = BOTS.find((x) => x.name === 'Archivist');
   let st = await go('/bot/archivist'), d = await info();
   ok(st === 200 && d.h1 === 'Archivist' && d.canonical === 'https://grokbotshelf.com/bot/archivist', `bot page /bot/archivist: ${st} "${d.h1}"`);
-  ok(d.og === 'https://grokbotshelf.com/og/bot/archivist.png', 'bot page has its own share image: ' + d.og);
+  ok(/^https:\/\/grokbotshelf\.com\/og\/bot\/archivist\.png\?v=[0-9a-f]{10}$/.test(d.og), 'bot page has its own share image: ' + d.og);
   ok(await p.$eval('.bp-actions .get', (e) => e.href) === arch.url, 'Get this bot links to the template');
   ok(await p.$eval('.bp-head .sub a', (e) => new URL(e.href).pathname) === '/@' + ckey(arch), 'creator link uses the lowercase creator page');
 
   // creator page
   const nick = BOTS.filter((x) => ckey(x) === 'thecsguy');
   st = await go('/@thecsguy'); d = await info();
-  ok(st === 200 && d.canonical === 'https://grokbotshelf.com/@thecsguy' && d.og.endsWith('/og/creator/thecsguy.png'), `creator page /@thecsguy: ${st} "${d.h1}"`);
+  ok(st === 200 && d.canonical === 'https://grokbotshelf.com/@thecsguy' && /\/og\/creator\/thecsguy\.png\?v=[0-9a-f]{10}$/.test(d.og), `creator page /@thecsguy: ${st} "${d.h1}"`);
   ok(await p.$$eval('.cp-list li', (l) => l.length) === nick.length, `creator page lists ${nick.length} bots`);
 
   // a creator whose handle appears in more than one casing in bots.json, if any: one page at the lowercase URL
