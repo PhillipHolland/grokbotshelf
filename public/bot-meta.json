@@ -1,5 +1,5 @@
 {
- "note": "Set by the shelf from each bot's own description, keyed by template id (the part after x.ai/bot/). agency: reads = looks and reports, drafts = prepares things for you to send, acts = takes actions (usually after your OK). works_with lists only apps the description names. Leave a bot out rather than guess.",
+ "note": "Set by the shelf from each bot's own description, keyed by template id (the part after x.ai/bot/). agency: reads = looks and reports, drafts = prepares things for you to send, acts = takes actions (usually after your OK). works_with lists only apps the description names. Leave a bot out rather than guess. one_job is true only for a short, single-purpose description (not a pack, crew, or \"and also\").",
  "bots": {
   "vAgUsbH4SHOudh96KXEk0": {
    "name": "Archivist",
@@ -11,11 +11,13 @@
    "works_with": [
     "Vercel",
     "Apple Music"
-   ]
+   ],
+   "one_job": true
   },
   "ksa8bHwOSris1UoZtCUhU": {
    "name": "Security Audit Bot",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "aU_t4X-Yf6w9DHfhIGD9n": {
    "name": "Terminal Boss",
@@ -62,7 +64,8 @@
    "works_with": [
     "Vercel",
     "Email"
-   ]
+   ],
+   "one_job": true
   },
   "1kQ8p3TAKx2FgvYXir2Ta": {
    "name": "App Store Connect",
@@ -94,7 +97,8 @@
    "works_with": [
     "iMessage",
     "X Chat"
-   ]
+   ],
+   "one_job": true
   },
   "ydje9SAP_d0lIHxOdu2_j": {
    "name": "Reel ➡️ 𝕏",
@@ -108,21 +112,24 @@
   },
   "EVQ-0yhShRgL-2qAfdD-8": {
    "name": "Disk Doctor",
-   "agency": "acts"
+   "agency": "acts",
+   "one_job": true
   },
   "aB0M7wQOAcFgd_G0rTEWF": {
    "name": "Claude Remote",
    "agency": "acts",
    "works_with": [
     "Claude Code"
-   ]
+   ],
+   "one_job": true
   },
   "JG4RGdYlakSid0hw1woj1": {
    "name": "Package Pal",
    "agency": "reads",
    "works_with": [
     "Email"
-   ]
+   ],
+   "one_job": true
   },
   "gIPVW_A1Ygg3QBaKpOqTg": {
    "name": "Home Scout",
@@ -133,15 +140,18 @@
    "agency": "reads",
    "works_with": [
     "X"
-   ]
+   ],
+   "one_job": true
   },
   "WA8NMMcNsQjCe3OGRr2Qz": {
    "name": "Starlink Check",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "IiV3YZZ2TAF63sPORZmWy": {
    "name": "Vuln Scout",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "YuGzbyI7jVfZedsRUOLCm": {
    "name": "Last Call",
@@ -179,7 +189,8 @@
    "works_with": [
     "ChatGPT",
     "Claude Code"
-   ]
+   ],
+   "one_job": true
   },
   "nIZEY9uZwEw4B7CYLTrdS": {
    "name": "Clip & Credit",
@@ -194,7 +205,8 @@
    "agency": "reads",
    "works_with": [
     "X"
-   ]
+   ],
+   "one_job": true
   },
   "0hvGU2tKpk__HjUgxDS7S": {
    "name": "Shopping Agent",
@@ -251,7 +263,8 @@
   },
   "o2OyTjWlNOUdYwr61prw_": {
    "name": "Bouncer",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "joKOyN0KrQlgNHpda7iii": {
    "name": "X Hygiene",
@@ -295,7 +308,8 @@
    "agency": "reads",
    "works_with": [
     "X"
-   ]
+   ],
+   "one_job": true
   },
   "-qkf41F4R1MtZRetyUrxW": {
    "name": "Security",
@@ -322,19 +336,23 @@
   },
   "q7GLbLhMZDpJXBGuuci1J": {
    "name": "Box Inspector",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "E_j1gMmT7KLW4HWbMV2nK": {
    "name": "Tab Janitor",
-   "agency": "acts"
+   "agency": "acts",
+   "one_job": true
   },
   "eegdusTdLPabH7xTLQfgG": {
    "name": "Rosettabot",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "2Kp147ZrxyeIV3JJfQy1X": {
    "name": "Payday Pilot",
-   "agency": "reads"
+   "agency": "reads",
+   "one_job": true
   },
   "JnDyu7X7D2qZDR1R3IcPU": {
    "name": "RezBot",
@@ -343,7 +361,8 @@
     "OpenTable",
     "Resy",
     "Tock"
-   ]
+   ],
+   "one_job": true
   },
   "TbFMZABkeH7gyIIGxjfdU": {
    "name": "Guide",
@@ -364,7 +383,8 @@
    "name": "Clipper",
    "works_with": [
     "X"
-   ]
+   ],
+   "one_job": true
   },
   "JpyZ_4XxyarEASAyt4OWJ": {
    "name": "Mailman",
@@ -428,7 +448,8 @@
   },
   "U2it9uoAiBGz5W_Qf7h81": {
    "name": "Pin Bot",
-   "agency": "acts"
+   "agency": "acts",
+   "one_job": true
   },
   "AM17wqUeEmweEHWn58rEL": {
    "name": "Local Concert Scout",
@@ -436,7 +457,8 @@
    "works_with": [
     "Spotify",
     "Apple Music"
-   ]
+   ],
+   "one_job": true
   },
   "br5f3C4mc75QCMEHaszXd": {
    "name": "TinkaBot",
@@ -462,7 +484,8 @@
    "agency": "reads",
    "works_with": [
     "Email"
-   ]
+   ],
+   "one_job": true
   },
   "WWdl6r61XsoZR3nyXwLzj": {
    "name": "Head of Content",
@@ -566,7 +589,8 @@
     "Gmail",
     "Outlook",
     "Asana"
-   ]
+   ],
+   "one_job": true
   },
   "sNboSbbA20-MunJhJLqlk": {
    "name": "Livestream Raffle Host",
@@ -698,11 +722,137 @@
   },
   "DFnZYjCELW2QdywUWZRiG": {
    "name": "Agent Zero",
-   "agency": "acts"
+   "agency": "acts",
+   "one_job": true
   },
   "NLw7vTHF4uuyaP_SGF659": {
    "name": "Quoted",
-   "agency": "acts"
+   "agency": "acts",
+   "one_job": true
+  },
+  "Nfwkt1S4xtLJZpkENJZ3Q": {
+   "name": "Christian Devotional Bot",
+   "one_job": true
+  },
+  "k-Vww5TQVS0FR5BoGCqtT": {
+   "name": ".promo",
+   "one_job": true
+  },
+  "hWr0h1qyoDRLr5mB6ZW6C": {
+   "name": "Mom Journey",
+   "one_job": true
+  },
+  "djlVFbW-J-pFXRdpIq0mP": {
+   "name": "Doctor Visit Prep for Women",
+   "one_job": true
+  },
+  "mGckETBjE4Of6S78zeetJ": {
+   "name": "The Sponsor",
+   "one_job": true
+  },
+  "4y3jlvwxFNqcP76eJgpuD": {
+   "name": "Code Red",
+   "one_job": true
+  },
+  "91R37-rUOh9sS1tZkIF9d": {
+   "name": "4 Panez",
+   "one_job": true
+  },
+  "s6SC7C5OF18VVy9Vovngg": {
+   "name": "Argubot",
+   "one_job": true
+  },
+  "7z0WNYmnERTnXKmxI12gB": {
+   "name": "Rude Bot",
+   "one_job": true
+  },
+  "22rt0RYY4hy1tWx8-q4G_": {
+   "name": "What's for Dinner Tonight?",
+   "one_job": true
+  },
+  "wdBvHoTAcc4fqxNbOkVnA": {
+   "name": "Same Language",
+   "one_job": true
+  },
+  "Xd_NXX5Yk6_7LmkA2TGLN": {
+   "name": "Onboarder",
+   "one_job": true
+  },
+  "ewFkIRV929jhuW5mHqL_a": {
+   "name": "Kafka",
+   "one_job": true
+  },
+  "4mOGY7Nd_mRvrwZYec4Jq": {
+   "name": "The List",
+   "one_job": true
+  },
+  "1wZEbQUoQWsR3nKzd4x90": {
+   "name": "Habit Referee",
+   "one_job": true
+  },
+  "E3h6k-Sbq7hwF3PW1ZBI4": {
+   "name": "Text-cleanup",
+   "one_job": true
+  },
+  "_6ZWfvMmBLOS1rxFFezl6": {
+   "name": "Weather Bot",
+   "one_job": true
+  },
+  "marketplace/bots/dr-eggbot-v2": {
+   "name": "dr eggbot",
+   "one_job": true
+  },
+  "W3Q8PdXhJX9Yby8TC7T3U": {
+   "name": "Brain-Dump Bestie",
+   "one_job": true
+  },
+  "XCaz2bKzsJ4J1DmkaYyc4": {
+   "name": "Dead Man's Bot",
+   "one_job": true
+  },
+  "XilHVHieQQb5Wk1Rvw1Hu": {
+   "name": "The Algorithm",
+   "one_job": true
+  },
+  "xpTH6yslvNJuuPq5mO01a": {
+   "name": "Yusician",
+   "one_job": true
+  },
+  "QaF0ZV3dXphLna9zYHSUN": {
+   "name": "Daily News in 5 Minutes",
+   "one_job": true
+  },
+  "HBt6yvX8rVmSsFmUST2ZX": {
+   "name": "Breast Awareness Coach",
+   "one_job": true
+  },
+  "B26pHlsc6Eb0m1_SlEtiK": {
+   "name": "Asymmetric Opportunity Radar",
+   "one_job": true
+  },
+  "9y2DTpeGSxGLvevkCRTDI": {
+   "name": "Included",
+   "one_job": true
+  },
+  "wIxb391-9pDKoWXQ8xrbD": {
+   "name": "Claimed",
+   "one_job": true
+  },
+  "4-ai7JQWpKpOUiK1Ih0J3": {
+   "name": "Car Deal Scout",
+   "one_job": true
+  },
+  "3ZpWwU-KhU953eArYJ8ST": {
+   "name": "Receipt Keeper",
+   "one_job": true
+  },
+  "_UobKTa_U-a7K6MSQrgmL": {
+   "name": "Second Opinion",
+   "one_job": true
+  },
+  "BdGsOYPqhwazgMx9xCB1c": {
+   "name": "Vote bot",
+   "one_job": true
   }
  }
 }
