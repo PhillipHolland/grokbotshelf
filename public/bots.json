@@ -2145,5 +2145,44 @@
     "creator_avatar": "/avatars/lisamausa.webp",
     "source_post": "https://x.com/lisamausa/status/2114197732671803791",
     "added": "2026-10-24"
+  },
+  {
+    "name": "Auto & Rideshare ClaimShield",
+    "emoji": "🚗",
+    "description": "Pocket accident coach and auto/rideshare claim explainer for crash guidance and Uber/Lyft/delivery coverage periods.",
+    "category": "Finance",
+    "url": "https://x.ai/bot/MvANKpkYKNQvS1gYnSqJO",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114200738415173693",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Home & Renters ClaimShield",
+    "emoji": "🏠",
+    "description": "Plain-English homeowners, condo, and renters insurance coach for Coverage A-F, RCV vs ACV, and water backup vs flood.",
+    "category": "Home",
+    "url": "https://x.ai/bot/Y21RRXsgw8JecyqPxw-PW",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114200738415173693",
+    "added": "2026-10-24"
+  },
+  {
+    "name": "Small Biz BOP Shield",
+    "emoji": "🏢",
+    "description": "Plain-English BOP and small-business coverage decoder for liability, property, and business income gaps.",
+    "category": "Business",
+    "url": "https://x.ai/bot/cTAWdbLtxrrrq1wZG4toH",
+    "creator_name": "Lisa",
+    "creator_handle": "@lisamausa",
+    "creator_url": "https://x.com/lisamausa",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/lisamausa/status/2114200738415173693",
+    "added": "2026-10-24"
   }
 ]
