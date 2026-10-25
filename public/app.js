@@ -229,9 +229,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     creatorEl.value = st.creator;
     creatorEl.classList.toggle("on", !!st.creator);
     const multi = st.cats.length > 1;
-    catsEl.innerHTML = opt("", `All categories (${byCat.length})`, !st.cats.length) +
+    catsEl.innerHTML = opt("", "All categories", !st.cats.length) +
       (multi ? opt("__multi", `${st.cats.length} categories`, true) : "") +
-      cats.map((c) => opt(c, `${c} (${byCat.filter(([b]) => b.category === c).length})`, !multi && st.cats[0] === c)).join("");
+      cats.map((c) => opt(c, c, !multi && st.cats[0] === c)).join("");
     catsEl.value = multi ? "__multi" : (st.cats[0] || "");
     catsEl.classList.toggle("on", st.cats.length > 0);
   }
