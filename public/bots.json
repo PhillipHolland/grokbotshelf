@@ -3692,5 +3692,31 @@
     "creator_avatar": "/avatars/lisamausa.webp",
     "source_post": "https://x.com/LisaMAUSA/status/2114334678702289351",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Test Date Coach",
+    "emoji": "📝",
+    "description": "Builds a daily 15–30 minute study plan for the GRE, GMAT, LSAT or MCAT from your test date, quizzes you and tracks the topics you keep missing.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/47BqVfxMqjyE0V05u5wI2",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "creator_avatar": "/avatars/drbellahqw.webp",
+    "source_post": "https://x.com/drbellahqw/status/2114372697941778806",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Techy",
+    "emoji": "🛠️",
+    "description": "A friendly IT helper that fixes PC, phone, Wi-Fi and printer problems step by step in plain English, spots scams and tracks your warranties.",
+    "category": "Home",
+    "url": "https://x.ai/bot/oghCXejHEEnkvS0aQlkpt",
+    "creator_name": "Turnup2ez",
+    "creator_handle": "@Turnup2ez",
+    "creator_url": "https://x.com/Turnup2ez",
+    "creator_avatar": "/avatars/turnup2ez.webp",
+    "source_post": "https://x.com/Turnup2ez/status/2114372444538707996",
+    "added": "2026-10-25"
   }
 ]
