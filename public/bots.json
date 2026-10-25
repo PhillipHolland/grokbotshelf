@@ -1378,5 +1378,44 @@
     "source_post": "https://x.com/SuddenlyJon/status/2114162653224472861",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Look Up",
+    "emoji": "🔭",
+    "description": "Tells you when the space station, rockets, or bright passes fly over your backyard and shows a sky map of where to look.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/IZ7aAoHdHFE_qaWCv3Zg-",
+    "creator_name": "Chef McMakin",
+    "creator_handle": "@ChefMcMakin",
+    "creator_url": "https://x.com/ChefMcMakin",
+    "source_post": "https://x.com/ChefMcMakin/status/2114161859217547610",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/chefmcmakin.webp"
+  },
+  {
+    "name": "Tavern",
+    "emoji": "🐉",
+    "description": "A tabletop RPG game master running solo or multiplayer adventures in chat, with custom scene art and AI party members.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/g8PfMW94P5hOCBOXXEeSj",
+    "creator_name": "Chef McMakin",
+    "creator_handle": "@ChefMcMakin",
+    "creator_url": "https://x.com/ChefMcMakin",
+    "source_post": "https://x.com/ChefMcMakin/status/2114161859217547610",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/chefmcmakin.webp"
+  },
+  {
+    "name": "Personal Chef",
+    "emoji": "👨‍🍳",
+    "description": "Plans your family's weekly dinners around budget and diet, makes printable recipe cards, and loads your Walmart cart for pickup.",
+    "category": "Food",
+    "url": "https://x.ai/bot/gMrnNpgylgu11PImcWTdy",
+    "creator_name": "Chef McMakin",
+    "creator_handle": "@ChefMcMakin",
+    "creator_url": "https://x.com/ChefMcMakin",
+    "source_post": "https://x.com/ChefMcMakin/status/2114161859217547610",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/chefmcmakin.webp"
   }
 ]
