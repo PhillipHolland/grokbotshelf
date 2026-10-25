@@ -63,14 +63,21 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
     </div>
   </div>
+  <div class="filterbar">
+    <div class="selwrap">
+      <label class="sr" for="creators">Creator</label>
+      <select id="creators"><option value="">All creators</option></select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </div>
+    <div class="selwrap">
+      <label class="sr" for="cats">Category</label>
+      <select id="cats"><option value="">All categories</option></select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </div>
+  </div>
 </div></div>
 
 <main class="wrap" id="main">
-  <div class="filters">
-    <div class="seg" id="creators" role="radiogroup" aria-label="Creator"><span class="thumb" aria-hidden="true"></span></div>
-    <div class="chips" id="cats" role="group" aria-label="Categories"></div>
-  </div>
-
   <div class="status">
     <p id="count" class="count" aria-live="polite" aria-atomic="true"></p>
     <button type="button" class="clear" id="clear" hidden>Clear all</button>

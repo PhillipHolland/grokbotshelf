@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   const $ = (s) => document.querySelector(s);
-  const q = $("#q"), sortEl = $("#sort"), results = $("#results"), segEl = $("#creators"), catsEl = $("#cats");
+  const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
   const SORTS = ["featured", "newest", "az", "creator"];
   let bots = [], creators = [], cats = [], st = blank(), active = -1;
 
@@ -223,19 +223,17 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   function renderFilters() {
     const byCreator = filtered("creator"), byCat = filtered("cat");
     const cn = (k) => byCreator.filter(([b]) => !k || ckey(b) === k).length;
-    segEl.querySelectorAll("button").forEach((b) => b.remove());
-    segEl.insertAdjacentHTML("beforeend",
-      `<button type="button" role="radio" class="all" data-creator="" aria-checked="${!st.creator}">All <span class="n">${cn("")}</span></button>` +
-      creators.map((c) => `<button type="button" role="radio" data-creator="${c.key}" aria-checked="${st.creator === c.key}"><img src="${esc(c.avatar)}" alt="" width="22" height="22" decoding="async">${esc(c.short)} <span class="n">${cn(c.key)}</span></button>`).join(""));
-    catsEl.innerHTML = cats.map((c) => {
-      const n = byCat.filter(([b]) => b.category === c).length, on = st.cats.includes(c);
-      return `<button type="button" class="chip${n ? "" : " zero"}" data-cat="${esc(c)}" aria-pressed="${on}">${esc(c)} <span class="n">${n}</span></button>`;
-    }).join("");
-    moveThumb();
-  }
-  function moveThumb() {
-    const on = segEl.querySelector('[aria-checked="true"]'), th = segEl.querySelector(".thumb");
-    if (on && th) { th.style.setProperty("--tx", on.offsetLeft + "px"); th.style.setProperty("--tw", on.offsetWidth + "px"); }
+    const opt = (v, label, on) => `<option value="${esc(v)}"${on ? " selected" : ""}>${esc(label)}</option>`;
+    creatorEl.innerHTML = opt("", `All creators (${cn("")})`, !st.creator) +
+      creators.map((c) => opt(c.key, `${c.short} (${cn(c.key)})`, st.creator === c.key)).join("");
+    creatorEl.value = st.creator;
+    creatorEl.classList.toggle("on", !!st.creator);
+    const multi = st.cats.length > 1;
+    catsEl.innerHTML = opt("", `All categories (${byCat.length})`, !st.cats.length) +
+      (multi ? opt("__multi", `${st.cats.length} categories`, true) : "") +
+      cats.map((c) => opt(c, `${c} (${byCat.filter(([b]) => b.category === c).length})`, !multi && st.cats[0] === c)).join("");
+    catsEl.value = multi ? "__multi" : (st.cats[0] || "");
+    catsEl.classList.toggle("on", st.cats.length > 0);
   }
 
   function set(patch, push) { Object.assign(st, patch); render(); writeURL(push); }
@@ -245,26 +243,12 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   let typing;
   q.addEventListener("input", () => { st.q = q.value; render(); clearTimeout(typing); typing = setTimeout(() => writeURL(false), 250); });
   sortEl.addEventListener("change", () => set({ sort: sortEl.value }, true));
-  segEl.addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) set({ creator: b.dataset.creator }, true); });
-  segEl.addEventListener("keydown", (e) => {
-    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-    e.preventDefault(); e.stopPropagation();
-    const bs = [...segEl.querySelectorAll("button")], i = bs.findIndex((b) => b.getAttribute("aria-checked") === "true");
-    const n = bs[(i + (e.key === "ArrowRight" ? 1 : -1) + bs.length) % bs.length];
-    set({ creator: n.dataset.creator }, true);
-    segEl.querySelector(`[data-creator="${n.dataset.creator}"]`).focus();
-  });
-  catsEl.addEventListener("click", (e) => {
-    const b = e.target.closest(".chip"); if (!b) return;
-    const c = b.dataset.cat, cs = st.cats.includes(c) ? st.cats.filter((x) => x !== c) : [...st.cats, c];
-    set({ cats: cs }, true);
-    catsEl.querySelector(`[data-cat="${CSS.escape(c)}"]`)?.focus();
-  });
+  creatorEl.addEventListener("change", () => set({ creator: creatorEl.value }, true));
+  catsEl.addEventListener("change", () => { if (catsEl.value !== "__multi") set({ cats: catsEl.value ? [catsEl.value] : [] }, true); });
   const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
   $("#clear").addEventListener("click", clearAll);
   $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
   window.addEventListener("popstate", () => { st = readURL(); syncInputs(); render(); });
-  window.addEventListener("resize", moveThumb, { passive: true });
 
   // Copy link + toast
   const toast = $("#toast"); let tt;
@@ -343,7 +327,6 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
     cats = [...new Set(bots.map((b) => b.category))].sort();
     st = readURL(); syncInputs(); render(); writeURL(false);
-    const pc = catsEl.querySelector('[aria-pressed="true"]'); if (pc) catsEl.scrollLeft = pc.offsetLeft - 20;
     if (location.hash) requestAnimationFrame(openHash);
   }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
