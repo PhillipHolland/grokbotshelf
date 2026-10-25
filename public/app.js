@@ -306,8 +306,28 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   });
   results.addEventListener("focusin", (e) => { if (e.target.classList.contains("card")) { const i = cardsNow().indexOf(e.target); if (i >= 0) active = i; } });
 
-  // Deep links: #bot-slug scrolls to and highlights a card
+  // Keep scroll-padding-top in sync with the real sticky dock height (it wraps/grows on phones)
+  const dock = document.getElementById("dock");
+  const syncDock = () => document.documentElement.style.setProperty("--dock-h", dock.offsetHeight + "px");
+  syncDock(); if (window.ResizeObserver) new ResizeObserver(syncDock).observe(dock);
+
+  // "Add your bot": render all cards first so content-visibility can't undershoot, then scroll
+  let jumpT;
+  function scrollToAdd() {
+    const add = document.getElementById("add"), root = document.documentElement;
+    clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
+    add.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    jumpT = setTimeout(() => root.classList.remove("jumping"), 1500);
+  }
+  document.querySelector(".add-top").addEventListener("click", (e) => {
+    e.preventDefault();
+    if (location.hash !== "#add") history.pushState(null, "", location.pathname + location.search + "#add");
+    scrollToAdd();
+  });
+
+  // Deep links: #add jumps to the form; #bot-slug scrolls to and highlights a card
   function openHash() {
+    if (location.hash === "#add") return scrollToAdd();
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
     let el = document.getElementById(id);
     if (!el) { st = blank(); syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
