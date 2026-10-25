@@ -2,14 +2,14 @@
   "use strict";
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
-  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh");
-  const SORTS = ["featured", "newest", "bookmarks", "az", "creator"];
+  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob");
+  const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
   let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1;
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false }; }
-  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh);
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false }; }
+  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -111,6 +111,7 @@
     const ap = p.get("app"); s.app = ap && apps.some((a) => a.key === ap) ? ap : "";
     const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
     s.fresh = p.get("new") === "1";
+    s.oneJob = p.get("one_job") === "1";
     return s;
   }
   function writeURL(push) {
@@ -120,6 +121,7 @@
     if (st.app) p.set("app", st.app);
     if (st.agency) p.set("does", st.agency);
     if (st.fresh) p.set("new", "1");
+    if (st.oneJob) p.set("one_job", "1");
     if (st.sort !== "featured") p.set("sort", st.sort);
     const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
@@ -248,13 +250,16 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       undo(); say(r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
     } catch { undo(); say("Vote did not save, try again"); }
   }
+  let shelfReady = false;
   function loadVotes() {
     const mine = Object.keys(vote.mine).length > 0; // only ask for your own votes once you have some
-    fetch("/api/votes" + (mine ? "?mine=1" : ""), { credentials: "same-origin" }).then((r) => r.ok ? r.json() : null).then((d) => {
-      if (!d || !d.global) return;
-      vote.global = true; vote.scores = d.scores || {};
-      if (d.mine) { vote.mine = d.mine; saveMine(); }
-      paintAll();
+    return fetch("/api/votes" + (mine ? "?mine=1" : ""), { credentials: "same-origin" }).then((r) => r.ok ? r.json() : null).then((d) => {
+      if (d && d.global) {
+        vote.global = true; vote.scores = d.scores || {};
+        if (d.mine) { vote.mine = d.mine; saveMine(); }
+      }
+      if (!shelfReady) return;
+      if (st.sort === "votes") render(); else if (d && d.global) paintAll();
     }).catch(() => {});
   }
 
@@ -267,6 +272,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       if (st.app && !(b._meta && (b._meta.works_with || []).some((w) => slug(w) === st.app))) continue;
       if (st.agency && !(b._meta && b._meta.agency === st.agency)) continue;
       if (st.fresh && !(b.added >= weekAgo())) continue;
+      if (st.oneJob && !(b._meta && b._meta.one_job === true)) continue;
       const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
       if (m) out.push([b, m]);
     }
@@ -280,6 +286,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
       newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
       bookmarks: (a, b) => bmOf(b[0]) - bmOf(a[0]) || ((b[0]._social || {}).likes || 0) - ((a[0]._social || {}).likes || 0) || a[0]._i - b[0]._i,
+      votes: (a, b) => ((vote.scores[b[0]._slug] || {}).score || 0) - ((vote.scores[a[0]._slug] || {}).score || 0) || ((vote.scores[b[0]._slug] || {}).up || 0) - ((vote.scores[a[0]._slug] || {}).up || 0) || a[0].name.localeCompare(b[0].name),
       az: (a, b) => a[0].name.replace(/^[^\p{L}\p{N}]+/u, "").localeCompare(b[0].name.replace(/^[^\p{L}\p{N}]+/u, "")),
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
     }[st.sort];
@@ -321,6 +328,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     agencyEl.innerHTML = opt("", "Can it act?", !st.agency) + Object.entries(AGENCY).map(([k, v]) => opt(k, v, st.agency === k)).join("");
     agencyEl.value = st.agency; agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
+    oneEl.setAttribute("aria-pressed", String(st.oneJob));
   }
 
   function set(patch, push) { Object.assign(st, patch); render(); writeURL(push); }
@@ -335,6 +343,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   appsEl.addEventListener("change", () => set({ app: appsEl.value }, true));
   agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
+  oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
   const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
   $("#clear").addEventListener("click", clearAll);
   $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
@@ -450,9 +459,15 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const am = new Map();
     for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
     apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
-    st = readURL(); syncInputs(); render(); writeURL(false);
-    if (location.hash) requestAnimationFrame(openHash);
-    loadVotes();
+    st = readURL(); syncInputs();
+    const show = () => {
+      if (shelfReady) return;
+      shelfReady = true; render(); writeURL(false);
+      if (location.hash) requestAnimationFrame(openHash);
+    };
+    // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
+    if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
+    else { show(); loadVotes(); }
   }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
 

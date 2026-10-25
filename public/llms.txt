@@ -15,6 +15,7 @@
 
 - One page per bot at https://grokbotshelf.com/bot/<slug>, where slug is the bot name in lowercase with dashes (for example https://grokbotshelf.com/bot/archivist).
 - Creator pages at https://grokbotshelf.com/@<handle>.
+- One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.
 - To add a template inside the Grok Bot app: grokbot://app/v1/bot-template?id=<id>, where id is the part after https://x.ai/bot/.
 
 ## Votes for bots
