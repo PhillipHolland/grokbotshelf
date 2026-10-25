@@ -832,5 +832,70 @@
     "source_post": "https://x.com/gambrill/status/2114145266509230329",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/gambrill.webp"
+  },
+  {
+    "name": "NBA Daily Insider",
+    "emoji": "🏀",
+    "description": "Daily two-minute NBA briefing with last night's scores, tonight's games and TV, injury news, and an optional fantasy note.",
+    "category": "Sports",
+    "url": "https://x.ai/bot/WTU_wWHNyJfXqjPv_ES_C",
+    "creator_name": "Bella",
+    "creator_handle": "@drbellahqw",
+    "creator_url": "https://x.com/drbellahqw",
+    "source_post": "https://x.com/drbellahqw/status/2114138832966910246",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/drbellahqw.webp"
+  },
+  {
+    "name": "Kitchen",
+    "emoji": "🍳",
+    "description": "Recipes from what you have, weekly meal plans, and shopping lists, with allergies treated as hard rules.",
+    "category": "Food",
+    "url": "https://x.ai/bot/5eVWbPiZUJt8HPqnjVlpG",
+    "creator_name": "Johannes",
+    "creator_handle": "@jayzetd",
+    "creator_url": "https://x.com/jayzetd",
+    "source_post": "https://x.com/jayzetd/status/2114140818646642935",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/jayzetd.webp"
+  },
+  {
+    "name": "News Desk",
+    "emoji": "📰",
+    "description": "Short briefings and research on topics you pick, with dated source links.",
+    "category": "News",
+    "url": "https://x.ai/bot/BdGz16p0hr4r9xTq1hq7U",
+    "creator_name": "Johannes",
+    "creator_handle": "@jayzetd",
+    "creator_url": "https://x.com/jayzetd",
+    "source_post": "https://x.com/jayzetd/status/2114140818646642935",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/jayzetd.webp"
+  },
+  {
+    "name": "Usage Meter",
+    "emoji": "📊",
+    "description": "Watches your Grok and Grok Bot usage meters, sends a daily report with charts, and warns you before you hit a limit.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/ghQHDlYosLrZMB3pU0iEg",
+    "creator_name": "Rob",
+    "creator_handle": "@testafortedev",
+    "creator_url": "https://x.com/testafortedev",
+    "source_post": "https://x.com/testafortedev/status/2114143491173585155",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/testafortedev.webp"
+  },
+  {
+    "name": "Game Dev Pro",
+    "emoji": "🎮",
+    "description": "Takes an HTML5 game from idea to build, testing, and a live arcade page in one day.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/d4fN8HvCtpn8DLwP5fTyq",
+    "creator_name": "Rob",
+    "creator_handle": "@testafortedev",
+    "creator_url": "https://x.com/testafortedev",
+    "source_post": "https://x.com/testafortedev/status/2114143722610803142",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/testafortedev.webp"
   }
 ]
