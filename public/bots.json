@@ -3731,5 +3731,18 @@
     "creator_avatar": "/avatars/themarkgshow.webp",
     "source_post": "https://x.com/TheMarkGShow/status/2114375240021119438",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Invoice Chaser",
+    "emoji": "💸",
+    "description": "Keeps a Notion invoices database, builds a daily who-owes-me list sorted by how overdue each invoice is, and drafts polite-to-firm payment reminders in Gmail. It only drafts, so you approve and send every reminder yourself.",
+    "category": "Money",
+    "url": "https://x.ai/bot/90sITfSWBOYbcnx6uyfun",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2114379028790477059",
+    "added": "2026-10-25"
   }
 ]
