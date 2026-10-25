@@ -1248,5 +1248,31 @@
     "creator_url": "https://x.com/SuddenlyJon",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Rude Bot",
+    "emoji": "😈",
+    "description": "Extremely rude comedy bot that roasts your ask and refuses to be helpful — tired group-chat villain energy.",
+    "category": "Media",
+    "url": "https://x.ai/bot/7z0WNYmnERTnXKmxI12gB",
+    "source_post": "https://x.com/SuddenlyJon/status/2114157413104324743",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Scrub Gate",
+    "emoji": "🧼",
+    "description": "Public twin before publish — audit the private bot, stand up a scrubbed twin, pack from that twin only.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/OQPXyBkjMhSEZxeZiE36b",
+    "source_post": "https://x.com/SuddenlyJon/status/2114157661918769514",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]

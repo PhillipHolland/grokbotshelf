@@ -467,6 +467,20 @@
       "bot": "Argubot",
       "url": "https://x.com/SuddenlyJon/status/2114157188100858064",
       "date": "2026-10-24"
+    },
+    "2114157413104324743": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Rude Bot",
+      "url": "https://x.com/SuddenlyJon/status/2114157413104324743",
+      "date": "2026-10-24"
+    },
+    "2114157661918769514": {
+      "status": "added",
+      "approved_by": "Phillip Holland",
+      "bot": "Scrub Gate",
+      "url": "https://x.com/SuddenlyJon/status/2114157661918769514",
+      "date": "2026-10-24"
     }
   }
 }
