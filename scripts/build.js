@@ -12,6 +12,19 @@ const social = (read("social.json", {}).posts) || {};
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes actions" };
 const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
+// Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
+// GA_MEASUREMENT_ID (G-XXXXXXXXXX) and GSC_VERIFICATION (the content value of the google-site-verification meta tag).
+const GA_ID = /^G-[A-Z0-9]{4,20}$/.test(process.env.GA_MEASUREMENT_ID || "") ? process.env.GA_MEASUREMENT_ID : "";
+const GSC = /^[\w-]{10,100}$/.test(process.env.GSC_VERIFICATION || "") ? process.env.GSC_VERIFICATION : "";
+const GOOGLE_HEAD = [
+  GSC && `<meta name="google-site-verification" content="${GSC}">`,
+  GA_ID && `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${GA_ID}");</script>`,
+].filter(Boolean).join("\n");
+{ // keep public/index.html in sync between the google markers
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/<!-- google:start -->[\s\S]*?<!-- google:end -->/, `<!-- google:start -->${GOOGLE_HEAD ? "\n" + GOOGLE_HEAD + "\n" : ""}<!-- google:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 const today = new Date().toISOString().slice(0, 10);
 
 const items = bots.map((b, i) => {
@@ -87,6 +100,7 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 <link rel="stylesheet" href="/styles.css">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
+${GOOGLE_HEAD}
 </head>`;
 // "Under the hood" appears only when the creator supplied at least one of these optional bots.json fields:
 // connectors, routines [{name, schedule}], sends/posts/spends (true or false), permissions_note. Only those rows show.
