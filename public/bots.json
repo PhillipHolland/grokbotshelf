@@ -3653,5 +3653,18 @@
     "creator_avatar": "/avatars/kentbweber.webp",
     "source_post": "https://x.com/KentBWeber/status/2114343263549489650",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Gate Coffee",
+    "emoji": "☕",
+    "description": "Finds your flight and gate, maps your terminal walk, and orders coffee on the way.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/4oMrw9BedmjmQQbZdettr",
+    "creator_name": "Randy Hentz",
+    "creator_handle": "@j3pup",
+    "creator_url": "https://x.com/j3pup",
+    "creator_avatar": "/avatars/j3pup.webp",
+    "source_post": "https://x.com/j3pup/status/2114350649353949208",
+    "added": "2026-10-25"
   }
 ]
