@@ -1287,5 +1287,18 @@
     "creator_url": "https://x.com/SuddenlyJon",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Fashion Stylist Bot",
+    "emoji": "👗",
+    "description": "Virtual closet from photos — try-ons, outfit comparison videos, product-style images, and your own Fashion Codex.",
+    "category": "Design",
+    "url": "https://x.ai/bot/jaT7Eye5M1SvLygfLKmOq",
+    "source_post": "https://x.com/JennyMarquis/status/2114157718256955693",
+    "creator_name": "Jenny Marquis",
+    "creator_handle": "@JennyMarquis",
+    "creator_url": "https://x.com/JennyMarquis",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/jennymarquis.webp"
   }
 ]
