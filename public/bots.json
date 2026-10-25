@@ -1274,5 +1274,18 @@
     "creator_url": "https://x.com/SuddenlyJon",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "GrandBot",
+    "emoji": "🏛️",
+    "description": "Institutional memory from an official xAI export — inventories, distills, and indexes your whole Grok history.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/1KaLjrEXZDjCxu57OoIXs",
+    "source_post": "https://x.com/SuddenlyJon/status/2114157927934173613",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
   }
 ]
