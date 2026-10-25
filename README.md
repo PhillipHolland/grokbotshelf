@@ -75,3 +75,23 @@ GET https://grokbotshelf.com/api/search?creator=SuddenlyJon
 Query params: `q` (optional free text), `category`, `creator` (handle or name), `limit` (1–100, default 20).
 CORS is open. Full dump remains at https://grokbotshelf.com/bots.json.
 
+
+## Votes (up / down, no login)
+
+`api/votes.js` stores votes in Neon Postgres through Neon's HTTP SQL endpoint (plain `fetch`,
+no npm dependencies). Schema: `db/schema.sql`, applied with `node db/migrate.js`.
+
+- `GET /api/votes` returns `{ global, scores: { "bot-slug": { up, down, score } } }` (cached ~15s at the edge).
+  `?slug=bot-x` for one bot, `?mine=1` adds this visitor's own votes (never cached).
+- `POST /api/votes` with `{ "slug": "bot-x", "value": 1 | -1 | 0 }`; 0 clears, sending the other value flips.
+- Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (`gbs_vid`, path `/api/votes`),
+  set on the first vote. One row per (bot, voter). IPs are never stored raw: a salted SHA-256 is kept only to
+  rate limit bursts (40 writes per IP and 25 per voter per minute). Optional `VOTE_SALT` env overrides the salt.
+- Slugs are `"bot-" + slugified name`, the same as card ids, so renaming a bot resets its votes.
+- Without `DATABASE_URL` (or `NEON_DATABASE_URL`) on Vercel, the API reports `global: false` and the arrows
+  still work but only remember votes in that browser. Setting the env and redeploying turns on global tallies.
+
+## From the builders strip
+
+`window.BUILDERS` in `public/config.js` lists the handles and the exact bot names shown in the strip on the
+home Featured view (hidden when searching, filtering, or sorting).

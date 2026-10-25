@@ -164,6 +164,8 @@
     share: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>',
     copy: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg>',
     code: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg>',
+    up: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg>',
+    down: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14"/><path d="m6 13 6 6 6-6"/></svg>',
     x: '<svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
   };
   // Share a bot on X: web intent everywhere; native app first on mobile (same pattern as #post-x)
@@ -179,15 +181,16 @@
     });
     window.location.href = u.app;
   }
-  function card(b, m) {
-    const h = m ? m.hits : {};
-    return `<article class="card" id="${b._slug}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${b._slug}-t">
+  function card(b, m, pre) {
+    const h = m ? m.hits : {}, id = (pre || "") + b._slug;
+    return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
-<h3 id="${b._slug}-t"><a href="#${b._slug}">${hl(b.name, h.name)}</a></h3>
+<h3 id="${id}-t"><a href="#${b._slug}">${hl(b.name, h.name)}</a></h3>
 <div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span><img src="${esc(b.creator_avatar)}" alt="" width="16" height="16" loading="lazy" decoding="async"><span>${esc(b.creator_name)}</span></div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
 <div class="foot-row"><div class="tools">
+${voteHTML(b)}
 <button type="button" class="ib" data-copy="${esc(b.url)}" aria-label="Copy link to ${esc(b.name)}" title="Copy link">${I.copy}</button>
 <a class="ib" href="${esc(shareX(b).web)}" data-sharex="${b._slug}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X" title="Share ${esc(b.name)} on X">${I.share}</a>
 ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
@@ -195,6 +198,82 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
 </div><a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get ${esc(b.name)} on x.ai">Get this bot</a></div>
 </article>`;
   }
+  /* ---------- From the builders strip (home Featured view only) ---------- */
+  function buildersHTML() {
+    const cfg = window.BUILDERS || {}, names = cfg.feature || [];
+    const picks = names.map((n) => bots.find((b) => b.name === n)).filter(Boolean);
+    if (!picks.length) return "";
+    const people = (cfg.handles || []).map((h) => {
+      const c = creators.find((x) => x.key === h.replace(/^@/, "").toLowerCase());
+      const u = c ? c.url : "https://x.com/" + h.replace(/^@/, "");
+      return `<span class="who"><a href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? ` <a class="all" href="${esc(profilePath(c.key))}" aria-label="All bots by ${esc(c.label)}">all bots</a>` : "") + "</span>";
+    }).join('<span class="dot" aria-hidden="true">·</span>');
+    return `<section class="builders" aria-labelledby="builders-h"><div class="bhead"><h2 id="builders-h">From the builders</h2><p class="bsub">${people}</p></div>
+<div class="grid">${picks.map((b) => card(b, null, "f-")).join("")}</div></section>`;
+  }
+
+  /* ---------- Up / down votes ---------- */
+  // Server (Neon via /api/votes) is the source of truth for tallies. localStorage remembers which way
+  // you voted so arrows paint instantly. With no database configured, votes stay in this browser only.
+  const VKEY = "gbs_votes";
+  const vote = { global: false, scores: {}, mine: {} };
+  try { vote.mine = JSON.parse(localStorage.getItem(VKEY) || "{}") || {}; } catch {}
+  const saveMine = () => { try { localStorage.setItem(VKEY, JSON.stringify(vote.mine)); } catch {} };
+  function voteBits(slug) {
+    const v = vote.mine[slug] || 0, s = vote.scores[slug];
+    const n = vote.global && s && s.up + s.down ? s.score : "";
+    const title = !vote.global ? "Your vote is saved in this browser" : s && s.up + s.down ? `${s.up} up, ${s.down} down` : "No votes yet";
+    return { v, n, title };
+  }
+  function voteHTML(b) {
+    const { v, n, title } = voteBits(b._slug), nm = esc(b.name);
+    return `<span class="vote" data-vote="${b._slug}" title="${esc(title)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn" aria-live="polite">${n}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
+  }
+  function paintVote(slug) {
+    const { v, n, title } = voteBits(slug);
+    results.querySelectorAll(`.vote[data-vote="${slug}"]`).forEach((el) => {
+      el.title = title;
+      el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
+      el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
+      el.querySelector(".vn").textContent = n;
+    });
+  }
+  const paintAll = () => results.querySelectorAll(".vote").forEach((el) => paintVote(el.dataset.vote));
+  function bump(slug, from, to) {
+    const s = vote.scores[slug] || (vote.scores[slug] = { up: 0, down: 0, score: 0 });
+    if (from === 1) s.up--; if (from === -1) s.down--;
+    if (to === 1) s.up++; if (to === -1) s.down++;
+    s.score = s.up - s.down;
+  }
+  async function castVote(slug, dir) {
+    const from = vote.mine[slug] || 0, to = from === dir ? 0 : dir;
+    const prevScore = vote.scores[slug] ? { ...vote.scores[slug] } : null;
+    if (to) vote.mine[slug] = to; else delete vote.mine[slug];
+    saveMine(); bump(slug, from, to); paintVote(slug);
+    if (!vote.global) return;
+    const undo = () => {
+      if (from) vote.mine[slug] = from; else delete vote.mine[slug];
+      if (prevScore) vote.scores[slug] = prevScore; else delete vote.scores[slug];
+      saveMine(); paintVote(slug);
+    };
+    try {
+      const r = await fetch("/api/votes", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ slug, value: to }) });
+      const d = await r.json().catch(() => ({}));
+      if (r.ok && d.global) { vote.scores[slug] = { up: d.up, down: d.down, score: d.score }; paintVote(slug); return; }
+      if (r.status === 503) { vote.global = false; paintAll(); return; } // no database: keep the local vote
+      undo(); say(r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
+    } catch { undo(); say("Vote did not save, try again"); }
+  }
+  function loadVotes() {
+    const mine = Object.keys(vote.mine).length > 0; // only ask for your own votes once you have some
+    fetch("/api/votes" + (mine ? "?mine=1" : ""), { credentials: "same-origin" }).then((r) => r.ok ? r.json() : null).then((d) => {
+      if (!d || !d.global) return;
+      vote.global = true; vote.scores = d.scores || {};
+      if (d.mine) { vote.mine = d.mine; saveMine(); }
+      paintAll();
+    }).catch(() => {});
+  }
+
   function filtered(ignore) {
     const toks = fold(st.q).split(/\s+/).filter(Boolean);
     const out = [];
@@ -216,8 +295,9 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     }[st.sort];
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
+    const strip = st.sort === "featured" && !searching && !st.creator && !st.cats.length ? buildersHTML() : "";
     if (grouped) {
-      results.innerHTML = creators.map((c) => {
+      results.innerHTML = strip + creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.avatar)}" alt="" width="40" height="40" decoding="async">
@@ -270,6 +350,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
   }
   results.addEventListener("click", (e) => {
+    const vb = e.target.closest(".vb");
+    if (vb) { castVote(vb.closest(".vote").dataset.vote, Number(vb.dataset.v)); return; }
     const pl = e.target.closest("[data-plink]");
     if (pl) { copy(pl.dataset.plink).then(() => { pl.classList.add("done"); clearTimeout(pl._t); pl._t = setTimeout(() => pl.classList.remove("done"), 1400); }); return; }
     const sx = e.target.closest("[data-sharex]");
@@ -362,6 +444,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     cats = [...new Set(bots.map((b) => b.category))].sort();
     st = readURL(); syncInputs(); render(); writeURL(false);
     if (location.hash) requestAnimationFrame(openHash);
+    loadVotes();
   }).catch(() => { results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
 

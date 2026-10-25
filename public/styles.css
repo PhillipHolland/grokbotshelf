@@ -136,3 +136,28 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 /* Site footer */
 .site-foot{padding:8px 0 max(32px,env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:8px}
 .site-foot p{margin:0;font-size:12px;line-height:1.4;color:var(--text2);text-align:center}
+.site-foot p.by{margin-top:4px}
+.site-foot a{color:var(--text2);text-decoration:none}
+.site-foot a:hover{color:var(--blue);text-decoration:underline}
+
+/* From the builders strip: plain heading, normal cards */
+.builders{margin:16px 0 36px}
+.bhead{margin:0 0 12px}
+.bhead h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.bsub{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin:2px 0 0;font-size:15px;color:var(--text2)}
+.bsub a{color:var(--text2);text-decoration:none}
+.bsub a:hover{color:var(--blue);text-decoration:underline}
+.bsub a.all{font-size:13px}
+.bsub .dot{margin:0 2px}
+
+/* Up / down votes: quiet arrows and a net score */
+.foot-row{flex-wrap:wrap;row-gap:6px}
+.vote{display:inline-flex;align-items:center;margin-right:2px}
+.vote .vb{width:30px;height:34px}
+.vote .vb svg{width:17px;height:17px;stroke-width:2}
+.vote .vn{min-width:14px;padding:0 1px;font-size:13px;font-weight:600;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
+.vote .vn:empty{min-width:2px}
+.vote .up[aria-pressed="true"]{color:var(--blue)}
+.vote .dn[aria-pressed="true"]{color:#f4212e}
+.vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
+.bsub .who{white-space:nowrap}
