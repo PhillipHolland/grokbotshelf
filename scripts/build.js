@@ -25,6 +25,18 @@ const GOOGLE_HEAD = [
   const n = h.replace(/<!-- google:start -->[\s\S]*?<!-- google:end -->/, `<!-- google:start -->${GOOGLE_HEAD ? "\n" + GOOGLE_HEAD + "\n" : ""}<!-- google:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
+// One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
+// the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
+// index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
+{
+  const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
+  const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]) })) });
+  fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
+  const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 const today = new Date().toISOString().slice(0, 10);
 
 const items = bots.map((b, i) => {
