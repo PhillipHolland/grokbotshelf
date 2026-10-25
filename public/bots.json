@@ -3718,5 +3718,18 @@
     "creator_avatar": "/avatars/turnup2ez.webp",
     "source_post": "https://x.com/Turnup2ez/status/2114372444538707996",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Missed Call Rescuer",
+    "emoji": "📞",
+    "description": "Reads your missed-call, voicemail and web-form notification emails, writes a one-line summary of each lead and logs it in Notion. It drafts a friendly reply for each one but never sends it, so you always press send.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/I4_nQ-HaHcSjKikmsIO4R",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2114375240021119438",
+    "added": "2026-10-25"
   }
 ]
