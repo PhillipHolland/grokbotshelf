@@ -1079,5 +1079,18 @@
     "source_post": "https://x.com/SuddenlyJon/status/2114154450776449498",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Vibe Coder",
+    "emoji": "💻",
+    "description": "Single-engineer coding bot that hands changes to a headless CLI, opens PRs with a second-model pre-commit review.",
+    "category": "Dev",
+    "url": "https://x.ai/bot/04M6OVjsDhy9JiXjPz66O",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "source_post": "https://x.com/xenappblog/status/2114155746245906853",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/xenappblog.webp"
   }
 ]
