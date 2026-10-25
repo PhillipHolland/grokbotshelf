@@ -6,7 +6,52 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 20:02:45 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 25 Oct 2026 20:16:51 GMT</lastBuildDate>
+  <item>
+    <title>🎨 POD &amp; Printable Boutique Studio by Lisa</title>
+    <link>https://grokbotshelf.com/bot/pod-and-printable-boutique-studio</link>
+    <guid isPermaLink="false">https://x.ai/bot/uFPjya5oVUr0-Oo_9dVnS</guid>
+    <description>A coach for Etsy, Shopify, Printify and Gumroad sellers that writes SEO titles and tags, audits product mockups and works out net profit after platform fees.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>🀄 Mahjong, Pickleball &amp; Book Club Hostess HQ by Lisa</title>
+    <link>https://grokbotshelf.com/bot/mahjong-pickleball-and-book-club-hostess-hq</link>
+    <guid isPermaLink="false">https://x.ai/bot/GLDFD6EeedS4QrVZ7FMMh</guid>
+    <description>Plans club nights for Mahjong groups, Pickleball round-robins and book clubs, with balanced brackets and table rotations, hostess and potluck sign-ups, and a shareable club page.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏡 Mortgage Payoff &amp; Bonus Snowball Planner by Lisa</title>
+    <link>https://grokbotshelf.com/bot/mortgage-payoff-and-bonus-snowball-planner</link>
+    <guid isPermaLink="false">https://x.ai/bot/zSos6gcvyO5j2kbU0Z6GZ</guid>
+    <description>Shows how extra principal, biweekly payments and yearly bonuses can shorten your mortgage and cut interest, on an interactive payoff simulator page.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔨 Roof, Water &amp; Contractor Bid Auditor by Lisa</title>
+    <link>https://grokbotshelf.com/bot/roof-water-and-contractor-bid-auditor</link>
+    <guid isPermaLink="false">https://x.ai/bot/QwHVGj9mw3pfvInaS27NE</guid>
+    <description>Audits roofing, water-mitigation, plumbing, HVAC and remodel bids line by line, flags padded markups, vague lump sums and missing specs, and builds a side-by-side bid scorecard.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗂️ Inbox Triage by Calix</title>
+    <link>https://grokbotshelf.com/bot/inbox-triage</link>
+    <guid isPermaLink="false">https://x.ai/bot/4O78A68DNAm84UP4GK3QE</guid>
+    <description>Sorts your Gmail or Outlook into Act now, Reply soon, FYI, and Noise, then sends you one short read-only list and stays quiet when nothing matters.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:05:29 GMT</pubDate>
+  </item>
   <item>
     <title>✨ Midas for the Inbox by Twilight Surfers</title>
     <link>https://grokbotshelf.com/bot/midas-for-the-inbox</link>
@@ -411,51 +456,6 @@
     <dc:creator>Bella (@drbellahqw)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Sun, 25 Oct 2026 12:04:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌟 STAR Interview Coach by Lisa</title>
-    <link>https://grokbotshelf.com/bot/star-interview-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/by3SNDqjk73XxC5ZXaSoP</guid>
-    <description>Turns your work stories into crisp STAR answers, runs mock behavioral interviews, and keeps a story bank page.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪞 Second Opinion by Glen Little</title>
-    <link>https://grokbotshelf.com/bot/second-opinion</link>
-    <guid isPermaLink="false">https://x.ai/bot/_UobKTa_U-a7K6MSQrgmL</guid>
-    <description>A calm, kind second look at messages, posts, purchases, and decisions before you send them.</description>
-    <dc:creator>Glen Little (@glenlittle)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>☕ Gate Coffee by Randy Hentz</title>
-    <link>https://grokbotshelf.com/bot/gate-coffee</link>
-    <guid isPermaLink="false">https://x.ai/bot/4oMrw9BedmjmQQbZdettr</guid>
-    <description>Finds your flight and gate, maps your terminal walk, and orders coffee on the way.</description>
-    <dc:creator>Randy Hentz (@j3pup)</dc:creator>
-    <category>Travel</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧾 Receipt Keeper by Kent Weber</title>
-    <link>https://grokbotshelf.com/bot/receipt-keeper</link>
-    <guid isPermaLink="false">https://x.ai/bot/3ZpWwU-KhU953eArYJ8ST</guid>
-    <description>Logs receipts from photos or forwarded emails into your own spreadsheet.</description>
-    <dc:creator>Kent Weber (@KentBWeber)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:40 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚙 Car Deal Scout by Kent Weber</title>
-    <link>https://grokbotshelf.com/bot/car-deal-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/4-ai7JQWpKpOUiK1Ih0J3</guid>
-    <description>Watches listing sites for a car that matches your model, years, budget and must-haves.</description>
-    <dc:creator>Kent Weber (@KentBWeber)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sun, 25 Oct 2026 12:04:39 GMT</pubDate>
   </item>
 </channel>
 </rss>
