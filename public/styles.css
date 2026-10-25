@@ -80,6 +80,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 
 /* Groups and cards */
 .group{margin:16px 0 36px}
+.group .more{display:flex;width:fit-content;height:44px;margin:14px auto 0;padding:0 22px}
 .ghead{display:flex;align-items:center;gap:12px;margin:0 0 12px}
 .ghead img{width:40px;height:40px;border-radius:50%;flex:none}
 .ghead h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25;min-width:0}

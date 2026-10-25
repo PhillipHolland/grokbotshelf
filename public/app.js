@@ -8,7 +8,10 @@
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
   let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1;
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false }; }
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, more: [] }; }
+  // Unfiltered grouped views show the first GROUP_CAP cards per creator (all of them when only a few more) plus a
+  // "Show N more" button; expanded groups are kept in ?more=a,b. Search and filters always show every match.
+  const GROUP_CAP = 12;
   const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
@@ -112,6 +115,7 @@
     const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
     s.fresh = p.get("new") === "1";
     s.oneJob = p.get("one_job") === "1";
+    s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
   }
   // Unknown /@handle (served the home page by the catch-all rewrite): say so, and keep it out of search results
@@ -132,6 +136,7 @@
     if (st.fresh) p.set("new", "1");
     if (st.oneJob) p.set("one_job", "1");
     if (st.sort !== "featured") p.set("sort", st.sort);
+    if (st.more.length) p.set("more", st.more.join(","));
     const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
     if (notFound) { notFound._meta.remove(); notFound.remove(); notFound = null; }
@@ -310,13 +315,15 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
     const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() : "";
+    const cap = searching || filtering() ? Infinity : GROUP_CAP;
     if (grouped) {
       results.innerHTML = strip + creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
+        const shown = st.more.includes(c.key) || g.length <= cap + 3 ? g : g.slice(0, cap);
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.avatar)}" alt="" width="40" height="40" decoding="async">
 <h2 id="g-${c.key}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button></div>
-<div class="grid">${g.map(([b, m]) => card(b, m)).join("")}</div></section>`;
+<div class="grid">${shown.map(([b, m]) => card(b, m)).join("")}</div>${shown.length < g.length ? `<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}">Show ${g.length - shown.length} more</button>` : ""}</section>`;
       }).join("");
     } else {
       results.innerHTML = list.length ? `<div class="grid flat">${list.map(([b, m]) => card(b, m)).join("")}</div>` : "";
@@ -374,7 +381,15 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     try { await navigator.clipboard.writeText(text); }
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
   }
+  function showMore(key) {
+    if (!st.more.includes(key)) st.more = [...st.more, key];
+    render(); writeURL(false);
+    const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[GROUP_CAP];
+    if (next) next.focus({ preventScroll: true });
+  }
   results.addEventListener("click", (e) => {
+    const mo = e.target.closest("[data-more]");
+    if (mo) { showMore(mo.dataset.more); return; }
     const vb = e.target.closest(".vb");
     if (vb) { castVote(vb.closest(".vote").dataset.vote, Number(vb.dataset.v)); return; }
     const pl = e.target.closest("[data-plink]");
@@ -469,6 +484,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (location.hash === "#add") return scrollToAdd();
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
     let el = document.getElementById(id);
+    const hb = bots.find((b) => b._slug === id);
+    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; render(); writeURL(false); el = document.getElementById(id); }
     if (!el) { st = blank(); syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
     el.scrollIntoView({ block: "center" });
     el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
