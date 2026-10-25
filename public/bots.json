@@ -1352,5 +1352,18 @@
     "creator_url": "https://x.com/ManaEngineer",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/manaengineer.webp"
+  },
+  {
+    "name": "Shot by Rich",
+    "emoji": "📷",
+    "description": "An honest, friendly photo critic: send a photo for clear feedback plus a step-by-step edit plan for your camera and editing app.",
+    "category": "Creator",
+    "url": "https://x.ai/bot/DpbR6nUHmd3cMs-DF7Llf",
+    "creator_name": "Rich Photography",
+    "creator_handle": "@richphotoio",
+    "creator_url": "https://x.com/richphotoio",
+    "source_post": "https://x.com/richphotoio/status/2114162194036179441",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/richphotoio.webp"
   }
 ]
