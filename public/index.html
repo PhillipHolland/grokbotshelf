@@ -30,7 +30,7 @@
 <meta name="twitter:image" content="https://grokbotshelf.com/og.png?v=2">
 <meta name="twitter:creator" content="@Phil_Holland">
 <link rel="stylesheet" href="/styles.css">
-<script src="/config.js"></script>
+<script src="/config.js" defer></script>
 <script src="/app.js" defer></script>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -104,7 +104,7 @@
     <button type="button" class="clear" id="clear" hidden>Clear all</button>
   </div>
 
-  <div id="results"></div>
+  <div id="results" aria-busy="true"></div>
 
   <div class="empty" id="empty" hidden>
     <p class="empty-t">No bots match</p>
@@ -142,6 +142,6 @@
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<noscript><p class="wrap">Turn on JavaScript to search the shelf, or read <a href="/bots.json">bots.json</a>.</p></noscript>
+<noscript><style>#results{min-height:0}</style><p class="wrap">Turn on JavaScript to search the shelf, or read <a href="/bots.json">bots.json</a>.</p></noscript>
 </body>
 </html>

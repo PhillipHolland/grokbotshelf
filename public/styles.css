@@ -116,6 +116,8 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .empty{text-align:center;padding:48px 16px;margin:16px 0 36px;border:1px solid var(--line);border-radius:16px}
 .empty-t{margin:0 0 4px;font-size:20px;font-weight:800;letter-spacing:-.02em}
 .empty-s{margin:0 0 16px;color:var(--text2)}
+/* Hold the results area open until the first render so #add starts below the fold (no layout shift) */
+#results[aria-busy="true"]{min-height:100vh}
 .add{scroll-margin-top:8px;border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 max(48px,env(safe-area-inset-bottom));max-width:640px}
 .add h2{margin:0 0 6px;font-size:20px;font-weight:800;letter-spacing:-.02em}
 .add p{margin:0 0 16px;color:var(--text2);line-height:1.45;overflow-wrap:anywhere}
