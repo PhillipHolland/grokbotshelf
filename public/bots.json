@@ -1616,13 +1616,13 @@
   {
     "name": "Senior Care Helper",
     "emoji": "🧓",
-    "description": "Helps an older adult living alone, or their family, keep track of meds, appointments and refills, and drafts weekly family check-in notes.",
+    "description": "Draft-and-remind helper for an older adult living on their own, or family checking in: daily meds and appointments, refill lists, visit summaries, and weekly family notes. Nothing is sent or shared until you KEEP it.",
     "category": "Health & Fitness",
-    "url": "https://x.ai/bot/okSl3Ri74UQjSca8Hjkc_",
+    "url": "https://x.ai/bot/GfsZ3T54jHaLsElrNBcsh",
     "creator_name": "Kelly",
     "creator_handle": "@createwithima",
     "creator_url": "https://x.com/createwithima",
-    "source_post": "https://x.com/createwithima/status/2114167357929066858",
+    "source_post": "https://x.com/createwithima/status/2114354525184070115",
     "added": "2026-10-24",
     "creator_avatar": "/avatars/createwithima.webp"
   },
@@ -3743,6 +3743,71 @@
     "creator_url": "https://x.com/TheMarkGShow",
     "creator_avatar": "/avatars/themarkgshow.webp",
     "source_post": "https://x.com/TheMarkGShow/status/2114379028790477059",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Buyer Radar",
+    "emoji": "📡",
+    "description": "Finds people publicly asking for your service on Reddit, X and other public sources, scores each lead, logs it in Notion with the link, and drafts a helpful reply for you to review and send yourself. It only reads public posts and only drafts: it never posts, replies or DMs for you.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/UceojgdFdoUTtn9ytuEWS",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2114367672620102066",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Caregiving Coordinator",
+    "emoji": "🤝",
+    "description": "Helps caregivers and siblings share care: drafts schedules, handoff notes, and supply lists. Nothing goes to the care team without your KEEP.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/MBgNztJN__hshML0k_vU5",
+    "creator_name": "Kelly",
+    "creator_handle": "@createwithima",
+    "creator_url": "https://x.com/createwithima",
+    "creator_avatar": "/avatars/createwithima.webp",
+    "source_post": "https://x.com/createwithima/status/2114354525184070115",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Pet Care Pal",
+    "emoji": "🐾",
+    "description": "For multi-pet households of any mix — dogs, cats, birds, fish, reptiles, small mammals, and more. Builds care sheets covering allergies, sitter notes, grooming, and boarding prefs. Drafts and reminds only; nothing is sent or booked without your KEEP.",
+    "category": "Home",
+    "url": "https://x.ai/bot/5VXqJG2T-QHyT6Kl4S6vj",
+    "creator_name": "Kelly",
+    "creator_handle": "@createwithima",
+    "creator_url": "https://x.com/createwithima",
+    "creator_avatar": "/avatars/createwithima.webp",
+    "source_post": "https://x.com/createwithima/status/2114354525184070115",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Meal Planner",
+    "emoji": "🍽️",
+    "description": "Weekly menus, aisle-sorted grocery lists, leftovers plans, and allergy or budget tags for households that want less dinner stress. Drafts only — no grocery orders without your KEEP.",
+    "category": "Food",
+    "url": "https://x.ai/bot/BR_bVaj5zOasyjWX6ygGg",
+    "creator_name": "Kelly",
+    "creator_handle": "@createwithima",
+    "creator_url": "https://x.com/createwithima",
+    "creator_avatar": "/avatars/createwithima.webp",
+    "source_post": "https://x.com/createwithima/status/2114354525184070115",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Home Maintenance Tracker",
+    "emoji": "🔧",
+    "description": "Seasonal home checklists, a repairs and warranties log, rough cost ranges, and draft notes to a landlord or contractor. Nothing is hired or sent without your KEEP.",
+    "category": "Home",
+    "url": "https://x.ai/bot/Fq4fzudPhdDaIPhbgxAgG",
+    "creator_name": "Kelly",
+    "creator_handle": "@createwithima",
+    "creator_url": "https://x.com/createwithima",
+    "creator_avatar": "/avatars/createwithima.webp",
+    "source_post": "https://x.com/createwithima/status/2114354525184070115",
     "added": "2026-10-25"
   }
 ]
