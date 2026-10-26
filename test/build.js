@@ -29,6 +29,7 @@ try {
   const missBot = slugs.filter((s) => !fs.existsSync(pub("og", "bot", s + ".png"))), missC = handles.filter((h) => !fs.existsSync(pub("og", "creator", h + ".png")));
   ok(!missBot.length, `every bot has a share image (missing: ${missBot.join(", ") || "none"})`);
   ok(!missC.length, `every creator has a share image (missing: ${missC.join(", ") || "none"})`);
+  const home0 = fs.readFileSync(pub("index.html"), "utf8");
   const generic = [...botDirs.map((s) => pub("bot", s, "index.html")), ...cDirs.map((d) => pub(d, "index.html"))].filter((f) => fs.readFileSync(f, "utf8").includes("/og.png?v=2"));
   ok(!generic.length, `no page falls back to the generic og.png (${generic.length})`);
   const arch = bots.find((b) => b.name === "Archivist");
@@ -69,6 +70,10 @@ try {
   const { ldScript } = require(path.join(TMP, "scripts", "shelf"));
   const evil = ldScript({ name: "</script><script>alert(1)</script><!--" });
   ok(evil.indexOf("</script>") === evil.length - 9 && !evil.slice(0, -9).includes("<", 1 + evil.indexOf(">")) && JSON.parse(evil.slice(evil.indexOf(">") + 1, -9)).name === "</script><script>alert(1)</script><!--", "JSON-LD escapes every < so a value cannot close the script");
+  // Prefetch script: inline on home, bot and creator pages; Speculation Rules prefetch only, moderate, scoped
+  const pf = allLd.map(([f]) => fs.readFileSync(f, "utf8")).filter((h) => h.includes('r.type="speculationrules"'));
+  ok(pf.length === allLd.length, `prefetch script is on every home, bot and creator page (${pf.length} of ${allLd.length})`);
+  ok(!/prerender/.test(home0) && home0.includes('\\"eagerness\\":\\"moderate\\"') && home0.includes('\\"href_matches\\":\\"/bot/*\\"') && home0.includes('\\"href_matches\\":\\"/@*\\"'), "prefetch rules: prefetch only, moderate, /bot/* and /@*");
   // shelf-data.json: the one file the home page loads, built from bots.json + bot-meta.json + social.json
   const data = JSON.parse(fs.readFileSync(pub("shelf-data.json"), "utf8")).bots;
   ok(data.length === bots.length && data.every((d, i) => d.name === bots[i].name && d.url === bots[i].url && d.creator_handle === bots[i].creator_handle), `shelf-data.json has every bot in bots.json order (${data.length} of ${bots.length})`);

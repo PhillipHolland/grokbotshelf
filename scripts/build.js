@@ -149,6 +149,7 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 <meta name="twitter:site" content="@Phil_Holland">
 <meta name="twitter:creator" content="${esc(creator)}">
 ${ldScript(ld)}
+<script>${PREFETCH_JS}</script>
 <link rel="stylesheet" href="/styles.css">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -176,6 +177,27 @@ ${rows.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v} ${CREATOR_SUPPLIED}</dd
     </dl>
   </section>`;
 }
+// Prefetch bot and creator pages a visitor is about to open. Chrome and Edge get Speculation Rules (prefetch only, never
+// prerender; "moderate" means on hover or pointerdown, at most 2 in flight). Other browsers get <link rel=prefetch> on
+// hover or touch, at most 2 in flight, each URL once. Scope: same-origin /bot/* and /@* links without a query string,
+// never /api. Nothing runs with Save-Data on or on a 2g connection. The same script is inlined in index.html.
+const PREFETCH_RULES = { prefetch: [{ source: "document", eagerness: "moderate", where: { and: [
+  { or: [{ href_matches: "/bot/*" }, { href_matches: "/@*" }] },
+  { not: { href_matches: "/api/*" } },
+  { not: { selector_matches: 'a[href*="?"]' } },
+] } }] };
+const PREFETCH_JS = `(function(){var c=navigator.connection;if(c&&(c.saveData||/2g$/.test(c.effectiveType||"")))return;\
+if(HTMLScriptElement.supports&&HTMLScriptElement.supports("speculationrules")){var r=document.createElement("script");r.type="speculationrules";\
+r.textContent=${JSON.stringify(JSON.stringify(PREFETCH_RULES))};document.head.appendChild(r);return}\
+var done={},busy=0,timer;\
+function url(a){var h=a.getAttribute("href")||"",u;if(h.indexOf("?")>=0)return"";try{u=new URL(h,location.href)}catch(e){return""}\
+if(u.origin!==location.origin||u.search||!/^\\/(bot\\/|@)/.test(u.pathname)||u.pathname===location.pathname)return"";return u.origin+u.pathname}\
+function go(a){var h=a&&url(a);if(!h||done[h]||busy>=2)return;done[h]=1;busy++;var l=document.createElement("link");l.rel="prefetch";l.href=h;\
+l.onload=l.onerror=function(){busy--};document.head.appendChild(l)}\
+function link(e){return e.target&&e.target.closest?e.target.closest("a[href]"):null}\
+document.addEventListener("pointerenter",function(e){var a=e.target;if(a&&a.matches&&a.matches("a[href]")){clearTimeout(timer);timer=setTimeout(function(){go(a)},100)}},true);\
+document.addEventListener("pointerleave",function(e){if(e.target&&e.target.matches&&e.target.matches("a[href]"))clearTimeout(timer)},true);\
+document.addEventListener("touchstart",function(e){go(link(e))},{passive:true,capture:true})})()`;
 const BADGE = { light: `${SITE}/badge.svg`, dark: `${SITE}/badge-dark.svg` };
 const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
 const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
@@ -340,14 +362,15 @@ ${creatorLinks}
   if (n !== h) fs.writeFileSync(f, n);
 }
 
-// Homepage JSON-LD, between the ld markers in index.html. The SearchAction is real:
+// Homepage JSON-LD and the prefetch script, between the ld and prefetch markers in index.html. The SearchAction is real:
 // app.js reads ?q= on load and filters the shelf to it.
 {
   const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/",
     potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" } };
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/<!-- ld:start -->[\s\S]*?<!-- ld:end -->/, `<!-- ld:start -->${ldScript(site)}<!-- ld:end -->`);
-  if (!n.includes("<!-- ld:end -->")) throw new Error("homepage is missing the ld markers");
+  const n = h.replace(/<!-- ld:start -->[\s\S]*?<!-- ld:end -->/, `<!-- ld:start -->${ldScript(site)}<!-- ld:end -->`)
+    .replace(/<!-- prefetch:start -->[\s\S]*?<!-- prefetch:end -->/, `<!-- prefetch:start --><script>${PREFETCH_JS}</script><!-- prefetch:end -->`);
+  if (!n.includes("<!-- ld:end -->") || !n.includes("<!-- prefetch:end -->")) throw new Error("homepage is missing the ld or prefetch markers");
   if (n !== h) fs.writeFileSync(f, n);
 }
 
