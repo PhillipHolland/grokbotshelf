@@ -15,7 +15,9 @@ const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepare
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
 // GA_MEASUREMENT_ID (G-XXXXXXXXXX) and GSC_VERIFICATION (the content value of the google-site-verification meta tag).
 // The measurement script is not a static tag. It loads only when the hostname is grokbotshelf.com or
-// www.grokbotshelf.com, so Vercel preview hosts and localhost never send hits.
+// www.grokbotshelf.com, so Vercel preview hosts and localhost never send hits. gtag() and dataLayer exist right
+// away (calls queue, the page_view config included); gtag.js itself is fetched after the load event, when the
+// main thread is idle, so its ~180 KB of script does not compete with the first render on phones.
 // get_bot (public/app.js and public/bot-page.js) is the conversion for "Get this bot" / "Add to Bot app".
 // Mark it as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
 const GA_ID = /^G-[A-Z0-9]{4,20}$/.test(process.env.GA_MEASUREMENT_ID || "") ? process.env.GA_MEASUREMENT_ID : "";
@@ -25,15 +27,14 @@ const GA_JS = GA_ID ? `<script>
   var h=location.hostname;
   if(h!=="grokbotshelf.com"&&h!=="www.grokbotshelf.com")return;
   var id=${JSON.stringify(GA_ID)};
-  var s=document.createElement("script");
-  s.async=true;
-  s.src="https://www.googletagmanager.com/gtag/js?id="+id;
-  document.head.appendChild(s);
   window.dataLayer=window.dataLayer||[];
   function gtag(){dataLayer.push(arguments)}
   window.gtag=gtag;
   gtag("js",new Date());
   gtag("config",id);
+  function load(){var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+id;document.head.appendChild(s)}
+  function idle(){if(window.requestIdleCallback)requestIdleCallback(load,{timeout:3000});else setTimeout(load,1)}
+  if(document.readyState==="complete")idle();else addEventListener("load",idle,{once:true});
 })();
 </script>` : "";
 const GOOGLE_HEAD = [
