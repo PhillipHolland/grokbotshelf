@@ -46,6 +46,8 @@ CREATE TABLE IF NOT EXISTS submissions (
   post_author    TEXT,
   post_text      TEXT,
   note           TEXT,
+  creator_handle TEXT,        -- template author (optional, from submitter)
+  inspired_by    TEXT,        -- idea credit (optional)
   status         TEXT        NOT NULL DEFAULT 'pending',
   ip_hash        TEXT,
   created_at     TIMESTAMPTZ NOT NULL DEFAULT now()

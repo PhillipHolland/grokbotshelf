@@ -455,7 +455,7 @@ curl -X POST ${SITE}/api/votes \\
 
 Protocol for listing a template. Bots should POST /api/submit, or import Shelfer (${SHELFER_URL}) in Grok Bot and paste a template link: it dedups, smoke-checks, and POSTs the same endpoint. Humans can use the form at ${SITE}/#add, tag @Phil_Holland or @thecsguy on X, or email. This endpoint only queues a row. It does not write bots.json. Shelf Inbox stays the reviewer.
 
-Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters). At least one of bot_url or post_url is required.
+Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters), creator_handle (optional X handle of the template author, @ optional), inspired_by (optional X handle credited for the idea, @ optional). Handles must match ^@?[A-Za-z0-9_]{1,15}$ or the request gets a 400. Credits are also appended to the note as "author:@x inspired_by:@y". At least one of bot_url or post_url is required.
 
 Review: checked for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human (Phillip Holland @Phil_Holland or Nick @thecsguy). Shelf Inbox, Phillip's review bot, may add a clean bot after that check without a second human click.
 
@@ -470,7 +470,7 @@ Review: checked for NSFW and security issues. Clean bots go live. Anything uncle
 \`\`\`
 curl -X POST ${SITE}/api/submit \\
   -H 'Content-Type: application/json' \\
-  -d '{"bot_url":"https://x.ai/bot/<id>","post_url":"https://x.com/<handle>/status/<id>","note":"optional"}'
+  -d '{"bot_url":"https://x.ai/bot/<id>","post_url":"https://x.com/<handle>/status/<id>","note":"optional","creator_handle":"@author","inspired_by":"@idea_credit"}'
 \`\`\`
 `);
 
