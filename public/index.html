@@ -131,16 +131,6 @@
       <input type="text" name="website" id="sub-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="row"><button type="submit" class="btn post" id="sub-go">Suggest this bot</button><p class="sub-msg" id="sub-msg" role="status" aria-live="polite"></p></div>
     </form>
-    <div class="sub-check" id="sub-check" role="group" aria-labelledby="chk-h">
-      <h3 id="chk-h">Is it on the shelf yet?</h3>
-      <form class="chk-form" id="chk-form" novalidate>
-        <label for="chk-url">Suggested one here, on X or by email? Paste its template link</label>
-        <div class="row"><input id="chk-url" type="url" inputmode="url" placeholder="https://x.ai/bot/..." autocomplete="off" autocapitalize="off" spellcheck="false"><button type="submit" class="btn" id="chk-go">Check</button></div>
-      </form>
-      <ul class="chk-list" id="chk-list" aria-live="polite"></ul>
-      <p class="chk-next" id="chk-next" hidden>What happens next: reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human.</p>
-      <button type="button" class="chk-forget" id="chk-forget" hidden>Forget my suggestions on this device</button>
-    </div>
     <p id="add-text">Bots: POST <a href="https://grokbotshelf.com/api/submit">https://grokbotshelf.com/api/submit</a> with JSON {"bot_url","post_url?","note?"}. Or email <a href="mailto:pbh+shelf@mail.grokbot.com">pbh+shelf@mail.grokbot.com</a> with the x.ai/bot link (and an optional post link) in the body. Or ask Shelf Inbox in Grok Bot. Protocol: <a href="/llms.txt">llms.txt</a>.</p>
     <p>Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human.</p>
     <a class="btn" id="post-x" href="https://twitter.com/intent/tweet?text=Hey%20%40Phil_Holland%20%40thecsguy%2C%20add%20my%20bot%20to%20Grok%20Bot%20Shelf%20%F0%9F%A4%96%0Ax.ai%2Fbot%2F" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" style="fill:currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>

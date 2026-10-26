@@ -258,33 +258,10 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .sub-msg{margin:0;font-size:14px;color:var(--text2)}
 .sub-msg.ok{color:#00ba7c}.sub-msg.err{color:#f4212e}
 /* "Already on the shelf" line under the template link: its height is reserved so nothing below moves when it fills */
-.sub-form .sub-dupe{margin:-4px 0 0;height:20px;font-size:14px;line-height:20px;color:var(--text2);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sub-form .sub-dupe{margin:-4px 0 0;height:40px;font-size:14px;line-height:20px;color:var(--text2);overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .sub-form .sub-dupe a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .sub-form .sub-dupe.dupe-hit{color:var(--text)}
-@media (max-width:699px){.sub-form .sub-dupe{height:40px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
-/* Status of your suggestions (kept in localStorage) and the paste-a-link check: shelf-data.json only, no API calls */
-.sub-check{margin:0 0 16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px}
-.sub-check h3{margin:0 0 8px;font-size:15px;font-weight:800}
-.chk-form{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
-.chk-form label{font-size:13px;font-weight:700;color:var(--text)}
-.chk-form .row{display:flex;gap:8px}
-.chk-form input{flex:1;min-width:0;width:0;height:40px;box-sizing:border-box;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:400 15px var(--font);padding:0 12px}
-.chk-form input:focus{outline:none;border-color:var(--blue)}
-.chk-list{list-style:none;margin:0;padding:0}
-.chk-list:not(:empty){margin-top:12px}
-.chk-list li{padding:8px 0;border-top:1px solid var(--line);font-size:14px;line-height:20px}
-.chk-list .what{font-weight:700;overflow-wrap:anywhere}
-.chk-list .what a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
-.chk-list .st{display:inline-block;margin-left:8px;padding:0 8px;border:1px solid var(--line2);border-radius:999px;font-size:12px;font-weight:700;line-height:18px;color:var(--text2)}
-.chk-list .st.added{border-color:#00ba7c;color:#00ba7c}
-.chk-list .why{display:block;color:var(--text2)}
-.chk-list .err{color:#f4212e}
-.add .chk-next{margin:8px 0 0;font-size:13px}
-.chk-forget{margin-top:4px;padding:4px 0;border:0;background:none;color:var(--text2);font:400 13px var(--font);text-decoration:underline;cursor:pointer}
-.chk-forget:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-html[data-theme="light"] .chk-list .st.added{border-color:#00805a;color:#00805a}
-html[data-theme="light"] .chk-list .what a{color:var(--btn-blue)}
-@media (max-width:699px){.chk-form input{height:44px}.chk-form .btn{min-height:44px}.chk-forget{min-height:44px}}
+@media (max-width:699px){.sub-form .sub-dupe{height:60px;-webkit-line-clamp:3}}
 .or{margin:4px 0 12px!important;font-size:13px}
 
 /* Per-bot page */
