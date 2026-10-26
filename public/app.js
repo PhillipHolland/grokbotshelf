@@ -348,10 +348,17 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   }
   const weekAgo = () => { const d = new Date(Date.now() - 6 * 864e5); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
   const bmOf = (b) => (b._social ? b._social.bookmarks : -1);
-  // Typing re-renders at most every 100ms; anything that reads the cards right away calls flush() first
-  let renderT = 0;
-  const renderSoon = () => { clearTimeout(renderT); renderT = setTimeout(render, 100); };
-  const flush = () => { if (renderT) render(); finishTail(); };
+  // Typing re-renders at most every 100ms. Clicks (sort, filters, reset, Show more) paint the control's new state
+  // first and render in the task after that frame (renderNext), so the press shows at once. Anything that reads
+  // the cards right away calls flush() first.
+  let renderT = 0, renderF = 0, afterRender = null;
+  const cancelRender = () => { clearTimeout(renderT); renderT = 0; cancelAnimationFrame(renderF); renderF = 0; };
+  const renderSoon = () => { cancelRender(); renderT = setTimeout(render, 100); };
+  function renderNext(then) {
+    cancelRender(); afterRender = then || null;
+    renderF = requestAnimationFrame(() => { renderF = 0; renderT = setTimeout(render, 0); });
+  }
+  const flush = () => { if (renderT || renderF) render(); finishTail(); };
   // First load only: the strip and the first few creator groups go in right away, the other groups follow in
   // small tasks so no single task holds a phone's main thread for long. Anything that needs every card
   // (keyboard moves, #hash jumps, "Add your bot") calls finishTail() first; any later render() is all at once.
@@ -367,7 +374,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   }
   function tailDone() { tailT = 0; results.removeAttribute("aria-busy"); renderRail(true); if (vote.global) paintAll(); }
   function render() {
-    clearTimeout(renderT); renderT = 0;
+    cancelRender();
+    const then = afterRender; afterRender = null;
     clearTimeout(tailT); tailT = 0; tail = [];
     const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
@@ -408,28 +416,43 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     active = -1;
     setTitle();
     renderFilters();
+    if (then) then();
   }
+  // The option lists never change after load: build them once, then only set values (and the "N categories" option)
+  let filtersBuilt = false;
   function renderFilters() {
-    const opt = (v, label, on) => `<option value="${esc(v)}"${on ? " selected" : ""}>${esc(label)}</option>`;
-    creatorEl.innerHTML = opt("", "All creators", !st.creator) +
-      creators.map((c) => opt(c.key, c.short, st.creator === c.key)).join("");
-    creatorEl.value = st.creator;
-    creatorEl.classList.toggle("on", !!st.creator);
+    const opt = (v, label) => `<option value="${esc(v)}">${esc(label)}</option>`;
+    if (!filtersBuilt) {
+      filtersBuilt = true;
+      creatorEl.innerHTML = opt("", "All creators") + creators.map((c) => opt(c.key, c.short)).join("");
+      catsEl.innerHTML = opt("", "All categories") + cats.map((c) => opt(c, c)).join("");
+      appsEl.innerHTML = opt("", "Works with any app") + apps.map((a) => opt(a.key, `${a.label} (${a.n})`)).join("");
+      agencyEl.innerHTML = opt("", "Can it act?") + Object.entries(AGENCY).map(([k, v]) => opt(k, v)).join("");
+    }
     const multi = st.cats.length > 1;
-    catsEl.innerHTML = opt("", "All categories", !st.cats.length) +
-      (multi ? opt("__multi", `${st.cats.length} categories`, true) : "") +
-      cats.map((c) => opt(c, c, !multi && st.cats[0] === c)).join("");
+    let mo = catsEl.querySelector('option[value="__multi"]');
+    if (multi) {
+      if (!mo) { mo = document.createElement("option"); mo.value = "__multi"; catsEl.options[0].after(mo); }
+      mo.textContent = `${st.cats.length} categories`;
+    } else if (mo) mo.remove();
+    creatorEl.value = st.creator;
     catsEl.value = multi ? "__multi" : (st.cats[0] || "");
+    appsEl.value = st.app;
+    agencyEl.value = st.agency;
+    paintControls();
+  }
+  // Cheap state the controls show (highlight when set, pressed toggles, Reset): painted before the cards re-render
+  function paintControls() {
+    creatorEl.classList.toggle("on", !!st.creator);
     catsEl.classList.toggle("on", st.cats.length > 0);
-    appsEl.innerHTML = opt("", "Works with any app", !st.app) + apps.map((a) => opt(a.key, `${a.label} (${a.n})`, st.app === a.key)).join("");
-    appsEl.value = st.app; appsEl.classList.toggle("on", !!st.app);
-    agencyEl.innerHTML = opt("", "Can it act?", !st.agency) + Object.entries(AGENCY).map(([k, v]) => opt(k, v, st.agency === k)).join("");
-    agencyEl.value = st.agency; agencyEl.classList.toggle("on", !!st.agency);
+    appsEl.classList.toggle("on", !!st.app);
+    agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
     oneEl.setAttribute("aria-pressed", String(st.oneJob));
+    resetEl.classList.toggle("on", changed());
   }
 
-  function set(patch, push) { Object.assign(st, patch); render(); writeURL(push); }
+  function set(patch, push) { Object.assign(st, patch); paintControls(); writeURL(push); renderNext(); }
   function syncInputs() { q.value = st.q; sortEl.value = st.sort; }
 
   /* ---------- Events ---------- */
@@ -443,7 +466,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
-  const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
+  const clearAll = () => { st = blank(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
   resetEl.addEventListener("click", () => {
     clearAll();
     // The button hides itself; keep focus nearby (on phones the count, so the keyboard does not pop up)
@@ -459,11 +482,14 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     try { await navigator.clipboard.writeText(text); }
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }
   }
-  function showMore(key) {
+  function showMore(key, btn) {
     if (!st.more.includes(key)) st.more = [...st.more, key];
-    render(); writeURL(false);
-    const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[capNow];
-    if (next) next.focus({ preventScroll: true });
+    writeURL(false);
+    if (btn) btn.setAttribute("aria-busy", "true");
+    renderNext(() => {
+      const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[capNow];
+      if (next) next.focus({ preventScroll: true });
+    });
   }
   // "Get this bot" (x.ai) and "Add to Bot app" (grokbot://). gtag exists only after the production
   // hostname check in the head snippet. Mark get_bot as a key event in GA4 Admin → Data display →
@@ -482,7 +508,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const conv = e.target.closest("a.get, a.app");
     if (conv) trackGetBot(conv);
     const mo = e.target.closest("[data-more]");
-    if (mo) { showMore(mo.dataset.more); return; }
+    if (mo) { showMore(mo.dataset.more, mo); return; }
     const vb = e.target.closest(".vb");
     if (vb) { castVote(vb.closest(".vote").dataset.vote, Number(vb.dataset.v)); return; }
     const sv = e.target.closest("[data-sortvotes]");

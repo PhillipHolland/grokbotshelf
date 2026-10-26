@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer-core');
+// Clicks and menu changes paint the control first and re-render the cards one frame later: wait for that render
+const painted = (p) => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))));
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const SHOTS = process.argv[3];
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
@@ -69,17 +71,17 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   // filters
   // filters: creator and category are <select>s; several categories at once come from the URL (cat=a,b)
   const nick = by('thecsguy');
-  await p.select('#creators', 'thecsguy');
+  await p.select('#creators', 'thecsguy'); await painted(p);
   ok(await n() === nick.length, `creator filter thecsguy -> ${nick.length} (${await n()})`);
   const cat1 = nick[0].category;
-  await p.select('#cats', cat1);
+  await p.select('#cats', cat1); await painted(p);
   ok(await n() === nick.filter((x) => x.category === cat1).length, `category ${cat1} for Nick -> ${await n()}`);
   ok(new URL(p.url()).pathname === '/@thecsguy' && p.url().includes('cat='), 'URL state: ' + p.url());
   const two = [...new Set(nick.map((x) => x.category))].slice(0, 2), slug = (c) => fold(c).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   await p.goto(BASE + `?creator=thecsguy&cat=${two.map(slug).join(',')}`, { waitUntil: 'networkidle0' });
   const n3 = await n(), want3 = nick.filter((x) => two.includes(x.category)).length;
   ok(n3 === want3 && await p.$eval('#cats', e => e.value) === '__multi', `multi-category ${two.join(' + ')} for Nick -> ${want3} (${n3})`);
-  await p.select('#sort', 'az');
+  await p.select('#sort', 'az'); await painted(p);
   const az = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   ok(JSON.stringify(az) === JSON.stringify([...az].sort((a, b) => a.localeCompare(b))) && p.url().includes('sort=az'), 'sort A-Z: ' + az.join(', '));
   await p.goBack(); await new Promise(r => setTimeout(r, 200));
@@ -91,7 +93,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   // empty state
   await p.goto(BASE + '?q=zzzzqqq', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#empty', e => !e.hidden), 'empty state shows');
-  await p.click('#empty-clear');
+  await p.click('#empty-clear'); await painted(p);
   ok(await n() === HOME && !p.url().includes('?') && await p.$eval('#count', e => e.textContent) === `${TOTAL} bots`, `clear filters restores the home view (${HOME} shown of ${TOTAL})`);
   // deep link
   await p.goto(BASE + '?creator=phil_holland#bot-vuln-scout', { waitUntil: 'networkidle0' });
