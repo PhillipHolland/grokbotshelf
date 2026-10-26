@@ -11,8 +11,8 @@
 // same rate limits apply (a slightly higher per-voter cap so a bot can rate a batch of shelf bots).
 //
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
-// first vote. No login, no IP stored as identity. The client IP is only kept as a salted SHA-256
-// hash for burst rate limiting. VOTE_SALT is required: if it is missing or empty the handler
+// first vote. No login, no IP stored as identity. The client IP (its /64 for IPv6) is only kept as a
+// salted SHA-256 hash, for rate limits and vote caps. VOTE_SALT is required: if it is missing or empty the handler
 // returns 500 and nothing is hashed. If DATABASE_URL is not set the API answers { global: false }
 // and the site falls back to personal, browser-only votes.
 const crypto = require("crypto");
@@ -58,10 +58,25 @@ const botKey = (req) => {
   if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
   return "bot:" + crypto.createHash("sha256").update(SALT + "|bot|" + id).digest("hex").slice(0, 32);
 };
+// Client IP. Vercel sets x-vercel-forwarded-for, x-real-ip and x-forwarded-for to the same single address and replaces
+// whatever the client sent (https://vercel.com/docs/headers/request-headers). x-vercel-forwarded-for goes first because
+// it stays correct even if a proxy is ever put in front of Vercel.
+const firstOf = (req, name) => String(req.headers[name] || "").split(",")[0].trim();
+const clientIp = (req) => firstOf(req, "x-vercel-forwarded-for") || firstOf(req, "x-real-ip") || firstOf(req, "x-forwarded-for") || String(req.socket?.remoteAddress || "");
+// The network a vote comes from: the IPv4 address, or the /64 for IPv6 (one home or phone usually gets a whole /64).
+const network = (ip) => {
+  ip = String(ip).trim().replace(/^\[|\](?::\d+)?$/g, "").replace(/%.*$/, "").toLowerCase();
+  const v4 = /^(?:::ffff:)?(\d{1,3}(?:\.\d{1,3}){3})$/.exec(ip);
+  if (v4) return v4[1];
+  if (!ip.includes(":")) return ip;
+  const parts = (s) => (s ? s.split(":").flatMap((p) => (p.includes(".") ? ["0", "0"] : [p])) : []);
+  const [h, t] = ip.split("::"), head = parts(h), tail = ip.includes("::") ? parts(t) : [];
+  const all = ip.includes("::") ? [...head, ...Array(Math.max(0, 8 - head.length - tail.length)).fill("0"), ...tail] : head;
+  return all.slice(0, 4).map((x) => (parseInt(x, 16) || 0).toString(16)).join(":") + "::/64";
+};
 const ipHash = (req) => {
   if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
-  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
-  return crypto.createHash("sha256").update(SALT + "|" + ip).digest("hex").slice(0, 32);
+  return crypto.createHash("sha256").update(SALT + "|" + network(clientIp(req))).digest("hex").slice(0, 32);
 };
 const shape = (rows) => {
   const out = {};
@@ -75,7 +90,7 @@ async function readBody(req) {
   return JSON.parse(s || "{}");
 }
 
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
   if (!SALT) return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
   const url = new URL(req.url, "http://x");
   try {
@@ -141,3 +156,6 @@ module.exports = async (req, res) => {
     return send(res, 500, { error: "vote store unavailable" }, { "Cache-Control": "no-store" });
   }
 };
+module.exports = handler;
+module.exports.network = network;
+module.exports.clientIp = clientIp;
