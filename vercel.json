@@ -176,7 +176,7 @@
       ]
     },
     {
-      "source": "/(app|bot-page|config).js",
+      "source": "/(app|bot-page|config|shelfer-sheet).js",
       "headers": [
         {
           "key": "Cache-Control",
