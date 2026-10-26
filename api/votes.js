@@ -10,6 +10,10 @@
 // GET ?mine=1. The voter key becomes "bot:" + a salted SHA-256 of that id, no cookie is set, and the
 // same rate limits apply (a slightly higher per-voter cap so a bot can rate a batch of shelf bots).
 //
+// Caps on new votes per network (salted ip_hash; IPv6 /64): 3 voters per bot, 100 new votes a day, and for
+// X-Bot-Voter 1 vote per bot plus 3 bot ids a day. Over a cap: 429 with Retry-After and
+// { code: "cap_network" | "cap_daily" | "cap_bot_voter", error, retry_after }. Changing or clearing a vote is never capped.
+//
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
 // first vote. No login, no IP stored as identity. The client IP (its /64 for IPv6) is only kept as a
 // salted SHA-256 hash, for rate limits and vote caps. VOTE_SALT is required: if it is missing or empty the handler
@@ -26,6 +30,14 @@ const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.
 const SALT = (process.env.VOTE_SALT || "").trim();
 const COOKIE = "gbs_vid";
 const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per window
+// Caps on NEW votes from one network (ip_hash). Changing or clearing a vote you already cast is never capped.
+const CAPS = { perBot: 3, botVoterPerBot: 1, botKeysPerDay: 3, perDay: 100 };
+const DAY = 86400;
+const CAP_MESSAGES = {
+  cap_network: "This bot already has the most votes we allow from one network. On shared Wi-Fi, that's why.",
+  cap_daily: "You've reached today's vote limit. Try again tomorrow.",
+  cap_bot_voter: "Bot voters are limited to one vote per shelf bot per network, and 3 bot voter ids per network per day.",
+};
 const BOT_HEADER = "x-bot-voter";
 
 async function sql(query, params = []) {
@@ -90,6 +102,14 @@ async function readBody(req) {
   return JSON.parse(s || "{}");
 }
 
+// Which cap (if any) stops a NEW vote. Per-bot caps first, then the daily ones.
+function capFor(rl, isBot) {
+  if (isBot && (rl.bot_bot_voters >= CAPS.botVoterPerBot || rl.day_bot_keys >= CAPS.botKeysPerDay)) return "cap_bot_voter";
+  if (rl.bot_voters >= CAPS.perBot) return "cap_network";
+  if (rl.day_votes >= CAPS.perDay) return "cap_daily";
+  return "";
+}
+
 const handler = async (req, res) => {
   if (!SALT) return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
   const url = new URL(req.url, "http://x");
@@ -130,14 +150,28 @@ const handler = async (req, res) => {
       }
       const ih = ipHash(req);
 
+      // One read for the burst limits and the caps. net = this network's votes on this bot, or from the last day.
       const [rl] = await sql(
-        `SELECT COUNT(*) FILTER (WHERE ip_hash = $1)::int AS ip, COUNT(*) FILTER (WHERE voter_key = $2)::int AS voter
-           FROM vote_events WHERE at > now() - make_interval(secs => $3) AND (ip_hash = $1 OR voter_key = $2)`,
-        [ih, vid, LIMITS.windowSec]);
+        `WITH ev AS (SELECT ip_hash, voter_key FROM vote_events WHERE at > now() - make_interval(secs => $3) AND (ip_hash = $1 OR voter_key = $2)),
+              net AS (SELECT bot_slug, voter_key, updated_at FROM votes WHERE ip_hash = $1 AND (bot_slug = $4 OR updated_at > now() - interval '1 day'))
+         SELECT (SELECT COUNT(*) FROM ev WHERE ip_hash = $1)::int AS ip,
+                (SELECT COUNT(*) FROM ev WHERE voter_key = $2)::int AS voter,
+                EXISTS (SELECT 1 FROM votes WHERE bot_slug = $4 AND voter_key = $2) AS has_vote,
+                (SELECT COUNT(*) FROM net WHERE bot_slug = $4 AND voter_key <> $2)::int AS bot_voters,
+                (SELECT COUNT(*) FROM net WHERE bot_slug = $4 AND voter_key <> $2 AND voter_key LIKE 'bot:%')::int AS bot_bot_voters,
+                (SELECT COUNT(*) FROM net WHERE updated_at > now() - interval '1 day')::int AS day_votes,
+                (SELECT COUNT(DISTINCT voter_key) FROM net WHERE updated_at > now() - interval '1 day' AND voter_key LIKE 'bot:%' AND voter_key <> $2)::int AS day_bot_keys,
+                (SELECT CEIL(EXTRACT(EPOCH FROM MIN(updated_at) + interval '1 day' - now())) FROM net WHERE updated_at > now() - interval '1 day')::int AS day_reset`,
+        [ih, vid, LIMITS.windowSec, slug]);
       if (rl.ip >= LIMITS.ip || rl.voter >= (bk ? LIMITS.botVoter : LIMITS.voter))
         return send(res, 429, { error: "slow down a little" }, { ...headers, "Retry-After": String(LIMITS.windowSec) });
 
       await sql("INSERT INTO vote_events (ip_hash, voter_key) VALUES ($1, $2)", [ih, vid]);
+      const cap = value !== 0 && !rl.has_vote && capFor(rl, !!bk);
+      if (cap) {
+        const retry = cap === "cap_daily" ? Math.min(DAY, Math.max(60, +rl.day_reset || DAY)) : DAY;
+        return send(res, 429, { error: CAP_MESSAGES[cap], code: cap, retry_after: retry }, { ...headers, "Retry-After": String(retry) });
+      }
       if (value === 0) await sql("DELETE FROM votes WHERE bot_slug = $1 AND voter_key = $2", [slug, vid]);
       else await sql(
         `INSERT INTO votes (bot_slug, voter_key, value, ip_hash, updated_at) VALUES ($1, $2, $3, $4, now())
@@ -159,3 +193,5 @@ const handler = async (req, res) => {
 module.exports = handler;
 module.exports.network = network;
 module.exports.clientIp = clientIp;
+module.exports.capFor = capFor;
+module.exports.CAP_MESSAGES = CAP_MESSAGES;
