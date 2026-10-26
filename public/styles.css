@@ -261,6 +261,12 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .sub-form .sub-dupe{margin:-4px 0 0;height:40px;font-size:14px;line-height:20px;color:var(--text2);overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
 .sub-form .sub-dupe a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:2px}
 .sub-form .sub-dupe.dupe-hit{color:var(--text)}
+/* Green check inside the template field: a valid template link that is not on the shelf yet (the text is in #sub-dupe for screen readers) */
+.sub-bot-wrap{position:relative}
+.sub-form .sub-bot-wrap input{padding-right:38px}
+.sub-ok{position:absolute;right:12px;top:50%;margin-top:-9px;fill:#00ba7c;visibility:hidden;pointer-events:none}
+.sub-ok.on{visibility:visible}
+html[data-theme="light"] .sub-ok{fill:#00805a}
 @media (max-width:699px){.sub-form .sub-dupe{height:60px;-webkit-line-clamp:3}}
 .or{margin:4px 0 12px!important;font-size:13px}
 

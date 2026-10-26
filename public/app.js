@@ -757,7 +757,7 @@ const addCheck = (() => {
   });
   const link = (b) => `<a href="${esc(b._page)}">${esc(b.name)}</a>`;
 
-  const f = document.getElementById("sub-form"), out = document.getElementById("sub-dupe");
+  const f = document.getElementById("sub-form"), out = document.getElementById("sub-dupe"), okIcon = document.getElementById("sub-ok");
   if (f && out) {
     let t = 0, last = null;
     const check = () => {
@@ -767,8 +767,11 @@ const addCheck = (() => {
       const html = hit ? `Already on the shelf: ${link(hit)}`
         : sent ? "You suggested this already. It's not on the shelf yet. Recent approvals can take a few minutes to appear."
         : hint ? `A bot named ${link(hint)} is already on the shelf.` : "";
-      if (html === last) return; last = html;
-      out.innerHTML = html; out.className = "sub-dupe" + (hit ? " dupe-hit" : sent ? " dupe-sent" : hint ? " dupe-hint" : "");
+      // A valid template link that is new to the shelf and this device: just a green check in the field
+      const fresh = !html && k && byT ? '<span class="sr">Not on the shelf yet</span>' : "";
+      if (okIcon) okIcon.classList.toggle("on", !!fresh);
+      if (html + fresh === last) return; last = html + fresh;
+      out.innerHTML = html || fresh; out.className = "sub-dupe" + (hit ? " dupe-hit" : sent ? " dupe-sent" : hint ? " dupe-hint" : fresh ? " dupe-new" : "");
     };
     const soon = () => { clearTimeout(t); t = setTimeout(check, 120); };
     f.bot_url.addEventListener("input", soon);
