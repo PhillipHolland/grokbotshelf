@@ -863,6 +863,41 @@
    "name": "Bot Architect",
    "agency": "acts",
    "one_job": true
+  },
+  "v0EEDdFd-3e12sx4f6byq": {
+   "name": "Home Helper",
+   "agency": "acts",
+   "works_with": [
+    "Apple Home"
+   ],
+   "one_job": true
+  },
+  "QgaJT0uOGomJ6B1mLPOgW": {
+   "name": "Wellbeing",
+   "agency": "reads"
+  },
+  "qlDBDdHjGkHD9pka-9fRy": {
+   "name": "Remove Me",
+   "agency": "acts",
+   "one_job": true
+  },
+  "ulacgVTiO-Q9hECHwdxJe": {
+   "name": "Bottleneck Desk",
+   "agency": "reads",
+   "one_job": true
+  },
+  "7GSpnm-MTzOpOynYmnose": {
+   "name": "Reg",
+   "agency": "reads"
+  },
+  "rRp1JnZ4AHvp8Od6DO4Jh": {
+   "name": "Product Idea Stress Test",
+   "agency": "reads",
+   "one_job": true
+  },
+  "OAz3uhOuIn7O6kX3BFpqr": {
+   "name": "Household",
+   "agency": "drafts"
   }
  }
 }
