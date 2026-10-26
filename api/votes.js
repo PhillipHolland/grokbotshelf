@@ -10,8 +10,9 @@
 // GET ?mine=1. The voter key becomes "bot:" + a salted SHA-256 of that id, no cookie is set, and the
 // same rate limits apply (a slightly higher per-voter cap so a bot can rate a batch of shelf bots).
 //
-// Caps on new votes per network (salted ip_hash; IPv6 /64): 1 voter per bot (cookie and X-Bot-Voter voters
-// count together) and 100 new votes a day. Over a cap: 429 with Retry-After and
+// One vote per device (the gbs_vid cookie, or one X-Bot-Voter id), with a network backstop on new votes (salted
+// ip_hash; IPv6 /64): at most 3 voters per bot (cookie and X-Bot-Voter voters count together) and 100 new votes a day.
+// Over a cap: 429 with Retry-After and
 // { code: "cap_network" | "cap_daily", error, retry_after }. Changing or clearing your own vote is never capped.
 //
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
@@ -31,10 +32,10 @@ const SALT = (process.env.VOTE_SALT || "").trim();
 const COOKIE = "gbs_vid";
 const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per window
 // Caps on NEW votes from one network (ip_hash). Changing or clearing a vote you already cast is never capped.
-const CAPS = { perBot: 1, perDay: 100 };
+const CAPS = { perBot: 3, perDay: 100 };
 const DAY = 86400;
 const CAP_MESSAGES = {
-  cap_network: "Someone on your network already voted on this bot. It's one vote per bot per network.",
+  cap_network: "This bot already has the most votes we allow from one network (3). On shared Wi-Fi, that's why.",
   cap_daily: "You've reached today's vote limit. Try again tomorrow.",
 };
 const BOT_HEADER = "x-bot-voter";
