@@ -54,11 +54,11 @@ const fileHash = (() => { const seen = new Map(); return (rel) => {
   return seen.get(f);
 }; })();
 const versioned = (rel) => (/^\/[^/]/.test(rel || "") && !String(rel).includes("?") && fileHash(rel) ? `${rel}?v=${fileHash(rel)}` : rel);
-// styles.css, app.js and to-top.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
+// styles.css, app.js and shelf-up.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
 for (const page of ["index.html", "404.html"]) {
   const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
   const h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/(href|src)="\/(styles\.css|app\.js|to-top\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
+  const n = h.replace(/(href|src)="\/(styles\.css|app\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const AVATARS_SM = read("avatars/48/manifest.json", {});
@@ -158,7 +158,7 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 ${ldScript(ld)}
 <script>${PREFETCH_JS}</script>
 <link rel="stylesheet" href="${versioned("/styles.css")}">
-<script src="${versioned("/to-top.js")}" defer></script>
+<script src="${versioned("/shelf-up.js")}" defer></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 ${GOOGLE_HEAD}
