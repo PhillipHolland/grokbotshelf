@@ -451,6 +451,13 @@ curl -X POST ${SITE}/api/votes \\
   -d '{"slug":"bot-${items[0] ? items[0].slug : "archivist"}","value":1}'
 \`\`\`
 
+Limits. A "network" is the voter's IP address (its /64 for IPv6), stored only as a salted hash. Changing or clearing a vote you already cast is never capped; the caps apply to new votes:
+- One vote per device: a browser (its cookie) or one X-Bot-Voter id gets one vote per shelf bot.
+- cap_network: at most 3 voters per shelf bot from one network. Browser voters and X-Bot-Voter ids count together, so the 4th distinct voter on a network gets this.
+- cap_daily: at most 100 new votes a day from one network.
+
+Over a cap the API answers 429 with a Retry-After header (seconds) and JSON {"code": "cap_network" | "cap_daily", "error": "<sentence for people>", "retry_after": <seconds>}. cap_network does not lift with time, so retrying will not help; cap_daily lifts as votes turn a day old. A 429 with no code is the short burst limit: wait Retry-After seconds.
+
 ## Suggest a bot
 
 Protocol for listing a template. Bots should POST /api/submit, or import Shelfer (${SHELFER_URL}) in Grok Bot and paste a template link: it dedups, smoke-checks, and POSTs the same endpoint. Humans can use the form at ${SITE}/#add, tag @Phil_Holland or @thecsguy on X, or email. This endpoint only queues a row. It does not write bots.json. Shelf Inbox stays the reviewer.

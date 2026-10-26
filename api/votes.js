@@ -10,9 +10,14 @@
 // GET ?mine=1. The voter key becomes "bot:" + a salted SHA-256 of that id, no cookie is set, and the
 // same rate limits apply (a slightly higher per-voter cap so a bot can rate a batch of shelf bots).
 //
+// One vote per device (the gbs_vid cookie, or one X-Bot-Voter id), with a network backstop on new votes (salted
+// ip_hash; IPv6 /64): at most 3 voters per bot (cookie and X-Bot-Voter voters count together) and 100 new votes a day.
+// Over a cap: 429 with Retry-After and
+// { code: "cap_network" | "cap_daily", error, retry_after }. Changing or clearing your own vote is never capped.
+//
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
-// first vote. No login, no IP stored as identity. The client IP is only kept as a salted SHA-256
-// hash for burst rate limiting. VOTE_SALT is required: if it is missing or empty the handler
+// first vote. No login, no IP stored as identity. The client IP (its /64 for IPv6) is only kept as a
+// salted SHA-256 hash, for rate limits and vote caps. VOTE_SALT is required: if it is missing or empty the handler
 // returns 500 and nothing is hashed. If DATABASE_URL is not set the API answers { global: false }
 // and the site falls back to personal, browser-only votes.
 const crypto = require("crypto");
@@ -26,6 +31,13 @@ const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.
 const SALT = (process.env.VOTE_SALT || "").trim();
 const COOKIE = "gbs_vid";
 const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per window
+// Caps on NEW votes from one network (ip_hash). Changing or clearing a vote you already cast is never capped.
+const CAPS = { perBot: 3, perDay: 100 };
+const DAY = 86400;
+const CAP_MESSAGES = {
+  cap_network: "Vote limit reached for your network.",
+  cap_daily: "Daily vote limit reached.",
+};
 const BOT_HEADER = "x-bot-voter";
 
 async function sql(query, params = []) {
@@ -58,10 +70,25 @@ const botKey = (req) => {
   if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
   return "bot:" + crypto.createHash("sha256").update(SALT + "|bot|" + id).digest("hex").slice(0, 32);
 };
+// Client IP. Vercel sets x-vercel-forwarded-for, x-real-ip and x-forwarded-for to the same single address and replaces
+// whatever the client sent (https://vercel.com/docs/headers/request-headers). x-vercel-forwarded-for goes first because
+// it stays correct even if a proxy is ever put in front of Vercel.
+const firstOf = (req, name) => String(req.headers[name] || "").split(",")[0].trim();
+const clientIp = (req) => firstOf(req, "x-vercel-forwarded-for") || firstOf(req, "x-real-ip") || firstOf(req, "x-forwarded-for") || String(req.socket?.remoteAddress || "");
+// The network a vote comes from: the IPv4 address, or the /64 for IPv6 (one home or phone usually gets a whole /64).
+const network = (ip) => {
+  ip = String(ip).trim().replace(/^\[|\](?::\d+)?$/g, "").replace(/%.*$/, "").toLowerCase();
+  const v4 = /^(?:::ffff:)?(\d{1,3}(?:\.\d{1,3}){3})$/.exec(ip);
+  if (v4) return v4[1];
+  if (!ip.includes(":")) return ip;
+  const parts = (s) => (s ? s.split(":").flatMap((p) => (p.includes(".") ? ["0", "0"] : [p])) : []);
+  const [h, t] = ip.split("::"), head = parts(h), tail = ip.includes("::") ? parts(t) : [];
+  const all = ip.includes("::") ? [...head, ...Array(Math.max(0, 8 - head.length - tail.length)).fill("0"), ...tail] : head;
+  return all.slice(0, 4).map((x) => (parseInt(x, 16) || 0).toString(16)).join(":") + "::/64";
+};
 const ipHash = (req) => {
   if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
-  const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
-  return crypto.createHash("sha256").update(SALT + "|" + ip).digest("hex").slice(0, 32);
+  return crypto.createHash("sha256").update(SALT + "|" + network(clientIp(req))).digest("hex").slice(0, 32);
 };
 const shape = (rows) => {
   const out = {};
@@ -75,7 +102,14 @@ async function readBody(req) {
   return JSON.parse(s || "{}");
 }
 
-module.exports = async (req, res) => {
+// Which cap (if any) stops a NEW vote: the per-bot cap first, then the daily one.
+function capFor(rl) {
+  if (rl.bot_voters >= CAPS.perBot) return "cap_network";
+  if (rl.day_votes >= CAPS.perDay) return "cap_daily";
+  return "";
+}
+
+const handler = async (req, res) => {
   if (!SALT) return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
   const url = new URL(req.url, "http://x");
   try {
@@ -115,14 +149,26 @@ module.exports = async (req, res) => {
       }
       const ih = ipHash(req);
 
+      // One read for the burst limits and the caps. net = this network's votes on this bot, or from the last day.
       const [rl] = await sql(
-        `SELECT COUNT(*) FILTER (WHERE ip_hash = $1)::int AS ip, COUNT(*) FILTER (WHERE voter_key = $2)::int AS voter
-           FROM vote_events WHERE at > now() - make_interval(secs => $3) AND (ip_hash = $1 OR voter_key = $2)`,
-        [ih, vid, LIMITS.windowSec]);
+        `WITH ev AS (SELECT ip_hash, voter_key FROM vote_events WHERE at > now() - make_interval(secs => $3) AND (ip_hash = $1 OR voter_key = $2)),
+              net AS (SELECT bot_slug, voter_key, updated_at FROM votes WHERE ip_hash = $1 AND (bot_slug = $4 OR updated_at > now() - interval '1 day'))
+         SELECT (SELECT COUNT(*) FROM ev WHERE ip_hash = $1)::int AS ip,
+                (SELECT COUNT(*) FROM ev WHERE voter_key = $2)::int AS voter,
+                EXISTS (SELECT 1 FROM votes WHERE bot_slug = $4 AND voter_key = $2) AS has_vote,
+                (SELECT COUNT(*) FROM net WHERE bot_slug = $4 AND voter_key <> $2)::int AS bot_voters,
+                (SELECT COUNT(*) FROM net WHERE updated_at > now() - interval '1 day')::int AS day_votes,
+                (SELECT CEIL(EXTRACT(EPOCH FROM MIN(updated_at) + interval '1 day' - now())) FROM net WHERE updated_at > now() - interval '1 day')::int AS day_reset`,
+        [ih, vid, LIMITS.windowSec, slug]);
       if (rl.ip >= LIMITS.ip || rl.voter >= (bk ? LIMITS.botVoter : LIMITS.voter))
         return send(res, 429, { error: "slow down a little" }, { ...headers, "Retry-After": String(LIMITS.windowSec) });
 
       await sql("INSERT INTO vote_events (ip_hash, voter_key) VALUES ($1, $2)", [ih, vid]);
+      const cap = value !== 0 && !rl.has_vote && capFor(rl);
+      if (cap) {
+        const retry = cap === "cap_daily" ? Math.min(DAY, Math.max(60, +rl.day_reset || DAY)) : DAY;
+        return send(res, 429, { error: CAP_MESSAGES[cap], code: cap, retry_after: retry }, { ...headers, "Retry-After": String(retry) });
+      }
       if (value === 0) await sql("DELETE FROM votes WHERE bot_slug = $1 AND voter_key = $2", [slug, vid]);
       else await sql(
         `INSERT INTO votes (bot_slug, voter_key, value, ip_hash, updated_at) VALUES ($1, $2, $3, $4, now())
@@ -141,3 +187,8 @@ module.exports = async (req, res) => {
     return send(res, 500, { error: "vote store unavailable" }, { "Cache-Control": "no-store" });
   }
 };
+module.exports = handler;
+module.exports.network = network;
+module.exports.clientIp = clientIp;
+module.exports.capFor = capFor;
+module.exports.CAP_MESSAGES = CAP_MESSAGES;
