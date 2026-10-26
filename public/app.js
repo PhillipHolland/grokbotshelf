@@ -31,7 +31,7 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   const launch = (window.LAUNCH_POST_URL || "").trim();
   if (/^https:\/\//.test(launch)) $("#launch").outerHTML = '<a href="' + esc(launch) + '" rel="noopener" target="_blank">launch post</a>';
 
-  // Shelfer template link lives in config.js (hero "Get Shelfer" and the Add your bot copy)
+  // Shelfer template link lives in config.js (Add your bot "Get Shelfer" pill and copy)
   const shelfer = (window.SHELFER_URL || "").trim();
   if (/^https:\/\/x\.ai\/bot\//.test(shelfer)) document.querySelectorAll(".get-shelfer,.shelfer-link").forEach((a) => { a.href = shelfer; });
 
