@@ -1,5 +1,6 @@
 // Back to top: hidden at the top and on short pages, shows after ~500px of scroll on home, bot and creator pages,
-// scrolls to the top (instantly with reduced motion), keyboard focus lands on the h1, and it clears the A-Z rail.
+// scrolls to the top (instantly with reduced motion), keyboard focus lands on the h1, and it clears the A-Z rail
+// (on phones it sits left of the letter strip, well above iOS Safari's floating URL bar).
 // Usage: NODE_PATH=/path/to/node_modules node test/totop.js [base-url]
 const puppeteer = require('puppeteer-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
@@ -22,9 +23,13 @@ const state = (p) => p.evaluate(() => { const b = document.querySelector('.to-to
       s = await state(p);
       ok(s.shown && s.tab === 0, `${name} /${path}: shows after 600px`);
       ok(s.r.ri <= s.vw - 4 && s.r.b <= s.vh - 12 && s.r.l > s.vw / 2, `${name} /${path}: bottom-right (${Math.round(s.r.l)},${Math.round(s.r.t)})`);
-      const rail = await p.evaluate(() => { const r = document.querySelector('.rail:not([hidden])'); return r && r.getBoundingClientRect().bottom; });
-      if (rail != null) ok(rail <= s.r.t, `${name} /${path}: A-Z rail ends above the button (${Math.round(rail)} <= ${Math.round(s.r.t)})`);
-      if (name === 'phone') ok(s.vh - s.r.b >= 80, `${name} /${path}: lifted clear of iOS Safari's bottom toolbar (${Math.round(s.vh - s.r.b)}px >= 80)`);
+      const rail = await p.evaluate(() => { const r = document.querySelector('.rail:not([hidden])'); if (!r) return null; const bs = [...r.querySelectorAll('button')].map(x => x.getBoundingClientRect()); return { l: Math.min(...bs.map(x => x.left)), b: r.getBoundingClientRect().bottom }; });
+      if (rail != null && name === 'phone') ok(s.r.ri <= rail.l, `${name} /${path}: sits left of the A-Z rail (button right ${Math.round(s.r.ri)} <= rail left ${Math.round(rail.l)})`);
+      if (rail != null && name === 'desktop') ok(rail.b <= s.r.t, `${name} /${path}: A-Z rail ends above the button (${Math.round(rail.b)} <= ${Math.round(s.r.t)})`);
+      if (name === 'phone') ok(s.vh - s.r.b >= 150, `${name} /${path}: lifted clear of iOS Safari's floating URL bar (${Math.round(s.vh - s.r.b)}px >= 150)`);
+      const top = await p.evaluate(() => { const r = document.querySelector('.to-top').getBoundingClientRect(); const e = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return e && e.closest('.to-top') ? 1 : 0; });
+      ok(top === 1, `${name} /${path}: nothing paints over the button (hit test lands on it)`);
+      ok(await p.evaluate(() => !document.querySelector('.to-top').hasAttribute('hidden')), `${name} /${path}: no hidden attribute (visibility is .show only)`);
       const z = await p.evaluate(() => { const r = document.querySelector('.rail'); return [+getComputedStyle(document.querySelector('.to-top')).zIndex, r ? +getComputedStyle(r).zIndex : 0]; });
       ok(z[0] > z[1] && z[0] < 50, `${name} /${path}: z-index ${z[0]} above the rail (${z[1]}), below the toast (50)`);
       await p.click('.to-top'); await settle(1200);
