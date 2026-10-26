@@ -6,456 +6,456 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 23:11:57 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 23:07:22 GMT</lastBuildDate>
   <item>
-    <title>📱 Microsoft Intune Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/microsoft-intune-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/y84370d0cnlRb4H_UuRmA</guid>
-    <description>Answers Microsoft Intune how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>📋 monday.com Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/monday-com-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/y34L4LPrmt1hEn7q0uGKd</guid>
-    <description>Answers monday.com how-to and setup questions from official docs only, linking the page each answer came from.</description>
+    <title>🗂️ Airtable Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/airtable-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/0R3eo0SBsG7QzFlyJLGdK</guid>
+    <description>Answers Airtable how-to questions from Airtable&apos;s official docs only, linking the page each answer came from.</description>
     <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:50 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:08:10 GMT</pubDate>
   </item>
   <item>
-    <title>💵 Paychex Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/paychex-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/wV5ZNpbeu023Avrwmo9OI</guid>
-    <description>Answers Paychex how-to and setup questions from official docs only, linking the page each answer came from.</description>
+    <title>🧾 QuickBooks Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/quickbooks-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/9sF9NvWNHiw8OKl_M15QI</guid>
+    <description>Answers QuickBooks Online and Desktop how-to questions from Intuit&apos;s official sites only, with the source page linked.</description>
     <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
     <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:49 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:08:09 GMT</pubDate>
   </item>
   <item>
-    <title>📣 Hootsuite Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/hootsuite-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/wRMj4Dt1ZuVCiXnPgL2ov</guid>
-    <description>Answers Hootsuite how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔀 n8n Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/n8n-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/w2MkT5pyCrPm6Hq_Q2YRX</guid>
-    <description>Answers n8n how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ Microsoft Purview Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/microsoft-purview-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/vt2zIG6HGg_txNlcBMO6E</guid>
-    <description>Answers Microsoft Purview how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌐 Squarespace Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/squarespace-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/voNj6MnICSWc7yLc-i2Ni</guid>
-    <description>Answers Squarespace how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔐 Okta Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/okta-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/udtwNlWcVBkUUUPdYWeEQ</guid>
-    <description>Answers Okta how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 Dropbox Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/dropbox-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/u_zL6DrERtpqoUxzW9Dwj</guid>
-    <description>Answers Dropbox how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>📅 Acuity Scheduling Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/acuity-scheduling-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/uBspy78Cc2nPWBvUxafGv</guid>
-    <description>Answers Acuity Scheduling how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Nutshell Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/nutshell-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/u0oUiGH9lgn9z7-9J1Lqn</guid>
-    <description>Answers Nutshell how-to and setup questions from official docs only, linking the page each answer came from.</description>
+    <title>☁️ Salesforce Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/salesforce-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/77jqvUnCnKbZe1osmD18-</guid>
+    <description>Answers Salesforce how-to questions from Salesforce&apos;s official docs only, linking the page each answer came from.</description>
     <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:41 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:08:08 GMT</pubDate>
   </item>
   <item>
-    <title>🗄️ Egnyte Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/egnyte-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/tmsDeNs_h-IaemajmxoGf</guid>
-    <description>Answers Egnyte how-to and setup questions from official docs only, linking the page each answer came from.</description>
+    <title>📦 Box Solution Builder by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/box-solution-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/cTl4WFWkRzWZMXT851bWE</guid>
+    <description>Builds and tests Box solutions (agents, Hubs, Automate workflows, Doc Gen) in your own Box account or sandbox.</description>
     <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:40 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:08:07 GMT</pubDate>
   </item>
   <item>
-    <title>📜 Icertis Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/icertis-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/t7iqh2WJ9yx38-HzRXQhP</guid>
-    <description>Answers Icertis how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:39 GMT</pubDate>
+    <title>☕ Groksters Anonymous by Jay</title>
+    <link>https://grokbotshelf.com/bot/groksters-anonymous</link>
+    <guid isPermaLink="false">https://x.ai/bot/y2cVUIcWck2c-ktSehtbw</guid>
+    <description>A funny, caring support group for bot builders: confessions, stretches, a coffee tip and a nudge to take breaks.</description>
+    <dc:creator>Jay (@JayinEly)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:06 GMT</pubDate>
   </item>
   <item>
-    <title>📊 NetSuite Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/netsuite-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/svH0Wys9NkyTzxzHV3mks</guid>
-    <description>Answers NetSuite how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>🛡️ Heimdall by Magnus</title>
+    <link>https://grokbotshelf.com/bot/heimdall</link>
+    <guid isPermaLink="false">https://x.ai/bot/aYIBdTMOCAAdiLsN1iY5o</guid>
+    <description>Dependency security watch for a GitHub repo: checks advisory feeds twice a day, opens a fix PR only after you approve.</description>
+    <dc:creator>Magnus (@magnus72)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>💬 GrokText by Dave</title>
+    <link>https://grokbotshelf.com/bot/groktext</link>
+    <guid isPermaLink="false">https://x.ai/bot/TWxNmCOGfc6u1CAyVdoxv</guid>
+    <description>Texts from your own phone number through your own self-hosted relay; drafts, reads back and only sends on your yes.</description>
+    <dc:creator>Dave (@dbarrett24)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Fed Decoder by Yossi</title>
+    <link>https://grokbotshelf.com/bot/fed-decoder</link>
+    <guid isPermaLink="false">https://x.ai/bot/pzk84AM0AC6Aq4PaoQ1up</guid>
+    <description>Decodes Fed days, CPI and jobs prints: statement markup vs last meeting, presser takeaways, cut odds and yields.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
     <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:38 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:08:03 GMT</pubDate>
   </item>
   <item>
-    <title>🧶 Etsy Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/etsy-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/sflK5yIhPb5RSCnW5etM8</guid>
-    <description>Answers Etsy how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>🔧 Garage by Stealth</title>
+    <link>https://grokbotshelf.com/bot/garage</link>
+    <guid isPermaLink="false">https://x.ai/bot/V3mnsui0Z3lXt38OJy86f</guid>
+    <description>Car-care sidekick for gas, hybrid or EV: dash lights, recalls, repair quote checks, maintenance and DIY help.</description>
+    <dc:creator>Stealth (@StealthTSLA)</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>📊 AI Usage Hub by Daniel</title>
+    <link>https://grokbotshelf.com/bot/ai-usage-hub</link>
+    <guid isPermaLink="false">https://x.ai/bot/qmENesX2cLr2UHqkEEqMS</guid>
+    <description>Tracks your Claude, ChatGPT, Gemini and Grok Bot plan usage on one dashboard and nudges you before limits hit.</description>
+    <dc:creator>Daniel (@HungOnCode)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗺️ Been There / Next Stop by Chadd</title>
+    <link>https://grokbotshelf.com/bot/been-there-next-stop</link>
+    <guid isPermaLink="false">https://x.ai/bot/qZ95MnSn2HGjT3rqCvps3</guid>
+    <description>Maps your past trips from email, calendar and travel apps, keeps a bucket list on your map, and plans custom trips with your points.</description>
+    <dc:creator>Chadd (@chaddsmith)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧩 Unbundled by Yossi</title>
+    <link>https://grokbotshelf.com/bot/unbundled</link>
+    <guid isPermaLink="false">https://x.ai/bot/8IyWGGrGH00ZytRAkikav</guid>
+    <description>Paste a memecoin contract or DexScreener link: clusters linked wallets, stacks free rug checks and returns a LOOSE / TIED / BUNDLED / RUG verdict.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>🦝 Jimothy&apos;s Free Finds by Jim</title>
+    <link>https://grokbotshelf.com/bot/jimothy-s-free-finds</link>
+    <guid isPermaLink="false">https://x.ai/bot/JKfCdAcVHTuh0wDms0akA</guid>
+    <description>A raccoon scout that watches Craigslist free, Facebook Marketplace and OfferUp near you and pings you when free stuff worth grabbing shows up.</description>
+    <dc:creator>Jim (@JimothyRac)</dc:creator>
     <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:37 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:58 GMT</pubDate>
   </item>
   <item>
-    <title>📝 Typeform Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/typeform-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/scCCcdeC_kZOtCxMOPcA_</guid>
-    <description>Answers Typeform how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>💼 Job Apply Bot by Prince</title>
+    <link>https://grokbotshelf.com/bot/job-apply-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/kHBYgisQTDMVbthnCahoD</guid>
+    <description>Runs your job hunt end to end: finds fresh matching roles, drafts personal outreach and fills applications, with every send waiting for your OK.</description>
+    <dc:creator>Prince (@prince_twets)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:36 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:57 GMT</pubDate>
   </item>
   <item>
-    <title>💳 Ramp Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/ramp-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/qkaeiAuAdqjxcG1itEfzk</guid>
-    <description>Answers Ramp how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:35 GMT</pubDate>
+    <title>🏗️ Foreman by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/foreman</link>
+    <guid isPermaLink="false">https://x.ai/bot/QqtV5CQa9HRXNC6NmoOjc</guid>
+    <description>Your own superintendent for an owner-builder house build: every sub, date, dollar, permit and file kept straight, lot to keys.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:56 GMT</pubDate>
   </item>
   <item>
-    <title>✍️ PandaDoc Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/pandadoc-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/q36aZaHysFmtHAlb2Uo47</guid>
-    <description>Answers PandaDoc how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛠️ ServiceNow Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/servicenow-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/pGkBu_ozw3qn4fmSP3BH7</guid>
-    <description>Answers ServiceNow how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔑 Bitwarden Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/bitwarden-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/pDxBStarrRwYpDzntlkP3</guid>
-    <description>Answers Bitwarden how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>💬 Help Scout Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/help-scout-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/p7wxckWUHolTXF0OKA3Ut</guid>
-    <description>Answers Help Scout how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>📮 Shippo Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/shippo-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/oy29iJYwjCLsuu8extoug</guid>
-    <description>Answers Shippo how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏪 Lightspeed Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/lightspeed-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/ouUR_bLCQbLOxJDG_mUAx</guid>
-    <description>Answers Lightspeed how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧲 HubSpot Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/hubspot-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/ofCbFq-0erWEZVXesYHwG</guid>
-    <description>Answers HubSpot how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎥 Zoom Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/zoom-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/oQqCE4LfBTBviLyV7TRcK</guid>
-    <description>Answers Zoom how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>🤜 brobot by Edmundo</title>
+    <link>https://grokbotshelf.com/bot/brobot</link>
+    <guid isPermaLink="false">https://x.ai/bot/VPQ4SN_C3lAcgFHOk79Wh</guid>
+    <description>A 30-second daily check-in that asks how you feel before what you&apos;ll get done, and tracks your streaks, mood and wins.</description>
+    <dc:creator>Edmundo (@moondough)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:27 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:55 GMT</pubDate>
   </item>
   <item>
-    <title>🍀 Clover Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/clover-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/oFTfnRiiL-4CvSVA_qDpM</guid>
-    <description>Answers Clover how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:26 GMT</pubDate>
+    <title>🏷️ Thrift Hunter by Hudson S.</title>
+    <link>https://grokbotshelf.com/bot/thrift-hunter</link>
+    <guid isPermaLink="false">https://x.ai/bot/3Q00ob33EdkR0G9CUULoC</guid>
+    <description>Aisle coach for thrift flips: send a photo or item name plus the tag price, get Buy / Maybe / Pass with expected resale, fees, shipping and profit.</description>
+    <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:54 GMT</pubDate>
   </item>
   <item>
-    <title>🧮 Sage Accounting Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/sage-accounting-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/o3T4IjdD1JzTI0warTSgS</guid>
-    <description>Answers Sage Accounting how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>📰 WordPress.com Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/wordpress-com-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/n0-5wooxubARRiyPSviWE</guid>
-    <description>Answers WordPress.com how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧾 Expensify Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/expensify-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/lzznkKaehJjVVO_LEUfoR</guid>
-    <description>Answers Expensify how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗓️ Buffer Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/buffer-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/lFMujHpsSlSGcxWEl6kbF</guid>
-    <description>Answers Buffer how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>👥 Justworks Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/justworks-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/l4ALGq7aNd8-5V6kHkuDQ</guid>
-    <description>Answers Justworks how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>☁️ JumpCloud Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/jumpcloud-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/k2ipE9I4ZmFk0hkD3Xa-s</guid>
-    <description>Answers JumpCloud how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>⏰ When I Work Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/when-i-work-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/jru4I_Kx1l_Jj-kNuhQZi</guid>
-    <description>Answers When I Work how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>📓 Notion Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/notion-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/jmedS98haGlmWhG9m-Jl-</guid>
-    <description>Answers Notion how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>💸 BILL Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/bill-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/jWQcdkqAvju6X35C4TZV2</guid>
-    <description>Answers BILL how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚙️ Make Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/make-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/irfdoaNnuHsTVkaY2iAao</guid>
-    <description>Answers Make how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Looker Studio Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/looker-studio-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/i0ROLASRJ40dYQSgz-emF</guid>
-    <description>Answers Looker Studio how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>📝 Jotform Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/jotform-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/hyIkA18CTN1VWLwHVcLZD</guid>
-    <description>Answers Jotform how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚖️ Ironclad Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/ironclad-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/htmSwZTpBC5mXie4MVULc</guid>
-    <description>Answers Ironclad how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏢 Workday Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/workday-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/hmjVHp-XOInfDtKiZ7zmo</guid>
-    <description>Answers Workday how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌐 Wix Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/wix-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/gdpjAsevTYn851oPkz8Dk</guid>
-    <description>Answers Wix how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>👾 Pixato by Emilio</title>
+    <link>https://grokbotshelf.com/bot/pixato</link>
+    <guid isPermaLink="false">https://x.ai/bot/pasY6lHFHEF11bcY5HNkT</guid>
+    <description>Hand-codes pixel-art icons and sprites (mod icons, Minecraft-style items and blocks) in Python, with zero AI image generation.</description>
+    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
     <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:11 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:53 GMT</pubDate>
   </item>
   <item>
-    <title>🛡️ Malwarebytes Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/malwarebytes-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/g4ExT8-fmg0DplhMi0zUU</guid>
-    <description>Answers Malwarebytes how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>📡 Radar by Emilio</title>
+    <link>https://grokbotshelf.com/bot/radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/DFs8v97_N42O4bUedvIWk</guid>
+    <description>Finds small X accounts of people at big tech companies, checks they really work there, and pings you when they post with a reply draft. Never posts.</description>
+    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩹 CVE Desk by Metal</title>
+    <link>https://grokbotshelf.com/bot/cve-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/xzULzM6Gx3SpDRVrJdjdv</guid>
+    <description>Defensive, read-only CVE desk: breaks down advisories, checks public PoCs without running them, ranks what to patch.</description>
+    <dc:creator>Metal (@_h4xin)</dc:creator>
     <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:10 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:51 GMT</pubDate>
   </item>
   <item>
-    <title>🧘 Mindbody Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/mindbody-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/fLRSs0OG8vw3FbXEw26SB</guid>
-    <description>Answers Mindbody how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:09 GMT</pubDate>
+    <title>🎯 Sponsorship Hunter by Ryan</title>
+    <link>https://grokbotshelf.com/bot/sponsorship-hunter</link>
+    <guid isPermaLink="false">https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE</guid>
+    <description>Studies your X account and niche, then hunts realistic sponsors for small creators: brands already paying creators your size, affiliate and product deals, and creator marketplaces. It drafts outreach for your approval and runs your sponsorship pipeline.</description>
+    <dc:creator>Ryan (@ryangrowthh)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:50 GMT</pubDate>
   </item>
   <item>
-    <title>🎨 Webflow Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/webflow-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/fGGhvmHM89tDhOvl9q17z</guid>
-    <description>Answers Webflow how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗃️ Hyland OnBase Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/hyland-onbase-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/dxkY5mX498q1BTXv5wzFo</guid>
-    <description>Answers Hyland OnBase how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>💎 Research Ruby by James</title>
+    <link>https://grokbotshelf.com/bot/research-ruby</link>
+    <guid isPermaLink="false">https://x.ai/bot/bcVY9sJKoeZSzFcfNlhVW</guid>
+    <description>A research and fact-check desk on live web search: paste or link a social post and each claim is rated true, false, misleading or unproven, with dated sources.</description>
+    <dc:creator>James</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:07 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:49 GMT</pubDate>
   </item>
   <item>
-    <title>💝 Blackbaud Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/blackbaud-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/dwvUOpbdEEODJPe1I5J4Q</guid>
-    <description>Answers Blackbaud how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:06 GMT</pubDate>
+    <title>🏙️ Realty Rita by James</title>
+    <link>https://grokbotshelf.com/bot/realty-rita</link>
+    <guid isPermaLink="false">https://x.ai/bot/_Cu3rtG0IfKa84YsUe7tc</guid>
+    <description>A home-search sidekick for wherever you&apos;re moving: live listings, local agents, market trends and today&apos;s mortgage rates with links, plus which upgrades pay off and the services you&apos;ll need.</description>
+    <dc:creator>James</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:48 GMT</pubDate>
   </item>
   <item>
-    <title>📞 Close Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/close-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/dUqUk-rDnrlEfoQz6j4F6</guid>
-    <description>Answers Close how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:05 GMT</pubDate>
+    <title>🕹️ Game On Gary by James</title>
+    <link>https://grokbotshelf.com/bot/game-on-gary</link>
+    <guid isPermaLink="false">https://x.ai/bot/93nFrBAPgKvx0BUipoyjk</guid>
+    <description>Your free gaming sidekick: spoiler-free hints, picks for what to play next, a check on whether your PC can run it, and sales and free games with real links across every major store.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:47 GMT</pubDate>
   </item>
   <item>
-    <title>🤝 Copper Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/copper-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/cWpup8cjsOFKbjN07vziy</guid>
-    <description>Answers Copper how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:04 GMT</pubDate>
+    <title>🧥 Thrifty Theo by James</title>
+    <link>https://grokbotshelf.com/bot/thrifty-theo</link>
+    <guid isPermaLink="false">https://x.ai/bot/xKi2VkyukiwEAm_LmDppc</guid>
+    <description>Your thrift and consignment sidekick: finds thrift shops, estate and garage sales near your ZIP, watches resale sites for your wish list and prices finds from real sold listings.</description>
+    <dc:creator>James</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:46 GMT</pubDate>
   </item>
   <item>
-    <title>📅 SimplyBook.me Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/simplybook-me-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/bfjs3GQR6U7LsJFZ2HrnG</guid>
-    <description>Answers SimplyBook.me how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>🚰 Utility Eugene by James</title>
+    <link>https://grokbotshelf.com/bot/utility-eugene</link>
+    <guid isPermaLink="false">https://x.ai/bot/w3yzHuZdi-x0I-7j7sP9H</guid>
+    <description>A money-saver for every utility bill: electric, water, gas, internet, phone and trash. Finds providers at your ZIP, compares plans and reads your bills to cut costs, changing nothing without your OK.</description>
+    <dc:creator>James</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:45 GMT</pubDate>
+  </item>
+  <item>
+    <title>🫧 Appliance Fix Annie by James</title>
+    <link>https://grokbotshelf.com/bot/appliance-fix-annie</link>
+    <guid isPermaLink="false">https://x.ai/bot/g1AmwULv-28QM-l_yIVbb</guid>
+    <description>Tell her what&apos;s beeping, leaking or won&apos;t start: she finds the manual, walks you through a safe fix, prices the right part and watches for recalls.</description>
+    <dc:creator>James</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔩 Grease Monkey Wally by James</title>
+    <link>https://grokbotshelf.com/bot/grease-monkey-wally</link>
+    <guid isPermaLink="false">https://x.ai/bot/XQ4VrU9JJ7lHgbEIM2e8F</guid>
+    <description>Your DIY auto repair buddy: diagnoses symptoms and check-engine codes, walks you through repairs with real specs for your vehicle, finds parts at the best price and checks recalls.</description>
+    <dc:creator>James</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>✏️ Test Prep Tess by James</title>
+    <link>https://grokbotshelf.com/bot/test-prep-tess</link>
+    <guid isPermaLink="false">https://x.ai/bot/GEih8F6WlyPJ_oyuVLEAt</guid>
+    <description>A friendly study coach for the SAT, ACT, GED, ASVAB, GRE, IT certs and more: a week-by-week plan, practice questions with clear explanations and links to the best free official prep.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪛 Local Services Samantha by James</title>
+    <link>https://grokbotshelf.com/bot/local-services-samantha</link>
+    <guid isPermaLink="false">https://x.ai/bot/zUQwIdQgoK-uaxur73Nmv</guid>
+    <description>Finds trusted local help near your ZIP, from plumbers and mechanics to vets and county offices, with phone numbers, license checks and reviews. Drafts quote requests and compares bids.</description>
+    <dc:creator>James</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪧 Ballot Box Bob by James</title>
+    <link>https://grokbotshelf.com/bot/ballot-box-bob</link>
+    <guid isPermaLink="false">https://x.ai/bot/y7i2ei-6EN0AAKvKaLLB9</guid>
+    <description>A nonpartisan election guide: registration, where and when to vote, what&apos;s on your ballot and official results, all linked to official sources. It never tells you how to vote.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>🦅 Congressional Connection by James</title>
+    <link>https://grokbotshelf.com/bot/congressional-connection</link>
+    <guid isPermaLink="false">https://x.ai/bot/QBeeqwxvrPiYYixsntYi1</guid>
+    <description>Finds your members of Congress and state lawmakers from your ZIP, explains bills and votes in plain English with official links, and drafts letters and call scripts you approve first.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌱 Green Thumb Granny by James</title>
+    <link>https://grokbotshelf.com/bot/green-thumb-granny</link>
+    <guid isPermaLink="false">https://x.ai/bot/OOFh9h6yfDuzJCAjk80Ez</guid>
+    <description>Snap a photo of any weed, bug or sick plant and Granny tells you what it is and how to handle it, safest fix first. Plus a planting calendar and native plant picks for your ZIP.</description>
+    <dc:creator>James</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪄 Lifehack Jack by James</title>
+    <link>https://grokbotshelf.com/bot/lifehack-jack</link>
+    <guid isPermaLink="false">https://x.ai/bot/ab76yi9i0xGRTg7SsMFM-</guid>
+    <description>Practical, tested lifehacks that save time and money, from cleaning and cooking to cutting bills, travel and computer shortcuts. Every tip says why it works and flags safety concerns.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>🦸 Comic Book Carl by James</title>
+    <link>https://grokbotshelf.com/bot/comic-book-carl</link>
+    <guid isPermaLink="false">https://x.ai/bot/DnBW-zVBFHvnRk1NgJrCk</guid>
+    <description>Your comic collecting sidekick: tracks your collection, values it from real sold prices with links, flags key issues, watches your pull list and finds shops and cons near you.</description>
+    <dc:creator>James</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>🃏 Rookie Card Ray by James</title>
+    <link>https://grokbotshelf.com/bot/rookie-card-ray</link>
+    <guid isPermaLink="false">https://x.ai/bot/TyUoZv-3xRqbY_zHQIRvO</guid>
+    <description>Your sports card and memorabilia sidekick: keeps your collection inventory, prices cards from real recent sales, tells you when grading pays off, spots fakes and finds card shows near you.</description>
+    <dc:creator>James</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>💭 Idea Ike by James</title>
+    <link>https://grokbotshelf.com/bot/idea-ike</link>
+    <guid isPermaLink="false">https://x.ai/bot/9zBbCo8cw3SggdO28xXbK</guid>
+    <description>Your brainstorming partner: toss in a rough thought and get a fast burst of ideas, then the best 2 or 3 with pros, cons and a first step. For side hustles, names, posts, gifts and getting unstuck.</description>
+    <dc:creator>James</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:03 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:34 GMT</pubDate>
   </item>
   <item>
-    <title>💬 LiveChat Product Expert by Jacob Weaver</title>
-    <link>https://grokbotshelf.com/bot/livechat-product-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/_ix7YlE7cSGl6CQvM3sbw</guid>
-    <description>Answers LiveChat how-to and setup questions from official docs only, linking the page each answer came from.</description>
-    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <title>⛪ Pastor Pete by James</title>
+    <link>https://grokbotshelf.com/bot/pastor-pete</link>
+    <guid isPermaLink="false">https://x.ai/bot/YrxlAlCd7MQujjCOlStvm</guid>
+    <description>A free, warm Bible and faith companion: real Bible stories and verses with exact references for what you&apos;re facing, plus a daily verse, reading plans, prayers and a church finder by ZIP.</description>
+    <dc:creator>James</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌅 X Success Coach by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/x-success-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/O8DClJ889JrWWzEtH_TDm</guid>
+    <description>A morning coach for your own X account: each day at 8 AM it reviews yesterday&apos;s posts and tells you what worked, what hurt and how to post today. Idea and algorithm cheat sheet by @thepetermick.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>📨 Indeed Auto Apply by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/indeed-auto-apply</link>
+    <guid isPermaLink="false">https://x.ai/bot/t8698zUlLNPDxI2lOBZTH</guid>
+    <description>Send it your resume and connect a job-hunting Indeed account. Every weekday it applies to a few nearby Easy Apply jobs that fit you, with your choice of cover letter, and sends a short summary.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏕️ Park Lookout by Rich Photography</title>
+    <link>https://grokbotshelf.com/bot/park-lookout</link>
+    <guid isPermaLink="false">https://x.ai/bot/lQiuwr-oSZpezc1elVlwq</guid>
+    <description>A friendly ranger-style guide to U.S. National Park Service sites: open or closed, alerts, hours, fees, reservations, weather warnings, passport stamps and simple trip plans, cited to nps.gov.</description>
+    <dc:creator>Rich Photography (@richphotoio)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🍷 sommelier.bot by Johannes Nielsen</title>
+    <link>https://grokbotshelf.com/bot/sommelier-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/UPAg1Vque_5YKcSDtdZEq</guid>
+    <description>Your sommelier for everything in the glass, with or without alcohol: pairings from a dish or photo, multi-course menus, gift picks, label ID and bottles to buy nearby.</description>
+    <dc:creator>Johannes Nielsen (@sommelierbot)</dc:creator>
+    <category>Food</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🥄 Ladle by Cyber Viking</title>
+    <link>https://grokbotshelf.com/bot/ladle</link>
+    <guid isPermaLink="false">https://x.ai/bot/s4VX-QEFQg95Qyxns1WUi</guid>
+    <description>A household cook and meal planner that turns what&apos;s already in your fridge and pantry into safe, cheap dinners and shopping lists. Treats allergies as hard blocks and never orders anything without your OK.</description>
+    <dc:creator>Cyber Viking (@DarthJML)</dc:creator>
+    <category>Food</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧑‍⚖️ Chandler by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/chandler</link>
+    <guid isPermaLink="false">https://x.ai/bot/m6KbP2n8g-LeLVV-njVP1</guid>
+    <description>An independent challenger that checks drafts, images, videos and numbers against your standards and returns PASS or FAIL with exact defects.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔏 App Security Tester by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/app-security-tester</link>
+    <guid isPermaLink="false">https://x.ai/bot/3h643OPVhZDt5iS_mKw_7</guid>
+    <description>Threat-models and security-tests your own web and mobile apps like an attacker would, then ranks the fixes before launch.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>⛽ Usage Bot by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/usage-bot-by-outwork-ventures</link>
+    <guid isPermaLink="false">https://x.ai/bot/7KvIFTCUELTSy6XDCyCs6</guid>
+    <description>Tracks what every bot spends and works to cut token burn across your bot fleet.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚧 Bottleneck Desk by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/bottleneck-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/ulacgVTiO-Q9hECHwdxJe</guid>
+    <description>Finds where work is stuck, like stale PRs, unowned failing checks and approvals waiting on you, and sends a weekly ranked report.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔬 Reg by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/reg</link>
+    <guid isPermaLink="false">https://x.ai/bot/7GSpnm-MTzOpOynYmnose</guid>
+    <description>A deep-research analyst that turns a fuzzy question into a sourced, decision-ready brief, with every claim cited and confidence stated.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧨 Product Idea Stress Test by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/product-idea-stress-test</link>
+    <guid isPermaLink="false">https://x.ai/bot/rRp1JnZ4AHvp8Od6DO4Jh</guid>
+    <description>Tests a product or startup idea: what has to be true, evidence for and against, the assumption most likely to kill it, what to test next.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:09:02 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐣 Agent Zero by Outwork-Ventures</title>
+    <link>https://grokbotshelf.com/bot/agent-zero-by-outwork-ventures</link>
+    <guid isPermaLink="false">https://x.ai/bot/VMu2eDEBy4BAiizASbXqj</guid>
+    <description>A business incubator that designs, builds and readies a new business to go live, then hands it to a managing bot.</description>
+    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:21 GMT</pubDate>
   </item>
 </channel>
 </rss>
