@@ -1,5 +1,5 @@
 // Jump-to-top: a small floating button, bottom-right (left of the A-Z rail on phones). It appears once the page has
-// scrolled past ~360px (so short pages never show it), hides again near the top, and scrolls smoothly to the top
+// scrolled past ~150px (so short pages never show it), hides again near the top, and scrolls smoothly to the top
 // (instantly with prefers-reduced-motion). Keyboard activation moves focus to the page's h1.
 //
 // Names are deliberately neutral: Fanboy's Annoyance list (EasyList Annoyances, shipped in AdGuard, 1Blocker, Wipr and
@@ -12,7 +12,7 @@
 // edge) + margin, so the button always sits just above whatever chrome covers the bottom. CSS bottom is the fallback.
 (function () {
   try {
-    var SHOW = 360, HIDE = 240, MARGIN = 16;
+    var SHOW = 150, HIDE = 70, MARGIN = 16;
     var de = document.documentElement;
     var b = document.createElement("button");
     b.type = "button"; b.className = "gbs-up"; b.setAttribute("aria-label", "Jump to top");
