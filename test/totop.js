@@ -24,6 +24,9 @@ const state = (p) => p.evaluate(() => { const b = document.querySelector('.to-to
       ok(s.r.ri <= s.vw - 4 && s.r.b <= s.vh - 12 && s.r.l > s.vw / 2, `${name} /${path}: bottom-right (${Math.round(s.r.l)},${Math.round(s.r.t)})`);
       const rail = await p.evaluate(() => { const r = document.querySelector('.rail:not([hidden])'); return r && r.getBoundingClientRect().bottom; });
       if (rail != null) ok(rail <= s.r.t, `${name} /${path}: A-Z rail ends above the button (${Math.round(rail)} <= ${Math.round(s.r.t)})`);
+      if (name === 'phone') ok(s.vh - s.r.b >= 80, `${name} /${path}: lifted clear of iOS Safari's bottom toolbar (${Math.round(s.vh - s.r.b)}px >= 80)`);
+      const z = await p.evaluate(() => { const r = document.querySelector('.rail'); return [+getComputedStyle(document.querySelector('.to-top')).zIndex, r ? +getComputedStyle(r).zIndex : 0]; });
+      ok(z[0] > z[1] && z[0] < 50, `${name} /${path}: z-index ${z[0]} above the rail (${z[1]}), below the toast (50)`);
       await p.click('.to-top'); await settle(1200);
       s = await state(p);
       ok(s.y === 0 && !s.shown, `${name} /${path}: click scrolls to top and hides it`);
