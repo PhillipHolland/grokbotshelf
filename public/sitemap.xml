@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-10-25</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-10-26</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://grokbotshelf.com/bot/archivist</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/ibot-player</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/security-audit-bot</loc><lastmod>2026-10-24</lastmod></url>
@@ -415,6 +415,14 @@
   <url><loc>https://grokbotshelf.com/bot/tesla-fsd-and-ev-true-cost-to-own-coach</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/creator-partnerships-and-brand-deal-hq</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/rivetroad-trip-planner</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bid-desk</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/tender-watch</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/patch-alert</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/wainwright-manager</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/budgie</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/football-research-analyst</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/career-agent</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/first-officer</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@phil_holland</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thecsguy</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@levi_w_eck</loc><lastmod>2026-10-24</lastmod></url>
@@ -460,7 +468,7 @@
   <url><loc>https://grokbotshelf.com/@ryangrowthh</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@calilumberjack</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@timsonner</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@howdyollie</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@howdyollie</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@lisamausa</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jimaggie</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@heavymetalship</loc><lastmod>2026-10-24</lastmod></url>
@@ -524,4 +532,7 @@
   <url><loc>https://grokbotshelf.com/@fringesignalx</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@josephstayhappy</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@the_seth_ard</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@itsryanlenk</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@cillfore</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@phillipggreen</loc><lastmod>2026-10-26</lastmod></url>
 </urlset>

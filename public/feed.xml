@@ -6,7 +6,79 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 02:35:50 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 09:20:29 GMT</lastBuildDate>
+  <item>
+    <title>🧭 First Officer by Phillip</title>
+    <link>https://grokbotshelf.com/bot/first-officer</link>
+    <guid isPermaLink="false">https://x.ai/bot/SWGvdwMokwzUAe6Enh5FX</guid>
+    <description>A chief of staff for people running several projects and a crew of AI bots: a daily briefing, tracking of loose ends and decisions, and coordination across your bots.</description>
+    <dc:creator>Phillip (@phillipggreen)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 Career Agent by Phillip</title>
+    <link>https://grokbotshelf.com/bot/career-agent</link>
+    <guid isPermaLink="false">https://x.ai/bot/TP4PIzpIIrb3qXuLjUVU2</guid>
+    <description>A job-search partner that finds verified openings that fit you, tracks them, and prepares tailored, truthful applications. Nothing gets submitted without your OK.</description>
+    <dc:creator>Phillip (@phillipggreen)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏈 Football Research Analyst by Phillip</title>
+    <link>https://grokbotshelf.com/bot/football-research-analyst</link>
+    <guid isPermaLink="false">https://x.ai/bot/_70Xl96cRpuVWzwPWK6VM</guid>
+    <description>Evidence-based NFL and college football betting research: stats, injuries, verified odds, handicapper track records, and probability-first pick rankings.</description>
+    <dc:creator>Phillip (@phillipggreen)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐦 Budgie by Cill</title>
+    <link>https://grokbotshelf.com/bot/budgie</link>
+    <guid isPermaLink="false">https://x.ai/bot/WhiSlVQOUK9GBkd_JKgJZ</guid>
+    <description>A budget bot that keeps your budget in a local SQLite database, plans each paycheck, and forecasts debt payoff, assets, and net worth on a live dashboard.</description>
+    <dc:creator>Cill (@cillfore)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧑‍💼 Wainwright Manager by Ryan</title>
+    <link>https://grokbotshelf.com/bot/wainwright-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/TqyhVfSrAYZ-xQSrD_x1A</guid>
+    <description>Your hiring manager for Grok Bots. You pick the roles; it checks each persona, creates clear one-job teammates, and gets every new hire focused.</description>
+    <dc:creator>Ryan (@itsryanlenk)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛡️ Patch Alert by ollie</title>
+    <link>https://grokbotshelf.com/bot/patch-alert</link>
+    <guid isPermaLink="false">https://x.ai/bot/GJ6wSFte1rfQRD8oZVrpK</guid>
+    <description>Tell it what software you use and it checks CISA&apos;s Known Exploited Vulnerabilities list daily, alerting you only when something you run is being actively exploited.</description>
+    <dc:creator>ollie (@howdyollie)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔔 Tender Watch by ollie</title>
+    <link>https://grokbotshelf.com/bot/tender-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/mOgtpTzuhz8DQtxj4vfBP</guid>
+    <description>Tell it what you sell and where, and it sets itself up, checks official public sources on weekday mornings, and messages you only when new tenders match.</description>
+    <dc:creator>ollie (@howdyollie)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>📑 Bid Desk by ollie</title>
+    <link>https://grokbotshelf.com/bot/bid-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/bBqjPmvPZZ533hzc4yG6k</guid>
+    <description>Paste a government tender (text, link or screenshot) and get a plain-words bid, no-bid or maybe verdict with eligibility flags, deadline and effort.</description>
+    <dc:creator>ollie (@howdyollie)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:06:54 GMT</pubDate>
+  </item>
   <item>
     <title>🚐 RivetRoad Trip Planner by Salty FL Cracker</title>
     <link>https://grokbotshelf.com/bot/rivetroad-trip-planner</link>
@@ -384,78 +456,6 @@
     <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sun, 25 Oct 2026 12:06:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏡 Show Up AI by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/show-up-ai</link>
-    <guid isPermaLink="false">https://x.ai/bot/cU9gx42JBW2PQH2NKLKd_</guid>
-    <description>Checks how visible a real estate agent&apos;s site is to AI search, shows the gaps and drafts fixes.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>🍳 PlatePal by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/platepal</link>
-    <guid isPermaLink="false">https://x.ai/bot/f4nkPC09h3YZ673A3bVX1</guid>
-    <description>Tell it what&apos;s in your fridge for quick recipes, leftover ideas and easy shopping lists.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>📊 Table Charts by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/table-charts</link>
-    <guid isPermaLink="false">https://x.ai/bot/t_8yyYApjp-KpOi77RujV</guid>
-    <description>Turns a pasted table, CSV or JSON into a live chart or dashboard you can share.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>💪 Mr. Health by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/mr-health</link>
-    <guid isPermaLink="false">https://x.ai/bot/wUGvc7oqCZPj_mHaYxYbi</guid>
-    <description>A firm, practical fitness coach that tracks wearable and weight data and builds weekly workouts at three difficulty levels.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛒 Mr. Cartwright by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/mr-cartwright</link>
-    <guid isPermaLink="false">https://x.ai/bot/w4d1Qj-byuNtISAyyitYa</guid>
-    <description>Compares real grocery and household prices, builds weekly deal sheets and a coupon wallet, and stops at the cart until you approve.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚡ Grok by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/grok</link>
-    <guid isPermaLink="false">https://x.ai/bot/Wcrnj5KLs35EV2LO1Jxq7</guid>
-    <description>An on-the-go field desk for quick questions, brainstorming, and plain-English research takes with rough odds and real sources.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>💼 Job Search Operator by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/job-search-operator</link>
-    <guid isPermaLink="false">https://x.ai/bot/8kas3kfny1p0N7PsT5jAT</guid>
-    <description>Finds openings that fit you, scores them, and drafts application packets and LinkedIn notes; never submits without your OK.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖥️ PC Steward by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/pc-steward</link>
-    <guid isPermaLink="false">https://x.ai/bot/TeEdtOdobgymTchbFqzzW</guid>
-    <description>Keeps a Windows PC fast and safe with weekday read-only health checks, Defender and firewall watch, and approval-gated fixes.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Security</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:04 GMT</pubDate>
   </item>
 </channel>
 </rss>

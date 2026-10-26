@@ -2709,6 +2709,86 @@
       "url": "",
       "note": "Phillip hold Oct 25 2026 — wait for X handle (declined name-only for now). Site form #74.",
       "date": "2026-10-25"
+    },
+    "template-bBqjPmvPZZ533hzc4yG6k": {
+      "status": "added",
+      "author": "@howdyollie",
+      "bot": "Bid Desk",
+      "template_url": "https://x.ai/bot/bBqjPmvPZZ533hzc4yG6k",
+      "url": "",
+      "note": "site form #82",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-mOgtpTzuhz8DQtxj4vfBP": {
+      "status": "added",
+      "author": "@howdyollie",
+      "bot": "Tender Watch",
+      "template_url": "https://x.ai/bot/mOgtpTzuhz8DQtxj4vfBP",
+      "url": "",
+      "note": "site form #81",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-GJ6wSFte1rfQRD8oZVrpK": {
+      "status": "added",
+      "author": "@howdyollie",
+      "bot": "Patch Alert",
+      "template_url": "https://x.ai/bot/GJ6wSFte1rfQRD8oZVrpK",
+      "url": "",
+      "note": "site form #80",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-TqyhVfSrAYZ-xQSrD_x1A": {
+      "status": "added",
+      "author": "@itsryanlenk",
+      "bot": "Wainwright Manager",
+      "template_url": "https://x.ai/bot/TqyhVfSrAYZ-xQSrD_x1A",
+      "url": "",
+      "note": "site form #79",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-WhiSlVQOUK9GBkd_JKgJZ": {
+      "status": "added",
+      "author": "@cillfore",
+      "bot": "Budgie",
+      "template_url": "https://x.ai/bot/WhiSlVQOUK9GBkd_JKgJZ",
+      "url": "",
+      "note": "site form #78",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-_70Xl96cRpuVWzwPWK6VM": {
+      "status": "added",
+      "author": "@phillipggreen",
+      "bot": "Football Research Analyst",
+      "template_url": "https://x.ai/bot/_70Xl96cRpuVWzwPWK6VM",
+      "url": "",
+      "note": "site form #77",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-TP4PIzpIIrb3qXuLjUVU2": {
+      "status": "added",
+      "author": "@phillipggreen",
+      "bot": "Career Agent",
+      "template_url": "https://x.ai/bot/TP4PIzpIIrb3qXuLjUVU2",
+      "url": "",
+      "note": "site form #76",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-SWGvdwMokwzUAe6Enh5FX": {
+      "status": "added",
+      "author": "@phillipggreen",
+      "bot": "First Officer",
+      "template_url": "https://x.ai/bot/SWGvdwMokwzUAe6Enh5FX",
+      "url": "",
+      "note": "site form #75",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
     }
   }
 }

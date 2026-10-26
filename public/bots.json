@@ -5380,5 +5380,103 @@
     "creator_avatar": "/avatars/the_seth_ard.webp",
     "source_post": "https://x.com/the_seth_ard/status/2114545076349354203",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Bid Desk",
+    "emoji": "📑",
+    "description": "Paste a government tender (text, link or screenshot) and get a plain-words bid, no-bid or maybe verdict with eligibility flags, deadline and effort.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/bBqjPmvPZZ533hzc4yG6k",
+    "creator_name": "ollie",
+    "creator_handle": "@howdyollie",
+    "creator_url": "https://x.com/howdyollie",
+    "creator_avatar": "/avatars/howdyollie.webp",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Tender Watch",
+    "emoji": "🔔",
+    "description": "Tell it what you sell and where, and it sets itself up, checks official public sources on weekday mornings, and messages you only when new tenders match.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/mOgtpTzuhz8DQtxj4vfBP",
+    "creator_name": "ollie",
+    "creator_handle": "@howdyollie",
+    "creator_url": "https://x.com/howdyollie",
+    "creator_avatar": "/avatars/howdyollie.webp",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Patch Alert",
+    "emoji": "🛡️",
+    "description": "Tell it what software you use and it checks CISA's Known Exploited Vulnerabilities list daily, alerting you only when something you run is being actively exploited.",
+    "category": "Security",
+    "url": "https://x.ai/bot/GJ6wSFte1rfQRD8oZVrpK",
+    "creator_name": "ollie",
+    "creator_handle": "@howdyollie",
+    "creator_url": "https://x.com/howdyollie",
+    "creator_avatar": "/avatars/howdyollie.webp",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Wainwright Manager",
+    "emoji": "🧑‍💼",
+    "description": "Your hiring manager for Grok Bots. You pick the roles; it checks each persona, creates clear one-job teammates, and gets every new hire focused.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/TqyhVfSrAYZ-xQSrD_x1A",
+    "creator_name": "Ryan",
+    "creator_handle": "@itsryanlenk",
+    "creator_url": "https://x.com/itsryanlenk",
+    "creator_avatar": "/avatars/itsryanlenk.webp",
+    "source_post": "https://x.com/itsryanlenk/status/2100012213922656377",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Budgie",
+    "emoji": "🐦",
+    "description": "A budget bot that keeps your budget in a local SQLite database, plans each paycheck, and forecasts debt payoff, assets, and net worth on a live dashboard.",
+    "category": "Money",
+    "url": "https://x.ai/bot/WhiSlVQOUK9GBkd_JKgJZ",
+    "creator_name": "Cill",
+    "creator_handle": "@cillfore",
+    "creator_url": "https://x.com/cillfore",
+    "creator_avatar": "/avatars/cillfore.webp",
+    "source_post": "https://x.com/cillfore/status/2113069825144553634",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Football Research Analyst",
+    "emoji": "🏈",
+    "description": "Evidence-based NFL and college football betting research: stats, injuries, verified odds, handicapper track records, and probability-first pick rankings.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/_70Xl96cRpuVWzwPWK6VM",
+    "creator_name": "Phillip",
+    "creator_handle": "@phillipggreen",
+    "creator_url": "https://x.com/phillipggreen",
+    "creator_avatar": "/avatars/phillipggreen.webp",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Career Agent",
+    "emoji": "💼",
+    "description": "A job-search partner that finds verified openings that fit you, tracks them, and prepares tailored, truthful applications. Nothing gets submitted without your OK.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/TP4PIzpIIrb3qXuLjUVU2",
+    "creator_name": "Phillip",
+    "creator_handle": "@phillipggreen",
+    "creator_url": "https://x.com/phillipggreen",
+    "creator_avatar": "/avatars/phillipggreen.webp",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "First Officer",
+    "emoji": "🧭",
+    "description": "A chief of staff for people running several projects and a crew of AI bots: a daily briefing, tracking of loose ends and decisions, and coordination across your bots.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/SWGvdwMokwzUAe6Enh5FX",
+    "creator_name": "Phillip",
+    "creator_handle": "@phillipggreen",
+    "creator_url": "https://x.com/phillipggreen",
+    "creator_avatar": "/avatars/phillipggreen.webp",
+    "added": "2026-10-26"
   }
 ]
