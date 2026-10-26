@@ -3314,6 +3314,55 @@
       "template_url": "https://x.ai/bot/2SHXvbvUMUuJHyVrloDDC",
       "url": "https://x.com/Jorhan/status/2114751425741795755",
       "date": "2026-10-26"
+    },
+    "template-DFs8v97_N42O4bUedvIWk": {
+      "status": "added",
+      "author": "@EmilioSchwaiger",
+      "bot": "Radar",
+      "template_url": "https://x.ai/bot/DFs8v97_N42O4bUedvIWk",
+      "url": "",
+      "note": "site form #131; Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-pasY6lHFHEF11bcY5HNkT": {
+      "status": "added",
+      "author": "@EmilioSchwaiger",
+      "bot": "Pixato",
+      "template_url": "https://x.ai/bot/pasY6lHFHEF11bcY5HNkT",
+      "url": "",
+      "note": "site form #130; Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114784573603324324": {
+      "status": "added",
+      "author": "@HudsonSutherla2",
+      "bot": "Thrift Hunter",
+      "template_url": "https://x.ai/bot/3Q00ob33EdkR0G9CUULoC",
+      "url": "https://x.com/HudsonSutherla2/status/2114784573603324324",
+      "note": "site form #129; Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114798312561762496": {
+      "status": "added",
+      "author": "@moondough",
+      "bot": "brobot",
+      "template_url": "https://x.ai/bot/VPQ4SN_C3lAcgFHOk79Wh",
+      "url": "https://x.com/moondough/status/2114798312561762496",
+      "note": "shared template in reply to @thecsguy; not an explicit add ask; Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114794320813347318": {
+      "status": "skipped",
+      "author": "@ALL_Jonah",
+      "bot": "",
+      "template_url": "",
+      "url": "https://x.com/ALL_Jonah/status/2114794320813347318",
+      "note": "links to shelf homepage, no template",
+      "date": "2026-10-26"
     }
   }
 }

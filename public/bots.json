@@ -6128,5 +6128,57 @@
     "creator_avatar": "/avatars/_h4xin.webp",
     "source_post": "https://x.com/_h4xin/status/2114760406749024424",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Radar",
+    "emoji": "📡",
+    "description": "Finds small X accounts of people at big tech companies, checks they really work there, and pings you when they post with a reply draft. Never posts.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/DFs8v97_N42O4bUedvIWk",
+    "creator_name": "Emilio",
+    "creator_handle": "@EmilioSchwaiger",
+    "creator_url": "https://x.com/EmilioSchwaiger",
+    "creator_avatar": "/avatars/emilioschwaiger.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Pixato",
+    "emoji": "👾",
+    "description": "Hand-codes pixel-art icons and sprites (mod icons, Minecraft-style items and blocks) in Python, with zero AI image generation.",
+    "category": "Design",
+    "url": "https://x.ai/bot/pasY6lHFHEF11bcY5HNkT",
+    "creator_name": "Emilio",
+    "creator_handle": "@EmilioSchwaiger",
+    "creator_url": "https://x.com/EmilioSchwaiger",
+    "creator_avatar": "/avatars/emilioschwaiger.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Thrift Hunter",
+    "emoji": "🏷️",
+    "description": "Aisle coach for thrift flips: send a photo or item name plus the tag price, get Buy / Maybe / Pass with expected resale, fees, shipping and profit.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/3Q00ob33EdkR0G9CUULoC",
+    "creator_name": "Hudson S.",
+    "creator_handle": "@HudsonSutherla2",
+    "creator_url": "https://x.com/HudsonSutherla2",
+    "creator_avatar": "/avatars/hudsonsutherla2.webp",
+    "source_post": "https://x.com/HudsonSutherla2/status/2114784573603324324",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "brobot",
+    "emoji": "🤜",
+    "description": "A 30-second daily check-in that asks how you feel before what you'll get done, and tracks your streaks, mood and wins.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/VPQ4SN_C3lAcgFHOk79Wh",
+    "creator_name": "Edmundo",
+    "creator_handle": "@moondough",
+    "creator_url": "https://x.com/moondough",
+    "creator_avatar": "/avatars/moondough.webp",
+    "source_post": "https://x.com/moondough/status/2114798312561762496",
+    "added": "2026-10-26"
   }
 ]

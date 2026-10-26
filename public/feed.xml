@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 18:45:36 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 21:20:28 GMT</lastBuildDate>
+  <item>
+    <title>🤜 brobot by Edmundo</title>
+    <link>https://grokbotshelf.com/bot/brobot</link>
+    <guid isPermaLink="false">https://x.ai/bot/VPQ4SN_C3lAcgFHOk79Wh</guid>
+    <description>A 30-second daily check-in that asks how you feel before what you&apos;ll get done, and tracks your streaks, mood and wins.</description>
+    <dc:creator>Edmundo (@moondough)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏷️ Thrift Hunter by Hudson S.</title>
+    <link>https://grokbotshelf.com/bot/thrift-hunter</link>
+    <guid isPermaLink="false">https://x.ai/bot/3Q00ob33EdkR0G9CUULoC</guid>
+    <description>Aisle coach for thrift flips: send a photo or item name plus the tag price, get Buy / Maybe / Pass with expected resale, fees, shipping and profit.</description>
+    <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>👾 Pixato by Emilio</title>
+    <link>https://grokbotshelf.com/bot/pixato</link>
+    <guid isPermaLink="false">https://x.ai/bot/pasY6lHFHEF11bcY5HNkT</guid>
+    <description>Hand-codes pixel-art icons and sprites (mod icons, Minecraft-style items and blocks) in Python, with zero AI image generation.</description>
+    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
+    <category>Design</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:53 GMT</pubDate>
+  </item>
+  <item>
+    <title>📡 Radar by Emilio</title>
+    <link>https://grokbotshelf.com/bot/radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/DFs8v97_N42O4bUedvIWk</guid>
+    <description>Finds small X accounts of people at big tech companies, checks they really work there, and pings you when they post with a reply draft. Never posts.</description>
+    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:52 GMT</pubDate>
+  </item>
   <item>
     <title>🩹 CVE Desk by Metal</title>
     <link>https://grokbotshelf.com/bot/cve-desk</link>
@@ -420,42 +456,6 @@
     <dc:creator>Jenna (@JennaLiftsLife)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Mon, 26 Oct 2026 12:07:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>✨ Spark by iLytzki</title>
-    <link>https://grokbotshelf.com/bot/spark</link>
-    <guid isPermaLink="false">https://x.ai/bot/Ruw-WHtUO9LrrEhoBbI-x</guid>
-    <description>Sends you one creative, power-user Grok Bot tip every day, based on an idea people shared on X and adapted to your own bots, with a copy-paste prompt and a small visual mock-up.</description>
-    <dc:creator>iLytzki (@iLytzki)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚗 Tesla Inventory Finder by JeebsTX</title>
-    <link>https://grokbotshelf.com/bot/tesla-inventory-finder</link>
-    <guid isPermaLink="false">https://x.ai/bot/aMBKNgOmKSo-F2tq75X2N</guid>
-    <description>Finds new and Certified Pre-Owned Tesla Model 3, Model Y, and Cybertruck inventory near your ZIP code, walking you through Tesla&apos;s own filter steps and returning direct listing links with prices.</description>
-    <dc:creator>JeebsTX (@JeebsTX)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏆 Hackathon Hunter by Ace</title>
-    <link>https://grokbotshelf.com/bot/hackathon-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/9qOAYMDAy1kvBHna8PrPF</guid>
-    <description>Finds, verifies and tracks hackathons, AI and Web3 challenges, Kaggle contests, bounties and grants for your country, with concise scheduled reports.</description>
-    <dc:creator>Ace (@aceop_xyz)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>📚 Books by Jason</title>
-    <link>https://grokbotshelf.com/bot/books</link>
-    <guid isPermaLink="false">https://x.ai/bot/SBxIazESu89JqaGtGWsZj</guid>
-    <description>One book a week as six short morning reads with key ideas, stories, a quote, something to try and a quiz; each Sunday you pick next week&apos;s book.</description>
-    <dc:creator>Jason (@sproutmed)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:02 GMT</pubDate>
   </item>
 </channel>
 </rss>

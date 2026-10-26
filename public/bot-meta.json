@@ -912,6 +912,28 @@
    "works_with": [
     "Docker"
    ]
+  },
+  "DFs8v97_N42O4bUedvIWk": {
+   "name": "Radar",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "pasY6lHFHEF11bcY5HNkT": {
+   "name": "Pixato",
+   "agency": "acts",
+   "one_job": true
+  },
+  "3Q00ob33EdkR0G9CUULoC": {
+   "name": "Thrift Hunter",
+   "agency": "reads",
+   "one_job": true
+  },
+  "VPQ4SN_C3lAcgFHOk79Wh": {
+   "name": "brobot",
+   "agency": "reads",
+   "one_job": true
   }
  }
 }
