@@ -5504,5 +5504,44 @@
     "creator_avatar": "/avatars/aceop_xyz.webp",
     "source_post": "https://x.com/aceop_xyz/status/2114661462073553151",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Tesla Inventory Finder",
+    "emoji": "🚗",
+    "description": "Finds new and Certified Pre-Owned Tesla Model 3, Model Y, and Cybertruck inventory near your ZIP code, walking you through Tesla's own filter steps and returning direct listing links with prices.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/aMBKNgOmKSo-F2tq75X2N",
+    "creator_name": "JeebsTX",
+    "creator_handle": "@JeebsTX",
+    "creator_url": "https://x.com/JeebsTX",
+    "creator_avatar": "/avatars/jeebstx.webp",
+    "source_post": "https://x.com/jeebstx/status/2114566291973689680",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Spark",
+    "emoji": "✨",
+    "description": "Sends you one creative, power-user Grok Bot tip every day, based on an idea people shared on X and adapted to your own bots, with a copy-paste prompt and a small visual mock-up.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Ruw-WHtUO9LrrEhoBbI-x",
+    "creator_name": "iLytzki",
+    "creator_handle": "@iLytzki",
+    "creator_url": "https://x.com/iLytzki",
+    "creator_avatar": "/avatars/ilytzki.webp",
+    "source_post": "https://x.com/iLytzki/status/2114694981638148227",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Workout Demo Builder",
+    "emoji": "🎥",
+    "description": "Builds phone workout apps where each lift keeps a YouTube form demo with a saved start time, so Watch demo jumps straight to the cue. For anyone who wants that pattern without hunting for timestamps every set.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/VXROxGhxgARRuPLwrlixB",
+    "creator_name": "Jenna",
+    "creator_handle": "@JennaLiftsLife",
+    "creator_url": "https://x.com/JennaLiftsLife",
+    "creator_avatar": "/avatars/jennaliftslife.webp",
+    "source_post": "https://x.com/JennaLiftsLife/status/2114707064014680124",
+    "added": "2026-10-26"
   }
 ]

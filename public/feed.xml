@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 10:59:48 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 13:26:41 GMT</lastBuildDate>
+  <item>
+    <title>🎥 Workout Demo Builder by Jenna</title>
+    <link>https://grokbotshelf.com/bot/workout-demo-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/VXROxGhxgARRuPLwrlixB</guid>
+    <description>Builds phone workout apps where each lift keeps a YouTube form demo with a saved start time, so Watch demo jumps straight to the cue. For anyone who wants that pattern without hunting for timestamps every set.</description>
+    <dc:creator>Jenna (@JennaLiftsLife)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>✨ Spark by iLytzki</title>
+    <link>https://grokbotshelf.com/bot/spark</link>
+    <guid isPermaLink="false">https://x.ai/bot/Ruw-WHtUO9LrrEhoBbI-x</guid>
+    <description>Sends you one creative, power-user Grok Bot tip every day, based on an idea people shared on X and adapted to your own bots, with a copy-paste prompt and a small visual mock-up.</description>
+    <dc:creator>iLytzki (@iLytzki)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚗 Tesla Inventory Finder by JeebsTX</title>
+    <link>https://grokbotshelf.com/bot/tesla-inventory-finder</link>
+    <guid isPermaLink="false">https://x.ai/bot/aMBKNgOmKSo-F2tq75X2N</guid>
+    <description>Finds new and Certified Pre-Owned Tesla Model 3, Model Y, and Cybertruck inventory near your ZIP code, walking you through Tesla&apos;s own filter steps and returning direct listing links with prices.</description>
+    <dc:creator>JeebsTX (@JeebsTX)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:04 GMT</pubDate>
+  </item>
   <item>
     <title>🏆 Hackathon Hunter by Ace</title>
     <link>https://grokbotshelf.com/bot/hackathon-hunter</link>
@@ -429,33 +456,6 @@
     <dc:creator>Bella (@drbellahqw)</dc:creator>
     <category>Money</category>
     <pubDate>Sun, 25 Oct 2026 12:06:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌡️ Heat Safety Coach by Bella</title>
-    <link>https://grokbotshelf.com/bot/heat-safety-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/0OIsBURL9NYAwHF9jBdz2</guid>
-    <description>Warns you when the National Weather Service shows real heat nearby, with a short safety plan.</description>
-    <dc:creator>Bella (@drbellahqw)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧙 Wise Old Bot by ManaEngineer</title>
-    <link>https://grokbotshelf.com/bot/wise-old-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/Dolfa9jSFeIgkZcEgq-zw</guid>
-    <description>Sets a new Grok Bot owner up with a small, well-run team of bots, then stays on as a how-to coach.</description>
-    <dc:creator>ManaEngineer (@ManaEngineer)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏋️ Coach Sam by John</title>
-    <link>https://grokbotshelf.com/bot/coach-sam</link>
-    <guid isPermaLink="false">https://x.ai/bot/xD5CDo0JbqHI9Eio_3hn1</guid>
-    <description>A no-nonsense fitness and nutrition coach that checks your real training and food data first.</description>
-    <dc:creator>John (@JohnKlacynski)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:14 GMT</pubDate>
   </item>
 </channel>
 </rss>
