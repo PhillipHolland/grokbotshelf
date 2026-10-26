@@ -2,7 +2,7 @@
   "use strict";
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
-  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob");
+  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob"), resetEl = $("#reset");
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
@@ -16,6 +16,8 @@
   const GROUP_CAP = { featured: 3, creator: 12 }, GROUP_SLACK = { featured: 1, creator: 3 };
   let capNow = Infinity;
   const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob);
+  // Reset shows only when search, a filter or the sort differs from the default home view
+  const changed = () => !!(st.q.trim() || filtering() || st.sort !== "featured");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -370,7 +372,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
-    $("#clear").hidden = !(st.q || filtering() || st.sort !== "featured");
+    resetEl.classList.toggle("on", changed());
     if (tail.length) tailT = setTimeout(pumpTail, 0);
     else { results.removeAttribute("aria-busy"); renderRail(grouped); }
     active = -1;
@@ -410,8 +412,13 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
+  // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
   const clearAll = () => { st = blank(); syncInputs(); render(); writeURL(true); };
-  $("#clear").addEventListener("click", clearAll);
+  resetEl.addEventListener("click", () => {
+    clearAll();
+    // The button hides itself; keep focus nearby (on phones the count, so the keyboard does not pop up)
+    if (MOBILE) $("#count").focus({ preventScroll: true }); else q.focus({ preventScroll: true });
+  });
   $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
   window.addEventListener("popstate", () => { st = readURL(); syncInputs(); render(); });
 
@@ -667,6 +674,14 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
     else { show(); loadVotes(); }
   }).catch(() => { results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
+})();
+
+// Feedback: a post on X tagging FEEDBACK_X, and a GitHub issue for bugs (both set in config.js)
+(function () {
+  var h = String(window.FEEDBACK_X || "").replace(/^@/, "").trim(), issues = String(window.FEEDBACK_ISSUES || "");
+  var x = "https://x.com/intent/post" + (h ? "?text=" + encodeURIComponent("@" + h + " Feedback on Grok Bot Shelf: ") : "");
+  document.querySelectorAll("#fb-x, .fb-x").forEach(function (a) { a.href = x; });
+  if (/^https:\/\//.test(issues)) document.querySelectorAll(".fb-issue").forEach(function (a) { a.href = issues; });
 })();
 
 // Post on X: native app on mobile, web composer fallback / desktop.

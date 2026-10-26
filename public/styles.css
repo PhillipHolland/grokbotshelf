@@ -75,8 +75,15 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 @media (min-width:700px){.selwrap{flex:0 1 260px}}
 .status{display:flex;align-items:center;gap:12px;min-height:36px;margin:8px 0 4px}
 .count{margin:0;font-size:13px;color:var(--text2);font-variant-numeric:tabular-nums}
-.clear{border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 10px;border-radius:9999px;cursor:pointer}
-.clear:hover{background:var(--mark)}
+/* Reset keeps its space while hidden (visibility, not display) so showing it never moves anything */
+.reset{visibility:hidden;min-height:36px;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
+.reset.on{visibility:visible}
+.reset:hover{background:var(--mark)}
+html[data-theme="light"] .reset{color:var(--btn-blue)}
+.count:focus{outline:none}
+.fb-link{margin-left:auto;padding:6px 4px;font-size:13px;color:var(--text2);text-decoration:none;border-radius:6px}
+.fb-link:hover{color:var(--blue);text-decoration:underline}
+@media (max-width:699px){.status{min-height:44px;gap:4px}.reset{min-height:44px;min-width:44px}.fb-link{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}}
 
 /* Groups and cards */
 .group{margin:16px 0 36px}
