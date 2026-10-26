@@ -257,6 +257,11 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .sub-form .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .sub-msg{margin:0;font-size:14px;color:var(--text2)}
 .sub-msg.ok{color:#00ba7c}.sub-msg.err{color:#f4212e}
+/* "Already on the shelf" line under the template link: its height is reserved so nothing below moves when it fills */
+.sub-form .sub-dupe{margin:-4px 0 0;height:20px;font-size:14px;line-height:20px;color:var(--text2);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sub-form .sub-dupe a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.sub-form .sub-dupe.hit{color:var(--text)}
+@media (max-width:699px){.sub-form .sub-dupe{height:40px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
 .or{margin:4px 0 12px!important;font-size:13px}
 
 /* Per-bot page */

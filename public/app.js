@@ -1,3 +1,5 @@
+// The add-your-bot checks (end of this file) read the same shelf-data.json the home view loads; no extra request
+let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
 (() => {
   "use strict";
   const $ = (s) => document.querySelector(s);
@@ -677,6 +679,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const am = new Map();
     for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
     apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+    shelfDone(bots);
     st = readURL(); syncInputs();
     const show = () => {
       if (shelfReady) return;
@@ -688,7 +691,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
     if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
     else { show(); loadVotes(); }
-  }).catch(() => { results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
+  }).catch(() => { shelfDone(null); results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
 
 // Feedback: a post on X tagging the FEEDBACK_X handles, and a GitHub issue for bugs (both set in config.js)
@@ -720,6 +723,47 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     });
     window.location.href = "twitter://post?message=" + T;
   });
+})();
+
+// Add your bot: "already on the shelf" check, matched by x.ai template id against shelf-data.json (no API calls)
+const addCheck = (() => {
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  // Template key: "bot:<id>" for x.ai/bot/<id> (ids are case-sensitive), "mkt:<slug>" for x.ai/marketplace/bots/<slug>.
+  // Scheme optional; query, hash, trailing slash and www are ignored and the host is compared lowercase.
+  const tkey = (u) => {
+    u = String(u || "").trim(); if (!u) return "";
+    if (!/^https?:\/\//i.test(u)) u = "https://" + u;
+    let x; try { x = new URL(u); } catch { return ""; }
+    if (x.hostname.toLowerCase().replace(/^www\./, "") !== "x.ai") return "";
+    const path = x.pathname.replace(/\/+$/, "");
+    let m = path.match(/^\/bot\/([A-Za-z0-9_-]{6,64})$/); if (m) return "bot:" + m[1];
+    m = path.match(/^\/marketplace\/bots\/([a-z0-9-]{2,80})$/i); return m ? "mkt:" + m[1].toLowerCase() : "";
+  };
+  const urlish = (v) => /^(https?:\/\/|www\.|x\.ai\b)/i.test(v.trim());
+  const nkey = (s) => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
+  let byT = null, byN = null;
+  const ready = shelfData.then((bots) => {
+    byT = new Map(); byN = new Map();
+    for (const b of bots || []) { const k = tkey(b.url); if (k && !byT.has(k)) byT.set(k, b); const n = nkey(b.name); if (n && !byN.has(n)) byN.set(n, b); }
+  });
+  const link = (b) => `<a href="${esc(b._page)}">${esc(b.name)}</a>`;
+
+  const f = document.getElementById("sub-form"), out = document.getElementById("sub-dupe");
+  if (f && out) {
+    let t = 0, last = null;
+    const check = () => {
+      const v = f.bot_url.value, k = urlish(v) ? tkey(v) : "", n = !urlish(v) ? nkey(v) : "";
+      const hit = k && byT && byT.get(k), hint = !hit && n && byN && byN.get(n);
+      const html = hit ? `Already on the shelf: ${link(hit)}` : hint ? `A bot named ${link(hint)} is already on the shelf.` : "";
+      if (html === last) return; last = html;
+      out.innerHTML = html; out.className = "sub-dupe" + (hit ? " hit" : hint ? " hint" : "");
+    };
+    const soon = () => { clearTimeout(t); t = setTimeout(check, 120); };
+    f.bot_url.addEventListener("input", soon);
+    f.addEventListener("reset", () => setTimeout(check, 0));
+    ready.then(check);
+  }
+  return { tkey, ready, get: (k) => byT && byT.get(k), link, esc };
 })();
 
 // Suggest a bot: POST /api/submit. Shelf Inbox (or Phil/Nick) reviews for NSFW and security issues. Clean bots may be added without a second human click.
