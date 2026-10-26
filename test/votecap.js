@@ -6,8 +6,8 @@ const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const MSG = {
-  cap_network: "This bot already has the most votes we allow from one network (3). On shared Wi-Fi, that's why.",
-  cap_daily: "You've reached today's vote limit. Try again tomorrow.",
+  cap_network: "Vote limit reached for your network.",
+  cap_daily: "Daily vote limit reached.",
 };
 (async () => {
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });

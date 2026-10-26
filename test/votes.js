@@ -41,7 +41,7 @@ const count = async (slug) => +(await rows("SELECT COUNT(*)::int AS n FROM votes
     && votes.clientIp({ headers: { "x-real-ip": "198.51.100.2", "x-forwarded-for": "6.6.6.6" } }) === "198.51.100.2", "client IP prefers x-vercel-forwarded-for, then x-real-ip, then x-forwarded-for");
 
   // One vote per device, with a backstop of 3 distinct voters per bot per network (browser and X-Bot-Voter together)
-  const NET_MSG = "This bot already has the most votes we allow from one network (3). On shared Wi-Fi, that's why.";
+  const NET_MSG = "Vote limit reached for your network.";
   ok(votes.CAP_MESSAGES.cap_network === NET_MSG && !("cap_bot_voter" in votes.CAP_MESSAGES), "cap_network has the new copy and there is no cap_bot_voter");
   const v = [uuid(), uuid(), uuid(), uuid(), uuid()];
   let r = await post({ slug: A, value: 1 }, { vid: v[0] });
@@ -105,7 +105,7 @@ const count = async (slug) => +(await rows("SELECT COUNT(*)::int AS n FROM votes
     SELECT 'bot-x-' || g, 'seed-' || g, 1, $1, now() - make_interval(hours => 23) + make_interval(secs => g) FROM generate_series(1, 100) g`, [dh]);
   r = await post({ slug: B, value: 1 }, { ip: dip, vid: uuid() });
   const ra = +r.headers["retry-after"];
-  ok(r.status === 429 && r.body.code === "cap_daily" && r.body.error === "You've reached today's vote limit. Try again tomorrow." && ra > 3500 && ra <= 3700 && r.body.retry_after === ra,
+  ok(r.status === 429 && r.body.code === "cap_daily" && r.body.error === "Daily vote limit reached." && ra > 3500 && ra <= 3700 && r.body.retry_after === ra,
     `101st new vote in a day: 429 cap_daily, Retry-After ${ra}s (when the oldest of the 100 turns a day old)`);
   await db.query("UPDATE votes SET updated_at = now() - interval '25 hours' WHERE voter_key LIKE 'seed-%'");
   r = await post({ slug: B, value: 1 }, { ip: dip, vid: uuid() });

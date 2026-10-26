@@ -35,8 +35,8 @@ const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per
 const CAPS = { perBot: 3, perDay: 100 };
 const DAY = 86400;
 const CAP_MESSAGES = {
-  cap_network: "This bot already has the most votes we allow from one network (3). On shared Wi-Fi, that's why.",
-  cap_daily: "You've reached today's vote limit. Try again tomorrow.",
+  cap_network: "Vote limit reached for your network.",
+  cap_daily: "Daily vote limit reached.",
 };
 const BOT_HEADER = "x-bot-voter";
 
