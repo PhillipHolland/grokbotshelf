@@ -102,7 +102,10 @@ html[data-theme="light"] .reset{color:var(--btn-blue)}
 .ghead .plink.done svg{display:none}.ghead .plink.done .ok{display:inline}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .flat{margin-top:16px;margin-bottom:36px}
-.card{display:flex;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--bg);outline:none;transition:background .2s;content-visibility:auto;contain-intrinsic-size:auto 200px}
+.card{display:flex;flex-direction:column;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--bg);outline:none;transition:background .2s;content-visibility:auto;contain-intrinsic-size:auto 260px}
+/* Placeholder height for cards not rendered yet: close to a real card (median ~258px wide, ~260-280px on phones) so cards
+   that render for the first time after "Show more" or a jump don't push the content below them down */
+@media (max-width:500px){.card{contain-intrinsic-size:auto 280px}}
 .card:hover{background:var(--hover)}
 .card.active,.card:focus-visible{box-shadow:0 0 0 2px var(--blue)}
 .card.flash{animation:flash 1.6s ease-out}
