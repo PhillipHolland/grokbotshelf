@@ -322,9 +322,25 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   // Typing re-renders at most every 100ms; anything that reads the cards right away calls flush() first
   let renderT = 0;
   const renderSoon = () => { clearTimeout(renderT); renderT = setTimeout(render, 100); };
-  const flush = () => { if (renderT) render(); };
+  const flush = () => { if (renderT) render(); finishTail(); };
+  // First load only: the strip and the first few creator groups go in right away, the other groups follow in
+  // small tasks so no single task holds a phone's main thread for long. Anything that needs every card
+  // (keyboard moves, #hash jumps, "Add your bot") calls finishTail() first; any later render() is all at once.
+  const FIRST_GROUPS = 3, TAIL_GROUPS = 4;
+  let tail = [], tailT = 0, chunkNext = false;
+  function pumpTail() {
+    results.insertAdjacentHTML("beforeend", tail.splice(0, TAIL_GROUPS).join(""));
+    if (tail.length) tailT = setTimeout(pumpTail, 0); else tailDone();
+  }
+  function finishTail() {
+    if (!tail.length) return;
+    clearTimeout(tailT); results.insertAdjacentHTML("beforeend", tail.join("")); tail = []; tailDone();
+  }
+  function tailDone() { tailT = 0; results.removeAttribute("aria-busy"); renderRail(true); if (vote.global) paintAll(); }
   function render() {
     clearTimeout(renderT); renderT = 0;
+    clearTimeout(tailT); tailT = 0; tail = [];
+    const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
@@ -339,22 +355,24 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() + topHTML() : "";
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
-      results.innerHTML = strip + creators.map((c) => {
+      const parts = creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
         return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">
 <h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span>${c.url && c.handle ? ` <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a>` : ""}<span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button></div>
 <div class="grid">${shown.map(([b, m]) => card(b, m)).join("")}</div>${shown.length < g.length ? `<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}">Show ${g.length - shown.length} more</button>` : ""}</section>`;
-      }).join("");
+      }).filter(Boolean);
+      if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
+      results.innerHTML = strip + parts.join("");
     } else {
       results.innerHTML = list.length ? `<div class="grid flat">${list.map(([b, m]) => card(b, m)).join("")}</div>` : "";
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
     $("#clear").hidden = !(st.q || filtering() || st.sort !== "featured");
-    results.removeAttribute("aria-busy");
-    renderRail(grouped);
+    if (tail.length) tailT = setTimeout(pumpTail, 0);
+    else { results.removeAttribute("aria-busy"); renderRail(grouped); }
     active = -1;
     setTitle();
     renderFilters();
@@ -448,7 +466,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   });
 
   // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
-  const cardsNow = () => [...results.querySelectorAll(".card")];
+  const cardsNow = () => { finishTail(); return [...results.querySelectorAll(".card")]; };
   function focusCard(i) {
     const cs = cardsNow(); if (!cs.length) return;
     active = Math.max(0, Math.min(cs.length - 1, i));
@@ -509,7 +527,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   let jumpT;
   function scrollToAdd() {
     const add = document.getElementById("add"), root = document.documentElement;
-    clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
+    finishTail(); clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
     add.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     jumpT = setTimeout(() => root.classList.remove("jumping"), 1500);
   }
@@ -522,6 +540,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   // Deep links: #add jumps to the form; #bot-slug scrolls to and highlights a card
   function openHash() {
     if (location.hash === "#add") return scrollToAdd();
+    finishTail();
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
     let el = document.getElementById(id);
     const hb = bots.find((b) => b._slug === id);
@@ -639,7 +658,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     st = readURL(); syncInputs();
     const show = () => {
       if (shelfReady) return;
-      shelfReady = true; render();
+      shelfReady = true; chunkNext = true; render();
       const pc = pathCreator();
       if (pc && !creators.some((c) => c.key === pc)) showNotFound(pc); else writeURL(false);
       if (location.hash) requestAnimationFrame(openHash);
