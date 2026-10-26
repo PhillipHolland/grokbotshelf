@@ -2,6 +2,8 @@
 // deep links to a card hidden by the cap, the single shelf-data.json request, and the 48px avatars.
 // Usage: NODE_PATH=/path/to/node_modules node test/more.js [base-url]
 const puppeteer = require('puppeteer-core');
+// Clicks and menu changes paint the control first and re-render the cards one frame later: wait for that render
+const painted = (p) => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))));
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 // Same group key as app.js: handle, or ~name-slug for creators with no X handle
@@ -36,12 +38,12 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   await p.keyboard.press('Escape');
   ok((await inGroup(K)).length === CAP && await btn(K), 'Esc goes back to the capped home view');
   // a filter shows every match too
-  await p.select('#creators', K);
+  await p.select('#creators', K); await painted(p);
   ok((await p.$$('#results .card')).length === by(K).length && !(await p.$('[data-more]')), `creator filter ${K} shows all ${by(K).length}`);
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   // Show more: the rest of the group appears, the URL keeps it, focus lands on the first new card, arrows keep working
   const btnY = await p.$eval(`[data-more="${K}"]`, e => { e.scrollIntoView({ block: 'center' }); return 1; });
-  await settle(300); await p.click(`[data-more="${K}"]`);
+  await settle(300); await p.click(`[data-more="${K}"]`); await painted(p);
   const ids = await p.$$eval(`[aria-labelledby="g-${K}"] .card`, c => c.map(x => x.id));
   ok(btnY && ids.length === by(K).length && !(await btn(K)), `Show more reveals all ${by(K).length} of ${K}'s bots (${ids.length})`);
   ok(new URL(p.url()).searchParams.get('more') === K, 'URL keeps it: ' + p.url());
