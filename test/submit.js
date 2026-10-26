@@ -15,7 +15,10 @@ const KEY = 'shelf_suggested';
   for (const vp of [{ width: 1280, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
     const W = vp.width + 'px: ';
     const p = await b.newPage(); await p.setViewport(vp);
-    const errs = [], api = [];
+    const errs = [], api = []; let slow = false;
+    // Record layout shifts; shifts within 500ms of input (hadRecentInput) do not count toward CLS
+    await p.evaluateOnNewDocument(() => { window.__ls = []; new PerformanceObserver(l => { for (const e of l.getEntries()) window.__ls.push({ v: e.value, input: e.hadRecentInput, form: e.sources.some(s => s.node && s.node.closest && s.node.closest('#sub-form')) }); }).observe({ type: 'layout-shift', buffered: true }); });
+    const shifts = () => p.evaluate(() => window.__ls.filter(e => !e.input));
     p.on('pageerror', e => errs.push(e.message));
     await p.setRequestInterception(true);
     p.on('request', r => {
@@ -29,6 +32,7 @@ const KEY = 'shelf_suggested';
           ? { ok: true, status: 'already_listed', bot: { name: listed.name, page: 'https://grokbotshelf.com' + page, url: listed.url }, message: listed.name + ' is already on the shelf.' }
           : { ok: true, status: 'queued', message: 'Thanks! It is in the review queue.' }) });
       }
+      if (slow && u.includes('shelf-data.json')) return setTimeout(() => r.continue(), 1500);
       if (u.includes('/api/')) return r.respond({ status: 200, contentType: 'application/json', body: '{}' });
       r.continue();
     });
@@ -41,30 +45,32 @@ const KEY = 'shelf_suggested';
     const set = async (v) => { await p.$eval('#sub-bot', e => { e.value = ''; }); await p.type('#sub-bot', v); await wait(300); };
     ok(await p.$eval('#sub-dupe', e => e.getAttribute('aria-live') === 'polite' && document.getElementById('sub-bot').getAttribute('aria-describedby') === 'sub-dupe'), W + 'the shelf check is a polite live region tied to the template field');
     const y0 = await below(), h0 = await p.$eval('#sub-dupe', e => e.offsetHeight);
-    ok(h0 >= 20, W + `space for the shelf check is reserved before anything is typed (${h0}px)`);
+    const gap = await p.evaluate(() => Math.round(document.querySelector('label[for=sub-post]').getBoundingClientRect().top - document.getElementById('sub-bot').getBoundingClientRect().bottom));
+    ok(h0 === 0 && gap === 10, W + `the empty message takes no space (${h0}px high, ${gap}px to the next label, the normal form gap)`);
+    ok(!(await p.evaluate(() => window.__ls.some(e => !e.input && e.form))), W + 'nothing in the form shifts on page load');
 
     for (const v of [listed.url, `HTTPS://WWW.X.AI/bot/${id}/?ref=share#top`, `x.ai/bot/${id}`, `www.x.ai/bot/${id}/`]) {
       await set(v); const d = await dupe();
       ok(d.cls.includes('dupe-hit') && d.h >= 20 && d.text.startsWith('Already on the shelf') && d.href === page, W + `template id match for ${v}: "${d.text}" -> ${d.href}`);
     }
-    ok(await below() === y0, W + 'nothing below moves when the match shows (no layout jump)');
+    ok(!(await shifts()).some(e => e.form), W + 'the match only moves things right after typing (excluded from CLS)');
     ok(!(await dupe()).check, W + 'no green check while the link is on the shelf');
     await set('https://x.ai/bot/' + id.toLowerCase()); let d = await dupe();
     ok(!d.cls.includes('dupe-hit') && !d.shown, W + 'template ids are case-sensitive: a lowercased id is not a match');
     await set(NEW); d = await dupe();
     ok(d.cls.includes('dupe-new') && d.check && !d.shown && d.sr === 'Not on the shelf yet', W + 'valid new template link: green check only, labelled "Not on the shelf yet" for screen readers');
     ok(await p.evaluate(() => { const i = document.getElementById('sub-bot').getBoundingClientRect(), c = document.getElementById('sub-ok').getBoundingClientRect(); return c.left > i.left && c.right <= i.right && c.top >= i.top && c.bottom <= i.bottom; }), W + 'the check sits inside the field');
-    ok(await below() === y0, W + 'nothing below moves when the check shows');
+    ok((await dupe()).h === 0 && await below() === y0, W + 'the check sits in the field and takes no space below it');
     for (const v of ['x.ai/bo', 'https://x.ai/bot/', 'https://x.ai/bot/abc', 'x.ai/bot/' + 'a'.repeat(70), 'https://example.com/bot/' + id, 'https://x.ai/other/' + id, 'not a link']) {
       await set(v); d = await dupe();
       ok(!d.text && !d.check, W + `invalid or partial input shows nothing: ${v.slice(0, 40)}`);
     }
     await set('  ' + listed.name.toUpperCase().replace(/ /g, '   ') + '  '); d = await dupe();
     ok(d.cls.includes('dupe-hint') && d.h >= 20 && d.text === `A bot named ${listed.name} is already on the shelf.` && d.href === page, W + `name hint (trimmed, any case, spaces collapsed): "${d.text}"`);
-    ok(await below() === y0, W + 'nothing below moves when the name hint shows');
+    ok(!(await shifts()).some(e => e.form), W + 'the name hint only moves things right after typing');
     await set(listed.name + ' Pro Max'); d = await dupe();
     ok(!d.text, W + 'a different name gives no hint');
-    ok(await below() === y0, W + 'still no layout jump after hint and clear');
+    ok((await dupe()).h === 0 && await below() === y0, W + 'the space closes again when there is no message');
 
     // A match never blocks sending
     await set(listed.url); await p.click('#sub-go'); await wait(400);
@@ -78,10 +84,13 @@ const KEY = 'shelf_suggested';
     for (const v of [NEW, 'WWW.x.ai/bot/NotListedYet42/?from=x']) {
       await set(v); d = await dupe();
       ok(d.cls.includes('dupe-sent') && d.text === SENT && !d.check, W + `suggested before: ${v}`);
-      ok(d.h >= await p.$eval('#sub-dupe', e => e.scrollHeight), W + 'the suggested-before message fits the reserved space');
+      ok(d.h >= await p.$eval('#sub-dupe', e => e.scrollHeight), W + 'the suggested-before message is fully visible');
     }
-    ok(await below() === y0, W + 'nothing below moves for the suggested-before message');
-    await p.reload({ waitUntil: 'networkidle0' }); await set(NEW + '/');
+    ok(!(await shifts()).some(e => e.form), W + 'the suggested-before message only moves things right after typing');
+    await p.reload({ waitUntil: 'networkidle0' }); await wait(500);
+    d = await dupe();
+    ok(!d.text && d.h === 0 && !(await shifts()).some(e => e.form), W + 'with a saved suggestion, nothing shows or shifts on load; messages appear only after input');
+    await set(NEW + '/');
     ok((await dupe()).cls.includes('dupe-sent'), W + 'suggested-before still shows on a return visit');
     await set(listed.url); d = await dupe();
     ok(d.cls.includes('dupe-hit'), W + 'on the shelf wins over suggested-before');
@@ -93,6 +102,13 @@ const KEY = 'shelf_suggested';
     await set(NEW); d = await dupe();
     ok(d.cls.includes('dupe-new') && d.check, W + 'with nothing saved, the same link shows the green check again');
     ok(await p.$('#sub-check') === null && await p.$('#chk-url') === null, W + 'no separate status panel or paste box');
+
+    // Shelf data arriving after the person typed: the message shows then (the one case without recent input)
+    slow = true; await p.goto(BASE + '?late=1#add', { waitUntil: 'domcontentloaded' }); await p.waitForSelector('#sub-bot');
+    await p.type('#sub-bot', listed.url); await wait(300);
+    ok(!(await dupe()).text, W + 'no message before the shelf data has loaded');
+    await wait(2500); slow = false; d = await dupe();
+    ok(d.cls.includes('dupe-hit'), W + 'a late shelf load still checks a link that was already typed');
 
     ok(!api.some(a => a.startsWith('GET')), W + 'no GET to /api/submit (the pending list is never read): ' + JSON.stringify(api));
     ok(!errs.length, W + 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
