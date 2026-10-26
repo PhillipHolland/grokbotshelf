@@ -44,3 +44,46 @@
     }
   });
 })();
+// Up/down vote on the bot page: same /api/votes, same gbs_vid cookie and gbs_votes localStorage as the homepage cards.
+(function () {
+  var el = document.querySelector(".bp-vote[data-vote]");
+  if (!el) return;
+  var slug = el.getAttribute("data-vote"), KEY = "gbs_votes", mine = {}, s = { up: 0, down: 0, score: 0 }, global = false, busy = false;
+  try { mine = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
+  var save = function () { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
+  function paint() {
+    var v = mine[slug] || 0;
+    el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
+    el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
+    el.querySelector(".vn").textContent = global ? String(s.score) : "";
+    el.title = !global ? "Your vote is saved in this browser" : s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet. Be the first";
+  }
+  paint();
+  var hasMine = Object.keys(mine).length > 0;
+  fetch("/api/votes?slug=" + encodeURIComponent(slug) + (hasMine ? "&mine=1" : ""), { credentials: "same-origin" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.global) return;
+      global = true; s = (d.scores && d.scores[slug]) || s;
+      if (d.mine) { mine = d.mine; save(); }
+      paint();
+    }).catch(function () {});
+  el.addEventListener("click", function (e) {
+    var b = e.target.closest(".vb"); if (!b || busy) return;
+    var dir = Number(b.getAttribute("data-v")), from = mine[slug] || 0, to = from === dir ? 0 : dir, prev = { up: s.up, down: s.down, score: s.score };
+    if (to) mine[slug] = to; else delete mine[slug];
+    s = { up: s.up - (from === 1) + (to === 1), down: s.down - (from === -1) + (to === -1) }; s.score = s.up - s.down;
+    save(); paint();
+    if (!global) return;
+    busy = true;
+    var undo = function () { if (from) mine[slug] = from; else delete mine[slug]; s = prev; save(); paint(); };
+    fetch("/api/votes", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ slug: slug, value: to }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { r: r, d: d }; }); })
+      .then(function (x) {
+        if (x.r.ok && x.d.global) { s = { up: x.d.up, down: x.d.down, score: x.d.score }; paint(); }
+        else if (x.r.status === 503) { global = false; paint(); }
+        else { undo(); el.title = x.r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again"; }
+      }, undo)
+      .then(function () { busy = false; });
+  });
+})();

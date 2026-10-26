@@ -174,6 +174,9 @@ const BADGE = { light: `${SITE}/badge.svg`, dark: `${SITE}/badge-dark.svg` };
 const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
 const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
 
+// Up/down vote pill on bot pages. public/bot-page.js loads the tally and posts to /api/votes (same cookie as the homepage).
+const SVG = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" title="Vote on this bot"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn" aria-live="polite"></span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
 function page(b, related, similar) {
   const title = `${b.emoji} ${b.name} by ${b.creator_name} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
@@ -198,6 +201,7 @@ ${HEADER}
     <div class="bp-actions">
       <a class="get" href="${esc(b.url)}" rel="noopener" target="_blank">Get this bot</a>
       ${b.app ? `<a class="app" href="${esc(b.app)}" data-web="${esc(b.url)}" title="Opens the Grok Bot app if it is installed">Add to Bot app</a>` : ""}
+      ${VOTE(b)}
     </div>
     <p class="bp-links">
       <a href="https://twitter.com/intent/tweet?text=${shareT}" rel="noopener" target="_blank">Share on X</a>

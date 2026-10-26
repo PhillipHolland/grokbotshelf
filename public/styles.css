@@ -166,6 +166,25 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .bsub a.all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media (max-width:640px){.builders{padding:14px 12px 16px;border-radius:14px}.bhead h2{font-size:19px}}
 
+/* Top voted strip: sits under the builders panel, outlined (no tint) and a step smaller so builders stay primary */
+.topvotes{margin:0 0 36px;padding:14px 16px 16px;border:1px solid var(--line);border-radius:16px}
+.builders+.topvotes{margin-top:-20px}
+.thead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:0 0 10px}
+.thead h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.thead .tall{font-size:14px;font-weight:600;color:var(--blue);text-decoration:none}
+.thead .tall:hover{text-decoration:underline}
+.tlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 10px}
+.tlist a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;color:var(--text);text-decoration:none;min-width:0}
+.tlist a:hover{background:var(--hover)}
+.tlist .rk{flex:none;width:18px;font-size:13px;font-weight:800;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
+.tlist .em{flex:none;font-size:20px;line-height:1}
+.tlist .nm{flex:1;min-width:0;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tlist .nm small{display:block;font-size:12px;font-weight:500;color:var(--text2);overflow:hidden;text-overflow:ellipsis}
+.tlist .sc{flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px 9px 3px 6px;border-radius:999px;font-size:13px;font-weight:800;color:var(--blue);background:var(--mark);font-variant-numeric:tabular-nums}
+.tlist .sc svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:900px){.tlist{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.tlist{grid-template-columns:1fr}.topvotes{padding:12px 10px 12px;border-radius:14px}}
+
 /* Up / down votes: quiet arrows and a net score */
 .foot-row{flex-wrap:wrap;row-gap:6px}
 .vote{display:inline-flex;align-items:center;margin-right:2px}
@@ -245,6 +264,11 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .bp .badges{margin:0 0 16px}
 .bp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .bp-actions .get,.bp-actions .app{height:40px;padding:0 18px;font-size:15px}
+/* Bot page vote: outlined pill next to the get buttons, same arrows and colors as the cards */
+.bp-actions .bp-vote{display:inline-flex;align-items:center;height:40px;padding:0 3px;margin:0;border:1px solid var(--line2);border-radius:9999px}
+.bp-vote .vb{width:34px;height:34px}
+.bp-vote .vn{min-width:22px;font-size:15px;font-weight:700;color:var(--text)}
+html.mobile .bp-actions .bp-vote{align-self:flex-start}
 html.mobile .bp-actions{flex-direction:column}
 html.mobile .bp-actions .app{order:-1;justify-content:center}
 html.mobile .bp-actions .get{justify-content:center;background:transparent;color:var(--text);border:1px solid var(--line2)}

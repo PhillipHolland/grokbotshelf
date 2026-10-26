@@ -6,7 +6,61 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 00:06:40 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 00:45:59 GMT</lastBuildDate>
+  <item>
+    <title>🖌️ Design by lu by lu</title>
+    <link>https://grokbotshelf.com/bot/design-by-lu</link>
+    <guid isPermaLink="false">https://x.ai/bot/dF-3_YZzohRdycguTTUwA</guid>
+    <description>Background design specialist for UI, CSS and animation, three.js scenes, charts, icons, mockups, and images. Makes the asset, checks it visually, and explains the choice in one line.</description>
+    <dc:creator>lu ()</dc:creator>
+    <category>Design</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏚️ Shed Sales Pipeline by FringeSignalX</title>
+    <link>https://grokbotshelf.com/bot/shed-sales-pipeline</link>
+    <guid isPermaLink="false">https://x.ai/bot/eyndClYUFQtXaooxdgiRD</guid>
+    <description>Prospecting and lead follow-up for local dealers of sheds and portable buildings: finds prospects on the public web and drafts first messages, check-ins, and call scripts for your approval.</description>
+    <dc:creator>FringeSignalX (@FringeSignalX)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Tubewright by Calix</title>
+    <link>https://grokbotshelf.com/bot/tubewright</link>
+    <guid isPermaLink="false">https://x.ai/bot/DuELeZImu7B6FXzIs2bMt</guid>
+    <description>Turns a finished video&apos;s transcript into a draft upload kit: titles in your voice, an SEO description, real-timestamp chapters, thumbnail concepts, a pinned comment, and an X clip thread.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎒 Parent Radar by Calix</title>
+    <link>https://grokbotshelf.com/bot/parent-radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/MUOdwr9N1byHBBoPC7k4y</guid>
+    <description>Watches your kid&apos;s school email, class apps, and grades. Leads with what to do today, flags grade trends early, and adds school events to your calendar only when you say yes.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌳 Family History by Raina Hornaday</title>
+    <link>https://grokbotshelf.com/bot/family-history</link>
+    <guid isPermaLink="false">https://x.ai/bot/4aeQ6EcPhLvJX5eq6nD06</guid>
+    <description>A warm genealogy researcher that builds your family tree from public records, cites every fact, and turns stories into tree posters and old-time newspapers.</description>
+    <dc:creator>Raina Hornaday ()</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>📰 Household Herald by Raina Hornaday</title>
+    <link>https://grokbotshelf.com/bot/household-herald</link>
+    <guid isPermaLink="false">https://x.ai/bot/09zmjtbww3viDLKyrtOz5</guid>
+    <description>Reads your email and calendar so school forms, family plans, and bills don&apos;t slip — weekday digests and a printable kitchen newspaper, draft-only.</description>
+    <dc:creator>Raina Hornaday ()</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:34 GMT</pubDate>
+  </item>
   <item>
     <title>🔥 IT Resume Roaster by nahjuin</title>
     <link>https://grokbotshelf.com/bot/it-resume-roaster</link>
@@ -402,60 +456,6 @@
     <dc:creator>Carolina (@CarolinaDill)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Sun, 25 Oct 2026 12:05:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐷 FamilyBank by Carolina</title>
-    <link>https://grokbotshelf.com/bot/familybank</link>
-    <guid isPermaLink="false">https://x.ai/bot/DKZKpx6r0GTrfLUUxqkWx</guid>
-    <description>A pretend family bank that tracks each person&apos;s money in a private ledger, pays compound interest at your rate, and makes friendly statements.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>🇨🇴 SpanishReviewer by Carolina</title>
-    <link>https://grokbotshelf.com/bot/spanishreviewer</link>
-    <guid isPermaLink="false">https://x.ai/bot/wFJC3guVIn2Ke-OV9_Yuy</guid>
-    <description>Reviews Spanish copy for natural Colombian Spanish and returns Pass or Fail with paste-ready fixes.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧽 CleanText by Carolina</title>
-    <link>https://grokbotshelf.com/bot/cleantext</link>
-    <guid isPermaLink="false">https://x.ai/bot/Bz7NPA38GwTUNZNuy6Fgb</guid>
-    <description>Finds hidden invisible characters (zero-width spaces, tag characters, direction marks, odd spaces) in pasted text, screenshots or files.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏷️ DealScout by Carolina</title>
-    <link>https://grokbotshelf.com/bot/dealscout</link>
-    <guid isPermaLink="false">https://x.ai/bot/cYyDDpxpj7v6Yz9fct4Pk</guid>
-    <description>Finds the best-reviewed products at good prices, compares options across stores, and can watch for price drops.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 FounderSales by Carolina</title>
-    <link>https://grokbotshelf.com/bot/foundersales</link>
-    <guid isPermaLink="false">https://x.ai/bot/NWZOp_PkJhy87qGDCzGKi</guid>
-    <description>A founder-led sales helper that researches prospects, drafts outreach for you to approve, and keeps follow-ups from slipping.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥗 Meal Planner (Tobi) by Tobi</title>
-    <link>https://grokbotshelf.com/bot/meal-planner-tobi</link>
-    <guid isPermaLink="false">https://x.ai/bot/eR7mprRgakZkbxZyC2rz_</guid>
-    <description>Plans your week&apos;s meals around what your household likes, what&apos;s on sale nearby and what&apos;s in the fridge, with one shopping list.</description>
-    <dc:creator>Tobi (@webgebraeu)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:44 GMT</pubDate>
   </item>
 </channel>
 </rss>

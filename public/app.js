@@ -220,6 +220,23 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
 <div class="grid">${picks.map((b) => card(b, null, "f-")).join("")}</div></section>`;
   }
 
+  /* ---------- Top voted strip (home Featured view, right under the builders panel) ---------- */
+  // Lighter than the builders panel on purpose: no tint, smaller heading. Fills in once tallies load.
+  const TOP_N = 6;
+  function topInner() {
+    if (!vote.global) return "";
+    const top = bots.map((b) => [b, vote.scores[b._slug]]).filter(([, s]) => s && s.score > 0)
+      .sort((a, b) => b[1].score - a[1].score || b[1].up - a[1].up || a[0].name.localeCompare(b[0].name)).slice(0, TOP_N);
+    if (!top.length) return "";
+    return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
+<ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}" title="${s.up} up, ${s.down} down"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc">${I.up}${s.score}<span class="sr"> net votes</span></span></a></li>`).join("")}</ol>`;
+  }
+  const topHTML = () => { const inner = topInner(); return `<section class="topvotes" aria-labelledby="topv-h"${inner ? "" : " hidden"}>${inner}</section>`; };
+  function paintTop() {
+    const el = results.querySelector(".topvotes"); if (!el) return;
+    const inner = topInner(); el.innerHTML = inner; el.hidden = !inner;
+  }
+
   /* ---------- Up / down votes ---------- */
   // Server (Neon via /api/votes) is the source of truth for tallies. localStorage remembers which way
   // you voted so arrows paint instantly. With no database configured, votes stay in this browser only.
@@ -281,7 +298,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
         if (d.mine) { vote.mine = d.mine; saveMine(); }
       }
       if (!shelfReady) return;
-      if (st.sort === "votes") render(); else if (d && d.global) paintAll();
+      if (st.sort === "votes") render(); else if (d && d.global) { paintAll(); paintTop(); }
     }).catch(() => {});
   }
 
@@ -319,7 +336,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     }[st.sort];
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
-    const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() : "";
+    const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() + topHTML() : "";
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
       results.innerHTML = strip + creators.map((c) => {
@@ -413,6 +430,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     if (mo) { showMore(mo.dataset.more); return; }
     const vb = e.target.closest(".vb");
     if (vb) { castVote(vb.closest(".vote").dataset.vote, Number(vb.dataset.v)); return; }
+    const sv = e.target.closest("[data-sortvotes]");
+    if (sv && !e.metaKey && !e.ctrlKey && !e.shiftKey) { e.preventDefault(); sortEl.value = "votes"; set({ sort: "votes" }, true); window.scrollTo({ top: 0 }); return; }
     const pl = e.target.closest("[data-plink]");
     if (pl) { copy(pl.dataset.plink).then(() => { pl.classList.add("done"); clearTimeout(pl._t); pl._t = setTimeout(() => pl.classList.remove("done"), 1400); }); return; }
     const ap = e.target.closest("[data-app]");
