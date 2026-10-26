@@ -1,5 +1,5 @@
 // Jump-to-top: a small floating button, bottom-right (left of the A-Z rail on phones). It appears once the page has
-// scrolled past ~360px (so short pages never show it), hides again near the top, and scrolls smoothly to the top
+// scrolled about half a viewport (clamped 300-600px; recomputed on resize), hides again near the top, and scrolls smoothly to the top
 // (instantly with prefers-reduced-motion). Keyboard activation moves focus to the page's h1.
 //
 // Names are deliberately neutral: Fanboy's Annoyance list (EasyList Annoyances, shipped in AdGuard, 1Blocker, Wipr and
@@ -12,7 +12,9 @@
 // edge) + margin, so the button always sits just above whatever chrome covers the bottom. CSS bottom is the fallback.
 (function () {
   try {
-    var SHOW = 360, HIDE = 240, MARGIN = 16;
+    var MARGIN = 16;
+    // Show after ~half a viewport (clamped 300-600px), hide at 60% of that; recomputed each sync so resize stays honest.
+    function show() { var h = window.innerHeight || de.clientHeight || 800; return Math.min(600, Math.max(300, Math.round(h * 0.5))); }
     var de = document.documentElement;
     var b = document.createElement("button");
     b.type = "button"; b.className = "gbs-up"; b.setAttribute("aria-label", "Jump to top");
@@ -47,7 +49,7 @@
     }
     function sync() {
       raf = 0;
-      var top = y(), next = on ? top > HIDE : top > SHOW;
+      var S = show(), top = y(), next = on ? top > Math.round(S * 0.6) : top > S;
       if (next !== on) {
         on = next; b.tabIndex = on ? 0 : -1;
         if (on) b.removeAttribute("aria-hidden"); else b.setAttribute("aria-hidden", "true");

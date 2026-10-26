@@ -506,24 +506,24 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
   .ss-cta{transition:none}
 }
 
-/* Jump to top (public/shelf-up.js): button bottom-right, fades in after ~360px of scroll. Class is .gbs-up, not
+/* Jump to top (public/shelf-up.js): button bottom-right, fades in after ~150px of scroll. Class is .gbs-up, not
    .to-top / .back-to-top, because iOS content blockers (EasyList/Fanboy Annoyances) hide those names site-wide.
    shelf-up.js sets bottom/right/opacity/visibility inline from visualViewport; the values here are the fallback.
    z-index 17 sits above the A-Z rail (15) and its letter bubble (16), below the toast (50) and shelfer sheet (60). */
-.gbs-up{position:fixed;z-index:17;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:grid;place-items:center;width:40px;height:40px;margin:0;padding:0;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s,visibility 0s .2s,background .2s;-webkit-tap-highlight-color:transparent}
+.gbs-up{position:fixed;z-index:17;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:grid;place-items:center;width:40px;height:40px;margin:0;padding:0;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text2);cursor:pointer;box-shadow:none;opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s,visibility 0s .2s,background .2s;-webkit-tap-highlight-color:transparent}
 .gbs-up.show{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .2s,transform .2s,visibility 0s,background .2s}
-.gbs-up:hover{background:var(--hover)}
+.gbs-up.show:not(:hover):not(:active):not(:focus-visible){border-color:var(--line)}
+.gbs-up.show:not(:hover):not(:active):not(:focus-visible) svg{opacity:.65}
+.gbs-up:hover,.gbs-up:active{background:var(--hover);color:var(--text)}
 .gbs-up:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
-.gbs-up svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-html[data-theme="light"] .gbs-up{box-shadow:0 4px 16px rgba(15,20,25,.12)}
+.gbs-up svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;transition:opacity .2s;stroke-linecap:round;stroke-linejoin:round}
+html[data-theme="light"] .gbs-up{box-shadow:0 2px 10px rgba(15,20,25,.08)}
 @supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.gbs-up{background:var(--bg)}}
 /* Wide screens: the rail sits in the margin right above the button, so end it higher */
 @media (min-width:1200px){html.has-rail .rail{bottom:max(68px,calc(env(safe-area-inset-bottom) + 62px))}}
 /* Phones/tablets: solid fill (no backdrop-filter, which WebKit can drop on fixed layers), blue ring + blue arrow so
    it reads over cards; lifted well above iOS Safari's floating URL bar, left of the A-Z letter strip. */
 @media (max-width:1199px){
-  .gbs-up{bottom:calc(120px + env(safe-area-inset-bottom));width:44px;height:44px;border:2px solid var(--blue);color:var(--blue);background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none;box-shadow:0 4px 18px rgba(0,0,0,.55)}
-  .gbs-up svg{width:20px;height:20px;stroke-width:2.6}
-  html[data-theme="light"] .gbs-up{box-shadow:0 4px 16px rgba(15,20,25,.2)}
+  .gbs-up{bottom:calc(120px + env(safe-area-inset-bottom));width:38px;height:38px}
   html.has-rail .gbs-up{right:calc(max(0px,env(safe-area-inset-right)) + 44px)}
 }

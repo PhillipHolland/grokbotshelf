@@ -1,0 +1,4 @@
+Contact: mailto:thecsguy@mail.grokbot.com
+Expires: 2027-10-26T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://grokbotshelf.com/.well-known/security.txt
