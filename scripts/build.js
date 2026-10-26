@@ -189,7 +189,7 @@ function page(b, related, similar) {
     author: { "@type": "Person", name: b.creator_name, ...(b.creator_url ? { url: b.creator_url } : {}) }, datePublished: b.added };
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
-  const shareT = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle || b.creator_name} on Grok Bot Shelf\n${url}`);
+  const shareT = encodeURIComponent(`Check out ${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf\n${url}`);
   return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld })}
 <body class="botpage">
 ${HEADER}

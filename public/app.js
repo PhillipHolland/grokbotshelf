@@ -168,7 +168,7 @@
   // Share a bot on X: web intent everywhere; native app first on mobile (same pattern as #post-x)
   const MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   function shareX(b) {
-    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle || b.creator_name} on Grok Bot Shelf\n${SITE}${b._page}`);
+    const T = encodeURIComponent(`Check out ${fold(b.name).endsWith(fold(" by " + b.creator_name)) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf\n${SITE}${b._page}`);
     return { web: "https://twitter.com/intent/tweet?text=" + T, app: "twitter://post?message=" + T };
   }
   function openShareX(u) {
