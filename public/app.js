@@ -691,10 +691,11 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   }).catch(() => { results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
 })();
 
-// Feedback: a post on X tagging FEEDBACK_X, and a GitHub issue for bugs (both set in config.js)
+// Feedback: a post on X tagging the FEEDBACK_X handles, and a GitHub issue for bugs (both set in config.js)
 (function () {
-  var h = String(window.FEEDBACK_X || "").replace(/^@/, "").trim(), issues = String(window.FEEDBACK_ISSUES || "");
-  var x = "https://x.com/intent/post" + (h ? "?text=" + encodeURIComponent("@" + h + " Feedback on Grok Bot Shelf: ") : "");
+  var hs = [].concat(window.FEEDBACK_X || []).join(" ").split(/[\s,]+/).map(function (h) { return h.replace(/^@/, ""); }).filter(Boolean);
+  var issues = String(window.FEEDBACK_ISSUES || "");
+  var x = "https://x.com/intent/post" + (hs.length ? "?text=" + encodeURIComponent(hs.map(function (h) { return "@" + h; }).join(" ") + " Feedback on Grok Bot Shelf: ") : "");
   document.querySelectorAll("#fb-x, .fb-x").forEach(function (a) { a.href = x; });
   if (/^https:\/\//.test(issues)) document.querySelectorAll(".fb-issue").forEach(function (a) { a.href = issues; });
 })();
