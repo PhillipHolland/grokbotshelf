@@ -54,6 +54,13 @@ const fileHash = (() => { const seen = new Map(); return (rel) => {
   return seen.get(f);
 }; })();
 const versioned = (rel) => (/^\/[^/]/.test(rel || "") && !String(rel).includes("?") && fileHash(rel) ? `${rel}?v=${fileHash(rel)}` : rel);
+// styles.css and app.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
+for (const page of ["index.html", "404.html"]) {
+  const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
+  const h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/(href|src)="\/(styles\.css|app\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 const AVATARS_SM = read("avatars/48/manifest.json", {});
 const avatarSm = (src) => {
   const m = /^\/avatars\/([^/?]+)$/.exec(src || ""), sm = m && "/avatars/48/" + m[1].replace(/\.\w+$/, ".webp");
@@ -150,7 +157,7 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 <meta name="twitter:creator" content="${esc(creator)}">
 ${ldScript(ld)}
 <script>${PREFETCH_JS}</script>
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="${versioned("/styles.css")}">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 ${GOOGLE_HEAD}

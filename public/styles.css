@@ -141,8 +141,13 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .btn.ghost:hover{background:var(--hover);color:var(--text)}
 .btn.post:hover{background:var(--btn-blue-h)}
 .btn.post svg{width:14px;height:14px;fill:currentColor}
-.add-shelfer{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin:0 0 16px;color:var(--text2);font-size:14px;line-height:1.4}
+.add .btn{height:36px}
+.add-shelfer{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin:0 0 14px;color:var(--text2);font-size:14px;line-height:1.45}
 .add-shelfer .btn{flex:none}
+.add-shelfer span{flex:1 1 260px;min-width:0;text-wrap:balance}
+@media (max-width:640px){.add-shelfer{flex-direction:column;align-items:flex-start;gap:10px}.add-shelfer span{flex:none}}
+.sub-form label:not(:first-child){margin-top:6px}
+.sub-form .row{margin-top:4px}
 .add .fine{margin:16px 0 0;font-size:13px;color:var(--text2)}
 .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:50;padding:12px 16px;border-radius:4px;background:var(--blue);color:#fff;font-size:15px;
   box-shadow:0 0 15px rgba(101,119,134,.2),0 0 3px 1px rgba(101,119,134,.15);transform:translate(-50%,16px);opacity:0;transition:transform .2s,opacity .2s;pointer-events:none}

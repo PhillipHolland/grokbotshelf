@@ -46,7 +46,7 @@ const KEY = 'shelf_suggested';
     ok(await p.$eval('#sub-dupe', e => e.getAttribute('aria-live') === 'polite' && document.getElementById('sub-bot').getAttribute('aria-describedby') === 'sub-dupe'), W + 'the shelf check is a polite live region tied to the template field');
     const y0 = await below(), h0 = await p.$eval('#sub-dupe', e => e.offsetHeight);
     const gap = await p.evaluate(() => Math.round(document.querySelector('label[for=sub-post]').getBoundingClientRect().top - document.getElementById('sub-bot').getBoundingClientRect().bottom));
-    ok(h0 === 0 && gap === 10, W + `the empty message takes no space (${h0}px high, ${gap}px to the next label, the normal form gap)`);
+    ok(h0 === 0 && gap === 16, W + `the empty message takes no space (${h0}px high, ${gap}px to the next label: 10px form gap + 6px label group spacing)`);
     ok(!(await p.evaluate(() => window.__ls.some(e => !e.input && e.form))), W + 'nothing in the form shifts on page load');
 
     for (const v of [listed.url, `HTTPS://WWW.X.AI/bot/${id}/?ref=share#top`, `x.ai/bot/${id}`, `www.x.ai/bot/${id}/`]) {
