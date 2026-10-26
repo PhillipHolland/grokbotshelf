@@ -306,7 +306,10 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.global) { vote.scores[slug] = { up: d.up, down: d.down, score: d.score }; paintVote(slug); return; }
       if (r.status === 503) { vote.global = false; paintAll(); return; } // no database: keep the local vote
-      undo(); say(r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
+      undo();
+      // Vote caps (cap_network, cap_daily, cap_bot_voter) come with a sentence for people; show it long enough to read
+      if (r.status === 429 && /^cap_/.test(d.code || "") && d.error) say(d.error, 6000);
+      else say(r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
     } catch { undo(); say("Vote did not save, try again"); }
   }
   let shelfReady = false;
@@ -445,7 +448,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
 
   // Copy link + toast
   const toast = $("#toast"); let tt;
-  function say(msg) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("show"), 1800); }
+  function say(msg, ms = 1800) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("show"), ms); }
   async function copy(text) {
     try { await navigator.clipboard.writeText(text); }
     catch { const t = document.createElement("textarea"); t.value = text; t.style.position = "fixed"; t.style.opacity = "0"; document.body.append(t); t.select(); document.execCommand("copy"); t.remove(); }

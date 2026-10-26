@@ -49,6 +49,8 @@
   var el = document.querySelector(".bp-vote[data-vote]");
   if (!el) return;
   var slug = el.getAttribute("data-vote"), KEY = "gbs_votes", mine = {}, s = { up: 0, down: 0, score: 0 }, global = false, busy = false;
+  var toast = document.createElement("div"), tt; toast.className = "toast"; toast.setAttribute("role", "status"); toast.setAttribute("aria-live", "polite"); document.body.appendChild(toast);
+  var say = function (msg, ms) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, ms || 1800); };
   try { mine = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
   var save = function () { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
   function paint() {
@@ -82,7 +84,12 @@
       .then(function (x) {
         if (x.r.ok && x.d.global) { s = { up: x.d.up, down: x.d.down, score: x.d.score }; paint(); }
         else if (x.r.status === 503) { global = false; paint(); }
-        else { undo(); el.title = x.r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again"; }
+        else {
+          undo();
+          var cap = x.r.status === 429 && /^cap_/.test(x.d.code || "") && x.d.error; // vote caps carry a sentence for people
+          el.title = cap || (x.r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
+          say(el.title, cap ? 6000 : 1800);
+        }
       }, undo)
       .then(function () { busy = false; });
   });
