@@ -14,11 +14,31 @@ const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes act
 const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
 // GA_MEASUREMENT_ID (G-XXXXXXXXXX) and GSC_VERIFICATION (the content value of the google-site-verification meta tag).
+// The measurement script is not a static tag. It loads only when the hostname is grokbotshelf.com or
+// www.grokbotshelf.com, so Vercel preview hosts and localhost never send hits.
+// get_bot (public/app.js and public/bot-page.js) is the conversion for "Get this bot" / "Add to Bot app".
+// Mark it as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
 const GA_ID = /^G-[A-Z0-9]{4,20}$/.test(process.env.GA_MEASUREMENT_ID || "") ? process.env.GA_MEASUREMENT_ID : "";
 const GSC = /^[\w-]{10,100}$/.test(process.env.GSC_VERIFICATION || "") ? process.env.GSC_VERIFICATION : "";
+const GA_JS = GA_ID ? `<script>
+(function(){
+  var h=location.hostname;
+  if(h!=="grokbotshelf.com"&&h!=="www.grokbotshelf.com")return;
+  var id=${JSON.stringify(GA_ID)};
+  var s=document.createElement("script");
+  s.async=true;
+  s.src="https://www.googletagmanager.com/gtag/js?id="+id;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments)}
+  window.gtag=gtag;
+  gtag("js",new Date());
+  gtag("config",id);
+})();
+</script>` : "";
 const GOOGLE_HEAD = [
   GSC && `<meta name="google-site-verification" content="${GSC}">`,
-  GA_ID && `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date());gtag("config","${GA_ID}");</script>`,
+  GA_JS,
 ].filter(Boolean).join("\n");
 { // keep public/index.html in sync between the google markers
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
@@ -265,6 +285,33 @@ for (const f of fs.readdirSync(PUB)) if (f.startsWith("@")) fs.rmSync(path.join(
 for (const c of creatorList) {
   fs.mkdirSync(path.join(PUB, c.page.slice(1)), { recursive: true });
   fs.writeFileSync(path.join(PUB, c.page.slice(1), "index.html"), creatorPage(c));
+}
+
+// Homepage cards are drawn by app.js into #results, and the featured view only links a few bots per creator.
+// This list stays in the served HTML (and in the DOM after JS runs) so a crawler can discover every bot and
+// creator page without executing JavaScript. It is a closed <details>, so the interactive shelf is unchanged
+// until someone opens "All bots and creators".
+{
+  const botLinks = items.map((b) => `<a href="${b.page}">${esc(b.name)}</a>`).join("\n");
+  const creatorLinks = creatorList.map((c) => `<a href="${c.page}">${esc(c.name)}</a>`).join("\n");
+  const block = `<section class="crawl" id="all" aria-label="All bots and creators">
+<details>
+<summary>All bots and creators</summary>
+<p class="crawl-h">Bots</p>
+<nav aria-label="All bots">
+${botLinks}
+</nav>
+<p class="crawl-h">Creators</p>
+<nav aria-label="All creators">
+${creatorLinks}
+</nav>
+</details>
+</section>`;
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/<!-- crawl:start -->[\s\S]*?<!-- crawl:end -->/, `<!-- crawl:start -->\n${block}\n<!-- crawl:end -->`);
+  const linked = items[0] && n.includes(`href="${items[0].page}"`) && creatorList[0] && n.includes(`href="${creatorList[0].page}"`);
+  if (!linked) throw new Error("homepage is missing <!-- crawl:start --> markers, or the crawl index did not include bot and creator links");
+  if (n !== h) fs.writeFileSync(f, n);
 }
 
 // sitemap.xml

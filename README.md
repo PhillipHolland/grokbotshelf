@@ -94,7 +94,8 @@ no npm dependencies). Schema: `db/schema.sql`, applied with `node db/migrate.js`
 - `POST /api/votes` with `{ "slug": "bot-x", "value": 1 | -1 | 0 }`; 0 clears, sending the other value flips.
 - Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (`gbs_vid`, path `/api/votes`),
   set on the first vote. One row per (bot, voter). IPs are never stored raw: a salted SHA-256 is kept only to
-  rate limit bursts (40 writes per IP and 25 per voter per minute). Optional `VOTE_SALT` env overrides the salt.
+  rate limit bursts (40 writes per IP and 25 per voter per minute). `VOTE_SALT` is required on Production and Preview.
+  If it is missing or empty, `/api/votes` and `/api/submit` return 500 and do not hash with a default salt.
 - Slugs are `"bot-" + slugified name`, the same as card ids, so renaming a bot resets its votes.
 - Without `DATABASE_URL` (or `NEON_DATABASE_URL`) on Vercel, the API reports `global: false` and the arrows
   still work but only remember votes in that browser. Setting the env and redeploying turns on global tallies.
@@ -124,6 +125,14 @@ editing `bots.json` so the repo matches. Share images live in `public/og/bot/<sl
   description words weighted by rarity; ties by name), and a "Featured badge" embed (`/badge.svg`, `/badge-dark.svg`).
 
 Homepage hash links (`/#bot-archivist`) still scroll to the card. Card titles and the X share link now use `/bot/<slug>`.
+
+The homepage HTML also includes a closed "All bots and creators" list (`#all`) with a real link for every `/bot/<slug>` and `/@<handle>`. `app.js` still draws the card grid and does not remove that list, so crawlers can discover every page without running JavaScript.
+
+## Analytics
+
+`scripts/build.js` injects GA4 when `GA_MEASUREMENT_ID` is set. The tag loads only on `grokbotshelf.com` and `www.grokbotshelf.com`. Preview hosts and localhost do not load it.
+
+"Get this bot" and "Add to Bot app" send a `get_bot` event with `bot_slug` and `destination` (`x.ai` or `app`). Mark it as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
 
 ## Under the hood
 

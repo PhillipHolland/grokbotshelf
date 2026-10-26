@@ -12,8 +12,9 @@
 //
 // Voter identity: a random UUID in an httpOnly, Secure, SameSite=Lax cookie (gbs_vid), set on the
 // first vote. No login, no IP stored as identity. The client IP is only kept as a salted SHA-256
-// hash for burst rate limiting. If DATABASE_URL is not set the API answers { global: false } and
-// the site falls back to personal, browser-only votes.
+// hash for burst rate limiting. VOTE_SALT is required: if it is missing or empty the handler
+// returns 500 and nothing is hashed. If DATABASE_URL is not set the API answers { global: false }
+// and the site falls back to personal, browser-only votes.
 const crypto = require("crypto");
 const bots = require("../public/bots.json");
 
@@ -22,7 +23,7 @@ const slugify = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-"
 const SLUGS = new Set(bots.map((b) => "bot-" + slugify(b.name)));
 
 const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.env.POSTGRES_URL || "";
-const SALT = process.env.VOTE_SALT || "grokbotshelf-votes";
+const SALT = (process.env.VOTE_SALT || "").trim();
 const COOKIE = "gbs_vid";
 const LIMITS = { ip: 40, voter: 25, botVoter: 40, windowSec: 60 }; // writes per window
 const BOT_HEADER = "x-bot-voter";
@@ -54,9 +55,11 @@ const botKey = (req) => {
   if (raw === undefined) return undefined;
   const id = String(Array.isArray(raw) ? raw[0] : raw).trim();
   if (!/^[\x21-\x7e][\x20-\x7e]{0,127}$/.test(id)) return null;
+  if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
   return "bot:" + crypto.createHash("sha256").update(SALT + "|bot|" + id).digest("hex").slice(0, 32);
 };
 const ipHash = (req) => {
+  if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
   const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
   return crypto.createHash("sha256").update(SALT + "|" + ip).digest("hex").slice(0, 32);
 };
@@ -73,6 +76,7 @@ async function readBody(req) {
 }
 
 module.exports = async (req, res) => {
+  if (!SALT) return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
   const url = new URL(req.url, "http://x");
   try {
     if (req.method === "GET") {
@@ -133,6 +137,7 @@ module.exports = async (req, res) => {
     return send(res, 405, { error: "GET or POST" }, { Allow: "GET, POST" });
   } catch (e) {
     console.error("votes", e && e.message);
+    if (e && e.code === "NO_SALT") return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
     return send(res, 500, { error: "vote store unavailable" }, { "Cache-Control": "no-store" });
   }
 };

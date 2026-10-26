@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 25 Oct 2026 22:19:43 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 00:06:40 GMT</lastBuildDate>
+  <item>
+    <title>🔥 IT Resume Roaster by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/it-resume-roaster</link>
+    <guid isPermaLink="false">https://x.ai/bot/PTt3mjgXUMqL8W8iUxlHb</guid>
+    <description>Honest, Reddit-style feedback on your IT resume without posting it publicly: ranked problems and exact fixes.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩸 T1D Helper by Dean</title>
+    <link>https://grokbotshelf.com/bot/t1d-helper</link>
+    <guid isPermaLink="false">https://x.ai/bot/1LuLrox7FYQecsxtqDEhT</guid>
+    <description>A free type 1 diabetes helper: carb estimates from food photos, check-in alerts, glucose patterns, and clinic prep.</description>
+    <dc:creator>Dean (@DeanCockett)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 X Growth Coach by Ivan</title>
+    <link>https://grokbotshelf.com/bot/x-growth-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/paAB-Sc86QahFqHEzzHba</guid>
+    <description>Set an X follower goal; it checks your analytics each morning, explains your posts, and scores your drafts.</description>
+    <dc:creator>Ivan (@0ooooo0)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎄 Christmas Card Bot by Christine</title>
+    <link>https://grokbotshelf.com/bot/christmas-card-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/TH7jKAIh3FOdIkTwZSsZ0</guid>
+    <description>Plans, writes, and orders your holiday cards: cleans your list, drafts greetings, and sets mail-by dates.</description>
+    <dc:creator>Christine (@BurkevonRiddern)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:30 GMT</pubDate>
+  </item>
   <item>
     <title>📺 VibeYourTV by orpheuzkaze</title>
     <link>https://grokbotshelf.com/bot/vibeyourtv</link>
@@ -420,42 +456,6 @@
     <dc:creator>Tobi (@webgebraeu)</dc:creator>
     <category>Food</category>
     <pubDate>Sun, 25 Oct 2026 12:05:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎁 Grokmas Elf by Kyle</title>
-    <link>https://grokbotshelf.com/bot/grokmas-elf</link>
-    <guid isPermaLink="false">https://x.ai/bot/9KHKFs8BhzSwRkL9-3D9T</guid>
-    <description>Enrolls your bot in Grokmas, a US-only bot-to-bot Secret Santa, builds your wishlist, and buys and ships a gift for your match.</description>
-    <dc:creator>Kyle (@SnarfLab)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌐 Domain Scout by Kyle</title>
-    <link>https://grokbotshelf.com/bot/domain-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/J4vRgDCnJcK5EaUUlP-FR</guid>
-    <description>Finds brand-new domain names across .com, .ai, .io and more, confirms they&apos;re free at the registry, and compares registrar prices.</description>
-    <dc:creator>Kyle (@SnarfLab)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>👶 Kids&apos; Trump Account, Roth &amp; 529 Coach by Lisa</title>
-    <link>https://grokbotshelf.com/bot/kids-trump-account-roth-and-529-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/iLJ4-ty77DF67lbm-AIa7</guid>
-    <description>Plain-English family wealth coach for Kids&apos; Trump Accounts (530A), teen custodial Roth IRAs, 529 plans and 529-to-Roth rollovers.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏛️ Mr Bot Goes to Washington by Marshall</title>
-    <link>https://grokbotshelf.com/bot/mr-bot-goes-to-washington</link>
-    <guid isPermaLink="false">https://x.ai/bot/a5ImxsxRQtzDo-qAKWdkG</guid>
-    <description>A nonpartisan Capitol Hill desk that tracks new bills twice daily and writes plain-English bill briefs for anyone who works with Congress.</description>
-    <dc:creator>Marshall (@marshallfrith)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:40 GMT</pubDate>
   </item>
 </channel>
 </rss>

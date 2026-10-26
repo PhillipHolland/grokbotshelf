@@ -1,5 +1,20 @@
 // Per-bot pages: "Add to Bot app" opens grokbot://; on phones, fall back to the x.ai page if the app does not open.
 // Badge snippets: Copy buttons copy the text of the <pre> named in data-copy.
+// get_bot: same conversion as the homepage cards. Mark it as a key event in GA4 Admin →
+// Data display → Events → get_bot → Mark as key event. No-op unless the production GA snippet defined gtag.
+(function () {
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest(".bp-actions a.get, .bp-actions a.app");
+    if (!a || typeof gtag !== "function") return;
+    var card = a.closest("article");
+    var raw = card ? (card.getAttribute("data-slug") || "") : "";
+    gtag("event", "get_bot", {
+      bot_slug: raw.replace(/^bot-/, ""),
+      destination: a.classList.contains("app") ? "app" : "x.ai",
+      transport_type: "beacon"
+    });
+  });
+})();
 (function () {
   var mobile = document.documentElement.classList.contains("mobile");
   document.addEventListener("click", function (e) {
