@@ -776,7 +776,9 @@ const addCheck = (() => {
     const soon = () => { clearTimeout(t); t = setTimeout(check, 120); };
     f.bot_url.addEventListener("input", soon);
     f.addEventListener("reset", () => setTimeout(check, 0));
-    ready.then(check);
+    // Messages appear only in response to typing or pasting. If the shelf data arrives after the person
+    // has already typed, check once then; an empty field never renders anything on load.
+    ready.then(() => { if (f.bot_url.value.trim()) check(); });
   }
   return { remember };
 })();
