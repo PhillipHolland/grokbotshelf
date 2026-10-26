@@ -898,6 +898,20 @@
   "OAz3uhOuIn7O6kX3BFpqr": {
    "name": "Household",
    "agency": "drafts"
+  },
+  "8w67xlhpYb_vXdNfDuBbE": {
+   "name": "Sponsorship Hunter",
+   "agency": "drafts",
+   "works_with": [
+    "X"
+   ]
+  },
+  "xzULzM6Gx3SpDRVrJdjdv": {
+   "name": "CVE Desk",
+   "agency": "reads",
+   "works_with": [
+    "Docker"
+   ]
   }
  }
 }

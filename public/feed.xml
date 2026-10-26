@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 17:52:02 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 18:26:48 GMT</lastBuildDate>
+  <item>
+    <title>🩹 CVE Desk by Metal</title>
+    <link>https://grokbotshelf.com/bot/cve-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/xzULzM6Gx3SpDRVrJdjdv</guid>
+    <description>Defensive, read-only CVE desk: breaks down advisories, checks public PoCs without running them, ranks what to patch.</description>
+    <dc:creator>Metal (@_h4xin)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤑 Sponsorship Hunter by Ryan</title>
+    <link>https://grokbotshelf.com/bot/sponsorship-hunter</link>
+    <guid isPermaLink="false">https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE</guid>
+    <description>Studies a small creator&apos;s X account and niche, then finds realistic sponsors and campaigns to apply to. Never spends.</description>
+    <dc:creator>Ryan (@ryangrowthh)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:50 GMT</pubDate>
+  </item>
   <item>
     <title>💎 Research Ruby by James</title>
     <link>https://grokbotshelf.com/bot/research-ruby</link>
@@ -438,24 +456,6 @@
     <dc:creator>Jason (@sproutmed)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 First Officer by Phillip</title>
-    <link>https://grokbotshelf.com/bot/first-officer</link>
-    <guid isPermaLink="false">https://x.ai/bot/SWGvdwMokwzUAe6Enh5FX</guid>
-    <description>A chief of staff for people running several projects and a crew of AI bots: a daily briefing, tracking of loose ends and decisions, and coordination across your bots.</description>
-    <dc:creator>Phillip (@phillipggreen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>💼 Career Agent by Phillip</title>
-    <link>https://grokbotshelf.com/bot/career-agent</link>
-    <guid isPermaLink="false">https://x.ai/bot/TP4PIzpIIrb3qXuLjUVU2</guid>
-    <description>A job-search partner that finds verified openings that fit you, tracks them, and prepares tailored, truthful applications. Nothing gets submitted without your OK.</description>
-    <dc:creator>Phillip (@phillipggreen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:00 GMT</pubDate>
   </item>
 </channel>
 </rss>

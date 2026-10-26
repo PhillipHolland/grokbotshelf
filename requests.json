@@ -3286,6 +3286,34 @@
       "note": "site form #127; denied 2026-10-26: private cycle/relationship companion, intimate/soft-adult, does not meet shelf standards for now",
       "date": "2026-10-26",
       "approved_by": "Phillip Holland"
+    },
+    "2114288358968971589": {
+      "status": "added",
+      "author": "@ryangrowthh",
+      "bot": "Sponsorship Hunter",
+      "template_url": "https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE",
+      "url": "https://x.com/ryangrowthh/status/2114288358968971589",
+      "note": "nominated by @0xGramajo tagging Phil+Nick (https://x.com/0xGramajo/status/2114759586335109361); creator Ryan Growth (@ryangrowthh); Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114760406749024424": {
+      "status": "added",
+      "author": "@_h4xin",
+      "bot": "CVE Desk",
+      "template_url": "https://x.ai/bot/xzULzM6Gx3SpDRVrJdjdv",
+      "url": "https://x.com/_h4xin/status/2114760406749024424",
+      "note": "reply on Phil shelf post asking feedback; defensive CVE/advisory desk, statically triages PoCs (never runs them); Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114751425741795755": {
+      "status": "already_on_shelf",
+      "author": "@Jorhan",
+      "bot": "Study Tutor",
+      "template_url": "https://x.ai/bot/2SHXvbvUMUuJHyVrloDDC",
+      "url": "https://x.com/Jorhan/status/2114751425741795755",
+      "date": "2026-10-26"
     }
   }
 }

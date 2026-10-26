@@ -6102,5 +6102,31 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Sponsorship Hunter",
+    "emoji": "🤑",
+    "description": "Studies a small creator's X account and niche, then finds realistic sponsors and campaigns to apply to. Never spends.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE",
+    "creator_name": "Ryan",
+    "creator_handle": "@ryangrowthh",
+    "creator_url": "https://x.com/ryangrowthh",
+    "creator_avatar": "/avatars/ryangrowthh.webp",
+    "source_post": "https://x.com/ryangrowthh/status/2114288358968971589",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "CVE Desk",
+    "emoji": "🩹",
+    "description": "Defensive, read-only CVE desk: breaks down advisories, checks public PoCs without running them, ranks what to patch.",
+    "category": "Security",
+    "url": "https://x.ai/bot/xzULzM6Gx3SpDRVrJdjdv",
+    "creator_name": "Metal",
+    "creator_handle": "@_h4xin",
+    "creator_url": "https://x.com/_h4xin",
+    "creator_avatar": "/avatars/_h4xin.webp",
+    "source_post": "https://x.com/_h4xin/status/2114760406749024424",
+    "added": "2026-10-26"
   }
 ]
