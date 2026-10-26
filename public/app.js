@@ -50,8 +50,14 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
   themeBtn.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { root.classList.add("theme-anim"); setTimeout(() => root.classList.remove("theme-anim"), 250); }
-    applyTheme(next);
+    // Swap the theme in one frame. Per-element color transitions on every node (hundreds of cards, the blurred dock) made
+    // the browser animate thousands of properties at once while gradients, scrollbars and native controls snapped instantly.
+    // Instead: freeze all transitions during the swap, and where supported cross-fade a single composited snapshot.
+    const swap = () => { root.classList.add("theme-switching"); applyTheme(next); getComputedStyle(root).color; };
+    const done = () => requestAnimationFrame(() => root.classList.remove("theme-switching"));
+    if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      try { document.startViewTransition(swap).finished.finally(done); } catch { swap(); done(); }
+    } else { swap(); done(); }
     try { localStorage.setItem("theme", next); } catch {}
   });
 
