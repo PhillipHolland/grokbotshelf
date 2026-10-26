@@ -149,9 +149,9 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .toast.show{transform:translate(-50%,0);opacity:1}
 @media (max-width:640px){.grid{grid-template-columns:1fr}.hero{column-gap:10px}.hero h1{font-size:22px;gap:8px}.hero .mark{width:28px;height:28px}}
 /* Phones: keep title + actions on one row (title left, actions right) instead of wrapping the actions under the title */
-@media (max-width:480px){.hero{column-gap:8px}.hero h1{font-size:18px;gap:6px}.hero .mark{width:24px;height:24px}.hero-actions{gap:6px}.hero-actions .btn{height:32px;padding:0 10px;font-size:13px}.hero-actions .theme-btn{width:32px;height:32px}}
+@media (max-width:480px){.hero{column-gap:8px}.hero h1{font-size:22px;gap:8px}.hero .mark{width:28px;height:28px}.hero-actions{gap:6px}.hero-actions .btn{height:32px;padding:0 10px;font-size:13px}.hero-actions .theme-btn{width:32px;height:32px}}
 @media (max-width:400px){.add-top .opt{display:none}}
-@media (max-width:380px){.hero{column-gap:6px}.hero h1{font-size:17px;gap:5px}.hero .mark{width:22px;height:22px}.hero-actions{gap:4px}.hero-actions .btn{padding:0 9px}}
+@media (max-width:380px){.hero{column-gap:6px}.hero h1{font-size:21px;gap:7px}.hero .mark{width:26px;height:26px}.hero-actions{gap:4px}.hero-actions .btn{padding:0 9px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Site footer */
