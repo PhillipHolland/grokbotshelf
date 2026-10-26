@@ -2486,6 +2486,64 @@
       "url": "",
       "note": "site form #60; no X handle found; shelved with creator_name only",
       "date": "2026-10-25"
+    },
+    "2114504652414951464": {
+      "status": "added",
+      "author": "CaliLumberJack",
+      "template": "https://x.ai/bot/MUOdwr9N1byHBBoPC7k4y",
+      "bot": "Parent Radar",
+      "url": "https://x.com/CaliLumberJack/status/2114504652414951464",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114490733000524048": {
+      "status": "added",
+      "author": "CaliLumberJack",
+      "template": "https://x.ai/bot/DuELeZImu7B6FXzIs2bMt",
+      "bot": "Tubewright",
+      "url": "https://x.com/CaliLumberJack/status/2114490733000524048",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114483351784460508": {
+      "status": "added",
+      "author": "FringeSignalX",
+      "template": "https://x.ai/bot/eyndClYUFQtXaooxdgiRD",
+      "bot": "Shed Sales Pipeline",
+      "url": "https://x.com/FringeSignalX/status/2114483351784460508",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland",
+      "note": "credited as FringeSignalX (template/X display name not used); neutral avatar"
+    },
+    "site-62": {
+      "status": "added",
+      "author": "lu",
+      "template": "https://x.ai/bot/dF-3_YZzohRdycguTTUwA",
+      "bot": "Design by lu",
+      "note": "site form #62; no X handle; shelved as 'Design by lu' with creator_name only (template botName is 'Design', same as @xenappblog's)",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114481745777377487": {
+      "status": "already_on_shelf",
+      "author": "orpheuskaze",
+      "bot": "Alphabot Raffle Bot, VibeYourTV",
+      "url": "https://x.com/orpheuskaze/status/2114481745777377487",
+      "date": "2026-10-25"
+    },
+    "2114480471560384799": {
+      "status": "already_on_shelf",
+      "author": "orpheuskaze",
+      "bot": "Alphabot Raffle Bot, VibeYourTV",
+      "url": "https://x.com/orpheuskaze/status/2114480471560384799",
+      "date": "2026-10-25"
+    },
+    "2114507515316904447": {
+      "status": "already_on_shelf",
+      "author": "levi_w_eck",
+      "bot": "Centelligence Brain Bot",
+      "url": "https://x.com/levi_w_eck/status/2114507515316904447",
+      "date": "2026-10-25"
     }
   }
 }

@@ -5146,5 +5146,57 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Parent Radar",
+    "emoji": "🎒",
+    "description": "Watches your kid's school email, class apps, and grades. Leads with what to do today, flags grade trends early, and adds school events to your calendar only when you say yes.",
+    "category": "Home",
+    "url": "https://x.ai/bot/MUOdwr9N1byHBBoPC7k4y",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114504652414951464",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Tubewright",
+    "emoji": "🎬",
+    "description": "Turns a finished video's transcript into a draft upload kit: titles in your voice, an SEO description, real-timestamp chapters, thumbnail concepts, a pinned comment, and an X clip thread.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/DuELeZImu7B6FXzIs2bMt",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114490733000524048",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Shed Sales Pipeline",
+    "emoji": "🏚️",
+    "description": "Prospecting and lead follow-up for local dealers of sheds and portable buildings: finds prospects on the public web and drafts first messages, check-ins, and call scripts for your approval.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/eyndClYUFQtXaooxdgiRD",
+    "creator_name": "FringeSignalX",
+    "creator_handle": "@FringeSignalX",
+    "creator_url": "https://x.com/FringeSignalX",
+    "creator_avatar": "/avatars/fringesignalx.webp",
+    "source_post": "https://x.com/FringeSignalX/status/2114483351784460508",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Design by lu",
+    "emoji": "🖌️",
+    "description": "Background design specialist for UI, CSS and animation, three.js scenes, charts, icons, mockups, and images. Makes the asset, checks it visually, and explains the choice in one line.",
+    "category": "Design",
+    "url": "https://x.ai/bot/dF-3_YZzohRdycguTTUwA",
+    "creator_name": "lu",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
   }
 ]
