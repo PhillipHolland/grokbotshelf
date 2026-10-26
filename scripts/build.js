@@ -107,7 +107,7 @@ function similarTo(b) {
     .slice(0, 3).map((r) => r.o);
 }
 // Shelfer template link, read from public/config.js (window.SHELFER_URL) so bot pages match the home hero
-const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP";
+const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
 const HEADER = `<header class="wrap hero">
   <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
   <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a><a class="btn ghost get-shelfer" href="${SHELFER_URL}" rel="noopener" target="_blank" title="Grok Bot template that queues your bot for the shelf">Get Shelfer</a></div>

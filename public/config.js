@@ -14,4 +14,4 @@ window.BUILDERS = {
 };
 
 // Shelfer: the Grok Bot template that queues a bot for the shelf. Used by the hero "Get Shelfer" link and the Add your bot copy.
-window.SHELFER_URL = "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP";
+window.SHELFER_URL = "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";

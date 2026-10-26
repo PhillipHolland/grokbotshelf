@@ -6,11 +6,11 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 13:46:01 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 13:51:27 GMT</lastBuildDate>
   <item>
     <title>🗄️ Shelfer by Phillip Holland</title>
     <link>https://grokbotshelf.com/bot/shelfer</link>
-    <guid isPermaLink="false">https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP</guid>
+    <guid isPermaLink="false">https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi</guid>
     <description>Queues a Grok Bot template for grokbotshelf.com. Paste an x.ai/bot link (and optional X post); it dedups, smoke-checks, and POSTs the shelf submit API. Never reviews or publishes the catalog.</description>
     <dc:creator>Phillip Holland (@Phil_Holland)</dc:creator>
     <category>Bot Tools</category>
