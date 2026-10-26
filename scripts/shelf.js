@@ -9,4 +9,6 @@ const appLink = (url) => {
   return m ? "grokbot://app/v1/bot-template?id=" + m[1] : "";
 };
 const postId = (u) => (String(u || "").match(/\/status\/(\d+)/) || [])[1] || "";
-module.exports = { fold, slugify, templateId, appLink, postId };
+// JSON-LD block. Every "<" becomes \u003c so a value containing "</script>" or "<!--" cannot end the script element.
+const ldScript = (data) => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
+module.exports = { fold, slugify, templateId, appLink, postId, ldScript };

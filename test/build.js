@@ -30,6 +30,7 @@ try {
   const missBot = slugs.filter((s) => !fs.existsSync(pub("og", "bot", s + ".png"))), missC = handles.filter((h) => !fs.existsSync(pub("og", "creator", h + ".png")));
   ok(!missBot.length, `every bot has a share image (missing: ${missBot.join(", ") || "none"})`);
   ok(!missC.length, `every creator has a share image (missing: ${missC.join(", ") || "none"})`);
+  const home0 = fs.readFileSync(pub("index.html"), "utf8");
   const generic = [...botDirs.map((s) => pub("bot", s, "index.html")), ...cDirs.map((d) => pub(d, "index.html"))].filter((f) => fs.readFileSync(f, "utf8").includes("/og.png?v=2"));
   ok(!generic.length, `no page falls back to the generic og.png (${generic.length})`);
   const arch = bots.find((b) => b.name === "Archivist");
@@ -37,6 +38,43 @@ try {
     const h = fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8"), ch = arch.creator_handle.replace(/^@/, "").toLowerCase();
     ok(h.includes('<link rel="canonical" href="https://grokbotshelf.com/bot/archivist">') && h.includes(`href="${arch.url}"`) && h.includes(`href="/@${ch}"`), "archivist page: canonical, template link, lowercase creator link");
   }
+  // JSON-LD: bot page = WebPage + SoftwareApplication + BreadcrumbList, creator page = ProfilePage + Person + ItemList,
+  // home = WebSite + SearchAction. Only real fields: no ratings, vote counts or publisher, and "<" is always escaped.
+  const lds = (f) => [...fs.readFileSync(f, "utf8").matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]);
+  const graph = (f) => { const l = lds(f); return l.length === 1 ? JSON.parse(l[0]) : null; };
+  const allLd = [...botDirs.map((d) => pub("bot", d, "index.html")), ...cDirs.map((d) => pub(d, "index.html")), pub("index.html")].map((f) => [f, lds(f)]);
+  ok(allLd.every(([, l]) => l.length === 1 && !l[0].includes("<") && JSON.parse(l[0])), `every bot, creator and home page has exactly one JSON-LD block, valid JSON, no raw "<" (${allLd.length})`);
+  const banned = allLd.filter(([, l]) => /AggregateRating|aggregateRating|ratingValue|ratingCount|interactionStatistic|"publisher"|"brand"|"provider"|"manufacturer"|"Organization"|"connectors"|"permissions"|"datePublished"/.test(l[0])).map(([f]) => path.relative(TMP, f));
+  ok(!banned.length, `no ratings, vote counts, publisher/brand or invented fields in JSON-LD (bad: ${banned.slice(0, 3).join(", ") || "none"})`);
+  if (arch) {
+    const g = graph(pub("bot", "archivist", "index.html"))["@graph"], wp = g.find((x) => x["@type"] === "WebPage"), bc = g.find((x) => x["@type"] === "BreadcrumbList"), app = wp && wp.mainEntity;
+    const ch = arch.creator_handle.replace(/^@/, "");
+    ok(wp && wp.url === "https://grokbotshelf.com/bot/archivist" && app["@type"] === "SoftwareApplication" && app.name === "Archivist" && app.description === arch.description && app.url === wp.url
+      && /^https:\/\/grokbotshelf\.com\/og\/bot\/archivist\.png\?v=[0-9a-f]{10}$/.test(app.image) && app.sameAs === arch.url, "bot JSON-LD: WebPage with mainEntity SoftwareApplication (name, description, url, share image)");
+    ok(app.author["@type"] === "Person" && app.author.name === arch.creator_name && app.author.sameAs === "https://x.com/" + ch, "bot JSON-LD: author Person with sameAs x.com/" + ch);
+    ok(bc && wp.breadcrumb["@id"] === bc["@id"] && bc.itemListElement.map((i) => i.item).join(" ") === `https://grokbotshelf.com/ https://grokbotshelf.com/@${ch.toLowerCase()} https://grokbotshelf.com/bot/archivist`
+      && bc.itemListElement.every((i, n) => i.position === n + 1 && i.name), "bot JSON-LD: BreadcrumbList home > creator > bot");
+    const cg = graph(pub("@" + ch.toLowerCase(), "index.html"))["@graph"], pp = cg.find((x) => x["@type"] === "ProfilePage"), il = cg.find((x) => x["@type"] === "ItemList");
+    const mine = bots.filter((b) => b.creator_handle.replace(/^@/, "").toLowerCase() === ch.toLowerCase());
+    ok(pp && pp.mainEntity["@type"] === "Person" && pp.mainEntity.alternateName.toLowerCase() === "@" + ch.toLowerCase() && pp.mainEntity.sameAs.toLowerCase() === "https://x.com/" + ch.toLowerCase() && pp.mainEntity.name, "creator JSON-LD: ProfilePage with mainEntity Person (name, @handle, x.com)");
+    ok(il && il.numberOfItems === mine.length && il.itemListElement.length === mine.length && il.itemListElement.every((i, n) => i.position === n + 1 && /^https:\/\/grokbotshelf\.com\/bot\/[a-z0-9-]+$/.test(i.url) && i.name),
+      `creator JSON-LD: ItemList of their ${mine.length} bots (url, name)`);
+  }
+  const anon = bots.find((b) => !b.creator_handle);
+  if (anon) {
+    const app = graph(pub("bot", slugify(anon.name), "index.html"))["@graph"].find((x) => x["@type"] === "WebPage").mainEntity;
+    const bc = graph(pub("bot", slugify(anon.name), "index.html"))["@graph"].find((x) => x["@type"] === "BreadcrumbList");
+    ok(!("sameAs" in app.author) && !("url" in app.author) && bc.itemListElement.length === 2, `bot with no handle (${anon.name}): author has no sameAs, breadcrumb skips the creator`);
+  }
+  const site = graph(pub("index.html"));
+  ok(site["@type"] === "WebSite" && site.url === "https://grokbotshelf.com/" && site.potentialAction.target.urlTemplate === "https://grokbotshelf.com/?q={search_term_string}", "home JSON-LD: WebSite with SearchAction on /?q=");
+  const { ldScript } = require(path.join(TMP, "scripts", "shelf"));
+  const evil = ldScript({ name: "</script><script>alert(1)</script><!--" });
+  ok(evil.indexOf("</script>") === evil.length - 9 && !evil.slice(0, -9).includes("<", 1 + evil.indexOf(">")) && JSON.parse(evil.slice(evil.indexOf(">") + 1, -9)).name === "</script><script>alert(1)</script><!--", "JSON-LD escapes every < so a value cannot close the script");
+  // Prefetch script: inline on home, bot and creator pages; Speculation Rules prefetch only, moderate, scoped
+  const pf = allLd.map(([f]) => fs.readFileSync(f, "utf8")).filter((h) => h.includes('r.type="speculationrules"'));
+  ok(pf.length === allLd.length, `prefetch script is on every home, bot and creator page (${pf.length} of ${allLd.length})`);
+  ok(!/prerender/.test(home0) && home0.includes('\\"eagerness\\":\\"moderate\\"') && home0.includes('\\"href_matches\\":\\"/bot/*\\"') && home0.includes('\\"href_matches\\":\\"/@*\\"'), "prefetch rules: prefetch only, moderate, /bot/* and /@*");
   // shelf-data.json: the one file the home page loads, built from bots.json + bot-meta.json + social.json
   const data = JSON.parse(fs.readFileSync(pub("shelf-data.json"), "utf8")).bots;
   ok(data.length === bots.length && data.every((d, i) => d.name === bots[i].name && d.url === bots[i].url && d.creator_handle === bots[i].creator_handle), `shelf-data.json has every bot in bots.json order (${data.length} of ${bots.length})`);

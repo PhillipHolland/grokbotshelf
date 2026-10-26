@@ -51,6 +51,11 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   st = await go('/@nobodyhere'); d = await info();
   ok(d.path === '/@nobodyhere' && d.robots === 'noindex' && /Creator not found/.test(d.title), `/@nobodyhere: ${st} "${d.title}" robots=${d.robots}`);
   ok(await p.$eval('.notfound .empty-t', (e) => e.textContent) === 'Creator not found', 'Creator not found message shows');
+  // /?q= filters the shelf on load (the home page WebSite JSON-LD advertises it as a SearchAction)
+  await go('/?q=archivist');
+  const q = await p.evaluate(() => ({ box: (document.querySelector('input[type=search]') || {}).value, names: [...document.querySelectorAll('#results .card h3')].map((h) => h.textContent) }));
+  await go('/'); const all = await p.$$eval('#results .card', (c) => c.length);
+  ok(q.box === 'archivist' && q.names.length >= 1 && q.names.length < all && q.names.includes('Archivist'), `/?q=archivist filters on load (${q.names.length} cards vs ${all}, box "${q.box}")`);
   ok(errs.length === 0, 'no console errors ' + errs.join(' | '));
   await b.close();
 })();

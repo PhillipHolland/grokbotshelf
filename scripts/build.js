@@ -2,7 +2,7 @@
 // one page per creator (public/@<handle>/index.html), sitemap.xml, robots.txt, feed.xml and llms.txt. No dependencies. Runs on every Vercel build
 // (vercel.json buildCommand) and can be run locally: node scripts/build.js
 const fs = require("fs"), path = require("path");
-const { slugify, templateId, appLink, postId } = require("./shelf");
+const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
 const bots = read("bots.json", []);
@@ -148,7 +148,8 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 <meta name="twitter:image" content="${img}">
 <meta name="twitter:site" content="@Phil_Holland">
 <meta name="twitter:creator" content="${esc(creator)}">
-<script type="application/ld+json">${JSON.stringify(ld).replace(/</g, "\\u003c")}</script>
+${ldScript(ld)}
+<script>${PREFETCH_JS}</script>
 <link rel="stylesheet" href="/styles.css">
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -176,6 +177,27 @@ ${rows.map(([k, v]) => `      <div><dt>${k}</dt><dd>${v} ${CREATOR_SUPPLIED}</dd
     </dl>
   </section>`;
 }
+// Prefetch bot and creator pages a visitor is about to open. Chrome and Edge get Speculation Rules (prefetch only, never
+// prerender; "moderate" means on hover or pointerdown, at most 2 in flight). Other browsers get <link rel=prefetch> on
+// hover or touch, at most 2 in flight, each URL once. Scope: same-origin /bot/* and /@* links without a query string,
+// never /api. Nothing runs with Save-Data on or on a 2g connection. The same script is inlined in index.html.
+const PREFETCH_RULES = { prefetch: [{ source: "document", eagerness: "moderate", where: { and: [
+  { or: [{ href_matches: "/bot/*" }, { href_matches: "/@*" }] },
+  { not: { href_matches: "/api/*" } },
+  { not: { selector_matches: 'a[href*="?"]' } },
+] } }] };
+const PREFETCH_JS = `(function(){var c=navigator.connection;if(c&&(c.saveData||/2g$/.test(c.effectiveType||"")))return;\
+if(HTMLScriptElement.supports&&HTMLScriptElement.supports("speculationrules")){var r=document.createElement("script");r.type="speculationrules";\
+r.textContent=${JSON.stringify(JSON.stringify(PREFETCH_RULES))};document.head.appendChild(r);return}\
+var done={},busy=0,timer;\
+function url(a){var h=a.getAttribute("href")||"",u;if(h.indexOf("?")>=0)return"";try{u=new URL(h,location.href)}catch(e){return""}\
+if(u.origin!==location.origin||u.search||!/^\\/(bot\\/|@)/.test(u.pathname)||u.pathname===location.pathname)return"";return u.origin+u.pathname}\
+function go(a){var h=a&&url(a);if(!h||done[h]||busy>=2)return;done[h]=1;busy++;var l=document.createElement("link");l.rel="prefetch";l.href=h;\
+l.onload=l.onerror=function(){busy--};document.head.appendChild(l)}\
+function link(e){return e.target&&e.target.closest?e.target.closest("a[href]"):null}\
+document.addEventListener("pointerenter",function(e){var a=e.target;if(a&&a.matches&&a.matches("a[href]")){clearTimeout(timer);timer=setTimeout(function(){go(a)},100)}},true);\
+document.addEventListener("pointerleave",function(e){if(e.target&&e.target.matches&&e.target.matches("a[href]"))clearTimeout(timer)},true);\
+document.addEventListener("touchstart",function(e){go(link(e))},{passive:true,capture:true})})()`;
 const BADGE = { light: `${SITE}/badge.svg`, dark: `${SITE}/badge-dark.svg` };
 const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
 const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
@@ -183,13 +205,24 @@ const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e)
 // Up/down vote pill on bot pages. public/bot-page.js loads the tally and posts to /api/votes (same cookie as the homepage).
 const SVG = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
 const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" title="Vote on this bot"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn" aria-live="polite"></span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
+// JSON-LD: only fields the shelf actually has. No ratings or vote counts, no publisher.
+const crumbs = (list) => ({ "@type": "BreadcrumbList", itemListElement: list.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
+const xProfile = (handle) => "https://x.com/" + handle;
+function botLd(b, url, img) {
+  const author = { "@type": "Person", name: b.creator_name, ...(b.creator_handle ? { url: SITE + "/@" + ckey(b), sameAs: xProfile(handleOf(b)) } : {}) };
+  const trail = [["Grok Bot Shelf", SITE + "/"], ...(b.creator_handle ? [[b.creator_name, SITE + "/@" + ckey(b)]] : []), [b.name, url]];
+  return { "@context": "https://schema.org", "@graph": [
+    { "@type": "WebPage", "@id": url, url, name: titled(b), description: b.description, breadcrumb: { "@id": url + "#breadcrumb" },
+      mainEntity: { "@type": "SoftwareApplication", name: b.name, description: b.description, url, sameAs: b.url, image: img, author } },
+    { "@id": url + "#breadcrumb", ...crumbs(trail) },
+  ] };
+}
 function page(b, related, similar) {
   const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
   const badges = [b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
   const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} ${b.social.bookmarks === 1 ? "bookmark" : "bookmarks"} on X</span>` : "";
-  const ld = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: b.name, description: desc, applicationCategory: b.category, url, sameAs: b.url,
-    author: { "@type": "Person", name: b.creator_name, ...(b.creator_url ? { url: b.creator_url } : {}) }, datePublished: b.added };
+  const ld = botLd(b, url, img);
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
   const shareT = encodeURIComponent(`Check out ${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf\n${url}`);
@@ -270,8 +303,13 @@ function creatorPage(c) {
   const cats = [...new Set(c.bots.map((b) => b.category))].sort();
   const dates = c.bots.map((b) => b.added).filter((d) => fmtDate(d)).sort();
   const desc = `${nb} by ${c.name} (@${c.handle}) on Grok Bot Shelf: ${c.bots.slice(0, 4).map((b) => b.name).join(", ")}${n > 4 ? " and more" : ""}.`;
-  const ld = { "@context": "https://schema.org", "@type": "ProfilePage", url, mainEntity: { "@type": "Person", name: c.name, alternateName: "@" + c.handle, url: c.url, image: SITE + c.avatar },
-    hasPart: c.bots.map((b) => ({ "@type": "SoftwareApplication", name: b.name, url: SITE + b.page })) };
+  const ld = { "@context": "https://schema.org", "@graph": [
+    { "@type": "ProfilePage", "@id": url, url, name: `${c.name} (@${c.handle})`, description: desc, breadcrumb: { "@id": url + "#breadcrumb" },
+      mainEntity: { "@type": "Person", name: c.name, alternateName: "@" + c.handle, sameAs: xProfile(c.handle), ...(c.avatar ? { image: SITE + versioned(c.avatar) } : {}) } },
+    { "@type": "ItemList", "@id": url + "#bots", name: `Bots by ${c.name}`, numberOfItems: n,
+      itemListElement: c.bots.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) },
+    { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], [c.name, url]]) },
+  ] };
   return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld })}
 <body class="botpage">
 ${HEADER}
@@ -321,6 +359,18 @@ ${creatorLinks}
   const n = h.replace(/<!-- crawl:start -->[\s\S]*?<!-- crawl:end -->/, `<!-- crawl:start -->\n${block}\n<!-- crawl:end -->`);
   const linked = items[0] && n.includes(`href="${items[0].page}"`) && creatorList[0] && n.includes(`href="${creatorList[0].page}"`);
   if (!linked) throw new Error("homepage is missing <!-- crawl:start --> markers, or the crawl index did not include bot and creator links");
+  if (n !== h) fs.writeFileSync(f, n);
+}
+
+// Homepage JSON-LD and the prefetch script, between the ld and prefetch markers in index.html. The SearchAction is real:
+// app.js reads ?q= on load and filters the shelf to it.
+{
+  const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/",
+    potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" } };
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/<!-- ld:start -->[\s\S]*?<!-- ld:end -->/, `<!-- ld:start -->${ldScript(site)}<!-- ld:end -->`)
+    .replace(/<!-- prefetch:start -->[\s\S]*?<!-- prefetch:end -->/, `<!-- prefetch:start --><script>${PREFETCH_JS}</script><!-- prefetch:end -->`);
+  if (!n.includes("<!-- ld:end -->") || !n.includes("<!-- prefetch:end -->")) throw new Error("homepage is missing the ld or prefetch markers");
   if (n !== h) fs.writeFileSync(f, n);
 }
 
