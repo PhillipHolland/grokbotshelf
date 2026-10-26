@@ -6,7 +6,97 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 22:32:44 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 23:36:47 GMT</lastBuildDate>
+  <item>
+    <title>🗂️ Airtable Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/airtable-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/0R3eo0SBsG7QzFlyJLGdK</guid>
+    <description>Answers Airtable how-to questions from Airtable&apos;s official docs only, linking the page each answer came from.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:10 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 QuickBooks Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/quickbooks-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/9sF9NvWNHiw8OKl_M15QI</guid>
+    <description>Answers QuickBooks Online and Desktop how-to questions from Intuit&apos;s official sites only, with the source page linked.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:09 GMT</pubDate>
+  </item>
+  <item>
+    <title>☁️ Salesforce Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/salesforce-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/77jqvUnCnKbZe1osmD18-</guid>
+    <description>Answers Salesforce how-to questions from Salesforce&apos;s official docs only, linking the page each answer came from.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>📦 Box Solution Builder by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/box-solution-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/cTl4WFWkRzWZMXT851bWE</guid>
+    <description>Builds and tests Box solutions (agents, Hubs, Automate workflows, Doc Gen) in your own Box account or sandbox.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>☕ Groksters Anonymous by Jay</title>
+    <link>https://grokbotshelf.com/bot/groksters-anonymous</link>
+    <guid isPermaLink="false">https://x.ai/bot/y2cVUIcWck2c-ktSehtbw</guid>
+    <description>A funny, caring support group for bot builders: confessions, stretches, a coffee tip and a nudge to take breaks.</description>
+    <dc:creator>Jay (@JayinEly)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛡️ Heimdall by Magnus</title>
+    <link>https://grokbotshelf.com/bot/heimdall</link>
+    <guid isPermaLink="false">https://x.ai/bot/aYIBdTMOCAAdiLsN1iY5o</guid>
+    <description>Dependency security watch for a GitHub repo: checks advisory feeds twice a day, opens a fix PR only after you approve.</description>
+    <dc:creator>Magnus (@magnus72)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>💬 GrokText by Dave</title>
+    <link>https://grokbotshelf.com/bot/groktext</link>
+    <guid isPermaLink="false">https://x.ai/bot/TWxNmCOGfc6u1CAyVdoxv</guid>
+    <description>Texts from your own phone number through your own self-hosted relay; drafts, reads back and only sends on your yes.</description>
+    <dc:creator>Dave (@dbarrett24)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Fed Decoder by Yossi</title>
+    <link>https://grokbotshelf.com/bot/fed-decoder</link>
+    <guid isPermaLink="false">https://x.ai/bot/pzk84AM0AC6Aq4PaoQ1up</guid>
+    <description>Decodes Fed days, CPI and jobs prints: statement markup vs last meeting, presser takeaways, cut odds and yields.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔧 Garage by Stealth</title>
+    <link>https://grokbotshelf.com/bot/garage</link>
+    <guid isPermaLink="false">https://x.ai/bot/V3mnsui0Z3lXt38OJy86f</guid>
+    <description>Car-care sidekick for gas, hybrid or EV: dash lights, recalls, repair quote checks, maintenance and DIY help.</description>
+    <dc:creator>Stealth (@StealthTSLA)</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>📊 AI Usage Hub by Daniel</title>
+    <link>https://grokbotshelf.com/bot/ai-usage-hub</link>
+    <guid isPermaLink="false">https://x.ai/bot/qmENesX2cLr2UHqkEEqMS</guid>
+    <description>Tracks your Claude, ChatGPT, Gemini and Grok Bot plan usage on one dashboard and nudges you before limits hit.</description>
+    <dc:creator>Daniel (@HungOnCode)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:01 GMT</pubDate>
+  </item>
   <item>
     <title>🗺️ Been There / Next Stop by Chadd</title>
     <link>https://grokbotshelf.com/bot/been-there-next-stop</link>
@@ -107,155 +197,155 @@
     <pubDate>Mon, 26 Oct 2026 12:07:50 GMT</pubDate>
   </item>
   <item>
-    <title>💎 Research Ruby by James</title>
+    <title>💎 Research Ruby by Jim</title>
     <link>https://grokbotshelf.com/bot/research-ruby</link>
     <guid isPermaLink="false">https://x.ai/bot/bcVY9sJKoeZSzFcfNlhVW</guid>
     <description>A research and fact-check desk on live web search: paste or link a social post and each claim is rated true, false, misleading or unproven, with dated sources.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 26 Oct 2026 12:07:49 GMT</pubDate>
   </item>
   <item>
-    <title>🏙️ Realty Rita by James</title>
+    <title>🏙️ Realty Rita by Jim</title>
     <link>https://grokbotshelf.com/bot/realty-rita</link>
     <guid isPermaLink="false">https://x.ai/bot/_Cu3rtG0IfKa84YsUe7tc</guid>
     <description>A home-search sidekick for wherever you&apos;re moving: live listings, local agents, market trends and today&apos;s mortgage rates with links, plus which upgrades pay off and the services you&apos;ll need.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:48 GMT</pubDate>
   </item>
   <item>
-    <title>🕹️ Game On Gary by James</title>
+    <title>🕹️ Game On Gary by Jim</title>
     <link>https://grokbotshelf.com/bot/game-on-gary</link>
     <guid isPermaLink="false">https://x.ai/bot/93nFrBAPgKvx0BUipoyjk</guid>
     <description>Your free gaming sidekick: spoiler-free hints, picks for what to play next, a check on whether your PC can run it, and sales and free games with real links across every major store.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:47 GMT</pubDate>
   </item>
   <item>
-    <title>🧥 Thrifty Theo by James</title>
+    <title>🧥 Thrifty Theo by Jim</title>
     <link>https://grokbotshelf.com/bot/thrifty-theo</link>
     <guid isPermaLink="false">https://x.ai/bot/xKi2VkyukiwEAm_LmDppc</guid>
     <description>Your thrift and consignment sidekick: finds thrift shops, estate and garage sales near your ZIP, watches resale sites for your wish list and prices finds from real sold listings.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Shopping</category>
     <pubDate>Mon, 26 Oct 2026 12:07:46 GMT</pubDate>
   </item>
   <item>
-    <title>🚰 Utility Eugene by James</title>
+    <title>🚰 Utility Eugene by Jim</title>
     <link>https://grokbotshelf.com/bot/utility-eugene</link>
     <guid isPermaLink="false">https://x.ai/bot/w3yzHuZdi-x0I-7j7sP9H</guid>
     <description>A money-saver for every utility bill: electric, water, gas, internet, phone and trash. Finds providers at your ZIP, compares plans and reads your bills to cut costs, changing nothing without your OK.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 26 Oct 2026 12:07:45 GMT</pubDate>
   </item>
   <item>
-    <title>🫧 Appliance Fix Annie by James</title>
+    <title>🫧 Appliance Fix Annie by Jim</title>
     <link>https://grokbotshelf.com/bot/appliance-fix-annie</link>
     <guid isPermaLink="false">https://x.ai/bot/g1AmwULv-28QM-l_yIVbb</guid>
     <description>Tell her what&apos;s beeping, leaking or won&apos;t start: she finds the manual, walks you through a safe fix, prices the right part and watches for recalls.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:44 GMT</pubDate>
   </item>
   <item>
-    <title>🔩 Grease Monkey Wally by James</title>
+    <title>🔩 Grease Monkey Wally by Jim</title>
     <link>https://grokbotshelf.com/bot/grease-monkey-wally</link>
     <guid isPermaLink="false">https://x.ai/bot/XQ4VrU9JJ7lHgbEIM2e8F</guid>
     <description>Your DIY auto repair buddy: diagnoses symptoms and check-engine codes, walks you through repairs with real specs for your vehicle, finds parts at the best price and checks recalls.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:43 GMT</pubDate>
   </item>
   <item>
-    <title>✏️ Test Prep Tess by James</title>
+    <title>✏️ Test Prep Tess by Jim</title>
     <link>https://grokbotshelf.com/bot/test-prep-tess</link>
     <guid isPermaLink="false">https://x.ai/bot/GEih8F6WlyPJ_oyuVLEAt</guid>
     <description>A friendly study coach for the SAT, ACT, GED, ASVAB, GRE, IT certs and more: a week-by-week plan, practice questions with clear explanations and links to the best free official prep.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:42 GMT</pubDate>
   </item>
   <item>
-    <title>🪛 Local Services Samantha by James</title>
+    <title>🪛 Local Services Samantha by Jim</title>
     <link>https://grokbotshelf.com/bot/local-services-samantha</link>
     <guid isPermaLink="false">https://x.ai/bot/zUQwIdQgoK-uaxur73Nmv</guid>
     <description>Finds trusted local help near your ZIP, from plumbers and mechanics to vets and county offices, with phone numbers, license checks and reviews. Drafts quote requests and compares bids.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:41 GMT</pubDate>
   </item>
   <item>
-    <title>🪧 Ballot Box Bob by James</title>
+    <title>🪧 Ballot Box Bob by Jim</title>
     <link>https://grokbotshelf.com/bot/ballot-box-bob</link>
     <guid isPermaLink="false">https://x.ai/bot/y7i2ei-6EN0AAKvKaLLB9</guid>
     <description>A nonpartisan election guide: registration, where and when to vote, what&apos;s on your ballot and official results, all linked to official sources. It never tells you how to vote.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:40 GMT</pubDate>
   </item>
   <item>
-    <title>🦅 Congressional Connection by James</title>
+    <title>🦅 Congressional Connection by Jim</title>
     <link>https://grokbotshelf.com/bot/congressional-connection</link>
     <guid isPermaLink="false">https://x.ai/bot/QBeeqwxvrPiYYixsntYi1</guid>
     <description>Finds your members of Congress and state lawmakers from your ZIP, explains bills and votes in plain English with official links, and drafts letters and call scripts you approve first.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:39 GMT</pubDate>
   </item>
   <item>
-    <title>🌱 Green Thumb Granny by James</title>
+    <title>🌱 Green Thumb Granny by Jim</title>
     <link>https://grokbotshelf.com/bot/green-thumb-granny</link>
     <guid isPermaLink="false">https://x.ai/bot/OOFh9h6yfDuzJCAjk80Ez</guid>
     <description>Snap a photo of any weed, bug or sick plant and Granny tells you what it is and how to handle it, safest fix first. Plus a planting calendar and native plant picks for your ZIP.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:38 GMT</pubDate>
   </item>
   <item>
-    <title>🪄 Lifehack Jack by James</title>
+    <title>🪄 Lifehack Jack by Jim</title>
     <link>https://grokbotshelf.com/bot/lifehack-jack</link>
     <guid isPermaLink="false">https://x.ai/bot/ab76yi9i0xGRTg7SsMFM-</guid>
     <description>Practical, tested lifehacks that save time and money, from cleaning and cooking to cutting bills, travel and computer shortcuts. Every tip says why it works and flags safety concerns.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:37 GMT</pubDate>
   </item>
   <item>
-    <title>🦸 Comic Book Carl by James</title>
+    <title>🦸 Comic Book Carl by Jim</title>
     <link>https://grokbotshelf.com/bot/comic-book-carl</link>
     <guid isPermaLink="false">https://x.ai/bot/DnBW-zVBFHvnRk1NgJrCk</guid>
     <description>Your comic collecting sidekick: tracks your collection, values it from real sold prices with links, flags key issues, watches your pull list and finds shops and cons near you.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Shopping</category>
     <pubDate>Mon, 26 Oct 2026 12:07:36 GMT</pubDate>
   </item>
   <item>
-    <title>🃏 Rookie Card Ray by James</title>
+    <title>🃏 Rookie Card Ray by Jim</title>
     <link>https://grokbotshelf.com/bot/rookie-card-ray</link>
     <guid isPermaLink="false">https://x.ai/bot/TyUoZv-3xRqbY_zHQIRvO</guid>
     <description>Your sports card and memorabilia sidekick: keeps your collection inventory, prices cards from real recent sales, tells you when grading pays off, spots fakes and finds card shows near you.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Shopping</category>
     <pubDate>Mon, 26 Oct 2026 12:07:35 GMT</pubDate>
   </item>
   <item>
-    <title>💭 Idea Ike by James</title>
+    <title>💭 Idea Ike by Jim</title>
     <link>https://grokbotshelf.com/bot/idea-ike</link>
     <guid isPermaLink="false">https://x.ai/bot/9zBbCo8cw3SggdO28xXbK</guid>
     <description>Your brainstorming partner: toss in a rough thought and get a fast burst of ideas, then the best 2 or 3 with pros, cons and a first step. For side hustles, names, posts, gifts and getting unstuck.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 26 Oct 2026 12:07:34 GMT</pubDate>
   </item>
   <item>
-    <title>⛪ Pastor Pete by James</title>
+    <title>⛪ Pastor Pete by Jim</title>
     <link>https://grokbotshelf.com/bot/pastor-pete</link>
     <guid isPermaLink="false">https://x.ai/bot/YrxlAlCd7MQujjCOlStvm</guid>
     <description>A free, warm Bible and faith companion: real Bible stories and verses with exact references for what you&apos;re facing, plus a daily verse, reading plans, prayers and a church finder by ZIP.</description>
-    <dc:creator>James</dc:creator>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:07:33 GMT</pubDate>
   </item>
@@ -366,96 +456,6 @@
     <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Mon, 26 Oct 2026 12:07:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌍 WebOps by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/webops</link>
-    <guid isPermaLink="false">https://x.ai/bot/RRpEi9POci-hgE-M25iIE</guid>
-    <description>Runs website chores: private previews, static deploys, DNS and uptime checks, forms, redirects and SEO hygiene, launching only on your OK.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖼️ Iris by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/iris</link>
-    <guid isPermaLink="false">https://x.ai/bot/RAGI8n5F27u6FB5YHJ48t</guid>
-    <description>Makes product art, on-model images, social graphics, banners and print-ready artwork, with a quality check before your approval.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧬 Genealogy by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/genealogy</link>
-    <guid isPermaLink="false">https://x.ai/bot/fDMlciBM0gvOzNBbvMAUL</guid>
-    <description>Traces a family line from free public records, rates and cites every finding, and writes plain-language family bios.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚦 Transition to Operations Manager by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/transition-to-operations-manager</link>
-    <guid isPermaLink="false">https://x.ai/bot/uYAVECWY1ECkyULdBwp4P</guid>
-    <description>Takes each new business from built to live operations, owning the handover checklist until every gate is evidenced and approved.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏧 Finance by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/finance-by-outwork-ventures</link>
-    <guid isPermaLink="false">https://x.ai/bot/M7vh6DMtaJTT4z32b4m_-</guid>
-    <description>A family CFO assistant for budgets, cash flow, reserves, insurance, retirement and big purchases, with scenarios and next steps.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧺 Household by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/household</link>
-    <guid isPermaLink="false">https://x.ai/bot/OAz3uhOuIn7O6kX3BFpqr</guid>
-    <description>Keeps one register of renewals, warranties, maintenance and school deadlines for busy families, and drafts the letters for your OK.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛫 Travel by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/travel</link>
-    <guid isPermaLink="false">https://x.ai/bot/aGGP8goKCKkb-M8xR3oPL</guid>
-    <description>Family trip researcher that compares verified flights and stays, then gives Best Experience, Best Value and Lowest Cost options.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Travel</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>🙈 Remove Me by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/remove-me</link>
-    <guid isPermaLink="false">https://x.ai/bot/qlDBDdHjGkHD9pka-9fRy</guid>
-    <description>Finds you on people-search and data-broker sites, sends the removals you approve from your own email, and rechecks in 30 days.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏃 Personal Trainer by Sal by Fanfulla</title>
-    <link>https://grokbotshelf.com/bot/personal-trainer-by-sal</link>
-    <guid isPermaLink="false">https://x.ai/bot/yLMfIOV5mVCoPL_4UPFJE</guid>
-    <description>Builds a weekly plan from the equipment you have, coaches you live with exercise videos, logs sessions and tracks progress.</description>
-    <dc:creator>Fanfulla (@Fanfulladev)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧘 Wellbeing by Anonymous</title>
-    <link>https://grokbotshelf.com/bot/wellbeing</link>
-    <guid isPermaLink="false">https://x.ai/bot/QgaJT0uOGomJ6B1mLPOgW</guid>
-    <description>A warm wellbeing coach for the areas you pick, like sleep, diet, skincare or mental health: daily logs, patterns, small changes.</description>
-    <dc:creator>Anonymous</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:11 GMT</pubDate>
   </item>
 </channel>
 </rss>
