@@ -7,10 +7,10 @@ window.FEEDBACK_X = ["thecsguy", "Phil_Holland"];
 window.FEEDBACK_ISSUES = "https://github.com/PhillipHolland/grokbotshelf/issues/new";
 
 // "From the builders" strip on the home Featured view. Names must match bots.json exactly.
-// Phil's first two lead (Coach, Security Audit Bot), then a mix with Nick's. Shelfer stays out of this strip.
+// Phil's first three lead (Coach, iMessage Relay, Security Audit Bot), then a mix with Nick's. Shelfer stays out of this strip.
 window.BUILDERS = {
   handles: ["@Phil_Holland", "@thecsguy"],
-  feature: ["Coach", "Security Audit Bot", "Disk Doctor", "Claude Remote", "Vuln Scout", "Archivist", "Package Pal", "Afterglow"],
+  feature: ["Coach", "iMessage Relay", "Security Audit Bot", "Disk Doctor", "Claude Remote", "Vuln Scout", "Archivist", "Package Pal", "Afterglow"],
 };
 
 // Shelfer: the Grok Bot template that queues a bot for the shelf. Used by the hero "Get Shelfer" link and the Add your bot copy.

@@ -206,12 +206,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/bot/imessage-relay",
-      "destination": "/@phil_holland",
-      "permanent": false
-    }
   ]
 }

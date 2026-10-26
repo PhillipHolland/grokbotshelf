@@ -2856,6 +2856,24 @@
       "url": "",
       "note": "site form #84; held: needs X handle (no creator name or handle on form or template).",
       "date": "2026-10-26"
+    },
+    "2114716219802571241": {
+      "status": "added",
+      "author": "@nahjuin",
+      "bot": "Bot Architect",
+      "template_url": "https://x.ai/bot/DhDewLY_T5cnElbB85udj",
+      "url": "https://x.com/nahjuin/status/2114716219802571241",
+      "note": "site form #88; Phillip approved, added to shelf",
+      "date": "2026-10-26"
+    },
+    "2114709457137745993": {
+      "status": "skipped",
+      "author": "@ManaEngineer",
+      "bot": "",
+      "template_url": "",
+      "url": "https://x.com/ManaEngineer/status/2114709457137745993",
+      "note": "image post about Shelfer, no template link",
+      "date": "2026-10-26"
     }
   }
 }

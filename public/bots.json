@@ -184,6 +184,19 @@
     "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
+    "name": "iMessage Relay",
+    "emoji": "💬",
+    "description": "Forwards your iMessages to X Chat so you can reply there, after a one-minute setup on your Mac.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/HeVOGnrIY9oMcgGkl3hO5",
+    "creator_name": "Phillip Holland",
+    "creator_handle": "@Phil_Holland",
+    "creator_url": "https://x.com/Phil_Holland",
+    "source_post": "",
+    "added": "2026-10-24",
+    "creator_avatar": "/avatars/phil_holland.webp"
+  },
+  {
     "name": "Reel ➡️ 𝕏",
     "emoji": "🎬",
     "description": "Turns an Instagram, TikTok or YouTube Shorts link into an X-ready MP4 and a post crediting the creator.",
@@ -5542,6 +5555,19 @@
     "creator_url": "https://x.com/Phil_Holland",
     "creator_avatar": "/avatars/phil_holland.webp",
     "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Bot Architect",
+    "emoji": "📐",
+    "description": "Turns a bot idea, rough concept, or master prompt into a publishable Grok Bot template: one clear job, safe boundaries, only the questions it needs, and each template built in its own bot so published links never get overwritten.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/DhDewLY_T5cnElbB85udj",
+    "creator_name": "nahjuin",
+    "creator_handle": "@nahjuin",
+    "creator_url": "https://x.com/nahjuin",
+    "creator_avatar": "/avatars/nahjuin.webp",
+    "source_post": "https://x.com/nahjuin/status/2114716219802571241",
     "added": "2026-10-26"
   }
 ]
