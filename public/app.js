@@ -741,10 +741,15 @@ const addCheck = (() => {
   };
   const urlish = (v) => /^(https?:\/\/|www\.|x\.ai\b)/i.test(v.trim());
   const nkey = (s) => String(s || "").trim().toLowerCase().replace(/\s+/g, " ");
-  let byT = null, byN = null;
+  // X post key, for suggestions sent with only a post link: matched against each listed bot's source post
+  const pkey = (u) => { const m = String(u || "").match(/^(?:https?:\/\/)?(?:www\.|mobile\.)?(?:x|twitter)\.com\/[^?#]*?\/status\/(\d{5,25})/i); return m ? "post:" + m[1] : ""; };
+  let byT = null, byN = null, byP = null;
   const ready = shelfData.then((bots) => {
-    byT = new Map(); byN = new Map();
-    for (const b of bots || []) { const k = tkey(b.url); if (k && !byT.has(k)) byT.set(k, b); const n = nkey(b.name); if (n && !byN.has(n)) byN.set(n, b); }
+    byT = new Map(); byN = new Map(); byP = new Map();
+    for (const b of bots || []) {
+      const k = tkey(b.url), n = nkey(b.name), p = pkey(b.source_post);
+      if (k && !byT.has(k)) byT.set(k, b); if (n && !byN.has(n)) byN.set(n, b); if (p && !byP.has(p)) byP.set(p, b);
+    }
   });
   const link = (b) => `<a href="${esc(b._page)}">${esc(b.name)}</a>`;
 
@@ -763,7 +768,46 @@ const addCheck = (() => {
     f.addEventListener("reset", () => setTimeout(check, 0));
     ready.then(check);
   }
-  return { tkey, ready, get: (k) => byT && byT.get(k), link, esc };
+
+  // Your suggestions: template (or X post) links sent from this form, kept on this device only. Status comes from
+  // shelf-data.json alone: "Added" when the template id is listed, otherwise "not found yet" (never declined or pending;
+  // the review queue is not read here).
+  const SKEY = "shelf_suggested", MAX = 20;
+  const skey = (u) => tkey(u) || pkey(u);
+  const find = (k) => k.startsWith("post:") ? byP && byP.get(k) : byT && byT.get(k);
+  const load = () => { try { const a = JSON.parse(localStorage.getItem(SKEY) || "[]"); return Array.isArray(a) ? a.filter((x) => x && skey(x.u)) : []; } catch { return []; } };
+  const save = (a) => { try { a.length ? localStorage.setItem(SKEY, JSON.stringify(a.slice(0, MAX))) : localStorage.removeItem(SKEY); } catch {} };
+  const shown = (u) => { const k = skey(u); return k.startsWith("bot:") ? "x.ai/bot/" + k.slice(4) : k.startsWith("mkt:") ? "x.ai/marketplace/bots/" + k.slice(4) : String(u).replace(/^https?:\/\/(www\.)?/i, "").replace(/[?#].*$/, ""); };
+  const canon = (u) => { const k = skey(u); return k.startsWith("bot:") ? "https://x.ai/bot/" + k.slice(4) : k.startsWith("mkt:") ? "https://x.ai/marketplace/bots/" + k.slice(4) : "https://" + shown(u); };
+  const NOTYET = "Not found on the shelf yet. Recent approvals can take a few minutes to appear.";
+  const list = document.getElementById("chk-list"), forget = document.getElementById("chk-forget"), cf = document.getElementById("chk-form"), next = document.getElementById("chk-next");
+  let checked = null, loaded = false;
+  ready.then(() => { loaded = true; paint(); });
+  function row(u, tag) {
+    const b = loaded && find(skey(u));
+    const what = b ? link(b) : `<a href="${esc(canon(u))}" rel="noopener" target="_blank">${esc(shown(u))}</a>`;
+    const st = !loaded ? `<span class="st">Checking</span>` : b ? `<span class="st added">Added</span>` : `<span class="st notyet">Not yet</span>`;
+    const why = !loaded ? "Checking the shelf…" : b ? "It is on the shelf." : NOTYET;
+    return `<li data-k="${esc(skey(u))}"${tag ? ` class="${tag}"` : ""}><span class="what">${what}</span>${st}<span class="why">${esc(why)}</span></li>`;
+  }
+  function paint() {
+    if (!list) return;
+    const mine = load();
+    list.innerHTML = (checked ? (checked.err ? `<li class="checked"><span class="why err">${esc(checked.err)}</span></li>` : row(checked.u, "checked")) : "")
+      + mine.filter((x) => !checked || skey(x.u) !== skey(checked.u)).map((x) => row(x.u, "mine")).join("");
+    if (forget) forget.hidden = !mine.length;
+    if (next) next.hidden = !list.querySelector(".st.notyet");
+  }
+  if (cf) cf.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const v = cf.querySelector("#chk-url").value.trim();
+    checked = !v ? { err: "Paste an x.ai/bot template link." } : skey(v) ? { u: v } : { err: "That does not look like an x.ai/bot template link." };
+    paint();
+  });
+  if (forget) forget.addEventListener("click", () => { save([]); paint(); const i = document.getElementById("chk-url"); if (i) i.focus(); });
+  const remember = (u) => { const k = skey(u); if (!k) return; save([{ u: canon(u), at: Date.now() }, ...load().filter((x) => skey(x.u) !== k)]); paint(); };
+  paint();
+  return { tkey, ready, remember };
 })();
 
 // Suggest a bot: POST /api/submit. Shelf Inbox (or Phil/Nick) reviews for NSFW and security issues. Clean bots may be added without a second human click.
@@ -784,6 +828,7 @@ const addCheck = (() => {
         var r = rd[0], d = rd[1];
         if (r.ok && d.ok) {
           show(d.message || "Thanks! It is in the review queue.", "ok");
+          addCheck.remember((d.bot && d.bot.url) || bot || post);
           if (d.status !== "already_listed") f.reset();
           if (window.va) window.va("event", { name: "submit_bot" });
         } else show(d.error || "That did not go through. Try again in a minute.", "err");
