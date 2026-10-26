@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 09:20:29 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 10:59:48 GMT</lastBuildDate>
+  <item>
+    <title>🏆 Hackathon Hunter by Ace</title>
+    <link>https://grokbotshelf.com/bot/hackathon-hunter</link>
+    <guid isPermaLink="false">https://x.ai/bot/9qOAYMDAy1kvBHna8PrPF</guid>
+    <description>Finds, verifies and tracks hackathons, AI and Web3 challenges, Kaggle contests, bounties and grants for your country, with concise scheduled reports.</description>
+    <dc:creator>Ace (@aceop_xyz)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>📚 Books by Jason</title>
+    <link>https://grokbotshelf.com/bot/books</link>
+    <guid isPermaLink="false">https://x.ai/bot/SBxIazESu89JqaGtGWsZj</guid>
+    <description>One book a week as six short morning reads with key ideas, stories, a quote, something to try and a quiz; each Sunday you pick next week&apos;s book.</description>
+    <dc:creator>Jason (@sproutmed)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:02 GMT</pubDate>
+  </item>
   <item>
     <title>🧭 First Officer by Phillip</title>
     <link>https://grokbotshelf.com/bot/first-officer</link>
@@ -438,24 +456,6 @@
     <dc:creator>John (@JohnKlacynski)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Sun, 25 Oct 2026 12:06:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪓 Chop Bot v6 by Calix</title>
-    <link>https://grokbotshelf.com/bot/chop-bot-v6</link>
-    <guid isPermaLink="false">https://x.ai/bot/3ITYjIFCSujYyq6rp5VAq</guid>
-    <description>Chops your inbox, calendar and X replies down to one daily brief with follow-up nudges.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>📣 Your Echo by Natasha Soleil</title>
-    <link>https://grokbotshelf.com/bot/your-echo</link>
-    <guid isPermaLink="false">https://x.ai/bot/7nmRrkN_5YS-dXc6PGBys</guid>
-    <description>Finds events, podcasts and communities in your niche, then drafts warm outreach that references them.</description>
-    <dc:creator>Natasha Soleil (@LadySoleil33)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:12 GMT</pubDate>
   </item>
 </channel>
 </rss>

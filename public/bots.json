@@ -5478,5 +5478,31 @@
     "creator_url": "https://x.com/phillipggreen",
     "creator_avatar": "/avatars/phillipggreen.webp",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Books",
+    "emoji": "📚",
+    "description": "One book a week as six short morning reads with key ideas, stories, a quote, something to try and a quiz; each Sunday you pick next week's book.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/SBxIazESu89JqaGtGWsZj",
+    "creator_name": "Jason",
+    "creator_handle": "@sproutmed",
+    "creator_url": "https://x.com/sproutmed",
+    "creator_avatar": "/avatars/sproutmed.webp",
+    "source_post": "https://x.com/sproutmed/status/2114653901118980353",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Hackathon Hunter",
+    "emoji": "🏆",
+    "description": "Finds, verifies and tracks hackathons, AI and Web3 challenges, Kaggle contests, bounties and grants for your country, with concise scheduled reports.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/9qOAYMDAy1kvBHna8PrPF",
+    "creator_name": "Ace",
+    "creator_handle": "@aceop_xyz",
+    "creator_url": "https://x.com/aceop_xyz",
+    "creator_avatar": "/avatars/aceop_xyz.webp",
+    "source_post": "https://x.com/aceop_xyz/status/2114661462073553151",
+    "added": "2026-10-26"
   }
 ]

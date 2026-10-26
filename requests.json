@@ -2789,6 +2789,25 @@
       "note": "site form #75",
       "date": "2026-10-26",
       "approved_by": "Phillip Holland"
+    },
+    "template-SBxIazESu89JqaGtGWsZj": {
+      "status": "added",
+      "author": "@sproutmed",
+      "bot": "Books",
+      "template_url": "https://x.ai/bot/SBxIazESu89JqaGtGWsZj",
+      "url": "https://x.com/sproutmed/status/2114653901118980353",
+      "note": "site form #83 (author blank; handle from X post)",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114661462073553151": {
+      "status": "added",
+      "author": "@aceop_xyz",
+      "bot": "Hackathon Hunter",
+      "template_url": "https://x.ai/bot/9qOAYMDAy1kvBHna8PrPF",
+      "url": "https://x.com/aceop_xyz/status/2114661462073553151",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
     }
   }
 }
