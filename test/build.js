@@ -26,7 +26,7 @@ try {
   const feed = fs.readFileSync(pub("feed.xml"), "utf8");
   ok((feed.match(/<item>/g) || []).length === Math.min(50, bots.length), "feed has the newest 50");
   ok(fs.readFileSync(pub("llms.txt"), "utf8").includes(`${bots.length} bots right now`), "llms.txt count matches");
-  ok(["cap_network", "cap_daily", "cap_bot_voter", "Retry-After"].every((k) => fs.readFileSync(pub("llms.txt"), "utf8").includes(k)), "llms.txt documents the vote-cap 429 codes and Retry-After");
+  ok(["cap_network", "cap_daily", "Retry-After", "one vote per shelf bot per network"].every((k) => fs.readFileSync(pub("llms.txt"), "utf8").includes(k)) && !fs.readFileSync(pub("llms.txt"), "utf8").includes("cap_bot_voter"), "llms.txt documents the vote-cap 429 codes and Retry-After");
   const missBot = slugs.filter((s) => !fs.existsSync(pub("og", "bot", s + ".png"))), missC = handles.filter((h) => !fs.existsSync(pub("og", "creator", h + ".png")));
   ok(!missBot.length, `every bot has a share image (missing: ${missBot.join(", ") || "none"})`);
   ok(!missC.length, `every creator has a share image (missing: ${missC.join(", ") || "none"})`);

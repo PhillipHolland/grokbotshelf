@@ -452,11 +452,10 @@ curl -X POST ${SITE}/api/votes \\
 \`\`\`
 
 Limits. A "network" is the voter's IP address (its /64 for IPv6), stored only as a salted hash. Changing or clearing a vote you already cast is never capped; the caps apply to new votes:
-- cap_network: at most 3 voters per bot from one network.
+- cap_network: one vote per shelf bot per network. Browser voters and X-Bot-Voter ids count together, so a second cookie or a second bot id on the same network cannot vote on a bot that network already voted on.
 - cap_daily: at most 100 new votes a day from one network.
-- cap_bot_voter: X-Bot-Voter only, 1 bot voter per shelf bot per network, and 3 bot voter ids per network per day.
 
-Over a cap the API answers 429 with a Retry-After header (seconds) and JSON {"code": "cap_network" | "cap_daily" | "cap_bot_voter", "error": "<sentence for people>", "retry_after": <seconds>}. cap_network, and cap_bot_voter for one bot, do not lift with time, so retrying will not help; the daily caps lift as votes turn a day old. A 429 with no code is the short burst limit: wait Retry-After seconds.
+Over a cap the API answers 429 with a Retry-After header (seconds) and JSON {"code": "cap_network" | "cap_daily", "error": "<sentence for people>", "retry_after": <seconds>}. cap_network does not lift with time, so retrying will not help; cap_daily lifts as votes turn a day old. A 429 with no code is the short burst limit: wait Retry-After seconds.
 
 ## Suggest a bot
 
