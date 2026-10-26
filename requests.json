@@ -3500,6 +3500,54 @@
       "url": "https://x.com/jimaggie/status/2114818367731142839",
       "note": "addressed to @cradrrat about botshelf.dev, a different site",
       "date": "2026-10-26"
+    },
+    "template-cTl4WFWkRzWZMXT851bWE": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@weaverwork",
+      "bot": "Box Solution Builder",
+      "template_url": "https://x.ai/bot/cTl4WFWkRzWZMXT851bWE",
+      "url": "https://x.com/weaverwork/status/2114567009132511532",
+      "note": "site form #141; handle from @weaverwork posts sharing the template",
+      "date": "2026-10-26"
+    },
+    "template-77jqvUnCnKbZe1osmD18-": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@weaverwork",
+      "bot": "Salesforce Product Expert",
+      "template_url": "https://x.ai/bot/77jqvUnCnKbZe1osmD18-",
+      "url": "https://x.com/weaverwork/status/2114742204614750230",
+      "note": "site form #152; handle from @weaverwork posts sharing the template",
+      "date": "2026-10-26"
+    },
+    "template-9sF9NvWNHiw8OKl_M15QI": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@weaverwork",
+      "bot": "QuickBooks Product Expert",
+      "template_url": "https://x.ai/bot/9sF9NvWNHiw8OKl_M15QI",
+      "url": "https://x.com/weaverwork/status/2114742204614750230",
+      "note": "site form #156; handle from @weaverwork posts sharing the template",
+      "date": "2026-10-26"
+    },
+    "template-0R3eo0SBsG7QzFlyJLGdK": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@weaverwork",
+      "bot": "Airtable Product Expert",
+      "template_url": "https://x.ai/bot/0R3eo0SBsG7QzFlyJLGdK",
+      "url": "https://x.com/weaverwork/status/2114742204614750230",
+      "note": "site form #143; handle from @weaverwork posts sharing the template",
+      "date": "2026-10-26"
+    },
+    "weaverwork-batch": {
+      "status": "pending",
+      "author": "@weaverwork",
+      "bot": "All other \"by Jacob\" SaaS Product Expert templates (site forms #142-#227 and counting, ~83 at 6:10 PM CT; submissions still arriving)",
+      "url": "https://x.com/weaverwork/status/2114742204614750230",
+      "note": "Held for Phillip: bulk batch of near-identical docs-only Q&A bots from a 104-bot library (botsthatdothework.com). Clean, creator confirmed @weaverwork. Shelved Box Solution Builder + the 3 he featured in his top-10 post; rest await a call on bulk/flooding.",
+      "date": "2026-10-26"
     }
   }
 }

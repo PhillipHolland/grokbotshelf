@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 23:05:14 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 23:07:22 GMT</lastBuildDate>
+  <item>
+    <title>🗂️ Airtable Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/airtable-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/0R3eo0SBsG7QzFlyJLGdK</guid>
+    <description>Answers Airtable how-to questions from Airtable&apos;s official docs only, linking the page each answer came from.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:10 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 QuickBooks Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/quickbooks-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/9sF9NvWNHiw8OKl_M15QI</guid>
+    <description>Answers QuickBooks Online and Desktop how-to questions from Intuit&apos;s official sites only, with the source page linked.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:09 GMT</pubDate>
+  </item>
+  <item>
+    <title>☁️ Salesforce Product Expert by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/salesforce-product-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/77jqvUnCnKbZe1osmD18-</guid>
+    <description>Answers Salesforce how-to questions from Salesforce&apos;s official docs only, linking the page each answer came from.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>📦 Box Solution Builder by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/box-solution-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/cTl4WFWkRzWZMXT851bWE</guid>
+    <description>Builds and tests Box solutions (agents, Hubs, Automate workflows, Doc Gen) in your own Box account or sandbox.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:07 GMT</pubDate>
+  </item>
   <item>
     <title>☕ Groksters Anonymous by Jay</title>
     <link>https://grokbotshelf.com/bot/groksters-anonymous</link>
@@ -420,42 +456,6 @@
     <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Mon, 26 Oct 2026 12:07:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌍 WebOps by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/webops</link>
-    <guid isPermaLink="false">https://x.ai/bot/RRpEi9POci-hgE-M25iIE</guid>
-    <description>Runs website chores: private previews, static deploys, DNS and uptime checks, forms, redirects and SEO hygiene, launching only on your OK.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖼️ Iris by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/iris</link>
-    <guid isPermaLink="false">https://x.ai/bot/RAGI8n5F27u6FB5YHJ48t</guid>
-    <description>Makes product art, on-model images, social graphics, banners and print-ready artwork, with a quality check before your approval.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧬 Genealogy by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/genealogy</link>
-    <guid isPermaLink="false">https://x.ai/bot/fDMlciBM0gvOzNBbvMAUL</guid>
-    <description>Traces a family line from free public records, rates and cites every finding, and writes plain-language family bios.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚦 Transition to Operations Manager by Outwork-Ventures</title>
-    <link>https://grokbotshelf.com/bot/transition-to-operations-manager</link>
-    <guid isPermaLink="false">https://x.ai/bot/uYAVECWY1ECkyULdBwp4P</guid>
-    <description>Takes each new business from built to live operations, owning the handover checklist until every gate is evidenced and approved.</description>
-    <dc:creator>Outwork-Ventures (@OutworkVentures)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:17 GMT</pubDate>
   </item>
 </channel>
 </rss>

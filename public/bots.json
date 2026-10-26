@@ -6323,5 +6323,57 @@
     "creator_avatar": "/avatars/jayinely.webp",
     "source_post": "https://x.com/JayinEly/status/2114620416182686121",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Box Solution Builder",
+    "emoji": "📦",
+    "description": "Builds and tests Box solutions (agents, Hubs, Automate workflows, Doc Gen) in your own Box account or sandbox.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/cTl4WFWkRzWZMXT851bWE",
+    "creator_name": "Jacob Weaver",
+    "creator_handle": "@weaverwork",
+    "creator_url": "https://x.com/weaverwork",
+    "creator_avatar": "/avatars/weaverwork.webp",
+    "source_post": "https://x.com/weaverwork/status/2114567009132511532",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Salesforce Product Expert",
+    "emoji": "☁️",
+    "description": "Answers Salesforce how-to questions from Salesforce's official docs only, linking the page each answer came from.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/77jqvUnCnKbZe1osmD18-",
+    "creator_name": "Jacob Weaver",
+    "creator_handle": "@weaverwork",
+    "creator_url": "https://x.com/weaverwork",
+    "creator_avatar": "/avatars/weaverwork.webp",
+    "source_post": "https://x.com/weaverwork/status/2114742204614750230",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "QuickBooks Product Expert",
+    "emoji": "🧾",
+    "description": "Answers QuickBooks Online and Desktop how-to questions from Intuit's official sites only, with the source page linked.",
+    "category": "Money",
+    "url": "https://x.ai/bot/9sF9NvWNHiw8OKl_M15QI",
+    "creator_name": "Jacob Weaver",
+    "creator_handle": "@weaverwork",
+    "creator_url": "https://x.com/weaverwork",
+    "creator_avatar": "/avatars/weaverwork.webp",
+    "source_post": "https://x.com/weaverwork/status/2114742204614750230",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Airtable Product Expert",
+    "emoji": "🗂️",
+    "description": "Answers Airtable how-to questions from Airtable's official docs only, linking the page each answer came from.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/0R3eo0SBsG7QzFlyJLGdK",
+    "creator_name": "Jacob Weaver",
+    "creator_handle": "@weaverwork",
+    "creator_url": "https://x.com/weaverwork",
+    "creator_avatar": "/avatars/weaverwork.webp",
+    "source_post": "https://x.com/weaverwork/status/2114742204614750230",
+    "added": "2026-10-26"
   }
 ]
