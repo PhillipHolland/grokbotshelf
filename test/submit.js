@@ -1,4 +1,5 @@
-// Suggest form checks: "already on the shelf" by template id, the name hint, and the status of your suggestions.
+// Suggest form checks under the template field: on the shelf (by template id), suggested before from this device,
+// name hint, and a green check for a valid template link that is new.
 // /api/submit is mocked (never reaches the real API) and the test fails if anything asks for the pending list.
 const puppeteer = require('puppeteer-core');
 const BASE = (process.argv[2] || 'http://localhost:8765/').replace(/\/?$/, '/');
@@ -34,7 +35,8 @@ const KEY = 'shelf_suggested';
     await p.goto(BASE, { waitUntil: 'networkidle0' });
     await p.evaluate((k) => localStorage.removeItem(k), KEY);
     await p.goto(BASE + '#add', { waitUntil: 'networkidle0' });
-    const dupe = () => p.$eval('#sub-dupe', e => ({ cls: e.className, h: e.offsetHeight, text: e.textContent.trim(), href: (e.querySelector('a') || {}).getAttribute?.('href') || '' }));
+    const dupe = () => p.$eval('#sub-dupe', e => ({ cls: e.className, h: e.offsetHeight, check: getComputedStyle(document.getElementById('sub-ok')).visibility === 'visible',
+      shown: [...e.childNodes].filter(n => !(n.classList && n.classList.contains('sr'))).map(n => n.textContent).join('').trim(), sr: (e.querySelector('.sr') || {}).textContent || '', text: e.textContent.trim(), href: (e.querySelector('a') || {}).getAttribute?.('href') || '' }));
     const below = () => p.$eval('label[for=sub-post]', e => Math.round(e.getBoundingClientRect().top + scrollY));
     const set = async (v) => { await p.$eval('#sub-bot', e => { e.value = ''; }); await p.type('#sub-bot', v); await wait(300); };
     ok(await p.$eval('#sub-dupe', e => e.getAttribute('aria-live') === 'polite' && document.getElementById('sub-bot').getAttribute('aria-describedby') === 'sub-dupe'), W + 'the shelf check is a polite live region tied to the template field');
@@ -46,12 +48,17 @@ const KEY = 'shelf_suggested';
       ok(d.cls.includes('dupe-hit') && d.h >= 20 && d.text.startsWith('Already on the shelf') && d.href === page, W + `template id match for ${v}: "${d.text}" -> ${d.href}`);
     }
     ok(await below() === y0, W + 'nothing below moves when the match shows (no layout jump)');
+    ok(!(await dupe()).check, W + 'no green check while the link is on the shelf');
     await set('https://x.ai/bot/' + id.toLowerCase()); let d = await dupe();
-    ok(!d.text, W + 'template ids are case-sensitive: a lowercased id is not a match');
+    ok(!d.cls.includes('dupe-hit') && !d.shown, W + 'template ids are case-sensitive: a lowercased id is not a match');
     await set(NEW); d = await dupe();
-    ok(!d.text && d.cls === 'sub-dupe', W + 'unknown template id: no message');
-    await set('https://example.com/bot/' + id); d = await dupe();
-    ok(!d.text, W + 'same path on another host is not a match');
+    ok(d.cls.includes('dupe-new') && d.check && !d.shown && d.sr === 'Not on the shelf yet', W + 'valid new template link: green check only, labelled "Not on the shelf yet" for screen readers');
+    ok(await p.evaluate(() => { const i = document.getElementById('sub-bot').getBoundingClientRect(), c = document.getElementById('sub-ok').getBoundingClientRect(); return c.left > i.left && c.right <= i.right && c.top >= i.top && c.bottom <= i.bottom; }), W + 'the check sits inside the field');
+    ok(await below() === y0, W + 'nothing below moves when the check shows');
+    for (const v of ['x.ai/bo', 'https://x.ai/bot/', 'https://x.ai/bot/abc', 'x.ai/bot/' + 'a'.repeat(70), 'https://example.com/bot/' + id, 'https://x.ai/other/' + id, 'not a link']) {
+      await set(v); d = await dupe();
+      ok(!d.text && !d.check, W + `invalid or partial input shows nothing: ${v.slice(0, 40)}`);
+    }
     await set('  ' + listed.name.toUpperCase().replace(/ /g, '   ') + '  '); d = await dupe();
     ok(d.cls.includes('dupe-hint') && d.h >= 20 && d.text === `A bot named ${listed.name} is already on the shelf.` && d.href === page, W + `name hint (trimmed, any case, spaces collapsed): "${d.text}"`);
     ok(await below() === y0, W + 'nothing below moves when the name hint shows');
@@ -63,42 +70,30 @@ const KEY = 'shelf_suggested';
     await set(listed.url); await p.click('#sub-go'); await wait(400);
     ok(api.filter(a => a.startsWith('POST')).length === 1, W + 'sending still works when the link is already on the shelf');
     ok(/already on the shelf/.test(await p.$eval('#sub-msg', e => e.textContent)), W + 'the API answer is shown as before');
-    // A new suggestion is remembered on this device
-    await p.$eval('#sub-bot', e => { e.value = ''; }); await p.type('#sub-bot', NEW + '/?s=1'); await p.click('#sub-go'); await wait(400);
-    const saved = await p.evaluate((k) => JSON.parse(localStorage.getItem(k) || '[]').map(x => x.u), KEY);
-    ok(saved[0] === NEW && saved[1] === listed.url && saved.length === 2, W + 'sent template links are kept in localStorage (normalized): ' + JSON.stringify(saved));
-    const rows = () => p.$$eval('#chk-list li', ls => ls.map(l => ({ k: l.dataset.k, cls: l.className, st: (l.querySelector('.st') || {}).textContent, why: (l.querySelector('.why') || {}).textContent, href: (l.querySelector('.what a') || {}).getAttribute?.('href') })));
-    let r = await rows();
-    ok(r.length === 2 && r[0].st === 'Not yet' && r[0].why === 'Not found on the shelf yet. Recent approvals can take a few minutes to appear.', W + 'new suggestion: not found on the shelf yet: ' + JSON.stringify(r[0]));
-    ok(r[1].st === 'Added' && r[1].href === page, W + 'suggestion already listed: Added, linked to its page');
-    ok(await p.$eval('#chk-next', e => !e.hidden && /Reviewed for NSFW and security issues/i.test(e.textContent)), W + 'what happens next uses the shelf review wording');
-
-    // Return visit
-    await p.reload({ waitUntil: 'networkidle0' }); await wait(300);
-    r = await rows();
-    ok(r.length === 2 && r[0].st === 'Not yet' && r[1].st === 'Added', W + 'status shows again on a return visit');
-    const txt = await p.$eval('#sub-check', e => e.innerText);
-    ok(!/declin|reject|pending/i.test(txt), W + 'never says declined, rejected or pending');
-
-    // Paste box for anyone (sent on X or by email)
-    await p.evaluate((k) => localStorage.removeItem(k), KEY); await p.reload({ waitUntil: 'networkidle0' });
-    ok(await p.$eval('#chk-list', e => !e.children.length) && await p.$eval('#chk-forget', e => e.hidden), W + 'nothing listed when nothing was sent from this device');
-    const check = async (v) => { await p.$eval('#chk-url', e => { e.value = ''; }); await p.type('#chk-url', v); await p.click('#chk-go'); await wait(200); return rows(); };
-    r = await check(`https://www.x.ai/bot/${id}?utm=x`);
-    ok(r.length === 1 && r[0].st === 'Added' && r[0].href === page, W + 'paste box: a listed template shows Added with its page');
-    r = await check('x.ai/bot/SomethingElse77');
-    ok(r.length === 1 && r[0].st === 'Not yet', W + 'paste box: an unknown template shows not found yet');
-    r = await check('hello');
-    ok(r.length === 1 && /x\.ai\/bot template link/.test(r[0].why), W + 'paste box: a non-link gets a hint');
-    ok(await p.evaluate((k) => localStorage.getItem(k), KEY) === null, W + 'checking a link does not save it as yours');
-    await p.evaluate((k, u) => localStorage.setItem(k, JSON.stringify([{ u }])), KEY, NEW); await p.reload({ waitUntil: 'networkidle0' });
-    await p.click('#chk-forget'); await wait(100);
-    ok(await p.evaluate((k) => localStorage.getItem(k), KEY) === null && await p.$eval('#chk-list', e => !e.children.length), W + 'Forget clears the list on this device');
-
-    if (vp.isMobile) {
-      const sz = await p.evaluate(() => ['#chk-go', '#chk-url'].map(s => Math.round(document.querySelector(s).getBoundingClientRect().height)));
-      ok(sz.every(h => h >= 44), W + 'Check button and paste field are at least 44px tall: ' + sz);
+    // Suggested before from this device (saved only after a successful send)
+    await p.evaluate((k) => localStorage.removeItem(k), KEY);
+    await set(NEW); await p.click('#sub-go'); await wait(400);
+    ok((await p.evaluate((k) => JSON.parse(localStorage.getItem(k) || '[]').map(x => x.u), KEY)).join() === NEW, W + 'a sent template link is kept on this device (normalized)');
+    const SENT = "You suggested this already. It's not on the shelf yet. Recent approvals can take a few minutes to appear.";
+    for (const v of [NEW, 'WWW.x.ai/bot/NotListedYet42/?from=x']) {
+      await set(v); d = await dupe();
+      ok(d.cls.includes('dupe-sent') && d.text === SENT && !d.check, W + `suggested before: ${v}`);
+      ok(d.h >= await p.$eval('#sub-dupe', e => e.scrollHeight), W + 'the suggested-before message fits the reserved space');
     }
+    ok(await below() === y0, W + 'nothing below moves for the suggested-before message');
+    await p.reload({ waitUntil: 'networkidle0' }); await set(NEW + '/');
+    ok((await dupe()).cls.includes('dupe-sent'), W + 'suggested-before still shows on a return visit');
+    await set(listed.url); d = await dupe();
+    ok(d.cls.includes('dupe-hit'), W + 'on the shelf wins over suggested-before');
+    const before = api.length;
+    await set('https://x.ai/bot/FailsToSend99');
+    ok(!(await p.evaluate((k) => localStorage.getItem(k), KEY)).includes('FailsToSend99'), W + 'typing alone does not save anything');
+    ok(api.length === before, W + 'typing makes no API requests');
+    await p.evaluate((k) => localStorage.removeItem(k), KEY);
+    await set(NEW); d = await dupe();
+    ok(d.cls.includes('dupe-new') && d.check, W + 'with nothing saved, the same link shows the green check again');
+    ok(await p.$('#sub-check') === null && await p.$('#chk-url') === null, W + 'no separate status panel or paste box');
+
     ok(!api.some(a => a.startsWith('GET')), W + 'no GET to /api/submit (the pending list is never read): ' + JSON.stringify(api));
     ok(!errs.length, W + 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
     await p.close();
