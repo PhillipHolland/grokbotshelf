@@ -103,8 +103,9 @@
 
 <main class="wrap" id="main">
   <div class="status">
-    <p id="count" class="count" aria-live="polite" aria-atomic="true"></p>
-    <button type="button" class="clear" id="clear" hidden>Clear all</button>
+    <p id="count" class="count" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+    <button type="button" class="reset" id="reset" aria-label="Reset search, filters and sort">Reset</button>
+    <a class="fb-link" id="fb-x" href="https://x.com/intent/post" rel="noopener" target="_blank">Feedback</a>
   </div>
 
   <div id="results" aria-busy="true"></div>
@@ -112,7 +113,7 @@
   <div class="empty" id="empty" hidden>
     <p class="empty-t">No bots match</p>
     <p class="empty-s">Try another spelling, or remove a filter.</p>
-    <button type="button" class="btn" id="empty-clear">Clear filters</button>
+    <button type="button" class="btn" id="empty-clear">Reset search and filters</button>
   </div>
 
   <section class="add" id="add" aria-labelledby="add-h">
@@ -676,6 +677,7 @@
 <footer class="site-foot wrap">
   <p>Not affiliated with SpaceXSI.</p>
   <p class="by">Agency and app badges are set by the shelf from each bot's description. Bookmark counts come from X and are not ratings.</p>
+  <p class="by"><a class="fb-x" href="https://x.com/intent/post" rel="noopener" target="_blank">Feedback on X</a> · <a class="fb-issue" href="https://github.com/PhillipHolland/grokbotshelf/issues/new" rel="noopener" target="_blank">Bug? Open an issue</a></p>
   <p class="by"><a href="/#add">Add a bot</a> · <a href="/feed.xml">RSS</a> · <a href="/bots.json">bots.json</a> · <a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">Sitemap</a></p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>
