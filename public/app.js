@@ -257,11 +257,14 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
 <ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}" title="${s.up} up, ${s.down} down"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc">${I.up}${s.score}<span class="sr"> net votes</span></span></a></li>`).join("")}</ol>`;
   }
-  const topHTML = () => { const inner = topInner(); return `<section class="topvotes" aria-labelledby="topv-h"${inner ? "" : " hidden"}>${inner}</section>`; };
-  function paintTop() {
-    const el = results.querySelector(".topvotes"); if (!el) return;
-    const inner = topInner(); el.innerHTML = inner; el.hidden = !inner;
+  let topEl = null;
+  function topNode() {
+    if (!topEl) { topEl = document.createElement("section"); topEl.className = "topvotes"; topEl.setAttribute("aria-labelledby", "topv-h"); topEl._inner = null; }
+    const inner = topInner();
+    if (inner !== topEl._inner) { topEl.innerHTML = inner; topEl.hidden = !inner; topEl._inner = inner; }
+    return topEl;
   }
+  function paintTop() { if (topEl && topEl.isConnected) topNode(); }
 
   /* ---------- Up / down votes ---------- */
   // Server (Neon via /api/votes) is the source of truth for tallies. localStorage remembers which way
@@ -280,14 +283,18 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const { v, n, title } = voteBits(b._slug), nm = esc(b.name);
     return `<span class="vote" data-vote="${b._slug}" title="${esc(title)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn" aria-live="polite">${n}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
   }
+  const voteKey = ({ v, n, title }) => v + "|" + n + "|" + title;
+  function paintVoteEl(el, bits = voteBits(el.dataset.vote)) {
+    const { v, n, title } = bits, k = voteKey(bits);
+    if (el._vk === k) return;
+    el._vk = k; el.title = title;
+    el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
+    el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
+    el.querySelector(".vn").textContent = n;
+  }
   function paintVote(slug) {
-    const { v, n, title } = voteBits(slug);
-    results.querySelectorAll(`.vote[data-vote="${slug}"]`).forEach((el) => {
-      el.title = title;
-      el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
-      el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
-      el.querySelector(".vn").textContent = n;
-    });
+    const bits = voteBits(slug);
+    results.querySelectorAll(`.vote[data-vote="${slug}"]`).forEach((el) => paintVoteEl(el, bits));
   }
   const paintAll = () => results.querySelectorAll(".vote").forEach((el) => paintVote(el.dataset.vote));
   function bump(slug, from, to) {
@@ -365,14 +372,73 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   const FIRST_GROUPS = 3, TAIL_GROUPS = 4;
   let tail = [], tailT = 0, chunkNext = false;
   function pumpTail() {
-    results.insertAdjacentHTML("beforeend", tail.splice(0, TAIL_GROUPS).join(""));
+    results.append(...tail.splice(0, TAIL_GROUPS).map((f) => f()));
     if (tail.length) tailT = setTimeout(pumpTail, 0); else tailDone();
   }
   function finishTail() {
     if (!tail.length) return;
-    clearTimeout(tailT); results.insertAdjacentHTML("beforeend", tail.join("")); tail = []; tailDone();
+    clearTimeout(tailT); results.append(...tail.map((f) => f())); tail = []; tailDone();
   }
   function tailDone() { tailT = 0; results.removeAttribute("aria-busy"); renderRail(true); if (vote.global) paintAll(); }
+
+  // Re-renders reuse DOM nodes: each card is built once per bot (per search highlight) and kept by its id, and
+  // group sections are kept by creator, so sort, filter and Show more only move nodes. A reused card keeps
+  // the size the browser remembered for it (content-visibility), so nothing above the viewport jumps.
+  const tpl = document.createElement("template");
+  const nodes = (html) => { tpl.innerHTML = html; return [...tpl.content.children]; };
+  const cardCache = new Map(), groupCache = new Map();
+  function reuse(el) {
+    el.classList.remove("active", "flash");
+    const v = el.querySelector(".vote"); if (v) paintVoteEl(v);
+  }
+  function cardEls(rows, pre) {
+    const out = new Array(rows.length), miss = [];
+    rows.forEach(([b, m], i) => {
+      const id = (pre || "") + b._slug, sig = m ? JSON.stringify(m.hits) : "", el = cardCache.get(id);
+      if (el && el._sig === sig) { reuse(el); out[i] = el; } else miss.push([i, id, sig, card(b, m, pre)]);
+    });
+    if (miss.length) nodes(miss.map((x) => x[3]).join("")).forEach((el, k) => {
+      const [i, id, sig] = miss[k]; el._sig = sig; cardCache.set(id, el); out[i] = el;
+      const v = el.querySelector(".vote"); if (v) v._vk = voteKey(voteBits(v.dataset.vote)); // built with the current state
+    });
+    return out;
+  }
+  // Make parent's children exactly kids, in order, moving only what is out of place
+  function place(parent, kids) {
+    let cur = parent.firstChild;
+    for (const k of kids) { if (k === cur) cur = cur.nextSibling; else parent.insertBefore(k, cur); }
+    while (cur) { const n = cur.nextSibling; cur.remove(); cur = n; }
+  }
+  function groupEl(c, g, shown) {
+    let sec = groupCache.get(c.key);
+    if (!sec) {
+      const avImg = !c.anon && c.sm ? `<img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">` : "";
+      const handle = c.anon ? "" : ` <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a>`;
+      const plink = c.anon ? "" : `<button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button>`;
+      sec = nodes(`<section class="group${c.anon ? " anon" : ""}" aria-labelledby="g-${c.key}"><div class="ghead">${avImg}
+<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span>${handle}<span class="gn"></span></h2>${plink}</div>
+<div class="grid"></div></section>`)[0];
+      sec._gn = sec.querySelector(".gn"); sec._grid = sec.querySelector(".grid"); sec._more = null;
+      groupCache.set(c.key, sec);
+    }
+    const gn = ` · ${g.length} ${g.length === 1 ? "bot" : "bots"}`;
+    if (sec._gn.textContent !== gn) sec._gn.textContent = gn;
+    place(sec._grid, cardEls(shown));
+    if (shown.length < g.length) {
+      const mb = sec._more || (sec._more = nodes(`<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}"></button>`)[0]);
+      const t = `Show ${g.length - shown.length} more`;
+      if (mb.textContent !== t) mb.textContent = t;
+      mb.removeAttribute("aria-busy");
+      if (mb.parentNode !== sec) sec.append(mb);
+    } else if (sec._more) sec._more.remove();
+    return sec;
+  }
+  let buildersEl, flatEl;
+  function buildersNode() {
+    if (buildersEl === undefined) { const h = buildersHTML(); buildersEl = h ? nodes(h)[0] : null; }
+    if (buildersEl) buildersEl.querySelectorAll(".card").forEach(reuse);
+    return buildersEl;
+  }
   function render() {
     cancelRender();
     const then = afterRender; afterRender = null;
@@ -389,24 +455,20 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     }[st.sort];
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
-    const strip = st.sort === "featured" && !searching && !filtering() ? buildersHTML() + topHTML() : "";
+    const strip = st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode()].filter(Boolean) : [];
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
       const parts = creators.map((c) => {
         const g = list.filter(([b]) => ckey(b) === c.key);
-        if (!g.length) return "";
+        if (!g.length) return null;
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
-        const avImg = !c.anon && c.sm ? `<img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">` : "";
-        const handle = c.anon ? "" : ` <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a>`;
-        const plink = c.anon ? "" : `<button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button>`;
-        return `<section class="group${c.anon ? " anon" : ""}" aria-labelledby="g-${c.key}"><div class="ghead">${avImg}
-<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span>${handle}<span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2>${plink}</div>
-<div class="grid">${shown.map(([b, m]) => card(b, m)).join("")}</div>${shown.length < g.length ? `<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}">Show ${g.length - shown.length} more</button>` : ""}</section>`;
+        return () => groupEl(c, g, shown);
       }).filter(Boolean);
       if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
-      results.innerHTML = strip + parts.join("");
+      place(results, strip.concat(parts.map((f) => f())));
     } else {
-      results.innerHTML = list.length ? `<div class="grid flat">${list.map(([b, m]) => card(b, m)).join("")}</div>` : "";
+      if (list.length) { flatEl = flatEl || nodes('<div class="grid flat"></div>')[0]; place(flatEl, cardEls(list)); }
+      place(results, list.length ? [flatEl] : []);
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
