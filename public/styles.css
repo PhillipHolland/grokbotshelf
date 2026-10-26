@@ -487,3 +487,17 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
   .ss-scrim,.ss-aura{transition:opacity .18s linear!important}
   .ss-cta{transition:none}
 }
+
+/* Back to top (public/to-top.js): glass pill bottom-right, above the phone safe area. Fades/slides in after ~500px of
+   scroll. On the home page the A-Z rail's bottom end moves up so the two never overlap. */
+.to-top{position:fixed;z-index:14;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:grid;place-items:center;width:40px;height:40px;padding:0;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s,visibility 0s .2s,background .2s;-webkit-tap-highlight-color:transparent}
+.to-top[hidden]{display:none}
+.to-top.show{opacity:1;visibility:visible;transform:none;pointer-events:auto;transition:opacity .2s,transform .2s,visibility 0s,background .2s}
+.to-top:hover{background:var(--hover)}
+.to-top:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
+.to-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+html[data-theme="light"] .to-top{box-shadow:0 4px 16px rgba(15,20,25,.12)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.to-top{background:var(--bg)}}
+html.has-rail .rail{bottom:max(68px,calc(env(safe-area-inset-bottom) + 62px))}
+/* Narrower screens: the rail is a thin edge strip, so the button shrinks to fit under it and stays off the cards */
+@media (max-width:1199px){html.has-rail .to-top{right:max(4px,env(safe-area-inset-right));width:28px;height:28px}html.has-rail .to-top svg{width:15px;height:15px}}
