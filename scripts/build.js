@@ -78,7 +78,10 @@ const items = bots.map((b, i) => {
   return { ...b, _i: i, slug, page: `/bot/${slug}`, app: appLink(b.url), agency: m.agency || "", works_with: m.works_with || [], social: s };
 });
 const handleOf = (b) => b.creator_handle.replace(/^@/, "");
-const ckey = (b) => handleOf(b).toLowerCase();
+// Group key: lowercase handle, or "~" + name slug for creators with no X handle (kept apart, but no /@ page)
+const ckey = (b) => b.creator_handle ? handleOf(b).toLowerCase() : "~" + slugify(b.creator_name);
+// "Fitness Coach by Jenna" by Jenna → no second " by Jenna"
+const titled = (b) => b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_name}`;
 const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}/og.png?v=2`;
 const ogImg = (b) => ogFile("bot", b.slug);
 
@@ -178,23 +181,23 @@ const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e)
 const SVG = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
 const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" title="Vote on this bot"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn" aria-live="polite"></span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
 function page(b, related, similar) {
-  const title = `${b.emoji} ${b.name} by ${b.creator_name} · Grok Bot Shelf`;
+  const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
   const badges = [b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
-  const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} bookmarks on X</span>` : "";
+  const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} ${b.social.bookmarks === 1 ? "bookmark" : "bookmarks"} on X</span>` : "";
   const ld = { "@context": "https://schema.org", "@type": "SoftwareApplication", name: b.name, description: desc, applicationCategory: b.category, url, sameAs: b.url,
-    author: { "@type": "Person", name: b.creator_name, url: b.creator_url }, datePublished: b.added };
+    author: { "@type": "Person", name: b.creator_name, ...(b.creator_url ? { url: b.creator_url } : {}) }, datePublished: b.added };
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
-  const shareT = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${url}`);
-  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${b.name} by ${b.creator_name}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle, ld })}
+  const shareT = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle || b.creator_name} on Grok Bot Shelf\n${url}`);
+  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
-      <p class="sub">${ckey(b) ? `<a href="/@${esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a>` : esc(b.creator_name)}<span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
+      <p class="sub">${b.creator_handle ? `<a href="/@${esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a>` : esc(b.creator_name)}<span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
     </div></div>
     <p class="bp-desc">${esc(desc)}</p>
     ${badges ? `<div class="badges">${badges}</div>` : ""}
@@ -256,7 +259,7 @@ function pick(g, f) {
   const top = Math.max(...n.values());
   return f(g.slice().sort(newestFirst).find((b) => n.get(f(b)) === top));
 }
-groups.delete(""); // bots with no known handle get no creator page
+for (const k of [...groups.keys()]) if (k.startsWith("~")) groups.delete(k); // bots with no known handle get no creator page
 const creatorList = [...groups].map(([k, g]) => ({ bots: g, handle: pick(g, handleOf), name: pick(g, (b) => b.creator_name), url: pick(g, (b) => b.creator_url), avatar: pick(g, (b) => b.creator_avatar), page: "/@" + k }));
 const fmtDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
 function creatorPage(c) {
@@ -346,11 +349,11 @@ fs.writeFileSync(path.join(PUB, "feed.xml"), `<?xml version="1.0" encoding="UTF-
   <atom:link href="${SITE}/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 ${recent.map((b) => `  <item>
-    <title>${x(`${b.emoji} ${b.name} by ${b.creator_name}`)}</title>
+    <title>${x(`${b.emoji} ${titled(b)}`)}</title>
     <link>${SITE}${b.page}</link>
     <guid isPermaLink="false">${x(b.url)}</guid>
     <description>${x(b.description)}</description>
-    <dc:creator>${x(`${b.creator_name} (${b.creator_handle})`)}</dc:creator>
+    <dc:creator>${x(b.creator_handle ? `${b.creator_name} (${b.creator_handle})` : b.creator_name)}</dc:creator>
     <category>${x(b.category)}</category>
     <pubDate>${rfc(b.added, b._i)}</pubDate>
   </item>`).join("\n")}

@@ -4,7 +4,8 @@ const SHOTS = process.argv[3];
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 // Expected numbers come from the bots.json being served, so the test keeps up with the catalog.
 const fold = (s) => String(s).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '');
-const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
+// Same group key as app.js: handle, or ~name-slug for creators with no X handle
+const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowerCase() : '~' + String(x.creator_name).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const TOTAL = BOTS.length, by = (h) => BOTS.filter((x) => ckey(x) === h);

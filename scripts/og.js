@@ -27,7 +27,7 @@ p{font-size:32px;line-height:1.3;margin:0;color:#a8adb2;letter-spacing:-.01em;di
 <div class="s"><svg viewBox="0 0 16 16" fill="#e7e9ea"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>grokbotshelf.com</div></div></body></html>`;
 // One card per creator (first casing of the handle wins, as on the shelf), drawn with the same template.
 const groups = new Map();
-for (const b of bots) { const k = b.creator_handle.replace(/^@/, "").toLowerCase(); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(b); }
+for (const b of bots) { const k = b.creator_handle.replace(/^@/, "").toLowerCase(); if (!k) continue; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(b); }
 const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(COUT, k + ".png"), name: g[0].creator_name, creator_handle: g[0].creator_handle, creator_avatar: g[0].creator_avatar,
   description: `${g.length} ${g.length === 1 ? "bot" : "bots"}: ${g.slice(0, 4).map((b) => b.name).join(", ")}${g.length > 4 ? " and more" : ""}` }));
 (async () => {

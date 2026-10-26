@@ -6,13 +6,76 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 00:45:59 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 01:20:36 GMT</lastBuildDate>
   <item>
-    <title>🖌️ Design by lu by lu</title>
+    <title>🏋️ Fitness Coach by Jenna</title>
+    <link>https://grokbotshelf.com/bot/fitness-coach-by-jenna</link>
+    <guid isPermaLink="false">https://x.ai/bot/BhDn5_-jxTIhbB9-QPic1</guid>
+    <description>Evidence-based fat-loss and lifting coach: sets calorie and macro targets, coaches progressive overload, tracks weekly weigh-in trends, and helps you stick to the plan when evenings get hard.</description>
+    <dc:creator>Jenna</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:46 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚨 Scam Guard by Sarah</title>
+    <link>https://grokbotshelf.com/bot/scam-guard</link>
+    <guid isPermaLink="false">https://x.ai/bot/ZSSddVUqIl5e6JCa4fDAh</guid>
+    <description>Family scam defense: sets up a family safe word, gives a Safe/Caution/Scam verdict on any call, text, email, link, or DM, watches your X DMs, and helps you get off data-broker sites. Never acts without your OK.</description>
+    <dc:creator>Sarah</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:45 GMT</pubDate>
+  </item>
+  <item>
+    <title>✍️ Prompt Upgrader by Sarah</title>
+    <link>https://grokbotshelf.com/bot/prompt-upgrader</link>
+    <guid isPermaLink="false">https://x.ai/bot/nSTWTnIS1Ak0tu0oSIgVp</guid>
+    <description>Paste a rough prompt and get it scored, rewritten, explained, and tested, with short and detailed versions to copy. Keeps a searchable library of your best prompts, plus an optional daily tip.</description>
+    <dc:creator>Sarah</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛳️ Cora — Cruise Planner &amp; Loyalty Perks Tracker by Bill</title>
+    <link>https://grokbotshelf.com/bot/cora-cruise-planner-and-loyalty-perks-tracker</link>
+    <guid isPermaLink="false">https://x.ai/bot/88z6lafvjhH3_bK0qlbqQ</guid>
+    <description>End-to-end cruise planner: true sail-away totals, quiet-cabin deck checks, docked vs. tender port timelines, booking countdowns, and loyalty status and perks tracked across cruise lines.</description>
+    <dc:creator>Bill (@wjenson)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>✈️ Tammy — True-Total Travel &amp; Points Scout by Bill</title>
+    <link>https://grokbotshelf.com/bot/tammy-true-total-travel-and-points-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/xqjRzHVNQxOSK0S_RhDo3</guid>
+    <description>Flight, hotel, and award scout that exposes hidden resort and Basic Economy fees, checks fares on airline sites, does the credit-card points math, and watches booked trips for price-drop eCredits.</description>
+    <dc:creator>Bill (@wjenson)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎭 Facewright by Calix</title>
+    <link>https://grokbotshelf.com/bot/facewright</link>
+    <guid isPermaLink="false">https://x.ai/bot/bswszxAkgzqAf72a48ACL</guid>
+    <description>Turns one approved photo of you into short anime or cinematic videos where your face stays the same in every shot. Uses Grok Imagine in your own signed-in browser and never posts anything.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕵️ Social Media Auditor by Jenny Marquis</title>
+    <link>https://grokbotshelf.com/bot/social-media-auditor</link>
+    <guid isPermaLink="false">https://x.ai/bot/DGDeN5rC5ACPMHe0g__qh</guid>
+    <description>Audits your own social media post archives and flags privacy and safety risks. Looks only at your public posts, never posts, deletes, or searches the web about you. You approve every change.</description>
+    <dc:creator>Jenny Marquis (@JennyMarquis)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>🖌️ Design by lu</title>
     <link>https://grokbotshelf.com/bot/design-by-lu</link>
     <guid isPermaLink="false">https://x.ai/bot/dF-3_YZzohRdycguTTUwA</guid>
     <description>Background design specialist for UI, CSS and animation, three.js scenes, charts, icons, mockups, and images. Makes the asset, checks it visually, and explains the choice in one line.</description>
-    <dc:creator>lu ()</dc:creator>
+    <dc:creator>lu</dc:creator>
     <category>Design</category>
     <pubDate>Sun, 25 Oct 2026 12:06:39 GMT</pubDate>
   </item>
@@ -48,7 +111,7 @@
     <link>https://grokbotshelf.com/bot/family-history</link>
     <guid isPermaLink="false">https://x.ai/bot/4aeQ6EcPhLvJX5eq6nD06</guid>
     <description>A warm genealogy researcher that builds your family tree from public records, cites every fact, and turns stories into tree posters and old-time newspapers.</description>
-    <dc:creator>Raina Hornaday ()</dc:creator>
+    <dc:creator>Raina Hornaday</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Sun, 25 Oct 2026 12:06:35 GMT</pubDate>
   </item>
@@ -57,7 +120,7 @@
     <link>https://grokbotshelf.com/bot/household-herald</link>
     <guid isPermaLink="false">https://x.ai/bot/09zmjtbww3viDLKyrtOz5</guid>
     <description>Reads your email and calendar so school forms, family plans, and bills don&apos;t slip — weekday digests and a printable kitchen newspaper, draft-only.</description>
-    <dc:creator>Raina Hornaday ()</dc:creator>
+    <dc:creator>Raina Hornaday</dc:creator>
     <category>Home</category>
     <pubDate>Sun, 25 Oct 2026 12:06:34 GMT</pubDate>
   </item>
@@ -120,7 +183,7 @@
     <link>https://grokbotshelf.com/bot/fantasy-sports</link>
     <guid isPermaLink="false">https://x.ai/bot/zdtZr6guuUGo0niY7AxtV</guid>
     <description>Sets fantasy football and basketball lineups and suggests adds, drops and trades on ESPN, Yahoo or Sleeper, with your OK.</description>
-    <dc:creator>Chef ()</dc:creator>
+    <dc:creator>Chef</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Sun, 25 Oct 2026 12:06:27 GMT</pubDate>
   </item>
@@ -393,69 +456,6 @@
     <dc:creator>Carolina (@CarolinaDill)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Sun, 25 Oct 2026 12:05:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>♊ Gemini by Carolina</title>
-    <link>https://grokbotshelf.com/bot/gemini</link>
-    <guid isPermaLink="false">https://x.ai/bot/WfZ3x5iRCgsCJOzmdIc0n</guid>
-    <description>Sends your questions to Google Gemini and brings back its answers, labeled, using your own free Gemini API key.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔭 GrokBotScout by Carolina</title>
-    <link>https://grokbotshelf.com/bot/grokbotscout</link>
-    <guid isPermaLink="false">https://x.ai/bot/_KMuKhK4yVbCD8BVLhvAP</guid>
-    <description>Scouts public Grok Bot templates and shares batches of 7 with ADD, ADD-NARROW or SKIP verdicts; read-only on X.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 YahooMail by Carolina</title>
-    <link>https://grokbotshelf.com/bot/yahoomail</link>
-    <guid isPermaLink="false">https://x.ai/bot/Aa6nFqk71RxxweZrhJ4MJ</guid>
-    <description>Clears and files your Yahoo Mail by exact sender when you ask, with a Next 10 list of the busiest senders.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>📧 Gmail by Carolina</title>
-    <link>https://grokbotshelf.com/bot/gmail</link>
-    <guid isPermaLink="false">https://x.ai/bot/ApK8jWrzfQJP9LZOjNkSp</guid>
-    <description>Clears and files your Gmail on request (trash, trash plus filter, or file to label) and ranks the senders cluttering your inbox.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧳 TripConcierge by Carolina</title>
-    <link>https://grokbotshelf.com/bot/tripconcierge</link>
-    <guid isPermaLink="false">https://x.ai/bot/bze8MHCEZCkRP_Dw7uqw5</guid>
-    <description>Researches a sourced trip brief for any destination (flights, hotels, sights, safety, day-by-day, budget) and only recommends.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Travel</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:52 GMT</pubDate>
-  </item>
-  <item>
-    <title>📖 KJVBible by Carolina</title>
-    <link>https://grokbotshelf.com/bot/kjvbible</link>
-    <guid isPermaLink="false">https://x.ai/bot/A7LELRVRh9WorYfGaTaXT</guid>
-    <description>Answers what the King James Bible says on any subject with book, chapter and verse, plus an optional Spanish Reina Valera answer.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗽 ImmigrationGuide by Carolina</title>
-    <link>https://grokbotshelf.com/bot/immigrationguide</link>
-    <guid isPermaLink="false">https://x.ai/bot/GtZXU_8Lia_a2DZKAIhOO</guid>
-    <description>Explains legal ways to immigrate to or stay in the U.S. and how to spot immigration scams, citing live official government pages.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:50 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -19,11 +19,17 @@
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  const ckey = (b) => b.creator_handle.replace(/^@/, "").toLowerCase();
+  // Group key: the lowercase handle, or "~" + name slug for creators with no X handle (they get no /@ page, avatar or share)
+  const ckey = (b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slug(b.creator_name);
+  const anonKey = (k) => k.charAt(0) === "~";
 
   // Launch post link lives in config.js. Plain text until it is set.
   const launch = (window.LAUNCH_POST_URL || "").trim();
   if (/^https:\/\//.test(launch)) $("#launch").outerHTML = '<a href="' + esc(launch) + '" rel="noopener" target="_blank">launch post</a>';
+
+  // Very narrow phones (320px): a shorter search placeholder so it is not clipped next to the sort menu
+  const mqNarrow = matchMedia("(max-width:360px)"), syncPh = () => { q.placeholder = mqNarrow.matches ? "Search" : "Search bots"; };
+  syncPh(); if (mqNarrow.addEventListener) mqNarrow.addEventListener("change", syncPh);
 
   /* ---------- Theme toggle: dark by default, choice kept in localStorage ---------- */
   const root = document.documentElement, themeBtn = $("#theme");
@@ -106,7 +112,7 @@
   function setTitle() {
     const c = st.creator && creators.find((x) => x.key === st.creator);
     document.title = c ? `${c.label} · Grok Bot Shelf` : BASE_TITLE;
-    const canon = document.querySelector('link[rel="canonical"]'); if (canon) canon.href = SITE + (c ? profilePath(c.key) : "/");
+    const canon = document.querySelector('link[rel="canonical"]'); if (canon) canon.href = SITE + (c && !c.anon ? profilePath(c.key) : "/");
   }
   function readURL() {
     const p = new URLSearchParams(location.search), s = blank();
@@ -133,6 +139,7 @@
   function writeURL(push) {
     const p = new URLSearchParams();
     if (st.q) p.set("q", st.q);
+    if (st.creator && anonKey(st.creator)) p.set("creator", st.creator);
     if (st.cats.length) p.set("cat", st.cats.map(slug).join(","));
     if (st.app) p.set("app", st.app);
     if (st.agency) p.set("does", st.agency);
@@ -140,7 +147,7 @@
     if (st.oneJob) p.set("one_job", "1");
     if (st.sort !== "featured") p.set("sort", st.sort);
     if (st.more.length) p.set("more", st.more.join(","));
-    const url = (st.creator ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",") : "") + location.hash;
+    const url = (st.creator && !anonKey(st.creator) ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",").replace(/%7E/g, "~") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
     if (notFound) { notFound._meta.remove(); notFound.remove(); notFound = null; }
   }
@@ -161,7 +168,7 @@
   // Share a bot on X: web intent everywhere; native app first on mobile (same pattern as #post-x)
   const MOBILE = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   function shareX(b) {
-    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle} on Grok Bot Shelf\n${SITE}${b._page}`);
+    const T = encodeURIComponent(`Check out ${b.name} by ${b.creator_handle || b.creator_name} on Grok Bot Shelf\n${SITE}${b._page}`);
     return { web: "https://twitter.com/intent/tweet?text=" + T, app: "twitter://post?message=" + T };
   }
   function openShareX(u) {
@@ -187,11 +194,13 @@
   }
   function card(b, m, pre) {
     const h = m ? m.hits : {}, id = (pre || "") + b._slug;
-    const bk = b._social && b._social.bookmarks ? `<span class="dot" aria-hidden="true">·</span><span class="bm" title="${b._social.bookmarks} bookmarks on the original X post (not a rating)">${I.bm}${b._social.bookmarks.toLocaleString("en-US")}<span class="sr"> bookmarks on X</span></span>` : "";
+    const nb = b._social && b._social.bookmarks, bw = nb === 1 ? "bookmark" : "bookmarks";
+    const bk = nb ? `<span class="dot" aria-hidden="true">·</span><span class="bm" title="${nb} ${bw} on the original X post (not a rating)">${I.bm}${nb.toLocaleString("en-US")}<span class="sr"> ${bw} on X</span></span>` : "";
+    const av = b.avatar_sm || b.creator_avatar;
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
 <h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
-<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span><img src="${esc(b.avatar_sm || b.creator_avatar)}" alt="" width="16" height="16" loading="lazy" decoding="async"><span>${esc(b.creator_name)}</span>${bk}</div>
+<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}<span class="cn">${esc(b.creator_name)}</span>${bk}</div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
 ${badgesHTML(b)}
@@ -343,8 +352,11 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return "";
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
-        return `<section class="group" aria-labelledby="g-${c.key}"><div class="ghead"><img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">
-<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span> <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a><span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2><button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button></div>
+        const avImg = !c.anon && c.sm ? `<img src="${esc(c.sm)}"${c.sm !== c.avatar ? ` srcset="${esc(c.sm)} 48w, ${esc(c.avatar)} 128w" sizes="40px"` : ""} alt="" width="40" height="40" loading="lazy" decoding="async">` : "";
+        const handle = c.anon ? "" : ` <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a>`;
+        const plink = c.anon ? "" : `<button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button>`;
+        return `<section class="group${c.anon ? " anon" : ""}" aria-labelledby="g-${c.key}"><div class="ghead">${avImg}
+<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span>${handle}<span class="gn"> · ${g.length} ${g.length === 1 ? "bot" : "bots"}</span></h2>${plink}</div>
 <div class="grid">${shown.map(([b, m]) => card(b, m)).join("")}</div>${shown.length < g.length ? `<button type="button" class="btn more" data-more="${c.key}" aria-describedby="g-${c.key}">Show ${g.length - shown.length} more</button>` : ""}</section>`;
       }).join("");
     } else {
@@ -629,7 +641,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
     bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
     const seen = new Map();
-    for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
+    for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
     creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
     bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
     cats = [...new Set(bots.map((b) => b.category))].sort();

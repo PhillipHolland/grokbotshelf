@@ -83,7 +83,10 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .group .more{display:flex;width:fit-content;height:44px;margin:14px auto 0;padding:0 22px}
 .ghead{display:flex;align-items:center;gap:12px;margin:0 0 12px}
 .ghead img{width:40px;height:40px;border-radius:50%;flex:none}
-.ghead h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25;min-width:0}
+.ghead h2{display:flex;align-items:baseline;gap:5px;margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25;min-width:0;white-space:nowrap}
+.ghead h2 .nm,.ghead h2 .handle{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.ghead h2 .handle{flex:0 1000 auto}
+.ghead h2 .gn{flex:none}
 .ghead .handle,.ghead .gn{font-size:15px;font-weight:400;color:var(--text2);text-decoration:none}
 .ghead .handle:hover{text-decoration:underline}
 .ghead .plink{flex:none;width:auto;min-width:34px;padding:0 8px;gap:6px;grid-auto-flow:column}
@@ -161,8 +164,8 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .bsub a{text-decoration:none}
 .bsub a.h{color:var(--text);font-weight:700}
 .bsub a.h:hover{color:var(--blue);text-decoration:underline}
-.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:#fff;background:var(--blue);border:1px solid var(--blue);border-radius:999px;line-height:1.3}
-.bsub a.all:hover{filter:brightness(1.08);text-decoration:none}
+.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:#fff;background:var(--btn-blue);border:1px solid var(--btn-blue);border-radius:999px;line-height:1.3}
+.bsub a.all:hover{background:var(--btn-blue-h);border-color:var(--btn-blue-h);text-decoration:none}
 .bsub a.all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media (max-width:640px){.builders{padding:14px 12px 16px;border-radius:14px}.bhead h2{font-size:19px}}
 
@@ -190,8 +193,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .vote{display:inline-flex;align-items:center;margin-right:2px}
 .vote .vb{width:30px;height:34px}
 .vote .vb svg{width:17px;height:17px;stroke-width:2}
-.vote .vn{min-width:14px;padding:0 1px;font-size:13px;font-weight:600;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
-.vote .vn:empty{min-width:2px}
+.vote .vn{min-width:18px;padding:0 1px;font-size:13px;font-weight:600;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
 .vote .up[aria-pressed="true"]{color:var(--blue)}
 .vote .dn[aria-pressed="true"]{color:#f4212e}
 .vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
@@ -268,7 +270,6 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .bp-actions .bp-vote{display:inline-flex;align-items:center;height:40px;padding:0 3px;margin:0;border:1px solid var(--line2);border-radius:9999px}
 .bp-vote .vb{width:34px;height:34px}
 .bp-vote .vn{min-width:22px;font-size:15px;font-weight:700;color:var(--text)}
-html.mobile .bp-actions .bp-vote{align-self:flex-start}
 html.mobile .bp-actions{flex-direction:column}
 html.mobile .bp-actions .app{order:-1;justify-content:center}
 html.mobile .bp-actions .get{justify-content:center;background:transparent;color:var(--text);border:1px solid var(--line2)}
@@ -329,3 +330,36 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
   html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(24px,calc(env(safe-area-inset-right) + 22px))}
   .grid{grid-template-columns:minmax(0,1fr)}.card .ttl{min-width:0}
 }
+
+/* Light mode: darker blue for text links and badge colors so they pass 4.5:1 on white */
+html[data-theme="light"] :is(.clear,.thead .tall,.bp-links a,.add p a,.ghead .plink .ok,.crawl a:hover,.site-foot a:hover,.tlist .sc,.chip[aria-pressed="true"],.vote .up[aria-pressed="true"]){color:var(--btn-blue)}
+html[data-theme="light"] .badge.ag-acts{border-color:rgba(196,16,95,.45);color:#c4105f}
+html[data-theme="light"] .badge.ag-drafts{border-color:rgba(138,106,0,.45);color:#8a6a00}
+html[data-theme="light"] .badge.ag-reads{border-color:rgba(0,128,90,.45);color:#00805a}
+html[data-theme="light"] .sub-msg.ok{color:#00805a}
+
+/* Card byline: long creator names truncate instead of pushing the row */
+.sub>span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.sub>.dot,.sub>.bm{flex:none;overflow:visible}
+
+/* Phones (html.mobile): ~40-44px tap targets */
+html.mobile .ib,html.mobile .card .app{width:40px;height:40px}
+html.mobile .card .app{width:auto;height:44px}
+html.mobile .card .gets .get{height:44px}
+html.mobile .vote .vb{width:36px;height:40px}
+html.mobile .ghead .plink{min-width:40px}
+html.mobile .clear{min-height:40px;padding:10px 12px}
+html.mobile .tools{margin-left:-10px}
+/* Bot page vote pill: full width, centered under the get buttons */
+html.mobile .bp-actions .bp-vote{align-self:stretch;justify-content:center;height:44px;gap:8px}
+html.mobile .bp-vote .vb{width:44px;height:40px}
+
+/* Similar / More from tiles fill their grid cell so a row lines up */
+.bp-more li{display:flex}
+.bp-more li>a{flex:1;min-width:0}
+/* Bot page title wraps on narrow phones instead of running off the card */
+.bp h1{white-space:normal;overflow-wrap:anywhere}
+.bp-head>div{min-width:0}
+/* 320px phones: keep "Add to Bot app" / "Get this bot" on one line */
+html.mobile .card .app,html.mobile .card .gets .get{white-space:nowrap}
+@media (max-width:360px){html.mobile .card .gets .get{padding:0 10px;font-size:13px}html.mobile .card .app{gap:4px;font-size:13px;padding:0 8px}html.mobile .card .app svg{width:16px;height:16px}}

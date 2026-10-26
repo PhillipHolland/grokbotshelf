@@ -55,7 +55,7 @@
     var v = mine[slug] || 0;
     el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
     el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
-    el.querySelector(".vn").textContent = global ? String(s.score) : "";
+    el.querySelector(".vn").textContent = global && s.up + s.down ? String(s.score) : ""; // blank until someone votes, like the cards
     el.title = !global ? "Your vote is saved in this browser" : s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet. Be the first";
   }
   paint();

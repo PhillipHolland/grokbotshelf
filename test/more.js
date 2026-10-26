@@ -4,7 +4,8 @@
 const puppeteer = require('puppeteer-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
-const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
+// Same group key as app.js: handle, or ~name-slug for creators with no X handle
+const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowerCase() : '~' + String(x.creator_name).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
