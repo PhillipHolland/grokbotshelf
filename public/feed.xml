@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 21:50:54 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 21:53:41 GMT</lastBuildDate>
+  <item>
+    <title>🗺️ Been There / Next Stop by Chadd</title>
+    <link>https://grokbotshelf.com/bot/been-there-next-stop</link>
+    <guid isPermaLink="false">https://x.ai/bot/qZ95MnSn2HGjT3rqCvps3</guid>
+    <description>Maps your past trips from email, calendar and travel apps, keeps a bucket list on your map, and plans custom trips with your points.</description>
+    <dc:creator>Chadd (@chaddsmith)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:00 GMT</pubDate>
+  </item>
   <item>
     <title>🧩 Unbundled by Yossi</title>
     <link>https://grokbotshelf.com/bot/unbundled</link>
@@ -447,15 +456,6 @@
     <dc:creator>Anonymous</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Mon, 26 Oct 2026 12:07:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>💡 Home Helper by Calix</title>
-    <link>https://grokbotshelf.com/bot/home-helper</link>
-    <guid isPermaLink="false">https://x.ai/bot/v0EEDdFd-3e12sx4f6byq</guid>
-    <description>Checks and controls your Apple Home from chat: lights, fans, blinds, thermostats, and locks or garage doors only after your yes.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:10 GMT</pubDate>
   </item>
 </channel>
 </rss>

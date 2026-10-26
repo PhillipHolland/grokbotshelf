@@ -959,6 +959,14 @@
     "DexScreener"
    ],
    "one_job": true
+  },
+  "qZ95MnSn2HGjT3rqCvps3": {
+   "name": "Been There / Next Stop",
+   "agency": "reads",
+   "works_with": [
+    "Email",
+    "Calendar"
+   ]
   }
  }
 }
