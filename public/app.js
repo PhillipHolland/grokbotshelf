@@ -235,7 +235,10 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   function topInner() {
     if (!vote.global) return "";
     const top = bots.map((b) => [b, vote.scores[b._slug]]).filter(([, s]) => s && s.score > 0)
-      .sort((a, b) => b[1].score - a[1].score || b[1].up - a[1].up || a[0].name.localeCompare(b[0].name)).slice(0, TOP_N);
+      .sort((a, b) => b[1].score - a[1].score || b[1].up - a[1].up || a[0].name.localeCompare(b[0].name));
+    const per = {}; const capped = [];
+    for (const t of top) { const k = ckey(t[0]); if ((per[k] = (per[k] || 0) + 1) > 2) continue; capped.push(t); if (capped.length === TOP_N) break; }
+    top.length = 0; top.push(...capped);
     if (!top.length) return "";
     return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
 <ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}" title="${s.up} up, ${s.down} down"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc">${I.up}${s.score}<span class="sr"> net votes</span></span></a></li>`).join("")}</ol>`;
