@@ -2435,11 +2435,13 @@
       "approved_by": "Phillip Holland"
     },
     "site-43": {
-      "status": "skipped",
-      "bot": "Fitness Coach by Jenna",
+      "status": "added",
+      "author": "Jenna",
       "template": "https://x.ai/bot/BhDn5_-jxTIhbB9-QPic1",
-      "note": "site form #43, no handle; skipped by Phillip",
-      "date": "2026-10-25"
+      "bot": "Fitness Coach by Jenna",
+      "note": "site form #43, no handle; previously skipped, now approved by Phillip ('All'); shelved as 'Fitness Coach by Jenna' to avoid clash with @LowTimePrefrenz's Fitness Coach",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
     },
     "2114088543014260915": {
       "status": "skipped",
@@ -2550,6 +2552,77 @@
       "approved_by": "Phillip Holland",
       "bot": "Social Media Auditor",
       "url": "https://x.com/JennyMarquis/status/2114519614734418268",
+      "date": "2026-10-25"
+    },
+    "2114518914894041414": {
+      "status": "added",
+      "author": "CaliLumberJack",
+      "template": "https://x.ai/bot/bswszxAkgzqAf72a48ACL",
+      "bot": "Facewright",
+      "url": "https://x.com/CaliLumberJack/status/2114518914894041414",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114514891042377995": {
+      "status": "added",
+      "author": "wjenson",
+      "bot": "Tammy — True-Total Travel & Points Scout, Cora — Cruise Planner & Loyalty Perks Tracker",
+      "url": "https://x.com/wjenson/status/2114514891042377995",
+      "note": "site form #67 (source post for #65/#66)",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-65": {
+      "status": "added",
+      "author": "wjenson",
+      "template": "https://x.ai/bot/xqjRzHVNQxOSK0S_RhDo3",
+      "bot": "Tammy — True-Total Travel & Points Scout",
+      "note": "site form #65",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-66": {
+      "status": "added",
+      "author": "wjenson",
+      "template": "https://x.ai/bot/88z6lafvjhH3_bK0qlbqQ",
+      "bot": "Cora — Cruise Planner & Loyalty Perks Tracker",
+      "note": "site form #66",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-67": {
+      "status": "added",
+      "author": "wjenson",
+      "bot": "Tammy, Cora",
+      "url": "https://x.com/wjenson/status/2114514891042377995",
+      "note": "site form #67; source post for #65/#66",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-64": {
+      "status": "added",
+      "author": "Sarah",
+      "template": "https://x.ai/bot/nSTWTnIS1Ak0tu0oSIgVp",
+      "bot": "Prompt Upgrader",
+      "note": "site form #64; no X handle; creator_name only",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-63": {
+      "status": "added",
+      "author": "Sarah",
+      "template": "https://x.ai/bot/ZSSddVUqIl5e6JCa4fDAh",
+      "bot": "Scam Guard",
+      "note": "site form #63; no X handle; creator_name only",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "site-55": {
+      "status": "skipped",
+      "author": "MikeysMolecules",
+      "bot": "Home Apprentice",
+      "url": "https://x.com/MikeysMolecules/status/2112276523294040128",
+      "note": "site form #55; post has no x.ai/bot template link (image only), no template found in author's posts",
       "date": "2026-10-25"
     }
   }

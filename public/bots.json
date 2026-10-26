@@ -5211,5 +5211,83 @@
     "creator_url": "https://x.com/JennyMarquis",
     "added": "2026-10-25",
     "creator_avatar": "/avatars/jennymarquis.webp"
+  },
+  {
+    "name": "Facewright",
+    "emoji": "🎭",
+    "description": "Turns one approved photo of you into short anime or cinematic videos where your face stays the same in every shot. Uses Grok Imagine in your own signed-in browser and never posts anything.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/bswszxAkgzqAf72a48ACL",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114518914894041414",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Tammy — True-Total Travel & Points Scout",
+    "emoji": "✈️",
+    "description": "Flight, hotel, and award scout that exposes hidden resort and Basic Economy fees, checks fares on airline sites, does the credit-card points math, and watches booked trips for price-drop eCredits.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/xqjRzHVNQxOSK0S_RhDo3",
+    "creator_name": "Bill",
+    "creator_handle": "@wjenson",
+    "creator_url": "https://x.com/wjenson",
+    "creator_avatar": "/avatars/wjenson.webp",
+    "source_post": "https://x.com/wjenson/status/2114514891042377995",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Cora — Cruise Planner & Loyalty Perks Tracker",
+    "emoji": "🛳️",
+    "description": "End-to-end cruise planner: true sail-away totals, quiet-cabin deck checks, docked vs. tender port timelines, booking countdowns, and loyalty status and perks tracked across cruise lines.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/88z6lafvjhH3_bK0qlbqQ",
+    "creator_name": "Bill",
+    "creator_handle": "@wjenson",
+    "creator_url": "https://x.com/wjenson",
+    "creator_avatar": "/avatars/wjenson.webp",
+    "source_post": "https://x.com/wjenson/status/2114514891042377995",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Prompt Upgrader",
+    "emoji": "✍️",
+    "description": "Paste a rough prompt and get it scored, rewritten, explained, and tested, with short and detailed versions to copy. Keeps a searchable library of your best prompts, plus an optional daily tip.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/nSTWTnIS1Ak0tu0oSIgVp",
+    "creator_name": "Sarah",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Scam Guard",
+    "emoji": "🚨",
+    "description": "Family scam defense: sets up a family safe word, gives a Safe/Caution/Scam verdict on any call, text, email, link, or DM, watches your X DMs, and helps you get off data-broker sites. Never acts without your OK.",
+    "category": "Security",
+    "url": "https://x.ai/bot/ZSSddVUqIl5e6JCa4fDAh",
+    "creator_name": "Sarah",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Fitness Coach by Jenna",
+    "emoji": "🏋️",
+    "description": "Evidence-based fat-loss and lifting coach: sets calorie and macro targets, coaches progressive overload, tracks weekly weigh-in trends, and helps you stick to the plan when evenings get hard.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/BhDn5_-jxTIhbB9-QPic1",
+    "creator_name": "Jenna",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-25"
   }
 ]
