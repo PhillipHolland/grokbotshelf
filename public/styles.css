@@ -365,6 +365,19 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
   html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(24px,calc(env(safe-area-inset-right) + 22px))}
   .grid{grid-template-columns:minmax(0,1fr)}.card .ttl{min-width:0}
 }
+/* 500px and under: 44px tap targets for the card "Add to Bot app" link, the crawl list links and the A-Z rail. Rail
+   letters spread down the strip (up to 44px each; about 26px when two dozen letters have to fit) and a ::before
+   reaches 14px left so each one takes a 44px-wide tap; the highlight stays a small circle behind the letter. The column
+   gets 4px more right padding so that reach never lands on card controls. */
+@media (max-width:500px){
+  .card .app{min-width:44px;min-height:44px}
+  .crawl nav{gap:0 14px}
+  .crawl a{display:inline-flex;align-items:center;min-height:44px}
+  .rail button{position:relative;flex:1 1 0;max-height:44px}
+  .rail button::before{content:"";position:absolute;top:0;bottom:0;left:-14px;right:0}
+  .rail button:hover,.rail button.on{background:radial-gradient(circle 11px at calc(100% - 12px) 50%,var(--mark) 10.5px,transparent 11px)}
+  html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(28px,calc(env(safe-area-inset-right) + 26px))}
+}
 
 /* Light mode: darker blue for text links and badge colors so they pass 4.5:1 on white */
 html[data-theme="light"] :is(.clear,.thead .tall,.bp-links a,.add p a,.ghead .plink .ok,.crawl a:hover,.site-foot a:hover,.chip[aria-pressed="true"],.vote .up[aria-pressed="true"]){color:var(--btn-blue)}
