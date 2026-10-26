@@ -152,6 +152,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .toast{position:fixed;left:50%;bottom:max(24px,env(safe-area-inset-bottom));z-index:50;padding:12px 16px;border-radius:4px;background:var(--blue);color:#fff;font-size:15px;
   box-shadow:0 0 15px rgba(101,119,134,.2),0 0 3px 1px rgba(101,119,134,.15);transform:translate(-50%,16px);opacity:0;transition:transform .2s,opacity .2s;pointer-events:none}
 .toast.show{transform:translate(-50%,0);opacity:1}
+.toast{width:max-content;max-width:min(520px,calc(100vw - 32px));text-align:center}
 @media (max-width:640px){.grid{grid-template-columns:1fr}.hero{column-gap:10px}.hero h1{font-size:26px;gap:9px}.hero .mark{width:34px;height:34px}}
 /* Phones: keep title + actions on one row (title left, actions right) instead of wrapping the actions under the title */
 @media (max-width:480px){.hero{column-gap:8px}.hero-actions{gap:6px}.hero-actions .btn{height:32px;padding:0 10px;font-size:13px}.hero-actions .theme-btn{width:32px;height:32px}}
