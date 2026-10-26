@@ -786,7 +786,7 @@ const addCheck = (() => {
   function row(u, tag) {
     const b = loaded && find(skey(u));
     const what = b ? link(b) : `<a href="${esc(canon(u))}" rel="noopener" target="_blank">${esc(shown(u))}</a>`;
-    const st = !loaded ? `<span class="st">Checking</span>` : b ? `<span class="st added">Added</span>` : `<span class="st notyet">Not yet</span>`;
+    const st = !loaded ? `<span class="st checking">Checking</span>` : b ? `<span class="st added">Added</span>` : `<span class="st notyet">Not yet</span>`;
     const why = !loaded ? "Checking the shelf…" : b ? "It is on the shelf." : NOTYET;
     return `<li data-k="${esc(skey(u))}"${tag ? ` class="${tag}"` : ""}><span class="what">${what}</span>${st}<span class="why">${esc(why)}</span></li>`;
   }
@@ -796,7 +796,7 @@ const addCheck = (() => {
     list.innerHTML = (checked ? (checked.err ? `<li class="checked"><span class="why err">${esc(checked.err)}</span></li>` : row(checked.u, "checked")) : "")
       + mine.filter((x) => !checked || skey(x.u) !== skey(checked.u)).map((x) => row(x.u, "mine")).join("");
     if (forget) forget.hidden = !mine.length;
-    if (next) next.hidden = !list.querySelector(".st.notyet");
+    if (next) next.hidden = !list.querySelector(".st.notyet, .st.checking"); // shown while checking too, so it does not pop in
   }
   if (cf) cf.addEventListener("submit", (e) => {
     e.preventDefault();
