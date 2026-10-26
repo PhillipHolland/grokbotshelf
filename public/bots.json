@@ -5289,5 +5289,83 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-25"
+  },
+  {
+    "name": "Postwright",
+    "emoji": "✍️",
+    "description": "Turns your week of real work into X post drafts in your own voice, with sources and suggested posting times. Never posts for you.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/h-oDlchOpuh6GYjGgK6oV",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2114536439434342742",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "X Hit Pattern Scanner",
+    "emoji": "📈",
+    "description": "Scans a watchlist of X accounts for posts that are taking off, explains the patterns behind them, and drafts 3–5 original angles for you.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/Pijba7lBTv0bm2KAjmsa-",
+    "creator_name": "nahjuin",
+    "creator_handle": "@nahjuin",
+    "creator_url": "https://x.com/nahjuin",
+    "creator_avatar": "/avatars/nahjuin.webp",
+    "source_post": "https://x.com/nahjuin/status/2114526905852469346",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Sunday Open Brief",
+    "emoji": "📊",
+    "description": "Pre-open market catch-up: what moved across markets, stocks, and sectors, plus an open-bias card for the week ahead.",
+    "category": "Money",
+    "url": "https://x.ai/bot/Qoq125UpK6eAJ7LYruwh-",
+    "creator_name": "Yossi",
+    "creator_handle": "@josephstayhappy",
+    "creator_url": "https://x.com/josephstayhappy",
+    "creator_avatar": "",
+    "source_post": "https://x.com/josephstayhappy/status/2114521178882650529",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Car Dealership & Mechanic Quote Auditor",
+    "emoji": "🚗",
+    "description": "Checks dealer out-the-door quotes, lease terms, and repair estimates line by line, then gives you counter-offer scripts.",
+    "category": "Money",
+    "url": "https://x.ai/bot/EroZe7cDb23jcds_ayUZK",
+    "creator_name": "Lisa",
+    "creator_handle": "@LisaMAUSA",
+    "creator_url": "https://x.com/LisaMAUSA",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/LisaMAUSA/status/2114531535470604354",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Tesla FSD & EV True Cost-to-Own Coach",
+    "emoji": "⚡",
+    "description": "Compares the true cost of owning gas cars vs. EVs, works out whether FSD pays off for you, and helps tune your EV insurance.",
+    "category": "Money",
+    "url": "https://x.ai/bot/u_HzTwAiKr3UeCO5Z1EPK",
+    "creator_name": "Lisa",
+    "creator_handle": "@LisaMAUSA",
+    "creator_url": "https://x.com/LisaMAUSA",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/LisaMAUSA/status/2114531432559239233",
+    "added": "2026-10-25"
+  },
+  {
+    "name": "Creator Partnerships & Brand Deal HQ",
+    "emoji": "🤝",
+    "description": "Sorts incoming sponsorship and brand deal offers, checks invoices, and tracks every deal for creators.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/Aas1Yulx8NCIs8Yu3QU6N",
+    "creator_name": "Lisa",
+    "creator_handle": "@LisaMAUSA",
+    "creator_url": "https://x.com/LisaMAUSA",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "https://x.com/LisaMAUSA/status/2114525608306954601",
+    "added": "2026-10-25"
   }
 ]

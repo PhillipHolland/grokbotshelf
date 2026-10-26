@@ -2624,6 +2624,73 @@
       "url": "https://x.com/MikeysMolecules/status/2112276523294040128",
       "note": "site form #55; post has no x.ai/bot template link (image only), no template found in author's posts",
       "date": "2026-10-25"
+    },
+    "2114536439434342742": {
+      "status": "added",
+      "author": "@CaliLumberJack",
+      "bot": "Postwright",
+      "template": "https://x.ai/bot/h-oDlchOpuh6GYjGgK6oV",
+      "url": "https://x.com/CaliLumberJack/status/2114536439434342742",
+      "note": "",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114526905852469346": {
+      "status": "added",
+      "author": "@nahjuin",
+      "bot": "X Hit Pattern Scanner",
+      "template": "https://x.ai/bot/Pijba7lBTv0bm2KAjmsa-",
+      "url": "https://x.com/nahjuin/status/2114526905852469346",
+      "note": "site form #70",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114521178882650529": {
+      "status": "added",
+      "author": "@josephstayhappy",
+      "bot": "Sunday Open Brief",
+      "template": "https://x.ai/bot/Qoq125UpK6eAJ7LYruwh-",
+      "url": "https://x.com/josephstayhappy/status/2114521178882650529",
+      "note": "site form #68/#69",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114531535470604354": {
+      "status": "added",
+      "author": "@LisaMAUSA",
+      "bot": "Car Dealership & Mechanic Quote Auditor",
+      "template": "https://x.ai/bot/EroZe7cDb23jcds_ayUZK",
+      "url": "https://x.com/LisaMAUSA/status/2114531535470604354",
+      "note": "site form #73",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114531432559239233": {
+      "status": "added",
+      "author": "@LisaMAUSA",
+      "bot": "Tesla FSD & EV True Cost-to-Own Coach",
+      "template": "https://x.ai/bot/u_HzTwAiKr3UeCO5Z1EPK",
+      "url": "https://x.com/LisaMAUSA/status/2114531432559239233",
+      "note": "site form #72",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114525608306954601": {
+      "status": "added",
+      "author": "@LisaMAUSA",
+      "bot": "Creator Partnerships & Brand Deal HQ",
+      "template": "https://x.ai/bot/Aas1Yulx8NCIs8Yu3QU6N",
+      "url": "https://x.com/LisaMAUSA/status/2114525608306954601",
+      "note": "site form #71",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "2114526667938857186": {
+      "status": "not_a_request",
+      "author": "@Kevin_Logan",
+      "url": "https://x.com/Kevin_Logan/status/2114526667938857186",
+      "note": "asked if Nick's bot is on the shelf; no template",
+      "date": "2026-10-25"
     }
   }
 }

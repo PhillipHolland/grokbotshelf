@@ -6,7 +6,61 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 01:22:42 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 02:06:52 GMT</lastBuildDate>
+  <item>
+    <title>🤝 Creator Partnerships &amp; Brand Deal HQ by Lisa</title>
+    <link>https://grokbotshelf.com/bot/creator-partnerships-and-brand-deal-hq</link>
+    <guid isPermaLink="false">https://x.ai/bot/Aas1Yulx8NCIs8Yu3QU6N</guid>
+    <description>Sorts incoming sponsorship and brand deal offers, checks invoices, and tracks every deal for creators.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚡ Tesla FSD &amp; EV True Cost-to-Own Coach by Lisa</title>
+    <link>https://grokbotshelf.com/bot/tesla-fsd-and-ev-true-cost-to-own-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/u_HzTwAiKr3UeCO5Z1EPK</guid>
+    <description>Compares the true cost of owning gas cars vs. EVs, works out whether FSD pays off for you, and helps tune your EV insurance.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚗 Car Dealership &amp; Mechanic Quote Auditor by Lisa</title>
+    <link>https://grokbotshelf.com/bot/car-dealership-and-mechanic-quote-auditor</link>
+    <guid isPermaLink="false">https://x.ai/bot/EroZe7cDb23jcds_ayUZK</guid>
+    <description>Checks dealer out-the-door quotes, lease terms, and repair estimates line by line, then gives you counter-offer scripts.</description>
+    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:50 GMT</pubDate>
+  </item>
+  <item>
+    <title>📊 Sunday Open Brief by Yossi</title>
+    <link>https://grokbotshelf.com/bot/sunday-open-brief</link>
+    <guid isPermaLink="false">https://x.ai/bot/Qoq125UpK6eAJ7LYruwh-</guid>
+    <description>Pre-open market catch-up: what moved across markets, stocks, and sectors, plus an open-bias card for the week ahead.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:49 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 X Hit Pattern Scanner by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/x-hit-pattern-scanner</link>
+    <guid isPermaLink="false">https://x.ai/bot/Pijba7lBTv0bm2KAjmsa-</guid>
+    <description>Scans a watchlist of X accounts for posts that are taking off, explains the patterns behind them, and drafts 3–5 original angles for you.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:48 GMT</pubDate>
+  </item>
+  <item>
+    <title>✍️ Postwright by Calix</title>
+    <link>https://grokbotshelf.com/bot/postwright</link>
+    <guid isPermaLink="false">https://x.ai/bot/h-oDlchOpuh6GYjGgK6oV</guid>
+    <description>Turns your week of real work into X post drafts in your own voice, with sources and suggested posting times. Never posts for you.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:47 GMT</pubDate>
+  </item>
   <item>
     <title>🏋️ Fitness Coach by Jenna</title>
     <link>https://grokbotshelf.com/bot/fitness-coach-by-jenna</link>
@@ -402,60 +456,6 @@
     <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Sun, 25 Oct 2026 12:06:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔎 Research Desk by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/research-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/z7pQN9VX-vOK5Bo69G9OJ</guid>
-    <description>Cited public-source research for digests and weekly topic watches, with every claim linked and nothing invented.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>💹 Finance Advisor by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/finance-advisor</link>
-    <guid isPermaLink="false">https://x.ai/bot/1gepkjYj4Ogl2nKxgopZV</guid>
-    <description>Read-only portfolio advisor for holdings digests, valuation and filings checks, large-flow alerts and research; never places trades.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧐 Ms. Reviewenstein by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/ms-reviewenstein</link>
-    <guid isPermaLink="false">https://x.ai/bot/PHDJvQ4Zi_2rjLzrsB3mo</guid>
-    <description>Peer-critique bot that reviews teammates&apos; big calls on workflow, architecture, spend and skills for up to 3 rounds.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚪 Pyloros by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/pyloros</link>
-    <guid isPermaLink="false">https://x.ai/bot/AhIWTST8c-hlJdC4Bdu8W</guid>
-    <description>A skill-quality gate that tests skills like code with planted-bad evals, held-out checks and rollback on regression; proposals only.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>⭐ StarMind by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/starmind</link>
-    <guid isPermaLink="false">https://x.ai/bot/gpPjBLipn7IDb7AWPBnmV</guid>
-    <description>A chief-of-staff bot that delegates every request to specialist bots, checks their work, and only brings you real decisions.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧟 Igor by Carolina</title>
-    <link>https://grokbotshelf.com/bot/igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/rlsYKIwQ5gb1W95xvIwb1</guid>
-    <description>A helper for your main bot-builder bot that takes heavy drafting and checking jobs for your fleet, works in files, and reports back.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:05:57 GMT</pubDate>
   </item>
 </channel>
 </rss>
