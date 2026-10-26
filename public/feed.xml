@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 02:06:52 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 02:35:50 GMT</lastBuildDate>
+  <item>
+    <title>🚐 RivetRoad Trip Planner by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/rivetroad-trip-planner</link>
+    <guid isPermaLink="false">https://x.ai/bot/DQJgjJ30he07LMKZx1gnb</guid>
+    <description>A friendly RV trip planner from RivetRoad.com that finds a rental rig, plans an RV-friendly route and campgrounds, and totals the real costs. Great for first-timers, with step-by-step driving confidence coaching.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 25 Oct 2026 12:06:53 GMT</pubDate>
+  </item>
   <item>
     <title>🤝 Creator Partnerships &amp; Brand Deal HQ by Lisa</title>
     <link>https://grokbotshelf.com/bot/creator-partnerships-and-brand-deal-hq</link>
@@ -447,15 +456,6 @@
     <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
     <category>Security</category>
     <pubDate>Sun, 25 Oct 2026 12:06:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>✍️ Ms. Scribe by Jonathan</title>
-    <link>https://grokbotshelf.com/bot/ms-scribe</link>
-    <guid isPermaLink="false">https://x.ai/bot/_z8j7TViBpvmQ9mlxRDec</guid>
-    <description>Turns notes into clean prose, drafts email replies, preps meeting briefs, and writes search-ready content briefs.</description>
-    <dc:creator>Jonathan (@JonnyCakeSouza)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:03 GMT</pubDate>
   </item>
 </channel>
 </rss>

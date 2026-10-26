@@ -2691,6 +2691,24 @@
       "url": "https://x.com/Kevin_Logan/status/2114526667938857186",
       "note": "asked if Nick's bot is on the shelf; no template",
       "date": "2026-10-25"
+    },
+    "2114545076349354203": {
+      "status": "added",
+      "author": "@the_seth_ard",
+      "bot": "RivetRoad Trip Planner",
+      "template_url": "https://x.ai/bot/DQJgjJ30he07LMKZx1gnb",
+      "url": "https://grokbotshelf.com/bot/rivetroad-trip-planner/",
+      "date": "2026-10-25",
+      "approved_by": "Phillip Holland"
+    },
+    "template-l1e691-OllwzsXM2DsuOK": {
+      "status": "pending",
+      "author": "",
+      "bot": "Barry by Elijah",
+      "template_url": "https://x.ai/bot/l1e691-OllwzsXM2DsuOK",
+      "url": "",
+      "note": "Phillip hold Oct 25 2026 — wait for X handle (declined name-only for now). Site form #74.",
+      "date": "2026-10-25"
     }
   }
 }
