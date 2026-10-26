@@ -5325,7 +5325,7 @@
     "creator_name": "Yossi",
     "creator_handle": "@josephstayhappy",
     "creator_url": "https://x.com/josephstayhappy",
-    "creator_avatar": "",
+    "creator_avatar": "/avatars/josephstayhappy.webp",
     "source_post": "https://x.com/josephstayhappy/status/2114521178882650529",
     "added": "2026-10-25"
   },
@@ -6229,7 +6229,7 @@
     "creator_name": "Yossi",
     "creator_handle": "@josephstayhappy",
     "creator_url": "https://x.com/josephstayhappy",
-    "creator_avatar": "",
+    "creator_avatar": "/avatars/josephstayhappy.webp",
     "source_post": "https://x.com/josephstayhappy/status/2114814315677000017",
     "added": "2026-10-26"
   },
@@ -6244,6 +6244,84 @@
     "creator_url": "https://x.com/chaddsmith",
     "creator_avatar": "/avatars/chaddsmith.webp",
     "source_post": "https://x.com/chaddsmith/status/2114801949375656302",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "AI Usage Hub",
+    "emoji": "📊",
+    "description": "Tracks your Claude, ChatGPT, Gemini and Grok Bot plan usage on one dashboard and nudges you before limits hit.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/qmENesX2cLr2UHqkEEqMS",
+    "creator_name": "Daniel",
+    "creator_handle": "@HungOnCode",
+    "creator_url": "https://x.com/HungOnCode",
+    "creator_avatar": "/avatars/hungoncode.webp",
+    "source_post": "https://x.com/HungOnCode/status/2114850616824516608",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Garage",
+    "emoji": "🔧",
+    "description": "Car-care sidekick for gas, hybrid or EV: dash lights, recalls, repair quote checks, maintenance and DIY help.",
+    "category": "Home",
+    "url": "https://x.ai/bot/V3mnsui0Z3lXt38OJy86f",
+    "creator_name": "Stealth",
+    "creator_handle": "@StealthTSLA",
+    "creator_url": "https://x.com/StealthTSLA",
+    "creator_avatar": "/avatars/stealthtsla.webp",
+    "source_post": "https://x.com/StealthTSLA/status/2114848158534484130",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Fed Decoder",
+    "emoji": "🏛️",
+    "description": "Decodes Fed days, CPI and jobs prints: statement markup vs last meeting, presser takeaways, cut odds and yields.",
+    "category": "Money",
+    "url": "https://x.ai/bot/pzk84AM0AC6Aq4PaoQ1up",
+    "creator_name": "Yossi",
+    "creator_handle": "@josephstayhappy",
+    "creator_url": "https://x.com/josephstayhappy",
+    "creator_avatar": "/avatars/josephstayhappy.webp",
+    "source_post": "https://x.com/josephstayhappy/status/2114845248941593063",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "GrokText",
+    "emoji": "💬",
+    "description": "Texts from your own phone number through your own self-hosted relay; drafts, reads back and only sends on your yes.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/TWxNmCOGfc6u1CAyVdoxv",
+    "creator_name": "Dave",
+    "creator_handle": "@dbarrett24",
+    "creator_url": "https://x.com/dbarrett24",
+    "creator_avatar": "/avatars/dbarrett24.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Heimdall",
+    "emoji": "🛡️",
+    "description": "Dependency security watch for a GitHub repo: checks advisory feeds twice a day, opens a fix PR only after you approve.",
+    "category": "Security",
+    "url": "https://x.ai/bot/aYIBdTMOCAAdiLsN1iY5o",
+    "creator_name": "Magnus",
+    "creator_handle": "@magnus72",
+    "creator_url": "https://x.com/magnus72",
+    "creator_avatar": "/avatars/magnus72.webp",
+    "source_post": "https://x.com/magnus72/status/2114505455917822461",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Groksters Anonymous",
+    "emoji": "☕",
+    "description": "A funny, caring support group for bot builders: confessions, stretches, a coffee tip and a nudge to take breaks.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/y2cVUIcWck2c-ktSehtbw",
+    "creator_name": "Jay",
+    "creator_handle": "@JayinEly",
+    "creator_url": "https://x.com/JayinEly",
+    "creator_avatar": "/avatars/jayinely.webp",
+    "source_post": "https://x.com/JayinEly/status/2114620416182686121",
     "added": "2026-10-26"
   }
 ]

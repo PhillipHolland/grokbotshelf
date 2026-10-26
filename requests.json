@@ -2842,13 +2842,14 @@
       "approved_by": "Phillip Holland"
     },
     "template-aYIBdTMOCAAdiLsN1iY5o": {
-      "status": "pending",
-      "author": "",
+      "status": "added",
+      "author": "@magnus72",
       "bot": "Heimdall by Magnus",
       "template_url": "https://x.ai/bot/aYIBdTMOCAAdiLsN1iY5o",
-      "url": "",
-      "note": "site form #86; held: needs X handle (creator name Magnus only). Phillip: add only complete ones with handles.",
-      "date": "2026-10-26"
+      "url": "https://x.com/magnus72/status/2114505455917822461",
+      "note": "site form #86; was held for X handle, resolved via @magnus72 post sharing the template",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
     },
     "template-O8DClJ889JrWWzEtH_TDm": {
       "status": "added",
@@ -3413,6 +3414,92 @@
       "note": "site form #136; backlog standing order, added 2026-10-26",
       "date": "2026-10-26",
       "approved_by": "Phillip Holland"
+    },
+    "template-qmENesX2cLr2UHqkEEqMS": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@HungOnCode",
+      "bot": "AI Usage Hub",
+      "template_url": "https://x.ai/bot/qmENesX2cLr2UHqkEEqMS",
+      "url": "https://x.com/HungOnCode/status/2114850616824516608",
+      "note": "site form #140; handle resolved from X post sharing the template",
+      "date": "2026-10-26"
+    },
+    "2114848158534484130": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@StealthTSLA",
+      "bot": "Garage",
+      "template_url": "https://x.ai/bot/V3mnsui0Z3lXt38OJy86f",
+      "url": "https://x.com/StealthTSLA/status/2114848158534484130",
+      "note": "site form #139",
+      "date": "2026-10-26"
+    },
+    "2114845248941593063": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@josephstayhappy",
+      "bot": "Fed Decoder",
+      "template_url": "https://x.ai/bot/pzk84AM0AC6Aq4PaoQ1up",
+      "url": "https://x.com/josephstayhappy/status/2114845248941593063",
+      "note": "site form #138",
+      "date": "2026-10-26"
+    },
+    "template-TWxNmCOGfc6u1CAyVdoxv": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@dbarrett24",
+      "bot": "GrokText",
+      "template_url": "https://x.ai/bot/TWxNmCOGfc6u1CAyVdoxv",
+      "url": "",
+      "note": "site form #137; self-hosted owner-controlled text relay, sends only on owner yes",
+      "date": "2026-10-26"
+    },
+    "2114620416182686121": {
+      "status": "added",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)",
+      "author": "@JayinEly",
+      "bot": "Groksters Anonymous",
+      "template_url": "https://x.ai/bot/y2cVUIcWck2c-ktSehtbw",
+      "url": "https://x.com/JayinEly/status/2114620416182686121",
+      "note": "X find: tagged Phil + Nick with template",
+      "date": "2026-10-26"
+    },
+    "2114784766419685748": {
+      "status": "dead_link",
+      "author": "@HudsonSutherla2",
+      "template_url": "https://x.ai/bot/",
+      "url": "https://x.com/HudsonSutherla2/status/2114784766419685748",
+      "note": "link points to bare x.ai/bot with no template id",
+      "date": "2026-10-26"
+    },
+    "2114481012545851810": {
+      "status": "already_on_shelf",
+      "author": "@FringeSignalX",
+      "bot": "Shed Sales Pipeline",
+      "url": "https://x.com/FringeSignalX/status/2114481012545851810",
+      "date": "2026-10-26"
+    },
+    "2114546040527278482": {
+      "status": "already_on_shelf",
+      "author": "@the_seth_ard",
+      "bot": "RivetRoad Trip Planner",
+      "url": "https://x.com/the_seth_ard/status/2114546040527278482",
+      "date": "2026-10-26"
+    },
+    "2114830681410863248": {
+      "status": "not_a_request",
+      "author": "@tcballard",
+      "url": "https://x.com/tcballard/status/2114830681410863248",
+      "note": "\"please and thank you\" reply, no template",
+      "date": "2026-10-26"
+    },
+    "2114818367731142839": {
+      "status": "not_a_request",
+      "author": "@jimaggie",
+      "url": "https://x.com/jimaggie/status/2114818367731142839",
+      "note": "addressed to @cradrrat about botshelf.dev, a different site",
+      "date": "2026-10-26"
     }
   }
 }
