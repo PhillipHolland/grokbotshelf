@@ -2,7 +2,7 @@
 // (test/serve.js on a free port) or against a base URL you pass. Prints a summary; exit code 1 if anything failed.
 // Needs puppeteer-core outside the repo, e.g.  NODE_PATH=/path/to/node_modules node test/run.js [base-url]
 const { spawn, spawnSync } = require("child_process"), net = require("net"), path = require("path");
-const SUITES = ["credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets"];
+const SUITES = ["credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse"];
 const freePort = () => new Promise((r) => { const s = net.createServer().listen(0, () => { const p = s.address().port; s.close(() => r(p)); }); });
 (async () => {
   let base = process.argv[2], server;
