@@ -367,7 +367,9 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 }
 
 /* Light mode: darker blue for text links and badge colors so they pass 4.5:1 on white */
-html[data-theme="light"] :is(.clear,.thead .tall,.bp-links a,.add p a,.ghead .plink .ok,.crawl a:hover,.site-foot a:hover,.tlist .sc,.chip[aria-pressed="true"],.vote .up[aria-pressed="true"]){color:var(--btn-blue)}
+html[data-theme="light"] :is(.clear,.thead .tall,.bp-links a,.add p a,.ghead .plink .ok,.crawl a:hover,.site-foot a:hover,.chip[aria-pressed="true"],.vote .up[aria-pressed="true"]){color:var(--btn-blue)}
+/* The score badge sits on the tinted --mark fill and Copy on the grey snippet header: --btn-blue is just under 4.5:1 there */
+html[data-theme="light"] :is(.tlist .sc,.snip .snip-h .clear){color:var(--btn-blue-h)}
 html[data-theme="light"] .badge.ag-acts{border-color:rgba(196,16,95,.45);color:#c4105f}
 html[data-theme="light"] .badge.ag-drafts{border-color:rgba(138,106,0,.45);color:#8a6a00}
 html[data-theme="light"] .badge.ag-reads{border-color:rgba(0,128,90,.45);color:#00805a}
