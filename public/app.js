@@ -393,7 +393,22 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[capNow];
     if (next) next.focus({ preventScroll: true });
   }
+  // "Get this bot" (x.ai) and "Add to Bot app" (grokbot://). gtag exists only after the production
+  // hostname check in the head snippet. Mark get_bot as a key event in GA4 Admin → Data display →
+  // Events → get_bot → Mark as key event.
+  function trackGetBot(el) {
+    if (typeof gtag !== "function") return;
+    const card = el.closest("article");
+    const raw = card ? (card.getAttribute("data-slug") || card.id || "") : "";
+    gtag("event", "get_bot", {
+      bot_slug: raw.replace(/^(f-)?bot-/, ""),
+      destination: el.classList.contains("app") ? "app" : "x.ai",
+      transport_type: "beacon",
+    });
+  }
   results.addEventListener("click", (e) => {
+    const conv = e.target.closest("a.get, a.app");
+    if (conv) trackGetBot(conv);
     const mo = e.target.closest("[data-more]");
     if (mo) { showMore(mo.dataset.more); return; }
     const vb = e.target.closest(".vb");

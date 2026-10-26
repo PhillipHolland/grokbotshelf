@@ -136,6 +136,15 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* Site footer */
+/* Static catalog in the homepage HTML. Closed by default so the card grid stays the shelf.
+   Links remain in the DOM (crawlers do not need JavaScript, and app.js does not replace this node). */
+.crawl{margin:28px 0 12px}
+.crawl summary{cursor:pointer;color:var(--text2);font-size:13px;font-weight:700}
+.crawl summary:hover{color:var(--text)}
+.crawl-h{margin:14px 0 0;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text2)}
+.crawl nav{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
+.crawl a{font-size:13px;color:var(--text2);text-decoration:none}
+.crawl a:hover{color:var(--blue);text-decoration:underline}
 .site-foot{padding:8px 0 max(32px,env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:8px}
 .site-foot p{margin:0;font-size:12px;line-height:1.4;color:var(--text2);text-align:center}
 .site-foot p.by{margin-top:4px}

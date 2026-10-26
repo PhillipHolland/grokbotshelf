@@ -44,6 +44,72 @@ try {
     `shelf-data.json carries only the meta (${withMeta.length}) and social (${withSocial.length}) fields the cards use`);
   const crypto = require("crypto"), raw = fs.readFileSync(pub("shelf-data.json")), v = crypto.createHash("sha256").update(raw).digest("hex").slice(0, 10);
   ok(fs.readFileSync(pub("index.html"), "utf8").includes(`<link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous">`), "index.html preloads shelf-data.json at its content hash " + v);
+  const home = fs.readFileSync(pub("index.html"), "utf8");
+  const botHrefs = new Set([...home.matchAll(/href="(\/bot\/[^"]+)"/g)].map((m) => m[1]));
+  const creatorHrefs = new Set([...home.matchAll(/href="(\/@[^"]+)"/g)].map((m) => m[1]));
+  const missBots = slugs.filter((s) => !botHrefs.has("/bot/" + s));
+  const missCreators = handles.filter((h) => h && !creatorHrefs.has("/@" + h));
+  ok(!missBots.length, `homepage HTML links every bot page (${botHrefs.size}; missing ${missBots.slice(0, 3).join(", ") || "none"})`);
+  ok(!missCreators.length, `homepage HTML links every creator page (${creatorHrefs.size}; missing ${missCreators.slice(0, 3).join(", ") || "none"})`);
+  ok(home.includes('id="all"') && !home.includes("<script async src=\"https://www.googletagmanager.com/gtag/js"), "crawl list is in the homepage, and GA is not a static script when unset");
+  const appJs = fs.readFileSync(pub("app.js"), "utf8"), pageJs = fs.readFileSync(pub("bot-page.js"), "utf8");
+  ok(appJs.includes('gtag("event", "get_bot"') && appJs.includes('destination: el.classList.contains("app") ? "app" : "x.ai"') && pageJs.includes('gtag("event", "get_bot"') && pageJs.includes('destination: a.classList.contains("app") ? "app" : "x.ai"'), "get_bot fires from shelf cards and bot-page CTAs");
+  execFileSync(process.execPath, [path.join(TMP, "scripts", "build.js")], { encoding: "utf8", env: { ...process.env, GA_MEASUREMENT_ID: "G-GQXCQR2WSE", GSC_VERIFICATION: "" } });
+  const gatedHome = fs.readFileSync(pub("index.html"), "utf8");
+  const gatedBot = fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8");
+  const gate = 'if(h!=="grokbotshelf.com"&&h!=="www.grokbotshelf.com")return;';
+  ok(gatedHome.includes(gate) && gatedBot.includes(gate) && gatedHome.includes("G-GQXCQR2WSE") && gatedBot.includes("G-GQXCQR2WSE"), "GA snippet is gated to the production hostname on home and bot pages");
+  ok(!gatedHome.includes("<script async src=\"https://www.googletagmanager.com/gtag/js") && !gatedBot.includes("<script async src=\"https://www.googletagmanager.com/gtag/js"), "GA is not injected as a parser-loaded script tag");
+  ok(!fs.readFileSync(path.join(ROOT, "api", "votes.js"), "utf8").includes("grokbotshelf-votes") && !fs.readFileSync(path.join(ROOT, "api", "submit.js"), "utf8").includes("grokbotshelf-votes"), "no public default VOTE_SALT");
+  const saltEnv = { ...process.env, VOTE_SALT: "   " };
+  delete saltEnv.DATABASE_URL; delete saltEnv.NEON_DATABASE_URL; delete saltEnv.POSTGRES_URL;
+  const saltOut = execFileSync(process.execPath, ["-e", `
+    const path = require("path");
+    const root = ${JSON.stringify(ROOT)};
+    function call(handler, method) {
+      return new Promise((resolve) => {
+        const r = { statusCode: 0, setHeader() {}, end(b) { this.body = b; resolve(this); } };
+        Promise.resolve(handler({ method, url: "/api/x", headers: {}, socket: {} }, r)).catch((e) => resolve({ statusCode: 0, body: String(e) }));
+      });
+    }
+    (async () => {
+      for (const f of ["votes.js", "submit.js"]) {
+        const handler = require(path.join(root, "api", f));
+        for (const method of ["GET", "POST"]) {
+          const res = await call(handler, method);
+          let body = {}; try { body = JSON.parse(res.body); } catch {}
+          const pass = res.statusCode === 500 && body.error === "VOTE_SALT is not configured";
+          console.log((pass ? "PASS " : "FAIL ") + f + " " + method + " fails closed without VOTE_SALT" + (pass ? "" : " (" + res.statusCode + " " + res.body + ")"));
+          if (!pass) process.exitCode = 1;
+        }
+      }
+    })();
+  `], { encoding: "utf8", env: saltEnv });
+  process.stdout.write(saltOut);
+  ok(!/^FAIL /m.test(saltOut), "vote and submit APIs fail closed without VOTE_SALT");
+  const openEnv = { ...process.env, VOTE_SALT: "test-salt-not-a-default" };
+  delete openEnv.DATABASE_URL; delete openEnv.NEON_DATABASE_URL; delete openEnv.POSTGRES_URL;
+  const openOut = execFileSync(process.execPath, ["-e", `
+    const path = require("path");
+    const handler = require(path.join(${JSON.stringify(ROOT)}, "api", "votes.js"));
+    const submit = require(path.join(${JSON.stringify(ROOT)}, "api", "submit.js"));
+    function call(h, method) {
+      return new Promise((resolve) => {
+        const r = { statusCode: 0, setHeader() {}, end(b) { this.body = b; resolve(this); } };
+        Promise.resolve(h({ method, url: "/api/x", headers: {}, socket: {} }, r)).catch((e) => resolve({ statusCode: 0, body: String(e) }));
+      });
+    }
+    (async () => {
+      const votes = await call(handler, "GET");
+      const usage = await call(submit, "GET");
+      let v = {}, s = {}; try { v = JSON.parse(votes.body); s = JSON.parse(usage.body); } catch {}
+      const pass = votes.statusCode === 200 && v.global === false && usage.statusCode === 200 && s.ok === true;
+      console.log((pass ? "PASS " : "FAIL ") + "with VOTE_SALT set, votes and submit stay up when the database is unset" + (pass ? "" : " (" + votes.statusCode + " " + votes.body + " / " + usage.statusCode + " " + usage.body + ")"));
+      if (!pass) process.exitCode = 1;
+    })();
+  `], { encoding: "utf8", env: openEnv });
+  process.stdout.write(openOut);
+  ok(!/^FAIL /m.test(openOut), "with VOTE_SALT set, votes and submit stay up when the database is unset");
   // 48px avatar copies: every one is 48x48, made from the current original, and used for cards and the bot page byline
   const webpSize = (b) => { const t = b.toString("ascii", 12, 16); return t === "VP8 " ? [b.readUInt16LE(26) & 0x3fff, b.readUInt16LE(28) & 0x3fff] : t === "VP8L" ? [1 + ((b[22] << 8 | b[21]) & 0x3fff), 1 + ((b[24] << 10 | b[23] << 2 | b[22] >> 6) & 0x3fff)] : t === "VP8X" ? [1 + b.readUIntLE(24, 3), 1 + b.readUIntLE(27, 3)] : [0, 0]; };
   const man = JSON.parse(fs.readFileSync(pub("avatars", "48", "manifest.json"), "utf8")), smalls = fs.readdirSync(pub("avatars", "48")).filter((f) => f.endsWith(".webp"));

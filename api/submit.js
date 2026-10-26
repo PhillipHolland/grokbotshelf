@@ -10,7 +10,8 @@ const crypto = require("crypto");
 const bots = require("../public/bots.json");
 
 const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.env.POSTGRES_URL || "";
-const SALT = process.env.VOTE_SALT || "grokbotshelf-votes";
+// Required. A missing salt used to fall back to a public string, which made IP hashes predictable.
+const SALT = (process.env.VOTE_SALT || "").trim();
 const LIMITS = { ip10m: 5, ipDay: 20, allDay: 300 };
 
 const tid = (u) => String(u || "").replace(/^https:\/\/x\.ai\/(bot\/)?/, "");
@@ -56,6 +57,7 @@ async function readBody(req) {
   return JSON.parse(s || "{}");
 }
 const ipHash = (req) => {
+  if (!SALT) { const err = new Error("VOTE_SALT is not configured"); err.code = "NO_SALT"; throw err; }
   const ip = String(req.headers["x-forwarded-for"] || req.socket?.remoteAddress || "").split(",")[0].trim();
   return crypto.createHash("sha256").update(SALT + "|submit|" + ip).digest("hex").slice(0, 32);
 };
@@ -108,6 +110,7 @@ async function postMeta(postUrl) {
 }
 
 module.exports = async (req, res) => {
+  if (!SALT) return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
   const url = new URL(req.url, "http://x");
   try {
     if (req.method === "GET") {
@@ -169,6 +172,7 @@ module.exports = async (req, res) => {
       message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human." });
   } catch (e) {
     console.error("submit", e && e.message);
+    if (e && e.code === "NO_SALT") return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });
     return send(res, 500, { error: "That did not go through. Try again in a minute." });
   }
 };
