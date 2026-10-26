@@ -17,7 +17,8 @@ html[data-theme="light"]{
 :root{color-scheme:dark}
 html[data-theme="light"]{color-scheme:light}
 html,body{background:var(--bg);overscroll-behavior-y:auto}
-html.theme-anim,html.theme-anim *{transition:background-color .2s ease,color .2s ease,border-color .2s ease,fill .2s ease,stroke .2s ease!important}
+/* Theme swaps are instant: app.js sets .theme-swap for the frame the colors change so no element runs its own transition */
+html.theme-swap,html.theme-swap *,html.theme-swap *::before,html.theme-swap *::after{transition:none!important}
 *,*::before,*::after{box-sizing:border-box}
 /* Clear the sticky .dock (search row + filter row + safe area); --dock-h is measured in app.js */
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--dock-h,calc(106px + env(safe-area-inset-top))) + 12px)}

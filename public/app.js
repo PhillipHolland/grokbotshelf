@@ -50,8 +50,11 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
   themeBtn.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
-    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) { root.classList.add("theme-anim"); setTimeout(() => root.classList.remove("theme-anim"), 250); }
+    // Swap with transitions off: a fade across thousands of elements drops frames and text briefly matches the background
+    root.classList.add("theme-swap");
     applyTheme(next);
+    void root.offsetWidth; // commit the new colors while transitions are off
+    requestAnimationFrame(() => requestAnimationFrame(() => root.classList.remove("theme-swap")));
     try { localStorage.setItem("theme", next); } catch {}
   });
 
