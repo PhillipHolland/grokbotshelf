@@ -2444,13 +2444,15 @@
       "approved_by": "Phillip Holland"
     },
     "2114088543014260915": {
-      "status": "skipped",
+      "status": "added",
       "author": "@nahjuin",
       "bot": "Indeed Auto Apply",
       "template": "https://x.ai/bot/t8698zUlLNPDxI2lOBZTH",
       "url": "https://x.com/nahjuin/status/2114088543014260915",
-      "note": "site form #45; skipped by Phillip",
-      "date": "2026-10-25"
+      "note": "site form #45; previously skipped; Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland",
+      "template_url": "https://x.ai/bot/t8698zUlLNPDxI2lOBZTH"
     },
     "2114080870483296689": {
       "status": "skipped",
@@ -2849,13 +2851,14 @@
       "date": "2026-10-26"
     },
     "template-O8DClJ889JrWWzEtH_TDm": {
-      "status": "pending",
-      "author": "",
+      "status": "added",
+      "author": "@nahjuin",
       "bot": "X Success Coach",
       "template_url": "https://x.ai/bot/O8DClJ889JrWWzEtH_TDm",
       "url": "",
-      "note": "site form #84; held: needs X handle (no creator name or handle on form or template).",
-      "date": "2026-10-26"
+      "note": "site form #84; creator confirmed by Phillip as @nahjuin; idea/cheat sheet credit @thepetermick (https://x.com/thepetermick/status/2114368194546696576) in description; no source post; Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
     },
     "2114716219802571241": {
       "status": "added",
@@ -3071,6 +3074,216 @@
       "template_url": "https://x.ai/bot/v0EEDdFd-3e12sx4f6byq",
       "url": "https://x.com/CaliLumberJack/status/2114748893552390649",
       "note": "launch post tagging Phil and Nick; Phillip OK, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114758004482707912": {
+      "status": "added",
+      "author": "@DarthJML",
+      "bot": "Ladle",
+      "template_url": "https://x.ai/bot/s4VX-QEFQg95Qyxns1WUi",
+      "url": "https://x.com/DarthJML/status/2114758004482707912",
+      "note": "site form #128; Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2112835805911929276": {
+      "status": "added",
+      "author": "@sommelierbot",
+      "bot": "sommelier.bot",
+      "template_url": "https://x.ai/bot/UPAg1Vque_5YKcSDtdZEq",
+      "url": "https://x.com/sommelierbot/status/2112835805911929276",
+      "note": "site form #126; Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114750776694214895": {
+      "status": "added",
+      "author": "@richphotoio",
+      "bot": "Park Lookout",
+      "template_url": "https://x.ai/bot/lQiuwr-oSZpezc1elVlwq",
+      "url": "https://x.com/richphotoio/status/2114750776694214895",
+      "note": "site form #125; Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-YrxlAlCd7MQujjCOlStvm": {
+      "status": "added",
+      "author": "",
+      "bot": "Pastor Pete",
+      "template_url": "https://x.ai/bot/YrxlAlCd7MQujjCOlStvm",
+      "url": "",
+      "note": "site form #108; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-9zBbCo8cw3SggdO28xXbK": {
+      "status": "added",
+      "author": "",
+      "bot": "Idea Ike",
+      "template_url": "https://x.ai/bot/9zBbCo8cw3SggdO28xXbK",
+      "url": "",
+      "note": "site form #109; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-TyUoZv-3xRqbY_zHQIRvO": {
+      "status": "added",
+      "author": "",
+      "bot": "Rookie Card Ray",
+      "template_url": "https://x.ai/bot/TyUoZv-3xRqbY_zHQIRvO",
+      "url": "",
+      "note": "site form #110; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-DnBW-zVBFHvnRk1NgJrCk": {
+      "status": "added",
+      "author": "",
+      "bot": "Comic Book Carl",
+      "template_url": "https://x.ai/bot/DnBW-zVBFHvnRk1NgJrCk",
+      "url": "",
+      "note": "site form #111; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-ab76yi9i0xGRTg7SsMFM-": {
+      "status": "added",
+      "author": "",
+      "bot": "Lifehack Jack",
+      "template_url": "https://x.ai/bot/ab76yi9i0xGRTg7SsMFM-",
+      "url": "",
+      "note": "site form #112; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-OOFh9h6yfDuzJCAjk80Ez": {
+      "status": "added",
+      "author": "",
+      "bot": "Green Thumb Granny",
+      "template_url": "https://x.ai/bot/OOFh9h6yfDuzJCAjk80Ez",
+      "url": "",
+      "note": "site form #113; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-QBeeqwxvrPiYYixsntYi1": {
+      "status": "added",
+      "author": "",
+      "bot": "Congressional Connection",
+      "template_url": "https://x.ai/bot/QBeeqwxvrPiYYixsntYi1",
+      "url": "",
+      "note": "site form #114; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-y7i2ei-6EN0AAKvKaLLB9": {
+      "status": "added",
+      "author": "",
+      "bot": "Ballot Box Bob",
+      "template_url": "https://x.ai/bot/y7i2ei-6EN0AAKvKaLLB9",
+      "url": "",
+      "note": "site form #115; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-zUQwIdQgoK-uaxur73Nmv": {
+      "status": "added",
+      "author": "",
+      "bot": "Local Services Samantha",
+      "template_url": "https://x.ai/bot/zUQwIdQgoK-uaxur73Nmv",
+      "url": "",
+      "note": "site form #116; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-GEih8F6WlyPJ_oyuVLEAt": {
+      "status": "added",
+      "author": "",
+      "bot": "Test Prep Tess",
+      "template_url": "https://x.ai/bot/GEih8F6WlyPJ_oyuVLEAt",
+      "url": "",
+      "note": "site form #117; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-XQ4VrU9JJ7lHgbEIM2e8F": {
+      "status": "added",
+      "author": "",
+      "bot": "Grease Monkey Wally",
+      "template_url": "https://x.ai/bot/XQ4VrU9JJ7lHgbEIM2e8F",
+      "url": "",
+      "note": "site form #118; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-g1AmwULv-28QM-l_yIVbb": {
+      "status": "added",
+      "author": "",
+      "bot": "Appliance Fix Annie",
+      "template_url": "https://x.ai/bot/g1AmwULv-28QM-l_yIVbb",
+      "url": "",
+      "note": "site form #119; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-w3yzHuZdi-x0I-7j7sP9H": {
+      "status": "added",
+      "author": "",
+      "bot": "Utility Eugene",
+      "template_url": "https://x.ai/bot/w3yzHuZdi-x0I-7j7sP9H",
+      "url": "",
+      "note": "site form #120; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-xKi2VkyukiwEAm_LmDppc": {
+      "status": "added",
+      "author": "",
+      "bot": "Thrifty Theo",
+      "template_url": "https://x.ai/bot/xKi2VkyukiwEAm_LmDppc",
+      "url": "",
+      "note": "site form #121; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-93nFrBAPgKvx0BUipoyjk": {
+      "status": "added",
+      "author": "",
+      "bot": "Game On Gary",
+      "template_url": "https://x.ai/bot/93nFrBAPgKvx0BUipoyjk",
+      "url": "",
+      "note": "site form #122; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-_Cu3rtG0IfKa84YsUe7tc": {
+      "status": "added",
+      "author": "",
+      "bot": "Realty Rita",
+      "template_url": "https://x.ai/bot/_Cu3rtG0IfKa84YsUe7tc",
+      "url": "",
+      "note": "site form #123; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-bcVY9sJKoeZSzFcfNlhVW": {
+      "status": "added",
+      "author": "",
+      "bot": "Research Ruby",
+      "template_url": "https://x.ai/bot/bcVY9sJKoeZSzFcfNlhVW",
+      "url": "",
+      "note": "site form #124; creator James (no X handle); Phillip OK (\"all that are safe\"), added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-1Jop_lyWBQwbzgALXrp57": {
+      "status": "denied",
+      "author": "@DarthJML",
+      "bot": "Honey",
+      "template_url": "https://x.ai/bot/1Jop_lyWBQwbzgALXrp57",
+      "url": "https://x.com/DarthJML/status/2114744617858109865",
+      "note": "site form #127; denied 2026-10-26: private cycle/relationship companion, intimate/soft-adult, does not meet shelf standards for now",
       "date": "2026-10-26",
       "approved_by": "Phillip Holland"
     }
