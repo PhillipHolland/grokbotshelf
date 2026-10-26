@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 21:20:28 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 21:50:54 GMT</lastBuildDate>
+  <item>
+    <title>🧩 Unbundled by Yossi</title>
+    <link>https://grokbotshelf.com/bot/unbundled</link>
+    <guid isPermaLink="false">https://x.ai/bot/8IyWGGrGH00ZytRAkikav</guid>
+    <description>Paste a memecoin contract or DexScreener link: clusters linked wallets, stacks free rug checks and returns a LOOSE / TIED / BUNDLED / RUG verdict.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>🦝 Jimothy&apos;s Free Finds by Jim</title>
+    <link>https://grokbotshelf.com/bot/jimothy-s-free-finds</link>
+    <guid isPermaLink="false">https://x.ai/bot/JKfCdAcVHTuh0wDms0akA</guid>
+    <description>A raccoon scout that watches Craigslist free, Facebook Marketplace and OfferUp near you and pings you when free stuff worth grabbing shows up.</description>
+    <dc:creator>Jim (@JimothyRac)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 Job Apply Bot by Prince</title>
+    <link>https://grokbotshelf.com/bot/job-apply-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/kHBYgisQTDMVbthnCahoD</guid>
+    <description>Runs your job hunt end to end: finds fresh matching roles, drafts personal outreach and fills applications, with every send waiting for your OK.</description>
+    <dc:creator>Prince (@prince_twets)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏗️ Foreman by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/foreman</link>
+    <guid isPermaLink="false">https://x.ai/bot/QqtV5CQa9HRXNC6NmoOjc</guid>
+    <description>Your own superintendent for an owner-builder house build: every sub, date, dollar, permit and file kept straight, lot to keys.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:56 GMT</pubDate>
+  </item>
   <item>
     <title>🤜 brobot by Edmundo</title>
     <link>https://grokbotshelf.com/bot/brobot</link>
@@ -53,10 +89,10 @@
     <pubDate>Mon, 26 Oct 2026 12:07:51 GMT</pubDate>
   </item>
   <item>
-    <title>🤑 Sponsorship Hunter by Ryan</title>
+    <title>🎯 Sponsorship Hunter by Ryan</title>
     <link>https://grokbotshelf.com/bot/sponsorship-hunter</link>
     <guid isPermaLink="false">https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE</guid>
-    <description>Studies a small creator&apos;s X account and niche, then finds realistic sponsors and campaigns to apply to. Never spends.</description>
+    <description>Studies your X account and niche, then hunts realistic sponsors for small creators: brands already paying creators your size, affiliate and product deals, and creator marketplaces. It drafts outreach for your approval and runs your sponsorship pipeline.</description>
     <dc:creator>Ryan (@ryangrowthh)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 26 Oct 2026 12:07:50 GMT</pubDate>
@@ -420,42 +456,6 @@
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧠 Study Tutor by Jorhan</title>
-    <link>https://grokbotshelf.com/bot/study-tutor</link>
-    <guid isPermaLink="false">https://x.ai/bot/2SHXvbvUMUuJHyVrloDDC</guid>
-    <description>A personal tutor for any subject or certification exam. It builds a plan from the official objectives, teaches 5-minute lessons, quizzes you, and brings missed items back on a spaced review schedule.</description>
-    <dc:creator>Jorhan (@Jorhan)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>📐 Bot Architect by nahjuin</title>
-    <link>https://grokbotshelf.com/bot/bot-architect</link>
-    <guid isPermaLink="false">https://x.ai/bot/DhDewLY_T5cnElbB85udj</guid>
-    <description>Turns a bot idea, rough concept, or master prompt into a publishable Grok Bot template: one clear job, safe boundaries, only the questions it needs, and each template built in its own bot so published links never get overwritten.</description>
-    <dc:creator>nahjuin (@nahjuin)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗄️ Shelfer by Phillip Holland</title>
-    <link>https://grokbotshelf.com/bot/shelfer</link>
-    <guid isPermaLink="false">https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi</guid>
-    <description>Queues a Grok Bot template for grokbotshelf.com. Paste an x.ai/bot link (and optional X post); it dedups, smoke-checks, and POSTs the shelf submit API. Never reviews or publishes the catalog.</description>
-    <dc:creator>Phillip Holland (@Phil_Holland)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎥 Workout Demo Builder by Jenna</title>
-    <link>https://grokbotshelf.com/bot/workout-demo-builder</link>
-    <guid isPermaLink="false">https://x.ai/bot/VXROxGhxgARRuPLwrlixB</guid>
-    <description>Builds phone workout apps where each lift keeps a YouTube form demo with a saved start time, so Watch demo jumps straight to the cue. For anyone who wants that pattern without hunting for timestamps every set.</description>
-    <dc:creator>Jenna (@JennaLiftsLife)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:06 GMT</pubDate>
   </item>
 </channel>
 </rss>

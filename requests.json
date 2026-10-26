@@ -3363,6 +3363,46 @@
       "url": "https://x.com/ALL_Jonah/status/2114794320813347318",
       "note": "links to shelf homepage, no template",
       "date": "2026-10-26"
+    },
+    "2114825896808845492": {
+      "status": "added",
+      "author": "@ALL_Jonah",
+      "bot": "Foreman",
+      "template_url": "https://x.ai/bot/QqtV5CQa9HRXNC6NmoOjc",
+      "url": "https://x.com/ALL_Jonah/status/2114825896808845492",
+      "note": "site form #135; backlog standing order, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-kHBYgisQTDMVbthnCahoD": {
+      "status": "added",
+      "author": "@prince_twets",
+      "bot": "Job Apply Bot",
+      "template_url": "https://x.ai/bot/kHBYgisQTDMVbthnCahoD",
+      "url": "",
+      "note": "site form #134 submitted by @thecsguy crediting @prince_twets; backlog standing order, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "template-JKfCdAcVHTuh0wDms0akA": {
+      "status": "added",
+      "author": "@JimothyRac",
+      "bot": "Jimothy's Free Finds",
+      "template_url": "https://x.ai/bot/JKfCdAcVHTuh0wDms0akA",
+      "url": "",
+      "note": "site form #133; backlog standing order, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
+    },
+    "2114814315677000017": {
+      "status": "added",
+      "author": "@josephstayhappy",
+      "bot": "Unbundled",
+      "template_url": "https://x.ai/bot/8IyWGGrGH00ZytRAkikav",
+      "url": "https://x.com/josephstayhappy/status/2114814315677000017",
+      "note": "site form #132; defensive rug checker, not financial advice; backlog standing order, added 2026-10-26",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland"
     }
   }
 }

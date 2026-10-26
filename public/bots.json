@@ -6180,5 +6180,57 @@
     "creator_avatar": "/avatars/moondough.webp",
     "source_post": "https://x.com/moondough/status/2114798312561762496",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Foreman",
+    "emoji": "🏗️",
+    "description": "Your own superintendent for an owner-builder house build: every sub, date, dollar, permit and file kept straight, lot to keys.",
+    "category": "Home",
+    "url": "https://x.ai/bot/QqtV5CQa9HRXNC6NmoOjc",
+    "creator_name": "Jonah Anthony",
+    "creator_handle": "@ALL_Jonah",
+    "creator_url": "https://x.com/ALL_Jonah",
+    "creator_avatar": "/avatars/all_jonah.webp",
+    "source_post": "https://x.com/ALL_Jonah/status/2114825896808845492",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Job Apply Bot",
+    "emoji": "💼",
+    "description": "Runs your job hunt end to end: finds fresh matching roles, drafts personal outreach and fills applications, with every send waiting for your OK.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/kHBYgisQTDMVbthnCahoD",
+    "creator_name": "Prince",
+    "creator_handle": "@prince_twets",
+    "creator_url": "https://x.com/prince_twets",
+    "creator_avatar": "/avatars/prince_twets.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Jimothy's Free Finds",
+    "emoji": "🦝",
+    "description": "A raccoon scout that watches Craigslist free, Facebook Marketplace and OfferUp near you and pings you when free stuff worth grabbing shows up.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/JKfCdAcVHTuh0wDms0akA",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Unbundled",
+    "emoji": "🧩",
+    "description": "Paste a memecoin contract or DexScreener link: clusters linked wallets, stacks free rug checks and returns a LOOSE / TIED / BUNDLED / RUG verdict.",
+    "category": "Money",
+    "url": "https://x.ai/bot/8IyWGGrGH00ZytRAkikav",
+    "creator_name": "Yossi",
+    "creator_handle": "@josephstayhappy",
+    "creator_url": "https://x.com/josephstayhappy",
+    "creator_avatar": "",
+    "source_post": "https://x.com/josephstayhappy/status/2114814315677000017",
+    "added": "2026-10-26"
   }
 ]

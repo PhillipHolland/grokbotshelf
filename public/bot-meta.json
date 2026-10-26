@@ -934,6 +934,31 @@
    "name": "brobot",
    "agency": "reads",
    "one_job": true
+  },
+  "QqtV5CQa9HRXNC6NmoOjc": {
+   "name": "Foreman",
+   "agency": "drafts"
+  },
+  "kHBYgisQTDMVbthnCahoD": {
+   "name": "Job Apply Bot",
+   "agency": "acts"
+  },
+  "JKfCdAcVHTuh0wDms0akA": {
+   "name": "Jimothy's Free Finds",
+   "agency": "drafts",
+   "works_with": [
+    "Craigslist",
+    "Facebook Marketplace",
+    "OfferUp"
+   ]
+  },
+  "8IyWGGrGH00ZytRAkikav": {
+   "name": "Unbundled",
+   "agency": "reads",
+   "works_with": [
+    "DexScreener"
+   ],
+   "one_job": true
   }
  }
 }
