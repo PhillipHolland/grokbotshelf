@@ -27,5 +27,14 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.click('#theme'); await new Promise(r => setTimeout(r, 300));
   await p.reload({ waitUntil: 'networkidle0' });
   ok((await st()).theme === 'dark', 'toggle back to dark persists');
+  // The swap is instant: no CSS transitions start on the click, and the helper class is gone a few frames later
+  const swap = await p.evaluate(() => new Promise((res) => {
+    const tr = () => document.getAnimations().filter((a) => a instanceof CSSTransition).length;
+    document.querySelector('#theme').click();
+    const now = { n: tr(), bg: getComputedStyle(document.body).backgroundColor };
+    requestAnimationFrame(() => requestAnimationFrame(() => requestAnimationFrame(() => res({ ...now, later: tr(), swapClass: document.documentElement.classList.contains('theme-swap') }))));
+  }));
+  ok(swap.n === 0 && swap.later === 0 && swap.bg === 'rgb(255, 255, 255)' && !swap.swapClass, 'theme swap runs no transitions and lands in one frame: ' + JSON.stringify(swap));
+  await p.click('#theme');
   await b.close();
 })();
