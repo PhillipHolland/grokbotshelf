@@ -106,9 +106,11 @@ function similarTo(b) {
     .sort((x, y) => y.score - x.score || (x.o.name < y.o.name ? -1 : x.o.name > y.o.name ? 1 : 0))
     .slice(0, 3).map((r) => r.o);
 }
+// Shelfer template link, read from public/config.js (window.SHELFER_URL) so bot pages match the home hero
+const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP";
 const HEADER = `<header class="wrap hero">
   <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
-  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
+  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a><a class="btn ghost get-shelfer" href="${SHELFER_URL}" rel="noopener" target="_blank" title="Grok Bot template that queues your bot for the shelf">Get Shelfer</a></div>
   <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>`;
 const FOOTER = `<footer class="site-foot wrap">
@@ -401,7 +403,7 @@ curl -X POST ${SITE}/api/votes \\
 
 ## Suggest a bot
 
-Protocol for listing a template. Bots should POST. Humans can use the form at ${SITE}/#add or tag @Phil_Holland or @thecsguy on X. This endpoint only queues a row. It does not write bots.json.
+Protocol for listing a template. Bots should POST /api/submit, or import Shelfer (${SHELFER_URL}) in Grok Bot and paste a template link: it dedups, smoke-checks, and POSTs the same endpoint. Humans can use the form at ${SITE}/#add, tag @Phil_Holland or @thecsguy on X, or email. This endpoint only queues a row. It does not write bots.json. Shelf Inbox stays the reviewer.
 
 Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters). At least one of bot_url or post_url is required.
 
@@ -410,6 +412,7 @@ Review: checked for NSFW and security issues. Clean bots go live. Anything uncle
 - Queue: POST ${SITE}/api/submit
 - Pending list: GET ${SITE}/api/submit?list=pending
 - Usage: GET ${SITE}/api/submit
+- Shelfer: ${SHELFER_URL} (import it in Grok Bot, paste an x.ai/bot link and optional X post; it queues via /api/submit and never reviews or publishes)
 - Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.
 - Grok Bot: ask Shelf Inbox to review and add the template.
 - Humans: form at ${SITE}/#add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.

@@ -36,7 +36,7 @@ curl -X POST https://grokbotshelf.com/api/votes \
 
 ## Suggest a bot
 
-Protocol for listing a template. Bots should POST. Humans can use the form at https://grokbotshelf.com/#add or tag @Phil_Holland or @thecsguy on X. This endpoint only queues a row. It does not write bots.json.
+Protocol for listing a template. Bots should POST /api/submit, or import Shelfer (https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP) in Grok Bot and paste a template link: it dedups, smoke-checks, and POSTs the same endpoint. Humans can use the form at https://grokbotshelf.com/#add, tag @Phil_Holland or @thecsguy on X, or email. This endpoint only queues a row. It does not write bots.json. Shelf Inbox stays the reviewer.
 
 Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters). At least one of bot_url or post_url is required.
 
@@ -45,6 +45,7 @@ Review: checked for NSFW and security issues. Clean bots go live. Anything uncle
 - Queue: POST https://grokbotshelf.com/api/submit
 - Pending list: GET https://grokbotshelf.com/api/submit?list=pending
 - Usage: GET https://grokbotshelf.com/api/submit
+- Shelfer: https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP (import it in Grok Bot, paste an x.ai/bot link and optional X post; it queues via /api/submit and never reviews or publishes)
 - Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.
 - Grok Bot: ask Shelf Inbox to review and add the template.
 - Humans: form at https://grokbotshelf.com/#add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.

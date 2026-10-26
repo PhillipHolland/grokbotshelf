@@ -31,6 +31,10 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   const launch = (window.LAUNCH_POST_URL || "").trim();
   if (/^https:\/\//.test(launch)) $("#launch").outerHTML = '<a href="' + esc(launch) + '" rel="noopener" target="_blank">launch post</a>';
 
+  // Shelfer template link lives in config.js (hero "Get Shelfer" and the Add your bot copy)
+  const shelfer = (window.SHELFER_URL || "").trim();
+  if (/^https:\/\/x\.ai\/bot\//.test(shelfer)) document.querySelectorAll(".get-shelfer,.shelfer-link").forEach((a) => { a.href = shelfer; });
+
   // Very narrow phones (320px): a shorter search placeholder so it is not clipped next to the sort menu
   const mqNarrow = matchMedia("(max-width:360px)"), syncPh = () => { q.placeholder = mqNarrow.matches ? "Search" : "Search bots"; };
   syncPh(); if (mqNarrow.addEventListener) mqNarrow.addEventListener("change", syncPh);

@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 26 Oct 2026 13:26:41 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 26 Oct 2026 13:46:01 GMT</lastBuildDate>
+  <item>
+    <title>🗄️ Shelfer by Phillip Holland</title>
+    <link>https://grokbotshelf.com/bot/shelfer</link>
+    <guid isPermaLink="false">https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP</guid>
+    <description>Queues a Grok Bot template for grokbotshelf.com. Paste an x.ai/bot link (and optional X post); it dedups, smoke-checks, and POSTs the shelf submit API. Never reviews or publishes the catalog.</description>
+    <dc:creator>Phillip Holland (@Phil_Holland)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:07:06 GMT</pubDate>
+  </item>
   <item>
     <title>🎥 Workout Demo Builder by Jenna</title>
     <link>https://grokbotshelf.com/bot/workout-demo-builder</link>
@@ -14,7 +23,7 @@
     <description>Builds phone workout apps where each lift keeps a YouTube form demo with a saved start time, so Watch demo jumps straight to the cue. For anyone who wants that pattern without hunting for timestamps every set.</description>
     <dc:creator>Jenna (@JennaLiftsLife)</dc:creator>
     <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:06 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:05 GMT</pubDate>
   </item>
   <item>
     <title>✨ Spark by iLytzki</title>
@@ -23,7 +32,7 @@
     <description>Sends you one creative, power-user Grok Bot tip every day, based on an idea people shared on X and adapted to your own bots, with a copy-paste prompt and a small visual mock-up.</description>
     <dc:creator>iLytzki (@iLytzki)</dc:creator>
     <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:05 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:04 GMT</pubDate>
   </item>
   <item>
     <title>🚗 Tesla Inventory Finder by JeebsTX</title>
@@ -32,7 +41,7 @@
     <description>Finds new and Certified Pre-Owned Tesla Model 3, Model Y, and Cybertruck inventory near your ZIP code, walking you through Tesla&apos;s own filter steps and returning direct listing links with prices.</description>
     <dc:creator>JeebsTX (@JeebsTX)</dc:creator>
     <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:04 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:03 GMT</pubDate>
   </item>
   <item>
     <title>🏆 Hackathon Hunter by Ace</title>
@@ -41,7 +50,7 @@
     <description>Finds, verifies and tracks hackathons, AI and Web3 challenges, Kaggle contests, bounties and grants for your country, with concise scheduled reports.</description>
     <dc:creator>Ace (@aceop_xyz)</dc:creator>
     <category>Developer</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:03 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:02 GMT</pubDate>
   </item>
   <item>
     <title>📚 Books by Jason</title>
@@ -50,7 +59,7 @@
     <description>One book a week as six short morning reads with key ideas, stories, a quote, something to try and a quiz; each Sunday you pick next week&apos;s book.</description>
     <dc:creator>Jason (@sproutmed)</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:02 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:01 GMT</pubDate>
   </item>
   <item>
     <title>🧭 First Officer by Phillip</title>
@@ -59,7 +68,7 @@
     <description>A chief of staff for people running several projects and a crew of AI bots: a daily briefing, tracking of loose ends and decisions, and coordination across your bots.</description>
     <dc:creator>Phillip (@phillipggreen)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:01 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:07:00 GMT</pubDate>
   </item>
   <item>
     <title>💼 Career Agent by Phillip</title>
@@ -68,7 +77,7 @@
     <description>A job-search partner that finds verified openings that fit you, tracks them, and prepares tailored, truthful applications. Nothing gets submitted without your OK.</description>
     <dc:creator>Phillip (@phillipggreen)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:00 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:59 GMT</pubDate>
   </item>
   <item>
     <title>🏈 Football Research Analyst by Phillip</title>
@@ -77,7 +86,7 @@
     <description>Evidence-based NFL and college football betting research: stats, injuries, verified odds, handicapper track records, and probability-first pick rankings.</description>
     <dc:creator>Phillip (@phillipggreen)</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:59 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:58 GMT</pubDate>
   </item>
   <item>
     <title>🐦 Budgie by Cill</title>
@@ -86,7 +95,7 @@
     <description>A budget bot that keeps your budget in a local SQLite database, plans each paycheck, and forecasts debt payoff, assets, and net worth on a live dashboard.</description>
     <dc:creator>Cill (@cillfore)</dc:creator>
     <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:58 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:57 GMT</pubDate>
   </item>
   <item>
     <title>🧑‍💼 Wainwright Manager by Ryan</title>
@@ -95,7 +104,7 @@
     <description>Your hiring manager for Grok Bots. You pick the roles; it checks each persona, creates clear one-job teammates, and gets every new hire focused.</description>
     <dc:creator>Ryan (@itsryanlenk)</dc:creator>
     <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:57 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:56 GMT</pubDate>
   </item>
   <item>
     <title>🛡️ Patch Alert by ollie</title>
@@ -104,7 +113,7 @@
     <description>Tell it what software you use and it checks CISA&apos;s Known Exploited Vulnerabilities list daily, alerting you only when something you run is being actively exploited.</description>
     <dc:creator>ollie (@howdyollie)</dc:creator>
     <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:56 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:55 GMT</pubDate>
   </item>
   <item>
     <title>🔔 Tender Watch by ollie</title>
@@ -113,7 +122,7 @@
     <description>Tell it what you sell and where, and it sets itself up, checks official public sources on weekday mornings, and messages you only when new tenders match.</description>
     <dc:creator>ollie (@howdyollie)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:55 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:54 GMT</pubDate>
   </item>
   <item>
     <title>📑 Bid Desk by ollie</title>
@@ -122,7 +131,7 @@
     <description>Paste a government tender (text, link or screenshot) and get a plain-words bid, no-bid or maybe verdict with eligibility flags, deadline and effort.</description>
     <dc:creator>ollie (@howdyollie)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:06:54 GMT</pubDate>
+    <pubDate>Mon, 26 Oct 2026 12:06:53 GMT</pubDate>
   </item>
   <item>
     <title>🚐 RivetRoad Trip Planner by Salty FL Cracker</title>
@@ -131,7 +140,7 @@
     <description>A friendly RV trip planner from RivetRoad.com that finds a rental rig, plans an RV-friendly route and campgrounds, and totals the real costs. Great for first-timers, with step-by-step driving confidence coaching.</description>
     <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
     <category>Travel</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:53 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:52 GMT</pubDate>
   </item>
   <item>
     <title>🤝 Creator Partnerships &amp; Brand Deal HQ by Lisa</title>
@@ -140,7 +149,7 @@
     <description>Sorts incoming sponsorship and brand deal offers, checks invoices, and tracks every deal for creators.</description>
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:52 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:51 GMT</pubDate>
   </item>
   <item>
     <title>⚡ Tesla FSD &amp; EV True Cost-to-Own Coach by Lisa</title>
@@ -149,7 +158,7 @@
     <description>Compares the true cost of owning gas cars vs. EVs, works out whether FSD pays off for you, and helps tune your EV insurance.</description>
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:51 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:50 GMT</pubDate>
   </item>
   <item>
     <title>🚗 Car Dealership &amp; Mechanic Quote Auditor by Lisa</title>
@@ -158,7 +167,7 @@
     <description>Checks dealer out-the-door quotes, lease terms, and repair estimates line by line, then gives you counter-offer scripts.</description>
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:50 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:49 GMT</pubDate>
   </item>
   <item>
     <title>📊 Sunday Open Brief by Yossi</title>
@@ -167,7 +176,7 @@
     <description>Pre-open market catch-up: what moved across markets, stocks, and sectors, plus an open-bias card for the week ahead.</description>
     <dc:creator>Yossi (@josephstayhappy)</dc:creator>
     <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:49 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:48 GMT</pubDate>
   </item>
   <item>
     <title>📈 X Hit Pattern Scanner by nahjuin</title>
@@ -176,7 +185,7 @@
     <description>Scans a watchlist of X accounts for posts that are taking off, explains the patterns behind them, and drafts 3–5 original angles for you.</description>
     <dc:creator>nahjuin (@nahjuin)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:48 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:47 GMT</pubDate>
   </item>
   <item>
     <title>✍️ Postwright by Calix</title>
@@ -185,7 +194,7 @@
     <description>Turns your week of real work into X post drafts in your own voice, with sources and suggested posting times. Never posts for you.</description>
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:47 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:46 GMT</pubDate>
   </item>
   <item>
     <title>🏋️ Fitness Coach by Jenna</title>
@@ -194,7 +203,7 @@
     <description>Evidence-based fat-loss and lifting coach: sets calorie and macro targets, coaches progressive overload, tracks weekly weigh-in trends, and helps you stick to the plan when evenings get hard.</description>
     <dc:creator>Jenna</dc:creator>
     <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:46 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:45 GMT</pubDate>
   </item>
   <item>
     <title>🚨 Scam Guard by Sarah</title>
@@ -203,7 +212,7 @@
     <description>Family scam defense: sets up a family safe word, gives a Safe/Caution/Scam verdict on any call, text, email, link, or DM, watches your X DMs, and helps you get off data-broker sites. Never acts without your OK.</description>
     <dc:creator>Sarah</dc:creator>
     <category>Security</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:45 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:44 GMT</pubDate>
   </item>
   <item>
     <title>✍️ Prompt Upgrader by Sarah</title>
@@ -212,7 +221,7 @@
     <description>Paste a rough prompt and get it scored, rewritten, explained, and tested, with short and detailed versions to copy. Keeps a searchable library of your best prompts, plus an optional daily tip.</description>
     <dc:creator>Sarah</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:44 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:43 GMT</pubDate>
   </item>
   <item>
     <title>🛳️ Cora — Cruise Planner &amp; Loyalty Perks Tracker by Bill</title>
@@ -221,7 +230,7 @@
     <description>End-to-end cruise planner: true sail-away totals, quiet-cabin deck checks, docked vs. tender port timelines, booking countdowns, and loyalty status and perks tracked across cruise lines.</description>
     <dc:creator>Bill (@wjenson)</dc:creator>
     <category>Travel</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:43 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:42 GMT</pubDate>
   </item>
   <item>
     <title>✈️ Tammy — True-Total Travel &amp; Points Scout by Bill</title>
@@ -230,7 +239,7 @@
     <description>Flight, hotel, and award scout that exposes hidden resort and Basic Economy fees, checks fares on airline sites, does the credit-card points math, and watches booked trips for price-drop eCredits.</description>
     <dc:creator>Bill (@wjenson)</dc:creator>
     <category>Travel</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:42 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:41 GMT</pubDate>
   </item>
   <item>
     <title>🎭 Facewright by Calix</title>
@@ -239,7 +248,7 @@
     <description>Turns one approved photo of you into short anime or cinematic videos where your face stays the same in every shot. Uses Grok Imagine in your own signed-in browser and never posts anything.</description>
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:41 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:40 GMT</pubDate>
   </item>
   <item>
     <title>🕵️ Social Media Auditor by Jenny Marquis</title>
@@ -248,7 +257,7 @@
     <description>Audits your own social media post archives and flags privacy and safety risks. Looks only at your public posts, never posts, deletes, or searches the web about you. You approve every change.</description>
     <dc:creator>Jenny Marquis (@JennyMarquis)</dc:creator>
     <category>Security</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:40 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:39 GMT</pubDate>
   </item>
   <item>
     <title>🖌️ Design by lu</title>
@@ -257,7 +266,7 @@
     <description>Background design specialist for UI, CSS and animation, three.js scenes, charts, icons, mockups, and images. Makes the asset, checks it visually, and explains the choice in one line.</description>
     <dc:creator>lu</dc:creator>
     <category>Design</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:39 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:38 GMT</pubDate>
   </item>
   <item>
     <title>🏚️ Shed Sales Pipeline by FringeSignalX</title>
@@ -266,7 +275,7 @@
     <description>Prospecting and lead follow-up for local dealers of sheds and portable buildings: finds prospects on the public web and drafts first messages, check-ins, and call scripts for your approval.</description>
     <dc:creator>FringeSignalX (@FringeSignalX)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:38 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:37 GMT</pubDate>
   </item>
   <item>
     <title>🎬 Tubewright by Calix</title>
@@ -275,7 +284,7 @@
     <description>Turns a finished video&apos;s transcript into a draft upload kit: titles in your voice, an SEO description, real-timestamp chapters, thumbnail concepts, a pinned comment, and an X clip thread.</description>
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:37 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:36 GMT</pubDate>
   </item>
   <item>
     <title>🎒 Parent Radar by Calix</title>
@@ -284,7 +293,7 @@
     <description>Watches your kid&apos;s school email, class apps, and grades. Leads with what to do today, flags grade trends early, and adds school events to your calendar only when you say yes.</description>
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:36 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:35 GMT</pubDate>
   </item>
   <item>
     <title>🌳 Family History by Raina Hornaday</title>
@@ -293,7 +302,7 @@
     <description>A warm genealogy researcher that builds your family tree from public records, cites every fact, and turns stories into tree posters and old-time newspapers.</description>
     <dc:creator>Raina Hornaday</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:35 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:34 GMT</pubDate>
   </item>
   <item>
     <title>📰 Household Herald by Raina Hornaday</title>
@@ -302,7 +311,7 @@
     <description>Reads your email and calendar so school forms, family plans, and bills don&apos;t slip — weekday digests and a printable kitchen newspaper, draft-only.</description>
     <dc:creator>Raina Hornaday</dc:creator>
     <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:34 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:33 GMT</pubDate>
   </item>
   <item>
     <title>🔥 IT Resume Roaster by nahjuin</title>
@@ -311,7 +320,7 @@
     <description>Honest, Reddit-style feedback on your IT resume without posting it publicly: ranked problems and exact fixes.</description>
     <dc:creator>nahjuin (@nahjuin)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:33 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:32 GMT</pubDate>
   </item>
   <item>
     <title>🩸 T1D Helper by Dean</title>
@@ -320,7 +329,7 @@
     <description>A free type 1 diabetes helper: carb estimates from food photos, check-in alerts, glucose patterns, and clinic prep.</description>
     <dc:creator>Dean (@DeanCockett)</dc:creator>
     <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:32 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:31 GMT</pubDate>
   </item>
   <item>
     <title>📈 X Growth Coach by Ivan</title>
@@ -329,7 +338,7 @@
     <description>Set an X follower goal; it checks your analytics each morning, explains your posts, and scores your drafts.</description>
     <dc:creator>Ivan (@0ooooo0)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:31 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:30 GMT</pubDate>
   </item>
   <item>
     <title>🎄 Christmas Card Bot by Christine</title>
@@ -338,7 +347,7 @@
     <description>Plans, writes, and orders your holiday cards: cleans your list, drafts greetings, and sets mail-by dates.</description>
     <dc:creator>Christine (@BurkevonRiddern)</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:30 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:29 GMT</pubDate>
   </item>
   <item>
     <title>📺 VibeYourTV by orpheuzkaze</title>
@@ -347,7 +356,7 @@
     <description>Sets up your Android TV or Google TV from your PC over Wi-Fi with adb, with a reversible debloat.</description>
     <dc:creator>orpheuzkaze (@orpheuskaze)</dc:creator>
     <category>Home</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:29 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:28 GMT</pubDate>
   </item>
   <item>
     <title>🎟️ Alphabot Raffle Bot by orpheuzkaze</title>
@@ -356,7 +365,7 @@
     <description>Creates Alphabot collab raffles from partner docs, then pulls the winners into Google Sheets.</description>
     <dc:creator>orpheuzkaze (@orpheuskaze)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:28 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:27 GMT</pubDate>
   </item>
   <item>
     <title>🏈 Fantasy Sports by Chef</title>
@@ -365,7 +374,7 @@
     <description>Sets fantasy football and basketball lineups and suggests adds, drops and trades on ESPN, Yahoo or Sleeper, with your OK.</description>
     <dc:creator>Chef</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:27 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:26 GMT</pubDate>
   </item>
   <item>
     <title>🛡️ Bot Budget Guard by MikeysMolecules</title>
@@ -374,7 +383,7 @@
     <description>Keeps a team of Grok Bots inside a weekly usage budget.</description>
     <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
     <category>Bot Tools</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:26 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:25 GMT</pubDate>
   </item>
   <item>
     <title>🎨 Art Bot by MikeysMolecules</title>
@@ -383,7 +392,7 @@
     <description>A creative director that builds your brand style guide and keeps visuals on-brand.</description>
     <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
     <category>Design</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:25 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:24 GMT</pubDate>
   </item>
   <item>
     <title>📈 Growth Coach by MikeysMolecules</title>
@@ -392,7 +401,7 @@
     <description>Tracks your daily X growth pace and gives feedback on your posts. Read-only.</description>
     <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:24 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:23 GMT</pubDate>
   </item>
   <item>
     <title>🔎 Dig by iLytzki</title>
@@ -401,7 +410,7 @@
     <description>Deep research on any question, with sources and diagrams.</description>
     <dc:creator>iLytzki (@iLytzki)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:23 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:22 GMT</pubDate>
   </item>
   <item>
     <title>⛏️ Solo Pleb by Bolster_15</title>
@@ -410,7 +419,7 @@
     <description>Watches your solo Bitcoin miner, pool and node, and pings you on notable events. Never moves money.</description>
     <dc:creator>Bolster_15 (@Bolster_15)</dc:creator>
     <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:22 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:21 GMT</pubDate>
   </item>
   <item>
     <title>🥊 Contrarian by CaliLumberJack</title>
@@ -419,7 +428,7 @@
     <description>A thinking partner that argues the other side of your plan and runs a pre-mortem before you commit.</description>
     <dc:creator>CaliLumberJack (@CaliLumberJack)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:21 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:20 GMT</pubDate>
   </item>
   <item>
     <title>🎬 Podcast Clipper for X by wayneb</title>
@@ -428,7 +437,7 @@
     <description>Turns a podcast or YouTube episode into 8 to 12 captioned square clips, each with an X post draft.</description>
     <dc:creator>wayneb (@wayneb)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:20 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:19 GMT</pubDate>
   </item>
   <item>
     <title>🔭 Rivaldo bot by nahjuin</title>
@@ -437,22 +446,13 @@
     <description>Scans public X three times a day for popular, active accounts worth following in your niches.</description>
     <dc:creator>nahjuin (@nahjuin)</dc:creator>
     <category>Creator &amp; Media</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:19 GMT</pubDate>
+    <pubDate>Sun, 25 Oct 2026 12:06:18 GMT</pubDate>
   </item>
   <item>
     <title>💼 First AI Side Job by Bella</title>
     <link>https://grokbotshelf.com/bot/first-ai-side-job</link>
     <guid isPermaLink="false">https://x.ai/bot/O1mtl2pO3yVt7Phprsa1p</guid>
     <description>Helps you pick one simple AI side job and walks you to a first paying client, with scam warnings.</description>
-    <dc:creator>Bella (@drbellahqw)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 25 Oct 2026 12:06:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎓 Study Abroad Scholarship Finder by Bella</title>
-    <link>https://grokbotshelf.com/bot/study-abroad-scholarship-finder</link>
-    <guid isPermaLink="false">https://x.ai/bot/poKOJobwYYf5L1n2CmqcU</guid>
-    <description>Finds study-abroad scholarships open now for your course and country, with links and deadlines.</description>
     <dc:creator>Bella (@drbellahqw)</dc:creator>
     <category>Money</category>
     <pubDate>Sun, 25 Oct 2026 12:06:17 GMT</pubDate>

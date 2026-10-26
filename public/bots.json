@@ -184,19 +184,6 @@
     "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
-    "name": "iMessage Relay",
-    "emoji": "💬",
-    "description": "Forwards your iMessages to X Chat so you can reply there, after a one-minute setup on your Mac.",
-    "category": "Productivity",
-    "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
-    "creator_name": "Phillip Holland",
-    "creator_handle": "@Phil_Holland",
-    "creator_url": "https://x.com/Phil_Holland",
-    "source_post": "",
-    "added": "2026-10-24",
-    "creator_avatar": "/avatars/phil_holland.webp"
-  },
-  {
     "name": "Reel ➡️ 𝕏",
     "emoji": "🎬",
     "description": "Turns an Instagram, TikTok or YouTube Shorts link into an X-ready MP4 and a post crediting the creator.",
@@ -5542,6 +5529,19 @@
     "creator_url": "https://x.com/JennaLiftsLife",
     "creator_avatar": "/avatars/jennaliftslife.webp",
     "source_post": "https://x.com/JennaLiftsLife/status/2114707064014680124",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Shelfer",
+    "emoji": "🗄️",
+    "description": "Queues a Grok Bot template for grokbotshelf.com. Paste an x.ai/bot link (and optional X post); it dedups, smoke-checks, and POSTs the shelf submit API. Never reviews or publishes the catalog.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
+    "creator_name": "Phillip Holland",
+    "creator_handle": "@Phil_Holland",
+    "creator_url": "https://x.com/Phil_Holland",
+    "creator_avatar": "/avatars/phil_holland.webp",
+    "source_post": "",
     "added": "2026-10-26"
   }
 ]
