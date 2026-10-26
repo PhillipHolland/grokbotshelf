@@ -260,7 +260,7 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 /* "Already on the shelf" line under the template link: its height is reserved so nothing below moves when it fills */
 .sub-form .sub-dupe{margin:-4px 0 0;height:20px;font-size:14px;line-height:20px;color:var(--text2);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .sub-form .sub-dupe a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:2px}
-.sub-form .sub-dupe.hit{color:var(--text)}
+.sub-form .sub-dupe.dupe-hit{color:var(--text)}
 @media (max-width:699px){.sub-form .sub-dupe{height:40px;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}}
 /* Status of your suggestions (kept in localStorage) and the paste-a-link check: shelf-data.json only, no API calls */
 .sub-check{margin:0 0 16px;padding:14px 16px;border:1px solid var(--line);border-radius:12px}

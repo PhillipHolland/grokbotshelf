@@ -34,7 +34,7 @@ const KEY = 'shelf_suggested';
     await p.goto(BASE, { waitUntil: 'networkidle0' });
     await p.evaluate((k) => localStorage.removeItem(k), KEY);
     await p.goto(BASE + '#add', { waitUntil: 'networkidle0' });
-    const dupe = () => p.$eval('#sub-dupe', e => ({ cls: e.className, text: e.textContent.trim(), href: (e.querySelector('a') || {}).getAttribute?.('href') || '' }));
+    const dupe = () => p.$eval('#sub-dupe', e => ({ cls: e.className, h: e.offsetHeight, text: e.textContent.trim(), href: (e.querySelector('a') || {}).getAttribute?.('href') || '' }));
     const below = () => p.$eval('label[for=sub-post]', e => Math.round(e.getBoundingClientRect().top + scrollY));
     const set = async (v) => { await p.$eval('#sub-bot', e => { e.value = ''; }); await p.type('#sub-bot', v); await wait(300); };
     ok(await p.$eval('#sub-dupe', e => e.getAttribute('aria-live') === 'polite' && document.getElementById('sub-bot').getAttribute('aria-describedby') === 'sub-dupe'), W + 'the shelf check is a polite live region tied to the template field');
@@ -43,7 +43,7 @@ const KEY = 'shelf_suggested';
 
     for (const v of [listed.url, `HTTPS://WWW.X.AI/bot/${id}/?ref=share#top`, `x.ai/bot/${id}`, `www.x.ai/bot/${id}/`]) {
       await set(v); const d = await dupe();
-      ok(d.cls.includes('hit') && d.text.startsWith('Already on the shelf') && d.href === page, W + `template id match for ${v}: "${d.text}" -> ${d.href}`);
+      ok(d.cls.includes('dupe-hit') && d.h >= 20 && d.text.startsWith('Already on the shelf') && d.href === page, W + `template id match for ${v}: "${d.text}" -> ${d.href}`);
     }
     ok(await below() === y0, W + 'nothing below moves when the match shows (no layout jump)');
     await set('https://x.ai/bot/' + id.toLowerCase()); let d = await dupe();
@@ -53,7 +53,8 @@ const KEY = 'shelf_suggested';
     await set('https://example.com/bot/' + id); d = await dupe();
     ok(!d.text, W + 'same path on another host is not a match');
     await set('  ' + listed.name.toUpperCase().replace(/ /g, '   ') + '  '); d = await dupe();
-    ok(d.cls.includes('hint') && d.text === `A bot named ${listed.name} is already on the shelf.` && d.href === page, W + `name hint (trimmed, any case, spaces collapsed): "${d.text}"`);
+    ok(d.cls.includes('dupe-hint') && d.h >= 20 && d.text === `A bot named ${listed.name} is already on the shelf.` && d.href === page, W + `name hint (trimmed, any case, spaces collapsed): "${d.text}"`);
+    ok(await below() === y0, W + 'nothing below moves when the name hint shows');
     await set(listed.name + ' Pro Max'); d = await dupe();
     ok(!d.text, W + 'a different name gives no hint');
     ok(await below() === y0, W + 'still no layout jump after hint and clear');

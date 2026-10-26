@@ -761,7 +761,7 @@ const addCheck = (() => {
       const hit = k && byT && byT.get(k), hint = !hit && n && byN && byN.get(n);
       const html = hit ? `Already on the shelf: ${link(hit)}` : hint ? `A bot named ${link(hint)} is already on the shelf.` : "";
       if (html === last) return; last = html;
-      out.innerHTML = html; out.className = "sub-dupe" + (hit ? " hit" : hint ? " hint" : "");
+      out.innerHTML = html; out.className = "sub-dupe" + (hit ? " dupe-hit" : hint ? " dupe-hint" : "");
     };
     const soon = () => { clearTimeout(t); t = setTimeout(check, 120); };
     f.bot_url.addEventListener("input", soon);
