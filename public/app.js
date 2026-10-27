@@ -248,7 +248,18 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (inner !== topEl._inner) { topEl.innerHTML = inner; topEl.hidden = !inner; topEl._inner = inner; }
     return topEl;
   }
-  function paintTop() { if (topEl && topEl.isConnected) topNode(); }
+  // Tallies arrive after a #add or #bot jump has scrolled; the strip sits above the view then, and the form
+  // below the shelf opts out of scroll anchoring, so keep what is on screen still by hand.
+  function paintTop() {
+    if (!topEl || !topEl.isConnected) return;
+    const next = topEl.nextElementSibling, y0 = next ? next.getBoundingClientRect().top : 1;
+    topNode();
+    const d = next ? next.getBoundingClientRect().top - y0 : 0;
+    if (!d) return;
+    // mid smooth jump: an instant scroll would cut it short, so aim the jump again at its moved target
+    if (glide && performance.now() < glide.until) glide.el.scrollIntoView(glide.opts);
+    else if (y0 <= 0) scrollBy({ top: d, behavior: "instant" });
+  }
 
   /* ---------- Up / down votes ---------- */
   // Server (Neon via /api/votes) is the source of truth for tallies. localStorage remembers which way
@@ -689,7 +700,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
 
   // Old /#add links (the header button is a plain link to /add): scroll to the form without building the rest of the shelf. Appends wait (tailHold) until the
   // visitor scrolls back up a quarter screen, so nothing piles in above the form while it is being read.
-  let jumpT, holdOff = null;
+  let jumpT, holdOff = null, glide = null;
+  const glideTo = (el, opts) => { glide = opts.behavior === "smooth" ? { el, opts, until: performance.now() + 1500 } : null; el.scrollIntoView(opts); };
   function scrollToAdd(instant) {
     const add = document.getElementById("add"), root = document.documentElement;
     // a reload or back/forward builds everything anyway (eager): finish first so the form doesn't move after the jump
@@ -697,7 +709,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (holdOff) holdOff();
     clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
     // instant on a first load; a reload keeps the smooth scroll so it wins over the browser restoring the old position
-    add.scrollIntoView({ block: "start", behavior: (instant && !eager) || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    glideTo(add, { block: "start", behavior: (instant && !eager) || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
     jumpT = setTimeout(() => {
       root.classList.remove("jumping");
       if (!tailHold) return;
@@ -781,7 +793,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (jumpDone) jumpDone(); // cancel the previous jump's listeners
     railLock = L; markRail(L);
     if (!instant && Math.abs(dy) > innerHeight * 1.5) window.scrollBy(0, dy - Math.sign(dy) * innerHeight * 0.6);
-    sec.scrollIntoView({ block: "start", behavior: instant ? "auto" : "smooth" });
+    glideTo(sec, { block: "start", behavior: instant ? "auto" : "smooth" });
     if (focus === true) h.focus({ preventScroll: true });
     if (instant) return;
     const landed = () => { const off = sec.getBoundingClientRect().top - pad; return scrollY + innerHeight >= document.documentElement.scrollHeight - 2 ? 0 : Math.round(off); };

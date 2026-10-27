@@ -6,6 +6,11 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   for (const vp of [{ width: 390, height: 844, isMobile: true, hasTouch: true }, { width: 1360, height: 900 }]) {
     const p = await b.newPage(); await p.setViewport(vp);
+    // like live: vote tallies land late and the "Top voted" strip grows above the form after the jump
+    const slugs = require('fs').readdirSync(require('path').join(__dirname, '../public/bot')).slice(0, 8).map((d) => 'bot-' + d);
+    await p.setRequestInterception(true);
+    p.on('request', (r) => { if (new URL(r.url()).pathname !== '/api/votes' || r.method() !== 'GET') return r.continue();
+      setTimeout(() => r.respond({ status: 200, contentType: 'application/json', body: JSON.stringify({ global: true, scores: Object.fromEntries(slugs.map((s, i) => [s, { up: 9 - i, down: 0, score: 9 - i }])) }) }).catch(() => {}), 900); });
     const pos = () => p.evaluate(() => ({ add: Math.round(document.getElementById('add').getBoundingClientRect().top), dock: Math.round(document.getElementById('dock').getBoundingClientRect().bottom), hash: location.hash, y: scrollY, max: document.documentElement.scrollHeight - innerHeight }));
     const check = (d, m) => ok(d.hash === '#add' && (d.add >= d.dock && d.add <= d.dock + 40 || (d.y >= d.max - 1 && d.add >= d.dock)), `${vp.width}px ${m}: ${JSON.stringify(d)}`);
     await p.goto(BASE, { waitUntil: 'networkidle0' });
