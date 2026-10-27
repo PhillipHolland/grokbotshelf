@@ -61,7 +61,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .sortwrap{position:relative;flex:none}
 #sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:700 14px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
 #sort:hover{background:var(--hover)}
-#sort option{background:var(--menu);color:var(--text)}
+#sort option{background:#fff;color:#111}
 .sortwrap svg{position:absolute;right:10px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 
 /* Filters: creator + category dropdowns in the dock */
@@ -71,7 +71,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .selwrap select:hover{background:var(--hover)}
 .selwrap select:focus-visible{outline:none;border-color:var(--blue);background:var(--bg)}
 .selwrap select.on{border-color:var(--line2)}
-.selwrap select option{background:var(--menu);color:var(--text);font-weight:400}
+.selwrap select option,.selwrap select optgroup{background:#fff;color:#111;font-weight:400} /* Android native pickers ignore dark option colors; keep options dark-on-white */
 .selwrap svg{position:absolute;right:12px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 @media (min-width:700px){.selwrap{flex:0 1 260px}}
 .status{display:flex;align-items:center;gap:12px;min-height:36px;margin:8px 0 4px}
