@@ -613,3 +613,12 @@ html.mobile .card .gets .get{height:44px;padding:0 14px}
 .ghead .plink{margin-left:auto}
 /* Rail: an even 2px gap between letters, letters centered. Phones (500px and under) keep the stretched 44px targets from styles.css. */
 @media (min-width:501px){.rail{gap:2px}.rail button{flex:0 1 20px;max-height:22px;line-height:1}}
+
+/* ---------- Bot and creator pages: 44px tap targets on phones (audit #6) ---------- */
+/* The card meta line's fixed 16px height is for cards only; the page header line wraps */
+.bp .sub{height:auto;line-height:inherit}
+html.mobile .bp .sub{gap:0 2px;margin-left:-6px}
+html.mobile :is(.bp .sub a,.bp-links a){min-height:44px;display:inline-flex;align-items:center;padding:0 6px}
+html.mobile .bp-links{gap:0 4px;margin-left:-6px}
+html.mobile :is(.snip-h .clear,.bp-actions :is(.get,.app),.bp-more a){min-height:44px}
+html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;justify-content:center}
