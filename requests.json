@@ -4403,12 +4403,12 @@
       "approved_by": "standing shelve-safe permission"
     },
     "form-325": {
-      "status": "pending",
+      "status": "added",
       "bot": "Recall Radar by Kevin",
       "template_url": "https://x.ai/bot/NDz3Eb34xrF2SKj832Ugs",
-      "author": "",
-      "note": "site form #325; held: no creator handle or post",
-      "date": "2026-10-27"
+      "note": "site form #325",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
     }
   }
 }

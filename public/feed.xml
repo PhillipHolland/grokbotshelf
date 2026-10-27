@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 16:13:05 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 16:38:04 GMT</lastBuildDate>
+  <item>
+    <title>🚨 Recall Radar by Kevin</title>
+    <link>https://grokbotshelf.com/bot/recall-radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/NDz3Eb34xrF2SKj832Ugs</guid>
+    <description>Builds a list of what you own from order emails and receipt photos, then checks it weekly against CPSC, FDA and NHTSA recalls.</description>
+    <dc:creator>Kevin</dc:creator>
+    <category>Home</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:23 GMT</pubDate>
+  </item>
   <item>
     <title>📦 Package Tracker by John</title>
     <link>https://grokbotshelf.com/bot/package-tracker</link>
@@ -447,15 +456,6 @@
     <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
     <category>Food</category>
     <pubDate>Mon, 26 Oct 2026 12:08:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>✍️ Writing Bot by Cameron by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/writing-bot-by-cameron</link>
-    <guid isPermaLink="false">https://x.ai/bot/-7S4MgO34hCNUSxRQD-3l</guid>
-    <description>Drafts and revises your emails, essays, memos, posts and docs so they read clearer, keeping your meaning and voice.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:33 GMT</pubDate>
   </item>
 </channel>
 </rss>
