@@ -658,3 +658,12 @@ html.mobile .bp .sub{column-gap:6px;margin-left:0}
 html.mobile .bp .sub a{padding:0}
 html.mobile .bp .sub .dot:has(+ span[title]){display:none}
 html.mobile .bp .sub > span[title]{flex-basis:100%;line-height:20px;margin-top:-4px}
+
+/* ---------- Coverage note under the count while a shelf-tag filter is on (round 2 #5) ---------- */
+.status{flex-wrap:wrap}
+.cover{flex-basis:100%;margin:0 0 4px;font-size:13px;line-height:18px;color:var(--text2)}
+.cover[hidden]{display:none}
+.cover-all{border:0;padding:0;background:none;font:inherit;color:var(--blue);cursor:pointer}
+.cover-all:hover{text-decoration:underline}
+html[data-theme="light"] .cover-all{color:var(--btn-blue)}
+html.mobile .cover-all{min-height:44px;margin:-13px 0}

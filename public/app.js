@@ -8,7 +8,7 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
-  let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1;
+  let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
@@ -500,6 +500,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
+    paintCover();
     resetEl.classList.toggle("on", changed());
     results.removeAttribute("aria-busy"); renderRail(grouped);
     watchTail();
@@ -517,7 +518,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       creatorEl.innerHTML = opt("", "All creators") + creators.map((c) => opt(c.key, c.short)).join("");
       catsEl.innerHTML = opt("", "All categories") + cats.map((c) => opt(c, c)).join("");
       appsEl.innerHTML = opt("", "Works with any app") + apps.map((a) => opt(a.key, `${a.label} (${a.n})`)).join("");
-      agencyEl.innerHTML = opt("", "Can it act?") + Object.entries(AGENCY).map(([k, v]) => opt(k, v)).join("");
+      agencyEl.innerHTML = opt("", "Can it act?") + Object.entries(AGENCY).map(([k, v]) => opt(k, `${v} (${tagged.by[k] || 0})`)).join("");
     }
     const multi = st.cats.length > 1;
     let mo = catsEl.querySelector('option[value="__multi"]');
@@ -541,6 +542,21 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     oneEl.setAttribute("aria-pressed", String(st.oneJob));
     resetEl.classList.toggle("on", changed());
   }
+
+  // Coverage note under the count while a shelf-tag filter (Can it act?, apps, One job) is on: only tagged bots can match
+  const coverEl = $("#cover");
+  function paintCover() {
+    if (!coverEl) return;
+    const on = !!(st.agency || st.app || st.oneJob);
+    if (on) {
+      const n = st.agency && !st.app && !st.oneJob ? tagged.agency : tagged.any;
+      const what = st.agency && !st.app && !st.oneJob ? "tagged for \u201cCan it act?\u201d" : "tagged by the shelf";
+      const msg = `Only ${n} of ${bots.length} bots are ${what} so far, so untagged bots are hidden.`;
+      if (coverEl.dataset.msg !== msg) { coverEl.dataset.msg = msg; coverEl.innerHTML = `${esc(msg)} <button type="button" class="cover-all">Show all bots</button>`; }
+    }
+    coverEl.hidden = !on;
+  }
+  if (coverEl) coverEl.addEventListener("click", (e) => { if (e.target.closest(".cover-all")) set({ agency: "", app: "", oneJob: false }, true); });
 
   function set(patch, push) { Object.assign(st, patch); paintControls(); writeURL(push); renderNext(); }
   function syncInputs() { q.value = st.q; sortEl.value = st.sort; }
@@ -855,6 +871,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     const am = new Map();
     for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
     apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+    // Shelf tags (bot-meta.json) cover only part of the shelf; the coverage note and the option counts say how much
+    for (const b of bots) if (b._meta) { tagged.any++; const a = b._meta.agency; if (AGENCY[a]) { tagged.agency++; tagged.by[a] = (tagged.by[a] || 0) + 1; } }
     shelfDone(bots);
     st = readURL(); syncInputs();
     const show = () => {
