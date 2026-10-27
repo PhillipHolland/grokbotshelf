@@ -711,3 +711,15 @@ html[data-theme="light"] :is(.card:hover,.bp-more a:hover,.tlist a:hover,.theme-
    44px rows that now read as links (text colour, underline) instead of grey text. Back-to-top shows only on a scroll up
    (shelf-up.js), so it never sits on a card's "Get this bot" while you read down. ---------- */
 html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2);padding:0 2px}
+
+/* ---------- Round 3 #5: focus, press and the Copy button ---------- */
+/* Text links: an outline with air around it instead of a 2px box hugging the glyphs (pills keep the ring above) */
+:where(.bp-links a,.bp .sub a,.sub a.cn,.ghead .handle,.ghead a.nm,.crawl a,.site-foot a,.add p a,.thead .tall,.fb-link,.home,.cp-cats a):focus-visible{box-shadow:none;outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+/* Press feedback on pills, chips and tiles, and a fill on icon buttons (touch has no hover) */
+:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear):active{transform:scale(.97)}
+:where(.ib,.vote .vb,.rail button):active{background:var(--mark);color:var(--blue)}
+.card{-webkit-tap-highlight-color:transparent}
+@media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear):active{transform:none;filter:brightness(.92)}}
+/* Copy: the same quiet blue pill as Reset, not a native grey button */
+.snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
+.snip-h .clear:hover{background:var(--mark)}
