@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 16:00:04 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 16:07:43 GMT</lastBuildDate>
+  <item>
+    <title>🎒 Prepper by Grease</title>
+    <link>https://grokbotshelf.com/bot/prepper</link>
+    <guid isPermaLink="false">https://x.ai/bot/omCU96pYM7XYkaEu96Lst</guid>
+    <description>A calm family emergency-prep coach that builds a step-by-step household readiness plan.</description>
+    <dc:creator>Grease</dc:creator>
+    <category>Home</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Medical Bill Checker by RMK</title>
+    <link>https://grokbotshelf.com/bot/medical-bill-checker</link>
+    <guid isPermaLink="false">https://x.ai/bot/VIzC_UeWYI7m1S9Xs-5sG</guid>
+    <description>Checks a medical bill against your insurer&apos;s EOB; for $10 a bill it gives full detail, plus a dispute letter and phone script when it finds problems.</description>
+    <dc:creator>RMK</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:17 GMT</pubDate>
+  </item>
   <item>
     <title>🪩 .links by greedfi</title>
     <link>https://grokbotshelf.com/bot/links</link>
@@ -287,8 +305,8 @@
     <pubDate>Tue, 27 Oct 2026 12:08:46 GMT</pubDate>
   </item>
   <item>
-    <title>📔 Product Catalog Organizer by Jenny Marquis</title>
-    <link>https://grokbotshelf.com/bot/product-catalog-organizer</link>
+    <title>📔 Product Cataloger by Jenny Marquis</title>
+    <link>https://grokbotshelf.com/bot/product-cataloger</link>
     <guid isPermaLink="false">https://x.ai/bot/yuRd3EvmDuoGYSr5_Tjz7</guid>
     <description>Organizes your products into a PDF catalog with SKUs, labels, categories, and thumbnail photos.</description>
     <dc:creator>Jenny Marquis (@JennyMarquis)</dc:creator>
@@ -438,24 +456,6 @@
     <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 26 Oct 2026 12:08:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Perf Reporting by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/perf-reporting</link>
-    <guid isPermaLink="false">https://x.ai/bot/mEpQiRn31VPsk82EYVpzJ</guid>
-    <description>Turns custodian holdings exports and cash flow projections into asset allocation reports and scenario workbooks.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>📽️ Exec Deck by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/exec-deck</link>
-    <guid isPermaLink="false">https://x.ai/bot/AspPXqt5a75du38780LGC</guid>
-    <description>Turns notes and analysis into executive PowerPoint decks and one-pagers in your own brand theme.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:27 GMT</pubDate>
   </item>
 </channel>
 </rss>

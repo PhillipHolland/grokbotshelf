@@ -4351,18 +4351,20 @@
       "approved_by": "standing auto-shelve rule"
     },
     "form-324": {
-      "status": "pending",
+      "status": "added",
       "bot": "Medical Bill Checker by RMK",
       "template_url": "https://x.ai/bot/VIzC_UeWYI7m1S9Xs-5sG",
-      "note": "site form #324; held for Phillip: no creator handle; charges $10 per bill when it finds problems",
-      "date": "2026-10-27"
+      "note": "site form #324",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
     },
     "form-323": {
-      "status": "pending",
+      "status": "added",
       "bot": "Prepper by Grease",
       "template_url": "https://x.ai/bot/omCU96pYM7XYkaEu96Lst",
-      "note": "site form #323; held for Phillip: no creator handle",
-      "date": "2026-10-27"
+      "note": "site form #323",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
     }
   }
 }
