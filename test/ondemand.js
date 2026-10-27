@@ -76,19 +76,17 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   const dm = await p.evaluate((id) => { const e = document.getElementById(id); if (!e) return null; const r = e.getBoundingClientRect(); return { inView: r.top >= 0 && r.bottom <= innerHeight, flash: e.classList.contains('flash'), cards: document.querySelectorAll('#results .card').length }; }, midSlug);
   ok(dm && dm.inView && dm.flash && dm.cards < full.cards * 0.8, `deep link #${midSlug} (middle group) lands without building the shelf (${dm && dm.cards} of ${full.cards} cards)`);
   await p.close();
-  for (const how of ['hash']) { // the header button now opens /add (test/addpage.js)
-    p = await open(how === 'hash' ? '/#add' : '/');
-    if (how === 'click') { await p.click('.add-top'); }
+  for (const how of ['hash']) { // the header button opens /add and a loaded /#add redirects there (test/addpage.js, test/cls.js)
+    p = await open('/');
+    if (how === 'hash') await p.evaluate(() => { location.hash = '#add'; });
     await settle(1800);
     const a = await p.evaluate(() => { const add = document.getElementById('add'), d = document.getElementById('dock'); return { top: Math.round(add.getBoundingClientRect().top), dock: Math.round(d.getBoundingClientRect().bottom), bottom: scrollY + innerHeight >= document.documentElement.scrollHeight - 2 }; });
     ok(Math.abs(a.top - a.dock - 20) <= 2 || a.bottom, `"Add your bot" (${how}) lands on the form 20px under the dock (scroll padding 12 + margin 8) (${JSON.stringify(a)})`);
-    // nothing is built above the form while it is on screen; scrolling back up lets the shelf continue
-    const c0 = await p.$$eval('#results .card', (c) => c.length); await settle(1000);
-    const a2 = await p.evaluate(() => ({ cards: document.querySelectorAll('#results .card').length, top: Math.round(document.getElementById('add').getBoundingClientRect().top) }));
-    ok(c0 < full.cards / 2 && a2.cards === c0 && a2.top === a.top, `"Add your bot" (${how}) builds no more cards while the form is on screen (${c0}, then ${a2.cards}; form at ${a.top}, then ${a2.top})`);
-    for (let i = 0; i < 6; i++) { await p.evaluate(() => window.scrollBy(0, -innerHeight / 2)); await settle(250); }
-    const c2 = await p.$$eval('#results .card', (c) => c.length);
-    ok(c2 > c0, `scrolling back up from the form builds more of the shelf (${c0} to ${c2})`);
+    // a loaded /#add now redirects to /add, so the hold-the-appends path (tailHold) no longer runs on a first load; an
+    // in-page hash change (popstate re-render) builds the shelf first, as before. The form must stay put once landed.
+    await settle(1000);
+    const a2 = await p.evaluate(() => Math.round(document.getElementById('add').getBoundingClientRect().top));
+    ok(a2 === a.top, `"Add your bot" (${how}) form stays put after landing (${a.top}, then ${a2})`);
     await p.close();
   }
 

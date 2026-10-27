@@ -24,6 +24,9 @@ html.theme-switching,html.theme-switching *,html.theme-switching *::before,html.
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--dock-h,calc(106px + env(safe-area-inset-top))) + 12px)}
 /* While jumping to #add, render every card so content-visibility estimates don't shorten the page */
 html.jumping .card{content-visibility:visible}
+/* A #bot- deep link lands mid-group: that group's cards render at their real size, so the cards above the target don't
+   resize after the jump and move the group (CLS) */
+.group.landing .card{content-visibility:visible}
 body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.4 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -675,3 +678,13 @@ html.mobile .bp .sub > span[title]{flex-basis:100%;line-height:20px;margin-top:-
 .cover-all:hover{text-decoration:underline}
 html[data-theme="light"] .cover-all{color:var(--btn-blue)}
 html.mobile .cover-all{min-height:44px;margin:-13px 0}
+
+/* ---------- While the shelf is still being built, the Add form and footer wait (CLS fix for /#bot- deep links) ---------- */
+/* A deep link builds the shelf only up to its group, so the form sat right under the target in view and the next
+   appended groups shoved it down (CLS 0.344). Hidden boxes (display:none) can't shift; they appear once the shelf is
+   complete, which is the only time you could scroll to them anyway. app.js keeps .tailing in sync; the head script sets
+   it before first paint on /#bot- links. "Add your bot" (#add) shows the form at once and holds the appends. */
+html.tailing #add,html.tailing .site-foot{display:none}
+/* ...but the page still needs room under the last built group, or a rail jump or deep link near the end can't scroll its
+   target to the top. The empty sentinel stands in for the pending groups (it paints nothing, so it never counts as a shift). */
+html.tailing .sentinel{height:100vh}

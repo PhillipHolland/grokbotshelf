@@ -390,7 +390,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     else { results.append(...take.map((g) => g.f())); railGroups = [...results.querySelectorAll(".group")]; }
   }
   function watchTail() {
-    clearTimeout(tailT); tailT = 0;
+    clearTimeout(tailT); tailT = 0; syncTailing();
     if (!tail.length) return tailDone();
     if (eager) { tailT = setTimeout(pumpTail, 0); return; }
     // Re-observing reports the sentinel's state again, so a sentinel that is still in range after an append loads more
@@ -408,10 +408,16 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function tailTo(match) {
     const i = tail.findIndex(match);
     if (i < 0) return false;
-    appendTail(i + 1); watchTail();
+    // near the end, build the rest too: with the form and footer out of the layout (.tailing) a short page couldn't scroll
+    // the target to the top, and the last appends would then move it
+    appendTail(tail.length - i - 1 <= TAIL_GROUPS ? tail.length : i + 1); watchTail();
     return true;
   }
-  function tailDone() { if (io) io.unobserve(sentinel); }
+  function tailDone() { if (io) io.unobserve(sentinel); syncTailing(); }
+  // .tailing hides the Add form and footer (display:none) while groups are still pending, so appends never push them
+  // around on screen; once "Add your bot" has shown the form it stays (addShown)
+  let addShown = false;
+  const syncTailing = () => document.documentElement.classList.toggle("tailing", tail.length > 0 && !addShown);
   // Ctrl/Cmd+F (or F3): the browser's find only sees built cards, so build the rest in small idle chunks.
   // The key does its normal job; there is no preventDefault.
   let idleTailOn = false;
@@ -721,6 +727,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     const add = document.getElementById("add"), root = document.documentElement;
     // a reload or back/forward builds everything anyway (eager): finish first so the form doesn't move after the jump
     if (eager) finishTail(); else tailHold = true;
+    addShown = true; syncTailing();
     if (holdOff) holdOff();
     clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
     // instant on a first load; a reload keeps the smooth scroll so it wins over the browser restoring the old position
@@ -747,6 +754,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; chunkNext = true; render(); writeURL(false); el = toBot(); }
     if (!el) { st = blank(); st.more = [ckey(hb)]; syncInputs(); chunkNext = true; render(); writeURL(false); el = toBot(); }
     if (!el) return;
+    const grp = el.closest(".group"); if (grp) grp.classList.add("landing");
     el.scrollIntoView({ block: "center" });
     el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
   }
@@ -917,7 +925,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
       else { show(); loadVotes(); }
     }).catch(() => {
-      shelfDone(null); results.removeAttribute("aria-busy");
+      shelfDone(null); results.removeAttribute("aria-busy"); document.documentElement.classList.remove("tailing");
       results.innerHTML = '<div class="empty" role="alert"><p class="empty-t">The shelf did not load</p><p class="empty-s">Check your connection, then try again.</p><button type="button" class="btn" data-retry>Try again</button></div>';
       results.querySelector("[data-retry]").addEventListener("click", (e) => {
         e.currentTarget.disabled = true; e.currentTarget.textContent = "Loading…";

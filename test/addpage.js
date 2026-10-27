@@ -47,10 +47,9 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
     const hrefs = await p.evaluate(() => [...document.querySelectorAll('a')].filter((a) => /^Add (your|a) bot$/.test(a.textContent.trim())).map((a) => a.getAttribute('href')));
     ok(hrefs.length >= 1 && hrefs.every((h) => h === '/add'), `${path}: Add links point to /add (${hrefs.join(', ')})`);
   }
-  // old /#add links still land on the form
-  await p.goto(new URL('/#add', BASE).href, { waitUntil: 'networkidle0' }); await wait(1600);
-  const a = await p.evaluate(() => { const r = document.getElementById('add').getBoundingClientRect(); return { top: Math.round(r.top), dock: Math.round(document.getElementById('dock').getBoundingClientRect().bottom) }; });
-  ok(a.top >= a.dock && a.top <= a.dock + 40, `/#add still lands on the home form (${JSON.stringify(a)})`);
+  // old /#add links redirect to /add (no home paint, no layout shift; see test/cls.js)
+  await p.goto(new URL('/#add', BASE).href, { waitUntil: 'networkidle0' });
+  ok(new URL(p.url()).pathname === '/add' && await p.$('#sub-form'), `/#add redirects to the /add form (${p.url()})`);
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })();

@@ -14,14 +14,19 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     const pos = () => p.evaluate(() => ({ add: Math.round(document.getElementById('add').getBoundingClientRect().top), dock: Math.round(document.getElementById('dock').getBoundingClientRect().bottom), hash: location.hash, y: scrollY, max: document.documentElement.scrollHeight - innerHeight }));
     const check = (d, m) => ok(d.hash === '#add' && (d.add >= d.dock && d.add <= d.dock + 40 || (d.y >= d.max - 1 && d.add >= d.dock)), `${vp.width}px ${m}: ${JSON.stringify(d)}`);
     await p.goto(BASE, { waitUntil: 'networkidle0' });
-    // the header button is a link to /add (round 2 #11); old /#add links still land on the home form
+    // the header button is a link to /add (round 2 #11); old shared /#add links redirect to /add before the home page paints
     await Promise.all([p.waitForNavigation({ waitUntil: 'networkidle0' }), p.click('.add-top')]);
     ok(new URL(p.url()).pathname === '/add' && await p.$('#sub-form'), `${vp.width}px header "Add your bot" opens /add`);
-    await p.goto(BASE + '#add', { waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'open /#add');
-    // a same-URL goto is a fragment-only navigation (no script runs), so test the real return path: back from /add
-    await p.goto(BASE + 'add', { waitUntil: 'networkidle0' });
-    await p.goBack({ waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'back to /#add');
-    await p.reload({ waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'reload on /#add');
+    await p.goto(BASE + '#add', { waitUntil: 'networkidle0' });
+    ok(new URL(p.url()).pathname === '/add' && !new URL(p.url()).hash && await p.$('#sub-form'), `${vp.width}px open /#add redirects to /add (${p.url()})`);
+    // replace(), not a new entry: back goes to the page before, not to a /#add that would bounce again
+    await p.goBack({ waitUntil: 'networkidle0' });
+    ok(new URL(p.url()).pathname === '/add' && !/#add$/.test(p.url()), `${vp.width}px back from the redirect skips /#add (${p.url()})`);
+    // in-page #add (a hash change on the loaded home page) still jumps to the home form
+    await p.goto(BASE, { waitUntil: 'networkidle0' });
+    await p.evaluate(() => { location.hash = '#add'; }); await wait(1600); check(await pos(), 'in-page #add');
+    await p.reload({ waitUntil: 'networkidle0' });
+    ok(new URL(p.url()).pathname === '/add', `${vp.width}px reload on /#add lands on /add (${p.url()})`);
     await p.goto(BASE + '#bot-x', { waitUntil: 'networkidle0' });
     await p.close();
   }
