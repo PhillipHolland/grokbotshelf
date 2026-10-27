@@ -732,3 +732,19 @@ html.mobile .card .sub{margin:-1px 0 -24px;align-items:flex-start}
 /* ...and the painted line stays exactly where it was: 4px below the row's new top (it used to be centred 14px below the old one) */
 html.mobile .card .sub>*{margin-top:4px}
 html.mobile .card .sub>a.cn{margin-top:0;padding-top:4px;align-items:flex-start;box-sizing:border-box}
+
+/* ---------- Round 3 #7: bot and creator page header on phones ---------- */
+/* The meta links keep their 44px tap height, but the row gives 13px back above and below, so title -> meta -> description
+   spacing matches desktop (3px under the title) instead of floating in a 44px band. The 13px above sits over the h1,
+   which is not a link. */
+html.mobile .bp .sub{margin-top:-13px;margin-bottom:-13px}
+html.mobile .bp-head{align-items:flex-start}
+html.mobile .bp-head :is(.icon.big,.cp-av){margin-top:2px}
+/* Creator page: the two facts stack (no dot left dangling at the end of line one) */
+html.mobile .bp-head:has(.cp-av) .sub{flex-direction:column;align-items:flex-start;row-gap:0;margin-bottom:0}
+html.mobile .bp-head:has(.cp-av) .sub .dot{display:none}
+/* the second fact tucks up under the link's text; it lets taps through to the link's 44px box */
+html.mobile .bp-head:has(.cp-av) .sub>span:not(.dot){margin-top:-12px;line-height:20px;pointer-events:none}
+/* Links row: two even columns (four links make two rows, two make one) instead of 3 + 1 */
+html.mobile .bp-links{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}
+html.mobile .bp-links a{min-width:0;overflow-wrap:anywhere}

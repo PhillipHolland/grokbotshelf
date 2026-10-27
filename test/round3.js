@@ -114,6 +114,18 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await p.close();
   }
 
+  // #7 phones: meta row sits 3px under the title like desktop (tap stays 44px), creator facts stack with no dot, links in two even columns
+  for (const path of ['/bot/grok-bot-video-studio', '/@phil_holland']) {
+    const p = await open(path, { w: 390 });
+    const r = await p.evaluate(() => { const R = (e) => e.getBoundingClientRect(), h = R(document.querySelector('.bp h1')), s = document.querySelector('.bp .sub'), a = s.querySelector('a'), A = R(a);
+      const dot = s.querySelector('.dot'), L = document.querySelector('.bp-links'), as = [...L.querySelectorAll('a')], xs = [...new Set(as.map((x) => Math.round(R(x).left)))];
+      const e = document.elementFromPoint(A.left + 4, A.bottom - 3); const desc = R(document.querySelector('.bp-desc') || document.querySelector('.bp-actions'));
+      return { gap: Math.round(A.top + 13 - h.bottom), tap: Math.round(A.height), tapOk: !!(e && e.closest('.bp .sub a')), dot: dot ? getComputedStyle(dot).display : 'none', stacked: getComputedStyle(s).flexDirection, cols: xs.length, linkH: Math.min(...as.map((x) => Math.round(R(x).height))), lastFact: Math.round(R(s.lastElementChild).bottom), descTop: Math.round(desc.top) }; });
+    const creator = path.startsWith('/@');
+    ok(r.gap >= 0 && r.gap <= 6 && r.tap >= 44 && r.tapOk && r.cols === 2 && r.linkH >= 44 && (!creator || (r.dot === 'none' && r.stacked === 'column' && r.descTop - r.lastFact >= 10)), `#7 390 ${path}: meta ${r.gap}px under the title, 44px tap, ${creator ? 'facts stacked, no dot, ' : ''}links in 2 columns (${JSON.stringify(r)})`);
+    await p.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })().catch((e) => { console.error(e); process.exit(1); });
