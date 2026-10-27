@@ -3,7 +3,6 @@
 // that were off the page, and paint the pressed control before the cards re-render.
 // Usage: NODE_PATH=/path/to/node_modules node test/reuse.js [base-url]
 const puppeteer = require('puppeteer-core');
-const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
@@ -28,17 +27,16 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   // Tag every current card node so a later check can tell reused nodes from rebuilt ones
   const tag = (p, k) => p.evaluate((k) => { window[k] = new Map([...document.querySelectorAll('#results .card')].map((c) => [c.id, c])); return window[k].size; }, k);
   const same = (p, k) => p.evaluate((k) => { let s = 0, n = 0; for (const c of document.querySelectorAll('#results .card')) { const o = window[k].get(c.id); if (o) { n++; if (o === c) s++; } } return [s, n]; }, k);
-  const fresh = async (path) => { const q = await page(); await q.goto(new URL(path, BASE).href, { waitUntil: 'networkidle0' }); await settle(); await scrollAll(q); const s = await snap(q); await q.close(); return s; };
+  const fresh = async (path) => { const q = await page(); await q.goto(new URL(path, BASE).href, { waitUntil: 'networkidle0' }); await settle(); const s = await snap(q); await q.close(); return s; };
   const path = (p) => { const u = new URL(p.url()); return u.pathname + u.search; };
   const sameAsFresh = async (p, what) => {
-    await scrollAll(p); const a = await snap(p), f = await fresh(path(p));
+    const a = await snap(p), f = await fresh(path(p));
     const firstDiff = a.findIndex((x, i) => !f[i] || x[0] !== f[i][0] || x[1] !== f[i][1]);
     ok(a.length === f.length && firstDiff < 0, `${what}: same ${a.length} cards, order and markup as a fresh load of ${path(p)}` + (firstDiff >= 0 ? ` (first difference at #${firstDiff}: ${a[firstDiff] && a[firstDiff][0]} vs ${f[firstDiff] && f[firstDiff][0]})` : ''));
   };
 
   const p = await page();
   await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle();
-  await scrollAll(p);
   const n0 = await tag(p, '__home');
   ok(n0 > 50, `home has ${n0} cards`);
 

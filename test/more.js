@@ -2,7 +2,6 @@
 // deep links to a card hidden by the cap, the single shelf-data.json request, and the 48px avatars.
 // Usage: NODE_PATH=/path/to/node_modules node test/more.js [base-url]
 const puppeteer = require('puppeteer-core');
-const scrollAll = require('./scroll-all');
 // Clicks and menu changes paint the control first and re-render the cards one frame later: wait for that render
 const painted = (p) => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))));
 const BASE = process.argv[2] || 'http://localhost:8765/';
@@ -20,7 +19,6 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   const json = []; p.on('request', r => /\.json(\?|$)/.test(r.url()) && !/\/api\//.test(r.url()) && json.push(new URL(r.url()).pathname + new URL(r.url()).search));
   await p.setViewport({ width: 1360, height: 900 });
   await p.goto(BASE, { waitUntil: 'networkidle0' });
-  await scrollAll(p);
   ok(json.length === 1 && /^\/shelf-data\.json\?v=[0-9a-f]{10}$/.test(json[0]), 'home loads one data file at a versioned URL: ' + json.join(', '));
   const inGroup = (k) => p.$$eval(`[aria-labelledby="g-${k}"] .card`, c => c.map(x => x.querySelector('h3').textContent));
   const btn = (k) => p.$(`[data-more="${k}"]`);
@@ -34,7 +32,7 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   ok(hidden.length === by(K).length - CAP, `${K}: ${hidden.length} bots hidden on the home view`);
   await p.type('#q', hidden[hidden.length - 1].name); await settle();
   ok((await p.$$eval('.card h3', h => h.map(x => x.textContent))).includes(hidden[hidden.length - 1].name), `search finds a bot hidden by the cap: ${hidden[hidden.length - 1].name}`);
-  await p.click('#q', { clickCount: 3 }); await p.type('#q', K); await settle(); await scrollAll(p);
+  await p.click('#q', { clickCount: 3 }); await p.type('#q', K); await settle();
   const all = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   ok(by(K).every((x) => all.includes(x.name)) && !(await p.$('[data-more]')), `search "${K}" shows all ${by(K).length} of their bots, no Show more`);
   await p.keyboard.press('Escape');
@@ -43,7 +41,6 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   await p.select('#creators', K); await painted(p);
   ok((await p.$$('#results .card')).length === by(K).length && !(await p.$('[data-more]')), `creator filter ${K} shows all ${by(K).length}`);
   await p.goto(BASE, { waitUntil: 'networkidle0' });
-  await scrollAll(p);
   // Show more: the rest of the group appears, the URL keeps it, focus lands on the first new card, arrows keep working
   const btnY = await p.$eval(`[data-more="${K}"]`, e => { e.scrollIntoView({ block: 'center' }); return 1; });
   await settle(300); await p.click(`[data-more="${K}"]`); await painted(p);
@@ -54,11 +51,9 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   await p.keyboard.press('ArrowRight');
   ok(await p.evaluate(() => document.activeElement.id) === ids[CAP + 1], 'ArrowRight still moves between cards');
   await p.reload({ waitUntil: 'networkidle0' });
-  await scrollAll(p);
   ok((await inGroup(K)).length === by(K).length && (await p.$$('[data-more]')).length === capped.length - 1, '?more= restores on load');
   if (capped.length > 1) {
     await p.goto(BASE + `?more=${capped[1]},nobody,${capped[1]}`, { waitUntil: 'networkidle0' });
-    await scrollAll(p);
     ok((await inGroup(capped[1])).length === by(capped[1]).length && new URL(p.url()).searchParams.get('more') === capped[1], `?more= ignores unknown and repeated keys (${p.url()})`);
   }
   // deep link to a card the cap hides expands its group and highlights it

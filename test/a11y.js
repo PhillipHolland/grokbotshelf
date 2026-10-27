@@ -3,7 +3,6 @@
 // toast, and a "Skip to results" link is the first Tab stop, hidden until focused, landing focus on the results so
 // the next Tab is in the results. /api/votes is mocked. Usage: NODE_PATH=/path/to/node_modules node test/a11y.js [base-url]
 const puppeteer = require('puppeteer-core');
-const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
@@ -23,7 +22,6 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
       return req.continue();
     });
     await p.goto(new URL(path, BASE).href, { waitUntil: 'networkidle0' }); await settle();
-    await scrollAll(p);
     return p;
   }
   const p = await open('/');

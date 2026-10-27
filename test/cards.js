@@ -4,7 +4,6 @@
 // two short selects at 190px. /api/votes is mocked in the browser.
 // Usage: NODE_PATH=/path/to/node_modules node test/cards.js [base-url]
 const puppeteer = require('puppeteer-core');
-const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
@@ -24,7 +23,6 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
       return req.continue();
     });
     await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle(500);
-    await scrollAll(p);
     return p;
   }
   const p = await open({ width: 1280, height: 900 });

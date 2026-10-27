@@ -375,38 +375,20 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     renderF = requestAnimationFrame(() => { renderF = 0; renderT = setTimeout(render, 0); });
   }
   const flush = () => { if (renderT || renderF) render(); finishTail(); };
-  // Render on demand. First load: the strip and the first few creator groups go in right away; the other groups are
-  // appended a few at a time when a sentinel under the results comes within ~1.5 screens of the viewport. Flat views
-  // (search, Votes, Newest, A-Z...) show FLAT_STEP cards and add FLAT_STEP more the same way. Anything that needs every
-  // card (keyboard moves, #hash jumps, rail jumps, "Add your bot") calls finishTail() first. On a reload or back/forward
-  // the old behavior stays (the rest follows in small tasks right away) so the browser can restore the scroll position.
-  const FIRST_GROUPS = 3, TAIL_GROUPS = 4, FLAT_STEP = 48;
-  // tail: pending { L, f } groups (f builds the section), or pending [bot, match] rows of a flat view (tailFlat)
-  let tail = [], tailFlat = false, tailT = 0, chunkNext = false;
-  const navType = (performance.getEntriesByType && (performance.getEntriesByType("navigation")[0] || {}).type) || "navigate";
-  const eager = navType === "reload" || navType === "back_forward" || !("IntersectionObserver" in window);
-  const sentinel = document.createElement("div"); sentinel.className = "sentinel"; sentinel.setAttribute("aria-hidden", "true");
-  results.after(sentinel);
-  // In range when it is within 1.5 screens under the viewport or anywhere above it (End key, scrollbar drag)
-  const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) pumpTail(); }, { rootMargin: "100000px 0px 150% 0px" }) : null;
-  function appendTail(n) {
-    const take = tail.splice(0, n);
-    if (tailFlat) { if (flatEl) flatEl.append(...cardEls(take)); }
-    else { results.append(...take.map((g) => g.f())); railGroups = [...results.querySelectorAll(".group")]; }
+  // First load only: the strip and the first few creator groups go in right away, the other groups follow in
+  // small tasks so no single task holds a phone's main thread for long. Anything that needs every card
+  // (keyboard moves, #hash jumps, "Add your bot") calls finishTail() first; any later render() is all at once.
+  const FIRST_GROUPS = 3, TAIL_GROUPS = 4;
+  let tail = [], tailT = 0, chunkNext = false;
+  function pumpTail() {
+    results.append(...tail.splice(0, TAIL_GROUPS).map((f) => f()));
+    if (tail.length) tailT = setTimeout(pumpTail, 0); else tailDone();
   }
-  function watchTail() {
-    clearTimeout(tailT); tailT = 0;
-    if (!tail.length) return tailDone();
-    if (eager) { tailT = setTimeout(pumpTail, 0); return; }
-    // Re-observing reports the sentinel's state again, so a sentinel that is still in range after an append loads more
-    io.unobserve(sentinel); io.observe(sentinel);
-  }
-  function pumpTail() { if (!tail.length) return; appendTail(tailFlat ? FLAT_STEP : TAIL_GROUPS); watchTail(); }
   function finishTail() {
     if (!tail.length) return;
-    appendTail(tail.length); watchTail();
+    clearTimeout(tailT); results.append(...tail.map((f) => f())); tail = []; tailDone();
   }
-  function tailDone() { if (io) io.unobserve(sentinel); }
+  function tailDone() { tailT = 0; results.removeAttribute("aria-busy"); renderRail(true); if (vote.global) paintAll(); }
 
   // Re-renders reuse DOM nodes: each card is built once per bot (per search highlight) and kept by its id, and
   // group sections are kept by creator, so sort, filter and Show more only move nodes. A reused card keeps
@@ -469,7 +451,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function render() {
     cancelRender();
     const then = afterRender; afterRender = null;
-    clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; if (io) io.unobserve(sentinel);
+    clearTimeout(tailT); tailT = 0; tail = [];
     const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
@@ -489,20 +471,19 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return null;
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
-        return { L: letterOf(c.label), f: () => groupEl(c, g, shown) };
+        return () => groupEl(c, g, shown);
       }).filter(Boolean);
       if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
-      place(results, strip.concat(parts.map((g) => g.f())));
+      place(results, strip.concat(parts.map((f) => f())));
     } else {
-      if (list.length) { flatEl = flatEl || nodes('<div class="grid flat"></div>')[0]; place(flatEl, cardEls(list.slice(0, FLAT_STEP))); }
-      if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; }
+      if (list.length) { flatEl = flatEl || nodes('<div class="grid flat"></div>')[0]; place(flatEl, cardEls(list)); }
       place(results, list.length ? [flatEl] : []);
     }
     $("#empty").hidden = list.length > 0;
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
     resetEl.classList.toggle("on", changed());
-    results.removeAttribute("aria-busy"); renderRail(grouped);
-    watchTail();
+    if (tail.length) tailT = setTimeout(pumpTail, 0);
+    else { results.removeAttribute("aria-busy"); renderRail(grouped); }
     active = -1;
     setTitle();
     renderFilters();
@@ -728,8 +709,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function renderRail(grouped) {
     const seen = [];
     railGroups = grouped ? [...results.querySelectorAll(".group")] : [];
-    const Ls = railGroups.map((g) => g.querySelector("h2[data-letter]").dataset.letter).concat(grouped && !tailFlat ? tail.map((g) => g.L) : []);
-    for (const L of Ls) if (!seen.includes(L)) seen.push(L);
+    for (const g of railGroups) { const L = g.querySelector("h2[data-letter]").dataset.letter; if (!seen.includes(L)) seen.push(L); }
     const show = seen.length > 1;
     document.documentElement.classList.toggle("has-rail", show);
     if (seen.join() === railLetters.join() && rail.hidden === !show) { syncRail(); return; }
@@ -753,7 +733,6 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
   let jumpDone = null, jumpRaf = 0, jumpNext = null;
   function jumpTo(L, focus) {
-    finishTail(); // the target group may not be built yet
     const h = results.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return;
     const sec = h.closest(".group");
     // reads first
