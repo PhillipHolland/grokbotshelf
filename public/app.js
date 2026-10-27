@@ -1,5 +1,6 @@
 // The add-your-bot form (add.js, also on /add) reads the same shelf-data.json the home view loads; no extra request
-let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
+// let, not const: "Try again" after a failed load starts a fresh promise
+let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
 (() => {
   "use strict";
   const $ = (s) => document.querySelector(s);
@@ -890,30 +891,42 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // One request: shelf-data.json (built by scripts/build.js from bots.json, bot-meta.json and social.json), at the
   // versioned URL index.html preloads
   const dataURL = (document.querySelector('link[rel="preload"][href^="/shelf-data.json"]') || {}).href || "/shelf-data.json";
-  fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
-    bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
-    const seen = new Map();
-    for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
-    creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
-    bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
-    cats = [...new Set(bots.map((b) => b.category))].sort();
-    const am = new Map();
-    for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
-    apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
-    // Shelf tags (bot-meta.json) cover only part of the shelf; the coverage note and the option counts say how much
-    for (const b of bots) if (b._meta) { tagged.any++; const a = b._meta.agency; if (AGENCY[a]) { tagged.agency++; tagged.by[a] = (tagged.by[a] || 0) + 1; } }
-    shelfDone(bots);
-    st = readURL(); syncInputs();
-    const show = () => {
-      if (shelfReady) return;
-      shelfReady = true; chunkNext = true; render();
-      writeURL(false);
-      if (location.hash) requestAnimationFrame(() => openHash());
-    };
-    // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
-    if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
-    else { show(); loadVotes(); }
-  }).catch(() => { shelfDone(null); results.removeAttribute("aria-busy"); results.innerHTML = '<p class="count">The shelf did not load. Refresh to try again.</p>'; });
+  // A failed load shows the empty-state card with "Try again", which re-runs the fetch (round 2 #10)
+  function loadShelf() {
+    fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
+      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+      const seen = new Map();
+      for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
+      creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
+      bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
+      cats = [...new Set(bots.map((b) => b.category))].sort();
+      const am = new Map();
+      for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
+      apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+      // Shelf tags (bot-meta.json) cover only part of the shelf; the coverage note and the option counts say how much
+      for (const b of bots) if (b._meta) { tagged.any++; const a = b._meta.agency; if (AGENCY[a]) { tagged.agency++; tagged.by[a] = (tagged.by[a] || 0) + 1; } }
+      shelfDone(bots);
+      st = readURL(); syncInputs();
+      const show = () => {
+        if (shelfReady) return;
+        shelfReady = true; chunkNext = true; render();
+        writeURL(false);
+        if (location.hash) requestAnimationFrame(() => openHash());
+      };
+      // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
+      if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
+      else { show(); loadVotes(); }
+    }).catch(() => {
+      shelfDone(null); results.removeAttribute("aria-busy");
+      results.innerHTML = '<div class="empty" role="alert"><p class="empty-t">The shelf did not load</p><p class="empty-s">Check your connection, then try again.</p><button type="button" class="btn" data-retry>Try again</button></div>';
+      results.querySelector("[data-retry]").addEventListener("click", (e) => {
+        e.currentTarget.disabled = true; e.currentTarget.textContent = "Loading…";
+        shelfData = new Promise((r) => { shelfDone = r; });
+        results.setAttribute("aria-busy", "true"); loadShelf();
+      });
+    });
+  }
+  loadShelf();
 })();
 
 // Feedback: a post on X tagging the FEEDBACK_X handles, and a GitHub issue for bugs (both set in config.js)

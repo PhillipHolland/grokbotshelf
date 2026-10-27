@@ -644,6 +644,9 @@ html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;ju
 /* Header Add and theme buttons keep their look; an invisible ::after takes the tap 6px past each edge. */
 html.mobile .hero-actions :is(.btn,.theme-btn){position:relative}
 html.mobile .hero-actions :is(.btn,.theme-btn)::after{content:"";position:absolute;inset:-6px}
+/* "Try again" on the load-failure card (round 2 #10) */
+html.mobile .empty [data-retry]{position:relative}
+html.mobile .empty [data-retry]::after{content:"";position:absolute;inset:-5px -6px}
 html.mobile #sort{height:44px}
 /* Card title: its link stretches over the whole card head (icon, title, meta line); the creator link stays on top,
    and its meta line grows to 44px into the head's margins so the creator name is a 44px tap. */
