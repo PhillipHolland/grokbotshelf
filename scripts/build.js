@@ -289,9 +289,12 @@ for (const b of items) {
 }
 
 // Creator pages: one per handle, at /@<handle in lowercase> (the canonical URL used in links, sitemap and canonical tags).
-// Unknown handles and other casings get public/404.html (status 404), which sends a mixed-case /@Handle to the lowercase
-// URL and otherwise says "Creator not found"; /u/:handle redirects to /@:handle in vercel.json. No page per casing: on a case-insensitive disk
-// /@Handle and /@handle would be the same folder.
+// The creator's own casing (/@Phil_Holland, the way X shows it and people type it) is served the same page with status 200
+// from public/@Phil_Holland.html (cleanUrls), so crawlers and no-JS visitors get the real page; its canonical tag is the
+// lowercase URL and an inline history.replaceState puts the lowercase URL in the address bar without a reload. A file, not
+// a folder, so it never collides with public/@phil_holland/ on a case-insensitive disk; one casing per creator for the same reason.
+// Any other casing (/@PHIL_HOLLAND) and unknown handles get public/404.html (status 404), which sends a mixed-case /@Handle
+// to the lowercase URL and otherwise says "Creator not found"; /u/:handle redirects to /@:handle in vercel.json.
 // Display name, handle casing, X link and avatar: the most frequent value across the creator's bots; a tie goes to the
 // value on the most recently added bot (later in bots.json breaks a same-day tie).
 const groups = new Map();
@@ -340,7 +343,10 @@ ${FOOTER}
 for (const f of fs.readdirSync(PUB)) if (f.startsWith("@")) fs.rmSync(path.join(PUB, f), { recursive: true, force: true });
 for (const c of creatorList) {
   fs.mkdirSync(path.join(PUB, c.page.slice(1)), { recursive: true });
-  fs.writeFileSync(path.join(PUB, c.page.slice(1), "index.html"), creatorPage(c));
+  const html = creatorPage(c);
+  fs.writeFileSync(path.join(PUB, c.page.slice(1), "index.html"), html);
+  if (c.handle !== c.handle.toLowerCase()) fs.writeFileSync(path.join(PUB, "@" + c.handle + ".html"), html.replace("</head>",
+    `<script>try{history.replaceState(history.state,"",${JSON.stringify(c.page)}+location.search+location.hash)}catch(e){}</script>\n</head>`));
 }
 
 // Homepage cards are drawn by app.js into #results, and the featured view only links a few bots per creator.

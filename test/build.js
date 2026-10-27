@@ -17,9 +17,20 @@ try {
   ok(new Set(slugs).size === bots.length, `${bots.length} unique bot slugs`);
   const botDirs = fs.readdirSync(pub("bot"));
   ok(botDirs.length === bots.length && slugs.every((s) => fs.existsSync(pub("bot", s, "index.html"))), `one page per bot (${botDirs.length} of ${bots.length})`);
-  const cDirs = fs.readdirSync(pub()).filter((f) => f.startsWith("@"));
+  const cDirs = fs.readdirSync(pub()).filter((f) => f.startsWith("@") && fs.statSync(pub(f)).isDirectory());
   ok(cDirs.length === handles.length && handles.every((h) => fs.existsSync(pub("@" + h, "index.html"))), `one page per creator handle, lowercase (${cDirs.length} of ${handles.length})`);
-  ok(cDirs.every((d) => d === d.toLowerCase()), "no extra pages for other casings");
+  ok(cDirs.every((d) => d === d.toLowerCase()), "no extra folders for other casings");
+  // The creator's display casing (/@Phil_Holland) is the same page as a file, @Phil_Holland.html (cleanUrls serves it with 200):
+  // canonical is the lowercase URL, replaceState swaps the address bar, at most one per creator, never a lowercase name
+  // (that would shadow the folder) and no two names that differ only by case (they would collide on a case-insensitive disk).
+  const cFiles = fs.readdirSync(pub()).filter((f) => f.startsWith("@") && f.endsWith(".html"));
+  const keys = cFiles.map((f) => f.slice(1, -5).toLowerCase());
+  ok(cFiles.length > 0 && cFiles.every((f) => f.slice(1, -5) !== f.slice(1, -5).toLowerCase() && handles.includes(f.slice(1, -5).toLowerCase())) && new Set(keys).size === keys.length,
+    `display-casing creator pages: ${cFiles.length}, all mixed case, one per creator, each for a real creator`);
+  const badCase = cFiles.filter((f) => { const k = f.slice(1, -5).toLowerCase(), h = fs.readFileSync(pub(f), "utf8"), canon = fs.readFileSync(pub("@" + k, "index.html"), "utf8");
+    return !h.includes(`<link rel="canonical" href="https://grokbotshelf.com/@${k}">`) || !h.includes(`history.replaceState(history.state,"","/@${k}"+location.search+location.hash)`)
+      || h.replace(/<script>try\{history\.replaceState[^\n]*<\/script>\n/, "") !== canon; });
+  ok(!badCase.length, `each display-casing page is the lowercase page plus the address-bar swap (bad: ${badCase.join(", ") || "none"})`);
   const sm = fs.readFileSync(pub("sitemap.xml"), "utf8"), locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   ok(locs.length === 2 + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && new Set(locs).size === locs.length, `sitemap has home + /add + bots + creators, no duplicates (${locs.length})`);
   ok(locs.filter((u) => u.includes("/@")).every((u) => u === u.toLowerCase()), "sitemap creator URLs are lowercase");

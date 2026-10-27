@@ -42,6 +42,20 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
     ok(await p.$$eval('.cp-list li', (l) => l.length) === BOTS.filter((x) => ckey(x) === key).length, `/@${key} lists every bot across casings`);
   }
 
+  // the creator's display casing (/@Phil_Holland): the same server-rendered page with status 200, address bar swapped to lowercase;
+  // any other casing (/@PHIL_HOLLAND) gets the 404 page, which sends it on to the lowercase URL
+  const dispKey = casings.has('phil_holland') ? 'phil_holland' : ([...casings].find(([k, s]) => [...s].some((h) => h !== k)) || [])[0];
+  if (dispKey) {
+    const key = dispKey, shown = await p.goto(new URL('/@' + key, BASE).href, { waitUntil: 'networkidle0' }).then(() => p.$eval('.bp-head .sub a', (e) => e.textContent.replace(/^@| on X$/g, '')));
+    const r = await fetch(new URL('/@' + shown, BASE), { redirect: 'manual' }), body = await r.text();
+    ok(r.status === 200 && body.includes(`<link rel="canonical" href="https://grokbotshelf.com/@${key}">`) && !/Page not found/.test(body), `GET /@${shown} (no JS): ${r.status}, server-rendered creator page, canonical /@${key}`);
+    st = await go('/@' + shown); d = await info();
+    ok(st === 200 && d.path === '/@' + key && d.canonical === 'https://grokbotshelf.com/@' + key && !/not found/i.test(d.title), `/@${shown} in a browser: ${st}, address bar /@${key}, "${d.title}"`);
+    st = (await fetch(new URL('/@' + key.toUpperCase(), BASE), { redirect: 'manual' })).status;
+    await go('/@' + key.toUpperCase()); await p.waitForFunction((k) => location.pathname === '/@' + k && document.readyState === 'complete', { timeout: 10000 }, key).catch(() => {}); d = await info();
+    ok(st === 404 && d.path === '/@' + key && !/not found/i.test(d.title), `/@${key.toUpperCase()}: ${st} then lands on /@${key}: "${d.title}"`);
+  }
+
   // unknown bot: branded 404 with status 404
   st = await go('/bot/does-not-exist'); d = await info();
   ok(st === 404 && d.h1 === 'Page not found' && d.robots === 'noindex', `/bot/does-not-exist: ${st} "${d.h1}"`);
