@@ -628,3 +628,8 @@ html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;ju
 .skip:focus{transform:none}
 .skip:not(:focus){clip-path:inset(50%)}
 #results:focus{outline:none}
+
+/* ---------- Creator names link to their /@handle page (audit #9); they read as text until hovered ---------- */
+.ghead h2 a.nm,.sub a.cn{color:inherit;text-decoration:none}
+.ghead h2 a.nm:hover,.sub a.cn:hover{text-decoration:underline}
+.sub a.cn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}

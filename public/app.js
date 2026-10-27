@@ -215,7 +215,7 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
 <h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
-<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}<span class="cn">${esc(b.creator_name)}</span>${bk}</div>
+<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${esc(b.creator_name)}</a>` : `<span class="cn">${esc(b.creator_name)}</span>`}${bk}</div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
 ${badgesHTML(b)}
@@ -425,7 +425,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       const handle = c.anon ? "" : ` <a class="handle" href="${esc(c.url)}" rel="noopener" target="_blank">${esc(c.handle)}</a>`;
       const plink = c.anon ? "" : `<button type="button" class="ib plink" data-plink="${esc(SITE + profilePath(c.key))}" aria-label="Share ${esc(c.label)}'s bots (copy share link)" title="Copy share link to ${esc(c.handle)}'s bots">${I.share}<span class="ok" aria-hidden="true">Copied</span></button>`;
       sec = nodes(`<section class="group${c.anon ? " anon" : ""}" aria-labelledby="g-${c.key}"><div class="ghead">${avImg}
-<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}"><span class="nm">${esc(c.label)}</span>${handle}<span class="gn"></span></h2>${plink}</div>
+<h2 id="g-${c.key}" tabindex="-1" data-letter="${letterOf(c.label)}">${c.anon ? `<span class="nm">${esc(c.label)}</span>` : `<a class="nm" href="${profilePath(c.key)}">${esc(c.label)}</a>`}${handle}<span class="gn"></span></h2>${plink}</div>
 <div class="grid"></div></section>`)[0];
       sec._gn = sec.querySelector(".gn"); sec._grid = sec.querySelector(".grid"); sec._more = null;
       groupCache.set(c.key, sec);
