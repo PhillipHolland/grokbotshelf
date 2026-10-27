@@ -345,7 +345,10 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
    creator group per letter. Letters shrink to fit short screens; touch scrubbing maps finger height to letters. */
 .rail{position:fixed;z-index:15;right:max(4px,env(safe-area-inset-right));top:calc(var(--dock-h,110px) + 10px);bottom:max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;width:26px;pointer-events:none}
 .rail[hidden]{display:none}
-.rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;touch-action:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+/* Letters with no creator group: dimmed, aria-disabled, not focusable; they keep their slot so spacing stays even */
+.rail button.off{color:var(--text2);opacity:.38;cursor:default}
+.rail button.off:hover{background:none;color:var(--text2)}
 .rail button:hover{background:var(--mark);color:var(--blue)}
 .rail button.on{background:var(--mark);color:var(--blue)}
 .rail button:focus-visible{box-shadow:0 0 0 2px var(--blue)}
@@ -361,7 +364,8 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
    padding, never its controls) so thumbs land; the whole strip scrubs */
 @media (max-width:640px){
   .rail{width:30px;right:max(0px,env(safe-area-inset-right))}
-  .rail button{width:30px;padding:0 2px 0 8px;font-size:11px;touch-action:none}
+  .rail button{position:relative;width:30px;padding:0 2px 0 8px;font-size:11px}
+  .rail button::before{content:"";position:absolute;top:0;bottom:0;left:-14px;right:0}
   html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(24px,calc(env(safe-area-inset-right) + 22px))}
   .grid{grid-template-columns:minmax(0,1fr)}.card .ttl{min-width:0}
 }
@@ -373,8 +377,7 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
   .card .app{min-width:44px;min-height:44px}
   .crawl nav{gap:0 14px}
   .crawl a{display:inline-flex;align-items:center;min-height:44px}
-  .rail button{position:relative;flex:1 1 0;max-height:44px}
-  .rail button::before{content:"";position:absolute;top:0;bottom:0;left:-14px;right:0}
+  .rail button{flex:1 1 0;max-height:44px}
   .rail button:hover,.rail button.on{background:radial-gradient(circle 11px at calc(100% - 12px) 50%,var(--mark) 10.5px,transparent 11px)}
   html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(28px,calc(env(safe-area-inset-right) + 26px))}
 }

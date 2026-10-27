@@ -1,4 +1,4 @@
-// A-Z rail: letters only for visible creator groups, a tap scrolls that group's header just under the dock,
+// A-Z rail: the whole alphabet with letters that have no visible creator group dimmed and skipped, a tap scrolls that group's header just under the dock,
 // it follows filters and hides on flat views, and Creator sort keeps the larger cap.
 // Usage: NODE_PATH=/path/to/node_modules node test/rail.js [base-url]
 const puppeteer = require('puppeteer-core');
@@ -15,13 +15,22 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
     const p = await b.newPage(); p.on('pageerror', e => errs.push(e.message));
     await p.setViewport(vp);
     await p.goto(BASE, { waitUntil: 'networkidle0' });
-    const letters = await p.$$eval('#rail button', bs => bs.map(x => x.textContent));
-    ok(letters.join('') === want.join(''), `${label}: rail shows ${letters.join('')}`);
+    const letters = await p.$$eval('#rail button:not(.off)', bs => bs.map(x => x.textContent));
+    ok(letters.join('') === want.join(''), `${label}: rail has live letters ${letters.join('')}`);
+    // The whole alphabet keeps its slots; letters with no creator are dimmed, aria-disabled and out of the tab order
+    const all = (want.includes('#') ? ['#'] : []).concat([...'ABCDEFGHIJKLMNOPQRSTUVWXYZ']);
+    const rs = await p.$$eval('#rail button', bs => bs.map(x => ({ l: x.textContent, off: x.classList.contains('off'), dis: x.getAttribute('aria-disabled'), ti: x.tabIndex })));
+    const offs = rs.filter(x => x.off);
+    ok(rs.map(x => x.l).join('') === all.join('') && offs.every(x => x.dis === 'true' && x.ti === -1 && !want.includes(x.l)) && offs.length === all.length - want.length,
+      `${label}: rail shows the full alphabet, dimmed and aria-disabled: ${offs.map(x => x.l).join('') || 'none'}`);
+    // A jump never flips every card to content-visibility:visible (html.jumping) and forces no full-page layout
+    await p.evaluate(() => { window.__jumping = 0; new MutationObserver(() => { if (document.documentElement.classList.contains('jumping')) window.__jumping++; }).observe(document.documentElement, { attributes: true, attributeFilter: ['class'] }); });
     const L = letters[Math.floor(letters.length * 0.7)];
     if (label === 'phone') await p.tap(`#rail button[data-l="${L}"]`); else await p.click(`#rail button[data-l="${L}"]`);
     let last = -1; for (let i = 0; i < 40; i++) { await settle(150); const y = await p.evaluate(() => scrollY); if (y === last) break; last = y; }
     const r = await p.evaluate((L) => { const h = document.querySelector(`.group h2[data-letter="${L}"]`), g = h.closest('.group'); return { top: g.getBoundingClientRect().top, dock: document.getElementById('dock').offsetHeight, cur: document.querySelector('#rail button.on')?.dataset.l }; }, L);
-    ok(r.top >= r.dock - 2 && r.top <= r.dock + 30, `${label}: tapping ${L} puts its first group just under the dock (top ${Math.round(r.top)}, dock ${r.dock}) and marks ${r.cur}`);
+    ok(Math.abs(r.top - r.dock - 12) < 1, `${label}: tapping ${L} lands its first group exactly under the dock (offset ${Math.round(r.top - r.dock - 12)}px) and marks ${r.cur}`);
+    ok(await p.evaluate(() => window.__jumping === 0), `${label}: the jump never sets html.jumping`);
     // Rail buttons never cover a card control (on phones they may reach into a card's empty edge padding)
     const hit = await p.evaluate(() => { const rl = Math.min(...[...document.querySelectorAll('#rail button')].map(b => b.getBoundingClientRect().left)); return { rl, cr: Math.max(...[...document.querySelectorAll('#results .card')].slice(0, 40).flatMap(c => [...c.querySelectorAll('a,button')].map(e => e.getBoundingClientRect().right))) }; });
     ok(hit.rl >= hit.cr, `${label}: rail (x ${Math.round(hit.rl)}) does not cover card controls (right ${Math.round(hit.cr)})`);
@@ -54,8 +63,19 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
   const p = await b.newPage(); p.on('pageerror', e => errs.push(e.message));
   await p.setViewport({ width: 1360, height: 900 });
   await p.goto(BASE, { waitUntil: 'networkidle0' });
+  // Keyboard skips dimmed letters; a click on a dimmed letter goes to the nearest live one
+  const off1 = await p.evaluate(() => { const bs = [...document.querySelectorAll('#rail button')]; const i = bs.findIndex((b, k) => b.classList.contains('off') && k > 0 && !bs[k - 1].classList.contains('off')); return i > 0 ? { prev: bs[i - 1].dataset.l, off: bs[i].dataset.l, next: (bs.slice(i).find(b => !b.classList.contains('off')) || {}).dataset?.l } : null; });
+  if (off1) {
+    await p.evaluate((L) => { const b = document.querySelector(`#rail button[data-l="${L}"]`); document.querySelectorAll('#rail button').forEach(x => x.tabIndex = x === b ? 0 : -1); b.focus(); }, off1.prev);
+    await p.keyboard.press('ArrowDown');
+    const f = await p.evaluate(() => document.activeElement && document.activeElement.dataset.l);
+    ok(f === off1.next, `ArrowDown from ${off1.prev} skips dimmed ${off1.off} and lands on ${f}`);
+    await p.click(`#rail button[data-l="${off1.off}"]`); await settle(1600);
+    const on = await p.$eval('#rail button.on', e => e.dataset.l).catch(() => '');
+    ok(on === off1.prev || on === off1.next, `clicking dimmed ${off1.off} jumps to the nearest live letter (${on})`);
+  } else ok(true, 'no dimmed letter between live ones to check');
   await p.select('#cats', await p.$$eval('#cats option', o => o[1].value)); await settle();
-  const fl = await p.$$eval('#rail button', bs => bs.map(x => x.textContent));
+  const fl = await p.$$eval('#rail button:not(.off)', bs => bs.map(x => x.textContent));
   const gl = await p.$$eval('.group h2[data-letter]', hs => [...new Set(hs.map(h => h.dataset.letter))]);
   ok(fl.length > 1 ? fl.join() === gl.join() : await p.$eval('#rail', e => e.hidden), `category filter: rail matches the visible groups (${fl.join('')})`);
   await p.goto(BASE + '?sort=newest', { waitUntil: 'networkidle0' });
@@ -66,7 +86,7 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
   // Reduced motion: the jump is instant
   await p.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
   await p.goto(BASE, { waitUntil: 'networkidle0' });
-  const L2 = await p.$$eval('#rail button', bs => bs[Math.floor(bs.length / 2)].dataset.l);
+  const L2 = await p.$$eval('#rail button:not(.off)', bs => bs[Math.floor(bs.length / 2)].dataset.l);
   await p.click(`#rail button[data-l="${L2}"]`); await settle(80);
   const rm = await p.evaluate((L) => document.querySelector(`.group h2[data-letter="${L}"]`).closest('.group').getBoundingClientRect().top - document.getElementById('dock').offsetHeight, L2);
   ok(Math.abs(rm - 12) < 4, `reduced motion: jump to ${L2} is instant (offset ${Math.round(rm)} after 80ms)`);

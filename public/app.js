@@ -679,12 +679,14 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   window.addEventListener("hashchange", openHash);
 
   /* ---------- A-Z rail: jump to the first creator group under a letter ---------- */
-  // Fixed to the right edge, under the dock. Only letters with a visible group show; it hides on flat views and when
-  // fewer than two letters are left. Tap or click jumps; on touch you can also drag along it (contacts-style).
+  // Fixed to the right edge, under the dock. Shows the whole alphabet (plus # when a group needs it) so letters keep the
+  // same spot; letters with no visible group are dimmed and skipped. Tap or click jumps; on touch you can also drag along
+  // it (contacts-style). Hidden on flat views and when fewer than two letters have a group.
   function letterOf(name) {
     const ch = String(name || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/^[^\p{L}\p{N}]+/u, "").charAt(0).toUpperCase();
     return /[A-Z]/.test(ch) ? ch : "#";
   }
+  const ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const rail = document.createElement("nav");
   rail.className = "rail"; rail.id = "rail"; rail.hidden = true;
   rail.setAttribute("aria-label", "Jump to creators by letter");
@@ -692,48 +694,78 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   const pop = document.createElement("div");
   pop.className = "rail-pop"; pop.hidden = true; pop.setAttribute("aria-hidden", "true");
   document.body.append(pop);
-  let railLetters = [], railLock = "", railTop = -1;
+  // railGroups: every visible group, in page order (read once per render, not on every scroll frame)
+  let railLetters = [], railLock = "", railTop = -1, railGroups = [], railOn = null;
   function renderRail(grouped) {
     const seen = [];
-    if (grouped) for (const h of results.querySelectorAll(".group h2[data-letter]")) if (!seen.includes(h.dataset.letter)) seen.push(h.dataset.letter);
+    railGroups = grouped ? [...results.querySelectorAll(".group")] : [];
+    for (const g of railGroups) { const L = g.querySelector("h2[data-letter]").dataset.letter; if (!seen.includes(L)) seen.push(L); }
     const show = seen.length > 1;
     document.documentElement.classList.toggle("has-rail", show);
     if (seen.join() === railLetters.join() && rail.hidden === !show) { syncRail(); return; }
-    railLetters = seen; rail.hidden = !show; railLock = ""; railTop = -1;
-    rail.innerHTML = show ? seen.map((L, i) => `<button type="button" data-l="${L}" tabindex="${i ? -1 : 0}" aria-label="Jump to creators starting with ${L === "#" ? "a number or symbol" : L}">${L}</button>`).join("") : "";
+    railLetters = seen; rail.hidden = !show; railLock = ""; railTop = -1; railOn = null;
+    const all = (seen.includes("#") ? ["#"] : []).concat(ALPHA);
+    rail.innerHTML = show ? all.map((L) => {
+      const on = seen.includes(L), name = L === "#" ? "a number or symbol" : L;
+      return on
+        ? `<button type="button" data-l="${L}" tabindex="-1" aria-label="Jump to creators starting with ${name}">${L}</button>`
+        : `<button type="button" data-l="${L}" class="off" tabindex="-1" aria-disabled="true" aria-label="No creators starting with ${name}">${L}</button>`;
+    }).join("") : "";
+    const first = rail.querySelector("button:not(.off)"); if (first) first.tabIndex = 0;
     syncRail();
   }
-  // Far jumps land instantly most of the way, then glide the last stretch (Z from the top: ~0.5s instead of ~2s, and it
-  // still reads as movement). Drag-scrub and reduced motion jump instantly. The chosen letter stays highlighted until
-  // you scroll yourself: the last few groups can't reach the top of the page, so the in-view letter would be wrong.
+  const liveBtns = () => [...rail.querySelectorAll("button:not(.off)")];
+  // Jumps never force every card to render (that was a style recalc of every card plus a full-page layout per tap).
+  // Instant jumps land on the page as laid out now; scroll anchoring keeps the target put while nearby cards get their
+  // real size. Far smooth jumps still skip most of the way instantly and glide the last stretch; a one-off nudge after
+  // scrollend fixes any leftover drift. The chosen letter stays highlighted until you scroll yourself: the last few
+  // groups can't reach the top of the page, so the in-view letter would be wrong.
   const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let jumpDone = null, jumpRaf = 0, jumpNext = null;
   function jumpTo(L, focus) {
     const h = results.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return;
-    const sec = h.closest(".group"), root = document.documentElement;
-    clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void sec.offsetTop;
-    railLock = L; markRail(L);
+    const sec = h.closest(".group");
+    // reads first
     const pad = dock.offsetHeight + 12, dy = sec.getBoundingClientRect().top - pad, instant = focus === "drag" || reduced();
+    // then writes
+    if (jumpDone) jumpDone(); // cancel the previous jump's listeners
+    railLock = L; markRail(L);
     if (!instant && Math.abs(dy) > innerHeight * 1.5) window.scrollBy(0, dy - Math.sign(dy) * innerHeight * 0.6);
     sec.scrollIntoView({ block: "start", behavior: instant ? "auto" : "smooth" });
     if (focus === true) h.focus({ preventScroll: true });
-    // Keep every card rendered until the scroll settles so content-visibility estimates can't move the target
-    const landed = () => Math.abs(sec.getBoundingClientRect().top - pad) < 3 || scrollY + innerHeight >= root.scrollHeight - 2;
-    const done = (e) => { if (e && !landed()) return; clearTimeout(jumpT); root.classList.remove("jumping"); window.removeEventListener("scrollend", done); };
-    window.addEventListener("scrollend", done); jumpT = setTimeout(done, 1500);
+    if (instant) return;
+    const landed = () => { const off = sec.getBoundingClientRect().top - pad; return scrollY + innerHeight >= document.documentElement.scrollHeight - 2 ? 0 : Math.round(off); };
+    let t = 0;
+    const done = (e) => {
+      if (e && e.type === "scrollend") { const off = landed(); if (Math.abs(off) >= 3 && Math.abs(off) < innerHeight) window.scrollBy({ top: off, behavior: "auto" }); }
+      clearTimeout(t); window.removeEventListener("scrollend", done); if (jumpDone === done) jumpDone = null;
+    };
+    jumpDone = done;
+    window.addEventListener("scrollend", done); t = setTimeout(done, 1500);
   }
+  // During a drag, at most one jump per frame
+  function jumpSoon(L) { jumpNext = L; if (!jumpRaf) jumpRaf = requestAnimationFrame(() => { jumpRaf = 0; const n = jumpNext; jumpNext = null; if (n) jumpTo(n, "drag"); }); }
+  // Only the two buttons that change are touched
   function markRail(L) {
-    for (const b of rail.children) { const on = b.dataset.l === L; b.classList.toggle("on", on); if (on) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); }
+    const b = L ? rail.querySelector(`button[data-l="${L}"]:not(.off)`) : null;
+    if (b === railOn) return;
+    if (railOn) { railOn.classList.remove("on"); railOn.removeAttribute("aria-current"); }
+    if (b) { b.classList.add("on"); b.setAttribute("aria-current", "true"); }
+    railOn = b;
   }
-  // Highlight the letter of the group at the top of the screen
+  // Highlight the letter of the group at the top of the screen. All reads, then all writes; binary search over groups.
   let railRaf = 0;
   function syncRail() {
     if (rail.hidden) return;
     // At the top of the page the dock sits below the hero; start the rail under the dock's real bottom, not its stuck one
-    const t = Math.round(Math.max(0, dock.getBoundingClientRect().bottom)) + 10;
+    const dr = dock.getBoundingClientRect(), t = Math.round(Math.max(0, dr.bottom)) + 10;
+    let cur = railLock;
+    if (!cur) {
+      const top = dr.height + 24; let lo = 0, hi = railGroups.length - 1, idx = -1;
+      while (lo <= hi) { const mid = (lo + hi) >> 1; if (railGroups[mid].getBoundingClientRect().top <= top) { idx = mid; lo = mid + 1; } else hi = mid - 1; }
+      cur = idx >= 0 ? railGroups[idx].querySelector("h2[data-letter]").dataset.letter : "";
+    }
     if (t !== railTop) { railTop = t; rail.style.top = t + "px"; }
-    if (railLock) return markRail(railLock);
-    const top = dock.offsetHeight + 24; let cur = "";
-    for (const h of results.querySelectorAll(".group h2[data-letter]")) { if (h.closest(".group").getBoundingClientRect().top <= top) cur = h.dataset.letter; else break; }
     markRail(cur);
   }
   window.addEventListener("scroll", () => { if (!railRaf) railRaf = requestAnimationFrame(() => { railRaf = 0; syncRail(); }); }, { passive: true });
@@ -741,9 +773,13 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   const unlock = (e) => { if (railLock && !rail.contains(e.target)) { railLock = ""; } };
   for (const ev of ["wheel", "touchstart", "keydown", "mousedown"]) window.addEventListener(ev, unlock, { passive: true, capture: true });
   let dragging = false;
-  rail.addEventListener("click", (e) => { const b = e.target.closest("button[data-l]"); if (b && !dragging) jumpTo(b.dataset.l, e.detail === 0); });
+  // A click on a dimmed letter (no group) goes to the nearest letter that has one
+  rail.addEventListener("click", (e) => {
+    const b0 = e.target.closest("button[data-l]"), b = b0 && b0.classList.contains("off") ? atY(e.clientY) : b0;
+    if (b && !dragging) jumpTo(b.dataset.l, e.detail === 0 && b === b0);
+  });
   rail.addEventListener("keydown", (e) => {
-    const bs = [...rail.children], i = bs.indexOf(document.activeElement); if (i < 0) return;
+    const bs = liveBtns(), i = bs.indexOf(document.activeElement); if (i < 0) return;
     const j = { ArrowDown: i + 1, ArrowRight: i + 1, ArrowUp: i - 1, ArrowLeft: i - 1, Home: 0, End: bs.length - 1 }[e.key];
     if (j === undefined) return;
     e.preventDefault(); e.stopPropagation();
@@ -752,17 +788,24 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   });
   // Touch: drag along the rail to scrub (contacts-style). The finger's height maps onto the letter list, so tiny letters
   // on short screens, overshooting the ends or sliding off the strip still land; a big letter bubble shows where you are.
+  // Letters without a group snap to the nearest letter that has one. touch-action:none on the buttons stops the page
+  // from scrolling, so the listeners can stay passive.
   let lastL = "", popT;
   const atY = (y) => {
     const bs = rail.children, a = bs[0].getBoundingClientRect().top, z = bs[bs.length - 1].getBoundingClientRect().bottom;
-    return bs[Math.max(0, Math.min(bs.length - 1, Math.floor((y - a) / ((z - a) / bs.length))))];
+    let i = Math.max(0, Math.min(bs.length - 1, Math.floor((y - a) / ((z - a) / bs.length))));
+    for (let d = 0; d < bs.length; d++) { // nearest live letter, looking up and down
+      if (bs[i - d] && !bs[i - d].classList.contains("off")) return bs[i - d];
+      if (bs[i + d] && !bs[i + d].classList.contains("off")) return bs[i + d];
+    }
+    return null;
   };
   const showPop = (b) => { const r = b.getBoundingClientRect(); pop.textContent = b.dataset.l; pop.style.top = Math.max(40, Math.min(innerHeight - 40, r.top + r.height / 2)) + "px"; pop.hidden = false; clearTimeout(popT); };
   rail.addEventListener("touchstart", (e) => { const t = e.touches[0], b = t && atY(t.clientY); dragging = false; lastL = b ? b.dataset.l : ""; if (b) showPop(b); }, { passive: true });
   rail.addEventListener("touchmove", (e) => {
-    const t = e.touches[0], b = t && atY(t.clientY); e.preventDefault();
-    if (b && b.dataset.l !== lastL) { dragging = true; lastL = b.dataset.l; showPop(b); jumpTo(lastL, "drag"); }
-  }, { passive: false });
+    const t = e.touches[0], b = t && atY(t.clientY);
+    if (b && b.dataset.l !== lastL) { dragging = true; lastL = b.dataset.l; showPop(b); jumpSoon(lastL); }
+  }, { passive: true });
   const endTouch = () => { clearTimeout(popT); popT = setTimeout(() => { pop.hidden = true; }, 450); if (dragging) setTimeout(() => { dragging = false; }, 50); };
   rail.addEventListener("touchend", endTouch); rail.addEventListener("touchcancel", endTouch);
 
