@@ -10,7 +10,7 @@ try {
   const { slugify } = require(path.join(TMP, "scripts", "shelf"));
   const pub = (...p) => path.join(TMP, "public", ...p);
   const bots = JSON.parse(fs.readFileSync(pub("bots.json"), "utf8"));
-  const handles = [...new Set(bots.map((b) => b.creator_handle.replace(/^@/, "").toLowerCase()))];
+  const handles = [...new Set(bots.map((b) => b.creator_handle.replace(/^@/, "").toLowerCase()))].filter(Boolean); // no handle: no creator page
   const out = execFileSync(process.execPath, [path.join(TMP, "scripts", "build.js")], { encoding: "utf8", env: { ...process.env, GA_MEASUREMENT_ID: "", GSC_VERIFICATION: "" } });
   ok(out.includes(`built ${bots.length} bot pages, ${handles.length} creator pages`), "build output: " + out.trim());
   const slugs = bots.map((b) => slugify(b.name));
@@ -165,7 +165,7 @@ try {
   ok(smalls.length === Object.keys(man).length && !bad.length, `${smalls.length} small avatars, all 48x48 (wrong: ${bad.join(", ") || "none"})`);
   const fresh = (d) => { const m = /^\/avatars\/([^/?]+)/.exec(d.creator_avatar); return m && man[m[1]] === crypto.createHash("sha256").update(fs.readFileSync(pub("avatars", m[1]))).digest("hex").slice(0, 10); };
   const notSmall = data.filter((d) => fresh(d) && !/^\/avatars\/48\/[^?]+\.webp\?v=[0-9a-f]{10}$/.test(d.avatar_sm));
-  ok(!notSmall.length && data.every((d) => /\?v=[0-9a-f]{10}$/.test(d.avatar_sm) && /\?v=[0-9a-f]{10}$/.test(d.creator_avatar)), `every bot with a current small copy uses it, all avatar URLs versioned (not: ${notSmall.length})`);
+  ok(!notSmall.length && data.every((d) => (!d.creator_avatar && !d.avatar_sm) || (/\?v=[0-9a-f]{10}$/.test(d.avatar_sm) && /\?v=[0-9a-f]{10}$/.test(d.creator_avatar))), `every bot with a current small copy uses it, all avatar URLs versioned (not: ${notSmall.length})`);
   if (arch) ok(fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8").includes(`src="${data.find((d) => d.name === "Archivist").avatar_sm}"`), "bot page byline uses the small avatar");
   // A missing or outdated small copy falls back to the original
   const victim = data.find((d) => /\/avatars\/48\//.test(d.avatar_sm)), vf = /^\/avatars\/([^/?]+)/.exec(victim.creator_avatar)[1];

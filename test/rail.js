@@ -81,6 +81,7 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
   await p.goto(BASE + '?sort=newest', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#rail', e => e.hidden), 'Newest (flat) view hides the rail');
   await p.goto(BASE + '?sort=creator', { waitUntil: 'networkidle0' });
+  await p.evaluate(async () => { let h = -1; for (let i = 0; i < 80 && h !== document.documentElement.scrollHeight; i++) { h = document.documentElement.scrollHeight; window.scrollTo(0, h); await new Promise((r) => setTimeout(r, 200)); } window.scrollTo(0, 0); });
   const big = await p.$$eval('.group', gs => gs.filter(g => g.querySelector('[data-more]')).map(g => g.querySelectorAll('.card').length));
   ok(big.length && big.every(n => n === 12) && !(await p.$eval('#rail', e => e.hidden)), `Creator sort keeps 12 per group (${big}) and the rail`);
   // Reduced motion: the jump is instant

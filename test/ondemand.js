@@ -77,6 +77,8 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   for (const where of ['first slice', 'scrolled in']) {
     if (where === 'scrolled in') { await p.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight * 0.6)); await settle(600); }
     const key = await p.evaluate(async (where) => {
+      // The first creator with more than 3 bots is not always in the first slice as the catalog grows: scroll until one is built
+      for (let i = 0; where === 'first slice' && i < 40 && !document.querySelector('#results [data-more]'); i++) { window.scrollBy(0, innerHeight); await new Promise((r) => setTimeout(r, 150)); }
       const all = [...document.querySelectorAll('#results [data-more]')];
       const mb = where === 'first slice' ? all[0] : all.find((e) => e.getBoundingClientRect().top > 0);
       if (!mb) return null;

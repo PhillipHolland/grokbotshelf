@@ -46,8 +46,9 @@ const state = (p) => p.evaluate(() => { const b = document.querySelector('.gbs-u
   const blocked = await p.evaluate((sels) => { const st = document.createElement('style'); let bad = 0;
     st.textContent = sels.map(x => { try { document.querySelector(x); return x + '{display:none!important}'; } catch (_) { bad++; return ''; } }).join('\n'); document.head.appendChild(st);
     scrollTo(0, 1500); return new Promise(r => setTimeout(() => { const b = document.querySelector('.gbs-up'), cs = getComputedStyle(b), rc = b.getBoundingClientRect();
-      r({ n: sels.length - bad, disp: cs.display, vis: cs.visibility, w: rc.width, hit: (document.elementFromPoint(rc.left + rc.width / 2, rc.top + rc.height / 2) || {}).closest?.('.gbs-up') ? 1 : 0 }); }, 500)); }, sels);
-  ok(blocked.disp !== 'none' && blocked.vis === 'visible' && blocked.w >= 44 && blocked.hit, `content blocker (${blocked.n} Fanboy annoyance rules): button still shown (${blocked.disp}, ${blocked.vis}, ${blocked.w}px, hit ${blocked.hit})`);
+      const ac = getComputedStyle(b, '::after'), tap = ac.content === 'none' ? rc.width : rc.width - parseFloat(ac.left) - parseFloat(ac.right), tapH = ac.content === 'none' ? rc.height : rc.height - parseFloat(ac.top) - parseFloat(ac.bottom);
+      r({ n: sels.length - bad, disp: cs.display, vis: cs.visibility, w: Math.round(tap), h: Math.round(tapH), hit: (document.elementFromPoint(rc.left + rc.width / 2, rc.top + rc.height / 2) || {}).closest?.('.gbs-up') ? 1 : 0 }); }, 500)); }, sels);
+  ok(blocked.disp !== 'none' && blocked.vis === 'visible' && blocked.w >= 44 && blocked.h >= 44 && blocked.hit, `content blocker (${blocked.n} Fanboy annoyance rules): button still shown with a 44px tap (${blocked.disp}, ${blocked.vis}, ${blocked.w}x${blocked.h}px tap, hit ${blocked.hit})`);
   await p.setViewport({ width: 1280, height: 800 });
   await p.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
   await p.goto(new URL('@poteto', BASE).href, { waitUntil: 'networkidle0' });
