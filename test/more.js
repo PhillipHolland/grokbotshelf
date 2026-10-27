@@ -65,6 +65,23 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   const id = ids[ids.length - 1];
   await p.goto(BASE + '#' + id, { waitUntil: 'networkidle0' }); await settle(400);
   ok(await p.$eval('#' + id, e => e.classList.contains('flash')).catch(() => false) && (await inGroup(K)).length === by(K).length, `deep link #${id} expands ${K} and highlights the card`);
+  // ...and leaves a clean address: the group is opened in memory, not written to ?more= (a copied /#bot- link stays /#bot-)
+  const loc = () => { const u = new URL(p.url()); return u.pathname + u.search + u.hash; };
+  ok(loc() === '/#' + id, `deep link keeps a clean URL (${loc()})`);
+  if (capped.length > 1) {
+    // Show more on another group afterwards writes only that group
+    await p.$eval(`[data-more="${capped[1]}"]`, (e) => e.scrollIntoView({ block: 'center' })); await settle(300);
+    await p.click(`[data-more="${capped[1]}"]`); await settle();
+    ok(loc() === `/?more=${capped[1]}#${id}` && (await inGroup(K)).length === by(K).length, `Show more after a deep link writes only its own group (${loc()})`);
+    // old links that carry ?more= still land, and the landing group's key is dropped from the address
+    await p.goto(BASE + `?more=${capped[1]},${K}#${id}`, { waitUntil: 'networkidle0' }); await settle(400);
+    ok(await p.$eval('#' + id, e => e.classList.contains('flash')).catch(() => false) && (await inGroup(K)).length === by(K).length && (await inGroup(capped[1])).length === by(capped[1]).length && loc() === `/?more=${capped[1]}#${id}`, `old ?more= link lands and keeps the other group (${loc()})`);
+  }
+  await p.goto(BASE + `?more=${K}#${id}`, { waitUntil: 'networkidle0' }); await settle(400);
+  ok(await p.$eval('#' + id, e => e.classList.contains('flash')).catch(() => false) && (await inGroup(K)).length === by(K).length && loc() === '/#' + id, `old ?more=${K}#${id} link lands on the card and cleans up to ${loc()}`);
+  // a reload of the clean link opens the group again
+  await p.reload({ waitUntil: 'networkidle0' }); await settle(400);
+  ok((await inGroup(K)).length === by(K).length && loc() === '/#' + id, `reloading /#${id} opens ${K} again (${loc()})`);
   // small avatars
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   const av = await p.$$eval('#results .card img', i => i.map(x => [x.getAttribute('src'), x.getAttribute('width'), x.getAttribute('height')]));

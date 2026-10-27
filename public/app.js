@@ -134,6 +134,9 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
   }
+  // Groups opened only so a #bot- deep link can show its card: kept in st.more (in memory) but not written to ?more=,
+  // so a shared /#bot-<slug> link stays clean. The hash opens the group again on load. Show more and Reset forget them.
+  const hashOpen = new Set();
   function writeURL(push) {
     const p = new URLSearchParams();
     if (st.q) p.set("q", st.q);
@@ -144,7 +147,8 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     if (st.fresh) p.set("new", "1");
     if (st.oneJob) p.set("one_job", "1");
     if (st.sort !== "featured") p.set("sort", st.sort);
-    if (st.more.length) p.set("more", st.more.join(","));
+    const more = st.more.filter((k) => !hashOpen.has(k));
+    if (more.length) p.set("more", more.join(","));
     const url = (st.creator && !anonKey(st.creator) ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",").replace(/%7E/g, "~") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
   }
@@ -596,14 +600,14 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
-  const clearAll = () => { st = blank(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
+  const clearAll = () => { st = blank(); hashOpen.clear(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
   resetEl.addEventListener("click", () => {
     clearAll();
     // The button hides itself; keep focus nearby (on phones the count, so the keyboard does not pop up)
     if (MOBILE) $("#count").focus({ preventScroll: true }); else q.focus({ preventScroll: true });
   });
   $("#empty-clear").addEventListener("click", () => { clearAll(); q.focus(); });
-  window.addEventListener("popstate", () => { st = readURL(); syncInputs(); render(); });
+  window.addEventListener("popstate", () => { st = readURL(); for (const k of hashOpen) if (!st.more.includes(k)) st.more.push(k); syncInputs(); render(); });
 
   // Copy link + toast
   const toast = $("#toast"); let tt;
@@ -616,7 +620,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   }
   function showMore(key, btn) {
     if (!st.more.includes(key)) st.more = [...st.more, key];
-    writeURL(false);
+    hashOpen.delete(key); writeURL(false);
     if (btn) btn.setAttribute("aria-busy", "true");
     renderNext(() => {
       const next = results.querySelectorAll(`[aria-labelledby="g-${key}"] .card`)[capNow];
@@ -754,8 +758,11 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     // starts over from the first groups the same way
     const toBot = () => { if (!document.getElementById(id)) tailTo((g) => tailFlat ? g[0]._slug === id : g.k === ckey(hb)); return document.getElementById(id); };
     let el = toBot();
-    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; chunkNext = true; render(); writeURL(false); el = toBot(); }
-    if (!el) { st = blank(); st.more = [ckey(hb)]; syncInputs(); chunkNext = true; render(); writeURL(false); el = toBot(); }
+    // an old link's ?more=<this creator> is dropped from the address bar too (the hash opens the group by itself)
+    if (st.more.includes(ckey(hb))) hashOpen.add(ckey(hb));
+    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; hashOpen.add(ckey(hb)); chunkNext = true; render(); el = toBot(); }
+    if (!el) { st = blank(); st.more = [ckey(hb)]; hashOpen.clear(); hashOpen.add(ckey(hb)); syncInputs(); chunkNext = true; render(); el = toBot(); }
+    writeURL(false);
     if (!el) return;
     const grp = el.closest(".group"); if (grp) grp.classList.add("landing");
     el.scrollIntoView({ block: "center" });
