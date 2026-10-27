@@ -4245,6 +4245,56 @@
       "note": "site form #314; no creator handle",
       "date": "2026-10-27",
       "approved_by": "Phillip Holland (standing rule: no-handle)"
+    },
+    "form-296": {
+      "status": "added",
+      "author": "@MikeysMolecules",
+      "bot": "Counsel by MikeysMolecules",
+      "template_url": "https://x.ai/bot/-vwyPA-YY-cDclBshl-Ue",
+      "url": "https://x.com/MikeysMolecules/status/2114913762235076712",
+      "note": "site form #296; renamed to avoid clash with live Counsel (@wikiwayne)",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
+    },
+    "form-302": {
+      "status": "denied",
+      "bot": "PakkeChef",
+      "template_url": "https://x.ai/bot/X8nIL7KGmu_OQcA-77I2H",
+      "note": "site form #302; copy of Package Pal",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
+    },
+    "form-313": {
+      "status": "denied",
+      "bot": "Canary",
+      "template_url": "https://x.ai/bot/pDA__B7cYeXbmPXgF7eAc",
+      "note": "site form #313; copy of Vuln Scout",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
+    },
+    "form-298": {
+      "status": "denied",
+      "bot": "Bit Warden",
+      "template_url": "https://x.ai/bot/G2VIYoauSsdbjHKnNjEr8",
+      "note": "site form #298; overlapping spend/usage tool",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
+    },
+    "form-295": {
+      "status": "denied",
+      "bot": "Safe Sweep",
+      "template_url": "https://x.ai/bot/Z7OuQK3Hin1C5iIK7lvXN",
+      "note": "site form #295; bulk unfollow / account risk",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
+    },
+    "form-290": {
+      "status": "denied",
+      "bot": "Sensei",
+      "template_url": "https://x.ai/bot/wUPzZYJGLoY859G420jxh",
+      "note": "site form #290; no confirmed creator handle",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland"
     }
   }
 }

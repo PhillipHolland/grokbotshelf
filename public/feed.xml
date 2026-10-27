@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 11:03:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 11:11:14 GMT</lastBuildDate>
+  <item>
+    <title>📑 Counsel by MikeysMolecules</title>
+    <link>https://grokbotshelf.com/bot/counsel-by-mikeysmolecules</link>
+    <guid isPermaLink="false">https://x.ai/bot/-vwyPA-YY-cDclBshl-Ue</guid>
+    <description>Reads contracts, leases, bills and terms in plain words, flags hidden fees and risky clauses, does cited research, and drafts a brief for your attorney. Not a lawyer; drafts only.</description>
+    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:01 GMT</pubDate>
+  </item>
   <item>
     <title>💡 Idea Lab &amp; Brainstorm Logger by beastnug</title>
     <link>https://grokbotshelf.com/bot/idea-lab-and-brainstorm-logger</link>
@@ -447,15 +456,6 @@
     <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 26 Oct 2026 12:08:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>📖 Dostoyevsky by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/dostoyevsky</link>
-    <guid isPermaLink="false">https://x.ai/bot/DR1LNk5p_M_7hv_wJfTPu</guid>
-    <description>Talks with you in the voice of Dostoyevsky&apos;s novels about confession, guilt, conscience and mercy.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:11 GMT</pubDate>
   </item>
 </channel>
 </rss>
