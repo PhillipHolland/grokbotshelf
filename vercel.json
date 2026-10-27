@@ -206,5 +206,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/bot/product-catalog-organizer",
+      "destination": "/bot/product-cataloger",
+      "permanent": true
+    }
   ]
 }
