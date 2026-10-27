@@ -19,8 +19,15 @@ const state = (p) => p.evaluate(() => { const b = document.querySelector('.gbs-u
       let s = await state(p);
       ok(s && !s.shown && s.tab === -1 && s.label === 'Jump to top', `${name} /${path}: present, hidden and unfocusable at the top`);
       if (tall < 520) { await p.evaluate(() => scrollTo(0, 1e6)); await settle(); s = await state(p); ok(!s.shown, `${name} /${path}: short page (${tall}px) never shows it`); continue; }
-      await p.evaluate(() => scrollTo(0, 600)); await settle();
-      s = await state(p);
+      if (name === 'phone') {
+        // touch: hidden while scrolling down, shown after a scroll back up (round 3 #4), hidden again on the next scroll down
+        await p.evaluate(() => scrollTo(0, 700)); await settle(); s = await state(p);
+        ok(!s.shown, `${name} /${path}: still hidden after scrolling down 700px`);
+        await p.evaluate(() => scrollTo(0, 600)); await settle(); s = await state(p);
+        ok(s.shown && s.tab === 0, `${name} /${path}: shows after a 100px scroll back up`);
+        if (tall > 900) { await p.evaluate(() => scrollTo(0, 800)); await settle(); const h = await state(p); ok(!h.shown, `${name} /${path}: hides again on the next scroll down`);
+          await p.evaluate(() => scrollTo(0, 600)); await settle(); s = await state(p); }
+      } else { await p.evaluate(() => scrollTo(0, 600)); await settle(); s = await state(p); }
       ok(s.shown && s.tab === 0, `${name} /${path}: shows after 600px`);
       ok(s.r.ri <= s.vw - 4 && s.r.b <= s.vh - 12 && s.r.l > s.vw / 2, `${name} /${path}: bottom-right (${Math.round(s.r.l)},${Math.round(s.r.t)})`);
       const rail = await p.evaluate(() => { const r = document.querySelector('.rail:not([hidden])'); if (!r) return null; const bs = [...r.querySelectorAll('button')].map(x => x.getBoundingClientRect()); return { l: Math.min(...bs.map(x => x.left)), b: r.getBoundingClientRect().bottom }; });
@@ -45,9 +52,9 @@ const state = (p) => p.evaluate(() => { const b = document.querySelector('.gbs-u
   await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle();
   const blocked = await p.evaluate((sels) => { const st = document.createElement('style'); let bad = 0;
     st.textContent = sels.map(x => { try { document.querySelector(x); return x + '{display:none!important}'; } catch (_) { bad++; return ''; } }).join('\n'); document.head.appendChild(st);
-    scrollTo(0, 1500); return new Promise(r => setTimeout(() => { const b = document.querySelector('.gbs-up'), cs = getComputedStyle(b), rc = b.getBoundingClientRect();
+    scrollTo(0, 1600); return new Promise(r => setTimeout(() => { scrollTo(0, 1500); setTimeout(r, 300); })).then(() => new Promise(r => setTimeout(() => { const b = document.querySelector('.gbs-up'), cs = getComputedStyle(b), rc = b.getBoundingClientRect();
       const ac = getComputedStyle(b, '::after'), tap = ac.content === 'none' ? rc.width : rc.width - parseFloat(ac.left) - parseFloat(ac.right), tapH = ac.content === 'none' ? rc.height : rc.height - parseFloat(ac.top) - parseFloat(ac.bottom);
-      r({ n: sels.length - bad, disp: cs.display, vis: cs.visibility, w: Math.round(tap), h: Math.round(tapH), hit: (document.elementFromPoint(rc.left + rc.width / 2, rc.top + rc.height / 2) || {}).closest?.('.gbs-up') ? 1 : 0 }); }, 500)); }, sels);
+      r({ n: sels.length - bad, disp: cs.display, vis: cs.visibility, w: Math.round(tap), h: Math.round(tapH), hit: (document.elementFromPoint(rc.left + rc.width / 2, rc.top + rc.height / 2) || {}).closest?.('.gbs-up') ? 1 : 0 }); }, 500))); }, sels);
   ok(blocked.disp !== 'none' && blocked.vis === 'visible' && blocked.w >= 44 && blocked.h >= 44 && blocked.hit, `content blocker (${blocked.n} Fanboy annoyance rules): button still shown with a 44px tap (${blocked.disp}, ${blocked.vis}, ${blocked.w}x${blocked.h}px tap, hit ${blocked.hit})`);
   await p.setViewport({ width: 1280, height: 800 });
   await p.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);

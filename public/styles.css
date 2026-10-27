@@ -706,3 +706,8 @@ html.tailing .sentinel{height:100vh}
 html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
 html[data-theme="light"] .badge:not([class*="ag-"]){border-color:var(--line2)}
 html[data-theme="light"] :is(.card:hover,.bp-more a:hover,.tlist a:hover,.theme-btn:hover){background:var(--field)}
+
+/* ---------- Round 3 #4: phones. Header buttons already take 44px taps through ::after (round 2); footer author links are
+   44px rows that now read as links (text colour, underline) instead of grey text. Back-to-top shows only on a scroll up
+   (shelf-up.js), so it never sits on a card's "Get this bot" while you read down. ---------- */
+html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line2);padding:0 2px}

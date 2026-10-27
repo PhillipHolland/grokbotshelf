@@ -1,5 +1,5 @@
 // Jump-to-top: a small floating button, bottom-right (left of the A-Z rail on phones). It appears once the page has
-// scrolled about half a viewport (clamped 300-600px; recomputed on resize), hides again near the top, and scrolls smoothly to the top
+// scrolled about half a viewport (on touch phones only once you scroll back up, round 3 #4) (clamped 300-600px; recomputed on resize), hides again near the top, and scrolls smoothly to the top
 // (instantly with prefers-reduced-motion). Keyboard activation moves focus to the page's h1.
 //
 // Names are deliberately neutral: Fanboy's Annoyance list (EasyList Annoyances, shipped in AdGuard, 1Blocker, Wipr and
@@ -47,9 +47,20 @@
       b.style.pointerEvents = on ? "auto" : "none";
       if (on) de.setAttribute("data-totop", "1"); else de.removeAttribute("data-totop");
     }
+    // Touch phones: only after a scroll up (like Safari's own bar), hidden again on the next scroll down, so it never
+    // sits on a card's "Get this bot" while you read down the shelf. Mouse and keyboard keep the plain threshold.
+    var coarse = window.matchMedia && window.matchMedia("(hover: none) and (pointer: coarse)");
+    var lastY = y(), upBy = 0, UP = 24, DOWN = 6;
     function sync() {
       raf = 0;
-      var S = show(), top = y(), next = on ? top > Math.round(S * 0.6) : top > S;
+      var S = show(), top = y(), next = on ? top > Math.round(S * 0.6) : top > S, d = top - lastY;
+      lastY = top;
+      if (de.classList.contains("mobile") || (coarse && coarse.matches)) {
+        if (d < 0) upBy -= d; else if (d > DOWN) upBy = 0;
+        var held = document.activeElement === b;
+        if (next && !held) next = on ? !(d > DOWN) : upBy >= UP;
+        if (!next) upBy = d < 0 ? upBy : 0;
+      }
       if (next !== on) {
         on = next; b.tabIndex = on ? 0 : -1;
         if (on) b.removeAttribute("aria-hidden"); else b.setAttribute("aria-hidden", "true");
