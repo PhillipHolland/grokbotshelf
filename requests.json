@@ -3555,6 +3555,387 @@
       "url": "https://x.com/jimaggie/status/2114863206539624551",
       "note": "Recredited 17 James bots to @jimaggie",
       "date": "2026-10-26"
+    },
+    "form-284": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Mirror",
+      "template_url": "https://x.ai/bot/6XwjJ_W0mX_ybK4ts_Ngb",
+      "url": "",
+      "note": "site form #284; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-283": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Buzzkill",
+      "template_url": "https://x.ai/bot/F1spQY8tmP2KCqnyuAbJh",
+      "url": "",
+      "note": "site form #283; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-282": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Sworm",
+      "template_url": "https://x.ai/bot/l0J0Nj95_yVOlFZIHB1Y_",
+      "url": "",
+      "note": "site form #282; held for Phillip: SEAL Team 7 security squad (red-team mutator)",
+      "date": "2026-10-26"
+    },
+    "form-281": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Twinwright",
+      "template_url": "https://x.ai/bot/Hvli5amrlprtDS2KuFRBP",
+      "url": "",
+      "note": "site form #281; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-280": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Grokologist",
+      "template_url": "https://x.ai/bot/8vdHXq66kVvVlbACd-IDL",
+      "url": "",
+      "note": "site form #280; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-279": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Watchbot",
+      "template_url": "https://x.ai/bot/D2M2qOWDB0AKe2k_jG7Ck",
+      "url": "",
+      "note": "site form #279; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-278": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Bottyguard",
+      "template_url": "https://x.ai/bot/PFI2o0ZcruL6vjjHAm5cF",
+      "url": "",
+      "note": "site form #278; held for Phillip: SEAL Team 7 security squad",
+      "date": "2026-10-26"
+    },
+    "form-277": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "SEAL Team 7",
+      "template_url": "https://x.ai/bot/f4d45hBOf-f-q3KMP4R20",
+      "url": "",
+      "note": "site form #277; held for Phillip: SEAL Team 7 squad link (adds 7 bots)",
+      "date": "2026-10-26"
+    },
+    "form-276": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Dostoyevsky",
+      "template_url": "https://x.ai/bot/DR1LNk5p_M_7hv_wJfTPu",
+      "url": "",
+      "note": "site form #276",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-275": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Austen",
+      "template_url": "https://x.ai/bot/c8sA8W1YcoRaYu5vjYFoa",
+      "url": "",
+      "note": "site form #275",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-274": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Shakespeare",
+      "template_url": "https://x.ai/bot/E8XC3NO5V_u63vWoHxJF0",
+      "url": "",
+      "note": "site form #274",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-273": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Woolf",
+      "template_url": "https://x.ai/bot/4fP33DHTBJudWglJyeMB_",
+      "url": "",
+      "note": "site form #273",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-272": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Shelley",
+      "template_url": "https://x.ai/bot/SzGYytJglwB_dqRt5OaTO",
+      "url": "",
+      "note": "site form #272",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-271": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Tolstoy",
+      "template_url": "https://x.ai/bot/42Clq7Vdn2X7zcwJ9OGxR",
+      "url": "",
+      "note": "site form #271",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-270": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Poe",
+      "template_url": "https://x.ai/bot/EcUpzABnh3MfZQTN7inmP",
+      "url": "",
+      "note": "site form #270",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-269": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Grimy",
+      "template_url": "https://x.ai/bot/d8gcjkeO4p4ltkn0rBJhQ",
+      "url": "",
+      "note": "site form #269",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-268": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Karenbot",
+      "template_url": "https://x.ai/bot/KllRxIDr-s6KjmFjJBRJV",
+      "url": "",
+      "note": "site form #268",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-267": {
+      "status": "pending",
+      "author": "@SuddenlyJon",
+      "bot": "Tab Janitor",
+      "template_url": "https://x.ai/bot/XOYBYmHQrUT_Ux88SS409",
+      "url": "",
+      "note": "site form #267; held for Phillip: Tab Janitor republished under new template id; same creator already on shelf with older id",
+      "date": "2026-10-26"
+    },
+    "form-266": {
+      "status": "pending",
+      "author": "AI_Revolution (no handle)",
+      "bot": "Your Voice Editor",
+      "template_url": "https://x.ai/bot/SQm2jfmHAJNTjWW1A7AVl",
+      "url": "",
+      "note": "site form #266; held for Phillip: no creator handle (AI_Revolution)",
+      "date": "2026-10-26"
+    },
+    "form-265": {
+      "status": "pending",
+      "author": "AI_Revolution (no handle)",
+      "bot": "Bills and Renewals Watcher",
+      "template_url": "https://x.ai/bot/uHbqMd8nxilXPg5prgOFe",
+      "url": "",
+      "note": "site form #265; held for Phillip: no creator handle (AI_Revolution)",
+      "date": "2026-10-26"
+    },
+    "form-264": {
+      "status": "pending",
+      "author": "AI_Revolution (no handle)",
+      "bot": "Pass or Fail Checker",
+      "template_url": "https://x.ai/bot/rYrK4IrDCPzE5fvuhfTfC",
+      "url": "",
+      "note": "site form #264; held for Phillip: no creator handle (AI_Revolution)",
+      "date": "2026-10-26"
+    },
+    "form-263": {
+      "status": "pending",
+      "author": "AI_Revolution (no handle)",
+      "bot": "Morning Paper Editor",
+      "template_url": "https://x.ai/bot/lENpURW9T-00ZyTlmYFue",
+      "url": "",
+      "note": "site form #263; held for Phillip: no creator handle (AI_Revolution)",
+      "date": "2026-10-26"
+    },
+    "form-262": {
+      "status": "pending",
+      "author": "@cam_orzen",
+      "bot": "Chief of Staff",
+      "template_url": "https://x.ai/bot/9dChIEa1WaE4iCH3-WVuE",
+      "url": "",
+      "note": "site form #262; held for Phillip: name clash with Chief Of Staff (@Edward_Atime) and built-in starter name",
+      "date": "2026-10-26"
+    },
+    "form-261": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Stuart",
+      "template_url": "https://x.ai/bot/84kkQDMIDwXhyLYjuU5di",
+      "url": "",
+      "note": "site form #261",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-260": {
+      "status": "pending",
+      "author": "@cam_orzen",
+      "bot": "Trade Desk",
+      "template_url": "https://x.ai/bot/xWmCkaKly5owQTBLXxsCs",
+      "url": "",
+      "note": "site form #260; held for Phillip: trades in a brokerage (moves money)",
+      "date": "2026-10-26"
+    },
+    "form-259": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Page Watcher",
+      "template_url": "https://x.ai/bot/46HDIHyRDtNsmRWSO-Pd-",
+      "url": "",
+      "note": "site form #259",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-258": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Exec Deck",
+      "template_url": "https://x.ai/bot/AspPXqt5a75du38780LGC",
+      "url": "",
+      "note": "site form #258",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-257": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Perf Reporting",
+      "template_url": "https://x.ai/bot/mEpQiRn31VPsk82EYVpzJ",
+      "url": "",
+      "note": "site form #257",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-256": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "ODD Desk",
+      "template_url": "https://x.ai/bot/lskPBHcckZYCTGBkTCTEr",
+      "url": "",
+      "note": "site form #256",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-255": {
+      "status": "pending",
+      "author": "@cam_orzen",
+      "bot": "Spam-Call Scrubber",
+      "template_url": "https://x.ai/bot/5QmBwdQ3ISkDzetniTGMQ",
+      "url": "",
+      "note": "site form #255; held for Phillip: same name and description as Phillip's own Spam-Call Scrubber bot",
+      "date": "2026-10-26"
+    },
+    "form-254": {
+      "status": "pending",
+      "author": "@cam_orzen",
+      "bot": "Counterpoint · X debate drafter",
+      "template_url": "https://x.ai/bot/8atAclv4wOWLHmLAP0TAw",
+      "url": "",
+      "note": "site form #254; held for Phillip: political: drafts replies to anti-capitalist posts",
+      "date": "2026-10-26"
+    },
+    "form-253": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Solo Co",
+      "template_url": "https://x.ai/bot/E4gDp4Fub4rDGgLCDaCrk",
+      "url": "",
+      "note": "site form #253",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-252": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Planner",
+      "template_url": "https://x.ai/bot/krCFz-eNiFI_IdghArz7g",
+      "url": "",
+      "note": "site form #252",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-251": {
+      "status": "pending",
+      "author": "@cam_orzen",
+      "bot": "Writing Bot",
+      "template_url": "https://x.ai/bot/-7S4MgO34hCNUSxRQD-3l",
+      "url": "",
+      "note": "site form #251; held for Phillip: name clash with Writing Bot (@mattyp)",
+      "date": "2026-10-26"
+    },
+    "form-250": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Scout",
+      "template_url": "https://x.ai/bot/-ahoDV8vdQPOs03EZBLKS",
+      "url": "",
+      "note": "site form #250",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-249": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Fixer",
+      "template_url": "https://x.ai/bot/uv7l9iczH17_hXzO7PG_T",
+      "url": "",
+      "note": "site form #249",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-248": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Gridlock",
+      "template_url": "https://x.ai/bot/dfCpb4mfCpUIRkyvif7Ej",
+      "url": "",
+      "note": "site form #248",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-247": {
+      "status": "added",
+      "author": "@cam_orzen",
+      "bot": "Chief Health · Training and health coach",
+      "template_url": "https://x.ai/bot/IPqP_y4MR4JbE3R41ZSUU",
+      "url": "",
+      "note": "site form #247",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-246": {
+      "status": "added",
+      "author": "@HungOnCode",
+      "bot": "SI",
+      "template_url": "https://x.ai/bot/__fIbaFHUEwqKdvN2LK1K",
+      "url": "",
+      "note": "site form #246",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "2114864659849478437": {
+      "status": "denied",
+      "author": "@acalds9",
+      "bot": "WARREN BUFFET",
+      "template_url": "https://x.ai/bot/BQ1H2KXlGzwIUkq2czxy9",
+      "url": "https://x.com/acalds9/status/2114864659849478437",
+      "reason": "Re-request; Phillip declined this template on 2026-10-25",
+      "date": "2026-10-26"
     }
   }
 }
