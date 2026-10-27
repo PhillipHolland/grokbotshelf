@@ -33,7 +33,7 @@ const slug = (s) => fold(s).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').r
   await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle(800);
   const r = await p.evaluate((scores) => {
     const els = [...document.querySelectorAll('#results .vote')]; let bad = [];
-    for (const el of els) { const s = scores[el.dataset.vote], n = el.querySelector('.vn').textContent; const want = s ? String(s.score) : ['', '0']; if (Array.isArray(want) ? !want.includes(n) : n !== want) bad.push(el.dataset.vote + '=' + n); }
+    for (const el of els) { const s = scores[el.dataset.vote], n = el.querySelector('.vn').textContent; const want = s ? String(s.score) : '0'; if (n !== want) bad.push(el.dataset.vote + '=' + n); }
     return { n: els.length, bad: bad.slice(0, 5), nbad: bad.length, q: window.__slugQ };
   }, scores);
   ok(r.n > 100 && r.nbad === 0, `all ${r.n} vote widgets show their tally after load (${r.nbad} wrong${r.bad.length ? ': ' + r.bad.join(', ') : ''})`);

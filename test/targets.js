@@ -82,7 +82,8 @@ function contrastOf(el) {
   {
     const p = await open('/', { width: 1280 });
     const r = await p.evaluate(() => { const d = document.querySelector('.crawl details'); d.open = true; const h = (s) => Math.round(document.querySelector(s).getBoundingClientRect().height); const w = (s) => Math.round(document.querySelector(s).getBoundingClientRect().width); return { crawl: h('.crawl nav a'), app: [w('#results .card a.app'), h('#results .card a.app')], rail: w('.rail button') }; });
-    ok(r.crawl < 30 && r.app.join('x') === '34x34' && r.rail === 26, `1280: desktop sizes unchanged (crawl link ${r.crawl}px, app link ${r.app.join('x')}, rail ${r.rail}px wide)`);
+    // App link is 32x34 on desktop since the one-row card footer (approved card mock, 10/26); phones keep 44px
+    ok(r.crawl < 30 && r.app.join('x') === '32x34' && r.rail === 26, `1280: desktop sizes unchanged (crawl link ${r.crawl}px, app link ${r.app.join('x')}, rail ${r.rail}px wide)`);
     await p.close();
   }
   ok(!errs.length, 'no page errors' + (errs.length ? ': ' + errs.slice(0, 3).join(' | ') : ''));

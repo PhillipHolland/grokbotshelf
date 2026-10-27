@@ -211,7 +211,6 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 @media (max-width:560px){.tlist{grid-template-columns:1fr}.topvotes{padding:12px 10px 12px;border-radius:14px}}
 
 /* Up / down votes: quiet arrows and a net score */
-.foot-row{flex-wrap:wrap;row-gap:6px}
 .vote{display:inline-flex;align-items:center;margin-right:2px}
 .vote .vb{width:30px;height:34px}
 .vote .vb svg{width:17px;height:17px;stroke-width:2}
@@ -222,7 +221,6 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 
 /* Add to Bot app: small icon on desktop, full-width primary on phones (html.mobile set in <head>) */
 .gets{display:flex;align-items:center;gap:4px;margin-left:auto}
-.foot-row{flex-wrap:wrap;row-gap:8px}
 .card .app{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9999px;color:var(--text2);text-decoration:none;transition:background .15s,color .15s}
 .card .app:hover{background:var(--mark);color:var(--blue)}
 .card .app svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -527,3 +525,91 @@ html[data-theme="light"] .gbs-up{box-shadow:0 2px 10px rgba(15,20,25,.08)}
   .gbs-up{bottom:calc(120px + env(safe-area-inset-bottom));width:38px;height:38px}
   html.has-rail .gbs-up{right:calc(max(0px,env(safe-area-inset-right)) + 44px)}
 }
+
+/* ==================== Card + filter alignment (approved mockup, 2026-10-26) ====================
+   Kept last so it applies exactly as mocked (it was loaded after the rest of this file).
+   No new colors, no new radii, no new type sizes. Only spacing, sizing and alignment.
+   Everything here uses the existing custom properties (--line, --text2, --mark, ...) so dark and light stay as they are. */
+
+/* ---------- 1. Card: flex column, clamped description, tag row pinned above the footer ---------- */
+.card{container-type:inline-size}
+.head{margin-bottom:12px}
+.ttl{min-width:0}
+.card h3{overflow-wrap:anywhere}
+/* Three lines, same height on every card from 641px (multi-column). Phones keep natural height, still clamped. */
+.desc{flex:0 0 auto;margin:0;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+@media (min-width:641px){.desc{min-height:calc(3 * 1.4em)}}
+/* The tag row is always in the DOM (empty when the bot has no meta). It sits one fixed distance above the footer. */
+.badges{flex:none;margin:12px 0 12px;min-height:22px;flex-wrap:nowrap;gap:6px;overflow-x:auto;scrollbar-width:none;align-items:center;margin-top:auto;padding-top:12px}
+.badges::-webkit-scrollbar{display:none}
+.badge{flex:none;height:22px}
+
+/* ---------- 2. Footer: one row of fixed slots on desktop, two tidy rows on phones ---------- */
+/* Slots, left to right: vote (up, count, down), copy, share, X post (empty slot when the bot has none), then the rare
+   code link. Right: Add to Bot app icon + Get this bot. Sized to fit the narrowest desktop column (308px inside the
+   From the builders panel at 1280). */
+.foot-row{flex-wrap:nowrap;row-gap:0;gap:8px;min-height:34px}
+.tools{flex:0 1 auto;min-width:0;display:flex;align-items:center;gap:0;margin-left:-8px}
+.tools .ib{width:30px;height:34px;flex:0 1 auto;min-width:26px}
+.tools .ib.slot{visibility:hidden;pointer-events:none}
+.gets{flex:none;gap:2px;margin-left:auto}
+.card .app{width:32px;height:34px}
+.get{padding:0 12px;white-space:nowrap}
+/* Narrow columns (3-up under ~1150px, 2-up under ~790px): the actions drop to a second row, right-aligned, on every card */
+@container (max-width:300px){
+  .foot-row{flex-wrap:wrap;row-gap:8px}
+  .gets{flex:1 0 100%;justify-content:flex-end}
+}
+
+/* ---------- 3. Vote count: always present, fixed width, tabular ---------- */
+.vote{margin-right:0}
+.vote .vb{width:28px;height:34px}
+.vote .vn{width:22px;min-width:0;padding:0;text-align:center;font-variant-numeric:tabular-nums;line-height:34px}
+
+/* ---------- 4. Meta line: one gap, centered, long names truncate ---------- */
+.sub{gap:6px;margin-top:3px;line-height:16px;height:16px;align-items:center}
+.sub>span:first-child{flex:none}
+.sub>.cn{flex:0 1 auto}
+.sub img{display:block}
+.sub .bm{gap:4px}
+.sub .bm svg{display:block;flex:none}
+
+/* ---------- Phones (html.mobile): the same slots, 44px targets, actions on their own row ---------- */
+html.mobile .tools{margin-left:-8px}
+html.mobile .tools .ib{width:40px;height:44px;min-width:36px}
+html.mobile .vote .vb{width:36px;height:44px}
+html.mobile .vote .vn{line-height:44px}
+html.mobile .foot-row{flex-wrap:wrap;row-gap:8px}
+html.mobile .card .gets{flex:1 0 100%;margin-left:0}
+html.mobile .card .app{width:auto;height:44px}
+html.mobile .card .gets .get{height:44px;padding:0 14px}
+
+/* ---------- 5. Filter row: equal heights, one gap, no truncated labels ---------- */
+.filterbar{gap:8px;align-items:center}
+.filterbar .selwrap select,.filterbar .chip{height:36px;line-height:34px;padding-top:0;padding-bottom:0}
+@media (min-width:700px){
+  /* One row down to 1024: the two short selects keep a fixed width so their labels never clip; creator and category
+     share what is left (150px to 260px). Below ~925px the row wraps instead of clipping. */
+  .filterbar{flex-wrap:wrap;row-gap:8px}
+  .selwrap{flex:1 1 0;min-width:150px;max-width:260px}
+  .selwrap.sm{flex:0 0 190px;max-width:190px}
+}
+@media (max-width:699px){
+  .filterbar{gap:8px}
+  .filterbar .selwrap select,.filterbar .chip{height:44px;line-height:42px}
+  /* Phones: natural width per select so nothing clips; the row scrolls sideways (already the case) */
+  .selwrap{flex:0 0 auto;min-width:0;max-width:none}
+  .selwrap select{width:auto;max-width:220px}
+}
+
+/* ---------- 6. From the builders header and the A-Z rail ---------- */
+.bhead{gap:12px 24px;margin-bottom:16px}
+.bsub{gap:10px 24px}
+.bsub .who{gap:10px;height:28px}
+.bsub .who img{display:block}
+.bsub a.all{display:inline-flex;align-items:center;height:28px;padding:0 12px;margin-left:2px;line-height:1}
+.ghead{gap:12px;margin-bottom:12px}
+.ghead h2{gap:6px}
+.ghead .plink{margin-left:auto}
+/* Rail: an even 2px gap between letters, letters centered. Phones (500px and under) keep the stretched 44px targets from styles.css. */
+@media (min-width:501px){.rail{gap:2px}.rail button{flex:0 1 20px;max-height:22px;line-height:1}}

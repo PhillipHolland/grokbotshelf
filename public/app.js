@@ -201,10 +201,11 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
     window.location.href = deep;
   }
   function badgesHTML(b) {
-    const m = b._meta; if (!m) return "";
+    const m = b._meta; if (!m) return '<div class="badges"></div>';
     const out = (m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
       .concat((m.works_with || []).map((w) => `<span class="badge">${esc(w)}</span>`));
-    return out.length ? `<div class="badges" title="Set by the shelf from the bot's description">${out.join("")}</div>` : "";
+    // Always present (empty without meta) so the tag line sits at the same height on every card
+    return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
   }
   function card(b, m, pre) {
     const h = m ? m.hits : {}, id = (pre || "") + b._slug;
@@ -224,6 +225,7 @@ ${voteHTML(b)}
 <a class="ib" href="${esc(shareX(b).web)}" data-sharex="${b._slug}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X" title="Share ${esc(b.name)} on X">${I.share}</a>
 ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: original post on X" title="Original post on X">${I.x}</a>` : ""}
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
+${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"></span>'}
 </div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add to Bot app: ${esc(b.name)}" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get this bot: ${esc(b.name)} on x.ai">Get this bot</a></div></div>
 </article>`;
   }
@@ -275,7 +277,7 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
   const saveMine = () => { try { localStorage.setItem(VKEY, JSON.stringify(vote.mine)); } catch {} };
   function voteBits(slug) {
     const v = vote.mine[slug] || 0, s = vote.scores[slug];
-    const n = vote.global && s && s.up + s.down ? s.score : "";
+    const n = vote.global && s ? s.score : 0; // always shown: the shared tally, 0 when nobody has voted or the tally is offline
     const title = !vote.global ? "Your vote is saved in this browser" : s && s.up + s.down ? `${s.up} up, ${s.down} down` : "No votes yet";
     return { v, n, title };
   }
