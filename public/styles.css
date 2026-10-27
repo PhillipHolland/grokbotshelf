@@ -699,3 +699,10 @@ html.tailing .sentinel{height:100vh}
 /* ---------- Round 3 #2: bot, creator and 404 pages: the footer joins the header in the 720px column ---------- */
 /* .site-foot has no side padding (its rule is the border), so it takes the 688px content width, not the 720px box */
 @media (min-width:760px){body.botpage .site-foot{max-width:688px}}
+
+/* ---------- Round 3 #3: light mode. --line (#eff3f4) is 1.12:1 on white: fine for full-width hairlines (footer rule, dock
+   edge, "Under the hood" rows), too faint to outline a floating card. Outlined containers take --line2, the grey the light
+   theme already uses for inputs and ghost buttons; hover takes --field, because --hover (1.06:1) is invisible on white. ---------- */
+html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
+html[data-theme="light"] .badge:not([class*="ag-"]){border-color:var(--line2)}
+html[data-theme="light"] :is(.card:hover,.bp-more a:hover,.tlist a:hover,.theme-btn:hover){background:var(--field)}

@@ -62,6 +62,28 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await p.close();
   }
 
+  // #3 light mode: outlined containers use --line2, hover uses --field; hairlines keep --line; dark mode unchanged
+  for (const theme of ['light', 'dark']) {
+    const p = await open('/', { theme });
+    await p.waitForSelector('#results .card');
+    const col = (v) => p.evaluate((v) => { const i = document.createElement('i'); i.style.color = getComputedStyle(document.documentElement).getPropertyValue(v); document.body.appendChild(i); const c = getComputedStyle(i).color; i.remove(); return c; }, v);
+    const [line, line2, field, hover] = [await col('--line'), await col('--line2'), await col('--field'), await col('--hover')];
+    const card = await p.$eval('#results .card', (e) => getComputedStyle(e).borderTopColor);
+    await p.hover('#results .card'); await sleep(300);
+    const hov = await p.$eval('#results .card', (e) => getComputedStyle(e).backgroundColor);
+    const foot = await p.$eval('.site-foot', (e) => getComputedStyle(e).borderTopColor);
+    if (theme === 'light') ok(card === line2 && hov === field && foot === line, `#3 light: card border --line2 (${card}), hover --field (${hov}), footer hairline --line (${foot})`);
+    else ok(card === line && hov === hover, `#3 dark unchanged: card border --line (${card}), hover --hover (${hov})`);
+    await p.close();
+  }
+  {
+    const p = await open('/bot/archivist', { theme: 'light' });
+    const r = await p.evaluate(() => ['.bp-card', '.bp-more a', '.bp-embed', '.snip', '.icon.big'].map((s) => { const e = document.querySelector(s); return e ? getComputedStyle(e).borderTopColor : 'none'; }));
+    const l2 = await p.evaluate(() => { const i = document.createElement('i'); i.style.color = getComputedStyle(document.documentElement).getPropertyValue('--line2'); document.body.appendChild(i); return getComputedStyle(i).color; });
+    ok(r.every((c) => c === l2), `#3 light bot page: card, similar tiles, badge panel, snippets and icon use --line2 (${[...new Set(r)]})`);
+    await p.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })().catch((e) => { console.error(e); process.exit(1); });
