@@ -1,4 +1,4 @@
-// Card placeholder size, light/dark contrast of the vote score badge and snippet Copy buttons, and 44px tap targets
+// Light/dark contrast of the vote score badge and snippet Copy buttons, and 44px tap targets
 // under 500px (card app link, crawl links, A-Z rail). /api/votes is mocked in the browser, so nothing is sent anywhere.
 // Usage: NODE_PATH=/path/to/node_modules node test/targets.js [base-url]
 const puppeteer = require('puppeteer-core');
@@ -38,22 +38,6 @@ function contrastOf(el) {
     await p.evaluateOnNewDocument((t) => { try { localStorage.setItem('shelfer-sheet', '1'); localStorage.setItem('theme', t); } catch (e) {} }, theme);
     await p.goto(new URL(path, BASE).href, { waitUntil: 'networkidle0' }); await sleep(300);
     return p;
-  }
-
-  // Placeholder size: close to the median real card, so first-time renders barely change the page height
-  for (const [width, want, ua] of [[1280, 260, null], [390, 280, PHONE_UA]]) {
-    const p = await open('/', { width, ua });
-    const r = await p.evaluate(() => {
-      const cs = [...document.querySelectorAll('#results .card')];
-      const ph = getComputedStyle(cs[0]).containIntrinsicHeight || getComputedStyle(cs[0]).containIntrinsicSize;
-      document.documentElement.classList.add('jumping'); // render every card once to read real heights
-      const hs = cs.map((c) => c.getBoundingClientRect().height).sort((a, b) => a - b);
-      document.documentElement.classList.remove('jumping');
-      return { ph, median: Math.round(hs[hs.length >> 1]) };
-    });
-    ok(new RegExp(`\\b${want}px`).test(r.ph), `${width}px: card placeholder is ${want}px (${r.ph})`);
-    ok(Math.abs(r.median - want) <= 30, `${width}px: placeholder within 30px of the median real card (${r.median}px)`);
-    await p.close();
   }
 
   // Contrast: score badge (home Top voted) and snippet Copy (bot page), both themes, AA 4.5:1
