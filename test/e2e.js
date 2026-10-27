@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer-core');
+const scrollAll = require('./scroll-all');
 // Clicks and menu changes paint the control first and re-render the cards one frame later: wait for that render
 const painted = (p) => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(r, 0))));
 const BASE = process.argv[2] || 'http://localhost:8765/';
@@ -24,6 +25,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   p.on('response', r => r.status() >= 400 && !/\/(api|_vercel)\//.test(r.url()) && !(r.status() === 404 && r.request().isNavigationRequest()) && errs.push(r.status() + ' ' + r.url()));
   await p.setViewport({ width: 1360, height: 900 });
   await p.goto(BASE, { waitUntil: 'networkidle0' });
+  await scrollAll(p);
   // Shelf cards only; the "From the builders" strip repeats a few bots with f- ids
   const n = () => p.$$eval('#results .card:not([id^="f-"])', c => c.length);
   ok(await n() === HOME, `home renders ${HOME} of ${TOTAL} cards, ${CAP} per long group (${await n()})`);
@@ -102,6 +104,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   // copy link
   await b.defaultBrowserContext().overridePermissions(new URL(BASE).origin, ['clipboard-read', 'clipboard-write', 'clipboard-sanitized-write']);
   await p.goto(BASE, { waitUntil: 'networkidle0' });
+  await scrollAll(p);
   // scroll first and let off-screen cards finish laying out, so the click lands on the button and not the card
   await p.$eval('#bot-archivist [data-copy]', e => e.scrollIntoView({ block: 'center' }));
   await new Promise(r => setTimeout(r, 300));

@@ -633,3 +633,4 @@ html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;ju
 .ghead h2 a.nm,.sub a.cn{color:inherit;text-decoration:none}
 .ghead h2 a.nm:hover,.sub a.cn:hover{text-decoration:underline}
 .sub a.cn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+#main > #results ~ *,.site-foot{overflow-anchor:none}
