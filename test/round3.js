@@ -119,10 +119,41 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     const p = await open(path, { w: 390 });
     const r = await p.evaluate(() => { const R = (e) => e.getBoundingClientRect(), h = R(document.querySelector('.bp h1')), s = document.querySelector('.bp .sub'), a = s.querySelector('a'), A = R(a);
       const dot = s.querySelector('.dot'), L = document.querySelector('.bp-links'), as = [...L.querySelectorAll('a')], xs = [...new Set(as.map((x) => Math.round(R(x).left)))];
-      const e = document.elementFromPoint(A.left + 4, A.bottom - 3); const desc = R(document.querySelector('.bp-desc') || document.querySelector('.bp-actions'));
+      const e = document.elementFromPoint(A.left + 4, A.bottom - 3); const desc = R(document.querySelector('.bp-desc, .cp-cats') || document.querySelector('.bp-actions'));
       return { gap: Math.round(A.top + 13 - h.bottom), tap: Math.round(A.height), tapOk: !!(e && e.closest('.bp .sub a')), dot: dot ? getComputedStyle(dot).display : 'none', stacked: getComputedStyle(s).flexDirection, cols: xs.length, linkH: Math.min(...as.map((x) => Math.round(R(x).height))), lastFact: Math.round(R(s.lastElementChild).bottom), descTop: Math.round(desc.top) }; });
     const creator = path.startsWith('/@');
     ok(r.gap >= 0 && r.gap <= 6 && r.tap >= 44 && r.tapOk && r.cols === 2 && r.linkH >= 44 && (!creator || (r.dot === 'none' && r.stacked === 'column' && r.descTop - r.lastFact >= 10)), `#7 390 ${path}: meta ${r.gap}px under the title, 44px tap, ${creator ? 'facts stacked, no dot, ' : ''}links in 2 columns (${JSON.stringify(r)})`);
+    await p.close();
+  }
+
+  // #8 creator page: category chips from bots.json (no sentence), each to this creator's bots in that category; tiles show the category;
+  // phone chips have a 44px tap; Creator not found offers Browse all bots
+  {
+    const BOTS = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, '..', 'public', 'bots.json'), 'utf8'));
+    const mine = BOTS.filter((b) => (b.creator_handle || '').replace(/^@/, '').toLowerCase() === 'phil_holland');
+    const want = [...new Set(mine.map((b) => b.category))].sort();
+    for (const w of [1280, 390]) {
+      const p = await open('/@phil_holland', { w });
+      const r = await p.evaluate(() => { const R = (e) => e.getBoundingClientRect();
+        const chips = [...document.querySelectorAll('.cp-cats a')].map((a) => ({ t: a.firstChild.textContent.trim(), n: +((a.querySelector('.n') || {}).textContent || 0), href: a.getAttribute('href') }));
+        const a = document.querySelector('.cp-cats a'), A = R(a); let tap = 0; for (let y = Math.floor(A.top) - 10; y < A.bottom + 10; y++) { const e = document.elementFromPoint(A.left + A.width / 2, y); if (e && e.closest('.cp-cats a') === a) tap++; }
+        return { chips, tap, h: Math.round(A.height), desc: !!document.querySelector('.bp-desc'), tiles: [...document.querySelectorAll('.cp-list li a')].map((x) => [x.getAttribute('href'), x.querySelector('small.cat').textContent]) }; });
+      const countsOk = r.chips.every((c) => c.n === mine.filter((b) => b.category === c.t).length);
+      const tilesOk = r.tiles.length === mine.length && r.tiles.every(([h, c]) => mine.some((b) => '/bot/' + h.split('/').pop() === h && b.category === c));
+      ok(JSON.stringify(r.chips.map((c) => c.t)) === JSON.stringify(want) && countsOk && r.chips.every((c) => /^\/\?creator=phil_holland&cat=[a-z0-9-]+$/.test(c.href)) && !r.desc && tilesOk && (w > 700 || r.tap >= 44),
+        `#8 ${w}: ${r.chips.length} category chips with counts, no sentence, ${r.tiles.length} tiles with category${w < 700 ? `, chip tap ${r.tap}px` : ''} (${JSON.stringify(r.chips[0])})`);
+      if (w === 1280) {
+        const c0 = r.chips[0]; await Promise.all([p.waitForNavigation({ waitUntil: 'networkidle0' }), p.click('.cp-cats a')]);
+        await p.waitForSelector('#results .card');
+        const shown = await p.$$eval('#results .card', (cs) => cs.filter((c) => c.getBoundingClientRect().height).length);
+        ok(shown === c0.n, `#8 chip "${c0.t}" opens the shelf with this creator's ${c0.n} bots in it (${shown} shown)`);
+      }
+      await p.close();
+    }
+    const p = await open('/@nobodyhere123', { w: 390 });
+    // in visual order: on phones the blue search button is drawn first
+    const nf = await p.evaluate(() => [...document.querySelectorAll('.bp-actions a, .bp-links a')].filter((a) => !a.hidden).sort((x, y) => x.getBoundingClientRect().top - y.getBoundingClientRect().top || x.getBoundingClientRect().left - y.getBoundingClientRect().left).map((a) => a.textContent + ' ' + a.getAttribute('href')));
+    ok(nf.join('|') === 'Search for @nobodyhere123 /?q=nobodyhere123|Browse all bots /|Add a bot /add|Browse creators /?sort=creator', `#8 Creator not found: ${nf.join(' | ')}`);
     await p.close();
   }
 

@@ -716,10 +716,10 @@ html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-u
 /* Text links: an outline with air around it instead of a 2px box hugging the glyphs (pills keep the ring above) */
 :where(.bp-links a,.bp .sub a,.sub a.cn,.ghead .handle,.ghead a.nm,.crawl a,.site-foot a,.add p a,.thead .tall,.fb-link,.home,.cp-cats a):focus-visible{box-shadow:none;outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 /* Press feedback on pills, chips and tiles, and a fill on icon buttons (touch has no hover) */
-:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear):active{transform:scale(.97)}
+:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:scale(.97)}
 :where(.ib,.vote .vb,.rail button):active{background:var(--mark);color:var(--blue)}
 .card{-webkit-tap-highlight-color:transparent}
-@media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear):active{transform:none;filter:brightness(.92)}}
+@media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:none;filter:brightness(.92)}}
 /* Copy: the same quiet blue pill as Reset, not a native grey button */
 .snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
 .snip-h .clear:hover{background:var(--mark)}
@@ -748,3 +748,15 @@ html.mobile .bp-head:has(.cp-av) .sub>span:not(.dot){margin-top:-12px;line-heigh
 /* Links row: two even columns (four links make two rows, two make one) instead of 3 + 1 */
 html.mobile .bp-links{display:grid;grid-template-columns:1fr 1fr;gap:0 8px}
 html.mobile .bp-links a{min-width:0;overflow-wrap:anywhere}
+
+/* ---------- Round 3 #8: creator page category chips, tile category ---------- */
+/* Chips go to this creator's bots in that category on the shelf; count only when the creator has more than one bot */
+.cp-cats{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cp-cats a{position:relative;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:9999px;background:var(--field);color:var(--text);font:600 14px var(--font);text-decoration:none;white-space:nowrap}
+.cp-cats a:hover{background:var(--hover)}
+.cp-cats .n{color:var(--text2);font-weight:700;font-variant-numeric:tabular-nums}
+html.mobile .cp-cats{gap:12px 8px}
+html.mobile .cp-cats a{height:32px}
+html.mobile .cp-cats a::after{content:"";position:absolute;inset:-6px -4px}
+.cp-list a small.cat{margin-top:1px;color:var(--blue);font-size:12px;font-weight:600}
+html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}

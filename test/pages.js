@@ -61,11 +61,13 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   ok(st === 404 && d.h1 === 'Page not found' && d.robots === 'noindex', `/bot/does-not-exist: ${st} "${d.h1}"`);
   ok(await p.$eval('#nf-search', (e) => !e.hidden && e.getAttribute('href') === '/?q=does%20not%20exist'), '404 offers a search for the slug words');
 
-  // unknown creator: the 404 page (status 404, noindex) says Creator not found, with a search for the handle and the creator list
+  // unknown creator: the 404 page (status 404, noindex) says Creator not found, with a search for the handle, the whole shelf and the creator list
   st = await go('/@nobodyhere'); d = await info();
   ok(st === 404 && d.path === '/@nobodyhere' && d.robots === 'noindex' && d.title === 'Creator not found · Grok Bot Shelf' && d.h1 === 'Creator not found', `/@nobodyhere: ${st} "${d.title}" robots=${d.robots}`);
   const nf = await p.evaluate(() => [...document.querySelectorAll('.bp-actions a')].filter((a) => !a.hidden).map((a) => a.textContent + ' ' + a.getAttribute('href')).sort());
-  ok(nf.join('|') === 'Browse creators /?sort=creator|Search for @nobodyhere /?q=nobodyhere', 'Creator not found offers a search and the creator list: ' + nf.join(' | '));
+  ok(nf.join('|') === 'Browse all bots /|Search for @nobodyhere /?q=nobodyhere', 'Creator not found offers a search and the whole shelf: ' + nf.join(' | '));
+  const nfl = await p.evaluate(() => [...document.querySelectorAll('.bp-links a')].map((a) => a.textContent + ' ' + a.getAttribute('href')).join('|'));
+  ok(nfl === 'Add a bot /add|Browse creators /?sort=creator', 'Creator not found keeps the creator list as a text link: ' + nfl);
   ok(!(await p.$('#results')) && await p.evaluate(() => performance.getEntriesByType('resource').every((r) => !/shelf-data\.json/.test(r.name))), 'no home page or shelf data behind an unknown creator');
   // a mixed-case unknown handle goes to the lowercase URL first
   st = await go('/@NobodyHere'); await p.waitForFunction(() => location.pathname === '/@nobodyhere' && document.readyState === 'complete', { timeout: 10000 }).catch(() => {}); d = await info();

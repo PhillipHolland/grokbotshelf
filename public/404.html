@@ -12,7 +12,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/styles.css?v=91ac5f1cbf">
+<link rel="stylesheet" href="/styles.css?v=77b40211d0">
 <script src="/shelf-up.js?v=21d6c63b39" defer></script>
 </head>
 <body class="botpage">
@@ -35,7 +35,7 @@
 </footer>
 <script>
 // /@handle with no creator page (creator pages are static; a mixed-case /@Handle was sent to the lowercase URL in the head):
-// say which creator is missing, and offer a search for the handle and the creator list
+// say which creator is missing, and offer a search for the handle, the whole shelf and the creator list
 (function () {
   var m = location.pathname.match(/^\/(?:@|%40)([a-z0-9_]+)\/?$/), a = document.getElementById("nf-search");
   if (!m || !a) return;
@@ -46,7 +46,10 @@
   // the search is the main button: on phones that is the blue .app button, shown first
   var mob = document.documentElement.classList.contains("mobile"), pri = mob ? a : get, sec = mob ? get : a;
   pri.textContent = "Search for " + h; pri.href = "/?q=" + encodeURIComponent(m[1]);
-  sec.textContent = "Browse creators"; sec.href = "/?sort=creator"; a.hidden = false;
+  sec.textContent = "Browse all bots"; sec.href = "/"; a.hidden = false;
+  // the creator list moves to the text links, in place of the sitemap link
+  var every = document.querySelector('.bp-links a[href="/sitemap.xml"]');
+  if (every) { every.textContent = "Browse creators"; every.href = "/?sort=creator"; }
 })();
 // /bot/<slug> that is not on the shelf: offer a search for the words in the slug
 (function () {

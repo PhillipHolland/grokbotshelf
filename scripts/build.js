@@ -328,12 +328,13 @@ ${HEADER}
   <article class="bp-card">
     <div class="bp-head"><img class="cp-av" src="${esc(versioned(c.avatar))}" alt="" width="56" height="56"><div>
       <h1>${esc(c.name)}</h1>
-      <p class="sub"><a href="${esc(c.url)}" rel="noopener" target="_blank">@${esc(c.handle)} on X</a><span class="dot" aria-hidden="true">·</span><span>${nb} on the shelf</span></p>
+      <p class="sub"><a href="${esc(c.url)}" rel="noopener" target="_blank">@${esc(c.handle)} on X</a><span class="dot" aria-hidden="true">·</span><span>${nb}${dates.length ? ` since ${fmtDate(dates[0])}` : " on the shelf"}</span></p>
     </div></div>
-    <p class="bp-desc">Shares Grok Bot templates in ${cats.map(esc).join(", ")}.${dates.length ? ` On the shelf since ${fmtDate(dates[0])}${dates.length > 1 && dates[dates.length - 1] !== dates[0] ? `, newest added ${fmtDate(dates[dates.length - 1])}` : ""}.` : ""}</p>
+    <ul class="cp-cats" aria-label="Categories">${cats.map((k) => { const m = c.bots.filter((b) => b.category === k).length;
+      return `<li><a href="/?creator=${esc(c.handle.toLowerCase())}&amp;cat=${esc(slugify(k))}">${esc(k)}${n > 1 ? ` <span class="n" aria-label="${m} ${m === 1 ? "bot" : "bots"}">${m}</span>` : ""}</a></li>`; }).join("")}</ul>
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
   </article>
-  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat">${esc(b.category)}</small><small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
 </main>
 ${FOOTER}
 </body>
