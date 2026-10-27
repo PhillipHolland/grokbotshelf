@@ -296,7 +296,8 @@ ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_
     const bits = voteBits(slug);
     results.querySelectorAll(`.vote[data-vote="${slug}"]`).forEach((el) => paintVoteEl(el, bits));
   }
-  const paintAll = () => results.querySelectorAll(".vote").forEach((el) => paintVote(el.dataset.vote));
+  // One pass over the vote widgets (a per-slug lookup for each widget was O(n²) on load and after each tail chunk)
+  const paintAll = () => { for (const el of results.querySelectorAll(".vote")) paintVoteEl(el); };
   function bump(slug, from, to) {
     const s = vote.scores[slug] || (vote.scores[slug] = { up: 0, down: 0, score: 0 });
     if (from === 1) s.up--; if (from === -1) s.down--;
