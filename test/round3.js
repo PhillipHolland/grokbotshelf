@@ -157,6 +157,30 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await p.close();
   }
 
+  // #9 sort is its own labeled pill outside the search field: desktop beside the search, phones in front of the filter row
+  // (no extra row, so the dock keeps its height); same options and ?sort=; 44px tall; no layout shift on load
+  for (const [w, th] of [[1280, 'dark'], [390, 'light']]) {
+    const p = await open('/?sort=votes', { w, theme: th, votes: { global: true, scores: { 'bot-archivist': { up: 6, down: 1, score: 5 }, 'bot-coach': { up: 4, down: 0, score: 4 }, 'bot-disk-doctor': { up: 3, down: 0, score: 3 } } } });
+    await p.evaluateOnNewDocument(() => { window.__cls = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift', buffered: true }); });
+    await p.reload({ waitUntil: 'networkidle0' }); await new Promise((r) => setTimeout(r, 600));
+    const r = await p.evaluate((w) => { const R = (e) => e.getBoundingClientRect(), s = document.querySelector('#sort'), S = R(s), C = R(document.querySelector('.capsule')), F = R(document.querySelector('.filterbar'));
+      const lab = [...s.labels].map((l) => l.textContent.trim()); const pre = document.querySelector('.sortwrap .pre');
+      // the whole pill is the select (label and chevron let taps through); top and bottom rows skip the rounded ends
+      let tap = true; for (let x = Math.ceil(S.left) + 2; x < S.right - 2; x += 4) for (const y of [S.top + 2, S.top + S.height / 2, S.bottom - 2]) if ((y === S.top + S.height / 2 || (x > S.left + S.height / 2 && x < S.right - S.height / 2)) && document.elementFromPoint(x, y) !== s) tap = false;
+      return { inCapsule: !!s.closest('.capsule'), opts: [...s.options].map((o) => o.value).join(','), value: s.value, label: lab.join('|'), labelShown: pre && R(pre).width > 0 && getComputedStyle(pre).visibility === 'visible', h: Math.round(S.height), tapAll: tap,
+        row: Math.round(S.top) === Math.round(w > 700 ? C.top : F.top), right: Math.round(S.right) <= innerWidth, cls: +window.__cls.toFixed(4) }; }, w);
+    ok(!r.inCapsule && r.opts === 'featured,newest,bookmarks,votes,az,creator' && r.value === 'votes' && r.label === 'Sort:' && r.labelShown && r.h >= 44 && r.tapAll && r.row && r.right && r.cls === 0,
+      `#9 ${w} ${th}: sort pill outside the search, labeled, ?sort=votes selected, ${r.h}px, ${w > 700 ? 'beside the search' : 'in front of the filters'}, CLS ${r.cls} (${JSON.stringify(r)})`);
+    await p.select('#sort', 'newest'); await new Promise((x) => setTimeout(x, 300));
+    ok(new URL(p.url()).searchParams.get('sort') === 'newest', `#9 ${w}: changing the pill writes ?sort=newest (${p.url()})`);
+    if (w === 1280) {
+      await p.select('#sort', 'featured'); await new Promise((x) => setTimeout(x, 300));
+      const sv = await p.$('[data-sortvotes]');
+      ok(!!sv, '#9 the Top voted strip and its See all link are there with votes'); if (sv) { await sv.click(); await new Promise((x) => setTimeout(x, 300)); ok(await p.$eval('#sort', (e) => e.value) === 'votes' && new URL(p.url()).searchParams.get('sort') === 'votes', '#9 "See all by votes" still switches the pill to Most upvoted'); }
+    }
+    await p.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })().catch((e) => { console.error(e); process.exit(1); });
