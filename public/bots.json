@@ -6700,5 +6700,18 @@
     "creator_avatar": "/avatars/jayrok35.webp",
     "source_post": "",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Mural",
+    "emoji": "🖼️",
+    "description": "Makes giant images that hold up when you zoom in, from 8K to 16K or print sizes, with tiled detail passes and zoom-in proof crops. It also cuts wallpaper packs, checks files for print, and orders posters only after you approve.",
+    "category": "Design",
+    "url": "https://x.ai/bot/Obg7rtHsF-I81kR1P8BFC",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "creator_avatar": "/avatars/suddenlyjon.webp",
+    "source_post": "https://x.com/SuddenlyJon/status/2114888723397562434",
+    "added": "2026-10-26"
   }
 ]
