@@ -411,6 +411,19 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     return true;
   }
   function tailDone() { if (io) io.unobserve(sentinel); }
+  // Ctrl/Cmd+F (or F3): the browser's find only sees built cards, so build the rest in small idle chunks.
+  // The key does its normal job; there is no preventDefault.
+  let idleTailOn = false;
+  function idleTail() {
+    if (idleTailOn || !tail.length) return;
+    idleTailOn = true; tailHold = false; if (holdOff) holdOff();
+    const later = window.requestIdleCallback ? (f) => requestIdleCallback(f, { timeout: 200 }) : (f) => setTimeout(f, 0);
+    const step = () => {
+      if (!tail.length) { idleTailOn = false; return tailDone(); }
+      appendTail(tailFlat ? FLAT_STEP : 2); later(step);
+    };
+    later(step);
+  }
 
   // Re-renders reuse DOM nodes: each card is built once per bot (per search highlight) and kept by its id, and
   // group sections are kept by creator, so sort, filter and Show more only move nodes. A reused card keeps
@@ -665,6 +678,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   }
   document.addEventListener("keydown", (e) => {
     const t = document.activeElement, inSearch = t === q, onCard = t && t.classList && t.classList.contains("card");
+    if ((e.key === "f" || e.key === "F") && (e.metaKey || e.ctrlKey) && !e.altKey || e.key === "F3") idleTail();
     if (inSearch && /^(Arrow|Enter$)/.test(e.key)) flush();
     if ((e.key === "k" && (e.metaKey || e.ctrlKey)) || (e.key === "/" && !inSearch && !/INPUT|SELECT|TEXTAREA/.test(t.tagName))) {
       e.preventDefault(); q.focus(); q.select(); return;

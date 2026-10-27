@@ -130,6 +130,23 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   ok(await n(p) === parseInt(await p.$eval('#count', (e) => e.textContent)), 'arrow keys build every card before moving');
   await p.close();
 
+  // Ctrl/Cmd+F (round 2 #9): find-in-page sees every card. The rest is built in idle chunks, the key is not swallowed,
+  // and the page does not move.
+  for (const [path, want, key] of [['/', () => full.cards, 'Control'], ['/?sort=az', null, 'Meta']]) {
+    p = await open(path);
+    await p.evaluate(() => { window.__long = 0; new PerformanceObserver((l) => { for (const e of l.getEntries()) window.__long = Math.max(window.__long, e.duration); }).observe({ type: 'longtask' });
+      window.__prevented = null; window.addEventListener('keydown', (e) => { if (e.key === 'f') window.__prevented = e.defaultPrevented; }); });
+    const total = want ? want() : parseInt(await p.$eval('#count', (e) => e.textContent));
+    const c0 = await n(p), y0 = await p.evaluate(() => scrollY);
+    await p.keyboard.down(key); await p.keyboard.press('f'); await p.keyboard.up(key);
+    const c1 = await n(p);
+    let c2 = c1; for (let i = 0; i < 60 && c2 < total; i++) { await settle(200); c2 = await n(p); }
+    const r = await p.evaluate(() => ({ long: Math.round(window.__long), prevented: window.__prevented, y: scrollY }));
+    ok(c0 < total && c2 === total && r.prevented === false && r.y === y0, `${key}+F on ${path} builds every card (${c0} to ${c2} of ${total}) without preventDefault (${JSON.stringify(r)})`);
+    ok(c1 - c0 <= 48 && r.long < 250, `${key}+F on ${path} builds in chunks: ${c1 - c0} cards in the keydown task, longest task ${r.long}ms`);
+    await p.close();
+  }
+
   // 6. Reload / back-forward: everything renders so scroll restoration works
   p = await open('/');
   await p.reload({ waitUntil: 'networkidle0' }); await settle(800);
