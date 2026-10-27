@@ -63,7 +63,7 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   const dl = await p.evaluate((id) => { const e = document.getElementById(id); if (!e) return null; const r = e.getBoundingClientRect(); return { inView: r.top >= 0 && r.bottom <= innerHeight, flash: e.classList.contains('flash') }; }, lateSlug);
   ok(dl && dl.inView && dl.flash, `deep link #${lateSlug} (last group) scrolls to and highlights it (${JSON.stringify(dl)})`);
   await p.close();
-  for (const how of ['click', 'hash']) {
+  for (const how of ['hash']) { // the header button now opens /add (test/addpage.js)
     p = await open(how === 'hash' ? '/#add' : '/');
     if (how === 'click') { await p.click('.add-top'); }
     await settle(1800);

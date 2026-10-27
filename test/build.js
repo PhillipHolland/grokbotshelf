@@ -21,7 +21,7 @@ try {
   ok(cDirs.length === handles.length && handles.every((h) => fs.existsSync(pub("@" + h, "index.html"))), `one page per creator handle, lowercase (${cDirs.length} of ${handles.length})`);
   ok(cDirs.every((d) => d === d.toLowerCase()), "no extra pages for other casings");
   const sm = fs.readFileSync(pub("sitemap.xml"), "utf8"), locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  ok(locs.length === 1 + bots.length + handles.length && new Set(locs).size === locs.length, `sitemap has home + bots + creators, no duplicates (${locs.length})`);
+  ok(locs.length === 2 + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && new Set(locs).size === locs.length, `sitemap has home + /add + bots + creators, no duplicates (${locs.length})`);
   ok(locs.filter((u) => u.includes("/@")).every((u) => u === u.toLowerCase()), "sitemap creator URLs are lowercase");
   const feed = fs.readFileSync(pub("feed.xml"), "utf8");
   ok((feed.match(/<item>/g) || []).length === Math.min(50, bots.length), "feed has the newest 50");

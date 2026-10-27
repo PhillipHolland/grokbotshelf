@@ -18,7 +18,7 @@ const resolve = (url) => {
 };
 const IMM = 'public, max-age=31536000, immutable';
 const cases = [
-  ['/app.js?v=0123456789', IMM], ['/shelf-up.js?v=0123456789', IMM], ['/bot-page.js?v=0123456789', IMM],
+  ['/app.js?v=0123456789', IMM], ['/add.js?v=0123456789', IMM], ['/shelf-up.js?v=0123456789', IMM], ['/bot-page.js?v=0123456789', IMM],
   ['/styles.css?v=0123456789', IMM], ['/shelf-data.json?v=0123456789', IMM], ['/og.png?v=0123456789', IMM],
   ['/avatars/48/x.webp?v=0123456789', IMM],
   ['/app.js', 'public, max-age=300, stale-while-revalidate=86400'], ['/styles.css', 'public, max-age=300, stale-while-revalidate=86400'],

@@ -197,7 +197,7 @@
       ]
     },
     {
-      "source": "/(app|bot-page|config|shelfer-sheet|shelf-up).js",
+      "source": "/(app|add|bot-page|config|shelfer-sheet|shelf-up).js",
       "has": [
         {
           "type": "query",

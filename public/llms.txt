@@ -55,7 +55,7 @@ Review: checked for NSFW and security issues. Clean bots go live. Anything uncle
 - Shelfer: https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi (import it in Grok Bot, paste an x.ai/bot link and optional X post; it queues via /api/submit and never reviews or publishes)
 - Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.
 - Grok Bot: ask Shelf Inbox to review and add the template.
-- Humans: form at https://grokbotshelf.com/#add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.
+- Humans: form at https://grokbotshelf.com/add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.
 
 ```
 curl -X POST https://grokbotshelf.com/api/submit \

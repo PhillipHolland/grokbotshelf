@@ -54,11 +54,11 @@ const fileHash = (() => { const seen = new Map(); return (rel) => {
   return seen.get(f);
 }; })();
 const versioned = (rel) => (/^\/[^/]/.test(rel || "") && !String(rel).includes("?") && fileHash(rel) ? `${rel}?v=${fileHash(rel)}` : rel);
-// styles.css, app.js and shelf-up.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
+// styles.css, app.js, add.js and shelf-up.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
 for (const page of ["index.html", "404.html"]) {
   const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
   const h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/(href|src)="\/(styles\.css|app\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
+  const n = h.replace(/(href|src)="\/(styles\.css|app\.js|add\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const AVATARS_SM = read("avatars/48/manifest.json", {});
@@ -117,7 +117,7 @@ function similarTo(b) {
 const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
 const HEADER = `<header class="wrap hero">
   <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
-  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
+  <div class="hero-actions"><a class="btn add-top" href="/add">Add your bot</a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
   <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>`;
 const FOOTER = `<footer class="site-foot wrap">
@@ -394,6 +394,31 @@ ${creatorLinks}
   if (n !== h) fs.writeFileSync(f, n);
 }
 
+// /add: the "Add your bot" form on its own light page (no shelf, no shelf data until you type in the template field).
+// The form is the #add section of public/index.html, so the two never drift; add.js runs it on both pages.
+{
+  const h = fs.readFileSync(path.join(PUB, "index.html"), "utf8");
+  const sec = (h.match(/<section class="add" id="add"[\s\S]*?<\/section>/) || [""])[0]
+    .replace('<h2 id="add-h">Add your bot</h2>\n    <p class="affil">Not affiliated with SpaceXSI.</p>\n', '<h1 id="add-h">Add your bot</h1>\n');
+  if (!sec.includes('id="sub-form"')) throw new Error("index.html: the #add section with the form was not found");
+  const dataURL = (h.match(/href="(\/shelf-data\.json\?v=[0-9a-f]+)"/) || [])[1] || "/shelf-data.json";
+  const desc = "Suggest a Grok Bot template for the shelf: paste the template link, add your X post if you like, and it goes to review. Bots can POST /api/submit.";
+  const ld = { "@context": "https://schema.org", "@type": "WebPage", name: "Add your bot", url: `${SITE}/add`, description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE } };
+  const page = head({ title: "Add your bot · Grok Bot Shelf", desc, url: `${SITE}/add`, img: `${SITE}${versioned("/og.png")}`, ogTitle: "Add your bot to Grok Bot Shelf", alt: "Grok Bot Shelf", creator: "@Phil_Holland", ld })
+    .replace("</head>", `<meta name="shelf-data" content="${dataURL}">\n<script src="/config.js" defer></script>\n<script src="${versioned("/add.js")}" defer></script>\n</head>`);
+  fs.mkdirSync(path.join(PUB, "add"), { recursive: true });
+  fs.writeFileSync(path.join(PUB, "add", "index.html"), `${page}
+<body class="botpage addpage">
+${HEADER.replace('<a class="btn add-top" href="/add">', '<a class="btn add-top" href="/add" aria-current="page">')}
+<main class="wrap bp" id="main">
+  ${sec}
+</main>
+${FOOTER}
+</body>
+</html>
+`);
+}
+
 // sitemap.xml
 const lastmod = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d || "") ? d : today);
 const newest = items.reduce((m, b) => (b.added > m ? b.added : m), "");
@@ -401,6 +426,7 @@ fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="U
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>${SITE}/</loc><lastmod>${lastmod(newest)}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 ${items.map((b) => `  <url><loc>${SITE}${b.page}</loc><lastmod>${lastmod(b.added)}</lastmod></url>`).join("\n")}
+  <url><loc>${SITE}/add</loc><lastmod>${lastmod(newest)}</lastmod></url>
 ${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c.bots.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 </urlset>
 `);
@@ -492,7 +518,7 @@ Review: checked for NSFW and security issues. Clean bots go live. Anything uncle
 - Shelfer: ${SHELFER_URL} (import it in Grok Bot, paste an x.ai/bot link and optional X post; it queues via /api/submit and never reviews or publishes)
 - Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.
 - Grok Bot: ask Shelf Inbox to review and add the template.
-- Humans: form at ${SITE}/#add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.
+- Humans: form at ${SITE}/add (template link, optional X post, optional note), or tag @Phil_Holland or @thecsguy on X.
 
 \`\`\`
 curl -X POST ${SITE}/api/submit \\
