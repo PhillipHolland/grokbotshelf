@@ -57,7 +57,9 @@
     var v = mine[slug] || 0;
     el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
     el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
-    el.querySelector(".vn").textContent = String(global ? s.score : 0); // always a number, like the cards: the shared tally, 0 until someone votes or while it is offline
+    var vn = el.querySelector(".vn"), n = global ? s.score : 0;
+    vn.textContent = String(n); // always a number, like the cards: the shared tally, 0 until someone votes or while it is offline
+    vn.classList.toggle("zero", n === 0); // a 0 reads quietly (--text2); the real score lands in the same slot
     el.title = !global ? "Your vote is saved in this browser" : s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet. Be the first";
   }
   paint();

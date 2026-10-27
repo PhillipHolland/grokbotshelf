@@ -690,3 +690,8 @@ html.tailing #add,html.tailing .site-foot{display:none}
 /* ...but the page still needs room under the last built group, or a rail jump or deep link near the end can't scroll its
    target to the top. The empty sentinel stands in for the pending groups (it paints nothing, so it never counts as a shift). */
 html.tailing .sentinel{height:100vh}
+
+/* ---------- Round 3 #1: bot page vote count. A 0 reads quietly in the same slot the real score lands in (no shift);
+   the slot grows for three digits instead of clipping (cards keep their fixed 22px) ---------- */
+.bp-vote .vn{width:auto;min-width:22px;padding:0 2px}
+.bp-vote .vn.zero{color:var(--text2)}
