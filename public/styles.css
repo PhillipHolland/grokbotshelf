@@ -647,3 +647,6 @@ html.mobile .card h3 a::after{content:"";position:absolute;inset:-6px}
 html.mobile .card .sub{height:44px;margin:-11px 0 -14px}
 html.mobile .card .sub a.cn{position:relative;z-index:1;align-self:stretch;display:flex;align-items:center}
 html.mobile .site-foot p.by a{display:inline-flex;align-items:center;min-height:44px}
+
+/* ---------- Bot, creator and 404 pages: header lines up with the 720px column; theme toggle as on the home page (round 2 #3) ---------- */
+@media (min-width:760px){body.botpage .hero{max-width:720px}}

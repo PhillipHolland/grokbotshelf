@@ -76,3 +76,25 @@
     paint(); place(); sync();
   } catch (err) { if (window.console) console.error("shelf-up:", err); }
 })();
+// Bot, creator and 404 pages: the same light/dark toggle as the home page (the home page wires its own in app.js).
+// The inline head script already applied the saved theme; this keeps the button, theme-color and storage in step.
+(function () {
+  try {
+    var b = document.getElementById("theme"), root = document.documentElement;
+    if (!b || !document.body || !document.body.classList.contains("botpage")) return;
+    function apply(t) {
+      root.setAttribute("data-theme", t);
+      var tc = document.querySelector('meta[name="theme-color"]'), cs = document.querySelector('meta[name="color-scheme"]');
+      if (tc) tc.content = t === "light" ? "#ffffff" : "#000000";
+      if (cs) cs.content = t;
+      b.setAttribute("aria-pressed", String(t === "dark"));
+    }
+    apply(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+    b.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.classList.add("theme-switching"); apply(next); getComputedStyle(root).color;
+      requestAnimationFrame(function () { root.classList.remove("theme-switching"); });
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  } catch (e) {}
+})();

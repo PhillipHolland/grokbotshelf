@@ -117,7 +117,7 @@ function similarTo(b) {
 const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
 const HEADER = `<header class="wrap hero">
   <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
-  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a></div>
+  <div class="hero-actions"><a class="btn add-top" href="/#add">Add your bot</a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
   <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>`;
 const FOOTER = `<footer class="site-foot wrap">

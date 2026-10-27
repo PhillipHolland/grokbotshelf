@@ -6,7 +6,88 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 15:40:38 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 15:49:17 GMT</lastBuildDate>
+  <item>
+    <title>🪩 .links by greedfi</title>
+    <link>https://grokbotshelf.com/bot/links</link>
+    <guid isPermaLink="false">https://x.ai/bot/iAAjk66qgHyqOys2TEC-K</guid>
+    <description>Builds a mobile-first link page that spotlights the Grok Bots you made, then your socials and sites, with optional Vercel hosting.</description>
+    <dc:creator>greedfi (@greedfi)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 X Growth Manager by Mujjamel</title>
+    <link>https://grokbotshelf.com/bot/x-growth-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/xitvwtu2RlmS_HAkYDgSx</guid>
+    <description>Grows your X account and finds clients by drafting daily replies, posts, lead research and DMs with follow-ups. Posts nothing without your approval.</description>
+    <dc:creator>Mujjamel (@mozamm_el)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏢 Account Research by Jacob Weaver</title>
+    <link>https://grokbotshelf.com/bot/account-research</link>
+    <guid isPermaLink="false">https://x.ai/bot/0CX2DyEQoP7Y88nT7XBYi</guid>
+    <description>A research desk for one enterprise account: maps its buying committee from public sources, finds why-now triggers and cites a source for every claim. Drafts outreach for you to review and never sends on its own.</description>
+    <dc:creator>Jacob Weaver (@weaverwork)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎯 Outbound Prospecting by Krista Letz</title>
+    <link>https://grokbotshelf.com/bot/outbound-prospecting</link>
+    <guid isPermaLink="false">https://x.ai/bot/marketplace/bots/pg</guid>
+    <description>Finds prospects that match your ideal customer, researches each one on the public web and drafts a first message to each. Nothing sends without your yes.</description>
+    <dc:creator>Krista Letz (@kristaletz)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:13 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Freelance Invoice Chaser by Cristopher</title>
+    <link>https://grokbotshelf.com/bot/freelance-invoice-chaser</link>
+    <guid isPermaLink="false">https://x.ai/bot/6XWo6nhodL0bZnP1MnRz5</guid>
+    <description>Tracks what clients owe, watches Gmail for payments and replies, and drafts calm reminders on a set schedule for your yes.</description>
+    <dc:creator>Cristopher (@crisships)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>📇 Any CRM by Corben</title>
+    <link>https://grokbotshelf.com/bot/any-crm</link>
+    <guid isPermaLink="false">https://x.ai/bot/16XzSxYwdnnRYlAx6DFwM</guid>
+    <description>Your assistant inside whatever CRM you run, from Salesforce and HubSpot to any CRM with docs and an API. It learns how your account is set up, sends a daily brief, and holds anything you choose to gate for your yes.</description>
+    <dc:creator>Corben (@CorbenH414)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗺️ Pitch Board by T1000</title>
+    <link>https://grokbotshelf.com/bot/pitch-board</link>
+    <guid isPermaLink="false">https://x.ai/bot/s32IvITvpDM9UE2lAL_xw</guid>
+    <description>Turns a pasted client brief, idea or process into a flowchart, funnel, sequence map or mood board and lists what it assumed. You get a PNG, SVG, Mermaid text and an editable tldraw file.</description>
+    <dc:creator>T1000 (@teeRex247)</dc:creator>
+    <category>Design</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:10 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔗 Backlink Generator Bot by Prince</title>
+    <link>https://grokbotshelf.com/bot/backlink-generator-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/kWfarYQjDHlbg5Wf5AjT9</guid>
+    <description>Finds and verifies directories, launch sites, listicles and communities where your site can earn real backlinks, scores them, drafts every pitch for your approval and tracks wins.</description>
+    <dc:creator>Prince (@prince_twets)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:09 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 SEO &amp; AEO Desk by Adam Tanguay</title>
+    <link>https://grokbotshelf.com/bot/seo-and-aeo-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/marketplace/bots/seo-aeo-desk</guid>
+    <description>Turns your keywords into content ideas and writer-ready briefs for search and AI answers, working from a pasted keyword list or your Search Console.</description>
+    <dc:creator>Adam Tanguay (@adamta)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:08 GMT</pubDate>
+  </item>
   <item>
     <title>🎖️ War Dog Bot by Marshall</title>
     <link>https://grokbotshelf.com/bot/war-dog-bot</link>
@@ -375,87 +456,6 @@
     <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Mon, 26 Oct 2026 12:08:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Solo Co by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/solo-co</link>
-    <guid isPermaLink="false">https://x.ai/bot/E4gDp4Fub4rDGgLCDaCrk</guid>
-    <description>Plans a lean one-person company around your day job with one business model, a blueprint and a 7-day launch plan.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗓️ Planner by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/planner</link>
-    <guid isPermaLink="false">https://x.ai/bot/krCFz-eNiFI_IdghArz7g</guid>
-    <description>Keeps your iPhone calendar, reminders and alarms straight, checking for conflicts and reading back every change.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛒 Scout by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/-ahoDV8vdQPOs03EZBLKS</guid>
-    <description>Finds the best things to buy as a short list of real picks with a top pick and where it&apos;s cheapest delivered.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔧 Fixer by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/fixer</link>
-    <guid isPermaLink="false">https://x.ai/bot/uv7l9iczH17_hXzO7PG_T</guid>
-    <description>Keeps an inventory of your home&apos;s appliances and systems, tracks upkeep on a 12-month calendar and gives sourced fixes.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧮 Gridlock by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/gridlock</link>
-    <guid isPermaLink="false">https://x.ai/bot/dfCpb4mfCpUIRkyvif7Ej</guid>
-    <description>A read-only spreadsheet critic that stress-tests a workbook and ranks issues as Blockers, Majors and Minors.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏋️ Chief Health by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/chief-health</link>
-    <guid isPermaLink="false">https://x.ai/bot/IPqP_y4MR4JbE3R41ZSUU</guid>
-    <description>Builds home workout plans around your equipment and injuries, logs sessions and adjusts the plan.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧠 SI by Daniel</title>
-    <link>https://grokbotshelf.com/bot/si</link>
-    <guid isPermaLink="false">https://x.ai/bot/__fIbaFHUEwqKdvN2LK1K</guid>
-    <description>Asks ChatGPT, Claude, Gemini and Grok the same question in your browser and returns one combined answer.</description>
-    <dc:creator>Daniel (@HungOnCode)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧾 Karenbot by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/karenbot</link>
-    <guid isPermaLink="false">https://x.ai/bot/KllRxIDr-s6KjmFjJBRJV</guid>
-    <description>Finds where companies shortchanged you on subscriptions, price drops, warranties or flights and pushes back with receipts.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎤 Grimy by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/grimy</link>
-    <guid isPermaLink="false">https://x.ai/bot/d8gcjkeO4p4ltkn0rBJhQ</guid>
-    <description>An AI rapper character who tells his story, writes bars with you and shares his new music.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:18 GMT</pubDate>
   </item>
 </channel>
 </rss>

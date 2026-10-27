@@ -27,5 +27,18 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.click('#theme'); await new Promise(r => setTimeout(r, 300));
   await p.reload({ waitUntil: 'networkidle0' });
   ok((await st()).theme === 'dark', 'toggle back to dark persists');
+  // Bot, creator and 404 pages have the same toggle, sharing the saved choice with the home page (round 2 #3)
+  for (const path of ['bot/archivist', '@phil_holland', 'bot/no-such-bot-zz']) {
+    await p.goto(BASE + path, { waitUntil: 'networkidle0' });
+    const sub = () => p.evaluate(() => ({ theme: document.documentElement.dataset.theme, meta: document.querySelector('meta[name="theme-color"]').content,
+      pressed: (document.querySelector('#theme') || { getAttribute: () => null }).getAttribute('aria-pressed') }));
+    const a = await sub();
+    await p.click('#theme'); await new Promise(r => setTimeout(r, 200));
+    const c = await sub();
+    await p.reload({ waitUntil: 'networkidle0' });
+    const d = await sub();
+    await p.click('#theme'); await new Promise(r => setTimeout(r, 200));
+    ok(a.theme === 'dark' && a.pressed === 'true' && c.theme === 'light' && c.meta === '#ffffff' && c.pressed === 'false' && d.theme === 'light', `/${path}: theme toggle switches and persists (${JSON.stringify([a, c, d])})`);
+  }
   await b.close();
 })();
