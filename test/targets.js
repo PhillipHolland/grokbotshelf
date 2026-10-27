@@ -79,6 +79,27 @@ function contrastOf(el) {
     ok(!r.overflow, `${where}: no horizontal overflow`);
     await p.close();
   }
+  // Phone: header buttons, sort, card title and creator link, footer links take a 44px tap (round 2 #2)
+  {
+    const p = await open('/', { width: 390, ua: PHONE_UA });
+    const r = await p.evaluate(async () => {
+      const box = (e) => { const r = e.getBoundingClientRect(); return [r.width, r.height]; };
+      const tapBox = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e, '::after'); const out = s.content === 'none' || s.position !== 'absolute' ? 0 : -parseFloat(s.top || 0); return [r.width + 2 * out, r.height + 2 * out]; };
+      const at = (e) => { const r = e.getBoundingClientRect(); return document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); };
+      const c = document.querySelector('#results .card'); c.scrollIntoView({ block: 'center' }); await new Promise((r) => setTimeout(r, 200));
+      const t = c.querySelector('h3 a'), cn = c.querySelector('.sub a.cn'), ic = c.querySelector('.icon').getBoundingClientRect();
+      const icon = document.elementFromPoint(ic.left + 4, ic.top + 4);
+      const cnAt = cn && at(cn);
+      return { add: tapBox(document.querySelector('.hero-actions .btn')), theme: tapBox(document.querySelector('#theme')), sort: box(document.querySelector('#sort')),
+        iconGoesToTitle: !!icon && icon.closest('a') === t, cn: cn ? box(cn) : [44, 44], cnOnTop: !cn || cn.contains(cnAt),
+        foot: Math.min(...[...document.querySelectorAll('.site-foot p.by a')].map((e) => box(e)[1])) };
+    });
+    ok(r.add.every((x) => x >= 44) && r.theme.every((x) => x >= 44), `390 phone: header Add and theme buttons take a 44px tap (${r.add.map(Math.round).join('x')}, ${r.theme.map(Math.round).join('x')})`);
+    ok(r.sort[1] >= 44, `390 phone: sort select is 44px tall (${Math.round(r.sort[1])})`);
+    ok(r.iconGoesToTitle && r.cn[1] >= 44 && r.cnOnTop, `390 phone: card head taps open the bot, creator link is a 44px tap on top (${r.cn.map(Math.round).join('x')})`);
+    ok(r.foot >= 44, `390 phone: footer links are 44px tall (${Math.round(r.foot)})`);
+    await p.close();
+  }
   {
     const p = await open('/', { width: 1280 });
     const r = await p.evaluate(() => { const d = document.querySelector('.crawl details'); d.open = true; const h = (s) => Math.round(document.querySelector(s).getBoundingClientRect().height); const w = (s) => Math.round(document.querySelector(s).getBoundingClientRect().width); return { crawl: h('.crawl nav a'), app: [w('#results .card a.app'), h('#results .card a.app')], rail: w('.rail button') }; });

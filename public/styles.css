@@ -634,3 +634,16 @@ html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;ju
 .ghead h2 a.nm:hover,.sub a.cn:hover{text-decoration:underline}
 .sub a.cn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
 #main > #results ~ *,.site-foot{overflow-anchor:none}
+
+/* ---------- Phones: 44px taps for the header buttons, sort, card title and creator link, footer links (round 2 #2) ---------- */
+/* Header Add and theme buttons keep their look; an invisible ::after takes the tap 6px past each edge. */
+html.mobile .hero-actions :is(.btn,.theme-btn){position:relative}
+html.mobile .hero-actions :is(.btn,.theme-btn)::after{content:"";position:absolute;inset:-6px}
+html.mobile #sort{height:44px}
+/* Card title: its link stretches over the whole card head (icon, title, meta line); the creator link stays on top,
+   and its meta line grows to 44px into the head's margins so the creator name is a 44px tap. */
+html.mobile .card .head{position:relative}
+html.mobile .card h3 a::after{content:"";position:absolute;inset:-6px}
+html.mobile .card .sub{height:44px;margin:-11px 0 -14px}
+html.mobile .card .sub a.cn{position:relative;z-index:1;align-self:stretch;display:flex;align-items:center}
+html.mobile .site-foot p.by a{display:inline-flex;align-items:center;min-height:44px}
