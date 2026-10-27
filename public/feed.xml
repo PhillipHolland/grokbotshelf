@@ -6,7 +6,79 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 20:24:22 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 20:33:57 GMT</lastBuildDate>
+  <item>
+    <title>🎂 Birthday Bot by gooper</title>
+    <link>https://grokbotshelf.com/bot/birthday-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/nHmJ0PQz8apDqB4sCzRtX</guid>
+    <description>Tracks family birthdays and sends three budget-friendly gift ideas with links about 10 days before each one.</description>
+    <dc:creator>gooper (@gooper)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:48 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 FSA Receipt Keeper by SoCalFSD</title>
+    <link>https://grokbotshelf.com/bot/fsa-receipt-keeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/sBbKzgKfRZV8At5TkmeYY</guid>
+    <description>Keeps your FSA or HSA receipts organized in a Google Sheet so you don&apos;t lose money at the claim deadline.</description>
+    <dc:creator>SoCalFSD</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:47 GMT</pubDate>
+  </item>
+  <item>
+    <title>📦 Address Mover by SoCalFSD</title>
+    <link>https://grokbotshelf.com/bot/address-mover</link>
+    <guid isPermaLink="false">https://x.ai/bot/rDK49w6H9asn5seHoHDfQ</guid>
+    <description>Moving? Finds every company in your Gmail with your address and preps each update with links or draft emails.</description>
+    <dc:creator>SoCalFSD</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:46 GMT</pubDate>
+  </item>
+  <item>
+    <title>♿ Accessibility Check by SoCalFSD</title>
+    <link>https://grokbotshelf.com/bot/accessibility-check</link>
+    <guid isPermaLink="false">https://x.ai/bot/-ewhemkD3QgMDx-RggYCd</guid>
+    <description>Scans a website you own for accessibility problems with axe and ranks what to fix first by impact.</description>
+    <dc:creator>SoCalFSD</dc:creator>
+    <category>Developer</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:45 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚡ Outage Watch by SoCalFSD</title>
+    <link>https://grokbotshelf.com/bot/outage-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/9oxJGKTDEAV1XjAhv3P2q</guid>
+    <description>Tells you only when an official weather alert or power outage hits your area; quiet otherwise.</description>
+    <dc:creator>SoCalFSD</dc:creator>
+    <category>Home</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>📚 Docs Keeper by SoCalFSD</title>
+    <link>https://grokbotshelf.com/bot/docs-keeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/hOCG3B2m6063Sasbt0CVu</guid>
+    <description>Keeps your repo&apos;s README and CHANGELOG in step with what merged, via one draft pull request each week.</description>
+    <dc:creator>SoCalFSD</dc:creator>
+    <category>Developer</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩺 Usage Doctor by adrian</title>
+    <link>https://grokbotshelf.com/bot/usage-doctor</link>
+    <guid isPermaLink="false">https://x.ai/bot/IOgcDjrtCRSuyHudPI39d</guid>
+    <description>Audits your Grok Bot fleet for token waste, like chatty bots and too-frequent routines, and fixes the safe ones.</description>
+    <dc:creator>adrian</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧰 Family Disaster Prep by Daniel</title>
+    <link>https://grokbotshelf.com/bot/family-disaster-prep</link>
+    <guid isPermaLink="false">https://x.ai/bot/-XeyX8_sUb_Ca0a6vqDYY</guid>
+    <description>Builds your family disaster plan: snap your food, water and gear for a readiness score and simple weekly steps.</description>
+    <dc:creator>Daniel (@DB_DevilDog)</dc:creator>
+    <category>Home</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:41 GMT</pubDate>
+  </item>
   <item>
     <title>🧭 X Follow Finder by JeebsTX</title>
     <link>https://grokbotshelf.com/bot/x-follow-finder</link>
@@ -384,78 +456,6 @@
     <dc:creator>Spud (@SpudStateUSA)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 27 Oct 2026 12:08:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔎 Deal Scout by Spud</title>
-    <link>https://grokbotshelf.com/bot/deal-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/LKcObyq7Y23y_5xauMlqu</guid>
-    <description>Paste a product link to find the best current price at reputable stores; watches a wishlist and pings you only on real drops.</description>
-    <dc:creator>Spud (@SpudStateUSA)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏷️ Checkout Promo Code &amp; Creator-Discount Hunter by Lisa</title>
-    <link>https://grokbotshelf.com/bot/checkout-promo-code-and-creator-discount-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/uA5laJqtELPfk__i_bTz3</guid>
-    <description>Hunts live creator and podcast codes, welcome promos and stacking tricks for the store you&apos;re checking out at.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎓 College Financial Aid, FAFSA &amp; Merit Appeal Coach by Lisa</title>
-    <link>https://grokbotshelf.com/bot/college-financial-aid-fafsa-and-merit-appeal-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/hZAqhkJbgjwWEAV2w7Kem</guid>
-    <description>Compares true four-year college costs, strips disguised loans from aid offers, and writes merit and special-circumstances appeal letters.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Money</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>📜 HOA Fine, Violation &amp; Condo Special Assessment Shield by Lisa</title>
-    <link>https://grokbotshelf.com/bot/hoa-fine-violation-and-condo-special-assessment-shield</link>
-    <guid isPermaLink="false">https://x.ai/bot/QyjX6g11jhRIbQCh5nqov</guid>
-    <description>Audits HOA violation letters against your CC&amp;Rs and state rules, and checks special assessments, HO-6 loss coverage and reserve studies.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Home</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏠 Home Inspection Report &amp; Closing Disclosure Auditor by Lisa</title>
-    <link>https://grokbotshelf.com/bot/home-inspection-report-and-closing-disclosure-auditor</link>
-    <guid isPermaLink="false">https://x.ai/bot/9JNfjWSoV_UPBA-Y6YAyP</guid>
-    <description>Sorts long inspection reports into insurability traps and audits your Closing Disclosure line by line.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Home</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛠️ Home Warranty &amp; Appliance Claim Denial Fighter by Lisa</title>
-    <link>https://grokbotshelf.com/bot/home-warranty-and-appliance-claim-denial-fighter</link>
-    <guid isPermaLink="false">https://x.ai/bot/wlpQNpOFPIXlDPGcrXImp</guid>
-    <description>Decodes home warranty exclusions and writes contract-backed appeals to fight denied claims and lowball cash buyouts.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Home</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕵️ Winning Ad Spy &amp; Boutique Creative Studio by Lisa</title>
-    <link>https://grokbotshelf.com/bot/winning-ad-spy-and-boutique-creative-studio</link>
-    <guid isPermaLink="false">https://x.ai/bot/iydi6YgZglC_urxI3AOiq</guid>
-    <description>Scans long-running winning ads in your niche, breaks down their hooks and visuals, and builds fresh storyboards for your shop.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:52 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎒 Dean of Students by Erinn</title>
-    <link>https://grokbotshelf.com/bot/dean-of-students</link>
-    <guid isPermaLink="false">https://x.ai/bot/hlLu6VZy9qafYG7w4vuNd</guid>
-    <description>Parent-only school helper for one or more kids: reads school emails and portals for a morning brief, homework check, forms and calendar sync.</description>
-    <dc:creator>Erinn (@ErinnFL)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:51 GMT</pubDate>
   </item>
 </channel>
 </rss>

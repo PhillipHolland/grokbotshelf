@@ -4510,12 +4510,13 @@
    "approved_by": "standing shelve-safe permission"
   },
   "form-339": {
-   "status": "pending",
+   "status": "added",
    "bot": "Birthday Bot",
    "template_url": "https://x.ai/bot/nHmJ0PQz8apDqB4sCzRtX",
    "author": "@gooper",
    "note": "held: template author shows 'scaryglowingorb' styled name, @gooper X profile is 'Rainier Score' card/sports desk; creator unverified",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "2115128767869771964": {
    "status": "skipped",
@@ -4579,20 +4580,22 @@
    "approved_by": "standing shelve-safe permission"
   },
   "form-346": {
-   "status": "pending",
+   "status": "added",
    "bot": "Usage Doctor by adrian",
    "template_url": "https://x.ai/bot/IOgcDjrtCRSuyHudPI39d",
    "author": "",
    "note": "held: no creator handle or post, template author 'adrian' unverified",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "form-347": {
-   "status": "pending",
-   "bot": "Prepper by Daniel",
+   "status": "added",
+   "bot": "Family Disaster Prep",
    "template_url": "https://x.ai/bot/-XeyX8_sUb_Ca0a6vqDYY",
    "author": "@DB_DevilDog",
    "note": "held: name clash with existing 'Prepper' by Grease (omCU96pYM7XYkaEu96Lst); creator @DB_DevilDog looks legit (already shelved CFB tracker)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "2115149889201909836": {
    "status": "added",
@@ -4612,44 +4615,49 @@
    "date": "2026-10-27"
   },
   "form-348": {
-   "status": "pending",
+   "status": "added",
    "bot": "Docs Keeper by SoCalFSD",
    "template_url": "https://x.ai/bot/hOCG3B2m6063Sasbt0CVu",
    "author": "",
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "form-349": {
-   "status": "pending",
+   "status": "added",
    "bot": "Outage Watch by SoCalFSD",
    "template_url": "https://x.ai/bot/9oxJGKTDEAV1XjAhv3P2q",
    "author": "",
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "form-350": {
-   "status": "pending",
+   "status": "added",
    "bot": "Accessibility Check by SoCalFSD",
    "template_url": "https://x.ai/bot/-ewhemkD3QgMDx-RggYCd",
    "author": "",
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "form-351": {
-   "status": "pending",
+   "status": "added",
    "bot": "Address Mover by SoCalFSD",
    "template_url": "https://x.ai/bot/rDK49w6H9asn5seHoHDfQ",
    "author": "",
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   },
   "form-352": {
-   "status": "pending",
+   "status": "added",
    "bot": "FSA Receipt Keeper by SoCalFSD",
    "template_url": "https://x.ai/bot/sBbKzgKfRZV8At5TkmeYY",
    "author": "",
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
-   "date": "2026-10-27"
+   "date": "2026-10-27",
+   "approved_by": "Phillip Holland"
   }
  }
 }
