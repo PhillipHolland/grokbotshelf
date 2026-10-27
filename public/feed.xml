@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 00:30:59 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 00:35:21 GMT</lastBuildDate>
+  <item>
+    <title>🔧 Trade Pro Office Manager by Chicago Tradesman</title>
+    <link>https://grokbotshelf.com/bot/trade-pro-office-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/J-Va5g8d94TGNiSZCvz0o</guid>
+    <description>Office manager for trade shops: estimate and invoice drafts, quote follow-ups and a morning call list.</description>
+    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏡 Homie by Chicago Tradesman</title>
+    <link>https://grokbotshelf.com/bot/homie</link>
+    <guid isPermaLink="false">https://x.ai/bot/BjePH3vrRnlXYe2zweduL</guid>
+    <description>Kitchen and health helper: meal ideas, grocery carts you review before checkout, food and water logs.</description>
+    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
+    <category>Food</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:34 GMT</pubDate>
+  </item>
   <item>
     <title>✍️ Writing Bot by Cameron by Cameron Orzen</title>
     <link>https://grokbotshelf.com/bot/writing-bot-by-cameron</link>
@@ -438,24 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Shopping</category>
     <pubDate>Mon, 26 Oct 2026 12:07:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚰 Utility Eugene by Jim</title>
-    <link>https://grokbotshelf.com/bot/utility-eugene</link>
-    <guid isPermaLink="false">https://x.ai/bot/w3yzHuZdi-x0I-7j7sP9H</guid>
-    <description>A money-saver for every utility bill: electric, water, gas, internet, phone and trash. Finds providers at your ZIP, compares plans and reads your bills to cut costs, changing nothing without your OK.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>🫧 Appliance Fix Annie by Jim</title>
-    <link>https://grokbotshelf.com/bot/appliance-fix-annie</link>
-    <guid isPermaLink="false">https://x.ai/bot/g1AmwULv-28QM-l_yIVbb</guid>
-    <description>Tell her what&apos;s beeping, leaking or won&apos;t start: she finds the manual, walks you through a safe fix, prices the right part and watches for recalls.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:44 GMT</pubDate>
   </item>
 </channel>
 </rss>

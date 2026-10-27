@@ -6674,5 +6674,31 @@
     "creator_avatar": "/avatars/cam_orzen.webp",
     "source_post": "",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Homie",
+    "emoji": "🏡",
+    "description": "Kitchen and health helper: meal ideas, grocery carts you review before checkout, food and water logs.",
+    "category": "Food",
+    "url": "https://x.ai/bot/BjePH3vrRnlXYe2zweduL",
+    "creator_name": "Chicago Tradesman",
+    "creator_handle": "@jayrok35",
+    "creator_url": "https://x.com/jayrok35",
+    "creator_avatar": "/avatars/jayrok35.webp",
+    "source_post": "",
+    "added": "2026-10-26"
+  },
+  {
+    "name": "Trade Pro Office Manager",
+    "emoji": "🔧",
+    "description": "Office manager for trade shops: estimate and invoice drafts, quote follow-ups and a morning call list.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/J-Va5g8d94TGNiSZCvz0o",
+    "creator_name": "Chicago Tradesman",
+    "creator_handle": "@jayrok35",
+    "creator_url": "https://x.com/jayrok35",
+    "creator_avatar": "/avatars/jayrok35.webp",
+    "source_post": "",
+    "added": "2026-10-26"
   }
 ]

@@ -1,5 +1,25 @@
 {
   "seen": {
+    "form-286": {
+      "status": "added",
+      "author": "@jayrok35",
+      "bot": "Homie",
+      "template_url": "https://x.ai/bot/BjePH3vrRnlXYe2zweduL",
+      "url": "",
+      "note": "site form #286",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-285": {
+      "status": "added",
+      "author": "@jayrok35",
+      "bot": "Trade Pro Office Manager",
+      "template_url": "https://x.ai/bot/J-Va5g8d94TGNiSZCvz0o",
+      "url": "",
+      "note": "site form #285",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
     "2114052823042429013": {
       "status": "added",
       "approved_by": "Phillip Holland",
