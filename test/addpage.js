@@ -26,7 +26,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
       form: !!document.querySelector('#sub-form #sub-bot'), shelfer: !!document.querySelector('.get-shelfer'), api: (document.getElementById('add-text') || {}).textContent || '',
       results: !!document.getElementById('results'), nodes: document.querySelectorAll('*').length, cur: document.querySelector('.add-top').getAttribute('aria-current'),
       overflow: document.documentElement.scrollWidth > innerWidth }));
-    ok(res.status() === 200 && d.h1 === 'Add your bot' && d.title === 'Add your bot · Grok Bot Shelf' && d.canon === 'https://grokbotshelf.com/add', W + `/add: ${res.status()} "${d.h1}"`);
+    ok([200, 304].includes(res.status()) && d.h1 === 'Add your bot' && d.title === 'Add your bot · Grok Bot Shelf' && d.canon === 'https://grokbotshelf.com/add', W + `/add: ${res.status()} "${d.h1}"`);
     ok(d.form && d.shelfer && /POST/.test(d.api) && /api\/submit/.test(d.api), W + 'same form, Shelfer pill and API text as /#add');
     ok(!d.results && d.nodes < 250 && !d.overflow, W + `light page: no shelf, ${d.nodes} nodes, no sideways scroll`);
     ok(d.cur === 'page', W + 'the header button marks the current page');

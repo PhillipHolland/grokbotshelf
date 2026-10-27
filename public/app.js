@@ -360,7 +360,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // Render on demand. First load: the strip and the first few creator groups go in right away; the other groups are
   // appended a few at a time when a sentinel under the results comes within ~1.5 screens of the viewport. Flat views
   // (search, Votes, Newest, A-Z...) show FLAT_STEP cards and add FLAT_STEP more the same way. Anything that needs every
-  // card (keyboard moves, #hash jumps, rail jumps, "Add your bot") calls finishTail() first. On a reload or back/forward
+  // card (keyboard moves) calls finishTail() first; #bot- deep links and rail jumps build only up to their target group
+  // (tailTo), and "Add your bot" builds nothing and holds the appends while the form is on screen. On a reload or back/forward
   // the old behavior stays (the rest follows in small tasks right away) so the browser can restore the scroll position.
   const FIRST_GROUPS = 3, TAIL_GROUPS = 4, FLAT_STEP = 48;
   // tail: pending { L, f } groups (f builds the section), or pending [bot, match] rows of a flat view (tailFlat)
@@ -383,10 +384,20 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     // Re-observing reports the sentinel's state again, so a sentinel that is still in range after an append loads more
     io.unobserve(sentinel); io.observe(sentinel);
   }
-  function pumpTail() { if (!tail.length) return; appendTail(tailFlat ? FLAT_STEP : TAIL_GROUPS); watchTail(); }
+  // tailHold: set by the jump to #add, so groups don't pile in above the form while the visitor reads it
+  let tailHold = false;
+  function pumpTail() { if (!tail.length || tailHold) return; appendTail(tailFlat ? FLAT_STEP : TAIL_GROUPS); watchTail(); }
   function finishTail() {
     if (!tail.length) return;
     appendTail(tail.length); watchTail();
+  }
+  // Build pending groups (or flat rows) up to and including the first one that matches; the rest stay on the sentinel.
+  // Returns false when nothing pending matches.
+  function tailTo(match) {
+    const i = tail.findIndex(match);
+    if (i < 0) return false;
+    appendTail(i + 1); watchTail();
+    return true;
   }
   function tailDone() { if (io) io.unobserve(sentinel); }
 
@@ -451,7 +462,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function render() {
     cancelRender();
     const then = afterRender; afterRender = null;
-    clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; if (io) io.unobserve(sentinel);
+    clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailHold = false; if (io) io.unobserve(sentinel);
     const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
@@ -471,7 +482,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return null;
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
-        return { L: letterOf(c.label), f: () => groupEl(c, g, shown) };
+        return { L: letterOf(c.label), k: c.key, f: () => groupEl(c, g, shown) };
       }).filter(Boolean);
       if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
       place(results, strip.concat(parts.map((g) => g.f())));
@@ -676,25 +687,38 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   fbar.addEventListener("scroll", syncFb, { passive: true }); window.addEventListener("resize", syncFb); syncFb();
   fbMore.addEventListener("click", () => fbar.scrollBy({ left: fbar.clientWidth * 0.7, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }));
 
-  // Old /#add links: render all cards first so content-visibility can't undershoot, then scroll. The header
-  // "Add your bot" button is a plain link to /add.
-  let jumpT;
-  function scrollToAdd() {
+  // Old /#add links (the header button is a plain link to /add): scroll to the form without building the rest of the shelf. Appends wait (tailHold) until the
+  // visitor scrolls back up a quarter screen, so nothing piles in above the form while it is being read.
+  let jumpT, holdOff = null;
+  function scrollToAdd(instant) {
     const add = document.getElementById("add"), root = document.documentElement;
-    finishTail(); clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
-    add.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-    jumpT = setTimeout(() => root.classList.remove("jumping"), 1500);
+    // a reload or back/forward builds everything anyway (eager): finish first so the form doesn't move after the jump
+    if (eager) finishTail(); else tailHold = true;
+    if (holdOff) holdOff();
+    clearTimeout(jumpT); root.classList.add("jumping"); syncDock(); void add.offsetTop;
+    // instant on a first load; a reload keeps the smooth scroll so it wins over the browser restoring the old position
+    add.scrollIntoView({ block: "start", behavior: (instant && !eager) || matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    jumpT = setTimeout(() => {
+      root.classList.remove("jumping");
+      if (!tailHold) return;
+      let y0 = scrollY;
+      const onScroll = () => { if (scrollY > y0) y0 = scrollY; else if (scrollY < y0 - innerHeight / 4) { off(); tailHold = false; watchTail(); } };
+      const off = holdOff = () => { window.removeEventListener("scroll", onScroll); if (holdOff === off) holdOff = null; };
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }, 1500); // "jumping" keeps cards at their real size until the page settles under the form
   }
 
   // Deep links: #add jumps to the form; #bot-slug scrolls to and highlights a card
-  function openHash() {
-    if (location.hash === "#add") return scrollToAdd();
-    finishTail();
+  function openHash(e) {
+    if (location.hash === "#add") return scrollToAdd(!e);
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
-    let el = document.getElementById(id);
     const hb = bots.find((b) => b._slug === id);
-    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; render(); writeURL(false); el = document.getElementById(id); }
-    if (!el) { st = blank(); st.more = [ckey(hb)]; syncInputs(); render(); writeURL(false); el = document.getElementById(id); }
+    // build only up to the bot's group (or row), not the whole shelf; a re-render (to open the group or clear filters)
+    // starts over from the first groups the same way
+    const toBot = () => { if (!document.getElementById(id)) tailTo((g) => tailFlat ? g[0]._slug === id : g.k === ckey(hb)); return document.getElementById(id); };
+    let el = toBot();
+    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; chunkNext = true; render(); writeURL(false); el = toBot(); }
+    if (!el) { st = blank(); st.more = [ckey(hb)]; syncInputs(); chunkNext = true; render(); writeURL(false); el = toBot(); }
     if (!el) return;
     el.scrollIntoView({ block: "center" });
     el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
@@ -747,7 +771,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
   let jumpDone = null, jumpRaf = 0, jumpNext = null;
   function jumpTo(L, focus) {
-    finishTail(); // the target group may not be built yet
+    // the target group may not be built yet: build up to the first group under that letter, not the whole shelf
+    if (!results.querySelector(`.group h2[data-letter="${L}"]`)) tailTo((g) => !tailFlat && g.L === L);
     const h = results.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return;
     const sec = h.closest(".group");
     // reads first
@@ -857,7 +882,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       if (shelfReady) return;
       shelfReady = true; chunkNext = true; render();
       writeURL(false);
-      if (location.hash) requestAnimationFrame(openHash);
+      if (location.hash) requestAnimationFrame(() => openHash());
     };
     // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
     if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }

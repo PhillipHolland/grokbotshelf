@@ -56,6 +56,13 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   const land = await p.evaluate((L) => { const h = document.querySelector(`.group h2[data-letter="${L}"]`); if (!h) return null; const pad = document.getElementById('dock').offsetHeight + 12, off = Math.round(h.closest('.group').getBoundingClientRect().top - pad), bottom = scrollY + innerHeight >= document.documentElement.scrollHeight - 2; return { off, bottom }; }, last);
   ok(land && (Math.abs(land.off) <= 2 || land.bottom), `rail jump to ${last} before its group was built lands on it (${JSON.stringify(land)})`);
   await p.close();
+  // ...and builds only up to that letter (plus what the sentinel adds under it), not the whole shelf
+  p = await open('/');
+  const mid = rail0[Math.floor(rail0.length / 2)];
+  await p.click(`.rail button[data-l="${mid}"]`); await settle(1700);
+  const midR = await p.evaluate((L) => ({ groups: document.querySelectorAll('#results .group').length, cards: document.querySelectorAll('#results .card').length, has: !!document.querySelector(`.group h2[data-letter="${L}"]`) }), mid);
+  ok(midR.has && midR.groups < full.groups && midR.cards < full.cards, `rail jump to ${mid} builds up to its group, not the shelf (${midR.groups} of ${full.groups} groups, ${midR.cards} of ${full.cards} cards)`);
+  await p.close();
 
   // 3. Deep link to a card in a late group, and "Add your bot"
   const lateSlug = await (async () => { const q = await open('/'); await scrollAll(q); const id = await q.$eval('#results .group:last-of-type .card', (e) => e.id); await q.close(); return id; })();
@@ -63,12 +70,25 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   const dl = await p.evaluate((id) => { const e = document.getElementById(id); if (!e) return null; const r = e.getBoundingClientRect(); return { inView: r.top >= 0 && r.bottom <= innerHeight, flash: e.classList.contains('flash') }; }, lateSlug);
   ok(dl && dl.inView && dl.flash, `deep link #${lateSlug} (last group) scrolls to and highlights it (${JSON.stringify(dl)})`);
   await p.close();
+  // a deep link to a card halfway down builds up to its group, not the whole shelf
+  const midSlug = await (async () => { const q = await open('/'); await scrollAll(q); const id = await q.evaluate(() => { const g = document.querySelectorAll('#results .group'); return g[Math.floor(g.length / 2)].querySelector('.card').id; }); await q.close(); return id; })();
+  p = await open('/#' + midSlug); await settle(600);
+  const dm = await p.evaluate((id) => { const e = document.getElementById(id); if (!e) return null; const r = e.getBoundingClientRect(); return { inView: r.top >= 0 && r.bottom <= innerHeight, flash: e.classList.contains('flash'), cards: document.querySelectorAll('#results .card').length }; }, midSlug);
+  ok(dm && dm.inView && dm.flash && dm.cards < full.cards * 0.8, `deep link #${midSlug} (middle group) lands without building the shelf (${dm && dm.cards} of ${full.cards} cards)`);
+  await p.close();
   for (const how of ['hash']) { // the header button now opens /add (test/addpage.js)
     p = await open(how === 'hash' ? '/#add' : '/');
     if (how === 'click') { await p.click('.add-top'); }
     await settle(1800);
     const a = await p.evaluate(() => { const add = document.getElementById('add'), d = document.getElementById('dock'); return { top: Math.round(add.getBoundingClientRect().top), dock: Math.round(d.getBoundingClientRect().bottom), bottom: scrollY + innerHeight >= document.documentElement.scrollHeight - 2 }; });
     ok(Math.abs(a.top - a.dock - 20) <= 2 || a.bottom, `"Add your bot" (${how}) lands on the form 20px under the dock (scroll padding 12 + margin 8) (${JSON.stringify(a)})`);
+    // nothing is built above the form while it is on screen; scrolling back up lets the shelf continue
+    const c0 = await p.$$eval('#results .card', (c) => c.length); await settle(1000);
+    const a2 = await p.evaluate(() => ({ cards: document.querySelectorAll('#results .card').length, top: Math.round(document.getElementById('add').getBoundingClientRect().top) }));
+    ok(c0 < full.cards / 2 && a2.cards === c0 && a2.top === a.top, `"Add your bot" (${how}) builds no more cards while the form is on screen (${c0}, then ${a2.cards}; form at ${a.top}, then ${a2.top})`);
+    for (let i = 0; i < 6; i++) { await p.evaluate(() => window.scrollBy(0, -innerHeight / 2)); await settle(250); }
+    const c2 = await p.$$eval('#results .card', (c) => c.length);
+    ok(c2 > c0, `scrolling back up from the form builds more of the shelf (${c0} to ${c2})`);
     await p.close();
   }
 

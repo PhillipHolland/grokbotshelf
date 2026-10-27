@@ -13,8 +13,10 @@ const wait = (ms) => new Promise(r => setTimeout(r, ms));
     await Promise.all([p.waitForNavigation({ waitUntil: 'networkidle0' }), p.click('.add-top')]);
     ok(new URL(p.url()).pathname === '/add' && await p.$('#sub-form'), `${vp.width}px header "Add your bot" opens /add`);
     await p.goto(BASE + '#add', { waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'open /#add');
-    await p.evaluate(() => scrollTo(0, 0)); await wait(200);
-    await p.goto(BASE + '#add', { waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'load with #add');
+    // a same-URL goto is a fragment-only navigation (no script runs), so test the real return path: back from /add
+    await p.goto(BASE + 'add', { waitUntil: 'networkidle0' });
+    await p.goBack({ waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'back to /#add');
+    await p.reload({ waitUntil: 'networkidle0' }); await wait(1600); check(await pos(), 'reload on /#add');
     await p.goto(BASE + '#bot-x', { waitUntil: 'networkidle0' });
     await p.close();
   }

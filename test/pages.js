@@ -60,7 +60,7 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   const ru = await fetch(new URL('/u/thecsguy', BASE), { redirect: 'manual' });
   ok(ru.status === 308 && new URL(ru.headers.get('location'), BASE).pathname === '/@thecsguy', `/u/thecsguy: ${ru.status} to ${ru.headers.get('location')}`);
   st = await go('/u/thecsguy'); d = await info();
-  ok(st === 200 && d.path === '/@thecsguy' && d.canonical === 'https://grokbotshelf.com/@thecsguy', `/u/thecsguy lands on the creator page (${st} ${d.path})`);
+  ok((st === 200 || st === 304) && d.path === '/@thecsguy' && d.canonical === 'https://grokbotshelf.com/@thecsguy', `/u/thecsguy lands on the creator page (${st} ${d.path})`);
   // /?q= filters the shelf on load (the home page WebSite JSON-LD advertises it as a SearchAction)
   await go('/?q=archivist');
   const q = await p.evaluate(() => ({ box: (document.querySelector('input[type=search]') || {}).value, names: [...document.querySelectorAll('#results .card h3')].map((h) => h.textContent) }));
