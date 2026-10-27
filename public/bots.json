@@ -6726,5 +6726,18 @@
     "creator_avatar": "/avatars/jayrok35.webp",
     "source_post": "",
     "added": "2026-10-26"
+  },
+  {
+    "name": "X Link Triager",
+    "emoji": "🔗",
+    "description": "Reads any X link you send, pulls the full post and linked repos, sorts real tools from hype, and logs or routes it.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Kp3s7Z5snb9_SyoSOx-eb",
+    "creator_name": "beastnug",
+    "creator_handle": "@beastnug8",
+    "creator_url": "https://x.com/beastnug8",
+    "creator_avatar": "/avatars/beastnug8.webp",
+    "source_post": "https://x.com/beastnug8/status/2114895319402217791",
+    "added": "2026-10-26"
   }
 ]

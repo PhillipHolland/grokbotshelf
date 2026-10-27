@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 01:40:49 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 02:10:56 GMT</lastBuildDate>
+  <item>
+    <title>🔗 X Link Triager by beastnug</title>
+    <link>https://grokbotshelf.com/bot/x-link-triager</link>
+    <guid isPermaLink="false">https://x.ai/bot/Kp3s7Z5snb9_SyoSOx-eb</guid>
+    <description>Reads any X link you send, pulls the full post and linked repos, sorts real tools from hype, and logs or routes it.</description>
+    <dc:creator>beastnug (@beastnug8)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:38 GMT</pubDate>
+  </item>
   <item>
     <title>🚚 Truck Inventory by Chicago Tradesman</title>
     <link>https://grokbotshelf.com/bot/truck-inventory</link>
@@ -447,15 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 26 Oct 2026 12:07:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏙️ Realty Rita by Jim</title>
-    <link>https://grokbotshelf.com/bot/realty-rita</link>
-    <guid isPermaLink="false">https://x.ai/bot/_Cu3rtG0IfKa84YsUe7tc</guid>
-    <description>A home-search sidekick for wherever you&apos;re moving: live listings, local agents, market trends and today&apos;s mortgage rates with links, plus which upgrades pay off and the services you&apos;ll need.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:48 GMT</pubDate>
   </item>
 </channel>
 </rss>
