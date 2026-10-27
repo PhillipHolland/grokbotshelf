@@ -23,13 +23,20 @@ const SEL = '.bp .sub a, .bp-links a, .snip-h .clear, .bp-actions .get, .bp-acti
       const s = document.querySelector('.bp .sub');
       return { n: els.length, small: hs.filter((h) => h[1] < 44), linkH: hs.filter((h) => h[0] && document.querySelector('.bp-links a')).map((h) => h[1]), bpl: Math.round(document.querySelector('.bp-links a').getBoundingClientRect().height), clip: s.scrollHeight - s.clientHeight, sw: document.documentElement.scrollWidth, iw: innerWidth };
     }, SEL);
+    // round 2 #4: meta line flush with the title, bookmark count on its own line on phones, vote count always a number
+    r.meta = await p.evaluate(() => {
+      const s = document.querySelector('.bp .sub'), h = document.querySelector('.bp-head h1'), bm = s.querySelector(':scope > span[title]'), a = s.querySelector('a');
+      return { flush: Math.round(s.getBoundingClientRect().left - h.getBoundingClientRect().left), bmOwnLine: bm ? bm.getBoundingClientRect().top >= a.getBoundingClientRect().bottom - 8 && Math.abs(bm.getBoundingClientRect().left - a.getBoundingClientRect().left) < 2 : null,
+        vn: (document.querySelector('.bp-vote .vn') || {}).textContent };
+    });
     await p.close(); return r;
   }
-  for (const path of ['/bot/coach/', '/bot/cancer-caregiver-hub/', '/@phil_holland/']) {
+  for (const path of ['/bot/coach/', '/bot/cancer-caregiver-hub/', '/bot/afterglow/', '/@phil_holland/']) {
     const m = await measure(path, 390);
     ok(m.n >= 4 && m.small.length === 0, `390 ${path}: ${m.n} page links and buttons are at least 44px tall` + (m.small.length ? ` (small: ${m.small.map((x) => x.join(' ')).join('; ')})` : ''));
     ok(m.clip <= 0, `390 ${path}: the header line is not clipped (${m.clip}px hidden)`);
     ok(m.sw <= m.iw, `390 ${path}: no sideways overflow (${m.sw})`);
+    ok(m.meta.flush === 0 && m.meta.bmOwnLine !== false && (path.startsWith('/@') || m.meta.vn === '0'), `390 ${path}: meta line flush with the title (${m.meta.flush}px), bookmarks on their own line (${m.meta.bmOwnLine}), vote count shown (${JSON.stringify(m.meta.vn)})`);
     const d = await measure(path, 1280);
     ok(d.bpl < 30 && d.clip <= 0, `1280 ${path}: desktop page links stay compact (${d.bpl}px) and the header line is not clipped`);
   }

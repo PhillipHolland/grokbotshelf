@@ -650,3 +650,11 @@ html.mobile .site-foot p.by a{display:inline-flex;align-items:center;min-height:
 
 /* ---------- Bot, creator and 404 pages: header lines up with the 720px column; theme toggle as on the home page (round 2 #3) ---------- */
 @media (min-width:760px){body.botpage .hero{max-width:720px}}
+
+/* ---------- Phones: bot and creator page meta line (round 2 #4) ---------- */
+/* Creator and category links sit flush with the title column (they keep their 44px tap height); the bookmark count
+   drops to its own line under them, without its leading dot. */
+html.mobile .bp .sub{column-gap:6px;margin-left:0}
+html.mobile .bp .sub a{padding:0}
+html.mobile .bp .sub .dot:has(+ span[title]){display:none}
+html.mobile .bp .sub > span[title]{flex-basis:100%;line-height:20px;margin-top:-4px}
