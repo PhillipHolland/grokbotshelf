@@ -98,6 +98,22 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     await p.close();
   }
 
+  // #6 phone cards: the creator link is a 44px tap that starts below the title line, so the title wins its whole line
+  {
+    const p = await open('/', { w: 390 });
+    await p.waitForSelector('#results .card .sub a.cn');
+    // cards are content-visibility:auto, so each one is scrolled into view and given two frames to render before hit testing
+    const r = await p.evaluate(async () => { const out = []; for (const c of [...document.querySelectorAll('#results .card')].filter((c) => c.querySelector('.sub a.cn') && c.getBoundingClientRect().height).slice(0, 8)) {
+      const t = c.querySelector('h3 a'), n = c.querySelector('.sub a.cn'); scrollTo(0, scrollY + n.getBoundingClientRect().top - 300);
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      const T = t.getBoundingClientRect(), N = n.getBoundingClientRect(); let titleWins = true, cnWins = true;
+      for (let y = Math.ceil(T.top) + 1; y < T.bottom - 1; y += 2) { const e = document.elementFromPoint(N.left + 4, y); if (!e || !e.closest('h3 a') && e.closest('a.cn')) titleWins = false; }
+      for (let y = Math.ceil(N.top) + 1; y < N.bottom - 1; y += 3) { const e = document.elementFromPoint(N.left + 4, y); if (!e || !e.closest('a.cn')) cnWins = false; }
+      out.push({ h: Math.round(N.height), gap: Math.round(N.top - T.bottom), titleWins, cnWins }); } return out; });
+    ok(r.length && r.every((x) => x.h >= 44 && x.gap >= 0 && x.titleWins && x.cnWins), `#6 390: creator link 44px tap below the title line, title keeps its line (${JSON.stringify(r.filter((x) => !(x.h >= 44 && x.gap >= 0 && x.titleWins && x.cnWins))[0] || r[0])}, ${r.length} cards)`);
+    await p.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })().catch((e) => { console.error(e); process.exit(1); });

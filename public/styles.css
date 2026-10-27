@@ -723,3 +723,12 @@ html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-u
 /* Copy: the same quiet blue pill as Reset, not a native grey button */
 .snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
 .snip-h .clear:hover{background:var(--mark)}
+
+/* ---------- Round 3 #6: phone card creator link. Its 44px tap used to start 10px up inside the title's line, where it beat
+   the title link. The meta row now grows downward only (into the non-interactive description margin): same net height
+   (44 - 1 - 24 = 19px, as before), so no card moves, and the title keeps every pixel of its own line. A pseudo-element hit
+   box cannot do this here: the link has overflow:hidden for its ellipsis, which clips its own ::after for hit testing. ---------- */
+html.mobile .card .sub{margin:-1px 0 -24px;align-items:flex-start}
+/* ...and the painted line stays exactly where it was: 4px below the row's new top (it used to be centred 14px below the old one) */
+html.mobile .card .sub>*{margin-top:4px}
+html.mobile .card .sub>a.cn{margin-top:0;padding-top:4px;align-items:flex-start;box-sizing:border-box}
