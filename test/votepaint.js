@@ -3,6 +3,7 @@
 // /api/votes is mocked in the browser, so nothing is sent anywhere.
 // Usage: NODE_PATH=/path/to/node_modules node test/votepaint.js [base-url]
 const puppeteer = require('puppeteer-core');
+const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
@@ -31,6 +32,7 @@ const slug = (s) => fold(s).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').r
     Element.prototype.querySelectorAll = function (s) { if (/\.vote\[data-vote=/.test(s)) window.__slugQ++; return qsa.call(this, s); };
   });
   await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle(800);
+  await scrollAll(p);
   const r = await p.evaluate((scores) => {
     const els = [...document.querySelectorAll('#results .vote')]; let bad = [];
     for (const el of els) { const s = scores[el.dataset.vote], n = el.querySelector('.vn').textContent; const want = s ? String(s.score) : '0'; if (n !== want) bad.push(el.dataset.vote + '=' + n); }

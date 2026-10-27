@@ -2,6 +2,7 @@
 // the creator name on each card. Anonymous creators stay plain text. Every linked page exists.
 // Usage: NODE_PATH=/path/to/node_modules node test/creatorlinks.js [base-url]
 const puppeteer = require('puppeteer-core');
+const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 (async () => {
@@ -11,6 +12,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.setRequestInterception(true);
   p.on('request', (r) => (/google-analytics|googletagmanager|\/_vercel\/|\/api\//.test(r.url()) ? r.abort() : r.continue()));
   await p.goto(BASE, { waitUntil: 'networkidle0' });
+  await scrollAll(p);
   const r = await p.evaluate(async () => {
     const bots = await (await fetch('/bots.json')).json(), list = Array.isArray(bots) ? bots : bots.bots;
     const byName = new Map(list.map((x) => [x.name, x]));

@@ -2,6 +2,7 @@
 // keeps its space while hidden, and puts everything back (search, filters, sort, collapsed groups, clean URL).
 // Usage: NODE_PATH=/path/to/node_modules node test/reset.js [base-url]
 const puppeteer = require('puppeteer-core');
+const scrollAll = require('./scroll-all');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
@@ -18,6 +19,7 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   const box = (s) => p.$eval(s, e => { const r = e.getBoundingClientRect(); return { top: Math.round(r.top + scrollY), h: Math.round(r.height), w: Math.round(r.width) }; });
   const path = () => { const u = new URL(p.url()); return u.pathname + u.search; };
   await p.goto(BASE, { waitUntil: 'networkidle0' }); await settle();
+  await scrollAll(p);
   ok(!(await shown()), 'default home: Reset is hidden');
   ok(await p.$eval('#reset', e => getComputedStyle(e).display !== 'none' && e.getBoundingClientRect().width > 0), 'hidden Reset still takes its space (visibility, not display)');
   const fx = await p.$eval('#fb-x', e => e.href), fi = await p.$eval('.site-foot .fb-issue', e => e.href), ffx = await p.$eval('.site-foot .fb-x', e => e.href);
