@@ -2255,13 +2255,16 @@
       "approved_by": "Phillip Holland"
     },
     "template-0bdTgyQf4wCZBjH1_gnVp": {
-      "status": "pending",
+      "status": "denied",
       "author": "",
       "bot": "Axiom",
       "template_url": "https://x.ai/bot/0bdTgyQf4wCZBjH1_gnVp",
       "url": "",
       "note": "site form #4; Phillip OK to add, but template and X search show no creator, and the shelf needs an X handle (creator pages key on it). Held until a creator is known.",
-      "date": "2026-10-25"
+      "date": "2026-10-25",
+      "reason": "no X creator handle; unapproved form queue cleared",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "2114457484610208242": {
       "status": "added",
@@ -2704,13 +2707,16 @@
       "approved_by": "Phillip Holland"
     },
     "template-l1e691-OllwzsXM2DsuOK": {
-      "status": "pending",
+      "status": "denied",
       "author": "",
       "bot": "Barry by Elijah",
       "template_url": "https://x.ai/bot/l1e691-OllwzsXM2DsuOK",
       "url": "",
       "note": "Phillip hold Oct 25 2026 — wait for X handle (declined name-only for now). Site form #74.",
-      "date": "2026-10-25"
+      "date": "2026-10-25",
+      "reason": "no X creator handle; unapproved form queue cleared",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "template-bBqjPmvPZZ533hzc4yG6k": {
       "status": "added",
@@ -3542,12 +3548,15 @@
       "date": "2026-10-26"
     },
     "weaverwork-batch": {
-      "status": "pending",
+      "status": "denied",
       "author": "@weaverwork",
       "bot": "All other \"by Jacob\" SaaS Product Expert templates (site forms #142-#227 and counting, ~83 at 6:10 PM CT; submissions still arriving)",
       "url": "https://x.com/weaverwork/status/2114742204614750230",
       "note": "Held for Phillip: bulk batch of near-identical docs-only Q&A bots from a 104-bot library (botsthatdothework.com). Clean, creator confirmed @weaverwork. Shelved Box Solution Builder + the 3 he featured in his top-10 post; rest await a call on bulk/flooding.",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "bulk flood of near-identical docs-only Product Expert bots (~101, site forms #142-#245); unapproved form queue cleared. The 4 already shelved stay.",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "2114863206539624551": {
       "status": "credit-fix",
@@ -3557,76 +3566,100 @@
       "date": "2026-10-26"
     },
     "form-284": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Mirror",
       "template_url": "https://x.ai/bot/6XwjJ_W0mX_ybK4ts_Ngb",
       "url": "",
       "note": "site form #284; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-283": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Buzzkill",
       "template_url": "https://x.ai/bot/F1spQY8tmP2KCqnyuAbJh",
       "url": "",
       "note": "site form #283; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-282": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Sworm",
       "template_url": "https://x.ai/bot/l0J0Nj95_yVOlFZIHB1Y_",
       "url": "",
       "note": "site form #282; held for Phillip: SEAL Team 7 security squad (red-team mutator)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-281": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Twinwright",
       "template_url": "https://x.ai/bot/Hvli5amrlprtDS2KuFRBP",
       "url": "",
       "note": "site form #281; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-280": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Grokologist",
       "template_url": "https://x.ai/bot/8vdHXq66kVvVlbACd-IDL",
       "url": "",
       "note": "site form #280; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-279": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Watchbot",
       "template_url": "https://x.ai/bot/D2M2qOWDB0AKe2k_jG7Ck",
       "url": "",
       "note": "site form #279; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-278": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "Bottyguard",
       "template_url": "https://x.ai/bot/PFI2o0ZcruL6vjjHAm5cF",
       "url": "",
       "note": "site form #278; held for Phillip: SEAL Team 7 security squad",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-277": {
-      "status": "pending",
+      "status": "denied",
       "author": "@SuddenlyJon",
       "bot": "SEAL Team 7",
       "template_url": "https://x.ai/bot/f4d45hBOf-f-q3KMP4R20",
       "url": "",
       "note": "site form #277; held for Phillip: SEAL Team 7 squad link (adds 7 bots)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "SEAL Team 7 security/red-team squad; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-276": {
       "status": "added",
@@ -3719,58 +3752,74 @@
       "approved_by": "Phillip Holland (standing auto-shelve rule)"
     },
     "form-267": {
-      "status": "pending",
+      "status": "updated",
       "author": "@SuddenlyJon",
       "bot": "Tab Janitor",
       "template_url": "https://x.ai/bot/XOYBYmHQrUT_Ux88SS409",
       "url": "",
-      "note": "site form #267; held for Phillip: Tab Janitor republished under new template id; same creator already on shelf with older id",
-      "date": "2026-10-26"
+      "note": "site form #267; held for Phillip: Tab Janitor republished under new template id; same creator already on shelf with older id; swapped existing Tab Janitor listing to new template id",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "replaced_url": "https://x.ai/bot/E_j1gMmT7KLW4HWbMV2nK"
     },
     "form-266": {
-      "status": "pending",
+      "status": "denied",
       "author": "AI_Revolution (no handle)",
       "bot": "Your Voice Editor",
       "template_url": "https://x.ai/bot/SQm2jfmHAJNTjWW1A7AVl",
       "url": "",
       "note": "site form #266; held for Phillip: no creator handle (AI_Revolution)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-265": {
-      "status": "pending",
+      "status": "denied",
       "author": "AI_Revolution (no handle)",
       "bot": "Bills and Renewals Watcher",
       "template_url": "https://x.ai/bot/uHbqMd8nxilXPg5prgOFe",
       "url": "",
       "note": "site form #265; held for Phillip: no creator handle (AI_Revolution)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-264": {
-      "status": "pending",
+      "status": "denied",
       "author": "AI_Revolution (no handle)",
       "bot": "Pass or Fail Checker",
       "template_url": "https://x.ai/bot/rYrK4IrDCPzE5fvuhfTfC",
       "url": "",
       "note": "site form #264; held for Phillip: no creator handle (AI_Revolution)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-263": {
-      "status": "pending",
+      "status": "denied",
       "author": "AI_Revolution (no handle)",
       "bot": "Morning Paper Editor",
       "template_url": "https://x.ai/bot/lENpURW9T-00ZyTlmYFue",
       "url": "",
       "note": "site form #263; held for Phillip: no creator handle (AI_Revolution)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-262": {
-      "status": "pending",
+      "status": "added",
       "author": "@cam_orzen",
       "bot": "Chief of Staff",
       "template_url": "https://x.ai/bot/9dChIEa1WaE4iCH3-WVuE",
       "url": "",
-      "note": "site form #262; held for Phillip: name clash with Chief Of Staff (@Edward_Atime) and built-in starter name",
-      "date": "2026-10-26"
+      "note": "site form #262; held for Phillip: name clash with Chief Of Staff (@Edward_Atime) and built-in starter name; shelved as \"Chief of Staff by Cameron\" (name clash rename)",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "shelved_as": "Chief of Staff by Cameron"
     },
     "form-261": {
       "status": "added",
@@ -3783,13 +3832,16 @@
       "approved_by": "Phillip Holland (standing auto-shelve rule)"
     },
     "form-260": {
-      "status": "pending",
+      "status": "denied",
       "author": "@cam_orzen",
       "bot": "Trade Desk",
       "template_url": "https://x.ai/bot/xWmCkaKly5owQTBLXxsCs",
       "url": "",
       "note": "site form #260; held for Phillip: trades in a brokerage (moves money)",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "brokerage trading bot that moves money; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-259": {
       "status": "added",
@@ -3832,22 +3884,28 @@
       "approved_by": "Phillip Holland (standing auto-shelve rule)"
     },
     "form-255": {
-      "status": "pending",
+      "status": "denied",
       "author": "@cam_orzen",
       "bot": "Spam-Call Scrubber",
       "template_url": "https://x.ai/bot/5QmBwdQ3ISkDzetniTGMQ",
       "url": "",
       "note": "site form #255; held for Phillip: same name and description as Phillip's own Spam-Call Scrubber bot",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "duplicate of Phillip's own Spam-Call Scrubber (same name and description)",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-254": {
-      "status": "pending",
+      "status": "denied",
       "author": "@cam_orzen",
       "bot": "Counterpoint · X debate drafter",
       "template_url": "https://x.ai/bot/8atAclv4wOWLHmLAP0TAw",
       "url": "",
       "note": "site form #254; held for Phillip: political: drafts replies to anti-capitalist posts",
-      "date": "2026-10-26"
+      "date": "2026-10-26",
+      "reason": "political reply drafter; does not meet shelf standards",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "decided": "2026-10-26"
     },
     "form-253": {
       "status": "added",
@@ -3870,13 +3928,15 @@
       "approved_by": "Phillip Holland (standing auto-shelve rule)"
     },
     "form-251": {
-      "status": "pending",
+      "status": "added",
       "author": "@cam_orzen",
       "bot": "Writing Bot",
       "template_url": "https://x.ai/bot/-7S4MgO34hCNUSxRQD-3l",
       "url": "",
-      "note": "site form #251; held for Phillip: name clash with Writing Bot (@mattyp)",
-      "date": "2026-10-26"
+      "note": "site form #251; held for Phillip: name clash with Writing Bot (@mattyp); shelved as \"Writing Bot by Cameron\" (name clash rename)",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
+      "shelved_as": "Writing Bot by Cameron"
     },
     "form-250": {
       "status": "added",

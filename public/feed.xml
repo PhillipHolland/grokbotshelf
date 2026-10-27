@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 00:09:08 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 00:21:54 GMT</lastBuildDate>
+  <item>
+    <title>✍️ Writing Bot by Cameron by Cameron Orzen</title>
+    <link>https://grokbotshelf.com/bot/writing-bot-by-cameron</link>
+    <guid isPermaLink="false">https://x.ai/bot/-7S4MgO34hCNUSxRQD-3l</guid>
+    <description>Drafts and revises your emails, essays, memos, posts and docs so they read clearer, keeping your meaning and voice.</description>
+    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧭 Chief of Staff by Cameron by Cameron Orzen</title>
+    <link>https://grokbotshelf.com/bot/chief-of-staff-by-cameron</link>
+    <guid isPermaLink="false">https://x.ai/bot/9dChIEa1WaE4iCH3-WVuE</guid>
+    <description>Routes your requests to the right one of your other Grok Bots, tracks each piece and brings back one answer.</description>
+    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:32 GMT</pubDate>
+  </item>
   <item>
     <title>📺 Stuart by Cameron Orzen</title>
     <link>https://grokbotshelf.com/bot/stuart</link>
@@ -438,24 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔩 Grease Monkey Wally by Jim</title>
-    <link>https://grokbotshelf.com/bot/grease-monkey-wally</link>
-    <guid isPermaLink="false">https://x.ai/bot/XQ4VrU9JJ7lHgbEIM2e8F</guid>
-    <description>Your DIY auto repair buddy: diagnoses symptoms and check-engine codes, walks you through repairs with real specs for your vehicle, finds parts at the best price and checks recalls.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>✏️ Test Prep Tess by Jim</title>
-    <link>https://grokbotshelf.com/bot/test-prep-tess</link>
-    <guid isPermaLink="false">https://x.ai/bot/GEih8F6WlyPJ_oyuVLEAt</guid>
-    <description>A friendly study coach for the SAT, ACT, GED, ASVAB, GRE, IT certs and more: a week-by-week plan, practice questions with clear explanations and links to the best free official prep.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:42 GMT</pubDate>
   </item>
 </channel>
 </rss>
