@@ -4658,6 +4658,33 @@
    "note": "held: no creator handle or post; template author 'SoCalFSD' unverified (arrived 3:24 PM CDT during scan)",
    "date": "2026-10-27",
    "approved_by": "Phillip Holland"
+  },
+  "form-353": {
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission",
+   "status": "added",
+   "bot": "Perp Pulse by Yossi",
+   "template_url": "https://x.ai/bot/_VHZaIo76tewAvkzkgVCd",
+   "author": "@josephstayhappy",
+   "note": "site form; read-only market data, never trades; post 2115180971397943584"
+  },
+  "form-354": {
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission",
+   "status": "added",
+   "bot": "Threads",
+   "template_url": "https://x.ai/bot/Trx7riJWgecW9w0dUKqX7",
+   "author": "@CattoIs2Pure",
+   "note": "site form, no post"
+  },
+  "2115195371664322708": {
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission",
+   "status": "added",
+   "bot": "Stream Producer by beastnug",
+   "template_url": "https://x.ai/bot/1UoI8T0BsDEbcs6MNmKmz",
+   "author": "@beastnug8",
+   "note": "reply tagging @Phil_Holland @thecsguy; creator post 2115195367453061350"
   }
  }
 }

@@ -7648,5 +7648,44 @@
     "creator_avatar": "/avatars/gooper.webp",
     "source_post": "",
     "added": "2026-10-27"
+  },
+  {
+    "name": "Perp Pulse",
+    "emoji": "📈",
+    "description": "Reads crypto perpetual futures funding, open interest, and liquidations across four exchanges and never places trades.",
+    "category": "Money",
+    "url": "https://x.ai/bot/_VHZaIo76tewAvkzkgVCd",
+    "creator_name": "Yossi",
+    "creator_handle": "@josephstayhappy",
+    "creator_url": "https://x.com/josephstayhappy",
+    "creator_avatar": "/avatars/josephstayhappy.webp",
+    "source_post": "https://x.com/josephstayhappy/status/2115180971397943584",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Threads",
+    "emoji": "👗",
+    "description": "Finds clothes and outfits that fit your size, style, and budget, with checked links and fit notes.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/Trx7riJWgecW9w0dUKqX7",
+    "creator_name": "Olive",
+    "creator_handle": "@CattoIs2Pure",
+    "creator_url": "https://x.com/CattoIs2Pure",
+    "creator_avatar": "/avatars/cattois2pure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Stream Producer",
+    "emoji": "🎙️",
+    "description": "Keeps your stream schedule straight and drafts live titles, descriptions, go-live posts, and watch-party packs.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/1UoI8T0BsDEbcs6MNmKmz",
+    "creator_name": "beastnug",
+    "creator_handle": "@beastnug8",
+    "creator_url": "https://x.com/beastnug8",
+    "creator_avatar": "/avatars/beastnug8.webp",
+    "source_post": "https://x.com/beastnug8/status/2115195367453061350",
+    "added": "2026-10-27"
   }
 ]

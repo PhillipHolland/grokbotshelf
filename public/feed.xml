@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 20:33:57 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 22:07:21 GMT</lastBuildDate>
+  <item>
+    <title>🎙️ Stream Producer by beastnug</title>
+    <link>https://grokbotshelf.com/bot/stream-producer</link>
+    <guid isPermaLink="false">https://x.ai/bot/1UoI8T0BsDEbcs6MNmKmz</guid>
+    <description>Keeps your stream schedule straight and drafts live titles, descriptions, go-live posts, and watch-party packs.</description>
+    <dc:creator>beastnug (@beastnug8)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>👗 Threads by Olive</title>
+    <link>https://grokbotshelf.com/bot/threads</link>
+    <guid isPermaLink="false">https://x.ai/bot/Trx7riJWgecW9w0dUKqX7</guid>
+    <description>Finds clothes and outfits that fit your size, style, and budget, with checked links and fit notes.</description>
+    <dc:creator>Olive (@CattoIs2Pure)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:50 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Perp Pulse by Yossi</title>
+    <link>https://grokbotshelf.com/bot/perp-pulse</link>
+    <guid isPermaLink="false">https://x.ai/bot/_VHZaIo76tewAvkzkgVCd</guid>
+    <description>Reads crypto perpetual futures funding, open interest, and liquidations across four exchanges and never places trades.</description>
+    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:49 GMT</pubDate>
+  </item>
   <item>
     <title>🎂 Birthday Bot by gooper</title>
     <link>https://grokbotshelf.com/bot/birthday-bot</link>
@@ -429,33 +456,6 @@
     <dc:creator>Darin (@DarinRMcClure)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 27 Oct 2026 12:09:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>📑 Counsel by MikeysMolecules</title>
-    <link>https://grokbotshelf.com/bot/counsel-by-mikeysmolecules</link>
-    <guid isPermaLink="false">https://x.ai/bot/-vwyPA-YY-cDclBshl-Ue</guid>
-    <description>Reads contracts, leases, bills and terms in plain words, flags hidden fees and risky clauses, does cited research, and drafts a brief for your attorney. Not a lawyer; drafts only.</description>
-    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>💡 Idea Lab &amp; Brainstorm Logger by beastnug</title>
-    <link>https://grokbotshelf.com/bot/idea-lab-and-brainstorm-logger</link>
-    <guid isPermaLink="false">https://x.ai/bot/Uebi7w0hZRhAk0rCORNBM</guid>
-    <description>Captures business, content and product ideas from your day, podcasts or X links into an organized idea log you can build on.</description>
-    <dc:creator>beastnug (@beastnug8)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚖️ Law Desk by Spud</title>
-    <link>https://grokbotshelf.com/bot/law-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/zkbqAHZL0udW-ZArllZtJ</guid>
-    <description>Answers US legal questions with short memos cited only from official primary law, with a good-law check. Information, not legal advice.</description>
-    <dc:creator>Spud (@SpudStateUSA)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:59 GMT</pubDate>
   </item>
 </channel>
 </rss>
