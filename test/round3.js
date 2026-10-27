@@ -50,6 +50,18 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     }
   }
 
+  // #2 bot, creator and 404 pages at 1280: header, content column and footer share the 720px column; the theme toggle is there and works
+  for (const path of ['/bot/archivist', '/@phil_holland', '/@nobodyhere']) {
+    const p = await open(path);
+    const r = await p.evaluate(() => { const R = (s) => { const e = document.querySelector(s), r = e.getBoundingClientRect(), cs = getComputedStyle(e); return [Math.round(r.left + parseFloat(cs.paddingLeft)), Math.round(r.right - parseFloat(cs.paddingRight))]; };
+      return { main: R('main.bp'), head: R('.hero'), foot: R('.site-foot'), rule: Math.round(document.querySelector('.site-foot').getBoundingClientRect().width) }; });
+    ok(r.head.join() === r.main.join() && r.foot.join() === r.main.join() && r.rule <= 760, `#2 1280 ${path}: header ${r.head}, footer ${r.foot} line up with the column ${r.main} (footer rule ${r.rule}px)`);
+    await p.click('#theme'); await sleep(100);
+    const t = await p.evaluate(() => [document.documentElement.dataset.theme, localStorage.getItem('theme'), document.getElementById('theme').getAttribute('aria-pressed')]);
+    ok(t.join() === 'light,light,false', `#2 ${path}: theme toggle switches to light and saves it (${t})`);
+    await p.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })().catch((e) => { console.error(e); process.exit(1); });

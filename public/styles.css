@@ -695,3 +695,7 @@ html.tailing .sentinel{height:100vh}
    the slot grows for three digits instead of clipping (cards keep their fixed 22px) ---------- */
 .bp-vote .vn{width:auto;min-width:22px;padding:0 2px}
 .bp-vote .vn.zero{color:var(--text2)}
+
+/* ---------- Round 3 #2: bot, creator and 404 pages: the footer joins the header in the 720px column ---------- */
+/* .site-foot has no side padding (its rule is the border), so it takes the 688px content width, not the 720px box */
+@media (min-width:760px){body.botpage .site-foot{max-width:688px}}
