@@ -6752,5 +6752,69 @@
     "creator_avatar": "/avatars/db_devildog.webp",
     "source_post": "https://x.com/DB_DevilDog/status/2114915424127332392",
     "added": "2026-10-26"
+  },
+  {
+    "name": "Playbook",
+    "emoji": "▶️",
+    "description": "Turns your most-repeated asks into short codes: type '1' to any of your bots and it runs the whole task.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/ejNFohKf26hSEYxmYRQJg",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "creator_avatar": "/avatars/suddenlyjon.webp",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Swarm",
+    "emoji": "🐝",
+    "description": "Deep research bot: fans out across many angles on one topic, audits every source, and delivers a cited, conclusion-first report on a tight budget.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/b6mUEkSKsWyhe_ITaKW0t",
+    "creator_name": "Josh Birdwell",
+    "creator_handle": "@joshdbirdwell",
+    "creator_url": "https://x.com/joshdbirdwell",
+    "creator_avatar": "/avatars/joshdbirdwell.webp",
+    "added": "2026-10-27",
+    "source_post": "https://x.com/joshdbirdwell/status/2114918233421775047"
+  },
+  {
+    "name": "Grok Bot Remix Producer",
+    "emoji": "🎛️",
+    "description": "Works a raw idea or an existing template with you like a record producer, then writes a new remix bot spec with credit to everyone it builds on.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/TKzVWQ6PlZ6Cf4ao96MKz",
+    "creator_name": "MikeysMolecules",
+    "creator_handle": "@MikeysMolecules",
+    "creator_url": "https://x.com/MikeysMolecules",
+    "creator_avatar": "/avatars/mikeysmolecules.webp",
+    "added": "2026-10-27",
+    "source_post": "https://x.com/MikeysMolecules/status/2114073586612986294"
+  },
+  {
+    "name": "Buy",
+    "emoji": "🛒",
+    "description": "Purchase trade-study bot: compares options, hunts the best real price new, refurb or used across major stores, and gives a clear pick.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/O9XbjNnFDHDqkOZy87nox",
+    "creator_name": "PyeGuy",
+    "creator_handle": "@myGuyPye",
+    "creator_url": "https://x.com/myGuyPye",
+    "creator_avatar": "/avatars/myguypye.webp",
+    "added": "2026-10-27",
+    "source_post": "https://x.com/myGuyPye/status/2114911625912480001"
+  },
+  {
+    "name": "Tess Design Desk",
+    "emoji": "🎨",
+    "description": "Design desk for non-coders: UI mockups, desktop and mobile screenshot packs, bot crests and avatars, and promo visuals, with a privacy check before anything goes public.",
+    "category": "Design",
+    "url": "https://x.ai/bot/s5Lrs_B4IcI169QRiQAan",
+    "creator_name": "Bill",
+    "creator_handle": "@wjenson",
+    "creator_url": "https://x.com/wjenson",
+    "creator_avatar": "/avatars/wjenson.webp",
+    "added": "2026-10-27",
+    "source_post": "https://x.com/wjenson/status/2114896253201096878"
   }
 ]

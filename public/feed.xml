@@ -6,7 +6,61 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 02:10:56 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 05:27:24 GMT</lastBuildDate>
+  <item>
+    <title>🎨 Tess Design Desk by Bill</title>
+    <link>https://grokbotshelf.com/bot/tess-design-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/s5Lrs_B4IcI169QRiQAan</guid>
+    <description>Design desk for non-coders: UI mockups, desktop and mobile screenshot packs, bot crests and avatars, and promo visuals, with a privacy check before anything goes public.</description>
+    <dc:creator>Bill (@wjenson)</dc:creator>
+    <category>Design</category>
+    <pubDate>Tue, 27 Oct 2026 12:08:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛒 Buy by PyeGuy</title>
+    <link>https://grokbotshelf.com/bot/buy</link>
+    <guid isPermaLink="false">https://x.ai/bot/O9XbjNnFDHDqkOZy87nox</guid>
+    <description>Purchase trade-study bot: compares options, hunts the best real price new, refurb or used across major stores, and gives a clear pick.</description>
+    <dc:creator>PyeGuy (@myGuyPye)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:08:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎛️ Grok Bot Remix Producer by MikeysMolecules</title>
+    <link>https://grokbotshelf.com/bot/grok-bot-remix-producer</link>
+    <guid isPermaLink="false">https://x.ai/bot/TKzVWQ6PlZ6Cf4ao96MKz</guid>
+    <description>Works a raw idea or an existing template with you like a record producer, then writes a new remix bot spec with credit to everyone it builds on.</description>
+    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:08:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐝 Swarm by Josh Birdwell</title>
+    <link>https://grokbotshelf.com/bot/swarm</link>
+    <guid isPermaLink="false">https://x.ai/bot/b6mUEkSKsWyhe_ITaKW0t</guid>
+    <description>Deep research bot: fans out across many angles on one topic, audits every source, and delivers a cited, conclusion-first report on a tight budget.</description>
+    <dc:creator>Josh Birdwell (@joshdbirdwell)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:08:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>▶️ Playbook by Pitchfork &amp; Torch</title>
+    <link>https://grokbotshelf.com/bot/playbook</link>
+    <guid isPermaLink="false">https://x.ai/bot/ejNFohKf26hSEYxmYRQJg</guid>
+    <description>Turns your most-repeated asks into short codes: type &apos;1&apos; to any of your bots and it runs the whole task.</description>
+    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:08:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏈 CFB Recruiting &amp; Portal Tracker by Daniel</title>
+    <link>https://grokbotshelf.com/bot/cfb-recruiting-and-portal-tracker</link>
+    <guid isPermaLink="false">https://x.ai/bot/-FD_nk_KoOHBDShy2T4O7</guid>
+    <description>Tracks recruiting and transfer portal moves for one college football team, with sourced digests and big-move alerts.</description>
+    <dc:creator>Daniel (@DB_DevilDog)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:39 GMT</pubDate>
+  </item>
   <item>
     <title>🔗 X Link Triager by beastnug</title>
     <link>https://grokbotshelf.com/bot/x-link-triager</link>
@@ -402,60 +456,6 @@
     <dc:creator>Edmundo (@moondough)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 26 Oct 2026 12:07:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏷️ Thrift Hunter by Hudson S.</title>
-    <link>https://grokbotshelf.com/bot/thrift-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/3Q00ob33EdkR0G9CUULoC</guid>
-    <description>Aisle coach for thrift flips: send a photo or item name plus the tag price, get Buy / Maybe / Pass with expected resale, fees, shipping and profit.</description>
-    <dc:creator>Hudson S. (@HudsonSutherla2)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>👾 Pixato by Emilio</title>
-    <link>https://grokbotshelf.com/bot/pixato</link>
-    <guid isPermaLink="false">https://x.ai/bot/pasY6lHFHEF11bcY5HNkT</guid>
-    <description>Hand-codes pixel-art icons and sprites (mod icons, Minecraft-style items and blocks) in Python, with zero AI image generation.</description>
-    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>📡 Radar by Emilio</title>
-    <link>https://grokbotshelf.com/bot/radar</link>
-    <guid isPermaLink="false">https://x.ai/bot/DFs8v97_N42O4bUedvIWk</guid>
-    <description>Finds small X accounts of people at big tech companies, checks they really work there, and pings you when they post with a reply draft. Never posts.</description>
-    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:52 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩹 CVE Desk by Metal</title>
-    <link>https://grokbotshelf.com/bot/cve-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/xzULzM6Gx3SpDRVrJdjdv</guid>
-    <description>Defensive, read-only CVE desk: breaks down advisories, checks public PoCs without running them, ranks what to patch.</description>
-    <dc:creator>Metal (@_h4xin)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎯 Sponsorship Hunter by Ryan</title>
-    <link>https://grokbotshelf.com/bot/sponsorship-hunter</link>
-    <guid isPermaLink="false">https://x.ai/bot/8w67xlhpYb_vXdNfDuBbE</guid>
-    <description>Studies your X account and niche, then hunts realistic sponsors for small creators: brands already paying creators your size, affiliate and product deals, and creator marketplaces. It drafts outreach for your approval and runs your sponsorship pipeline.</description>
-    <dc:creator>Ryan (@ryangrowthh)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>💎 Research Ruby by Jim</title>
-    <link>https://grokbotshelf.com/bot/research-ruby</link>
-    <guid isPermaLink="false">https://x.ai/bot/bcVY9sJKoeZSzFcfNlhVW</guid>
-    <description>A research and fact-check desk on live web search: paste or link a social post and each claim is rated true, false, misleading or unproven, with dated sources.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:49 GMT</pubDate>
   </item>
 </channel>
 </rss>

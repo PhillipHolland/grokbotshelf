@@ -4034,6 +4034,58 @@
       "template_url": "https://x.ai/bot/Kp3s7Z5snb9_SyoSOx-eb",
       "url": "https://x.com/beastnug8/status/2114895319402217791",
       "date": "2026-10-26"
+    },
+    "form-299": {
+      "status": "added",
+      "author": "@SuddenlyJon",
+      "bot": "Playbook",
+      "template_url": "https://x.ai/bot/ejNFohKf26hSEYxmYRQJg",
+      "note": "site form #299",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland (standing OK)"
+    },
+    "form-297": {
+      "status": "added",
+      "author": "@joshdbirdwell",
+      "bot": "Swarm",
+      "template_url": "https://x.ai/bot/b6mUEkSKsWyhe_ITaKW0t",
+      "note": "site form #297",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland (standing OK)"
+    },
+    "form-294": {
+      "status": "added",
+      "author": "@MikeysMolecules",
+      "bot": "Grok Bot Remix Producer",
+      "template_url": "https://x.ai/bot/TKzVWQ6PlZ6Cf4ao96MKz",
+      "note": "site form #294",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland (standing OK)"
+    },
+    "form-293": {
+      "status": "added",
+      "author": "@myGuyPye",
+      "bot": "Buy",
+      "template_url": "https://x.ai/bot/O9XbjNnFDHDqkOZy87nox",
+      "note": "site form #293",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland (standing OK)"
+    },
+    "form-289": {
+      "status": "added",
+      "author": "@wjenson",
+      "bot": "Tess Design Desk",
+      "template_url": "https://x.ai/bot/s5Lrs_B4IcI169QRiQAan",
+      "note": "site form #289",
+      "date": "2026-10-27",
+      "approved_by": "Phillip Holland (standing OK)"
+    },
+    "form-291": {
+      "status": "denied",
+      "bot": "List My Grok Bot",
+      "template_url": "https://x.ai/bot/Wm9Jb-e72U06wdzPB6CmS",
+      "note": "site form #291; no creator handle, promotes rival directories",
+      "date": "2026-10-27"
     }
   }
 }
