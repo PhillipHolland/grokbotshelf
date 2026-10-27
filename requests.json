@@ -4523,6 +4523,93 @@
    "author": "@the_seth_ard",
    "note": "asked forms #332-336 credit as Salty FL Cracker; done",
    "date": "2026-10-27"
+  },
+  "form-341": {
+   "status": "added",
+   "bot": "Nailed It · Hype Jar by Ashleigh",
+   "template_url": "https://x.ai/bot/BxFCT96J8vQZyN8xaOrin",
+   "author": "@AshleighEWrites",
+   "note": "site form #341; post 2115126108865925356",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "form-342": {
+   "status": "added",
+   "bot": "Contractor Supplement & Missed-Call Front Desk by Lisa",
+   "template_url": "https://x.ai/bot/lnd5ErImPDh4h7eBb5n8Z",
+   "author": "@LisaMAUSA",
+   "note": "site form #342",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "form-343": {
+   "status": "added",
+   "bot": "Salon Suite, MedSpa & Solo Stylist Front Desk by Lisa",
+   "template_url": "https://x.ai/bot/7b1I98Ms3Iu8Z59LDSx8R",
+   "author": "@LisaMAUSA",
+   "note": "site form #343",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "form-344": {
+   "status": "added",
+   "bot": "Merger Watch by Howard",
+   "template_url": "https://x.ai/bot/Cr7MZCnOJ-XpWgwsEzV04",
+   "author": "@HowieMcMahan",
+   "note": "site form #344",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "form-345": {
+   "status": "added",
+   "bot": "Chart Signals by Howard",
+   "template_url": "https://x.ai/bot/rxWL-XVViISTtji33W8cv",
+   "author": "@HowieMcMahan",
+   "note": "site form #345; also X posts 2115152468480766253, 2115169712137265375",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "2115152468480766253": {
+   "status": "added",
+   "bot": "Chart Signals by Howard",
+   "template_url": "https://x.ai/bot/rxWL-XVViISTtji33W8cv",
+   "author": "@HowieMcMahan",
+   "note": "X reply on roundup; same as form #345",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "form-346": {
+   "status": "pending",
+   "bot": "Usage Doctor by adrian",
+   "template_url": "https://x.ai/bot/IOgcDjrtCRSuyHudPI39d",
+   "author": "",
+   "note": "held: no creator handle or post, template author 'adrian' unverified",
+   "date": "2026-10-27"
+  },
+  "form-347": {
+   "status": "pending",
+   "bot": "Prepper by Daniel",
+   "template_url": "https://x.ai/bot/-XeyX8_sUb_Ca0a6vqDYY",
+   "author": "@DB_DevilDog",
+   "note": "held: name clash with existing 'Prepper' by Grease (omCU96pYM7XYkaEu96Lst); creator @DB_DevilDog looks legit (already shelved CFB tracker)",
+   "date": "2026-10-27"
+  },
+  "2115149889201909836": {
+   "status": "added",
+   "bot": "X Follow Finder by JeebsTX",
+   "template_url": "https://x.ai/bot/jn_M-ddIzgP8XMt1P0ocW",
+   "author": "@JeebsTX",
+   "note": "suggested by @ALL_Jonah tagging @thecsguy; creator post 2115028234609778750",
+   "date": "2026-10-27",
+   "approved_by": "standing shelve-safe permission"
+  },
+  "2115146821454778748": {
+   "status": "already_on_shelf",
+   "bot": "Idea Lab & Brainstorm Logger by beastnug",
+   "template_url": "https://x.ai/bot/Uebi7w0hZRhAk0rCORNBM",
+   "author": "@beastnug8",
+   "note": "feedback ask, already shelved",
+   "date": "2026-10-27"
   }
  }
 }

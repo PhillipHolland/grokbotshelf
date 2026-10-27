@@ -7466,5 +7466,83 @@
     "creator_avatar": "/avatars/beastnug8.webp",
     "source_post": "https://x.com/beastnug8/status/2115125371439833331",
     "added": "2026-10-27"
+  },
+  {
+    "name": "Chart Signals",
+    "emoji": "📊",
+    "description": "Teaches beginners one stock chart signal at a time, sends a short daily watchlist report, and tracks how each signal plays out over 5, 10 and 20 trading days. Education only, it never trades.",
+    "category": "Money",
+    "url": "https://x.ai/bot/rxWL-XVViISTtji33W8cv",
+    "creator_name": "Howard",
+    "creator_handle": "@HowieMcMahan",
+    "creator_url": "https://x.com/HowieMcMahan",
+    "creator_avatar": "/avatars/howiemcmahan.webp",
+    "source_post": "https://x.com/HowieMcMahan/status/2115169712137265375",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Merger Watch",
+    "emoji": "🔭",
+    "description": "Watches two public companies for merger talk or new ties through SEC filings, news, executive posts and stock moves, labeling each finding confirmed, reported or rumor with a source. Watch-only.",
+    "category": "Money",
+    "url": "https://x.ai/bot/Cr7MZCnOJ-XpWgwsEzV04",
+    "creator_name": "Howard",
+    "creator_handle": "@HowieMcMahan",
+    "creator_url": "https://x.com/HowieMcMahan",
+    "creator_avatar": "/avatars/howiemcmahan.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Salon Suite, MedSpa & Solo Stylist Front Desk",
+    "emoji": "💇",
+    "description": "A front-desk coordinator for salon suite renters, stylists, lash and brow artists and MedSpas that triages DMs, fills cancellation gaps and keeps client formulas.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/7b1I98Ms3Iu8Z59LDSx8R",
+    "creator_name": "Lisa",
+    "creator_handle": "@LisaMAUSA",
+    "creator_url": "https://x.com/LisaMAUSA",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Contractor Supplement & Missed-Call Front Desk",
+    "emoji": "🧰",
+    "description": "Turns jobsite photos and voice notes into IRC and IICRC code-upgrade supplement letters for insurance adjusters and triages missed calls.",
+    "category": "Home",
+    "url": "https://x.ai/bot/lnd5ErImPDh4h7eBb5n8Z",
+    "creator_name": "Lisa",
+    "creator_handle": "@LisaMAUSA",
+    "creator_url": "https://x.com/LisaMAUSA",
+    "creator_avatar": "/avatars/lisamausa.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Nailed It · Hype Jar",
+    "emoji": "🙌",
+    "description": "Logs your real wins, big or tiny, and hands them back as a short, funny, honest pep talk when you need one.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/BxFCT96J8vQZyN8xaOrin",
+    "creator_name": "Ashleigh",
+    "creator_handle": "@AshleighEWrites",
+    "creator_url": "https://x.com/AshleighEWrites",
+    "creator_avatar": "/avatars/ashleighewrites.webp",
+    "source_post": "https://x.com/AshleighEWrites/status/2115126108865925356",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "X Follow Finder",
+    "emoji": "🧭",
+    "description": "Finds active X accounts to follow for the topics you pick, with one-tap follow links.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/jn_M-ddIzgP8XMt1P0ocW",
+    "creator_name": "JeebsTX",
+    "creator_handle": "@JeebsTX",
+    "creator_url": "https://x.com/JeebsTX",
+    "creator_avatar": "/avatars/jeebstx.webp",
+    "source_post": "https://x.com/JeebsTX/status/2115028234609778750",
+    "added": "2026-10-27"
   }
 ]
