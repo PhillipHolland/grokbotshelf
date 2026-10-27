@@ -283,7 +283,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   }
   function voteHTML(b) {
     const { v, n, title } = voteBits(b._slug), nm = esc(b.name);
-    return `<span class="vote" data-vote="${b._slug}" title="${esc(title)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn" aria-live="polite">${n}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
+    return `<span class="vote" data-vote="${b._slug}" title="${esc(title)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn">${n}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
   }
   const voteKey = ({ v, n, title }) => v + "|" + n + "|" + title;
   function paintVoteEl(el, bits = voteBits(el.dataset.vote)) {
@@ -306,12 +306,18 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (to === 1) s.up++; if (to === -1) s.down++;
     s.score = s.up - s.down;
   }
+  // One announcement per vote, through the #toast status region without showing it (the .vn counts are not live regions:
+  // 260 of them changing at once when tallies arrive read out as a stream of numbers)
+  function sayVote(slug, to) {
+    const b = bots.find((x) => x._slug === slug), name = b ? b.name : "this bot";
+    toast.textContent = (to === 1 ? `Upvoted ${name}` : to === -1 ? `Downvoted ${name}` : `Vote removed from ${name}`) + (vote.global ? `, score ${voteBits(slug).n}` : ", saved in this browser");
+  }
   async function castVote(slug, dir) {
     const from = vote.mine[slug] || 0, to = from === dir ? 0 : dir;
     const prevScore = vote.scores[slug] ? { ...vote.scores[slug] } : null;
     if (to) vote.mine[slug] = to; else delete vote.mine[slug];
     saveMine(); bump(slug, from, to); paintVote(slug);
-    if (!vote.global) return;
+    if (!vote.global) return sayVote(slug, to);
     const undo = () => {
       if (from) vote.mine[slug] = from; else delete vote.mine[slug];
       if (prevScore) vote.scores[slug] = prevScore; else delete vote.scores[slug];
@@ -320,8 +326,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     try {
       const r = await fetch("/api/votes", { method: "POST", headers: { "Content-Type": "application/json" }, credentials: "same-origin", body: JSON.stringify({ slug, value: to }) });
       const d = await r.json().catch(() => ({}));
-      if (r.ok && d.global) { vote.scores[slug] = { up: d.up, down: d.down, score: d.score }; paintVote(slug); return; }
-      if (r.status === 503) { vote.global = false; paintAll(); return; } // no database: keep the local vote
+      if (r.ok && d.global) { vote.scores[slug] = { up: d.up, down: d.down, score: d.score }; paintVote(slug); return sayVote(slug, to); }
+      if (r.status === 503) { vote.global = false; paintAll(); return sayVote(slug, to); } // no database: keep the local vote
       undo();
       // Vote caps (cap_network, cap_daily) come with a sentence for people; show it long enough to read
       if (r.status === 429 && /^cap_/.test(d.code || "") && d.error) say(d.error, 6000);
@@ -542,6 +548,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
 
   // Copy link + toast
   const toast = $("#toast"); let tt;
+  // Skip link: focus the results (next Tab is the first card) without touching the URL hash
+  const skip = $(".skip"); if (skip) skip.addEventListener("click", (e) => { e.preventDefault(); results.tabIndex = -1; results.focus({ preventScroll: true }); $("#count").scrollIntoView({ block: "start" }); });
   function say(msg, ms = 1800) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove("show"), ms); }
   async function copy(text) {
     try { await navigator.clipboard.writeText(text); }
