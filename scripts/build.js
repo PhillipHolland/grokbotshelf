@@ -289,8 +289,8 @@ for (const b of items) {
 }
 
 // Creator pages: one per handle, at /@<handle in lowercase> (the canonical URL used in links, sitemap and canonical tags).
-// The file wins over the /@:handle rewrite in vercel.json, which stays as the fallback for unknown handles and other
-// casings (index.html sends a mixed-case /@Handle to the lowercase URL). No page per casing: on a case-insensitive disk
+// Unknown handles and other casings get public/404.html (status 404), which sends a mixed-case /@Handle to the lowercase
+// URL and otherwise says "Creator not found"; /u/:handle redirects to /@:handle in vercel.json. No page per casing: on a case-insensitive disk
 // /@Handle and /@handle would be the same folder.
 // Display name, handle casing, X link and avatar: the most frequent value across the creator's bots; a tie goes to the
 // value on the most recently added bot (later in bots.json breaks a same-day tie).

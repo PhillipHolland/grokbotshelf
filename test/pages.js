@@ -37,7 +37,7 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   const multi = [...casings].find(([, s]) => s.size > 1) || [...casings].find(([k, s]) => [...s][0] !== k);
   if (multi) {
     const [key, set] = multi, other = [...set].find((h) => h !== key) || key.toUpperCase();
-    st = await go('/@' + other); d = await info();
+    st = await go('/@' + other); await p.waitForFunction((k) => location.pathname === '/@' + k && document.readyState === 'complete', { timeout: 10000 }, key).catch(() => {}); d = await info();
     ok(d.path === '/@' + key && d.canonical === 'https://grokbotshelf.com/@' + key && !/not found/i.test(d.title), `/@${other} lands on /@${key}: "${d.title}"`);
     ok(await p.$$eval('.cp-list li', (l) => l.length) === BOTS.filter((x) => ckey(x) === key).length, `/@${key} lists every bot across casings`);
   }
@@ -47,10 +47,20 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   ok(st === 404 && d.h1 === 'Page not found' && d.robots === 'noindex', `/bot/does-not-exist: ${st} "${d.h1}"`);
   ok(await p.$eval('#nf-search', (e) => !e.hidden && e.getAttribute('href') === '/?q=does%20not%20exist'), '404 offers a search for the slug words');
 
-  // unknown creator: home page (rewrite) says Creator not found and is noindex
+  // unknown creator: the 404 page (status 404, noindex) says Creator not found, with a search for the handle and the creator list
   st = await go('/@nobodyhere'); d = await info();
-  ok(d.path === '/@nobodyhere' && d.robots === 'noindex' && /Creator not found/.test(d.title), `/@nobodyhere: ${st} "${d.title}" robots=${d.robots}`);
-  ok(await p.$eval('.notfound .empty-t', (e) => e.textContent) === 'Creator not found', 'Creator not found message shows');
+  ok(st === 404 && d.path === '/@nobodyhere' && d.robots === 'noindex' && d.title === 'Creator not found · Grok Bot Shelf' && d.h1 === 'Creator not found', `/@nobodyhere: ${st} "${d.title}" robots=${d.robots}`);
+  const nf = await p.evaluate(() => [...document.querySelectorAll('.bp-actions a')].filter((a) => !a.hidden).map((a) => a.textContent + ' ' + a.getAttribute('href')).sort());
+  ok(nf.join('|') === 'Browse creators /?sort=creator|Search for @nobodyhere /?q=nobodyhere', 'Creator not found offers a search and the creator list: ' + nf.join(' | '));
+  ok(!(await p.$('#results')) && await p.evaluate(() => performance.getEntriesByType('resource').every((r) => !/shelf-data\.json/.test(r.name))), 'no home page or shelf data behind an unknown creator');
+  // a mixed-case unknown handle goes to the lowercase URL first
+  st = await go('/@NobodyHere'); await p.waitForFunction(() => location.pathname === '/@nobodyhere' && document.readyState === 'complete', { timeout: 10000 }).catch(() => {}); d = await info();
+  ok(d.path === '/@nobodyhere' && d.h1 === 'Creator not found', `/@NobodyHere goes to /@nobodyhere: "${d.h1}"`);
+  // /u/<handle> is a permanent redirect to /@<handle>
+  const ru = await fetch(new URL('/u/thecsguy', BASE), { redirect: 'manual' });
+  ok(ru.status === 308 && new URL(ru.headers.get('location'), BASE).pathname === '/@thecsguy', `/u/thecsguy: ${ru.status} to ${ru.headers.get('location')}`);
+  st = await go('/u/thecsguy'); d = await info();
+  ok(st === 200 && d.path === '/@thecsguy' && d.canonical === 'https://grokbotshelf.com/@thecsguy', `/u/thecsguy lands on the creator page (${st} ${d.path})`);
   // /?q= filters the shelf on load (the home page WebSite JSON-LD advertises it as a SearchAction)
   await go('/?q=archivist');
   const q = await p.evaluate(() => ({ box: (document.querySelector('input[type=search]') || {}).value, names: [...document.querySelectorAll('#results .card h3')].map((h) => h.textContent) }));

@@ -64,7 +64,7 @@ NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbots
 
 `test/run.js` runs the whole suite: a build smoke test (`test/build.js`, on a temporary copy),
 then every browser test against `test/serve.js`, a small local server that follows `vercel.json`
-(clean URLs, the `/@handle` rewrite, the 404 page). Pass a URL to test a deployment instead:
+(clean URLs, redirects, the 404 page). Pass a URL to test a deployment instead:
 
 ```sh
 NODE_PATH=/path/to/node_modules node test/run.js [https://preview-url/]
@@ -119,8 +119,8 @@ editing `bots.json` so the repo matches. Share images live in `public/og/bot/<sl
 `NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/og.js` (add `--all` to redraw), then rerun the build.
 
 - `public/@<handle>/index.html`: one static page per creator at `/@<handle>` (name, X link, avatar, bot count, categories,
-  bot list), also in the sitemap. The file is served before the `/@:handle` rewrite, which stays as the fallback for other
-  casings and unknown handles. Share images: `public/og/creator/<handle>.png`, drawn by `scripts/og.js`.
+  bot list), also in the sitemap. Other casings and unknown handles get the 404 page, which sends `/@Handle` to the
+  lowercase URL and otherwise says "Creator not found" (status 404, noindex); `/u/<handle>` redirects to `/@<handle>`. Share images: `public/og/creator/<handle>.png`, drawn by `scripts/og.js`.
 - Each bot page also gets "Under the hood" when the creator supplied details (see below), up to 3 "Similar bots" from other creators (same category, shared works_with apps, shared
   description words weighted by rarity; ties by name), and a "Featured badge" embed (`/badge.svg`, `/badge-dark.svg`).
 

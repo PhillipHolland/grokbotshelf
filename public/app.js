@@ -118,8 +118,8 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   }
 
   /* ---------- URL state ---------- */
-  // Creator profile links: /@handle and /u/handle (any case), plus legacy ?creator=handle.
-  const pathCreator = () => { const m = location.pathname.match(/^\/(?:@|%40|u\/)([A-Za-z0-9_]+)\/?$/i); return m ? m[1].toLowerCase() : ""; };
+  // Creator filter from legacy ?creator=handle. /@handle is a static page; an unknown or mixed-case /@handle is the 404
+  // page (which sends other casings to the lowercase URL), and /u/handle redirects to /@handle in vercel.json.
   const SITE = "https://grokbotshelf.com";
   const profilePath = (key) => "/@" + key; // creator pages live at the lowercase handle
   const BASE_TITLE = document.title;
@@ -131,7 +131,7 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
   function readURL() {
     const p = new URLSearchParams(location.search), s = blank();
     s.q = p.get("q") || "";
-    const c = (pathCreator() || p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
+    const c = (p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
     s.cats = (p.get("cat") || "").split(",").map((x) => cats.find((c) => slug(c) === slug(x))).filter(Boolean);
     const so = p.get("sort"); s.sort = SORTS.includes(so) ? so : "featured";
     const ap = p.get("app"); s.app = ap && apps.some((a) => a.key === ap) ? ap : "";
@@ -140,15 +140,6 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
     s.oneJob = p.get("one_job") === "1";
     s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
-  }
-  // Unknown /@handle (served the home page by the catch-all rewrite): say so, and keep it out of search results
-  let notFound = null;
-  function showNotFound(h) {
-    const m = document.createElement("meta"); m.name = "robots"; m.content = "noindex"; document.head.append(m);
-    notFound = document.createElement("div"); notFound.className = "empty notfound"; notFound.setAttribute("role", "status");
-    notFound.innerHTML = `<p class="empty-t">Creator not found</p><p class="empty-s">No bots by @${esc(h)} are on the shelf. Pick a creator above, or browse every bot below.</p>`;
-    notFound._meta = m; results.before(notFound);
-    document.title = "Creator not found · Grok Bot Shelf";
   }
   function writeURL(push) {
     const p = new URLSearchParams();
@@ -163,7 +154,6 @@ let shelfDone; const shelfData = new Promise((r) => { shelfDone = r; });
     if (st.more.length) p.set("more", st.more.join(","));
     const url = (st.creator && !anonKey(st.creator) ? profilePath(st.creator) : "/") + (p.toString() ? "?" + p.toString().replace(/%2C/g, ",").replace(/%7E/g, "~") : "") + location.hash;
     if (url !== location.pathname + location.search + location.hash) history[push ? "pushState" : "replaceState"](null, "", url);
-    if (notFound) { notFound._meta.remove(); notFound.remove(); notFound = null; }
   }
 
   /* ---------- Rendering ---------- */
@@ -878,8 +868,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     const show = () => {
       if (shelfReady) return;
       shelfReady = true; chunkNext = true; render();
-      const pc = pathCreator();
-      if (pc && !creators.some((c) => c.key === pc)) showNotFound(pc); else writeURL(false);
+      writeURL(false);
       if (location.hash) requestAnimationFrame(openHash);
     };
     // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.

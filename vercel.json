@@ -5,16 +5,6 @@
   "installCommand": "",
   "outputDirectory": "public",
   "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/@:handle",
-      "destination": "/"
-    },
-    {
-      "source": "/u/:handle",
-      "destination": "/"
-    }
-  ],
   "headers": [
     {
       "source": "/api/search",
@@ -315,6 +305,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/u/:handle",
+      "destination": "/@:handle",
+      "permanent": true
+    },
     {
       "source": "/bot/product-catalog-organizer",
       "destination": "/bot/product-cataloger",
