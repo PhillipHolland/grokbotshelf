@@ -1,5 +1,15 @@
 {
   "seen": {
+    "form-287": {
+      "status": "added",
+      "author": "@jayrok35",
+      "bot": "Truck Inventory",
+      "template_url": "https://x.ai/bot/a5eUje00PaMzSwlN7dS5N",
+      "url": "",
+      "note": "site form #287",
+      "date": "2026-10-26",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
     "form-286": {
       "status": "added",
       "author": "@jayrok35",

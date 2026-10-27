@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 01:29:44 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 01:40:49 GMT</lastBuildDate>
+  <item>
+    <title>🚚 Truck Inventory by Chicago Tradesman</title>
+    <link>https://grokbotshelf.com/bot/truck-inventory</link>
+    <guid isPermaLink="false">https://x.ai/bot/a5eUje00PaMzSwlN7dS5N</guid>
+    <description>Truck stock for field techs: part counts on an Inventory Page, HVAC starter catalog, adds from package photos, reorder alerts.</description>
+    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>🖼️ Mural by Pitchfork &amp; Torch</title>
+    <link>https://grokbotshelf.com/bot/mural</link>
+    <guid isPermaLink="false">https://x.ai/bot/Obg7rtHsF-I81kR1P8BFC</guid>
+    <description>Makes giant images that hold up when you zoom in, from 8K to 16K or print sizes, with tiled detail passes and zoom-in proof crops. It also cuts wallpaper packs, checks files for print, and orders posters only after you approve.</description>
+    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
+    <category>Design</category>
+    <pubDate>Mon, 26 Oct 2026 12:08:36 GMT</pubDate>
+  </item>
   <item>
     <title>🔧 Trade Pro Office Manager by Chicago Tradesman</title>
     <link>https://grokbotshelf.com/bot/trade-pro-office-manager</link>
@@ -438,24 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 26 Oct 2026 12:07:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕹️ Game On Gary by Jim</title>
-    <link>https://grokbotshelf.com/bot/game-on-gary</link>
-    <guid isPermaLink="false">https://x.ai/bot/93nFrBAPgKvx0BUipoyjk</guid>
-    <description>Your free gaming sidekick: spoiler-free hints, picks for what to play next, a check on whether your PC can run it, and sales and free games with real links across every major store.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧥 Thrifty Theo by Jim</title>
-    <link>https://grokbotshelf.com/bot/thrifty-theo</link>
-    <guid isPermaLink="false">https://x.ai/bot/xKi2VkyukiwEAm_LmDppc</guid>
-    <description>Your thrift and consignment sidekick: finds thrift shops, estate and garage sales near your ZIP, watches resale sites for your wish list and prices finds from real sold listings.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:07:46 GMT</pubDate>
   </item>
 </channel>
 </rss>
