@@ -51,6 +51,15 @@ try {
     const ch = arch.creator_handle.replace(/^@/, "");
     ok(wp && wp.url === "https://grokbotshelf.com/bot/archivist" && app["@type"] === "SoftwareApplication" && app.name === "Archivist" && app.description === arch.description && app.url === wp.url
       && /^https:\/\/grokbotshelf\.com\/og\/bot\/archivist\.png\?v=[0-9a-f]{10}$/.test(app.image) && app.sameAs === arch.url, "bot JSON-LD: WebPage with mainEntity SoftwareApplication (name, description, url, share image)");
+    ok(app.applicationCategory === arch.category, `bot JSON-LD: applicationCategory is the bot's category (${app.applicationCategory})`);
+    { // round 2 #8: homepage description and share title carry the live counts, twitter:site set; robots keeps crawlers off /api/
+      const home = fs.readFileSync(pub("index.html"), "utf8"), nc = new Set(bots.map((b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slugify(b.creator_name))).size;
+      const desc = `${bots.length} shared Grok Bot templates from ${nc} creators. Search by category, app and what the bot does. Import in one tap.`;
+      const m = (sel) => (home.match(new RegExp(`<meta ${sel} content="([^"]*)">`)) || [])[1];
+      ok(m('name="description"') === desc && m('property="og:description"') === desc && m('name="twitter:description"') === desc, `homepage description: ${m('name="description"')}`);
+      ok(m('property="og:title"') === `Grok Bot Shelf: ${bots.length} shared Grok Bot templates` && m('name="twitter:title"') === m('property="og:title"') && m('name="twitter:site"') === "@Phil_Holland", `homepage share title and twitter:site (${m('property="og:title"')})`);
+      ok(/^Disallow: \/api\/$/m.test(fs.readFileSync(pub("robots.txt"), "utf8")), "robots.txt disallows /api/");
+    }
     ok(app.author["@type"] === "Person" && app.author.name === arch.creator_name && app.author.sameAs === "https://x.com/" + ch, "bot JSON-LD: author Person with sameAs x.com/" + ch);
     ok(bc && wp.breadcrumb["@id"] === bc["@id"] && bc.itemListElement.map((i) => i.item).join(" ") === `https://grokbotshelf.com/ https://grokbotshelf.com/@${ch.toLowerCase()} https://grokbotshelf.com/bot/archivist`
       && bc.itemListElement.every((i, n) => i.position === n + 1 && i.name), "bot JSON-LD: BreadcrumbList home > creator > bot");

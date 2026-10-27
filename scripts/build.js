@@ -221,7 +221,7 @@ function botLd(b, url, img) {
   const trail = [["Grok Bot Shelf", SITE + "/"], ...(b.creator_handle ? [[b.creator_name, SITE + "/@" + ckey(b)]] : []), [b.name, url]];
   return { "@context": "https://schema.org", "@graph": [
     { "@type": "WebPage", "@id": url, url, name: titled(b), description: b.description, breadcrumb: { "@id": url + "#breadcrumb" },
-      mainEntity: { "@type": "SoftwareApplication", name: b.name, description: b.description, url, sameAs: b.url, image: img, author } },
+      mainEntity: { "@type": "SoftwareApplication", name: b.name, description: b.description, applicationCategory: b.category, url, sameAs: b.url, image: img, author } },
     { "@id": url + "#breadcrumb", ...crumbs(trail) },
   ] };
 }
@@ -382,6 +382,18 @@ ${creatorLinks}
   if (n !== h) fs.writeFileSync(f, n);
 }
 
+// Homepage description and share title carry the live counts; twitter:site matches the bot and creator pages
+{
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  const desc = `${items.length} shared Grok Bot templates from ${new Set(items.map(ckey)).size} creators. Search by category, app and what the bot does. Import in one tap.`;
+  const title = `Grok Bot Shelf: ${items.length} shared Grok Bot templates`;
+  let n = h.replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(">)/g, `$1${esc(desc)}$2`)
+    .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(">)/g, `$1${esc(title)}$2`);
+  if (!n.includes('name="twitter:site"')) n = n.replace('<meta name="twitter:creator" content="@Phil_Holland">', '<meta name="twitter:site" content="@Phil_Holland">\n<meta name="twitter:creator" content="@Phil_Holland">');
+  if ((n.match(new RegExp(`content="${esc(desc).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g")) || []).length !== 3 || !n.includes('name="twitter:site"')) throw new Error("homepage description/title meta tags not found");
+  if (n !== h) fs.writeFileSync(f, n);
+}
+
 // sitemap.xml
 const lastmod = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d || "") ? d : today);
 const newest = items.reduce((m, b) => (b.added > m ? b.added : m), "");
@@ -394,7 +406,7 @@ ${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c
 `);
 
 // robots.txt
-fs.writeFileSync(path.join(PUB, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+fs.writeFileSync(path.join(PUB, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
 // feed.xml: newest 50
 const rfc = (d, i) => new Date(Date.parse(lastmod(d) + "T12:00:00Z") + (i % 1000) * 1000).toUTCString();
