@@ -744,6 +744,9 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
 
   // Deep links: #add jumps to the form; #bot-slug scrolls to and highlights a card
   function openHash(e) {
+    try { landHash(e); } finally { if (rail.classList.contains("hold")) { syncRail(); rail.classList.remove("hold"); } }
+  }
+  function landHash(e) {
     if (location.hash === "#add") return scrollToAdd(!e);
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
     const hb = bots.find((b) => b._slug === id);
@@ -771,6 +774,9 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   const ALPHA = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const rail = document.createElement("nav");
   rail.className = "rail"; rail.id = "rail"; rail.hidden = true;
+  // A #bot- deep link jumps far down right after the first render; the rail would first paint under the hero and then
+  // move up under the stuck dock (a layout shift). Keep it invisible until openHash has scrolled and placed it.
+  if (/^#bot-/.test(location.hash)) rail.classList.add("hold");
   rail.setAttribute("aria-label", "Jump to creators by letter");
   document.body.append(rail);
   const pop = document.createElement("div");

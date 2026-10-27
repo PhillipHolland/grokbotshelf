@@ -349,6 +349,7 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
    creator group per letter. Letters shrink to fit short screens; touch scrubbing maps finger height to letters. */
 .rail{position:fixed;z-index:15;right:max(4px,env(safe-area-inset-right));top:calc(var(--dock-h,110px) + 10px);bottom:max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;width:26px;pointer-events:none}
 .rail[hidden]{display:none}
+.rail.hold{visibility:hidden} /* #bot- deep link: shown once the landing scroll has placed it (app.js openHash) */
 .rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;touch-action:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
 /* Letters with no creator group: dimmed, aria-disabled, not focusable; they keep their slot so spacing stays even */
 .rail button.off{color:var(--text2);opacity:.38;cursor:default}
@@ -362,7 +363,8 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .rail-pop[hidden]{display:none}
 /* Wide screens: the rail sits in the empty margin beside the 1120px column */
 @media (min-width:1200px){.rail{right:max(12px,calc((100vw - 1120px) / 2 - 44px))}}
-/* Narrower screens: a thin strip on the edge; give the main column (and footer) extra right padding so cards never sit under it */
+/* Narrower screens: a thin strip on the edge; give the main column (and footer) extra right padding so cards never sit under it.
+   has-rail is set in index.html's first head script for views that will show the rail, so this padding is there before the first paint. */
 @media (max-width:1199px){html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(30px,calc(env(safe-area-inset-right) + 28px))}}
 /* Phones: the visible letters stay in a 20px strip, but each button is 30px wide (reaching into the card's empty edge
    padding, never its controls) so thumbs land; the whole strip scrubs */

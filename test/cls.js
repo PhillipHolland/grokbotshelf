@@ -40,12 +40,28 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
   const dirs = require('fs').readdirSync(require('path').join(__dirname, '../public/bot'));
   for (const slug of ['3d-maker', dirs[Math.floor(dirs.length / 2)]]) for (const w of [390, 1280]) {
     p = await open('/#bot-' + slug, w);
-    const r = await p.evaluate((id) => { const el = document.getElementById(id), r = el && el.getBoundingClientRect(); return { inView: !!r && r.top >= 0 && r.bottom <= innerHeight + 2, tailing: document.documentElement.classList.contains('tailing'), addShown: getComputedStyle(document.getElementById('add')).display !== 'none' }; }, 'bot-' + slug);
+    const r = await p.evaluate((id) => { const el = document.getElementById(id), r = el && el.getBoundingClientRect(); return { inView: !!r && r.top >= 0 && r.bottom <= innerHeight + 2, tailing: document.documentElement.classList.contains('tailing'), addShown: getComputedStyle(document.getElementById('add')).display !== 'none', rail: (() => { const n = document.getElementById('rail'), q = n && n.getBoundingClientRect(), d = document.getElementById('dock').getBoundingClientRect(); return n && !n.hidden && getComputedStyle(n).visibility === 'visible' && Math.abs(q.top - (Math.max(0, d.bottom) + 10)) < 2 ? Math.round(q.top) : false; })() }; }, 'bot-' + slug);
     const c = await cls(p);
     ok(r.inView && c.cls < 0.05, `${w}px /#bot-${slug} lands in view with CLS ${c.cls} (< 0.05) ${JSON.stringify(c.src)}`);
+    // the A-Z rail stays invisible until the landing scroll has placed it under the stuck dock (it used to paint under the hero first, then move)
+    ok(!c.src.some((x) => /rail/.test(x)) && r.rail, `${w}px /#bot-${slug}: the A-Z rail is shown and never shifts (${JSON.stringify(c.src)}, ${JSON.stringify(r.rail)})`);
     ok(r.tailing === !r.addShown, `${w}px /#bot-${slug}: the Add form is out of the layout exactly while the shelf is partial (${JSON.stringify(r)})`);
     await p.close();
   }
+
+  // The rail's right-edge padding (html.has-rail) is set by the head script, before app.js runs, on views that show the
+  // rail, so cards and the status row don't move left when it appears. Checked with app.js blocked.
+  for (const [path, want] of [['/', true], ['/#bot-3d-maker', true], ['/?sort=creator', true], ['/?q=email', false], ['/?sort=newest', false]]) {
+    const q = await b.newPage(); await q.setRequestInterception(true);
+    q.on('request', (r) => (/\/app\.js|google-analytics|googletagmanager|\/_vercel\//.test(r.url()) ? r.abort() : r.continue()));
+    await q.goto(new URL(path, BASE).href, { waitUntil: 'domcontentloaded' });
+    const has = await q.evaluate(() => document.documentElement.classList.contains('has-rail'));
+    ok(has === want, `${path}: has-rail before app.js is ${has} (want ${want})`);
+    await q.close();
+  }
+  p = await open('/');
+  const hc = await cls(p); ok(!hc.src.some((x) => /fb-x|status|count|results/.test(x)), `home: nothing in the main column shifts when the rail appears (${JSON.stringify(hc.src)})`);
+  await p.close();
 
   // Plain home: the form and footer are back once the whole shelf is built (End key)
   p = await open('/');
