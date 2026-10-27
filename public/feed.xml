@@ -6,7 +6,61 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 11:11:14 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 14:14:50 GMT</lastBuildDate>
+  <item>
+    <title>🎖️ War Dog Bot by Marshall</title>
+    <link>https://grokbotshelf.com/bot/war-dog-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/1_nQONTWydNCAGS5vJcqa</guid>
+    <description>Finds SBIR/STTR and other defense research solicitations for your small business and drafts proposal responses.</description>
+    <dc:creator>Marshall (@marshallfrith)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚀 Dora by Darin</title>
+    <link>https://grokbotshelf.com/bot/dora</link>
+    <guid isPermaLink="false">https://x.ai/bot/j0oy2GNNEm4wryTtf6vmC</guid>
+    <description>Coordinates a crew of bots, splitting missions into jobs, handing each to the right crewmate, and keeping master files.</description>
+    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧐 Anne, Fair Witness by Darin</title>
+    <link>https://grokbotshelf.com/bot/anne-fair-witness</link>
+    <guid isPermaLink="false">https://x.ai/bot/pndJ5bz0smdw6POiwZ0U2</guid>
+    <description>Checks your team&apos;s claims, numbers, links and done reports against real sources and reports only what it saw.</description>
+    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Story Director by Darin</title>
+    <link>https://grokbotshelf.com/bot/story-director</link>
+    <guid isPermaLink="false">https://x.ai/bot/Gd-mi-zwXjukf6UA8j80U</guid>
+    <description>Writes looping 10-second vertical AI video scripts that star you.</description>
+    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧭 Libby, Tool Scout by Darin</title>
+    <link>https://grokbotshelf.com/bot/libby-tool-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/8tBB5UzziKPPu8TQKTTET</guid>
+    <description>Scouts Grok Bot templates and tools for any job and returns a short ranked shortlist with reasons and links.</description>
+    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 Mike, Research Chief by Darin</title>
+    <link>https://grokbotshelf.com/bot/mike-research-chief</link>
+    <guid isPermaLink="false">https://x.ai/bot/1HMYaNR6C8zKx-_k-bWgW</guid>
+    <description>Digs into any topic, cross-checks sources, and writes cited reports that say how sure it is.</description>
+    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:02 GMT</pubDate>
+  </item>
   <item>
     <title>📑 Counsel by MikeysMolecules</title>
     <link>https://grokbotshelf.com/bot/counsel-by-mikeysmolecules</link>
@@ -402,60 +456,6 @@
     <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 26 Oct 2026 12:08:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐦‍⬛ Poe by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/poe</link>
-    <guid isPermaLink="false">https://x.ai/bot/EcUpzABnh3MfZQTN7inmP</guid>
-    <description>Talks with you as Edgar Allan Poe, with detective logic, mysteries and a midnight riddle.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌾 Tolstoy by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/tolstoy</link>
-    <guid isPermaLink="false">https://x.ai/bot/42Clq7Vdn2X7zcwJ9OGxR</guid>
-    <description>Talks with you as Tolstoy on truth-telling and simple living, with a weekly necessary-versus-vanity check.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚡ Shelley by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/shelley</link>
-    <guid isPermaLink="false">https://x.ai/bot/SzGYytJglwB_dqRt5OaTO</guid>
-    <description>Talks with you as Mary Shelley on creation, hubris and caring for what you make, in the spirit of Frankenstein.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪟 Woolf by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/woolf</link>
-    <guid isPermaLink="false">https://x.ai/bot/4fP33DHTBJudWglJyeMB_</guid>
-    <description>Talks with you as Virginia Woolf, drawing on Mrs Dalloway, To the Lighthouse and her essays.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎭 Shakespeare by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/shakespeare</link>
-    <guid isPermaLink="false">https://x.ai/bot/E8XC3NO5V_u63vWoHxJF0</guid>
-    <description>Talks with you as Shakespeare&apos;s dramatic imagination, on ambition, love, folly and power.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎀 Austen by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/austen</link>
-    <guid isPermaLink="false">https://x.ai/bot/c8sA8W1YcoRaYu5vjYFoa</guid>
-    <description>Talks with you as Jane Austen&apos;s social wit, on manners, money, marriage plots and irony.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:12 GMT</pubDate>
   </item>
 </channel>
 </rss>

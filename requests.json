@@ -4295,6 +4295,74 @@
       "note": "site form #290; no confirmed creator handle",
       "date": "2026-10-27",
       "approved_by": "Phillip Holland"
+    },
+    "form-322": {
+      "status": "added",
+      "bot": "Mike, Research Chief",
+      "template_url": "https://x.ai/bot/1HMYaNR6C8zKx-_k-bWgW",
+      "note": "site form #322",
+      "date": "2026-10-27",
+      "author": "@DarinRMcClure",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-321": {
+      "status": "added",
+      "bot": "Libby, Tool Scout",
+      "template_url": "https://x.ai/bot/8tBB5UzziKPPu8TQKTTET",
+      "note": "site form #321",
+      "date": "2026-10-27",
+      "author": "@DarinRMcClure",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-320": {
+      "status": "added",
+      "bot": "Story Director",
+      "template_url": "https://x.ai/bot/Gd-mi-zwXjukf6UA8j80U",
+      "note": "site form #320",
+      "date": "2026-10-27",
+      "author": "@DarinRMcClure",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-319": {
+      "status": "added",
+      "bot": "Anne, Fair Witness",
+      "template_url": "https://x.ai/bot/pndJ5bz0smdw6POiwZ0U2",
+      "note": "site form #319",
+      "date": "2026-10-27",
+      "author": "@DarinRMcClure",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-318": {
+      "status": "added",
+      "bot": "Dora",
+      "template_url": "https://x.ai/bot/j0oy2GNNEm4wryTtf6vmC",
+      "note": "site form #318",
+      "date": "2026-10-27",
+      "author": "@DarinRMcClure",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-317": {
+      "status": "added",
+      "bot": "War Dog Bot",
+      "template_url": "https://x.ai/bot/1_nQONTWydNCAGS5vJcqa",
+      "note": "site form #317",
+      "date": "2026-10-27",
+      "author": "@marshallfrith",
+      "approved_by": "standing auto-shelve rule"
+    },
+    "form-324": {
+      "status": "pending",
+      "bot": "Medical Bill Checker by RMK",
+      "template_url": "https://x.ai/bot/VIzC_UeWYI7m1S9Xs-5sG",
+      "note": "site form #324; held for Phillip: no creator handle; charges $10 per bill when it finds problems",
+      "date": "2026-10-27"
+    },
+    "form-323": {
+      "status": "pending",
+      "bot": "Prepper by Grease",
+      "template_url": "https://x.ai/bot/omCU96pYM7XYkaEu96Lst",
+      "note": "site form #323; held for Phillip: no creator handle",
+      "date": "2026-10-27"
     }
   }
 }

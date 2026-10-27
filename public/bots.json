@@ -7037,5 +7037,83 @@
     "creator_url": "https://x.com/MikeysMolecules",
     "added": "2026-10-27",
     "creator_avatar": "/avatars/mikeysmolecules.webp"
+  },
+  {
+    "name": "Mike, Research Chief",
+    "emoji": "🔎",
+    "description": "Digs into any topic, cross-checks sources, and writes cited reports that say how sure it is.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/1HMYaNR6C8zKx-_k-bWgW",
+    "creator_name": "Darin",
+    "creator_handle": "@DarinRMcClure",
+    "creator_url": "https://x.com/DarinRMcClure",
+    "creator_avatar": "/avatars/darinrmcclure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Libby, Tool Scout",
+    "emoji": "🧭",
+    "description": "Scouts Grok Bot templates and tools for any job and returns a short ranked shortlist with reasons and links.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/8tBB5UzziKPPu8TQKTTET",
+    "creator_name": "Darin",
+    "creator_handle": "@DarinRMcClure",
+    "creator_url": "https://x.com/DarinRMcClure",
+    "creator_avatar": "/avatars/darinrmcclure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Story Director",
+    "emoji": "🎬",
+    "description": "Writes looping 10-second vertical AI video scripts that star you.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/Gd-mi-zwXjukf6UA8j80U",
+    "creator_name": "Darin",
+    "creator_handle": "@DarinRMcClure",
+    "creator_url": "https://x.com/DarinRMcClure",
+    "creator_avatar": "/avatars/darinrmcclure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Anne, Fair Witness",
+    "emoji": "🧐",
+    "description": "Checks your team's claims, numbers, links and done reports against real sources and reports only what it saw.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/pndJ5bz0smdw6POiwZ0U2",
+    "creator_name": "Darin",
+    "creator_handle": "@DarinRMcClure",
+    "creator_url": "https://x.com/DarinRMcClure",
+    "creator_avatar": "/avatars/darinrmcclure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Dora",
+    "emoji": "🚀",
+    "description": "Coordinates a crew of bots, splitting missions into jobs, handing each to the right crewmate, and keeping master files.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/j0oy2GNNEm4wryTtf6vmC",
+    "creator_name": "Darin",
+    "creator_handle": "@DarinRMcClure",
+    "creator_url": "https://x.com/DarinRMcClure",
+    "creator_avatar": "/avatars/darinrmcclure.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "War Dog Bot",
+    "emoji": "🎖️",
+    "description": "Finds SBIR/STTR and other defense research solicitations for your small business and drafts proposal responses.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/1_nQONTWydNCAGS5vJcqa",
+    "creator_name": "Marshall",
+    "creator_handle": "@marshallfrith",
+    "creator_url": "https://x.com/marshallfrith",
+    "creator_avatar": "/avatars/marshallfrith.webp",
+    "source_post": "",
+    "added": "2026-10-27"
   }
 ]
