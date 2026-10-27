@@ -6,7 +6,106 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 16:38:04 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 18:04:12 GMT</lastBuildDate>
+  <item>
+    <title>📈 X Growth &amp; Voice-Learning Coach by beastnug</title>
+    <link>https://grokbotshelf.com/bot/x-growth-and-voice-learning-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/2UWiouUD1f38BY6RTmfip</guid>
+    <description>Reviews your last 24 hours of X post analytics each day, scores reply and post drafts from 1 to 10, and learns your writing voice from what you actually post.</description>
+    <dc:creator>beastnug (@beastnug8)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:34 GMT</pubDate>
+  </item>
+  <item>
+    <title>💡 Use Cases by nahjuin</title>
+    <link>https://grokbotshelf.com/bot/use-cases</link>
+    <guid isPermaLink="false">https://x.ai/bot/w59Gz0num4hDcLd1vjSQJ</guid>
+    <description>Finds real Grok Bot use cases trending on X and helps newer users start one or build their own.</description>
+    <dc:creator>nahjuin (@nahjuin)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:33 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧬 BotDuplicator by Carolina</title>
+    <link>https://grokbotshelf.com/bot/botduplicator</link>
+    <guid isPermaLink="false">https://x.ai/bot/TzI3_5aRH-HG7T2RlSQzX</guid>
+    <description>Makes a fresh copy of a Grok Bot whose chat got too long, keeping memory, files, picture, and routines, and makes sure no routine runs twice.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌐 Website &amp; Affiliate Builder by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/website-and-affiliate-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/xdpASa6Nql64zPyIHPcW6</guid>
+    <description>Gets a small business a simple website and its first affiliate income: domain, hosting, content from your own experience, privacy policy, and affiliate applications. Nothing goes live without your OK.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Gov Contracting Starter by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/gov-contracting-starter</link>
+    <guid isPermaLink="false">https://x.ai/bot/TOsuhk4BIdNI5kGme7BzQ</guid>
+    <description>Gets a small business ready to sell to the US government: SAM.gov registration, NAICS codes, certifications, APEX Accelerator help, and a first small bid.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏦 Money Coach by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/money-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/9buNzPJjDll_fz1JVLCia</guid>
+    <description>Helps new small-business owners set up their money: business checking, separate funds, getting paid, simple bookkeeping, saving for taxes, and a running cost sheet.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Launch Guide by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/launch-guide</link>
+    <guid isPermaLink="false">https://x.ai/bot/oTjITWUbN6ky07n2Oz7Tp</guid>
+    <description>Walks first-time founders through forming a US small business step by step: structure, name check, state filing, registered agent, EIN, operating agreement, and annual reports.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏪 Small Business Starter by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/small-business-starter</link>
+    <guid isPermaLink="false">https://x.ai/bot/TIkRRPKAmIdtXMlRKmFnv</guid>
+    <description>Learns what you will sell and where you stand, then builds an ordered roadmap for starting a US small business with real costs and a running total.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗂️ Hrrrr: File Agent by Ralph Bibera</title>
+    <link>https://grokbotshelf.com/bot/hrrrr-file-agent</link>
+    <guid isPermaLink="false">https://x.ai/bot/pBoLReeAAO4zd7rcyVNsu</guid>
+    <description>Handles everyday office files (PDF, Word, Excel, PowerPoint, CSV, Google Docs and Sheets), renames and sorts across your cloud drives, and scans photos of documents and receipts into searchable PDFs.</description>
+    <dc:creator>Ralph Bibera (@ralphbibera)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛒 Cart Blanche by John</title>
+    <link>https://grokbotshelf.com/bot/cart-blanche</link>
+    <guid isPermaLink="false">https://x.ai/bot/sq0nGqGh8xkJWVZ0W9hxP</guid>
+    <description>Finds the best price online and in local stores, watches items for sales or restocks, and drafts refund requests when a price drops after you buy. Never buys without your OK.</description>
+    <dc:creator>John (@JVonFSDinMD)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎃 Pumpkin Spice Bot by Erinn</title>
+    <link>https://grokbotshelf.com/bot/pumpkin-spice-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/ry3_OqMuVwRF-nTt83VdQ</guid>
+    <description>Pumpkin recipes from what you have on hand, roasted seed flavors, carving templates, a grow-your-own guide, and a local pumpkin patch finder.</description>
+    <dc:creator>Erinn (@ErinnFL)</dc:creator>
+    <category>Food</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:24 GMT</pubDate>
+  </item>
   <item>
     <title>🚨 Recall Radar by Kevin</title>
     <link>https://grokbotshelf.com/bot/recall-radar</link>
@@ -357,105 +456,6 @@
     <dc:creator>Jenny Marquis (@JennyMarquis)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Tue, 27 Oct 2026 12:08:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎨 Tess Design Desk by Bill</title>
-    <link>https://grokbotshelf.com/bot/tess-design-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/s5Lrs_B4IcI169QRiQAan</guid>
-    <description>Design desk for non-coders: UI mockups, desktop and mobile screenshot packs, bot crests and avatars, and promo visuals, with a privacy check before anything goes public.</description>
-    <dc:creator>Bill (@wjenson)</dc:creator>
-    <category>Design</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛒 Buy by PyeGuy</title>
-    <link>https://grokbotshelf.com/bot/buy</link>
-    <guid isPermaLink="false">https://x.ai/bot/O9XbjNnFDHDqkOZy87nox</guid>
-    <description>Purchase trade-study bot: compares options, hunts the best real price new, refurb or used across major stores, and gives a clear pick.</description>
-    <dc:creator>PyeGuy (@myGuyPye)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎛️ Grok Bot Remix Producer by MikeysMolecules</title>
-    <link>https://grokbotshelf.com/bot/grok-bot-remix-producer</link>
-    <guid isPermaLink="false">https://x.ai/bot/TKzVWQ6PlZ6Cf4ao96MKz</guid>
-    <description>Works a raw idea or an existing template with you like a record producer, then writes a new remix bot spec with credit to everyone it builds on.</description>
-    <dc:creator>MikeysMolecules (@MikeysMolecules)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐝 Swarm by Josh Birdwell</title>
-    <link>https://grokbotshelf.com/bot/swarm</link>
-    <guid isPermaLink="false">https://x.ai/bot/b6mUEkSKsWyhe_ITaKW0t</guid>
-    <description>Deep research bot: fans out across many angles on one topic, audits every source, and delivers a cited, conclusion-first report on a tight budget.</description>
-    <dc:creator>Josh Birdwell (@joshdbirdwell)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>▶️ Playbook by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/playbook</link>
-    <guid isPermaLink="false">https://x.ai/bot/ejNFohKf26hSEYxmYRQJg</guid>
-    <description>Turns your most-repeated asks into short codes: type &apos;1&apos; to any of your bots and it runs the whole task.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 27 Oct 2026 12:08:40 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏈 CFB Recruiting &amp; Portal Tracker by Daniel</title>
-    <link>https://grokbotshelf.com/bot/cfb-recruiting-and-portal-tracker</link>
-    <guid isPermaLink="false">https://x.ai/bot/-FD_nk_KoOHBDShy2T4O7</guid>
-    <description>Tracks recruiting and transfer portal moves for one college football team, with sourced digests and big-move alerts.</description>
-    <dc:creator>Daniel (@DB_DevilDog)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:39 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔗 X Link Triager by beastnug</title>
-    <link>https://grokbotshelf.com/bot/x-link-triager</link>
-    <guid isPermaLink="false">https://x.ai/bot/Kp3s7Z5snb9_SyoSOx-eb</guid>
-    <description>Reads any X link you send, pulls the full post and linked repos, sorts real tools from hype, and logs or routes it.</description>
-    <dc:creator>beastnug (@beastnug8)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚚 Truck Inventory by Chicago Tradesman</title>
-    <link>https://grokbotshelf.com/bot/truck-inventory</link>
-    <guid isPermaLink="false">https://x.ai/bot/a5eUje00PaMzSwlN7dS5N</guid>
-    <description>Truck stock for field techs: part counts on an Inventory Page, HVAC starter catalog, adds from package photos, reorder alerts.</description>
-    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖼️ Mural by Pitchfork &amp; Torch</title>
-    <link>https://grokbotshelf.com/bot/mural</link>
-    <guid isPermaLink="false">https://x.ai/bot/Obg7rtHsF-I81kR1P8BFC</guid>
-    <description>Makes giant images that hold up when you zoom in, from 8K to 16K or print sizes, with tiled detail passes and zoom-in proof crops. It also cuts wallpaper packs, checks files for print, and orders posters only after you approve.</description>
-    <dc:creator>Pitchfork &amp; Torch (@SuddenlyJon)</dc:creator>
-    <category>Design</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:36 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔧 Trade Pro Office Manager by Chicago Tradesman</title>
-    <link>https://grokbotshelf.com/bot/trade-pro-office-manager</link>
-    <guid isPermaLink="false">https://x.ai/bot/J-Va5g8d94TGNiSZCvz0o</guid>
-    <description>Office manager for trade shops: estimate and invoice drafts, quote follow-ups and a morning call list.</description>
-    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:35 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏡 Homie by Chicago Tradesman</title>
-    <link>https://grokbotshelf.com/bot/homie</link>
-    <guid isPermaLink="false">https://x.ai/bot/BjePH3vrRnlXYe2zweduL</guid>
-    <description>Kitchen and health helper: meal ideas, grocery carts you review before checkout, food and water logs.</description>
-    <dc:creator>Chicago Tradesman (@jayrok35)</dc:creator>
-    <category>Food</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:34 GMT</pubDate>
   </item>
 </channel>
 </rss>
