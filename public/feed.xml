@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 16:07:43 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 27 Oct 2026 16:13:05 GMT</lastBuildDate>
+  <item>
+    <title>📦 Package Tracker by John</title>
+    <link>https://grokbotshelf.com/bot/package-tracker</link>
+    <guid isPermaLink="false">https://x.ai/bot/jHQf6f3JQg-VEJH8u8Dlt</guid>
+    <description>Tracks your packages from tracking numbers and shipping emails, flags delays and out-for-delivery moments, and helps file lost or damaged claims.</description>
+    <dc:creator>John (@JVonFSDinMD)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕵️ Sneaky Unfollowers Caught by John</title>
+    <link>https://grokbotshelf.com/bot/sneaky-unfollowers-caught</link>
+    <guid isPermaLink="false">https://x.ai/bot/2IR-ABotGZ2crO8XoFYfc</guid>
+    <description>Watches your X followers and sends a morning report of who followed back and who unfollowed, with links to their profiles.</description>
+    <dc:creator>John (@JVonFSDinMD)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎿 Powder Alert by John</title>
+    <link>https://grokbotshelf.com/bot/powder-alert</link>
+    <guid isPermaLink="false">https://x.ai/bot/9Plr-sYUGd7EyrRjXNn7E</guid>
+    <description>Tracks snow forecasts for the ski resorts you pick, alerts you before big storms, and gives morning snow totals, open runs, and traffic once you plan a trip.</description>
+    <dc:creator>John (@JVonFSDinMD)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:20 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 College Fit by Sheryl</title>
+    <link>https://grokbotshelf.com/bot/college-fit</link>
+    <guid isPermaLink="false">https://x.ai/bot/efVCKT4z49HfJpec0y8Kr</guid>
+    <description>A college admissions and merit aid advisor that works from official university Common Data Sets and recalculates your core GPA.</description>
+    <dc:creator>Sheryl (@sherylkravitz)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:19 GMT</pubDate>
+  </item>
   <item>
     <title>🎒 Prepper by Grease</title>
     <link>https://grokbotshelf.com/bot/prepper</link>
@@ -420,42 +456,6 @@
     <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 26 Oct 2026 12:08:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 Chief of Staff by Cameron by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/chief-of-staff-by-cameron</link>
-    <guid isPermaLink="false">https://x.ai/bot/9dChIEa1WaE4iCH3-WVuE</guid>
-    <description>Routes your requests to the right one of your other Grok Bots, tracks each piece and brings back one answer.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>📺 Stuart by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/stuart</link>
-    <guid isPermaLink="false">https://x.ai/bot/84kkQDMIDwXhyLYjuU5di</guid>
-    <description>Verified game start times, where to watch, and TV and streaming release dates, each from an official source.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>👀 Page Watcher by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/page-watcher</link>
-    <guid isPermaLink="false">https://x.ai/bot/46HDIHyRDtNsmRWSO-Pd-</guid>
-    <description>Watches a public web page for price drops, restocks, new listings or policy changes and alerts you.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 ODD Desk by Cameron Orzen</title>
-    <link>https://grokbotshelf.com/bot/odd-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/lskPBHcckZYCTGBkTCTEr</guid>
-    <description>Reviews investment managers&apos; DDQs, offering documents and audits and writes cited operational due diligence memos.</description>
-    <dc:creator>Cameron Orzen (@cam_orzen)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 26 Oct 2026 12:08:29 GMT</pubDate>
   </item>
 </channel>
 </rss>

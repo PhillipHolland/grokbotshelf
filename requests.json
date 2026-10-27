@@ -4365,6 +4365,50 @@
       "note": "site form #323",
       "date": "2026-10-27",
       "approved_by": "Phillip Holland"
+    },
+    "form-329": {
+      "status": "added",
+      "bot": "College Fit by Sheryl",
+      "template_url": "https://x.ai/bot/efVCKT4z49HfJpec0y8Kr",
+      "author": "@sherylkravitz",
+      "note": "site form #329",
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission"
+    },
+    "form-328": {
+      "status": "added",
+      "bot": "Powder Alert by John",
+      "template_url": "https://x.ai/bot/9Plr-sYUGd7EyrRjXNn7E",
+      "author": "@JVonFSDinMD",
+      "note": "site form #328",
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission"
+    },
+    "form-327": {
+      "status": "added",
+      "bot": "Sneaky Unfollowers Caught by John",
+      "template_url": "https://x.ai/bot/2IR-ABotGZ2crO8XoFYfc",
+      "author": "@JVonFSDinMD",
+      "note": "site form #327",
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission"
+    },
+    "form-326": {
+      "status": "added",
+      "bot": "Package Tracker by John",
+      "template_url": "https://x.ai/bot/jHQf6f3JQg-VEJH8u8Dlt",
+      "author": "@JVonFSDinMD",
+      "note": "site form #326",
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission"
+    },
+    "form-325": {
+      "status": "pending",
+      "bot": "Recall Radar by Kevin",
+      "template_url": "https://x.ai/bot/NDz3Eb34xrF2SKj832Ugs",
+      "author": "",
+      "note": "site form #325; held: no creator handle or post",
+      "date": "2026-10-27"
     }
   }
 }

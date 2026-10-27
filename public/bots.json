@@ -7258,5 +7258,57 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-27"
+  },
+  {
+    "name": "College Fit",
+    "emoji": "🎓",
+    "description": "A college admissions and merit aid advisor that works from official university Common Data Sets and recalculates your core GPA.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/efVCKT4z49HfJpec0y8Kr",
+    "creator_name": "Sheryl",
+    "creator_handle": "@sherylkravitz",
+    "creator_url": "https://x.com/sherylkravitz",
+    "creator_avatar": "/avatars/sherylkravitz.webp",
+    "source_post": "https://x.com/sherylkravitz/status/2115102803869802951",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Powder Alert",
+    "emoji": "🎿",
+    "description": "Tracks snow forecasts for the ski resorts you pick, alerts you before big storms, and gives morning snow totals, open runs, and traffic once you plan a trip.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/9Plr-sYUGd7EyrRjXNn7E",
+    "creator_name": "John",
+    "creator_handle": "@JVonFSDinMD",
+    "creator_url": "https://x.com/JVonFSDinMD",
+    "creator_avatar": "/avatars/jvonfsdinmd.webp",
+    "source_post": "https://x.com/JVonFSDinMD/status/2114855033280073969",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Sneaky Unfollowers Caught",
+    "emoji": "🕵️",
+    "description": "Watches your X followers and sends a morning report of who followed back and who unfollowed, with links to their profiles.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/2IR-ABotGZ2crO8XoFYfc",
+    "creator_name": "John",
+    "creator_handle": "@JVonFSDinMD",
+    "creator_url": "https://x.com/JVonFSDinMD",
+    "creator_avatar": "/avatars/jvonfsdinmd.webp",
+    "source_post": "https://x.com/JVonFSDinMD/status/2114856338035794170",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Package Tracker",
+    "emoji": "📦",
+    "description": "Tracks your packages from tracking numbers and shipping emails, flags delays and out-for-delivery moments, and helps file lost or damaged claims.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/jHQf6f3JQg-VEJH8u8Dlt",
+    "creator_name": "John",
+    "creator_handle": "@JVonFSDinMD",
+    "creator_url": "https://x.com/JVonFSDinMD",
+    "creator_avatar": "/avatars/jvonfsdinmd.webp",
+    "source_post": "https://x.com/JVonFSDinMD/status/2114859499660124299",
+    "added": "2026-10-27"
   }
 ]
