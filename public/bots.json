@@ -7778,5 +7778,44 @@
     "creator_avatar": "/avatars/johnp_creates.webp",
     "source_post": "https://x.com/johnp_creates/status/2107538566943568289",
     "added": "2026-10-27"
+  },
+  {
+    "name": "Bills & Subscriptions Manager",
+    "emoji": "🧾",
+    "description": "Tracks your bills and subscriptions from a +bills email address on a monthly dashboard, and can pay bills through X Money once you approve.",
+    "category": "Money",
+    "url": "https://x.ai/bot/o15ZvT53TRyHx-W_57GPw",
+    "creator_name": "J",
+    "creator_handle": "@0xgramajo",
+    "creator_url": "https://x.com/0xgramajo",
+    "creator_avatar": "/avatars/0xgramajo.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Spam-Call Scrubber",
+    "emoji": "📵",
+    "description": "Finds your phone number on people-search and data-broker sites, submits the opt-outs, finishes the email confirmations, and re-checks on a schedule.",
+    "category": "Security",
+    "url": "https://x.ai/bot/XJNBvkjgawPOJUB8JTQRk",
+    "creator_name": "",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Clean Slate",
+    "emoji": "🧹",
+    "description": "Helps you get your free credit reports, spot errors and outdated items, and draft FCRA dispute letters to all three bureaus.",
+    "category": "Money",
+    "url": "https://x.ai/bot/b0rCg6dGt82gaEPO3exgq",
+    "creator_name": "",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-27"
   }
 ]

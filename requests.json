@@ -4748,27 +4748,30 @@
     },
     "form-358": {
       "date": "2026-10-27",
-      "status": "pending",
+      "status": "added",
       "bot": "Bills & Subscriptions Manager by J",
       "template_url": "https://x.ai/bot/o15ZvT53TRyHx-W_57GPw",
       "author": "@0xgramajo",
-      "note": "held: can pay bills through X Money (moves money)"
+      "note": "site form; approved by Phillip (widget); X Money payments need approval",
+      "approved_by": "Phillip Holland"
     },
     "form-359": {
       "date": "2026-10-27",
-      "status": "pending",
+      "status": "added",
       "bot": "Spam-Call Scrubber",
       "template_url": "https://x.ai/bot/XJNBvkjgawPOJUB8JTQRk",
       "author": "",
-      "note": "held: no creator handle; name matches Phillip's own Spam-Call Scrubber bot"
+      "note": "site form; approved by Phillip (widget); uncredited",
+      "approved_by": "Phillip Holland"
     },
     "form-360": {
       "date": "2026-10-27",
-      "status": "pending",
+      "status": "added",
       "bot": "Clean Slate",
       "template_url": "https://x.ai/bot/b0rCg6dGt82gaEPO3exgq",
       "author": "",
-      "note": "held: no creator handle"
+      "note": "site form; approved by Phillip (widget); uncredited",
+      "approved_by": "Phillip Holland"
     },
     "2115238073323888773": {
       "date": "2026-10-27",

@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 02:11:01 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 02:19:50 GMT</lastBuildDate>
+  <item>
+    <title>🧹 Clean Slate by </title>
+    <link>https://grokbotshelf.com/bot/clean-slate</link>
+    <guid isPermaLink="false">https://x.ai/bot/b0rCg6dGt82gaEPO3exgq</guid>
+    <description>Helps you get your free credit reports, spot errors and outdated items, and draft FCRA dispute letters to all three bureaus.</description>
+    <dc:creator></dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:10:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>📵 Spam-Call Scrubber by </title>
+    <link>https://grokbotshelf.com/bot/spam-call-scrubber</link>
+    <guid isPermaLink="false">https://x.ai/bot/XJNBvkjgawPOJUB8JTQRk</guid>
+    <description>Finds your phone number on people-search and data-broker sites, submits the opt-outs, finishes the email confirmations, and re-checks on a schedule.</description>
+    <dc:creator></dc:creator>
+    <category>Security</category>
+    <pubDate>Tue, 27 Oct 2026 12:10:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Bills &amp; Subscriptions Manager by J</title>
+    <link>https://grokbotshelf.com/bot/bills-and-subscriptions-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/o15ZvT53TRyHx-W_57GPw</guid>
+    <description>Tracks your bills and subscriptions from a +bills email address on a monthly dashboard, and can pay bills through X Money once you approve.</description>
+    <dc:creator>J (@0xgramajo)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:59 GMT</pubDate>
+  </item>
   <item>
     <title>🪪 RealityCheck by John</title>
     <link>https://grokbotshelf.com/bot/realitycheck</link>
@@ -429,33 +456,6 @@
     <dc:creator>Cristopher (@crisships)</dc:creator>
     <category>Money</category>
     <pubDate>Tue, 27 Oct 2026 12:09:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>📇 Any CRM by Corben</title>
-    <link>https://grokbotshelf.com/bot/any-crm</link>
-    <guid isPermaLink="false">https://x.ai/bot/16XzSxYwdnnRYlAx6DFwM</guid>
-    <description>Your assistant inside whatever CRM you run, from Salesforce and HubSpot to any CRM with docs and an API. It learns how your account is set up, sends a daily brief, and holds anything you choose to gate for your yes.</description>
-    <dc:creator>Corben (@CorbenH414)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗺️ Pitch Board by T1000</title>
-    <link>https://grokbotshelf.com/bot/pitch-board</link>
-    <guid isPermaLink="false">https://x.ai/bot/s32IvITvpDM9UE2lAL_xw</guid>
-    <description>Turns a pasted client brief, idea or process into a flowchart, funnel, sequence map or mood board and lists what it assumed. You get a PNG, SVG, Mermaid text and an editable tldraw file.</description>
-    <dc:creator>T1000 (@teeRex247)</dc:creator>
-    <category>Design</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔗 Backlink Generator Bot by Prince</title>
-    <link>https://grokbotshelf.com/bot/backlink-generator-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/kWfarYQjDHlbg5Wf5AjT9</guid>
-    <description>Finds and verifies directories, launch sites, listicles and communities where your site can earn real backlinks, scores them, drafts every pitch for your approval and tracks wins.</description>
-    <dc:creator>Prince (@prince_twets)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:09 GMT</pubDate>
   </item>
 </channel>
 </rss>
