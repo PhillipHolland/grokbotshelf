@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 00:09:16 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 00:12:13 GMT</lastBuildDate>
+  <item>
+    <title>📖 Exegesis by </title>
+    <link>https://grokbotshelf.com/bot/exegesis</link>
+    <guid isPermaLink="false">https://x.ai/bot/G2xSlSRBlzl7zUz2O7cFl</guid>
+    <description>Your Bible study companion. Ask about any passage, verse, or question and get what it says in context, with key Greek and Hebrew words, quoted from the KJV and WEB.</description>
+    <dc:creator></dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:55 GMT</pubDate>
+  </item>
   <item>
     <title>🧾 Warranty &amp; Returns Keeper by </title>
     <link>https://grokbotshelf.com/bot/warranty-and-returns-keeper</link>
@@ -447,15 +456,6 @@
     <dc:creator>Darin (@DarinRMcClure)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Tue, 27 Oct 2026 12:09:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧐 Anne, Fair Witness by Darin</title>
-    <link>https://grokbotshelf.com/bot/anne-fair-witness</link>
-    <guid isPermaLink="false">https://x.ai/bot/pndJ5bz0smdw6POiwZ0U2</guid>
-    <description>Checks your team&apos;s claims, numbers, links and done reports against real sources and reports only what it saw.</description>
-    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:05 GMT</pubDate>
   </item>
 </channel>
 </rss>
