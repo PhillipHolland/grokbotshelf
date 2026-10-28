@@ -8285,5 +8285,44 @@
     "creator_avatar": "/avatars/cdepino.webp",
     "source_post": "https://x.com/cdepino/status/2115474943626416577",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Future-Proof",
+    "emoji": "🛡️",
+    "description": "Paste any Grok Bot template and get a Ready, Needs work or Fragile badge with the top three fixes to keep it working after updates.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/2H9rDVs8A77MvizZ-hjGb",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2115481216379920671",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Nations Championship Fantasy",
+    "emoji": "🏉",
+    "description": "Rugby fantasy helper that picks your XV and Super Sub within the 100M budget, compares captains and plans transfers each round.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/7KFbtwFgj3QL_p8oJ2b-r",
+    "creator_name": "Hernan",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "God Bot",
+    "emoji": "📜",
+    "description": "An encyclopedia of religions, myths and spiritual paths that answers by tradition, compares myths, decodes symbols and maps pantheons without preaching.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/D0dcUt1J62gmgy6lYRokR",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "creator_avatar": "/avatars/suddenlyjon.webp",
+    "source_post": "",
+    "added": "2026-10-28"
   }
 ]

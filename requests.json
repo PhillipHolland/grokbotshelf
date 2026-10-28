@@ -5041,6 +5041,43 @@
       "author": "@cdepino",
       "url": "https://x.com/cdepino/status/2115474943626416577",
       "approved_by": "Phillip Holland (standing auto-shelve SFW rule); 2 of 4 added by Nick"
+    },
+    "form-395": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Future-Proof",
+      "template_url": "https://x.ai/bot/2H9rDVs8A77MvizZ-hjGb",
+      "author": "@CaliLumberJack",
+      "note": "site form #395",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-394": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Nations Championship Fantasy",
+      "template_url": "https://x.ai/bot/7KFbtwFgj3QL_p8oJ2b-r",
+      "author": "",
+      "note": "site form #394; uncredited, template says by Hernan",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-393": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "God Bot",
+      "template_url": "https://x.ai/bot/D0dcUt1J62gmgy6lYRokR",
+      "author": "@SuddenlyJon",
+      "note": "site form #393",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "x-2115477285377814723": {
+      "date": "2026-10-28",
+      "status": "already_on_shelf",
+      "author": "@sherylkravitz"
+    },
+    "x-2115497696270442736": {
+      "date": "2026-10-28",
+      "status": "already_on_shelf",
+      "author": "@HowieMcMahan"
     }
   },
   "x-2114766675119886755": {
