@@ -4779,6 +4779,222 @@
       "bot": "Deal Scout, Law Desk",
       "author": "@SpudStateUSA",
       "url": "https://x.com/SpudStateUSA/status/2115238073323888773"
+    },
+    "form-387": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Zero-Day Desk",
+      "template_url": "https://x.ai/bot/MIF3DpuTKJATe0hCoUIBO",
+      "author": "@NeedMoreManas",
+      "note": "site form #387",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-386": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Tally · ai",
+      "template_url": "https://x.ai/bot/ES-UvJtuyS6UULSsKesie",
+      "author": "@matthew_abbott_",
+      "note": "site form #386",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-385": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Great Books: Reading Paths",
+      "template_url": "https://x.ai/bot/ZZ9cBlzjZ1eHUf3PDBAsv",
+      "author": "@BTCJohnnyB",
+      "note": "site form #385",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-384": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Harvard Classics: 15 Minutes a Day",
+      "template_url": "https://x.ai/bot/sWAt2yy799AZ_g2sckh6t",
+      "author": "@BTCJohnnyB",
+      "note": "site form #384",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-383": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Money Bot",
+      "template_url": "https://x.ai/bot/AUUn-ZmUJ5SUO23PbQxTl",
+      "author": "@iamthejustin",
+      "note": "site form #383",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-382": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Mail Bot",
+      "template_url": "https://x.ai/bot/cUfaFDgqIkvz3DU5WAlnO",
+      "author": "@iamthejustin",
+      "note": "site form #382",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-381": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Slack-Ready: Fleet Ops",
+      "template_url": "https://x.ai/bot/SanbJv3QF7HQ5UYMMtCdT",
+      "author": "@iamthejustin",
+      "note": "site form #381",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-380": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Slack-Ready: Team Bot",
+      "template_url": "https://x.ai/bot/-mC-r6_UP5jM3VDOHHNjo",
+      "author": "@iamthejustin",
+      "note": "site form #380",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-379": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Project PM",
+      "template_url": "https://x.ai/bot/Civf5R-TXUMZDYJgX7wLQ",
+      "author": "@iamthejustin",
+      "note": "site form #379",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-378": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Umbrella PM",
+      "template_url": "https://x.ai/bot/fh6Pjls2qu-WdZV8TatfA",
+      "author": "@iamthejustin",
+      "note": "site form #378",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-377": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "SecondBrain",
+      "template_url": "https://x.ai/bot/yl_j1In1thdcuqDNXGaYd",
+      "author": "@iamthejustin",
+      "note": "site form #377",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-376": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Davebot",
+      "template_url": "https://x.ai/bot/oN9Xvrg03sEDxjN8z-uYH",
+      "author": "@dave04291978",
+      "note": "site form #376",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-375": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Doc Mastro",
+      "template_url": "https://x.ai/bot/LfusEYekLTkgno9tTyBA_",
+      "author": "",
+      "note": "site form #375; uncredited (no creator handle on form)",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-374": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Mason · The Incorporator",
+      "template_url": "https://x.ai/bot/P4UiFNUcfH-751NuybyV1",
+      "author": "@Adamdesgns",
+      "note": "site form #374",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-373": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Pulse · Gaming Laptop Tech",
+      "template_url": "https://x.ai/bot/a1QqX6YAK6rute6G0bb9h",
+      "author": "@Adamdesgns",
+      "note": "site form #373",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-372": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Psycho · Chief Mind Reader",
+      "template_url": "https://x.ai/bot/LR0wXrk09bWEHQkI_QnQK",
+      "author": "@Adamdesgns",
+      "note": "site form #372",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-371": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Verse · AI Songwriter",
+      "template_url": "https://x.ai/bot/yOrbGXg7Ykv_NLe7MSrhj",
+      "author": "@Adamdesgns",
+      "note": "site form #371",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-370": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Rank · SEO Specialist",
+      "template_url": "https://x.ai/bot/8yRC3MWysXYTy_FtTZlyK",
+      "author": "@Adamdesgns",
+      "note": "site form #370",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-369": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Bookmark Librarian",
+      "template_url": "https://x.ai/bot/qFiT0P20Y-2V-Pa7d_uaO",
+      "author": "@realjohnnewburg",
+      "note": "site form #369",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-368": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Apple Deal Price Slicer",
+      "template_url": "https://x.ai/bot/xTuuc4CJilpanN_wzC8tB",
+      "author": "@KentBWeber",
+      "note": "site form #368",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-367": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "File GST India",
+      "template_url": "https://x.ai/bot/WNXB97M_VUqPm40unBeUh",
+      "author": "",
+      "note": "site form #367; uncredited (no creator handle on form)",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-366": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Act Before Noon",
+      "template_url": "https://x.ai/bot/Dw191a-8F7jMICtmLwBSM",
+      "author": "@kaiviti_cam",
+      "note": "site form #366",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-365": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "MY-QUANT",
+      "template_url": "https://x.ai/bot/no8VLW_1592c71u-VTxXk",
+      "author": "@JeebsTX",
+      "note": "site form #365",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-364": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Avatar Ninja",
+      "template_url": "https://x.ai/bot/mZxZWk7OJWfiP1U3R062r",
+      "author": "",
+      "note": "site form #364; uncredited (no creator handle on form)",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
     }
   },
   "x-2114766675119886755": {
