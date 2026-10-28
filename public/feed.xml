@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 00:13:57 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 02:11:01 GMT</lastBuildDate>
+  <item>
+    <title>🪪 RealityCheck by John</title>
+    <link>https://grokbotshelf.com/bot/realitycheck</link>
+    <guid isPermaLink="false">https://x.ai/bot/3qFR1iwsgP36CC7ayKRfw</guid>
+    <description>Scores an X handle for authenticity from public profile signals and makes a score card with green and red flags, as an estimate rather than a verdict.</description>
+    <dc:creator>John (@johnp_creates)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 ClaimCheck by John</title>
+    <link>https://grokbotshelf.com/bot/claimcheck</link>
+    <guid isPermaLink="false">https://x.ai/bot/9rJlEdKOnqFkSV8ZRhuKU</guid>
+    <description>Fact-checks viral X posts, headlines, and suspicious marketplace listings against primary sources, then makes a shareable verdict card.</description>
+    <dc:creator>John (@johnp_creates)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎁 Presents by Dylan</title>
+    <link>https://grokbotshelf.com/bot/presents</link>
+    <guid isPermaLink="false">https://x.ai/bot/-brAwcxWN1wwOGNnu7IkU</guid>
+    <description>Plans holiday gifts with a list per person, prices from trusted stores, budgets, order-by dates, and price-drop alerts, and only buys when you say so.</description>
+    <dc:creator>Dylan (@dkmitc)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:56 GMT</pubDate>
+  </item>
   <item>
     <title>📖 Exegesis by </title>
     <link>https://grokbotshelf.com/bot/exegesis</link>
@@ -429,33 +456,6 @@
     <dc:creator>Prince (@prince_twets)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Tue, 27 Oct 2026 12:09:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔎 SEO &amp; AEO Desk by Adam Tanguay</title>
-    <link>https://grokbotshelf.com/bot/seo-and-aeo-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/marketplace/bots/seo-aeo-desk</guid>
-    <description>Turns your keywords into content ideas and writer-ready briefs for search and AI answers, working from a pasted keyword list or your Search Console.</description>
-    <dc:creator>Adam Tanguay (@adamta)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎖️ War Dog Bot by Marshall</title>
-    <link>https://grokbotshelf.com/bot/war-dog-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/1_nQONTWydNCAGS5vJcqa</guid>
-    <description>Finds SBIR/STTR and other defense research solicitations for your small business and drafts proposal responses.</description>
-    <dc:creator>Marshall (@marshallfrith)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Dora by Darin</title>
-    <link>https://grokbotshelf.com/bot/dora</link>
-    <guid isPermaLink="false">https://x.ai/bot/j0oy2GNNEm4wryTtf6vmC</guid>
-    <description>Coordinates a crew of bots, splitting missions into jobs, handing each to the right crewmate, and keeping master files.</description>
-    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:06 GMT</pubDate>
   </item>
 </channel>
 </rss>

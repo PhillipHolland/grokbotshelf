@@ -4718,6 +4718,64 @@
       "template_url": "https://x.ai/bot/G2xSlSRBlzl7zUz2O7cFl",
       "author": "",
       "note": "added: Phil approved no-handle 2026-10-27"
+    },
+    "form-361": {
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission",
+      "status": "added",
+      "bot": "RealityCheck by John",
+      "template_url": "https://x.ai/bot/3qFR1iwsgP36CC7ayKRfw",
+      "author": "@johnp_creates",
+      "note": "site form; post 2107538566943568289"
+    },
+    "form-362": {
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission",
+      "status": "added",
+      "bot": "ClaimCheck by John",
+      "template_url": "https://x.ai/bot/9rJlEdKOnqFkSV8ZRhuKU",
+      "author": "@johnp_creates",
+      "note": "site form; post 2115115388564287906"
+    },
+    "form-363": {
+      "date": "2026-10-27",
+      "approved_by": "standing shelve-safe permission",
+      "status": "added",
+      "bot": "Presents by Dylan",
+      "template_url": "https://x.ai/bot/-brAwcxWN1wwOGNnu7IkU",
+      "author": "@dkmitc",
+      "note": "site form; never buys without a yes"
+    },
+    "form-358": {
+      "date": "2026-10-27",
+      "status": "pending",
+      "bot": "Bills & Subscriptions Manager by J",
+      "template_url": "https://x.ai/bot/o15ZvT53TRyHx-W_57GPw",
+      "author": "@0xgramajo",
+      "note": "held: can pay bills through X Money (moves money)"
+    },
+    "form-359": {
+      "date": "2026-10-27",
+      "status": "pending",
+      "bot": "Spam-Call Scrubber",
+      "template_url": "https://x.ai/bot/XJNBvkjgawPOJUB8JTQRk",
+      "author": "",
+      "note": "held: no creator handle; name matches Phillip's own Spam-Call Scrubber bot"
+    },
+    "form-360": {
+      "date": "2026-10-27",
+      "status": "pending",
+      "bot": "Clean Slate",
+      "template_url": "https://x.ai/bot/b0rCg6dGt82gaEPO3exgq",
+      "author": "",
+      "note": "held: no creator handle"
+    },
+    "2115238073323888773": {
+      "date": "2026-10-27",
+      "status": "already_on_shelf",
+      "bot": "Deal Scout, Law Desk",
+      "author": "@SpudStateUSA",
+      "url": "https://x.com/SpudStateUSA/status/2115238073323888773"
     }
   },
   "x-2114766675119886755": {

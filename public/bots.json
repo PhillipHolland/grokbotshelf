@@ -7739,5 +7739,44 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-27"
+  },
+  {
+    "name": "Presents",
+    "emoji": "🎁",
+    "description": "Plans holiday gifts with a list per person, prices from trusted stores, budgets, order-by dates, and price-drop alerts, and only buys when you say so.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/-brAwcxWN1wwOGNnu7IkU",
+    "creator_name": "Dylan",
+    "creator_handle": "@dkmitc",
+    "creator_url": "https://x.com/dkmitc",
+    "creator_avatar": "/avatars/dkmitc.webp",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "ClaimCheck",
+    "emoji": "🔎",
+    "description": "Fact-checks viral X posts, headlines, and suspicious marketplace listings against primary sources, then makes a shareable verdict card.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/9rJlEdKOnqFkSV8ZRhuKU",
+    "creator_name": "John",
+    "creator_handle": "@johnp_creates",
+    "creator_url": "https://x.com/johnp_creates",
+    "creator_avatar": "/avatars/johnp_creates.webp",
+    "source_post": "https://x.com/johnp_creates/status/2115115388564287906",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "RealityCheck",
+    "emoji": "🪪",
+    "description": "Scores an X handle for authenticity from public profile signals and makes a score card with green and red flags, as an estimate rather than a verdict.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/3qFR1iwsgP36CC7ayKRfw",
+    "creator_name": "John",
+    "creator_handle": "@johnp_creates",
+    "creator_url": "https://x.com/johnp_creates",
+    "creator_avatar": "/avatars/johnp_creates.webp",
+    "source_post": "https://x.com/johnp_creates/status/2107538566943568289",
+    "added": "2026-10-27"
   }
 ]
