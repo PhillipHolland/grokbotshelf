@@ -4995,6 +4995,33 @@
       "author": "",
       "note": "site form #364; uncredited (no creator handle on form)",
       "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-392": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Bobby Axelrod",
+      "template_url": "https://x.ai/bot/BfnShaFCD7JvjVejNOnxt",
+      "author": "",
+      "note": "site form #392; uncredited (by Cleevens, no handle); paper-only, no real trades",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-391": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Hazel · Comms and Community",
+      "template_url": "https://x.ai/bot/aNzsOCQEv9JJDk0Rgzc4k",
+      "author": "@DarinRMcClure",
+      "note": "site form #391; creator from form note",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    },
+    "form-390": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Options 101",
+      "template_url": "https://x.ai/bot/7jpWO79H0wt0Vl0NsvHRk",
+      "author": "@HowieMcMahan",
+      "note": "site form #390",
+      "approved_by": "Phillip Holland (standing auto-shelve rule)"
     }
   },
   "x-2114766675119886755": {
