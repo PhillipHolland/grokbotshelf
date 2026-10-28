@@ -8324,5 +8324,31 @@
     "creator_avatar": "/avatars/suddenlyjon.webp",
     "source_post": "",
     "added": "2026-10-28"
+  },
+  {
+    "name": "arXiv Publisher",
+    "emoji": "📄",
+    "description": "Turns your research notes, code or draft into an arXiv-ready paper with pre-flight checks, reviews, reproducibility checks and a source bundle, stopping before the final submit.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/wX0Zczy-NOxZ0Dw_-SH1j",
+    "creator_name": "Jefferson",
+    "creator_handle": "@mindragon",
+    "creator_url": "https://x.com/mindragon",
+    "creator_avatar": "/avatars/mindragon.webp",
+    "source_post": "",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Paywall Buster",
+    "emoji": "📰",
+    "description": "Send it a paywalled article link or headline and it finds a legitimate place to read it, like an archived copy or a syndicated reprint.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/Ehih33TE7zf5siH2ZcO2Z",
+    "creator_name": "Tyler",
+    "creator_handle": "@tylermiranda",
+    "creator_url": "https://x.com/tylermiranda",
+    "creator_avatar": "/avatars/tylermiranda.webp",
+    "source_post": "",
+    "added": "2026-10-28"
   }
 ]
