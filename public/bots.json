@@ -8350,5 +8350,83 @@
     "creator_avatar": "/avatars/tylermiranda.webp",
     "source_post": "",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Workflow Sketcher",
+    "emoji": "🗺️",
+    "description": "Turns a messy description of a workflow, typed, spoken or a photo of notes, into a clean phone-readable flowchart and keeps every version on one dated Page.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/14ZydJxgAWp3daolq2m02",
+    "creator_name": "Ashleigh",
+    "creator_handle": "@AshleighEWrites",
+    "creator_url": "https://x.com/AshleighEWrites",
+    "creator_avatar": "/avatars/ashleighewrites.webp",
+    "source_post": "https://x.com/AshleighEWrites/status/2115435920300081626",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Sobriety Bot",
+    "emoji": "🌱",
+    "description": "Remembers your sobriety date, counts your clean time, marks milestones and finds local AA and NA meetings, for people in recovery and those supporting them.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/zyD4E6ZPHByNTsEzWTxHV",
+    "creator_name": "Dave",
+    "creator_handle": "@Dave04291978",
+    "creator_url": "https://x.com/Dave04291978",
+    "creator_avatar": "/avatars/dave04291978.webp",
+    "source_post": "",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Personal Voicemail",
+    "emoji": "📞",
+    "description": "Sets up ClawCall as your voicemail: forwards your cell's missed calls with the right carrier code, sets your greeting and sends you a summary of each message.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/16ZtQ3igeYGWVlpwdn_yI",
+    "creator_name": "ClawCall",
+    "creator_handle": "@clawcalldev",
+    "creator_url": "https://x.com/clawcalldev",
+    "creator_avatar": "/avatars/clawcalldev.webp",
+    "source_post": "https://x.com/clawcalldev/status/2115189268671001001",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "LinkedIn Desk",
+    "emoji": "💼",
+    "description": "Reviews LinkedIn connection requests, sorts your messages and clears notifications, and nothing is accepted, archived or deleted without your approval.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/tQuoQ94ErUfXNJu4xPqZi",
+    "creator_name": "AJ Ghergich",
+    "creator_handle": "@SEO",
+    "creator_url": "https://x.com/SEO",
+    "creator_avatar": "/avatars/seo.webp",
+    "source_post": "https://x.com/SEO/status/2112580036502982947",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Lead Desk",
+    "emoji": "📥",
+    "description": "Checks your connected inbox, DMs, forms and CRM for people who want to buy, book or talk, sorts them into one short list and drafts follow-ups that send only with your yes.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/zqCY7u_VOCpgNSzOwpfNz",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2115515189621584343",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Security Agent",
+    "emoji": "🛡️",
+    "description": "Keeps an internal log for your bot team, assigning Security IDs and tracking clearances, outside activity, purchases, red flags and permissions, and adds rules only after you approve.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/1UbznxzMUzsMUT4V83VWm",
+    "creator_name": "Jenny Marquis",
+    "creator_handle": "@JennyMarquis",
+    "creator_url": "https://x.com/JennyMarquis",
+    "creator_avatar": "/avatars/jennymarquis.webp",
+    "source_post": "https://x.com/JennyMarquis/status/2115543298064728213",
+    "added": "2026-10-28"
   }
 ]
