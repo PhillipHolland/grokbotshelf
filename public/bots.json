@@ -7700,5 +7700,31 @@
     "creator_avatar": "/avatars/iamtheh0n3yp0t.webp",
     "source_post": "https://x.com/iamtheh0n3yp0t/status/2115225354403230148",
     "added": "2026-10-27"
+  },
+  {
+    "name": "Critique",
+    "emoji": "🎯",
+    "description": "Paste an X post, thread, screenshot, or your own idea and get a fast KILL or PURSUE with reasons. Every KILL comes with 1–3 ways to rescue the idea.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/Dkl9wzI9FCt4EhqTHfsk2",
+    "creator_name": "",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-27"
+  },
+  {
+    "name": "Warranty & Returns Keeper",
+    "emoji": "🧾",
+    "description": "Logs return deadlines and warranty end dates from your receipt emails and reminds you before each one runs out. Read-only on email.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/uCS_7rOgzswHGyi7uVcrt",
+    "creator_name": "",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-27"
   }
 ]

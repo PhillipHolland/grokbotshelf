@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 00:05:38 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 00:09:16 GMT</lastBuildDate>
+  <item>
+    <title>🧾 Warranty &amp; Returns Keeper by </title>
+    <link>https://grokbotshelf.com/bot/warranty-and-returns-keeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/uCS_7rOgzswHGyi7uVcrt</guid>
+    <description>Logs return deadlines and warranty end dates from your receipt emails and reminds you before each one runs out. Read-only on email.</description>
+    <dc:creator></dc:creator>
+    <category>Shopping</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎯 Critique by </title>
+    <link>https://grokbotshelf.com/bot/critique</link>
+    <guid isPermaLink="false">https://x.ai/bot/Dkl9wzI9FCt4EhqTHfsk2</guid>
+    <description>Paste an X post, thread, screenshot, or your own idea and get a fast KILL or PURSUE with reasons. Every KILL comes with 1–3 ways to rescue the idea.</description>
+    <dc:creator></dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:53 GMT</pubDate>
+  </item>
   <item>
     <title>⚖️ AI Legal Prep Desk by John</title>
     <link>https://grokbotshelf.com/bot/ai-legal-prep-desk</link>
@@ -438,24 +456,6 @@
     <dc:creator>Darin (@DarinRMcClure)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 27 Oct 2026 12:09:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎬 Story Director by Darin</title>
-    <link>https://grokbotshelf.com/bot/story-director</link>
-    <guid isPermaLink="false">https://x.ai/bot/Gd-mi-zwXjukf6UA8j80U</guid>
-    <description>Writes looping 10-second vertical AI video scripts that star you.</description>
-    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 Libby, Tool Scout by Darin</title>
-    <link>https://grokbotshelf.com/bot/libby-tool-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/8tBB5UzziKPPu8TQKTTET</guid>
-    <description>Scouts Grok Bot templates and tools for any job and returns a short ranked shortlist with reasons and links.</description>
-    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:03 GMT</pubDate>
   </item>
 </channel>
 </rss>
