@@ -8233,5 +8233,31 @@
     "creator_avatar": "/avatars/gambrill.webp",
     "source_post": "https://x.com/gambrill/status/2115464248516297211",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Morning Paper Editor",
+    "emoji": "🗞️",
+    "description": "A color newspaper PDF on your own topics, every story sourced, in your inbox each morning.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/lENpURW9T-00ZyTlmYFue",
+    "creator_name": "AI_Revolution",
+    "creator_handle": "@cdepino",
+    "creator_url": "https://x.com/cdepino",
+    "creator_avatar": "/avatars/cdepino.webp",
+    "source_post": "https://x.com/cdepino/status/2115474943626416577",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Your Voice Editor",
+    "emoji": "🖋️",
+    "description": "Learns your voice from 5 samples, then edits drafts with a numbered change list and never changes a fact.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/SQm2jfmHAJNTjWW1A7AVl",
+    "creator_name": "AI_Revolution",
+    "creator_handle": "@cdepino",
+    "creator_url": "https://x.com/cdepino",
+    "creator_avatar": "/avatars/cdepino.webp",
+    "source_post": "https://x.com/cdepino/status/2115474943626416577",
+    "added": "2026-10-28"
   }
 ]
