@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 27 Oct 2026 23:08:55 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 00:05:38 GMT</lastBuildDate>
+  <item>
+    <title>⚖️ AI Legal Prep Desk by John</title>
+    <link>https://grokbotshelf.com/bot/ai-legal-prep-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/Mr87JZkXHwpJQRknVuZcr</guid>
+    <description>Helps small businesses and individuals research legal questions and prep contracts, compliance, and dispute documents.</description>
+    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 27 Oct 2026 12:09:52 GMT</pubDate>
+  </item>
   <item>
     <title>🎙️ Stream Producer by beastnug</title>
     <link>https://grokbotshelf.com/bot/stream-producer</link>
@@ -447,15 +456,6 @@
     <dc:creator>Darin (@DarinRMcClure)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Tue, 27 Oct 2026 12:09:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔎 Mike, Research Chief by Darin</title>
-    <link>https://grokbotshelf.com/bot/mike-research-chief</link>
-    <guid isPermaLink="false">https://x.ai/bot/1HMYaNR6C8zKx-_k-bWgW</guid>
-    <description>Digs into any topic, cross-checks sources, and writes cited reports that say how sure it is.</description>
-    <dc:creator>Darin (@DarinRMcClure)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:02 GMT</pubDate>
   </item>
 </channel>
 </rss>
