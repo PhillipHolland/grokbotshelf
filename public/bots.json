@@ -8220,5 +8220,18 @@
     "creator_avatar": "/avatars/howiemcmahan.webp",
     "source_post": "",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Canary",
+    "emoji": "🐤",
+    "description": "Flags critical or actively exploited vulns that hit your devices and bot computers, then recommends the manual fix.",
+    "category": "Security",
+    "url": "https://x.ai/bot/pDA__B7cYeXbmPXgF7eAc",
+    "creator_name": "Dave Gambrill",
+    "creator_handle": "@gambrill",
+    "creator_url": "https://x.com/gambrill",
+    "creator_avatar": "/avatars/gambrill.webp",
+    "source_post": "https://x.com/gambrill/status/2115464248516297211",
+    "added": "2026-10-28"
   }
 ]
