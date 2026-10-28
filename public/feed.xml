@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 08:43:33 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 11:15:35 GMT</lastBuildDate>
+  <item>
+    <title>🔌 Integrator · Setup &amp; Sync by TheLobsterNest</title>
+    <link>https://grokbotshelf.com/bot/integrator-setup-and-sync</link>
+    <guid isPermaLink="false">https://x.ai/bot/Oq7osbm1cpDoS4MYyvuS2</guid>
+    <description>Onboarding hub for newly imported Marketplace bots: connector setup, paused presets and conflict resolution in one place.</description>
+    <dc:creator>TheLobsterNest (@TheLobsterNest)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Wed, 28 Oct 2026 12:10:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏈 Fantasy Recap by teslaFSD</title>
+    <link>https://grokbotshelf.com/bot/fantasy-recap</link>
+    <guid isPermaLink="false">https://x.ai/bot/eTmfCAI-gTioZBD_aC6c_</guid>
+    <description>Emails a fun, trash-talking weekly recap of your ESPN fantasy football league every Tuesday, with scores, standings and close games.</description>
+    <dc:creator>teslaFSD (@teslaFSD)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Wed, 28 Oct 2026 12:10:26 GMT</pubDate>
+  </item>
   <item>
     <title>🥷 Avatar Ninja by </title>
     <link>https://grokbotshelf.com/bot/avatar-ninja</link>
@@ -438,24 +456,6 @@
     <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
     <category>Home</category>
     <pubDate>Tue, 27 Oct 2026 12:09:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>💇 Salon Suite, MedSpa &amp; Solo Stylist Front Desk by Lisa</title>
-    <link>https://grokbotshelf.com/bot/salon-suite-medspa-and-solo-stylist-front-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/7b1I98Ms3Iu8Z59LDSx8R</guid>
-    <description>A front-desk coordinator for salon suite renters, stylists, lash and brow artists and MedSpas that triages DMs, fills cancellation gaps and keeps client formulas.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔭 Merger Watch by Howard</title>
-    <link>https://grokbotshelf.com/bot/merger-watch</link>
-    <guid isPermaLink="false">https://x.ai/bot/Cr7MZCnOJ-XpWgwsEzV04</guid>
-    <description>Watches two public companies for merger talk or new ties through SEC filings, news, executive posts and stock moves, labeling each finding confirmed, reported or rumor with a source. Watch-only.</description>
-    <dc:creator>Howard (@HowieMcMahan)</dc:creator>
-    <category>Money</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:36 GMT</pubDate>
   </item>
 </channel>
 </rss>

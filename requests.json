@@ -5006,5 +5006,23 @@
     "note": "denied by Phillip Oct 27: reply-to-gambrill not shelf ask + trademark risk",
     "denied_at": "2026-10-27",
     "denied_by": "Phillip Holland"
+  },
+  "form-389": {
+    "date": "2026-10-28",
+    "status": "added",
+    "bot": "Fantasy Recap",
+    "template_url": "https://x.ai/bot/eTmfCAI-gTioZBD_aC6c_",
+    "author": "@teslaFSD",
+    "note": "site form #389",
+    "approved_by": "Phillip Holland (standing auto-shelve rule)"
+  },
+  "form-388": {
+    "date": "2026-10-28",
+    "status": "added",
+    "bot": "Integrator · Setup & Sync",
+    "template_url": "https://x.ai/bot/Oq7osbm1cpDoS4MYyvuS2",
+    "author": "@TheLobsterNest",
+    "note": "site form #388",
+    "approved_by": "Phillip Holland (standing auto-shelve rule)"
   }
 }

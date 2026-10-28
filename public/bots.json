@@ -8129,5 +8129,31 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Fantasy Recap",
+    "emoji": "🏈",
+    "description": "Emails a fun, trash-talking weekly recap of your ESPN fantasy football league every Tuesday, with scores, standings and close games.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/eTmfCAI-gTioZBD_aC6c_",
+    "creator_name": "teslaFSD",
+    "creator_handle": "@teslaFSD",
+    "creator_url": "https://x.com/teslaFSD",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Integrator · Setup & Sync",
+    "emoji": "🔌",
+    "description": "Onboarding hub for newly imported Marketplace bots: connector setup, paused presets and conflict resolution in one place.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Oq7osbm1cpDoS4MYyvuS2",
+    "creator_name": "TheLobsterNest",
+    "creator_handle": "@TheLobsterNest",
+    "creator_url": "https://x.com/TheLobsterNest",
+    "creator_avatar": "",
+    "source_post": "https://x.com/TheLobsterNest/status/2114820634991800514",
+    "added": "2026-10-28"
   }
 ]
