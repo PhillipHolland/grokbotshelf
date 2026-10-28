@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 28 Oct 2026 11:15:35 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 28 Oct 2026 11:16:13 GMT</lastBuildDate>
+  <item>
+    <title>🛡️ Bit Warden by Soliman</title>
+    <link>https://grokbotshelf.com/bot/bit-warden</link>
+    <guid isPermaLink="false">https://x.ai/bot/G2VIYoauSsdbjHKnNjEr8</guid>
+    <description>Watches your shared Grok Bot usage allowance and helps your other bots spend it efficiently, using only real numbers.</description>
+    <dc:creator>Soliman (@solimancf)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Wed, 28 Oct 2026 12:10:28 GMT</pubDate>
+  </item>
   <item>
     <title>🔌 Integrator · Setup &amp; Sync by TheLobsterNest</title>
     <link>https://grokbotshelf.com/bot/integrator-setup-and-sync</link>
@@ -447,15 +456,6 @@
     <dc:creator>Ashleigh (@AshleighEWrites)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Tue, 27 Oct 2026 12:09:39 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧰 Contractor Supplement &amp; Missed-Call Front Desk by Lisa</title>
-    <link>https://grokbotshelf.com/bot/contractor-supplement-and-missed-call-front-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/lnd5ErImPDh4h7eBb5n8Z</guid>
-    <description>Turns jobsite photos and voice notes into IRC and IICRC code-upgrade supplement letters for insurance adjusters and triages missed calls.</description>
-    <dc:creator>Lisa (@LisaMAUSA)</dc:creator>
-    <category>Home</category>
-    <pubDate>Tue, 27 Oct 2026 12:09:38 GMT</pubDate>
   </item>
 </channel>
 </rss>
