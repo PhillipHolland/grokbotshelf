@@ -3793,48 +3793,48 @@
       "replaced_url": "https://x.ai/bot/E_j1gMmT7KLW4HWbMV2nK"
     },
     "form-266": {
-      "status": "denied",
-      "author": "AI_Revolution (no handle)",
+      "status": "added",
+      "author": "@cdepino",
       "bot": "Your Voice Editor",
       "template_url": "https://x.ai/bot/SQm2jfmHAJNTjWW1A7AVl",
       "url": "",
-      "note": "site form #266; held for Phillip: no creator handle (AI_Revolution)",
+      "note": "site form #266; held for Phillip: no creator handle (AI_Revolution); added by Nick Oct 28 (commit e685f35ad) after X re-submit with handle",
       "date": "2026-10-26",
       "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
       "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
       "decided": "2026-10-26"
     },
     "form-265": {
-      "status": "denied",
-      "author": "AI_Revolution (no handle)",
+      "status": "added",
+      "author": "@cdepino",
       "bot": "Bills and Renewals Watcher",
       "template_url": "https://x.ai/bot/uHbqMd8nxilXPg5prgOFe",
-      "url": "",
-      "note": "site form #265; held for Phillip: no creator handle (AI_Revolution)",
+      "url": "https://x.com/cdepino/status/2115474943626416577",
+      "note": "site form #265; held for Phillip: no creator handle (AI_Revolution); re-submitted on X Oct 28 with handle @cdepino, so the no-handle deny no longer applies",
       "date": "2026-10-26",
       "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
-      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
-      "decided": "2026-10-26"
+      "approved_by": "Phillip Holland (standing auto-shelve SFW rule)",
+      "decided": "2026-10-28"
     },
     "form-264": {
-      "status": "denied",
-      "author": "AI_Revolution (no handle)",
+      "status": "added",
+      "author": "@cdepino",
       "bot": "Pass or Fail Checker",
       "template_url": "https://x.ai/bot/rYrK4IrDCPzE5fvuhfTfC",
-      "url": "",
-      "note": "site form #264; held for Phillip: no creator handle (AI_Revolution)",
+      "url": "https://x.com/cdepino/status/2115474943626416577",
+      "note": "site form #264; held for Phillip: no creator handle (AI_Revolution); re-submitted on X Oct 28 with handle @cdepino, so the no-handle deny no longer applies",
       "date": "2026-10-26",
       "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
-      "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
-      "decided": "2026-10-26"
+      "approved_by": "Phillip Holland (standing auto-shelve SFW rule)",
+      "decided": "2026-10-28"
     },
     "form-263": {
-      "status": "denied",
-      "author": "AI_Revolution (no handle)",
+      "status": "added",
+      "author": "@cdepino",
       "bot": "Morning Paper Editor",
       "template_url": "https://x.ai/bot/lENpURW9T-00ZyTlmYFue",
       "url": "",
-      "note": "site form #263; held for Phillip: no creator handle (AI_Revolution)",
+      "note": "site form #263; held for Phillip: no creator handle (AI_Revolution); added by Nick Oct 28 (commit e685f35ad) after X re-submit with handle",
       "date": "2026-10-26",
       "reason": "no X creator handle (AI_Revolution); listing standard requires a handle",
       "approved_by": "Phillip Holland (Oct 26 2026 7:17 PM CT: shelve safe items that meet standards, clear unapproved form queue)",
@@ -5033,6 +5033,14 @@
       "author": "@gambrill",
       "note": "re-ask post; added per Phillip override of form-313 Vuln Scout-similarity deny",
       "approved_by": "Phillip Holland (explicit override 2026-10-28)"
+    },
+    "x-2115474943626416577": {
+      "date": "2026-10-28",
+      "status": "added",
+      "bot": "Morning Paper Editor, Pass or Fail Checker, Bills and Renewals Watcher, Your Voice Editor",
+      "author": "@cdepino",
+      "url": "https://x.com/cdepino/status/2115474943626416577",
+      "approved_by": "Phillip Holland (standing auto-shelve SFW rule); 2 of 4 added by Nick"
     }
   },
   "x-2114766675119886755": {

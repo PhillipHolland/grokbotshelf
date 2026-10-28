@@ -8259,5 +8259,31 @@
     "creator_avatar": "/avatars/cdepino.webp",
     "source_post": "https://x.com/cdepino/status/2115474943626416577",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Pass or Fail Checker",
+    "emoji": "✅",
+    "description": "Paste a draft and your rules, get PASS or FAIL with the exact lines that broke a rule.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/rYrK4IrDCPzE5fvuhfTfC",
+    "creator_name": "AI_Revolution",
+    "creator_handle": "@cdepino",
+    "creator_url": "https://x.com/cdepino",
+    "creator_avatar": "/avatars/cdepino.webp",
+    "source_post": "https://x.com/cdepino/status/2115474943626416577",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Bills and Renewals Watcher",
+    "emoji": "🧾",
+    "description": "Reads your bill emails and flags renewals, duplicates, trials and unused subscriptions, read only.",
+    "category": "Money",
+    "url": "https://x.ai/bot/uHbqMd8nxilXPg5prgOFe",
+    "creator_name": "AI_Revolution",
+    "creator_handle": "@cdepino",
+    "creator_url": "https://x.com/cdepino",
+    "creator_avatar": "/avatars/cdepino.webp",
+    "source_post": "https://x.com/cdepino/status/2115474943626416577",
+    "added": "2026-10-28"
   }
 ]
