@@ -2212,7 +2212,7 @@
     "added": "2026-10-24"
   },
   {
-    "name": "Carvana Truck Buyer",
+    "name": "Online Vehicle Search",
     "emoji": "🚚",
     "description": "Watches Carvana for your exact truck, confirms engine and recalls by VIN, and tracks trade-in value.",
     "category": "Shopping",
@@ -2277,7 +2277,7 @@
     "added": "2026-10-24"
   },
   {
-    "name": "eBay Seller Assistant",
+    "name": "Online Seller Assistant",
     "emoji": "📦",
     "description": "Checks new eBay orders, buys and prints shipping labels within your caps, and tracks USPS scans.",
     "category": "Shopping",
@@ -2719,7 +2719,7 @@
     "added": "2026-10-24"
   },
   {
-    "name": "Phil Connors",
+    "name": "Forecast Fred",
     "emoji": "🌦️",
     "description": "A dry-witted Groundhog Day-style TV weatherman with accurate daily forecasts and alerts for your US town from the National Weather Service.",
     "category": "Lifestyle",
@@ -4654,7 +4654,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "StarMind",
+    "name": "StarMind · Chief of Staff",
     "emoji": "⭐",
     "description": "A chief-of-staff bot that delegates every request to specialist bots, checks their work, and only brings you real decisions.",
     "category": "Bot Tools",
@@ -4667,7 +4667,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Pyloros",
+    "name": "Pyloros · Skill Gate",
     "emoji": "🚪",
     "description": "A skill-quality gate that tests skills like code with planted-bad evals, held-out checks and rollback on regression; proposals only.",
     "category": "Bot Tools",
@@ -4680,7 +4680,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Ms. Reviewenstein",
+    "name": "Athena · Peer Critique",
     "emoji": "🧐",
     "description": "Peer-critique bot that reviews teammates' big calls on workflow, architecture, spend and skills for up to 3 rounds.",
     "category": "Bot Tools",
@@ -4693,7 +4693,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Finance Advisor",
+    "name": "Mercury · Finance",
     "emoji": "💹",
     "description": "Read-only portfolio advisor for holdings digests, valuation and filings checks, large-flow alerts and research; never places trades.",
     "category": "Money",
@@ -4706,7 +4706,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Research Desk",
+    "name": "Netscape · Research",
     "emoji": "🔎",
     "description": "Cited public-source research for digests and weekly topic watches, with every claim linked and nothing invented.",
     "category": "Productivity",
@@ -4719,7 +4719,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Ms. Scribe",
+    "name": "Hermes · Scribe",
     "emoji": "✍️",
     "description": "Turns notes into clean prose, drafts email replies, preps meeting briefs, and writes search-ready content briefs.",
     "category": "Creator & Media",
@@ -4732,7 +4732,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "PC Steward",
+    "name": "Prodigy · Home Rig",
     "emoji": "🖥️",
     "description": "Keeps a Windows PC fast and safe with weekday read-only health checks, Defender and firewall watch, and approval-gated fixes.",
     "category": "Security",
@@ -4745,7 +4745,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Job Search Operator",
+    "name": "Janus · Jobs",
     "emoji": "💼",
     "description": "Finds openings that fit you, scores them, and drafts application packets and LinkedIn notes; never submits without your OK.",
     "category": "Productivity",
@@ -4758,7 +4758,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Grok",
+    "name": "Grok · Field Desk",
     "emoji": "⚡",
     "description": "An on-the-go field desk for quick questions, brainstorming, and plain-English research takes with rough odds and real sources.",
     "category": "Productivity",
@@ -4771,7 +4771,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Mr. Cartwright",
+    "name": "Ceres · Shopper",
     "emoji": "🛒",
     "description": "Compares real grocery and household prices, builds weekly deal sheets and a coupon wallet, and stops at the cart until you approve.",
     "category": "Shopping",
@@ -4784,7 +4784,7 @@
     "added": "2026-10-25"
   },
   {
-    "name": "Mr. Health",
+    "name": "Hercules · Body Health",
     "emoji": "💪",
     "description": "A firm, practical fitness coach that tracks wearable and weight data and builds weekly workouts at three difficulty levels.",
     "category": "Health & Fitness",

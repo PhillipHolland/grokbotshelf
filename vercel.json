@@ -314,6 +314,76 @@
       "source": "/bot/product-catalog-organizer",
       "destination": "/bot/product-cataloger",
       "permanent": true
+    },
+    {
+      "source": "/bot/carvana-truck-buyer",
+      "destination": "/bot/online-vehicle-search",
+      "permanent": true
+    },
+    {
+      "source": "/bot/ebay-seller-assistant",
+      "destination": "/bot/online-seller-assistant",
+      "permanent": true
+    },
+    {
+      "source": "/bot/phil-connors",
+      "destination": "/bot/forecast-fred",
+      "permanent": true
+    },
+    {
+      "source": "/bot/starmind",
+      "destination": "/bot/starmind-chief-of-staff",
+      "permanent": true
+    },
+    {
+      "source": "/bot/mr-cartwright",
+      "destination": "/bot/ceres-shopper",
+      "permanent": true
+    },
+    {
+      "source": "/bot/ms-scribe",
+      "destination": "/bot/hermes-scribe",
+      "permanent": true
+    },
+    {
+      "source": "/bot/research-desk",
+      "destination": "/bot/netscape-research",
+      "permanent": true
+    },
+    {
+      "source": "/bot/job-search-operator",
+      "destination": "/bot/janus-jobs",
+      "permanent": true
+    },
+    {
+      "source": "/bot/finance-advisor",
+      "destination": "/bot/mercury-finance",
+      "permanent": true
+    },
+    {
+      "source": "/bot/grok",
+      "destination": "/bot/grok-field-desk",
+      "permanent": true
+    },
+    {
+      "source": "/bot/pyloros",
+      "destination": "/bot/pyloros-skill-gate",
+      "permanent": true
+    },
+    {
+      "source": "/bot/mr-health",
+      "destination": "/bot/hercules-body-health",
+      "permanent": true
+    },
+    {
+      "source": "/bot/ms-reviewenstein",
+      "destination": "/bot/athena-peer-critique",
+      "permanent": true
+    },
+    {
+      "source": "/bot/pc-steward",
+      "destination": "/bot/prodigy-home-rig",
+      "permanent": true
     }
   ]
 }
