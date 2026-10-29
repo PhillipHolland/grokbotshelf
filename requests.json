@@ -5300,5 +5300,77 @@
     "date": "2026-10-29",
     "post_id": "",
     "note": "uncredited (published by Thrive 3PL, no handle)"
+  },
+  "form-427": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/0Rn9eVmT2dZgnzZzGzXWJ",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #427; standing auto-shelve rule"
+  },
+  "form-428": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/4SzF5eTdp-3HJUgQHAoh1",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #428; standing auto-shelve rule"
+  },
+  "form-429": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/TpA4Ji65MF7b4jeecYGUF",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #429; standing auto-shelve rule"
+  },
+  "form-430": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/KKkQewUvgA-LCHWYiZB-h",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #430; standing auto-shelve rule"
+  },
+  "form-431": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/huz0MjNp2ozoD17fZytGu",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #431; standing auto-shelve rule"
+  },
+  "form-432": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/nylpBfJCwgYRyEWD1kRWO",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #432; standing auto-shelve rule"
+  },
+  "form-433": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/6znS35U48Z72PgZoiNzRW",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #433; standing auto-shelve rule"
+  },
+  "form-434": {
+    "author_handle": "@jimaggie",
+    "template_url": "https://x.ai/bot/0Pmax1BqlaK5ioimvYi_x",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "",
+    "note": "site form #434; standing auto-shelve rule"
+  },
+  "x-2115928331908792657": {
+    "author_handle": "@testafortedev",
+    "template_url": "https://x.ai/bot/cVKdTHCKYBJTqMUOWyj7L",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "2115928331908792657",
+    "note": "X tag of Phil+Nick; standing auto-shelve rule"
   }
 }
