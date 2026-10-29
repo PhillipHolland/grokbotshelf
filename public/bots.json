@@ -8493,5 +8493,18 @@
     "creator_avatar": "/avatars/mimundoconia.webp",
     "source_post": "https://x.com/MiMundoConIA/status/2111500738010419451",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Persona Bot",
+    "emoji": "📔",
+    "description": "Your portable you-file for every Grok Bot. Tell bots who you are once; each bot only gets the slices you approve.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
+    "creator_name": "Phillip Holland",
+    "creator_handle": "@Phil_Holland",
+    "creator_url": "https://x.com/Phil_Holland",
+    "creator_avatar": "/avatars/phil_holland.webp",
+    "source_post": "",
+    "added": "2026-10-28"
   }
 ]
