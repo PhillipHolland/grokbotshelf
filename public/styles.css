@@ -4,12 +4,13 @@
   --blue:#1d9bf0; --blue-h:#1a8cd8;
   --btn-blue:#1270c4; --btn-blue-h:#0f5fa8; /* white text on these passes 4.5:1 */
     --bg:#000; --text:#e7e9ea; --text2:#71767b; --line:#2f3336; --line2:#536471; --hover:#16181c; --field:#202327;
+    --vmuted:#8b98a5; /* vote counts: quiet, and 4.5:1 on --bg, --hover and --field */
     --menu:#16181c; --mark:rgba(29,155,240,.28);
     --pill:#eff3f4; --pill-ink:#0f1419; --pill-h:#d7dbdc;
     --head:rgba(0,0,0,.65);
 }
 html[data-theme="light"]{
-  --bg:#fff; --text:#0f1419; --text2:#536471; --line:#eff3f4; --line2:#cfd9de; --hover:#f7f9f9; --field:#eff3f4;
+  --bg:#fff; --text:#0f1419; --text2:#536471; --line:#eff3f4; --line2:#cfd9de; --hover:#f7f9f9; --field:#eff3f4; --vmuted:#536471;
   --menu:#fff; --blue:#1d9bf0; --blue-h:#1a8cd8; --mark:rgba(29,155,240,.18);
   --pill:#0f1419; --pill-ink:#fff; --pill-h:#272c30;
   --head:rgba(255,255,255,.85);
@@ -210,16 +211,17 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .tlist .em{flex:none;font-size:20px;line-height:1}
 .tlist .nm{flex:1;min-width:0;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tlist .nm small{display:block;font-size:12px;font-weight:500;color:var(--text2);overflow:hidden;text-overflow:ellipsis}
-.tlist .sc{flex:none;display:inline-flex;align-items:center;gap:2px;padding:3px 9px 3px 6px;border-radius:999px;font-size:13px;font-weight:800;color:var(--blue);background:var(--mark);font-variant-numeric:tabular-nums}
-.tlist .sc svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+/* Vote counts everywhere (Top voted, creator tiles, cards, bot page): muted text and a thin arrow, no fill, in a fixed-width slot */
+.tlist .sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:48px;box-sizing:border-box;padding:0;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.tlist .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.tlist{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.tlist{grid-template-columns:1fr}.topvotes{padding:12px 10px 12px;border-radius:14px}}
 
 /* Up / down votes: quiet arrows and a net score */
 .vote{display:inline-flex;align-items:center;margin-right:2px}
 .vote .vb{width:30px;height:34px}
-.vote .vb svg{width:17px;height:17px;stroke-width:2}
-.vote .vn{min-width:18px;padding:0 1px;font-size:13px;font-weight:600;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
+.vote .vb svg{width:15px;height:15px;stroke-width:1.75}
+.vote .vn{min-width:18px;padding:0 1px;font-size:13px;font-weight:600;color:var(--vmuted);text-align:center;font-variant-numeric:tabular-nums}
 .vote .up[aria-pressed="true"]{color:var(--blue)}
 .vote .dn[aria-pressed="true"]{color:#f4212e}
 .vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
@@ -307,7 +309,7 @@ html[data-theme="light"] .sub-ok{fill:#00805a}
 /* Bot page vote: outlined pill next to the get buttons, same arrows and colors as the cards */
 .bp-actions .bp-vote{display:inline-flex;align-items:center;height:40px;padding:0 3px;margin:0;border:1px solid var(--line2);border-radius:9999px}
 .bp-vote .vb{width:34px;height:34px}
-.bp-vote .vn{min-width:22px;font-size:15px;font-weight:700;color:var(--text)}
+.bp-vote .vn{min-width:22px;font-size:13px;font-weight:600;color:var(--vmuted)}
 html.mobile .bp-actions{flex-direction:column}
 html.mobile .bp-actions .app{order:-1;justify-content:center}
 html.mobile .bp-actions .get{justify-content:center;background:transparent;color:var(--text);border:1px solid var(--line2)}
@@ -389,8 +391,8 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 
 /* Light mode: darker blue for text links and badge colors so they pass 4.5:1 on white */
 html[data-theme="light"] :is(.clear,.thead .tall,.bp-links a,.add p a,.ghead .plink .ok,.crawl a:hover,.site-foot a:hover,.chip[aria-pressed="true"],.vote .up[aria-pressed="true"]){color:var(--btn-blue)}
-/* The score badge sits on the tinted --mark fill and Copy on the grey snippet header: --btn-blue is just under 4.5:1 there */
-html[data-theme="light"] :is(.tlist .sc,.snip .snip-h .clear){color:var(--btn-blue-h)}
+/* Copy sits on the grey snippet header: --btn-blue is just under 4.5:1 there */
+html[data-theme="light"] .snip .snip-h .clear{color:var(--btn-blue-h)}
 html[data-theme="light"] .badge.ag-acts{border-color:rgba(196,16,95,.45);color:#c4105f}
 html[data-theme="light"] .badge.ag-drafts{border-color:rgba(138,106,0,.45);color:#8a6a00}
 html[data-theme="light"] .badge.ag-reads{border-color:rgba(0,128,90,.45);color:#00805a}
@@ -573,7 +575,7 @@ html[data-theme="light"] .gbs-up{box-shadow:0 2px 10px rgba(15,20,25,.08)}
 /* ---------- 3. Vote count: always present, fixed width, tabular ---------- */
 .vote{margin-right:0}
 .vote .vb{width:28px;height:34px}
-.vote .vn{width:22px;min-width:0;padding:0;text-align:center;font-variant-numeric:tabular-nums;line-height:34px}
+.vote .vn{width:24px;min-width:0;padding:0;text-align:center;font-variant-numeric:tabular-nums;line-height:34px}
 
 /* ---------- 4. Meta line: one gap, centered, long names truncate ---------- */
 .sub{gap:6px;margin-top:3px;line-height:16px;height:16px;align-items:center}
@@ -698,8 +700,7 @@ html.tailing .sentinel{height:100vh}
 
 /* ---------- Round 3 #1: bot page vote count. A 0 reads quietly in the same slot the real score lands in (no shift);
    the slot grows for three digits instead of clipping (cards keep their fixed 22px) ---------- */
-.bp-vote .vn{width:auto;min-width:22px;padding:0 2px}
-.bp-vote .vn.zero{color:var(--text2)}
+.bp-vote .vn{width:30px;min-width:0;padding:0}
 
 /* ---------- Round 3 #2: bot, creator and 404 pages: the footer joins the header in the 720px column ---------- */
 /* .site-foot has no side padding (its rule is the border), so it takes the 688px content width, not the 720px box */
@@ -797,7 +798,6 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
    bot-page.js puts the real score from GET /api/votes in the same place, so nothing moves */
 .cp-list a small.cat{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .cp-list a small.cat>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:2px;min-width:44px;font-size:13px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
-.cp-sc svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.cp-sc.zero{color:var(--text2);font-weight:600}
+.cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.cp-sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .cp-sc svg+svg{display:none}.cp-sc.neg svg{display:none}.cp-sc.neg svg+svg{display:inline}

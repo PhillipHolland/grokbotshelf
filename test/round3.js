@@ -28,7 +28,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   // #1 bot page vote count: a quiet 0 before and without the API, the real score in the same slot, no shift, 3 digits fit
   {
     let p = await open('/bot/archivist');
-    const z = await p.evaluate(() => { const v = document.querySelector('.bp-vote .vn'), cs = getComputedStyle(v), t2 = getComputedStyle(document.documentElement).getPropertyValue('--text2').trim();
+    const z = await p.evaluate(() => { const v = document.querySelector('.bp-vote .vn'), cs = getComputedStyle(v), t2 = getComputedStyle(document.documentElement).getPropertyValue('--vmuted').trim();
       const tmp = document.createElement('i'); tmp.style.color = t2; document.body.appendChild(tmp); const want = getComputedStyle(tmp).color; tmp.remove();
       return { t: v.textContent, zero: v.classList.contains('zero'), quiet: cs.color === want }; });
     ok(z.t === '0' && z.zero && z.quiet, `#1 no tally: the count reads a quiet 0 (${JSON.stringify(z)})`);
