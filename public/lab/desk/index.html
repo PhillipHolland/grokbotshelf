@@ -22,6 +22,10 @@
 .bp > h1{margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
 .lab-lead{margin:0 0 6px;font-size:17px;line-height:1.45;color:var(--text);max-width:42rem}
 .lab-sub{margin:0 0 8px;font-size:14px;color:var(--text2);line-height:1.45;max-width:40rem}
+
+.lab-disclose{margin:0 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--text2);font-size:13px;line-height:1.45;max-width:42rem}
+.lab-disclose strong{color:var(--text);font-weight:700}
+.lab-disclose .badge{vertical-align:middle;margin:0 2px}
 .lab-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;align-items:center}
 .lab-legend .badge{margin:0}
 .group .ghead h2 .gn{font-variant-numeric:tabular-nums}
@@ -119,11 +123,12 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
 
   <h1>Desk &amp; clips</h1>
   <p class="lab-lead">Same cards as the shelf. Gear and tools land where someone already looking at these bots would want them — not a separate mall.</p>
-  <p class="lab-sub">Amazon uses tag <code>botshelf-20</code>. Video tools are plain product pages until affiliate accounts are live (marked dummy).</p>
+  <p class="lab-sub">Amazon cards use our Associates tag <code>botshelf-20</code> — Grok Bot Shelf may earn from qualifying purchases. Video tools open plain product pages until those affiliate accounts are live (marked not affiliated).</p>
+  <p class="lab-disclose" role="note"><strong>Disclosure:</strong> blue <span class="badge pair">Amazon</span> cards are advertising links. Grey <span class="badge dummy">Not affiliated</span> cards are not paid placements. Bot cards are unpaid catalog entries.</p>
   <div class="lab-legend" aria-hidden="true">
     <span class="badge">Bot</span>
     <span class="badge pair">Amazon</span>
-    <span class="badge dummy">Preview · not affiliated</span>
+    <span class="badge dummy">Not affiliated</span>
   </div>
 
   <!-- Local models: always-on box + SSD sit right after the bots that need them -->
@@ -257,7 +262,7 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
         </div></div>
         <p class="desc">When the source is a long episode instead of a single Reel — auto-cuts captioned shorts these clip bots can then ship to X.</p>
         <div class="meta" aria-label="Pairs with">
-        <span class="badge dummy">Preview</span>
+        <span class="badge dummy">Not affiliated</span>
         <a href="/bot/reel"><span class="em" aria-hidden="true">🎬</span><span class="nm">Reel ➡️ 𝕏</span></a>
         <a href="/bot/podcast-clipper-for-x"><span class="em" aria-hidden="true">🎬</span><span class="nm">Podcast Clipper</span></a>
         <a href="/bot/stills-and-clips-desk"><span class="em" aria-hidden="true">🎞️</span><span class="nm">Stills &amp; Clips</span></a>
@@ -312,7 +317,7 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
         </div></div>
         <p class="desc">Talking-head avatars when you want a face on camera without filming — sits next to the studio bots that already storyboard and script.</p>
         <div class="meta" aria-label="Pairs with">
-        <span class="badge dummy">Preview</span>
+        <span class="badge dummy">Not affiliated</span>
         <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
         <a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Video Studio</span></a>
         <a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice</span></a>
@@ -337,7 +342,7 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
         </div></div>
         <p class="desc">Gen-video playground for motion and b-roll when a studio bot’s brief needs footage you don’t have in camera.</p>
         <div class="meta" aria-label="Pairs with">
-        <span class="badge dummy">Preview</span>
+        <span class="badge dummy">Not affiliated</span>
         <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
         <a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Video Studio</span></a>
       </div>
@@ -393,7 +398,7 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
         </div></div>
         <p class="desc">Script → avatar video when Character Voice Desk has the voice and you still need a face on screen without a shoot day.</p>
         <div class="meta" aria-label="Pairs with">
-        <span class="badge dummy">Preview</span>
+        <span class="badge dummy">Not affiliated</span>
         <a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice</span></a>
         <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
       </div>
@@ -407,7 +412,7 @@ html.mobile .lab-desk .card .ttl{padding-top:1px}
 <footer class="site-foot wrap">
   <p>Not affiliated with SpaceXSI.</p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
-  <p class="assoc">As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases. Lab page only — not linked from the public shelf yet.</p>
+  <p class="assoc">As an Amazon Associate I earn from qualifying purchases. Lab page only — not linked from the public shelf yet.</p>
 </footer>
 <script>
 (function(){
