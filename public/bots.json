@@ -8428,5 +8428,44 @@
     "creator_avatar": "/avatars/jennymarquis.webp",
     "source_post": "https://x.com/JennyMarquis/status/2115543298064728213",
     "added": "2026-10-28"
+  },
+  {
+    "name": "Jordan Peterson Bot",
+    "emoji": "📚",
+    "description": "Answers your questions in Jordan Peterson's voice and reasoning, drawing on his books, lectures and ideas about responsibility and meaning.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/opn8pEr2fddV4kbLZN6TO",
+    "creator_name": "Dave",
+    "creator_handle": "@Dave04291978",
+    "creator_url": "https://x.com/Dave04291978",
+    "source_post": "",
+    "added": "2026-10-28",
+    "creator_avatar": "/avatars/dave04291978.webp"
+  },
+  {
+    "name": "Dollar Drive",
+    "emoji": "🧱",
+    "description": "Runs a fundraiser one dollar at a time: your goal picture splits into blocks and each verified $1 X Money gift lights one block with the giver's handle.",
+    "category": "Money",
+    "url": "https://x.ai/bot/1oa9vtFZ0DJkcvhs-DN3V",
+    "creator_name": "Pitchfork & Torch",
+    "creator_handle": "@SuddenlyJon",
+    "creator_url": "https://x.com/SuddenlyJon",
+    "source_post": "",
+    "added": "2026-10-28",
+    "creator_avatar": "/avatars/suddenlyjon.webp"
+  },
+  {
+    "name": "Rosie · Cards",
+    "emoji": "💌",
+    "description": "Designs email greeting cards for your people's birthdays and the days you pick, shows each one first and sends only after your okay.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/2tv8gzN0FKhkKUExZPKHE",
+    "creator_name": "PapaGator",
+    "creator_handle": "@papagatorz",
+    "creator_url": "https://x.com/papagatorz",
+    "source_post": "https://x.com/papagatorz/status/2115574173271470516",
+    "added": "2026-10-28",
+    "creator_avatar": "/avatars/papagatorz.webp"
   }
 ]
