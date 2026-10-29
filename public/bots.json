@@ -8497,9 +8497,9 @@
   {
     "name": "Persona Bot",
     "emoji": "📔",
-    "description": "Your portable you-file for every Grok Bot. Tell bots who you are once; each bot only gets the slices you approve.",
+    "description": "Holds your portable you-file so every Grok Bot can start useful without re-interviewing you. Other bots ask for scoped topics; you approve each share with yes, once, pick, or no.",
     "category": "Bot Tools",
-    "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
+    "url": "https://x.ai/bot/xQp89oDJn122IVVD1uRV3",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",
