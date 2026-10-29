@@ -439,7 +439,7 @@ ${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c
 `);
 
 // robots.txt
-fs.writeFileSync(path.join(PUB, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: ${SITE}/sitemap.xml\n`);
+fs.writeFileSync(path.join(PUB, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /lab/\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
 // feed.xml: newest 50
 const rfc = (d, i) => new Date(Date.parse(lastmod(d) + "T12:00:00Z") + (i % 1000) * 1000).toUTCString();
