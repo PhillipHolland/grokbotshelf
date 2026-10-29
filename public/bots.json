@@ -8753,5 +8753,31 @@
     "creator_avatar": "/avatars/jennymarquis.webp",
     "source_post": "https://x.com/JennyMarquis/status/2115880693666386416",
     "added": "2026-10-29"
+  },
+  {
+    "name": "Bookmark Filer by Mana",
+    "emoji": "🗂️",
+    "description": "Files your X bookmarks into topical folders on a schedule or when you ask.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/XYuEar0AeEuQMkFxr6n4c",
+    "creator_name": "ManaEngineer",
+    "creator_handle": "@ManaEngineer",
+    "creator_url": "https://x.com/ManaEngineer",
+    "creator_avatar": "",
+    "source_post": "https://x.com/ManaEngineer/status/2115877149022527617",
+    "added": "2026-10-29"
+  },
+  {
+    "name": "CommerceBook Agentic Seller",
+    "emoji": "🛍️",
+    "description": "Lists your products on the CommerceBook agent marketplace, watches buyer requests, and drafts quotes for you to approve.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/AWIn34bEoBZF5EE9kkHxl",
+    "creator_name": "Thrive 3PL",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-29"
   }
 ]
