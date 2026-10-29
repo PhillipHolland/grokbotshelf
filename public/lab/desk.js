@@ -16,15 +16,15 @@
   // Same order as the static mock: bot names + pair template ids
   const LAYOUT = {
     "grid-local": [
-      "Local AI Manager", "Apple Desk", "#pair-mac-mini", "Apple Mac Tools",
-      "#pair-beelink", "Pulse · Gaming Laptop Tech", "#pair-t7", "Apple Inventory & Deal Bot",
+      "Local AI Manager", "Apple Desk", "#pair-p-mac-mini", "Apple Mac Tools",
+      "#pair-p-beelink", "Pulse · Gaming Laptop Tech", "#pair-p-t7", "Apple Inventory & Deal Bot",
     ],
     "grid-clip": [
-      "Reel ➡️ 𝕏", "Clipper", "#pair-opus", "Stills & Clips Desk", "Podcast Clipper for X",
-      "Streamer's Dream", "Creative Video Studio", "#pair-heygen", "Grok Bot Video Studio", "#pair-runway",
+      "Reel ➡️ 𝕏", "Clipper", "#pair-p-opus", "Stills & Clips Desk", "Podcast Clipper for X",
+      "Streamer's Dream", "Creative Video Studio", "#pair-p-heygen", "Grok Bot Video Studio", "#pair-p-runway",
     ],
     "grid-voice": [
-      "micDrop", "#pair-mv7", "Character Voice Desk", "#pair-synthesia",
+      "micDrop", "#pair-p-mv7", "Character Voice Desk", "#pair-p-synthesia",
     ],
   };
 
