@@ -5233,5 +5233,20 @@
     "status": "approved",
     "date": "2026-10-28",
     "post_id": "2115574173271470516"
+  },
+  "form-407": {
+    "author_handle": "",
+    "template_url": "https://x.ai/bot/M67wmr4HRv74Xv6TF8qk8",
+    "status": "approved",
+    "date": "2026-10-28",
+    "post_id": "",
+    "note": "uncredited (by Kyle, no handle)"
+  },
+  "form-406": {
+    "author_handle": "@MiMundoConIA",
+    "template_url": "https://x.ai/bot/ZDYulalXRq8x-rVObp8bt",
+    "status": "approved",
+    "date": "2026-10-28",
+    "post_id": "2111500738010419451"
   }
 }

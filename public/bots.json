@@ -8467,5 +8467,31 @@
     "source_post": "https://x.com/papagatorz/status/2115574173271470516",
     "added": "2026-10-28",
     "creator_avatar": "/avatars/papagatorz.webp"
+  },
+  {
+    "name": "Media Center Engineer",
+    "emoji": "🎬",
+    "description": "Sets up your own streaming library for shows and movies you legally own, including the server, subtitles, backups and a private web remote, explaining each step in plain words.",
+    "category": "Home",
+    "url": "https://x.ai/bot/M67wmr4HRv74Xv6TF8qk8",
+    "creator_name": "Kyle",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-28"
+  },
+  {
+    "name": "Hermes SSH Relay",
+    "emoji": "🛰️",
+    "description": "Runs your Hermes agent and its scheduled jobs on your own Mac from chat over SSH, diagnosing problems and applying changes with a backup and proof of what it did (Spanish).",
+    "category": "Developer",
+    "url": "https://x.ai/bot/ZDYulalXRq8x-rVObp8bt",
+    "creator_name": "Samuel Ferrero",
+    "creator_handle": "@MiMundoConIA",
+    "creator_url": "https://x.com/MiMundoConIA",
+    "creator_avatar": "/avatars/mimundoconia.webp",
+    "source_post": "https://x.com/MiMundoConIA/status/2111500738010419451",
+    "added": "2026-10-28"
   }
 ]
