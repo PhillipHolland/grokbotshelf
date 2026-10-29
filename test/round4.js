@@ -1,4 +1,4 @@
-// Round-4 items: the home "Just added" strip. Usage: NODE_PATH=/path/to/node_modules node test/round4.js [base-url]
+// Round-4 items: the home "Just added" strip and the net score on creator page tiles. Usage: NODE_PATH=/path/to/node_modules node test/round4.js [base-url]
 const puppeteer = require('puppeteer-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
@@ -53,6 +53,34 @@ const fmtDay = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { m
   for (const q of ['/?q=news', '/?sort=newest', '/?new=1']) {
     const p = await open(q, { w: 1280 });
     ok(!(await p.$('.newv')), `#1 ${q}: no strip once searching, sorting or filtering`);
+    await p.close();
+  }
+
+  // #2 creator page tiles: a quiet 0 in a fixed slot from the server; the real net score lands in the same place
+  const path = '/@phil_holland';
+  const html = await (await fetch(new URL(path, BASE))).text();
+  const tiles = (html.match(/<li><a href="\/bot\//g) || []).length, zeros = (html.match(/<span class="cp-sc zero" data-score="bot-[^"]+"/g) || []).length;
+  ok(tiles > 1 && zeros === tiles && /bot-page\.js\?v=[0-9a-f]+/.test(html), `#2 server HTML: ${zeros} of ${tiles} tiles carry a quiet 0, bot-page.js is versioned`);
+  const slugs = [...html.matchAll(/data-score="(bot-[^"]+)"/g)].map((m) => m[1]);
+  {
+    const p = await open(path, { w: 390 });
+    const r = await p.evaluate(() => [...document.querySelectorAll('.cp-sc')].map((e) => e.querySelector('.n').textContent + (e.classList.contains('zero') ? 'z' : '')));
+    ok(r.every((x) => x === '0z'), `#2 API down: every tile keeps the quiet 0 (${[...new Set(r)]})`);
+    await p.close();
+  }
+  const scores = { [slugs[0]]: { up: 130, down: 7, score: 123 }, [slugs[1]]: { up: 1, down: 4, score: -3 } };
+  for (const w of [390, 1280]) {
+    const p = await open(path, { w, votes: { global: true, scores }, delay: 800, wait: 'domcontentloaded' });
+    const rect = () => p.evaluate(() => [...document.querySelectorAll('.cp-list li')].map((li) => { const a = li.getBoundingClientRect(), s = li.querySelector('.cp-sc').getBoundingClientRect(); return [a.top, a.height, Math.round(s.left), Math.round(s.width)].join(); }));
+    const before = await rect();
+    await p.waitForFunction(() => document.querySelector('.cp-sc .n').textContent !== '0', { timeout: 6000 }).catch(() => {});
+    await new Promise((x) => setTimeout(x, 200));
+    const after = await rect();
+    const r = await p.evaluate(() => { const e = [...document.querySelectorAll('.cp-sc')]; return { a: [e[0].querySelector('.n').textContent, e[0].classList.contains('zero'), e[0].title, e[0].scrollWidth <= e[0].clientWidth + 1],
+      b: [e[1].querySelector('.n').textContent, e[1].classList.contains('neg'), getComputedStyle(e[1].querySelectorAll('svg')[1]).display], rest: e.slice(2).every((x) => x.querySelector('.n').textContent === '0' && x.classList.contains('zero')), cls: window.__cls }; });
+    ok(r.a[0] === '123' && !r.a[1] && r.a[2] === '130 up, 7 down' && r.a[3], `#2 ${w}: tile 1 shows 123, not quiet, title "${r.a[2]}", fits`);
+    ok(r.b[0] === '-3' && r.b[1] && r.b[2] !== 'none' && r.rest, `#2 ${w}: tile 2 shows -3 with the down arrow; bots without votes stay a quiet 0 (${r.rest})`);
+    ok(before.join('|') === after.join('|') && r.cls < 0.001, `#2 ${w}: tiles and score slots do not move when votes land, CLS ${r.cls.toFixed(4)}`);
     await p.close();
   }
 

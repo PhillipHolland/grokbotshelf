@@ -137,7 +137,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       const r = await p.evaluate(() => { const R = (e) => e.getBoundingClientRect();
         const chips = [...document.querySelectorAll('.cp-cats a')].map((a) => ({ t: a.firstChild.textContent.trim(), n: +((a.querySelector('.n') || {}).textContent || 0), href: a.getAttribute('href') }));
         const a = document.querySelector('.cp-cats a'), A = R(a); let tap = 0; for (let y = Math.floor(A.top) - 10; y < A.bottom + 10; y++) { const e = document.elementFromPoint(A.left + A.width / 2, y); if (e && e.closest('.cp-cats a') === a) tap++; }
-        return { chips, tap, h: Math.round(A.height), desc: !!document.querySelector('.bp-desc'), tiles: [...document.querySelectorAll('.cp-list li a')].map((x) => [x.getAttribute('href'), x.querySelector('small.cat').textContent]) }; });
+        return { chips, tap, h: Math.round(A.height), desc: !!document.querySelector('.bp-desc'), tiles: [...document.querySelectorAll('.cp-list li a')].map((x) => [x.getAttribute('href'), (x.querySelector('small.cat > span:first-child') || x.querySelector('small.cat')).textContent]) }; });
       const countsOk = r.chips.every((c) => c.n === mine.filter((b) => b.category === c.t).length);
       const tilesOk = r.tiles.length === mine.length && r.tiles.every(([h, c]) => mine.some((b) => '/bot/' + h.split('/').pop() === h && b.category === c));
       ok(JSON.stringify(r.chips.map((c) => c.t)) === JSON.stringify(want) && countsOk && r.chips.every((c) => /^\/\?creator=phil_holland&cat=[a-z0-9-]+$/.test(c.href)) && !r.desc && tilesOk && (w > 700 || r.tap >= 44),

@@ -334,9 +334,10 @@ ${HEADER}
       return `<li><a href="/?creator=${esc(c.handle.toLowerCase())}&amp;cat=${esc(slugify(k))}">${esc(k)}${n > 1 ? ` <span class="n" aria-label="${m} ${m === 1 ? "bot" : "bots"}">${m}</span>` : ""}</a></li>`; }).join("")}</ul>
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
   </article>
-  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat">${esc(b.category)}</small><small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" title="Net votes on the shelf">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> net votes</span></span></small><small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
 </main>
 ${FOOTER}
+<script src="${versioned("/bot-page.js")}" defer></script>
 </body>
 </html>
 `;

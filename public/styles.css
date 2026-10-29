@@ -793,3 +793,11 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 .newv .tlist .sc.dt{color:var(--text);background:var(--field);font-weight:600;padding:3px 9px}
 .topvotes+.newv{margin-top:-20px}
 @media (max-width:560px){.newv .tlist li:nth-child(n+5){display:none}}
+/* Creator page tiles: net score at the right end of the category line. Fixed slot holding a quiet 0 from the server;
+   bot-page.js puts the real score from GET /api/votes in the same place, so nothing moves */
+.cp-list a small.cat{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cp-list a small.cat>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:2px;min-width:44px;font-size:13px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+.cp-sc svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.cp-sc.zero{color:var(--text2);font-weight:600}
+.cp-sc svg+svg{display:none}.cp-sc.neg svg{display:none}.cp-sc.neg svg+svg{display:inline}

@@ -99,3 +99,19 @@
       .then(function () { busy = false; });
   });
 })();
+// Creator page tiles show each bot's net score. One GET /api/votes (every bot's tally, cached ~15s at
+// the edge). Each tile already holds a quiet 0 in a fixed-width slot; the real score replaces it in the same place.
+(function () {
+  var els = document.querySelectorAll(".cp-sc[data-score]");
+  if (!els.length) return;
+  fetch("/api/votes", { credentials: "same-origin" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.global) return;
+    for (var i = 0; i < els.length; i++) {
+      var s = d.scores && d.scores[els[i].getAttribute("data-score")], n = s ? s.score : 0;
+      els[i].querySelector(".n").textContent = String(n);
+      els[i].classList.toggle("zero", n === 0);
+      els[i].classList.toggle("neg", n < 0); // below zero: the down arrow, like the card's down vote
+      els[i].title = s && s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet";
+    }
+  }).catch(function () {});
+})();
