@@ -606,9 +606,15 @@ html.mobile .card .gets .get{height:44px;padding:0 14px}
 @media (max-width:699px){
   .filterbar{gap:8px}
   .filterbar .selwrap select,.filterbar .chip{height:44px;line-height:42px}
-  /* Phones: natural width per select so nothing clips; the row scrolls sideways (already the case) */
+  /* Phones: the row scrolls sideways (already the case). Each select gets a fixed width, about its widest loaded option.
+     With width:auto they painted at their placeholder width ("All creators") and widened when the options and counts
+     loaded, pushing the rest of the row (a small layout shift). A longer label than the slot ends in an ellipsis. */
   .selwrap{flex:0 0 auto;min-width:0;max-width:none}
   .selwrap select{width:auto;max-width:220px}
+  #creators{width:204px}
+  #cats{width:190px}
+  #apps{width:216px}
+  #agency{width:170px}
 }
 
 /* ---------- 6. From the builders header and the A-Z rail ---------- */

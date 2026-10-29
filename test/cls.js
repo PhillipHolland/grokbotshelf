@@ -71,6 +71,27 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
   ok(h0 && !h1.tailing && h1.add !== 'none' && h1.foot !== 'none', `home: form and footer hidden while partial (${h0}), shown when complete (${JSON.stringify(h1)})`);
   await p.close();
 
+  // Filter selects keep their width when the option lists and counts load. Phones size each select to a fixed slot
+  // (they used to paint at the placeholder width, then widen and push the row: the last ~0.005 CLS on /#bot-3d-maker);
+  // desktop flex widths were already stable. The shelf data request is held, so the first measure is the HTML as painted.
+  for (const w of [390, 1280]) {
+    const q = await b.newPage(); q.on('pageerror', (e) => errs.push(e.message));
+    await q.setViewport(w === 390 ? { width: 390, height: 844, isMobile: true, hasTouch: true } : { width: w, height: 900 });
+    if (w === 390) await q.setUserAgent(UA);
+    await q.setRequestInterception(true);
+    let held = null;
+    q.on('request', (r) => (/google-analytics|googletagmanager|\/_vercel\//.test(r.url()) ? r.abort() : /\/shelf-data\.json/.test(r.url()) && !held ? (held = r) : r.continue()));
+    await q.goto(new URL('/', BASE).href, { waitUntil: 'domcontentloaded' }); await wait(800);
+    const sizes = () => q.evaluate(() => [...document.querySelectorAll('.filterbar select, .filterbar .chip')].map((s) => s.id + ':' + Math.round(s.getBoundingClientRect().width) + '@' + Math.round(s.getBoundingClientRect().x)).join(' '));
+    const before = await sizes();
+    if (held) held.continue();
+    await q.waitForFunction(() => document.querySelectorAll('#creators option').length > 1 && document.querySelectorAll('#agency option').length > 1, { timeout: 30000 }).catch(() => {});
+    await wait(500);
+    const after = await sizes(), loaded = await q.evaluate(() => document.querySelectorAll('#creators option').length > 1);
+    ok(!!held && loaded && before === after, `${w}px: filter selects keep their size and place when options load (${before} -> ${after})`);
+    await q.close();
+  }
+
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();
 })();
