@@ -788,3 +788,8 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
   #sort{padding:0 32px 0 50px}
   .sortwrap svg{right:12px}
 }
+
+/* Just added / New this week strip: reuses the Top voted list; the added date sits where the score does, on the quieter field chip (AA contrast) */
+.newv .tlist .sc.dt{color:var(--text);background:var(--field);font-weight:600;padding:3px 9px}
+.topvotes+.newv{margin-top:-20px}
+@media (max-width:560px){.newv .tlist li:nth-child(n+5){display:none}}

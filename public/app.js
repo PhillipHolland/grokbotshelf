@@ -253,6 +253,23 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (inner !== topEl._inner) { topEl.innerHTML = inner; topEl.hidden = !inner; topEl._inner = inner; }
     return topEl;
   }
+  /* ---------- Just added / New this week strip, under Top voted (home Featured view) ---------- */
+  // Real data only: each bot's own "added" date from bots.json (Shelf Keeper sets it when the bot is listed; checked
+  // against the git history of public/bots.json). Newest day first, then shelf order (bots.json is append-ordered).
+  // While every bot on the shelf is inside the 7-day window (the shelf opened Oct 24) the heading says "Just added".
+  const NEW_N = 6;
+  const fmtDay = (d) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  function newHTML() {
+    const wk = weekAgo(), recent = bots.filter((b) => b.added >= wk).sort((a, b) => b.added.localeCompare(a.added) || b._i - a._i);
+    if (!recent.length) return "";
+    const per = {}, picks = [];
+    for (const b of recent) { const k = ckey(b); if ((per[k] = (per[k] || 0) + 1) > 2) continue; picks.push(b); if (picks.length === NEW_N) break; }
+    const all = recent.length === bots.length, h = all ? "Just added" : "New this week";
+    return `<section class="topvotes newv" aria-labelledby="newv-h"><div class="thead"><h2 id="newv-h">${h}</h2><a class="tall" href="/?sort=newest${all ? "" : "&new=1"}">See all ${recent.length.toLocaleString("en-US")} by date added →</a></div>
+<ol class="tlist">${picks.map((b) => `<li><a href="${b._page}" title="Added ${esc(fmtDay(b.added))}"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc dt">${esc(fmtDay(b.added))}<span class="sr"> added</span></span></a></li>`).join("")}</ol></section>`;
+  }
+  let newEl;
+  function newNode() { if (newEl === undefined) { const h = newHTML(); newEl = h ? nodes(h)[0] : null; } return newEl; }
   // Tallies arrive after a #add or #bot jump has scrolled; the strip sits above the view then, and the form
   // below the shelf opts out of scroll anchoring, so keep what is on screen still by hand.
   function paintTop() {
@@ -510,7 +527,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     }[st.sort];
     list.sort(by);
     const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
-    const strip = st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode()].filter(Boolean) : [];
+    const strip = st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode(), newNode()].filter(Boolean) : [];
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
       const parts = creators.map((c) => {
