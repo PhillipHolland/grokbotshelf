@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/styles.css?v=496a2dc143">
 <style>
-/* Lab mock only: same shelf cards; pair cards share the chrome so they read as part of the shelf. */
+/* Lab mock: pair cards share shelf chrome; meta row mirrors .badges so footers align. */
 .lab-banner{margin:0 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--field);color:var(--text2);font-size:13px;line-height:1.4}
 .lab-banner strong{color:var(--text);font-weight:700}
 .lab-banner code{font-size:12px}
@@ -25,30 +25,57 @@
 .lab-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;align-items:center}
 .lab-legend .badge{margin:0}
 .group .ghead h2 .gn{font-variant-numeric:tabular-nums}
-/* Pair = affiliate / partner tool. Same card shell; quiet blue badge is the only tell. */
+
 .card.pair{cursor:default}
 .card.pair .icon{background:rgba(29,155,240,.06)}
 html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
+.card.pair .sub .cn{color:var(--text2);font-weight:500;pointer-events:none}
 .badge.pair{border-color:rgba(29,155,240,.4);color:var(--blue)}
 .badge.dummy{border-color:var(--line2);color:var(--text2)}
-.card.pair .sub .cn{color:var(--text2);font-weight:500;pointer-events:none}
-.card.pair .with{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0;list-style:none}
-.card.pair .with a{
-  display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px 0 4px;
+
+/* One meta strip = badges slot: Amazon/dummy + pairs-with chips, then foot-row */
+.card.pair .meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+  margin-top:auto;padding-top:12px;margin-bottom:12px;
+  min-height:22px;
+}
+.card.pair .meta > a{
+  display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px 0 5px;
   border-radius:9999px;border:1px solid var(--line);color:var(--text2);
   font:600 12px/1 var(--font);text-decoration:none;max-width:100%;
 }
-.card.pair .with a:hover{border-color:var(--blue);color:var(--blue);background:var(--mark)}
-.card.pair .with .em{font-size:13px;line-height:1}
-.card.pair .with .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:11rem}
+.card.pair .meta > a:hover{border-color:var(--blue);color:var(--blue);background:var(--mark)}
+.card.pair .meta > a .em{font-size:13px;line-height:1;flex:none}
+.card.pair .meta > a .nm{
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  max-width:10.5rem;
+}
+
+/* Pair CTA: keep pill shape; Amazon stays blue even under html.mobile .get overrides */
 .card.pair .gets{margin-left:auto}
-.card.pair .get.amz{background:var(--btn-blue);color:#fff}
-.card.pair .get.amz:hover{background:var(--btn-blue-h)}
-.card.pair .get.ghost{background:transparent;color:var(--text);border:1px solid var(--line2)}
-.card.pair .get.ghost:hover{background:var(--hover)}
+.card.pair .get.amz,
+html.mobile .card.pair .get.amz{
+  background:var(--btn-blue)!important;color:#fff!important;border:0!important;
+  height:34px;padding:0 14px;
+}
+.card.pair .get.amz:hover,
+html.mobile .card.pair .get.amz:hover{background:var(--btn-blue-h)!important;color:#fff!important}
+.card.pair .get.ghost,
+html.mobile .card.pair .get.ghost{
+  background:transparent!important;color:var(--text)!important;border:1px solid var(--line2)!important;
+  height:34px;padding:0 14px;
+}
+.card.pair .get.ghost:hover,
+html.mobile .card.pair .get.ghost:hover{background:var(--hover)!important}
+
+/* Bot cards on this page: empty badges still reserve the strip so rows align with pairs */
+.card:not(.pair) .badges{min-height:22px}
+
 .site-foot .assoc{margin:8px 0 0;font-size:12px;color:var(--text2);line-height:1.4}
 @media (max-width:640px){
-  .card.pair .with .nm{max-width:9rem}
+  .card.pair .meta > a .nm{max-width:8.5rem}
+  html.mobile .card.pair .gets{width:100%;margin-left:0}
+  html.mobile .card.pair .get{flex:1;justify-content:center;height:44px}
 }
 </style>
 <script src="/shelf-up.js?v=21d6c63b39" defer></script>
@@ -71,7 +98,7 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
   <div class="lab-legend" aria-hidden="true">
     <span class="badge">Bot</span>
     <span class="badge pair">Amazon</span>
-    <span class="badge dummy">Dummy · not affiliated yet</span>
+    <span class="badge dummy">Preview · not affiliated</span>
   </div>
 
   <!-- Local models: always-on box + SSD sit right after the bots that need them -->
@@ -105,12 +132,12 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Desk</span><span class="dot" aria-hidden="true">·</span><span class="cn">16GB / 256GB</span></div>
         </div></div>
         <p class="desc">Quiet always-on box for helpers, webhooks, and light local models — the machine these two bots assume you have nearby.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a></li>
-          <li><a href="/bot/apple-desk"><span class="em" aria-hidden="true">🍏</span><span class="nm">Apple Desk</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge pair">Amazon</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0DLBTPDCS?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge pair">Amazon</span>
+        <a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a>
+        <a href="/bot/apple-desk"><span class="em" aria-hidden="true">🍏</span><span class="nm">Apple Desk</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0DLBTPDCS?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-mac-tools">
@@ -129,12 +156,12 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Desk</span><span class="dot" aria-hidden="true">·</span><span class="cn">N95 mini PC</span></div>
         </div></div>
         <p class="desc">Cheap Windows/Linux node for a second Local AI Manager, home-lab bots, or anything you don’t want on your main Mac.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a></li>
-          <li><a href="/bot/pulse-gaming-laptop-tech"><span class="em" aria-hidden="true">💻</span><span class="nm">Pulse · Gaming Laptop Tech</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge pair">Amazon</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0C54W24HR?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge pair">Amazon</span>
+        <a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a>
+        <a href="/bot/pulse-gaming-laptop-tech"><span class="em" aria-hidden="true">💻</span><span class="nm">Pulse</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0C54W24HR?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-pulse">
@@ -153,11 +180,11 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Desk</span><span class="dot" aria-hidden="true">·</span><span class="cn">Portable SSD</span></div>
         </div></div>
         <p class="desc">Fast drive for model weights, datasets, and moving a Local AI Manager setup between machines without filling the boot disk.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge pair">Amazon</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0874XN4D8?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge pair">Amazon</span>
+        <a href="/bot/local-ai-manager"><span class="em" aria-hidden="true">🖥️</span><span class="nm">Local AI Manager</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B0874XN4D8?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-apple-inv">
@@ -204,13 +231,13 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Tool</span><span class="dot" aria-hidden="true">·</span><span class="cn">Short-form clipping</span></div>
         </div></div>
         <p class="desc">When the source is a long episode instead of a single Reel — auto-cuts captioned shorts these clip bots can then ship to X.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/reel"><span class="em" aria-hidden="true">🎬</span><span class="nm">Reel ➡️ 𝕏</span></a></li>
-          <li><a href="/bot/podcast-clipper-for-x"><span class="em" aria-hidden="true">🎬</span><span class="nm">Podcast Clipper for X</span></a></li>
-          <li><a href="/bot/stills-and-clips-desk"><span class="em" aria-hidden="true">🎞️</span><span class="nm">Stills &amp; Clips Desk</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge dummy">Dummy · not affiliated yet</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.opus.pro/" rel="noopener" target="_blank">opus.pro</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge dummy">Preview</span>
+        <a href="/bot/reel"><span class="em" aria-hidden="true">🎬</span><span class="nm">Reel ➡️ 𝕏</span></a>
+        <a href="/bot/podcast-clipper-for-x"><span class="em" aria-hidden="true">🎬</span><span class="nm">Podcast Clipper</span></a>
+        <a href="/bot/stills-and-clips-desk"><span class="em" aria-hidden="true">🎞️</span><span class="nm">Stills &amp; Clips</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.opus.pro/" rel="noopener" target="_blank">opus.pro</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-stills">
@@ -259,13 +286,13 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Tool</span><span class="dot" aria-hidden="true">·</span><span class="cn">Avatar video</span></div>
         </div></div>
         <p class="desc">Talking-head avatars when you want a face on camera without filming — sits next to the studio bots that already storyboard and script.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video Studio</span></a></li>
-          <li><a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Bot Video Studio</span></a></li>
-          <li><a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice Desk</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge dummy">Dummy · not affiliated yet</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.heygen.com/" rel="noopener" target="_blank">heygen.com</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge dummy">Preview</span>
+        <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
+        <a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Video Studio</span></a>
+        <a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.heygen.com/" rel="noopener" target="_blank">heygen.com</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-grok-vid">
@@ -284,12 +311,12 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Tool</span><span class="dot" aria-hidden="true">·</span><span class="cn">Gen video</span></div>
         </div></div>
         <p class="desc">Gen-video playground for motion and b-roll when a studio bot’s brief needs footage you don’t have in camera.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video Studio</span></a></li>
-          <li><a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Bot Video Studio</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge dummy">Dummy · not affiliated yet</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://runwayml.com/" rel="noopener" target="_blank">runwayml.com</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge dummy">Preview</span>
+        <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
+        <a href="/bot/grok-bot-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Grok Video Studio</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://runwayml.com/" rel="noopener" target="_blank">runwayml.com</a></div></div>
       </article>
 
     </div>
@@ -316,12 +343,12 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Desk</span><span class="dot" aria-hidden="true">·</span><span class="cn">USB / XLR mic</span></div>
         </div></div>
         <p class="desc">Clean voice for Spaces, demos, and character lines — the mic these voice bots sound better with out of the box.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/micdrop"><span class="em" aria-hidden="true">🎙️</span><span class="nm">micDrop</span></a></li>
-          <li><a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice Desk</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge pair">Amazon</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B091CD47BZ?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge pair">Amazon</span>
+        <a href="/bot/micdrop"><span class="em" aria-hidden="true">🎙️</span><span class="nm">micDrop</span></a>
+        <a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get amz" href="https://www.amazon.com/dp/B091CD47BZ?tag=botshelf-20" rel="noopener sponsored" target="_blank">View on Amazon</a></div></div>
       </article>
 
       <article class="card" aria-labelledby="b-voice">
@@ -340,12 +367,12 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
           <div class="sub"><span>Tool</span><span class="dot" aria-hidden="true">·</span><span class="cn">Scripted avatars</span></div>
         </div></div>
         <p class="desc">Script → avatar video when Character Voice Desk has the voice and you still need a face on screen without a shoot day.</p>
-        <ul class="with" aria-label="Pairs with">
-          <li><a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice Desk</span></a></li>
-          <li><a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video Studio</span></a></li>
-        </ul>
-        <div class="badges"><span class="badge dummy">Dummy · not affiliated yet</span></div>
-        <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.synthesia.io/" rel="noopener" target="_blank">synthesia.io</a></div></div>
+        <div class="meta" aria-label="Pairs with">
+        <span class="badge dummy">Preview</span>
+        <a href="/bot/character-voice-desk"><span class="em" aria-hidden="true">🎙️</span><span class="nm">Character Voice</span></a>
+        <a href="/bot/creative-video-studio"><span class="em" aria-hidden="true">🎬</span><span class="nm">Creative Video</span></a>
+      </div>
+      <div class="foot-row"><div class="tools"></div><div class="gets"><a class="get ghost" href="https://www.synthesia.io/" rel="noopener" target="_blank">synthesia.io</a></div></div>
       </article>
 
     </div>
