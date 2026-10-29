@@ -8688,5 +8688,57 @@
     "creator_avatar": "/avatars/testafortedev.webp",
     "source_post": "https://x.com/testafortedev/status/2115654517673107460",
     "added": "2026-10-29"
+  },
+  {
+    "name": "BuzzTap",
+    "emoji": "🐝",
+    "description": "A front-door chief of staff that collects updates from your other bots and only texts you when you need to decide, unblock something, or pick up a result.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/FHyA7ru0fQdMugraNSqR7",
+    "creator_name": "TNVOLMAN",
+    "creator_handle": "@tnvolman",
+    "creator_url": "https://x.com/tnvolman",
+    "creator_avatar": "/avatars/tnvolman.webp",
+    "source_post": "",
+    "added": "2026-10-29"
+  },
+  {
+    "name": "ProofCheck by John",
+    "emoji": "🔍",
+    "description": "Checks whether a viral X photo, news image, or screenshot is real, recycled, edited, or AI-generated and gives you a clear scorecard.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/GQGgQKHphrXUjK0NxeZ9L",
+    "creator_name": "",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-10-29"
+  },
+  {
+    "name": "Unreplied Comments",
+    "emoji": "💬",
+    "description": "Finds comments on your X posts you haven't replied to and gives you a short list with links, plus optional draft replies. Read only.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/zC4BAgfAYTZR6t94G8aMo",
+    "creator_name": "nahjuin",
+    "creator_handle": "@nahjuin",
+    "creator_url": "https://x.com/nahjuin",
+    "creator_avatar": "/avatars/nahjuin.webp",
+    "source_post": "https://x.com/nahjuin/status/2115829272958980124",
+    "added": "2026-10-29"
+  },
+  {
+    "name": "X Account Health",
+    "emoji": "🛡️",
+    "description": "Sends a daily report on your X followers, flags spam, bot and impersonator accounts, and warns about posting pace and other reach risks. It only reports.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/LbkRAC0ma_LJ7lE_Gy5oh",
+    "creator_name": "Jay",
+    "creator_handle": "@JasonMyer",
+    "creator_url": "https://x.com/JasonMyer",
+    "creator_avatar": "",
+    "source_post": "https://x.com/JasonMyer/status/2115839300986438071",
+    "added": "2026-10-29"
   }
 ]
