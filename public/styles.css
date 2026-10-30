@@ -218,7 +218,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .tlist .sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:48px;box-sizing:border-box;padding:0;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .tlist .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.tlist{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.tlist{grid-template-columns:1fr}.topvotes{padding:12px 10px 12px;border-radius:14px}}
+@media (max-width:560px){.tlist{grid-template-columns:minmax(0,1fr)}.topvotes{padding:12px 10px 12px;border-radius:14px}}
 
 /* Up / down votes: quiet arrows and a net score */
 .vote{display:inline-flex;align-items:center;margin-right:2px}

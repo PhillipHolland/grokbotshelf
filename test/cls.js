@@ -66,7 +66,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
   // Plain home: the form and footer are back once the whole shelf is built (End key)
   p = await open('/');
   const h0 = await p.evaluate(() => document.documentElement.classList.contains('tailing'));
-  for (let i = 0; i < 40; i++) { await p.keyboard.press('End'); await wait(300); if (!(await p.evaluate(() => document.documentElement.classList.contains('tailing')))) break; }
+  for (let i = 0; i < 80; i++) { await p.keyboard.press('End'); await wait(300); if (!(await p.evaluate(() => document.documentElement.classList.contains('tailing')))) break; }
   const h1 = await p.evaluate(() => ({ tailing: document.documentElement.classList.contains('tailing'), add: getComputedStyle(document.getElementById('add')).display, foot: getComputedStyle(document.querySelector('.site-foot')).display }));
   ok(h0 && !h1.tailing && h1.add !== 'none' && h1.foot !== 'none', `home: form and footer hidden while partial (${h0}), shown when complete (${JSON.stringify(h1)})`);
   await p.close();

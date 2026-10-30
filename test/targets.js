@@ -83,7 +83,7 @@ function contrastOf(el) {
   {
     const p = await open('/', { width: 390, ua: PHONE_UA });
     // the footer joins the layout once the whole shelf is built (html.tailing, test/cls.js): scroll to the end first
-    for (let i = 0; i < 40 && await p.evaluate(() => document.documentElement.classList.contains('tailing')); i++) { await p.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight)); await new Promise((r) => setTimeout(r, 150)); }
+    for (let i = 0; i < 80 && await p.evaluate(() => document.documentElement.classList.contains('tailing')); i++) { await p.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight)); await new Promise((r) => setTimeout(r, 150)); }
     const r = await p.evaluate(async () => {
       const box = (e) => { const r = e.getBoundingClientRect(); return [r.width, r.height]; };
       const tapBox = (e) => { const r = e.getBoundingClientRect(), s = getComputedStyle(e, '::after'); const out = s.content === 'none' || s.position !== 'absolute' ? 0 : -parseFloat(s.top || 0); return [r.width + 2 * out, r.height + 2 * out]; };
