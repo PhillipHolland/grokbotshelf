@@ -53,6 +53,7 @@
   var say = function (msg, ms) { toast.textContent = msg; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, ms || 1800); };
   try { mine = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) {}
   var save = function () { try { localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) {} };
+  function words(n, t) { return (Math.abs(n) === 1 ? " vote" : " votes") + (t ? ", " + t.up + " up, " + t.down + " down" : ""); }
   function paint() {
     var v = mine[slug] || 0;
     el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
@@ -60,12 +61,14 @@
     var vn = el.querySelector(".vn"), n = global ? s.score : 0;
     vn.textContent = String(n); // always a number, like the cards: the shared tally, 0 until someone votes or while it is offline
     vn.classList.toggle("zero", n === 0); // a 0 reads quietly (--text2); the real score lands in the same slot
-    el.title = !global ? "Your vote is saved in this browser" : s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet. Be the first";
+    // "votes", not "score": the real split shows in a tooltip on hover/focus (data-tip); screen readers get it after the count
+    el.setAttribute("data-tip", !global ? "Saved in this browser" : s.up + s.down ? s.up + " up · " + s.down + " down" : "No votes yet. Be the first");
+    var sr = el.querySelector(".vsr"); if (sr) sr.textContent = words(n, global && s.up + s.down ? s : null);
   }
   paint();
   // One announcement per vote through the (hidden) status toast; the count itself is not a live region
   var name = (el.querySelector(".up").getAttribute("aria-label") || "").replace(/^Upvote /, "") || "this bot";
-  var sayVote = function (to) { toast.textContent = (to === 1 ? "Upvoted " + name : to === -1 ? "Downvoted " + name : "Vote removed from " + name) + (global ? ", score " + s.score : ", saved in this browser"); };
+  var sayVote = function (to) { toast.textContent = (to === 1 ? "Upvoted " + name : to === -1 ? "Downvoted " + name : "Vote removed from " + name) + (global ? ", " + s.score + words(s.score, null) : ", saved in this browser"); };
   var hasMine = Object.keys(mine).length > 0;
   fetch("/api/votes?slug=" + encodeURIComponent(slug) + (hasMine ? "&mine=1" : ""), { credentials: "same-origin" })
     .then(function (r) { return r.ok ? r.json() : null; })
@@ -92,8 +95,7 @@
         else {
           undo();
           var cap = x.r.status === 429 && /^cap_/.test(x.d.code || "") && x.d.error; // vote caps carry a sentence for people
-          el.title = cap || (x.r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again");
-          say(el.title, cap ? 6000 : 1800);
+          say(cap || (x.r.status === 429 ? "Too many votes, try again in a minute" : "Vote did not save, try again"), cap ? 6000 : 1800);
         }
       }, undo)
       .then(function () { busy = false; });
@@ -111,7 +113,9 @@
       els[i].querySelector(".n").textContent = String(n);
       els[i].classList.toggle("zero", n === 0);
       els[i].classList.toggle("neg", n < 0); // below zero: the down arrow, like the card's down vote
-      els[i].title = s && s.up + s.down ? s.up + " up, " + s.down + " down" : "No votes yet";
+      var t = s && s.up + s.down ? s : null;
+      els[i].setAttribute("data-tip", t ? t.up + " up · " + t.down + " down" : "No votes yet");
+      els[i].querySelector(".sr").textContent = (Math.abs(n) === 1 ? " vote" : " votes") + (t ? ", " + t.up + " up, " + t.down + " down" : "");
     }
   }).catch(function () {});
 })();

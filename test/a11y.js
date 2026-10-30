@@ -47,16 +47,16 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
   // One announcement per vote, toast stays hidden
   await p.$eval('#f-bot-coach .vb.up', (e) => e.click()); await settle(300);
   const t = await p.$eval('#toast', (e) => ({ text: e.textContent, shown: e.classList.contains('show'), role: e.getAttribute('role') }));
-  ok(t.role === 'status' && t.text === 'Upvoted Coach, score 4' && !t.shown, `a vote is announced once through #toast, not shown (${JSON.stringify(t)})`);
+  ok(t.role === 'status' && t.text === 'Upvoted Coach, 4 votes' && !t.shown, `a vote is announced once through #toast, not shown (${JSON.stringify(t)})`);
   await p.$eval('#f-bot-coach .vb.up', (e) => e.click()); await settle(300);
-  ok(await p.$eval('#toast', (e) => e.textContent) === 'Vote removed from Coach, score 3', 'undoing the vote is announced too');
+  ok(await p.$eval('#toast', (e) => e.textContent) === 'Vote removed from Coach, 3 votes', 'undoing the vote is announced too');
   await p.close();
 
   const q = await open('/bot/coach/');
   ok(await q.evaluate(() => document.querySelectorAll('.vn[aria-live]').length === 0), 'bot page: the vote count is not a live region');
   await q.$eval('.bp-vote .vb.dn', (e) => e.click()); await settle(300);
   const bt = await q.evaluate(() => { const t = [...document.querySelectorAll('.toast')].pop(); return { text: t.textContent, shown: t.classList.contains('show') }; });
-  ok(bt.text === 'Downvoted Coach, score 2' && !bt.shown, `bot page: a vote is announced once through the status toast (${JSON.stringify(bt)})`);
+  ok(bt.text === 'Downvoted Coach, 2 votes' && !bt.shown, `bot page: a vote is announced once through the status toast (${JSON.stringify(bt)})`);
   await q.close();
   ok(errs.length === 0, 'no page errors' + (errs.length ? ': ' + errs.join(' | ') : ''));
   await b.close();

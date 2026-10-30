@@ -76,9 +76,9 @@ const fmtDay = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { m
     await p.waitForFunction(() => document.querySelector('.cp-sc .n').textContent !== '0', { timeout: 6000 }).catch(() => {});
     await new Promise((x) => setTimeout(x, 200));
     const after = await rect();
-    const r = await p.evaluate(() => { const e = [...document.querySelectorAll('.cp-sc')]; return { a: [e[0].querySelector('.n').textContent, e[0].classList.contains('zero'), e[0].title, e[0].scrollWidth <= e[0].clientWidth + 1],
+    const r = await p.evaluate(() => { const e = [...document.querySelectorAll('.cp-sc')]; return { a: [e[0].querySelector('.n').textContent, e[0].classList.contains('zero'), e[0].dataset.tip, e[0].scrollWidth <= e[0].clientWidth + 1],
       b: [e[1].querySelector('.n').textContent, e[1].classList.contains('neg'), getComputedStyle(e[1].querySelectorAll('svg')[1]).display], rest: e.slice(2).every((x) => x.querySelector('.n').textContent === '0' && x.classList.contains('zero')), cls: window.__cls }; });
-    ok(r.a[0] === '123' && !r.a[1] && r.a[2] === '130 up, 7 down' && r.a[3], `#2 ${w}: tile 1 shows 123, not quiet, title "${r.a[2]}", fits`);
+    ok(r.a[0] === '123' && !r.a[1] && r.a[2] === '130 up · 7 down' && r.a[3], `#2 ${w}: tile 1 shows 123, not quiet, tooltip "${r.a[2]}", fits`);
     ok(r.b[0] === '-3' && r.b[1] && r.b[2] !== 'none' && r.rest, `#2 ${w}: tile 2 shows -3 with the down arrow; bots without votes stay a quiet 0 (${r.rest})`);
     ok(before.join('|') === after.join('|') && r.cls < 0.001, `#2 ${w}: tiles and score slots do not move when votes land, CLS ${r.cls.toFixed(4)}`);
     await p.close();

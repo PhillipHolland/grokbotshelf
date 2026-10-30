@@ -244,7 +244,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     top.length = 0; top.push(...capped);
     if (!top.length) return "";
     return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
-<ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}" title="${s.up} up, ${s.down} down"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc">${I.up}${s.score}<span class="sr"> net votes</span></span></a></li>`).join("")}</ol>`;
+<ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc" data-tip="${esc(voteTip(s))}">${I.up}${s.score}<span class="sr">${esc(voteWords(s.score, s))}</span></span></a></li>`).join("")}</ol>`;
   }
   let topEl = null;
   function topNode() {
@@ -290,21 +290,26 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   const vote = { global: false, scores: {}, mine: {} };
   try { vote.mine = JSON.parse(localStorage.getItem(VKEY) || "{}") || {}; } catch {}
   const saveMine = () => { try { localStorage.setItem(VKEY, JSON.stringify(vote.mine)); } catch {} };
+  // Wording for people: "votes", never "score". The tooltip (data-tip, shown on hover/focus) is the real split from
+  // /api/votes; screen readers hear the count, then "votes, N up, N down" (the tooltip itself is not read twice).
+  const voteTip = (s) => s && s.up + s.down ? `${s.up} up · ${s.down} down` : "No votes yet";
+  const voteWords = (n, s) => (Math.abs(n) === 1 ? " vote" : " votes") + (s && s.up + s.down ? `, ${s.up} up, ${s.down} down` : "");
   function voteBits(slug) {
     const v = vote.mine[slug] || 0, s = vote.scores[slug];
     const n = vote.global && s ? s.score : 0; // always shown: the shared tally, 0 when nobody has voted or the tally is offline
-    const title = !vote.global ? "Your vote is saved in this browser" : s && s.up + s.down ? `${s.up} up, ${s.down} down` : "No votes yet";
-    return { v, n, title };
+    const tip = !vote.global ? "Saved in this browser" : voteTip(s), sr = voteWords(n, vote.global ? s : null);
+    return { v, n, tip, sr };
   }
   function voteHTML(b) {
-    const { v, n, title } = voteBits(b._slug), nm = esc(b.name);
-    return `<span class="vote" data-vote="${b._slug}" title="${esc(title)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn">${n}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
+    const { v, n, tip, sr } = voteBits(b._slug), nm = esc(b.name);
+    return `<span class="vote" data-vote="${b._slug}" data-tip="${esc(tip)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn">${n}</span><span class="sr vsr">${esc(sr)}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
   }
-  const voteKey = ({ v, n, title }) => v + "|" + n + "|" + title;
+  const voteKey = ({ v, n, tip, sr }) => v + "|" + n + "|" + tip + "|" + sr;
   function paintVoteEl(el, bits = voteBits(el.dataset.vote)) {
-    const { v, n, title } = bits, k = voteKey(bits);
+    const { v, n, tip, sr } = bits, k = voteKey(bits);
     if (el._vk === k) return;
-    el._vk = k; el.title = title;
+    el._vk = k; el.dataset.tip = tip;
+    const vs = el.querySelector(".vsr"); if (vs) vs.textContent = sr;
     el.querySelector(".up").setAttribute("aria-pressed", String(v === 1));
     el.querySelector(".dn").setAttribute("aria-pressed", String(v === -1));
     el.querySelector(".vn").textContent = n;
@@ -325,7 +330,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // 260 of them changing at once when tallies arrive read out as a stream of numbers)
   function sayVote(slug, to) {
     const b = bots.find((x) => x._slug === slug), name = b ? b.name : "this bot";
-    toast.textContent = (to === 1 ? `Upvoted ${name}` : to === -1 ? `Downvoted ${name}` : `Vote removed from ${name}`) + (vote.global ? `, score ${voteBits(slug).n}` : ", saved in this browser");
+    toast.textContent = (to === 1 ? `Upvoted ${name}` : to === -1 ? `Downvoted ${name}` : `Vote removed from ${name}`) + (vote.global ? `, ${voteBits(slug).n}${voteWords(voteBits(slug).n, null)}` : ", saved in this browser");
   }
   async function castVote(slug, dir) {
     const from = vote.mine[slug] || 0, to = from === dir ? 0 : dir;

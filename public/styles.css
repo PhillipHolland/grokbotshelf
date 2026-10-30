@@ -801,3 +801,14 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 .cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .cp-sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .cp-sc svg+svg{display:none}.cp-sc.neg svg{display:none}.cp-sc.neg svg+svg{display:inline}
+/* Round 4 #1: vote tooltips. The real up/down split from /api/votes (data-tip), shown on hover or keyboard focus.
+   Absolutely placed above the count, so it never moves layout; the alt text "" keeps it out of the accessible name
+   (screen readers get the same words from the .sr text next to the count). */
+.vote[data-tip],.tlist .sc[data-tip],.cp-sc[data-tip]{position:relative}
+:is(.vote,.tlist .sc,.cp-sc)[data-tip]::after{content:attr(data-tip);content:attr(data-tip) / "";position:absolute;z-index:20;bottom:calc(100% + 6px);left:0;white-space:nowrap;
+  font:600 12px/1 var(--font);letter-spacing:0;padding:6px 8px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s,visibility .12s}
+.bp-vote[data-tip]::after{left:50%;transform:translateX(-50%)}
+:is(.tlist .sc,.cp-sc)[data-tip]::after{left:auto;right:-2px}
+:is(.vote:is(:hover,:focus-within),.tlist a:is(:hover,:focus-visible) .sc,.cp-list a:is(:hover,:focus-visible) .cp-sc)[data-tip]::after{opacity:1;visibility:visible}
+.cp-list a small.cat{overflow:visible}
+@media (prefers-reduced-motion:reduce){:is(.vote,.tlist .sc,.cp-sc)[data-tip]::after{transition:none}}
