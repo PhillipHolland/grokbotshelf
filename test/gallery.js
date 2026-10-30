@@ -30,7 +30,8 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
   }
   const data = await (await fetch(new URL('/shelf-data.json', BASE))).json();
   const slugs = data.bots.map((x) => 'bot-' + x.name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
-  ok(data.bots.length === 710, `710 bots in shelf-data (${data.bots.length})`);
+  const N = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'public', 'bots.json'), 'utf8')).length, COACH = data.bots.filter((x) => (x.roles || []).includes('Coach')).length;
+  ok(data.bots.length === N && N > 0, `every bot in shelf-data (${data.bots.length} of ${N})`);
   const withCard = data.bots.filter((x) => x.og).length;
   ok(withCard === data.bots.length, `every bot has a share card thumbnail (${withCard} of ${data.bots.length})`);
   const scores = { [slugs[0]]: { up: 9, down: 2, score: 7 }, [slugs[1]]: { up: 1, down: 3, score: -2 } };
@@ -56,13 +57,13 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
     ok(before > 0 && before < 48, `${w}: only tiles near the screen load images (${before} of 48)`);
     // read down the page a screen at a time (a programmatic jump to the very bottom moves Phil's #all crawl list on
     // master too, in every flat view, so it is not what this checks)
-    for (let i = 0; i < 400 && (await p.evaluate(() => document.querySelectorAll('#results .gtile').length < 710 || scrollY + innerHeight < document.documentElement.scrollHeight - 2)); i++) { await p.evaluate(() => window.scrollBy(0, innerHeight * 0.9)); await wait(50); }
+    for (let i = 0; i < 400 && (await p.evaluate((n) => document.querySelectorAll('#results .gtile').length < n || scrollY + innerHeight < document.documentElement.scrollHeight - 2, data.bots.length)); i++) { await p.evaluate(() => window.scrollBy(0, innerHeight * 0.9)); await wait(50); }
     await wait(800);
     const end = await p.evaluate(() => ({ tiles: document.querySelectorAll('#results .gtile').length, cls: window.__cls, broken: [...document.querySelectorAll('.gtile img')].filter((i) => i.complete && !i.naturalWidth).length }));
-    ok(end.tiles === 710 && end.cls === 0 && end.broken === 0, `${w}: scrolling down adds the rest (${end.tiles} tiles), CLS ${end.cls}, ${end.broken} broken images`);
+    ok(end.tiles === data.bots.length && end.cls === 0 && end.broken === 0, `${w}: scrolling down adds the rest (${end.tiles} tiles), CLS ${end.cls}, ${end.broken} broken images`);
     await p.select('#roles', 'coach'); await wait(400);
     const f = await p.evaluate(() => ({ tiles: document.querySelectorAll('#results .gtile').length, count: document.querySelector('#count').textContent }));
-    ok(f.tiles === 44 && f.count === '44 bots that say \u201ccoach\u201d', `${w}: filters work in the gallery (${f.count}, ${f.tiles} tiles)`);
+    ok(COACH >= 5 && f.tiles === COACH && f.count === `${COACH} bots that say \u201ccoach\u201d`, `${w}: filters work in the gallery (${f.count}, ${f.tiles} tiles)`);
     await p.click('#reset'); await wait(300); await p.close();
     const r = await open(BASE, '/', { w, ctx });
     const rr = await r.evaluate(() => ({ tiles: document.querySelectorAll('#results .gtile').length, pressed: document.querySelector('[data-view="gallery"]').getAttribute('aria-pressed'), cls: window.__cls }));
@@ -109,7 +110,7 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
   ok(/og\/thumb|"thumb"/.test(og) && !/og\.js/.test(vj.buildCommand || ''), 'scripts/og.js draws the thumbnails; the Vercel build does not run it');
   const pub = path.join(__dirname, '..', 'public');
   const thumbs = fs.readdirSync(path.join(pub, 'og', 'thumb')), cards = new Set(fs.readdirSync(path.join(pub, 'og', 'bot')).map((f) => f.replace(/\.png$/, '')));
-  ok(thumbs.length === 710 && thumbs.every((t) => cards.has(t.replace(/\.webp$/, ''))), `${thumbs.length} thumbnails, each next to its share card`);
+  ok(thumbs.length === data.bots.length && thumbs.every((t) => cards.has(t.replace(/\.webp$/, ''))), `${thumbs.length} thumbnails, each next to its share card`);
   ok(!errs.length, `no page or console errors, no missing images (${errs.slice(0, 3).join(' | ')})`);
   await b.close();
 })();
