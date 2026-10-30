@@ -5135,7 +5135,10 @@
       "status": "already_on_shelf",
       "author": "@0xGramajo",
       "template": "https://x.ai/bot/o15ZvT53TRyHx-W_57GPw"
-    }
+    },
+    "form-462": true,
+    "x-2116003577865130139": true,
+    "x-2116002322660954303": true
   },
   "x-2114766675119886755": {
     "status": "denied",
@@ -5572,5 +5575,27 @@
     "date": "2026-10-29",
     "post_id": "",
     "note": "site form #452; skipped by Phillip 2026-10-29 ~9:11 PM CDT: same display name as Sponsorship Hunter by @ryangrowthh already on shelf; not added"
+  },
+  "form-462": {
+    "author_handle": "@beardboss20",
+    "template_url": "https://x.ai/bot/ImiQvcR_7HnEJ6thNUHAN",
+    "status": "approved",
+    "date": "2026-10-29",
+    "post_id": "2116002322660954303",
+    "note": "site form #462; standing auto-shelve rule; X ping https://x.com/beardboss20/status/2116003577865130139"
+  },
+  "x-2116003577865130139": {
+    "author_handle": "@beardboss20",
+    "template_url": "https://x.ai/bot/ImiQvcR_7HnEJ6thNUHAN",
+    "status": "approved",
+    "date": "2026-10-29",
+    "note": "same as form-462 Career Coach by Ben"
+  },
+  "x-2116002322660954303": {
+    "author_handle": "@beardboss20",
+    "template_url": "https://x.ai/bot/ImiQvcR_7HnEJ6thNUHAN",
+    "status": "approved",
+    "date": "2026-10-29",
+    "note": "author share post for form-462"
   }
 }
