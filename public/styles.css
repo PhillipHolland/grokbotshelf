@@ -822,3 +822,6 @@ html.mobile .bp-share{height:40px;width:40px;padding:0;justify-content:center;ma
 html.mobile .bp-share .lbl{display:none}
 html.mobile .bp-share svg{width:15px;height:15px}
 html.mobile .bp-share::before{content:"";position:absolute;inset:-2px}
+/* Round 4 #5: collection badge (e.g. Family), a neutral outline next to the agency and app badges */
+.badge.coll{color:var(--text);border-color:var(--vmuted);text-decoration:none}
+a.badge.coll:hover{background:var(--hover)}

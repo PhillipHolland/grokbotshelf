@@ -66,24 +66,32 @@ const avatarSm = (src) => {
   const m = /^\/avatars\/([^/?]+)$/.exec(src || ""), sm = m && "/avatars/48/" + m[1].replace(/\.\w+$/, ".webp");
   return m && AVATARS_SM[m[1]] && AVATARS_SM[m[1]] === fileHash(src) && fileHash(sm) ? versioned(sm) : versioned(src);
 };
+// Collections (round 4 #5): hand-picked groups that cut across categories, e.g. "Family". They live in bot-meta.json
+// as collections: ["Family"] under the bot's template id; a collection gets a home filter chip only while at least one
+// bot is in it, so with none the chip is not there at all.
+const collectionsOf = (b) => { const c = (meta[templateId(b.url)] || {}).collections; return Array.isArray(c) ? [...new Set(c.filter((x) => typeof x === "string" && x.trim()).map((x) => x.trim()))] : []; };
+const COLLECTIONS = [...new Set(bots.flatMap(collectionsOf))].sort();
 // One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
   const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+    collections: collectionsOf(b).length ? collectionsOf(b) : undefined,
     creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) })) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`);
+  const chips = COLLECTIONS.map((c) => `<button type="button" class="chip coll" data-coll="${esc(slugify(c))}" aria-pressed="false" title="Bots the shelf put in its ${esc(c)} collection">${esc(c)}</button>`).join("");
+  const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
+    .replace(/<!-- collections:start -->[\s\S]*?<!-- collections:end -->/, `<!-- collections:start -->${chips}<!-- collections:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const today = new Date().toISOString().slice(0, 10);
 
 const items = bots.map((b, i) => {
   const slug = slugify(b.name), m = meta[templateId(b.url)] || {}, s = social[postId(b.source_post)] || null;
-  return { ...b, _i: i, slug, page: `/bot/${slug}`, app: appLink(b.url), agency: m.agency || "", works_with: m.works_with || [], social: s };
+  return { ...b, _i: i, slug, page: `/bot/${slug}`, app: appLink(b.url), agency: m.agency || "", works_with: m.works_with || [], collections: collectionsOf(b), social: s };
 });
 const handleOf = (b) => b.creator_handle.replace(/^@/, "");
 // Group key: lowercase handle, or "~" + name slug for creators with no X handle (kept apart, but no /@ page)
@@ -229,7 +237,7 @@ function botLd(b, url, img) {
 function page(b, related, similar) {
   const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
-  const badges = [b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
+  const badges = [...b.collections.map((c) => `<a class="badge coll" href="/?collection=${esc(slugify(c))}" title="In the shelf's ${esc(c)} collection">${esc(c)}</a>`), b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
   const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} ${b.social.bookmarks === 1 ? "bookmark" : "bookmarks"} on X</span>` : "";
   const ld = botLd(b, url, img);
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
@@ -479,7 +487,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 ## Data
 
 - [bots.json](${SITE}/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
-- [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names. Set by the shelf; missing means unknown.
+- [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
 - [sitemap.xml](${SITE}/sitemap.xml): every bot page and creator page.

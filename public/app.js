@@ -6,19 +6,21 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
   const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob"), resetEl = $("#reset");
+  // Collection chips (round 4 #5): written into the filter row by scripts/build.js, one per collection that has bots
+  const collEls = [...document.querySelectorAll(".filterbar [data-coll]")];
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
   let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, more: [] }; }
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
   // kept in ?more=a,b. Featured (the home view) keeps it to one desktop row so the A-Z rail and scrolling stay quick;
   // Creator sort is for browsing whole catalogs, so it keeps 12 (as before). Small leftovers are shown rather than
   // hidden behind "Show 1 more". Search and filters always show every match.
   const GROUP_CAP = { featured: 3, creator: 12 }, GROUP_SLACK = { featured: 1, creator: 3 };
   let capNow = Infinity;
-  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob);
+  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob || st.coll);
   // Reset shows only when search, a filter or the sort differs from the default home view
   const changed = () => !!(st.q.trim() || filtering() || st.sort !== "featured");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -131,6 +133,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
     s.fresh = p.get("new") === "1";
     s.oneJob = p.get("one_job") === "1";
+    const co = p.get("collection"); s.coll = co && collEls.some((e) => e.dataset.coll === co && !e.hidden) ? co : "";
     s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
   }
@@ -146,6 +149,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     if (st.agency) p.set("does", st.agency);
     if (st.fresh) p.set("new", "1");
     if (st.oneJob) p.set("one_job", "1");
+    if (st.coll) p.set("collection", st.coll);
     if (st.sort !== "featured") p.set("sort", st.sort);
     const more = st.more.filter((k) => !hashOpen.has(k));
     if (more.length) p.set("more", more.join(","));
@@ -188,8 +192,8 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     window.location.href = deep;
   }
   function badgesHTML(b) {
-    const m = b._meta; if (!m) return '<div class="badges"></div>';
-    const out = (m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
+    const m = b._meta || {}, coll = b._colls.map((c) => `<span class="badge coll" title="In the shelf's ${esc(c)} collection">${esc(c)}</span>`);
+    const out = coll.concat(m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
       .concat((m.works_with || []).map((w) => `<span class="badge">${esc(w)}</span>`));
     // Always present (empty without meta) so the tag line sits at the same height on every card
     return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
@@ -377,6 +381,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       if (st.agency && !(b._meta && b._meta.agency === st.agency)) continue;
       if (st.fresh && !(b.added >= weekAgo())) continue;
       if (st.oneJob && !(b._meta && b._meta.one_job === true)) continue;
+      if (st.coll && !b._coll.includes(st.coll)) continue;
       const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
       if (m) out.push([b, m]);
     }
@@ -590,6 +595,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
     oneEl.setAttribute("aria-pressed", String(st.oneJob));
+    for (const e of collEls) e.setAttribute("aria-pressed", String(st.coll === e.dataset.coll));
     resetEl.classList.toggle("on", changed());
   }
 
@@ -621,6 +627,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
+  for (const e of collEls) e.addEventListener("click", () => set({ coll: st.coll === e.dataset.coll ? "" : e.dataset.coll }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
   const clearAll = () => { st = blank(); hashOpen.clear(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
   resetEl.addEventListener("click", () => {
@@ -937,12 +944,13 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // A failed load shows the empty-state card with "Try again", which re-runs the fetch (round 2 #10)
   function loadShelf() {
     fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
-      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
       const seen = new Map();
       for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
       creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
       bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
       cats = [...new Set(bots.map((b) => b.category))].sort();
+      for (const e of collEls) e.hidden = !bots.some((b) => b._coll.includes(e.dataset.coll)); // only collections with bots
       const am = new Map();
       for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
       apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
