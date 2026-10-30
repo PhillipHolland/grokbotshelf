@@ -810,7 +810,8 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 .vote[data-tip],.tlist .sc[data-tip],.cp-sc[data-tip],.gtile .sc[data-tip]{position:relative}
 :is(.vote,.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{content:attr(data-tip);content:attr(data-tip) / "";position:absolute;z-index:20;bottom:calc(100% + 6px);left:0;white-space:nowrap;
   font:600 12px/1 var(--font);letter-spacing:0;padding:6px 8px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s,visibility .12s}
-.bp-vote[data-tip]::after{left:50%;transform:translateX(-50%)}
+/* .bp-actions raises this above the :is(.tlist .sc,…) rule's left:0, so the tip is centred on the pill */
+.bp-actions .bp-vote[data-tip]::after{left:50%;transform:translateX(-50%)}
 :is(.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{left:auto;right:0}
 :is(.vote:is(:hover,:focus-within),.tlist a:is(:hover,:focus-visible) .sc,.cp-list a:is(:hover,:focus-visible) .cp-sc,.gtile:is(:hover,:focus-visible) .sc)[data-tip]::after{opacity:1;visibility:visible}
 .cp-list a small.cat{overflow:visible}

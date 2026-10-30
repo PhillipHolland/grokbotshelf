@@ -66,8 +66,8 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
     ok(t && t.tip === '130 up · 7 down' && !t.title && /^ votes, 130 up, 7 down$/.test(t.sr), `${w} bot page: tooltip "${t && t.tip}", sr "${t && t.sr}"`);
     await p.hover('.bp-vote .vn'); await new Promise((x) => setTimeout(x, 250));
     const t2 = await tipOf(p, '.bp-vote'), vw = await p.evaluate(() => innerWidth);
-    const box = await p.$eval('.bp-vote', (e) => { const r = e.getBoundingClientRect(), a = getComputedStyle(e, '::after'); return { l: r.left + r.width / 2 - parseFloat(a.width) / 2, r: r.left + r.width / 2 + parseFloat(a.width) / 2 }; });
-    ok(t2.op === '1' && box.l >= 0 && box.r <= vw, `${w} bot page: hover shows it, inside the screen (${Math.round(box.l)}..${Math.round(box.r)} of ${vw})`);
+    const box = await p.$eval('.bp-vote', (e) => { const r = e.getBoundingClientRect(), a = getComputedStyle(e, '::after'), tx = a.transform === 'none' ? 0 : new DOMMatrix(a.transform).m41, l = r.left + parseFloat(a.left) + tx; return { l, r: l + parseFloat(a.width), mid: Math.abs(l + parseFloat(a.width) / 2 - (r.left + r.width / 2)) }; });
+    ok(t2.op === '1' && box.l >= 0 && box.r <= vw && box.mid < 2, `${w} bot page: hover shows it, centred on the pill, inside the screen (${Math.round(box.l)}..${Math.round(box.r)} of ${vw}, off-centre ${box.mid.toFixed(1)}px)`);
     ok(await noScoreWords(p), `${w} bot page: no "score" or "net votes" wording`);
     await p.close();
     const c = await open('/@phil_holland', { w });
