@@ -1,5 +1,5 @@
 {
- "note": "Set by the shelf from each bot's own description, keyed by template id (the part after x.ai/bot/). agency: reads = looks and reports, drafts = prepares things for you to send, acts = takes actions (usually after your OK). works_with lists only apps the description names. Leave a bot out rather than guess. one_job is true only for a short, single-purpose description (not a pack, crew, or \"and also\").",
+ "note": "Set by the shelf from each bot's own description, keyed by template id (the part after x.ai/bot/). agency: reads = looks and reports, drafts = prepares things for you to send, acts = takes actions (usually after your OK). works_with lists only apps the description names. Leave a bot out rather than guess. one_job is true only for a short, single-purpose description (not a pack, crew, or \"and also\"). collections lists the shelf collections a bot is in (a tag across categories, e.g. \"Family\"); a collection gets a home filter chip while it has bots.",
  "bots": {
   "vAgUsbH4SHOudh96KXEk0": {
    "name": "Archivist",
@@ -219,7 +219,10 @@
   },
   "HbgK5ztHyhY8Kcrc1e0H-": {
    "name": "Librarian",
-   "agency": "acts"
+   "agency": "acts",
+   "collections": [
+    "Family"
+   ]
   },
   "QKg0ymNH6JmvoyfyseTdt": {
    "name": "Mixtape Maker",
@@ -403,6 +406,9 @@
    "agency": "acts",
    "works_with": [
     "Walmart"
+   ],
+   "collections": [
+    "Family"
    ]
   },
   "NJvHVpGC81PjsH4234BPJ": {
@@ -745,7 +751,10 @@
   },
   "hWr0h1qyoDRLr5mB6ZW6C": {
    "name": "Mom Journey",
-   "one_job": true
+   "one_job": true,
+   "collections": [
+    "Family"
+   ]
   },
   "djlVFbW-J-pFXRdpIq0mP": {
    "name": "Doctor Visit Prep for Women",
@@ -897,7 +906,10 @@
   },
   "OAz3uhOuIn7O6kX3BFpqr": {
    "name": "Household",
-   "agency": "drafts"
+   "agency": "drafts",
+   "collections": [
+    "Family"
+   ]
   },
   "8w67xlhpYb_vXdNfDuBbE": {
    "name": "Sponsorship Hunter",
@@ -966,6 +978,150 @@
    "works_with": [
     "Email",
     "Calendar"
+   ]
+  },
+  "1cYY-EQstIPJeULoCsZNM": {
+   "name": "House Manager",
+   "collections": [
+    "Family"
+   ]
+  },
+  "kssxC0DcZBpYevW-0iTBs": {
+   "name": "Family Schedule Manager",
+   "collections": [
+    "Family"
+   ]
+  },
+  "09zmjtbww3viDLKyrtOz5": {
+   "name": "Household Herald",
+   "collections": [
+    "Family"
+   ]
+  },
+  "MUOdwr9N1byHBBoPC7k4y": {
+   "name": "Parent Radar",
+   "collections": [
+    "Family"
+   ]
+  },
+  "hlLu6VZy9qafYG7w4vuNd": {
+   "name": "Dean of Students",
+   "collections": [
+    "Family"
+   ]
+  },
+  "-HQf7A1KZQhpWjU51xYT5": {
+   "name": "Parent Math Helper",
+   "collections": [
+    "Family"
+   ]
+  },
+  "7Mg_QYAOAYkI9qp4os8HG": {
+   "name": "Costume Lab",
+   "collections": [
+    "Family"
+   ]
+  },
+  "nHmJ0PQz8apDqB4sCzRtX": {
+   "name": "Birthday Bot",
+   "collections": [
+    "Family"
+   ]
+  },
+  "4aeQ6EcPhLvJX5eq6nD06": {
+   "name": "Family History",
+   "collections": [
+    "Family"
+   ]
+  },
+  "fDMlciBM0gvOzNBbvMAUL": {
+   "name": "Genealogy",
+   "collections": [
+    "Family"
+   ]
+  },
+  "DKZKpx6r0GTrfLUUxqkWx": {
+   "name": "FamilyBank",
+   "collections": [
+    "Family"
+   ]
+  },
+  "CAboHRIpMlLDU6mwnByCq": {
+   "name": "Family Travel & PTO Planner",
+   "collections": [
+    "Family"
+   ]
+  },
+  "aGGP8goKCKkb-M8xR3oPL": {
+   "name": "Travel",
+   "collections": [
+    "Family"
+   ]
+  },
+  "A799wRjM0y0E-1vsH4yNB": {
+   "name": "Backseat Buddy",
+   "collections": [
+    "Family"
+   ]
+  },
+  "R00XcSMfn6tHHIi0LH-qK": {
+   "name": "Vaccine and Checkup Tracker",
+   "collections": [
+    "Family"
+   ]
+  },
+  "20klWKrlzfe-GPqjR1Tzk": {
+   "name": "Kid Sick Day Helper",
+   "collections": [
+    "Family"
+   ]
+  },
+  "rDRgAeAcJ4s6T875f7MAl": {
+   "name": "School Meeting Prep",
+   "collections": [
+    "Family"
+   ]
+  },
+  "48ehVK1SKr4ztzMjR2Qyu": {
+   "name": "Health Concierge",
+   "collections": [
+    "Family"
+   ]
+  },
+  "GfsZ3T54jHaLsElrNBcsh": {
+   "name": "Senior Care Helper",
+   "collections": [
+    "Family"
+   ]
+  },
+  "iLJ4-ty77DF67lbm-AIa7": {
+   "name": "Kids' Trump Account, Roth & 529 Coach",
+   "collections": [
+    "Family"
+   ]
+  },
+  "M7vh6DMtaJTT4z32b4m_-": {
+   "name": "Finance by Outwork-Ventures",
+   "collections": [
+    "Family"
+   ]
+  },
+  "-XeyX8_sUb_Ca0a6vqDYY": {
+   "name": "Family Disaster Prep",
+   "collections": [
+    "Family"
+   ]
+  },
+  "omCU96pYM7XYkaEu96Lst": {
+   "name": "Prepper",
+   "collections": [
+    "Family"
+   ]
+  },
+  "ZSSddVUqIl5e6JCa4fDAh": {
+   "name": "Scam Guard",
+   "collections": [
+    "Family"
    ]
   }
  }
