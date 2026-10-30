@@ -100,7 +100,7 @@ const ogThumb = (b) => { const s = slugify(b.name); return fs.existsSync(path.jo
   const chips = COLLECTIONS.map((c) => `<button type="button" class="chip coll" data-coll="${esc(slugify(c))}" aria-pressed="false" title="Bots the shelf put in its ${esc(c)} collection">${esc(c)}</button>`).join("");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
     .replace(/<!-- collections:start -->[\s\S]*?<!-- collections:end -->/, `<!-- collections:start -->${chips}<!-- collections:end -->`)
-    .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap sm role">
+    .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>

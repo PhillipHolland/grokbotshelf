@@ -831,7 +831,7 @@ a.badge.coll:hover{background:var(--hover)}
 @media (min-width:700px){
   .filterbar{column-gap:6px}
   .selwrap{min-width:134px}
-  .selwrap.sm.role{flex:0 0 118px;max-width:118px;min-width:0}
+  .selwrap.role{flex:0 0 118px;max-width:118px;min-width:0}
 }
 
 /* ---------- Round 4 #7: List / Gallery view ---------- */

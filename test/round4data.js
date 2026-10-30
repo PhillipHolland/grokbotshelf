@@ -23,7 +23,7 @@ process.on("exit", () => TMPS.forEach((t) => fs.rmSync(t, { recursive: true, for
 SECTIONS.push(() => {
   const none = build(({ J, W }) => { const b = J("bots.json"); b.forEach((x) => { if (x.category === "Faith") x.category = "Lifestyle"; }); W("bots.json", b); });
   ok(!none.data.some((b) => b.category === "Faith") && !/\?cat=faith"/.test(none.page(slugify(none.bots[0].name))), "#3 no Faith bots: no Faith category anywhere in the build");
-  const some = build(({ J, W }) => { const b = J("bots.json"); b.slice(0, 2).forEach((x) => { x.category = "Faith"; }); W("bots.json", b); });
+  const some = build(({ J, W }) => { const b = J("bots.json"); b.forEach((x) => { if (x.category === "Faith") x.category = "Lifestyle"; }); b.slice(0, 2).forEach((x) => { x.category = "Faith"; }); W("bots.json", b); });
   const s0 = slugify(some.bots[0].name);
   ok(some.data.filter((b) => b.category === "Faith").length === 2 && some.page(s0).includes('href="/?cat=faith">Faith</a>'), "#3 two Faith bots: in shelf-data and linked from their pages as /?cat=faith");
   ok(some.data.length === some.bots.length, `#3 bot count unchanged (${some.data.length})`);

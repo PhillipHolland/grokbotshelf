@@ -30,6 +30,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await none.close();
   let picked = [];
   const some = await open('/?cat=faith', (bots) => { picked = []; bots.filter((x) => x.category !== 'Faith').slice(0, 3).forEach((x) => { x.category = 'Faith'; }); bots.forEach((x) => { if (x.category === 'Faith') picked.push(x.name); }); });
+  for (let i = 0; i < 20; i++) { await some.evaluate(() => window.scrollBy(0, innerHeight)); await new Promise((x) => setTimeout(x, 60)); } // groups past the first few load on scroll
   const s = await state(some);
   ok(s.opts.includes('Faith') && s.val === 'Faith' && s.count === `${picked.length} ${picked.length === 1 ? 'bot' : 'bots'}` && s.cards.length === picked.length, `Faith bots: option shown, /?cat=faith keeps it and shows exactly ${picked.length} (${s.count})`);
   await some.select('#cats', ''); await new Promise((x) => setTimeout(x, 300));

@@ -34,7 +34,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
 
   // 2. A copy with three Family bots: one already tagged by the shelf, two with no other meta
   const bots = data.bots, withMeta = bots.find((x) => x.meta), plain = bots.filter((x) => !x.meta).slice(0, 2), fam = [withMeta, ...plain];
-  const site = await tempSite(({ J, W }) => { const m = J('bot-meta.json'); for (const x of fam) { const id = templateId(x.url); m.bots[id] = { ...(m.bots[id] || { name: x.name }), collections: ['Family'] }; } W('bot-meta.json', m); });
+  const site = await tempSite(({ J, W }) => { const m = J('bot-meta.json'); for (const e of Object.values(m.bots)) delete e.collections; for (const x of fam) { const id = templateId(x.url); m.bots[id] = { ...(m.bots[id] || { name: x.name }), collections: ['Family'] }; } W('bot-meta.json', m); });
   try {
     for (const w of [1280, 390]) {
       const p = await open(site.base, '/', { w });

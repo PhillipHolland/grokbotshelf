@@ -49,7 +49,8 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   await p.type('#q', 'bot'); await p.select('#sort', 'az'); await p.click('#onejob'); await settle(500);
   ok(/q=bot/.test(path()) && /sort=az/.test(path()) && /one_job=1/.test(path()), 'URL carries search, sort and filter: ' + path());
   // keyboard: Tab from the last filter chip lands on Reset with a visible focus ring, Enter resets
-  await p.focus('#onejob'); await p.keyboard.press('Tab');
+  // (the last control in the row: One job, or a collection chip such as Family when one has bots)
+  await p.evaluate(() => [...document.querySelectorAll('.filterbar button.chip')].filter((c) => !c.hidden).pop().focus()); await p.keyboard.press('Tab');
   ok(await p.evaluate(() => document.activeElement.id) === 'reset', 'Tab from the filter row reaches Reset');
   ok(await p.$eval('#reset', e => getComputedStyle(e).boxShadow !== 'none'), 'Reset has a visible focus ring');
   await p.keyboard.press('Enter'); await settle(500);
