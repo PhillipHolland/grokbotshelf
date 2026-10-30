@@ -9975,5 +9975,31 @@
     "creator_avatar": "/avatars/andrew51786.webp",
     "source_post": "https://x.com/Andrew51786/status/2116203647076057548",
     "added": "2026-10-30"
+  },
+  {
+    "name": "Home Math",
+    "emoji": "🏠",
+    "description": "A private home affordability helper. Enter ballpark numbers and it builds a slider page with a monthly payment breakdown, a debt-to-income meter, max price and cash to close, and can pull local listings that fit. Nothing is sent to lenders.",
+    "category": "Money",
+    "url": "https://x.ai/bot/pcoAFtmoNlDXjLzW8i7dk",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "",
+    "added": "2026-10-30"
+  },
+  {
+    "name": "Raid Squad Builder",
+    "emoji": "🎮",
+    "description": "Helps small live streamers on Twitch, YouTube, Kick and TikTok LIVE find vetted raid partners in their game, keeps a Raid Book in Notion of who owes you a raid, and gives you a short pre-raid list when you end your stream.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/WjNQMi4FKINwcMEZd5ekn",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2116240006154969096",
+    "added": "2026-10-30"
   }
 ]

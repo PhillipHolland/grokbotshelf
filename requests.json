@@ -6193,5 +6193,29 @@
     "date": "2026-10-30",
     "post_id": "2116203647076057548",
     "note": "Local Event Hunter by Andrew; approved_by Phillip Holland (standing auto-shelve SFW rule)"
+  },
+  "form-524": {
+    "author_handle": "@JimothyRac",
+    "template_url": "https://x.ai/bot/pcoAFtmoNlDXjLzW8i7dk",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "Home Math (listed without 'by Santa' as asked); approved_by Phillip Holland (standing auto-shelve SFW rule)"
+  },
+  "x-2116240006154969096": {
+    "author_handle": "@TheMarkGShow",
+    "template_url": "https://x.ai/bot/WjNQMi4FKINwcMEZd5ekn",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "2116240006154969096",
+    "note": "Raid Squad Builder; approved_by Phillip Holland (standing auto-shelve SFW rule)"
+  },
+  "x-2116245439158833258": {
+    "author_handle": "@tcballard",
+    "template_url": "",
+    "status": "skipped",
+    "date": "2026-10-30",
+    "post_id": "2116245439158833258",
+    "note": "asks @everestchris6 to shelve his iPhone shortcut; not a Grok Bot template"
   }
 }
