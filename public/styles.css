@@ -804,14 +804,14 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 /* Round 4 #1: vote tooltips. The real up/down split from /api/votes (data-tip), shown on hover or keyboard focus.
    Absolutely placed above the count, so it never moves layout; the alt text "" keeps it out of the accessible name
    (screen readers get the same words from the .sr text next to the count). */
-.vote[data-tip],.tlist .sc[data-tip],.cp-sc[data-tip]{position:relative}
-:is(.vote,.tlist .sc,.cp-sc)[data-tip]::after{content:attr(data-tip);content:attr(data-tip) / "";position:absolute;z-index:20;bottom:calc(100% + 6px);left:0;white-space:nowrap;
+.vote[data-tip],.tlist .sc[data-tip],.cp-sc[data-tip],.gtile .sc[data-tip]{position:relative}
+:is(.vote,.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{content:attr(data-tip);content:attr(data-tip) / "";position:absolute;z-index:20;bottom:calc(100% + 6px);left:0;white-space:nowrap;
   font:600 12px/1 var(--font);letter-spacing:0;padding:6px 8px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s,visibility .12s}
 .bp-vote[data-tip]::after{left:50%;transform:translateX(-50%)}
-:is(.tlist .sc,.cp-sc)[data-tip]::after{left:auto;right:0}
-:is(.vote:is(:hover,:focus-within),.tlist a:is(:hover,:focus-visible) .sc,.cp-list a:is(:hover,:focus-visible) .cp-sc)[data-tip]::after{opacity:1;visibility:visible}
+:is(.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{left:auto;right:0}
+:is(.vote:is(:hover,:focus-within),.tlist a:is(:hover,:focus-visible) .sc,.cp-list a:is(:hover,:focus-visible) .cp-sc,.gtile:is(:hover,:focus-visible) .sc)[data-tip]::after{opacity:1;visibility:visible}
 .cp-list a small.cat{overflow:visible}
-@media (prefers-reduced-motion:reduce){:is(.vote,.tlist .sc,.cp-sc)[data-tip]::after{transition:none}}
+@media (prefers-reduced-motion:reduce){:is(.vote,.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{transition:none}}
 /* Round 4 #2: Share pill at the right of the bot page header. Phones get the icon alone (40px, 44px hit area) so the
    byline never wraps; the aria-label names the bot. */
 .bp-share{position:relative;flex:none;align-self:flex-start;margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line);border-radius:999px;
@@ -833,3 +833,27 @@ a.badge.coll:hover{background:var(--hover)}
   .selwrap{min-width:134px}
   .selwrap.sm.role{flex:0 0 118px;max-width:118px;min-width:0}
 }
+
+/* ---------- Round 4 #7: List / Gallery view ---------- */
+.view{display:inline-flex;flex:none;margin-left:4px;border:1px solid var(--line2);border-radius:9999px;padding:2px;gap:2px} /* after Feedback, which takes margin-left:auto */
+.view button{display:inline-grid;place-items:center;width:32px;height:28px;padding:0;border:0;border-radius:9999px;background:transparent;color:var(--vmuted);cursor:pointer}
+.view button:hover{color:var(--text)}
+.view button[aria-pressed="true"]{background:var(--field);color:var(--text)}
+.view button:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.view svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:699px){.view button{width:40px;height:40px}}
+.gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:6px 0 24px}
+@media (max-width:699px){.gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.gtile{display:block;min-width:0;color:var(--text);text-decoration:none;border-radius:12px}
+.gtile:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.gtile .gi{display:block;aspect-ratio:1200/630;border-radius:12px;overflow:hidden;border:1px solid var(--line2);background:var(--field)}
+.gtile:hover .gi{border-color:var(--text2)}
+.gtile .gi img{display:block;width:100%;height:100%;object-fit:cover}
+.gtile .gi.none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
+.gtile .gi.none .em{font-size:34px;line-height:1}
+.gtile .nocard{color:var(--vmuted);font:500 12px/1.2 var(--font)}
+.gtile .gn{display:flex;align-items:center;gap:8px;margin-top:7px;font:700 14px/1.25 var(--font)}
+.gtile .gn .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gtile:hover .gn .t{text-decoration:underline}
+.gtile .gn .sc{flex:none;position:relative;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.gtile .gn .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}

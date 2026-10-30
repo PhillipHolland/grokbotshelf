@@ -1,12 +1,15 @@
 // Renders a 1200x630 share image per bot into public/og/bot/<slug>.png, and per creator into
-// public/og/creator/<handle, lowercase>.png, with headless Chrome.
-// Only missing images are drawn unless you pass --all. Needs puppeteer-core outside the repo:
+// public/og/creator/<handle, lowercase>.png, with headless Chrome, plus a 480x252 WebP of each bot card for the
+// home page gallery view in public/og/thumb/<slug>.webp (the gallery shows "No share card yet" for a bot without one).
+// Only missing images are drawn unless you pass --all; a thumbnail is redrawn whenever its card is. Images of bots
+// and creators that are gone are deleted. This is a manual step: the Vercel build (scripts/build.js) does not run it.
+// Needs puppeteer-core outside the repo:
 //   NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/og.js [--all]
 // Then run node scripts/build.js so the bot pages point at the new images.
 const fs = require("fs"), path = require("path");
 const puppeteer = require("puppeteer-core");
 const { slugify } = require("./shelf");
-const PUB = path.join(__dirname, "..", "public"), OUT = path.join(PUB, "og", "bot"), COUT = path.join(PUB, "og", "creator");
+const PUB = path.join(__dirname, "..", "public"), OUT = path.join(PUB, "og", "bot"), COUT = path.join(PUB, "og", "creator"), TOUT = path.join(PUB, "og", "thumb");
 const bots = JSON.parse(fs.readFileSync(path.join(PUB, "bots.json"), "utf8"));
 const all = process.argv.includes("--all");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -31,12 +34,17 @@ for (const b of bots) { const k = b.creator_handle.replace(/^@/, "").toLowerCase
 const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(COUT, k + ".png"), name: g[0].creator_name, creator_handle: g[0].creator_handle, creator_avatar: g[0].creator_avatar,
   description: `${g.length} ${g.length === 1 ? "bot" : "bots"}: ${g.slice(0, 4).map((b) => b.name).join(", ")}${g.length > 4 ? " and more" : ""}` }));
 (async () => {
-  fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(COUT, { recursive: true });
+  fs.mkdirSync(OUT, { recursive: true }); fs.mkdirSync(COUT, { recursive: true }); fs.mkdirSync(TOUT, { recursive: true });
   const keep = new Set(bots.map((b) => slugify(b.name) + ".png")), ckeep = new Set(creators.map((c) => path.basename(c.file)));
+  const tkeep = new Set(bots.map((b) => slugify(b.name) + ".webp"));
+  for (const f of fs.readdirSync(TOUT)) if (!tkeep.has(f)) fs.rmSync(path.join(TOUT, f));
   for (const f of fs.readdirSync(OUT)) if (!keep.has(f)) fs.rmSync(path.join(OUT, f));
   for (const f of fs.readdirSync(COUT)) if (!ckeep.has(f)) fs.rmSync(path.join(COUT, f));
   const todo = bots.map((b) => ({ ...b, file: path.join(OUT, slugify(b.name) + ".png") })).concat(creators).filter((b) => all || !fs.existsSync(b.file));
-  if (!todo.length) return console.log("og: nothing to draw");
+  const drawn = new Set(todo.map((b) => b.file));
+  const thumbs = bots.map((b) => ({ png: path.join(OUT, slugify(b.name) + ".png"), file: path.join(TOUT, slugify(b.name) + ".webp") }))
+    .filter((t) => drawn.has(t.png) || !fs.existsSync(t.file));
+  if (!todo.length && !thumbs.length) return console.log("og: nothing to draw");
   const br = await puppeteer.launch({ executablePath: "/usr/bin/google-chrome", headless: "new", args: ["--no-sandbox"] });
   const p = await br.newPage(); await p.setViewport({ width: 1200, height: 630 });
   for (const b of todo) {
@@ -44,6 +52,12 @@ const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(C
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: b.file });
   }
+  // Thumbnails: the finished card scaled down by the browser, so a thumbnail always matches its card
+  await p.setViewport({ width: 480, height: 252 });
+  for (const t of thumbs) {
+    await p.setContent(`<!doctype html><style>html,body{margin:0;background:#000}img{display:block;width:480px;height:252px}</style><img src="data:image/png;base64,${fs.readFileSync(t.png).toString("base64")}">`, { waitUntil: "load" });
+    await p.screenshot({ path: t.file, type: "webp", quality: 80 });
+  }
   await br.close();
-  console.log("og: drew", todo.length);
+  console.log("og: drew", todo.length, "cards and", thumbs.length, "thumbnails");
 })();

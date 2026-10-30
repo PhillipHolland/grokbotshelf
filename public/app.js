@@ -313,6 +313,13 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     return `<span class="vote" data-vote="${b._slug}" data-tip="${esc(tip)}"><button type="button" class="ib vb up" data-v="1" aria-pressed="${v === 1}" aria-label="Upvote ${nm}">${I.up}</button><span class="vn">${n}</span><span class="sr vsr">${esc(sr)}</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="${v === -1}" aria-label="Downvote ${nm}">${I.down}</button></span>`;
   }
   const voteKey = ({ v, n, tip, sr }) => v + "|" + n + "|" + tip + "|" + sr;
+  // Gallery tiles show the same shared count, read-only (vote on the card in the list or on the bot page)
+  function paintTile(el, bits = voteBits(el.dataset.tile)) {
+    const { n, tip, sr } = bits, k = n + "|" + tip + "|" + sr;
+    if (el._vk === k) return;
+    el._vk = k; el.dataset.tip = tip; el.classList.toggle("neg", n < 0);
+    el.innerHTML = `${n < 0 ? I.down : I.up}${n}<span class="sr">${esc(sr)}</span>`;
+  }
   function paintVoteEl(el, bits = voteBits(el.dataset.vote)) {
     const { v, n, tip, sr } = bits, k = voteKey(bits);
     if (el._vk === k) return;
@@ -325,9 +332,10 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function paintVote(slug) {
     const bits = voteBits(slug);
     results.querySelectorAll(`.vote[data-vote="${slug}"]`).forEach((el) => paintVoteEl(el, bits));
+    results.querySelectorAll(`.sc[data-tile="${slug}"]`).forEach((el) => paintTile(el, bits));
   }
   // One pass over the vote widgets (a per-slug lookup for each widget was O(n²) on load and after each tail chunk)
-  const paintAll = () => { for (const el of results.querySelectorAll(".vote")) paintVoteEl(el); };
+  const paintAll = () => { for (const el of results.querySelectorAll(".vote")) paintVoteEl(el); for (const el of results.querySelectorAll(".sc[data-tile]")) paintTile(el); };
   function bump(slug, from, to) {
     const s = vote.scores[slug] || (vote.scores[slug] = { up: 0, down: 0, score: 0 });
     if (from === 1) s.up--; if (from === -1) s.down--;
@@ -413,7 +421,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // the old behavior stays (the rest follows in small tasks right away) so the browser can restore the scroll position.
   const FIRST_GROUPS = 3, TAIL_GROUPS = 4, FLAT_STEP = 48;
   // tail: pending { L, f } groups (f builds the section), or pending [bot, match] rows of a flat view (tailFlat)
-  let tail = [], tailFlat = false, tailT = 0, chunkNext = false;
+  let tail = [], tailFlat = false, tailGal = false, tailT = 0, chunkNext = false;
   const navType = (performance.getEntriesByType && (performance.getEntriesByType("navigation")[0] || {}).type) || "navigate";
   const eager = navType === "reload" || navType === "back_forward" || !("IntersectionObserver" in window);
   const sentinel = document.createElement("div"); sentinel.className = "sentinel"; sentinel.setAttribute("aria-hidden", "true");
@@ -422,7 +430,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => { if (es.some((e) => e.isIntersecting)) pumpTail(); }, { rootMargin: "100000px 0px 150% 0px" }) : null;
   function appendTail(n) {
     const take = tail.splice(0, n);
-    if (tailFlat) { if (flatEl) flatEl.append(...cardEls(take)); }
+    if (tailFlat) { const box = tailGal ? galEl : flatEl; if (box) box.append(...(tailGal ? tileEls(take) : cardEls(take))); }
     else { results.append(...take.map((g) => g.f())); railGroups = [...results.querySelectorAll(".group")]; }
   }
   function watchTail() {
@@ -520,7 +528,22 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     } else if (sec._more) sec._more.remove();
     return sec;
   }
-  let buildersEl, flatEl;
+  /* ---------- Gallery view: one tile per bot, its share card (or "No share card yet") and its name ---------- */
+  // Thumbnails are drawn by scripts/og.js (a manual step, not part of the Vercel build); b.og is their content hash.
+  // Each tile reserves its 1200:630 box (width/height on the img plus aspect-ratio), so lazy images never shift anything.
+  const tileCache = new Map();
+  function tile(b) {
+    const s = b._page.slice(5), v = "?v=" + b.og;
+    const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="/og/thumb/${s}.webp${v} 480w, /og/bot/${s}.png${v} 1200w" sizes="(max-width:699px) 50vw, 360px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
+      : `<span class="gi none"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nocard">No share card yet</span></span>`;
+    return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${esc(b.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
+  }
+  function tileEls(rows) {
+    const miss = rows.filter(([b]) => !tileCache.has(b._slug));
+    if (miss.length) nodes(miss.map(([b]) => tile(b)).join("")).forEach((el, i) => tileCache.set(miss[i][0]._slug, el));
+    return rows.map(([b]) => { const el = tileCache.get(b._slug); paintTile(el.querySelector(".sc")); return el; });
+  }
+  let buildersEl, flatEl, galEl;
   function buildersNode() {
     if (buildersEl === undefined) { const h = buildersHTML(); buildersEl = h ? nodes(h)[0] : null; }
     if (buildersEl) buildersEl.querySelectorAll(".card").forEach(reuse);
@@ -529,7 +552,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function render() {
     cancelRender();
     const then = afterRender; afterRender = null;
-    clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailHold = false; if (io) io.unobserve(sentinel);
+    clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailGal = false; tailHold = false; if (io) io.unobserve(sentinel);
     const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
@@ -541,8 +564,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
     }[st.sort];
     list.sort(by);
-    const grouped = st.sort === "creator" || (st.sort === "featured" && !searching);
-    const strip = st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode(), newNode()].filter(Boolean) : [];
+    const gal = view === "gallery", grouped = !gal && (st.sort === "creator" || (st.sort === "featured" && !searching));
+    const strip = !gal && st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode(), newNode()].filter(Boolean) : [];
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
       const parts = creators.map((c) => {
@@ -553,6 +576,10 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       }).filter(Boolean);
       if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
       place(results, strip.concat(parts.map((g) => g.f())));
+    } else if (gal) {
+      if (list.length) { galEl = galEl || nodes('<div class="gal"></div>')[0]; place(galEl, tileEls(list.slice(0, FLAT_STEP))); }
+      if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; tailGal = true; }
+      place(results, list.length ? [galEl] : []);
     } else {
       if (list.length) { flatEl = flatEl || nodes('<div class="grid flat"></div>')[0]; place(flatEl, cardEls(list.slice(0, FLAT_STEP))); }
       if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; }
@@ -705,7 +732,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   });
 
   // Keyboard: / or Cmd/Ctrl+K focus search, Esc clears, arrows move, Enter opens
-  const cardsNow = () => { finishTail(); return [...results.querySelectorAll(".card")]; };
+  const cardsNow = () => { if (view === "gallery") return []; finishTail(); return [...results.querySelectorAll(".card")]; };
   function focusCard(i) {
     const cs = cardsNow(); if (!cs.length) return;
     active = Math.max(0, Math.min(cs.length - 1, i));
@@ -794,6 +821,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (location.hash === "#add") return scrollToAdd(!e);
     const id = decodeURIComponent(location.hash.slice(1)); if (!id || !bots.some((b) => b._slug === id)) return;
     const hb = bots.find((b) => b._slug === id);
+    if (view === "gallery") { view = "list"; paintView(); render(); } // a #bot- link lands on the card: list view, this visit only
     // build only up to the bot's group (or row), not the whole shelf; a re-render (to open the group or clear filters)
     // starts over from the first groups the same way
     const toBot = () => { if (!document.getElementById(id)) tailTo((g) => tailFlat ? g[0]._slug === id : g.k === ckey(hb)); return document.getElementById(id); };
@@ -953,6 +981,22 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // versioned URL index.html preloads
   const dataURL = (document.querySelector('link[rel="preload"][href^="/shelf-data.json"]') || {}).href || "/shelf-data.json";
   // A failed load shows the empty-state card with "Try again", which re-runs the fetch (round 2 #10)
+  /* ---------- List / Gallery view ---------- */
+  // Kept in this browser only (localStorage gbs_view), never in the URL. Shared #bot- links open in the list.
+  const VIEWKEY = "gbs_view", viewBtns = [...document.querySelectorAll("[data-view]")];
+  let view = "list";
+  try { if (localStorage.getItem(VIEWKEY) === "gallery" && !/^#bot-/.test(location.hash)) view = "gallery"; } catch {}
+  function paintView() {
+    for (const b of viewBtns) b.setAttribute("aria-pressed", String(b.dataset.view === view));
+    document.documentElement.classList.toggle("gallery-view", view === "gallery");
+  }
+  paintView();
+  for (const b of viewBtns) b.addEventListener("click", () => {
+    if (view === b.dataset.view) return;
+    view = b.dataset.view; paintView();
+    try { localStorage.setItem(VIEWKEY, view); } catch {}
+    if (shelfReady) renderNext();
+  });
   function loadShelf() {
     fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
       bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _role: (b.roles || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
