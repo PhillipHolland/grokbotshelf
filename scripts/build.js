@@ -67,10 +67,9 @@ const avatarSm = (src) => {
   return m && AVATARS_SM[m[1]] && AVATARS_SM[m[1]] === fileHash(src) && fileHash(sm) ? versioned(sm) : versioned(src);
 };
 // Collections (round 4 #5): hand-picked groups that cut across categories, e.g. "Family". They live in bot-meta.json
-// as collections: ["Family"] under the bot's template id; a collection gets a home filter chip only while at least one
-// bot is in it, so with none the chip is not there at all.
+// as collections: ["Family"] under the bot's template id. The home page lists each collection that has bots at the end
+// of the category select (public/app.js reads them from shelf-data.json), so with none it is not offered at all.
 const collectionsOf = (b) => { const c = (meta[templateId(b.url)] || {}).collections; return Array.isArray(c) ? [...new Set(c.filter((x) => typeof x === "string" && x.trim()).map((x) => x.trim()))] : []; };
-const COLLECTIONS = [...new Set(bots.flatMap(collectionsOf))].sort();
 // Role words (round 4 #6): a bot has a role only when that exact word (or its plural) is in its own name or
 // description; nothing is inferred. A role becomes a home filter once ROLE_MIN bots use it.
 const ROLE_WORDS = [["Chief of staff", "chiefs? of staff"], ["Assistant", "assistants?"], ["Coach", "coach(?:es)?"], ["Tutor", "tutors?"], ["Scout", "scouts?"],
@@ -97,9 +96,7 @@ const ogThumb = (b) => { const s = slugify(b.name); return fs.existsSync(path.jo
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
-  const chips = COLLECTIONS.map((c) => `<button type="button" class="chip coll" data-coll="${esc(slugify(c))}" aria-pressed="false" title="Bots the shelf put in its ${esc(c)} collection">${esc(c)}</button>`).join("");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
-    .replace(/<!-- collections:start -->[\s\S]*?<!-- collections:end -->/, `<!-- collections:start -->${chips}<!-- collections:end -->`)
     .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>

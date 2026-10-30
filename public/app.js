@@ -5,15 +5,16 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   "use strict";
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
-  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob"), resetEl = $("#reset");
-  // Collection chips (round 4 #5): written into the filter row by scripts/build.js, one per collection that has bots
-  const collEls = [...document.querySelectorAll(".filterbar [data-coll]")];
+  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), resetEl = $("#reset");
+  // Collections (round 4 #5, e.g. Family) and One job are options at the end of the category select (round 5), so the
+  // select is single choice across all three: picking one clears the others. URLs stay ?collection=, ?one_job=1, ?cat=
+  const COLL = "__coll:", ONE = "__onejob";
   // Role words (round 4 #6): the select is written by scripts/build.js (roles that 5+ bots name exactly); may be absent
   const roleEl = $("#roles");
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
-  let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
+  let bots = [], creators = [], cats = [], colls = [], oneJobs = 0, apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
@@ -136,7 +137,9 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     s.fresh = p.get("new") === "1";
     s.oneJob = p.get("one_job") === "1";
     const ro = p.get("role"); s.role = ro && roleEl && [...roleEl.options].some((o) => o.value && o.value === ro) ? ro : "";
-    const co = p.get("collection"); s.coll = co && collEls.some((e) => e.dataset.coll === co && !e.hidden) ? co : "";
+    const co = p.get("collection"); s.coll = co && colls.some((c) => slug(c) === co) ? co : "";
+    // One choice in the category select: an old link with several keeps the collection, else One job, else the category
+    if (s.coll) { s.cats = []; s.oneJob = false; } else if (s.oneJob) s.cats = [];
     s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
   }
@@ -606,7 +609,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (!filtersBuilt) {
       filtersBuilt = true;
       creatorEl.innerHTML = opt("", "All creators") + creators.map((c) => opt(c.key, c.short)).join("");
-      catsEl.innerHTML = opt("", "All categories") + cats.map((c) => opt(c, c)).join("");
+      const picks = colls.map((c) => opt(COLL + slug(c), c)).join("") + (oneJobs ? opt(ONE, "One job") : "");
+      catsEl.innerHTML = opt("", "All categories") + cats.map((c) => opt(c, c)).join("") + (picks ? `<optgroup label="Collections">${picks}</optgroup>` : "");
       appsEl.innerHTML = opt("", "Works with any app") + apps.map((a) => opt(a.key, `${a.label} (${a.n})`)).join("");
       agencyEl.innerHTML = opt("", "Can it act?") + Object.entries(AGENCY).map(([k, v]) => opt(k, `${v} (${tagged.by[k] || 0})`)).join("");
     }
@@ -617,7 +621,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       mo.textContent = `${st.cats.length} categories`;
     } else if (mo) mo.remove();
     creatorEl.value = st.creator;
-    catsEl.value = multi ? "__multi" : (st.cats[0] || "");
+    catsEl.value = multi ? "__multi" : st.coll ? COLL + st.coll : st.oneJob ? ONE : (st.cats[0] || "");
     appsEl.value = st.app;
     agencyEl.value = st.agency;
     if (roleEl) roleEl.value = st.role;
@@ -626,13 +630,11 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // Cheap state the controls show (highlight when set, pressed toggles, Reset): painted before the cards re-render
   function paintControls() {
     creatorEl.classList.toggle("on", !!st.creator);
-    catsEl.classList.toggle("on", st.cats.length > 0);
+    catsEl.classList.toggle("on", st.cats.length > 0 || !!st.coll || st.oneJob);
     appsEl.classList.toggle("on", !!st.app);
     agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
-    oneEl.setAttribute("aria-pressed", String(st.oneJob));
     if (roleEl) roleEl.classList.toggle("on", !!st.role);
-    for (const e of collEls) e.setAttribute("aria-pressed", String(st.coll === e.dataset.coll));
     resetEl.classList.toggle("on", changed());
   }
 
@@ -659,13 +661,17 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   q.addEventListener("input", () => { st.q = q.value; renderSoon(); clearTimeout(typing); typing = setTimeout(() => writeURL(false), 250); });
   sortEl.addEventListener("change", () => set({ sort: sortEl.value }, true));
   creatorEl.addEventListener("change", () => set({ creator: creatorEl.value }, true));
-  catsEl.addEventListener("change", () => { if (catsEl.value !== "__multi") set({ cats: catsEl.value ? [catsEl.value] : [] }, true); });
+  catsEl.addEventListener("change", () => {
+    const v = catsEl.value;
+    if (v === "__multi") return;
+    if (v.startsWith(COLL)) set({ cats: [], coll: v.slice(COLL.length), oneJob: false }, true);
+    else if (v === ONE) set({ cats: [], coll: "", oneJob: true }, true);
+    else set({ cats: v ? [v] : [], coll: "", oneJob: false }, true);
+  });
   appsEl.addEventListener("change", () => set({ app: appsEl.value }, true));
   agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
-  oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
   if (roleEl) roleEl.addEventListener("change", () => set({ role: roleEl.value }, true));
-  for (const e of collEls) e.addEventListener("click", () => set({ coll: st.coll === e.dataset.coll ? "" : e.dataset.coll }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
   const clearAll = () => { st = blank(); hashOpen.clear(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
   resetEl.addEventListener("click", () => {
@@ -1005,7 +1011,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
       bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
       cats = [...new Set(bots.map((b) => b.category))].sort();
-      for (const e of collEls) e.hidden = !bots.some((b) => b._coll.includes(e.dataset.coll)); // only collections with bots
+      colls = [...new Set(bots.flatMap((b) => b._colls))].sort(); // only collections that have bots
+      oneJobs = bots.filter((b) => b._meta && b._meta.one_job === true).length;
       const am = new Map();
       for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
       apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));

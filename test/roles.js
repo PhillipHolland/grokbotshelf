@@ -38,7 +38,7 @@ const WORD = { 'Chief of staff': /\bchiefs? of staff\b/i, Coach: /\bcoach(es)?\b
   await p.close();
   for (const w of [1280, 390]) {
     const h = await open(BASE, '/', { w });
-    const r = await h.evaluate(() => { const fb = document.querySelector('.filterbar'), one = document.querySelector('#onejob'), s = document.querySelector('#roles');
+    const r = await h.evaluate(() => { const fb = document.querySelector('.filterbar'), one = document.querySelector('#fresh'), s = document.querySelector('#roles');
       return { rows: Math.round(fb.getBoundingClientRect().height / one.getBoundingClientRect().height), h: s.getBoundingClientRect().height, fits: s.scrollWidth <= s.clientWidth + 1, cls: window.__cls }; });
     ok((w < 700 ? r.h >= 44 : r.rows === 1) && r.cls === 0, `${w}: ${w < 700 ? `44px select (${r.h})` : 'one filter row'}, CLS ${r.cls}`);
     const val = opts.find(([v]) => v === 'chief-of-staff') ? 'chief-of-staff' : opts[1][0];

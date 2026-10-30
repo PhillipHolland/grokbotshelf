@@ -46,16 +46,16 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   ok(await shown(), 'sort=newest shows Reset');
   // everything at once, then Reset
   await p.goto(BASE + `?more=${K}`, { waitUntil: 'networkidle0' }); await settle();
-  await p.type('#q', 'bot'); await p.select('#sort', 'az'); await p.click('#onejob'); await settle(500);
+  await p.type('#q', 'bot'); await p.select('#sort', 'az'); await p.select('#cats', '__onejob'); await settle(500);
   ok(/q=bot/.test(path()) && /sort=az/.test(path()) && /one_job=1/.test(path()), 'URL carries search, sort and filter: ' + path());
   // keyboard: Tab from the last filter chip lands on Reset with a visible focus ring, Enter resets
-  // (the last control in the row: One job, or a collection chip such as Family when one has bots)
+  // (the last control in the row: New this week; One job and collections are options in the category select)
   await p.evaluate(() => [...document.querySelectorAll('.filterbar button.chip')].filter((c) => !c.hidden).pop().focus()); await p.keyboard.press('Tab');
   ok(await p.evaluate(() => document.activeElement.id) === 'reset', 'Tab from the filter row reaches Reset');
   ok(await p.$eval('#reset', e => getComputedStyle(e).boxShadow !== 'none'), 'Reset has a visible focus ring');
   await p.keyboard.press('Enter'); await settle(500);
   ok(path() === '/', 'Reset cleans the URL (no ?q, ?sort, ?one_job or ?more): ' + path());
-  ok(await p.$eval('#q', e => e.value) === '' && await p.$eval('#sort', e => e.value) === 'featured' && await p.$eval('#onejob', e => e.getAttribute('aria-pressed')) === 'false' && await p.$eval('#cats', e => e.value) === '' && await p.$eval('#creators', e => e.value) === '', 'search, sort and filters back to defaults');
+  ok(await p.$eval('#q', e => e.value) === '' && await p.$eval('#sort', e => e.value) === 'featured' && await p.$eval('#cats', e => e.value) === '' && await p.$eval('#creators', e => e.value) === '', 'search, sort and filters back to defaults');
   ok((await p.$$(`[aria-labelledby="g-${K}"] .card`)).length === CAP && !!(await p.$(`[data-more="${K}"]`)), `groups collapsed again (${K} shows ${CAP} and Show more)`);
   ok(!(await shown()), 'Reset hides itself afterwards');
   ok(await p.evaluate(() => document.activeElement.id) === 'q', 'focus moves to the search box (desktop)');
