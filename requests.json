@@ -5929,5 +5929,77 @@
     "date": "2026-10-30",
     "post_id": "2116015473703997613",
     "note": "Hackathon Hunter already listed (added 2026-10-26)"
+  },
+  "form-499": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/_gCGHWgS9hNxob8jknYze",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "site form #499 (via Shelfer); standing auto-shelve rule (9 AM CDT run)"
+  },
+  "form-498": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/fuhqvBDFpnLV8hJTOEWJL",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "site form #498 (via Shelfer); standing auto-shelve rule (9 AM CDT run)"
+  },
+  "form-497": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/f7HJNnyGRy-2uVzKTHlfH",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "site form #497 (via Shelfer); standing auto-shelve rule (9 AM CDT run)"
+  },
+  "form-496": {
+    "author_handle": "",
+    "template_url": "https://x.ai/bot/JJTJQx-yp653nmJSI2Xgg",
+    "status": "parked",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "site form #496 Usage Monitor Bot by Serenejay; parked: no X creator handle"
+  },
+  "x-2116075883022672302": {
+    "author_handle": "@DutchKonnect",
+    "template_url": "https://x.ai/bot/",
+    "status": "dead_link",
+    "date": "2026-10-30",
+    "post_id": "2116075883022672302",
+    "note": "link is bare x.ai/bot/ with no template id"
+  },
+  "x-2116102651058516015": {
+    "author_handle": "@FreeYourBot",
+    "template_url": "",
+    "status": "skipped",
+    "date": "2026-10-30",
+    "post_id": "2116102651058516015",
+    "note": "BotTexts offer, no template link; asks for follow + DM"
+  },
+  "x-2116004580110860485": {
+    "author_handle": "@warriorwaypoint",
+    "template_url": "https://x.ai/bot/Tk2JhMJxCSZcI3d2r1TbR",
+    "status": "parked",
+    "date": "2026-10-30",
+    "post_id": "2116004580110860485",
+    "note": "InfoSec by Justin (Bastion IA); question to Phil, not an add request; security category, held for Phillip"
+  },
+  "x-2116035228678451313": {
+    "author_handle": "@TNVOLMAN",
+    "template_url": "https://x.ai/bot/PeSNE_UxmYgbj2lNv20iJ",
+    "status": "parked",
+    "date": "2026-10-30",
+    "post_id": "2116035228678451313",
+    "note": "asks to credit ~10 church bots (blank creator, added Oct 29) to @TNVOLMAN; attribution change held for Phillip"
+  },
+  "x-2116006519049420993": {
+    "author_handle": "@testafortedev",
+    "template_url": "https://x.ai/bot/_yIIw52AMV3Pidjap9ELV",
+    "status": "already_on_shelf",
+    "date": "2026-10-30",
+    "post_id": "2116006519049420993",
+    "note": "Game Night Planner already listed"
   }
 }

@@ -9663,5 +9663,44 @@
     "creator_avatar": "/avatars/vinman.webp",
     "source_post": "https://x.com/Vinman/status/2115869876363640872",
     "added": "2026-10-30"
+  },
+  {
+    "name": "Domain & Branding Researcher by Kevin",
+    "emoji": "🔎",
+    "description": "Helps name a new platform: short name ideas, live domain availability and pricing across .com, .ai, .io and .co, trademark flags, a contrast-checked palette, font pairings and social preview tags.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/_gCGHWgS9hNxob8jknYze",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-30"
+  },
+  {
+    "name": "Pitch Deck Reviewer by Kevin",
+    "emoji": "📊",
+    "description": "Scores your pitch deck against consulting standards and tells you which slides to fix and how.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/fuhqvBDFpnLV8hJTOEWJL",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-30"
+  },
+  {
+    "name": "Prototype Spec Writer by Kevin",
+    "emoji": "🛠️",
+    "description": "Turns a hardware or connected-product idea into a build-ready spec: requirements, architecture, parts list, power budget, risks, milestones and pass/fail test scripts.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/f7HJNnyGRy-2uVzKTHlfH",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-30"
   }
 ]
