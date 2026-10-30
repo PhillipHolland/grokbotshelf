@@ -5173,7 +5173,8 @@
     "form-461": true,
     "form-460": true,
     "x-2116015473703997613": true,
-    "x-2116153400601526458": true
+    "x-2116153400601526458": true,
+    "form-490": true
   },
   "x-2114766675119886755": {
     "status": "denied",
@@ -5906,12 +5907,12 @@
     "note": "site form #493; parked: no X creator handle (Marshall); listing standard requires a handle"
   },
   "form-490": {
-    "author_handle": "@vinman",
+    "author_handle": "@Vinman",
     "template_url": "https://x.ai/bot/leD7h4PGZt9yyEqNiE_cc",
-    "status": "parked",
+    "status": "approved",
     "date": "2026-10-30",
-    "post_id": "",
-    "note": "site form #490; parked for Phillip: $TRUMP memecoin leaderboard tracker (political crypto); SFW and read-only but needs Phil's call"
+    "post_id": "2115869876363640872",
+    "note": "site form #490; parked overnight (political crypto), approved by Phillip 2026-10-30 ~8:16 AM CDT"
   },
   "x-2116153400601526458": {
     "author_handle": "@iamtheh0n3yp0t",
