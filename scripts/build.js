@@ -212,6 +212,7 @@ const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e)
 
 // Up/down vote pill on bot pages. public/bot-page.js loads the tally and posts to /api/votes (same cookie as the homepage).
 const SVG = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+const XLOGO = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
 const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" data-tip="No votes yet. Be the first"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn zero">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
 // JSON-LD: only fields the shelf actually has. No ratings or vote counts, no publisher.
 const crumbs = (list) => ({ "@type": "BreadcrumbList", itemListElement: list.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
@@ -233,7 +234,10 @@ function page(b, related, similar) {
   const ld = botLd(b, url, img);
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
-  const shareT = encodeURIComponent(`Check out ${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf\n${url}`);
+  // Share pill in the header (round 4 #2): x.com's post intent with the page link as its own url param, the bot
+  // credited the same way the cards credit it
+  const shareText = `${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf`;
+  const share = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
   return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld })}
 <body class="botpage">
 ${HEADER}
@@ -242,7 +246,7 @@ ${HEADER}
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
       <p class="sub">${b.creator_handle ? `<a href="/@${esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a>` : esc(b.creator_name)}<span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
-    </div></div>
+    </div><a class="bp-share" href="${esc(share)}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X">${XLOGO}<span class="lbl">Share</span></a></div>
     <p class="bp-desc">${esc(desc)}</p>
     ${badges ? `<div class="badges">${badges}</div>` : ""}
     <div class="bp-actions">
@@ -251,7 +255,6 @@ ${HEADER}
       ${VOTE(b)}
     </div>
     <p class="bp-links">
-      <a href="https://twitter.com/intent/tweet?text=${shareT}" rel="noopener" target="_blank">Share on X</a>
       ${b.source_post ? `<a href="${esc(b.source_post)}" rel="noopener" target="_blank">Original post</a>` : ""}
       ${b.code_url ? `<a href="${esc(b.code_url)}" rel="noopener" target="_blank">Source code</a>` : ""}
       <a href="/#bot-${b.slug}">See it on the shelf</a>

@@ -812,3 +812,13 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 :is(.vote:is(:hover,:focus-within),.tlist a:is(:hover,:focus-visible) .sc,.cp-list a:is(:hover,:focus-visible) .cp-sc)[data-tip]::after{opacity:1;visibility:visible}
 .cp-list a small.cat{overflow:visible}
 @media (prefers-reduced-motion:reduce){:is(.vote,.tlist .sc,.cp-sc)[data-tip]::after{transition:none}}
+/* Round 4 #2: Share pill at the right of the bot page header. Phones get the icon alone (40px, 44px hit area) so the
+   byline never wraps; the aria-label names the bot. */
+.bp-share{position:relative;flex:none;align-self:flex-start;margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line);border-radius:999px;
+  color:var(--vmuted);font:600 13px/1 var(--font);text-decoration:none;background:transparent}
+.bp-share svg{width:13px;height:13px;fill:currentColor}
+.bp-share:hover,.bp-share:focus-visible{color:var(--text);background:var(--hover)}
+html.mobile .bp-share{height:40px;width:40px;padding:0;justify-content:center;margin:-2px -2px 0 auto}
+html.mobile .bp-share .lbl{display:none}
+html.mobile .bp-share svg{width:15px;height:15px}
+html.mobile .bp-share::before{content:"";position:absolute;inset:-2px}
