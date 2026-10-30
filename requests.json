@@ -6169,5 +6169,29 @@
     "date": "2026-10-30",
     "post_id": "",
     "note": "Spam-Call Scrubber by Kevin; parked: name clash with Spam-Call Scrubber by @TNVOLMAN on shelf"
+  },
+  "form-523": {
+    "author_handle": "@ALL_Jonah",
+    "template_url": "https://x.ai/bot/2EVEgCCjTbQZydxi3lwOS",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "Headhunter by Jonah; approved_by Phillip Holland (standing auto-shelve SFW rule)"
+  },
+  "form-522": {
+    "author_handle": "@JimothyRac",
+    "template_url": "https://x.ai/bot/txx4gqXyKsWzpjUR1JEOb",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "",
+    "note": "Post Pal; approved_by Phillip Holland (standing auto-shelve SFW rule)"
+  },
+  "form-521": {
+    "author_handle": "@Andrew51786",
+    "template_url": "https://x.ai/bot/0NhlyfRbx2lyZZ0AxGceA",
+    "status": "approved",
+    "date": "2026-10-30",
+    "post_id": "2116203647076057548",
+    "note": "Local Event Hunter by Andrew; approved_by Phillip Holland (standing auto-shelve SFW rule)"
   }
 }

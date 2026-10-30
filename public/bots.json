@@ -9936,5 +9936,44 @@
     "creator_avatar": "/avatars/iamtheh0n3yp0t.webp",
     "source_post": "https://x.com/iamtheh0n3yp0t/status/2115209890142802231",
     "added": "2026-10-30"
+  },
+  {
+    "name": "Headhunter by Jonah",
+    "emoji": "🧑‍💼",
+    "description": "A hiring coordinator for small employers. It drafts job posts, screens resumes against job-related criteria, schedules interviews, and tracks your candidate pipeline, and you approve every send.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/2EVEgCCjTbQZydxi3lwOS",
+    "creator_name": "Jonah Anthony",
+    "creator_handle": "@ALL_Jonah",
+    "creator_url": "https://x.com/ALL_Jonah",
+    "creator_avatar": "/avatars/all_jonah.webp",
+    "source_post": "",
+    "added": "2026-10-30"
+  },
+  {
+    "name": "Post Pal",
+    "emoji": "📣",
+    "description": "A social media helper for small businesses with no marketing budget. Tell it what's going on and it turns that into ready-to-post captions, images, and memes, each with a clear call to action, written in your voice.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/txx4gqXyKsWzpjUR1JEOb",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "",
+    "added": "2026-10-30"
+  },
+  {
+    "name": "Local Event Hunter by Andrew",
+    "emoji": "🎟️",
+    "description": "Finds local events in any city or town, reads venue and organizer reviews for practical details, and scores each pick against your family's or your own needs. Drafts questions to organizers for your approval and never sends or books.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/0NhlyfRbx2lyZZ0AxGceA",
+    "creator_name": "Andrew Pocta",
+    "creator_handle": "@Andrew51786",
+    "creator_url": "https://x.com/Andrew51786",
+    "creator_avatar": "/avatars/andrew51786.webp",
+    "source_post": "https://x.com/Andrew51786/status/2116203647076057548",
+    "added": "2026-10-30"
   }
 ]
