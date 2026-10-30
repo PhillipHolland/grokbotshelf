@@ -825,3 +825,11 @@ html.mobile .bp-share::before{content:"";position:absolute;inset:-2px}
 /* Round 4 #5: collection badge (e.g. Family), a neutral outline next to the agency and app badges */
 .badge.coll{color:var(--text);border-color:var(--vmuted);text-decoration:none}
 a.badge.coll:hover{background:var(--hover)}
+/* Round 4 #6: room for the role select (and a collection chip) on the one desktop filter row at 1280: the role select
+   is 118px ("Any role" and the short roles fit; a long one ends in an ellipsis, the count line spells it out),
+   creator and category may shrink to 134px ("All categories" still fits) and the gaps are 6px */
+@media (min-width:700px){
+  .filterbar{column-gap:6px}
+  .selwrap{min-width:134px}
+  .selwrap.sm.role{flex:0 0 118px;max-width:118px;min-width:0}
+}

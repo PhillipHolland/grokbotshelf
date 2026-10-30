@@ -8,19 +8,21 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), oneEl = $("#onejob"), resetEl = $("#reset");
   // Collection chips (round 4 #5): written into the filter row by scripts/build.js, one per collection that has bots
   const collEls = [...document.querySelectorAll(".filterbar [data-coll]")];
+  // Role words (round 4 #6): the select is written by scripts/build.js (roles that 5+ bots name exactly); may be absent
+  const roleEl = $("#roles");
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
   let bots = [], creators = [], cats = [], apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", more: [] }; }
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
   // kept in ?more=a,b. Featured (the home view) keeps it to one desktop row so the A-Z rail and scrolling stay quick;
   // Creator sort is for browsing whole catalogs, so it keeps 12 (as before). Small leftovers are shown rather than
   // hidden behind "Show 1 more". Search and filters always show every match.
   const GROUP_CAP = { featured: 3, creator: 12 }, GROUP_SLACK = { featured: 1, creator: 3 };
   let capNow = Infinity;
-  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob || st.coll);
+  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob || st.coll || st.role);
   // Reset shows only when search, a filter or the sort differs from the default home view
   const changed = () => !!(st.q.trim() || filtering() || st.sort !== "featured");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -133,6 +135,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
     s.fresh = p.get("new") === "1";
     s.oneJob = p.get("one_job") === "1";
+    const ro = p.get("role"); s.role = ro && roleEl && [...roleEl.options].some((o) => o.value && o.value === ro) ? ro : "";
     const co = p.get("collection"); s.coll = co && collEls.some((e) => e.dataset.coll === co && !e.hidden) ? co : "";
     s.more = (p.get("more") || "").toLowerCase().split(",").filter((k, i, a) => k && a.indexOf(k) === i && creators.some((c) => c.key === k));
     return s;
@@ -149,6 +152,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     if (st.agency) p.set("does", st.agency);
     if (st.fresh) p.set("new", "1");
     if (st.oneJob) p.set("one_job", "1");
+    if (st.role) p.set("role", st.role);
     if (st.coll) p.set("collection", st.coll);
     if (st.sort !== "featured") p.set("sort", st.sort);
     const more = st.more.filter((k) => !hashOpen.has(k));
@@ -382,6 +386,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       if (st.fresh && !(b.added >= weekAgo())) continue;
       if (st.oneJob && !(b._meta && b._meta.one_job === true)) continue;
       if (st.coll && !b._coll.includes(st.coll)) continue;
+      if (st.role && !b._role.includes(st.role)) continue;
       const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
       if (m) out.push([b, m]);
     }
@@ -554,7 +559,10 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       place(results, list.length ? [flatEl] : []);
     }
     $("#empty").hidden = list.length > 0;
-    $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}`;
+    // With a role on, the count says what the match is: the word is in the bot's own name or description, nothing more
+    const ro = st.role && roleEl && [...roleEl.options].find((o) => o.value === st.role), rl = ro ? ro.textContent.replace(/ \(\d+\)$/, "") : "";
+    const roleWord = rl === rl.toUpperCase() ? rl : rl.toLowerCase();
+    $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}` + (roleWord ? ` that ${list.length === 1 ? "says" : "say"} \u201c${roleWord}\u201d` : "");
     paintCover();
     resetEl.classList.toggle("on", changed());
     results.removeAttribute("aria-busy"); renderRail(grouped);
@@ -585,6 +593,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     catsEl.value = multi ? "__multi" : (st.cats[0] || "");
     appsEl.value = st.app;
     agencyEl.value = st.agency;
+    if (roleEl) roleEl.value = st.role;
     paintControls();
   }
   // Cheap state the controls show (highlight when set, pressed toggles, Reset): painted before the cards re-render
@@ -595,6 +604,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
     oneEl.setAttribute("aria-pressed", String(st.oneJob));
+    if (roleEl) roleEl.classList.toggle("on", !!st.role);
     for (const e of collEls) e.setAttribute("aria-pressed", String(st.coll === e.dataset.coll));
     resetEl.classList.toggle("on", changed());
   }
@@ -627,6 +637,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   oneEl.addEventListener("click", () => set({ oneJob: !st.oneJob }, true));
+  if (roleEl) roleEl.addEventListener("change", () => set({ role: roleEl.value }, true));
   for (const e of collEls) e.addEventListener("click", () => set({ coll: st.coll === e.dataset.coll ? "" : e.dataset.coll }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
   const clearAll = () => { st = blank(); hashOpen.clear(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
@@ -944,7 +955,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // A failed load shows the empty-state card with "Try again", which re-runs the fetch (round 2 #10)
   function loadShelf() {
     fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
-      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _role: (b.roles || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
       const seen = new Map();
       for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
       creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));

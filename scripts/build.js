@@ -71,20 +71,36 @@ const avatarSm = (src) => {
 // bot is in it, so with none the chip is not there at all.
 const collectionsOf = (b) => { const c = (meta[templateId(b.url)] || {}).collections; return Array.isArray(c) ? [...new Set(c.filter((x) => typeof x === "string" && x.trim()).map((x) => x.trim()))] : []; };
 const COLLECTIONS = [...new Set(bots.flatMap(collectionsOf))].sort();
+// Role words (round 4 #6): a bot has a role only when that exact word (or its plural) is in its own name or
+// description; nothing is inferred. A role becomes a home filter once ROLE_MIN bots use it.
+const ROLE_WORDS = [["Chief of staff", "chiefs? of staff"], ["Assistant", "assistants?"], ["Coach", "coach(?:es)?"], ["Tutor", "tutors?"], ["Scout", "scouts?"],
+  ["Manager", "managers?"], ["Planner", "planners?"], ["Advisor", "advis[oe]rs?"], ["Analyst", "analysts?"], ["Researcher", "researchers?"], ["Producer", "producers?"],
+  ["Editor", "editors?"], ["Concierge", "concierges?"], ["Accountant", "accountants?"], ["Bookkeeper", "bookkeepers?"], ["Mentor", "mentors?"], ["Teacher", "teachers?"], ["CFO", "cfos?"]]
+  .map(([label, p]) => [label, new RegExp(`\\b${p}\\b`, "i")]);
+const ROLE_MIN = 5;
+const roleWordsOf = (b) => ROLE_WORDS.filter(([, re]) => re.test(`${b.name} ${b.description}`)).map(([label]) => label);
+const ROLES = (() => { const n = new Map(); for (const b of bots) for (const r of roleWordsOf(b)) n.set(r, (n.get(r) || 0) + 1);
+  return [...n].filter(([, c]) => c >= ROLE_MIN).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])); })();
+const rolesOf = (b) => roleWordsOf(b).filter((r) => ROLES.some(([x]) => x === r));
 // One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
   const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
-    collections: collectionsOf(b).length ? collectionsOf(b) : undefined,
+    collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
     creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) })) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   const chips = COLLECTIONS.map((c) => `<button type="button" class="chip coll" data-coll="${esc(slugify(c))}" aria-pressed="false" title="Bots the shelf put in its ${esc(c)} collection">${esc(c)}</button>`).join("");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
-    .replace(/<!-- collections:start -->[\s\S]*?<!-- collections:end -->/, `<!-- collections:start -->${chips}<!-- collections:end -->`);
+    .replace(/<!-- collections:start -->[\s\S]*?<!-- collections:end -->/, `<!-- collections:start -->${chips}<!-- collections:end -->`)
+    .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap sm role">
+      <label class="sr" for="roles">Role word</label>
+      <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+    </div>` : ""}<!-- roles:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const today = new Date().toISOString().slice(0, 10);
