@@ -56,6 +56,11 @@ const WORD = { 'Chief of staff': /\bchiefs? of staff\b/i, Coach: /\bcoach(es)?\b
   const d = await open(BASE, '/?role=coach&q=fitness');
   ok(await d.evaluate(() => document.querySelector('#roles').value === 'coach' && / that say(s)? \u201ccoach\u201d$/.test(document.querySelector('#count').textContent)), `a /?role=coach link opens filtered, with search too (${await d.$eval('#count', (e) => e.textContent)})`);
   await d.close();
+  // Landing on a role view: the first groups render at real size, nothing moves after load (was 0.003 at 1280)
+  for (const [path, w] of [['/?role=chief-of-staff', 1280], ['/?role=tutor', 1280], ['/?role=coach', 390]]) {
+    const c = await open(BASE, path, { w }); await new Promise((x) => setTimeout(x, 800));
+    const cls = await c.evaluate(() => window.__cls); ok(cls === 0, `${path} at ${w}px: CLS ${cls.toFixed(4)} on load`); await c.close();
+  }
   const u = await open(BASE, '/?role=wizard');
   ok(await u.evaluate(() => location.search === '' && document.querySelector('#roles').value === ''), 'an unknown ?role= is ignored');
   await u.close();

@@ -28,6 +28,9 @@ html.jumping .card{content-visibility:visible}
 /* A #bot- deep link lands mid-group: that group's cards render at their real size, so the cards above the target don't
    resize after the jump and move the group (CLS) */
 .group.landing .card{content-visibility:visible}
+/* The first two groups of a filtered view are on screen at load: render them at their real size, not the 200px
+   content-visibility estimate, so the groups below do not move up a frame later (CLS on e.g. /?role=tutor) */
+#results>.group:nth-of-type(-n+2) .card{content-visibility:visible}
 body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.4 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
