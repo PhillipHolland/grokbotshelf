@@ -4,6 +4,7 @@
 const fs = require("fs"), path = require("path");
 const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
 const { pageCss, words: cssWords } = require("./page-css");
+const { tipCard } = require("./tip");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -155,7 +156,17 @@ const HEADER = `<header class="wrap hero">
   <div class="hero-actions"><a class="btn add-top" href="/add">Add your bot</a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
   <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>`;
+// Tip card (scripts/tip.js) opens every footer; index.html and 404.html get it between their tip markers
+const TIP = tipCard(versioned);
+for (const page of ["index.html", "404.html"]) {
+  const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
+  const h = fs.readFileSync(f, "utf8");
+  if (!h.includes("<!-- tip:end -->")) throw new Error(`${page}: the <!-- tip:start --> / <!-- tip:end --> markers in the footer are missing`);
+  const n = h.replace(/<!-- tip:start -->[\s\S]*?<!-- tip:end -->/, () => `<!-- tip:start -->\n${TIP}\n<!-- tip:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 const FOOTER = `<footer class="site-foot wrap">
+${TIP}
   <p>Not affiliated with SpaceXSI.</p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>`;

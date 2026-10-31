@@ -53,6 +53,18 @@ google-chrome --headless=new --no-sandbox --hide-scrollbars --window-size=1200,6
   --screenshot=public/og.png file://$PWD/build/og.html
 ```
 
+## Tip card (X Money)
+
+`scripts/tip.js` is the "Buy us some Tokens" card at the top of every footer (the build fills the
+`<!-- tip:start -->` markers in `index.html` and `404.html`); `public/shelf-up.js` wires the amount chips
+(copy only: the pay link can't preset an amount) and the floating button that opens the card in a panel.
+Every tip goes to https://x.com/i/money/pay/Phil_Holland and is split 50/50 with @thecsguy. The desktop QR is
+`public/tip-qr.svg`; redraw it if the link changes:
+
+```sh
+NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/tip-qr.js
+```
+
 ## Tests
 
 `test/e2e.js` drives headless Chrome through search, filters, URL state, keyboard

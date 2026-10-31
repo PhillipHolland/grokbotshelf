@@ -863,3 +863,73 @@ a.badge.coll:hover{background:var(--hover)}
 .gtile:hover .gn .t{text-decoration:underline}
 .gtile .gn .sc{flex:none;position:relative;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .gtile .gn .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* Tip card (scripts/tip.js) at the top of every footer, and the floating Tokens button + panel (public/shelf-up.js).
+   X Money transfer look: one rounded card, two people, amount chips that only copy, one pill CTA.
+   z-index: the button 17 like the jump-to-top button (it stacks above it), the panel 18; both below the toast (50). */
+.tipcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;max-width:640px;margin:16px auto 20px;padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--hover),var(--bg));text-align:left}
+.site-foot .tipcard p{text-align:left;margin:0}
+.tipcard h2{margin:6px 0 14px;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
+.tc-eye{display:flex;align-items:center;gap:6px;font-size:13px!important;font-weight:700;color:var(--text)!important}
+.tc-eye .tc-via{font-weight:400;color:var(--text2)}
+.tc-cup{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tc-who{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.site-foot a.tc-p,.tc-p{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:4px 12px 4px 4px;border:1px solid var(--line);border-radius:9999px;background:var(--bg);color:var(--text);text-decoration:none}
+.site-foot a.tc-p:hover,.tc-p:hover{background:var(--hover);color:var(--text);text-decoration:none}
+.tc-p img{width:36px;height:36px;border-radius:50%;flex:none}
+.tc-p span{display:flex;flex-direction:column;line-height:1.2}
+.tc-p b{font-size:15px;font-weight:700}
+.tc-p small{font-size:13px;color:var(--text2)}
+.site-foot .tipcard .tc-split{margin-top:14px;font-size:15px;font-weight:700;color:var(--text)}
+.site-foot .tipcard .tc-why{margin-top:4px;font-size:14px;color:var(--text2)}
+.tc-amts{display:flex;gap:8px;margin-top:14px}
+.tc-amt{min-width:64px;height:40px;padding:0 16px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:700 15px/1 var(--font);cursor:pointer;transition:background .15s,border-color .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.tc-amt:hover{background:var(--hover)}
+.tc-amt[aria-pressed="true"]{border-color:var(--blue);background:var(--mark);color:var(--blue)}
+.site-foot .tipcard .tc-hint{margin-top:8px;font-size:13px;color:var(--text2);min-height:2.8em}
+.site-foot a.tc-go,.tc-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:10px;padding:0 22px;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font-weight:700;font-size:15px;text-decoration:none;transition:background .15s}
+.site-foot a.tc-go:hover,.tc-go:hover{background:var(--pill-h);color:var(--pill-ink);text-decoration:none}
+.tc-x{width:16px;height:16px;fill:currentColor}
+.site-foot .tipcard .tc-fine{margin-top:10px;font-size:12px;color:var(--text2)}
+.tc-qr{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.tc-qr img{display:block;width:136px;height:136px;padding:6px;border-radius:12px;background:#fff}
+.tc-qr figcaption{font-size:12px;color:var(--text2);text-align:center;max-width:136px}
+/* Phones never get the QR (it would point at the phone you are holding) */
+html.mobile .tc-qr{display:none}
+@media (max-width:640px){.tipcard{grid-template-columns:1fr;padding:16px}.tc-qr{display:none}}
+html.mobile .tipcard{grid-template-columns:1fr}
+
+/* Floating Tokens button: bottom-right; on phones it sits above the floating URL bar like .gbs-up (shelf-up.js
+   places both, the jump-to-top button one step above this one) and hides while you scroll down */
+.gbs-cup{position:fixed;z-index:17;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:inline-flex;align-items:center;gap:6px;height:40px;margin:0;padding:0 14px 0 11px;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);font:700 14px/1 var(--font);cursor:pointer;transition:opacity .2s,transform .2s,visibility 0s,background .2s;-webkit-tap-highlight-color:transparent}
+.gbs-cup:hover,.gbs-cup[aria-expanded="true"]{background:var(--hover)}
+.gbs-cup:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
+.gbs-cup .tc-cup{width:18px;height:18px}
+.gbs-cup.away{opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;transition:opacity .2s,transform .2s,visibility 0s .2s,background .2s}
+html[data-theme="light"] .gbs-cup{box-shadow:0 2px 10px rgba(15,20,25,.08)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.gbs-cup{background:var(--bg)}}
+@media (min-width:1200px){html.has-cup .gbs-up{bottom:max(64px,calc(env(safe-area-inset-bottom) + 58px))}}
+@media (min-width:1200px){html.has-cup.has-rail .rail{bottom:max(116px,calc(env(safe-area-inset-bottom) + 110px))}}
+@media (max-width:1199px){
+  .gbs-cup{bottom:calc(68px + env(safe-area-inset-bottom));width:44px;height:44px;padding:0;justify-content:center;background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+  html.has-cup .gbs-up{bottom:calc(172px + env(safe-area-inset-bottom))}
+  .gbs-cup .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .gbs-cup .tc-cup{width:20px;height:20px}
+  html.has-rail .gbs-cup{right:calc(max(0px,env(safe-area-inset-right)) + 44px)}
+}
+.gbs-cup-pop{position:fixed;z-index:18;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:calc(max(16px,calc(env(safe-area-inset-bottom) + 10px)) + 52px);width:min(460px,calc(100vw - 24px));max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line2);border-radius:20px;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+html[data-theme="light"] .gbs-cup-pop{box-shadow:0 12px 40px rgba(15,20,25,.18)}
+.gbs-cup-pop[hidden]{display:none}
+.gbs-cup-pop .tipcard{margin:0;border:0;border-radius:0;background:none;padding:18px 18px 16px;gap:16px}
+.gbs-cup-pop .tipcard p{text-align:left;margin:0}
+.gbs-cup-pop .tc-split{margin-top:14px!important;font-size:15px;font-weight:700;color:var(--text)}
+.gbs-cup-pop .tc-why{margin-top:4px!important;font-size:14px;color:var(--text2)}
+.gbs-cup-pop .tc-hint{margin-top:8px!important;font-size:13px;color:var(--text2);min-height:2.8em}
+.gbs-cup-pop .tc-fine{margin-top:10px!important;font-size:12px;color:var(--text2)}
+.gbs-cup-pop .tc-qr img{width:112px;height:112px}
+.gbs-cup-pop .tc-qr figcaption{max-width:112px}
+.gbs-cup-x{position:absolute;top:10px;right:10px;z-index:1;display:grid;place-items:center;width:36px;height:36px;padding:0;border:0;border-radius:9999px;background:transparent;color:var(--text2);cursor:pointer}
+.gbs-cup-x:hover{background:var(--hover);color:var(--text)}
+.gbs-cup-x svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+@media (max-width:1199px){.gbs-cup-pop{left:max(12px,env(safe-area-inset-left));right:max(12px,env(safe-area-inset-right));width:auto;margin-left:auto;max-width:460px;bottom:calc(124px + env(safe-area-inset-bottom))}}
+@media (prefers-reduced-motion:reduce){.gbs-cup,.gbs-cup.away{transition:none}}

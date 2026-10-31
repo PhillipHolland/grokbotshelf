@@ -32,11 +32,12 @@
       var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0;
       if (narrow && narrow.matches) {
         // Phones: at least the CSS fallback lift (clears an expanded floating URL bar even if vv under-reports it)
-        var base = Math.max(120, (hidden + MARGIN));
+        // The floating Tokens button (below) takes the 68-112px slot; this one sits a step above it
+        var base = Math.max(120, (hidden + MARGIN + (de.classList.contains("has-cup") ? 52 : 0)));
         b.style.bottom = "calc(" + base + "px + env(safe-area-inset-bottom))";
         b.style.right = de.classList.contains("has-rail") ? "calc(max(0px, env(safe-area-inset-right)) + 44px)" : "";
       } else {
-        b.style.bottom = hidden ? (hidden + MARGIN) + "px" : "";
+        b.style.bottom = hidden ? (hidden + MARGIN + (de.classList.contains("has-cup") ? 48 : 0)) + "px" : "";
         b.style.right = "";
       }
     }
@@ -108,4 +109,109 @@
       try { localStorage.setItem("theme", next); } catch (e) {}
     });
   } catch (e) {}
+})();
+// Tip card + floating Tokens button (scripts/tip.js builds the card into every footer as #tip).
+// Chips only copy a dollar amount: the X Money pay link opens a transfer to @Phil_Holland but cannot preset the amount,
+// so the visitor types it in X. The pay link is the https URL everywhere (a Universal Link / App Link, so phones with
+// the X app open it there); on phones it opens in the same tab so that hand-off happens, on desktop in a new tab.
+// The button sits bottom-right (above the jump-to-top button's slot), opens the same card in a small panel, hides
+// while the footer card itself is on screen, and on touch phones hides while you scroll down so it never sits on a
+// card's "Get this bot".
+(function () {
+  try {
+    var card = document.getElementById("tip"), de = document.documentElement;
+    if (!card || !document.body) return;
+    var mobile = de.classList.contains("mobile");
+    function track(name, params) { try { if (window.gtag) window.gtag("event", name, params || {}); } catch (e) {} }
+    function copyText(t) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+      return new Promise(function (ok, no) {
+        var a = document.createElement("textarea"); a.value = t; a.setAttribute("readonly", ""); a.style.position = "fixed"; a.style.opacity = "0";
+        document.body.appendChild(a); a.select(); var r = false; try { r = document.execCommand("copy"); } catch (e) {} a.remove(); r ? ok() : no();
+      });
+    }
+    var HINT = "Tap an amount to copy it. You\u2019ll type this in X: the pay link can\u2019t fill in an amount.";
+    function wire(root, where) {
+      var hint = root.querySelector(".tc-hint");
+      root.querySelectorAll(".tc-go").forEach(function (a) {
+        if (mobile) a.removeAttribute("target");
+        a.addEventListener("click", function () { track("tip_click", { method: "x_money", placement: where }); });
+      });
+      root.querySelectorAll(".tc-amt").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var n = btn.getAttribute("data-amt");
+          root.querySelectorAll(".tc-amt").forEach(function (o) { o.setAttribute("aria-pressed", String(o === btn)); });
+          var say = function (msg) { if (hint) hint.textContent = msg; };
+          copyText(n).then(function () { say("Copied $" + n + ". You\u2019ll type this in X when it asks for the amount."); },
+            function () { say("$" + n + " it is. You\u2019ll type this in X when it asks for the amount."); });
+          track("tip_amount", { value: Number(n), currency: "USD", placement: where });
+        });
+      });
+      if (hint) hint.textContent = HINT;
+    }
+    wire(card, "footer");
+
+    var ICON = card.querySelector(".tc-cup");
+    var b = document.createElement("button");
+    b.type = "button"; b.className = "gbs-cup";
+    b.setAttribute("aria-label", "Buy us some Tokens (tip with X Money)");
+    b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-controls", "gbs-cup-pop");
+    b.innerHTML = (ICON ? ICON.outerHTML : "") + '<span class="lbl">Buy us some Tokens</span>';
+    var pop = document.createElement("div");
+    pop.className = "gbs-cup-pop"; pop.id = "gbs-cup-pop"; pop.hidden = true;
+    pop.setAttribute("role", "dialog"); pop.setAttribute("aria-label", "Buy us some Tokens");
+    var clone = card.cloneNode(true);
+    clone.removeAttribute("id"); clone.removeAttribute("aria-labelledby");
+    var h = clone.querySelector("h2"); if (h) { h.removeAttribute("id"); h.setAttribute("tabindex", "-1"); }
+    clone.querySelectorAll("img[loading]").forEach(function (i) { i.removeAttribute("loading"); });
+    pop.innerHTML = '<button type="button" class="gbs-cup-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
+    pop.appendChild(clone);
+    document.body.appendChild(pop); document.body.appendChild(b);
+    de.classList.add("has-cup");
+    wire(clone, "float");
+
+    var open = false;
+    function setOpen(v, focusBack) {
+      open = v; pop.hidden = !v; b.setAttribute("aria-expanded", String(v));
+      if (v) { track("tip_open", { placement: "float" }); var t = clone.querySelector("h2"); if (t) try { t.focus({ preventScroll: true }); } catch (e) { t.focus(); } sync(); }
+      else if (focusBack) b.focus();
+    }
+    b.addEventListener("click", function () { setOpen(!open, false); });
+    pop.querySelector(".gbs-cup-x").addEventListener("click", function () { setOpen(false, true); });
+    document.addEventListener("keydown", function (e) { if (open && e.key === "Escape") setOpen(false, true); });
+    document.addEventListener("pointerdown", function (e) { if (open && !pop.contains(e.target) && !b.contains(e.target)) setOpen(false, false); }, true);
+
+    // Visibility: away while the footer card is on screen; on touch phones also away while scrolling down
+    var cardSeen = false, coarse = window.matchMedia && window.matchMedia("(hover: none) and (pointer: coarse)");
+    var touch = mobile || (coarse && coarse.matches), lastY = window.pageYOffset || 0, downBy = 0, hiddenByScroll = false, raf = 0;
+    var narrow = window.matchMedia && window.matchMedia("(max-width:1199px)");
+    function place() {
+      // Phones: like .gbs-up, sit above whatever browser chrome covers the bottom of the layout viewport
+      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; return; }
+      var vv = window.visualViewport, lh = window.innerHeight || de.clientHeight || 0;
+      var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0, base = Math.max(68, hidden + 16);
+      b.style.bottom = "calc(" + base + "px + env(safe-area-inset-bottom))";
+      pop.style.bottom = "calc(" + (base + 56) + "px + env(safe-area-inset-bottom))";
+    }
+    function sync() {
+      raf = 0;
+      var y = window.pageYOffset || de.scrollTop || 0, d = y - lastY; lastY = y;
+      if (touch && !open) {
+        if (d > 6) { downBy += d; if (downBy > 24 && y > 120) hiddenByScroll = true; }
+        else if (d < -6) { downBy = 0; hiddenByScroll = false; }
+        if (y < 120) hiddenByScroll = false;
+      }
+      var away = !open && (cardSeen || hiddenByScroll);
+      b.classList.toggle("away", away);
+      b.tabIndex = away ? -1 : 0;
+      if (away) b.setAttribute("aria-hidden", "true"); else b.removeAttribute("aria-hidden");
+      place();
+    }
+    function queue() { if (!raf) raf = window.requestAnimationFrame ? window.requestAnimationFrame(sync) : setTimeout(sync, 16); }
+    if (window.IntersectionObserver) new IntersectionObserver(function (es) { cardSeen = es[0].isIntersecting && es[0].intersectionRatio > 0; queue(); }, { threshold: [0, 0.01] }).observe(card);
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
+    if (window.visualViewport) { window.visualViewport.addEventListener("resize", queue); window.visualViewport.addEventListener("scroll", queue); }
+    sync();
+  } catch (err) { if (window.console) console.error("shelf-up tip:", err); }
 })();
