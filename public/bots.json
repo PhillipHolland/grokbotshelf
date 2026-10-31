@@ -10651,5 +10651,83 @@
     "creator_avatar": "/avatars/jeebstx.webp",
     "source_post": "",
     "added": "2026-10-31"
+  },
+  {
+    "name": "AbleLatch",
+    "emoji": "♿",
+    "description": "A daily helper for people with disabilities and limited input. It uses number menus that work with eye-gaze, switch, voice, AAC, BCI and caregivers, in any language.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/M6gJAA-Hlh1u3rcwychpu",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2116613678242164928",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Tailscale Admin",
+    "emoji": "🔐",
+    "description": "Puts your bot's cloud box on your tailnet safely, then audits ACLs, manages devices, sets up Tailscale SSH and troubleshoots, confirming before every change.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/xoIfh7oH4feicifYOgRMg",
+    "creator_name": "Chevy Phillip",
+    "creator_handle": "@chevonphillip",
+    "creator_url": "https://x.com/chevonphillip",
+    "creator_avatar": "/avatars/chevonphillip.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Make My Kids Mind by Kevin",
+    "emoji": "🚀",
+    "description": "A playful mission-control voice parents play in front of their kids to nudge good behavior with countdowns, chore missions, points and praise. Theatrical, never scary.",
+    "category": "Home",
+    "url": "https://x.ai/bot/VO9Wi6mx4KNtnPz8Ma_Dy",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Cyber Coverage Checker by Kevin",
+    "emoji": "🛡️",
+    "description": "Reviews a company's cyber insurance policy and security questionnaire against public breach and ransomware benchmarks, then writes a plain-language gap report with questions for your broker.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/LMtfvwubXj9nqDm9cQXr2",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Commercial Coverage Checker by Kevin",
+    "emoji": "📋",
+    "description": "Reviews a company's commercial insurance documents across every line and returns a line-by-line gap report and a list of questions for the broker.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/29YDMR5aCwmgo8ltYXVhP",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Creator Analytics & Channel Optimizer",
+    "emoji": "📈",
+    "description": "Checks your X, YouTube Shorts and TikTok numbers every morning, explains what broke out and why, flags repliers worth following back, and tunes your YouTube playlists and keywords.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/D6JBYApstxlASM1rhotGG",
+    "creator_name": "beastnug",
+    "creator_handle": "@beastnug8",
+    "creator_url": "https://x.com/beastnug8",
+    "creator_avatar": "/avatars/beastnug8.webp",
+    "source_post": "https://x.com/beastnug8/status/2116605877063225490",
+    "added": "2026-10-31"
   }
 ]

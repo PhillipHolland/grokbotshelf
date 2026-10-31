@@ -6469,6 +6469,78 @@
       "date": "2026-10-31",
       "post_id": "2116576850470424852",
       "note": "promo post, both templates already on shelf"
+    },
+    "form-578": {
+      "author_handle": "@CaliLumberJack",
+      "template_url": "https://x.ai/bot/M6gJAA-Hlh1u3rcwychpu",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "2116613678242164928",
+      "note": "AbleLatch by Calix, site form #578; shelved under standing SFW rule"
+    },
+    "form-577": {
+      "author_handle": "@chevonphillip",
+      "template_url": "https://x.ai/bot/xoIfh7oH4feicifYOgRMg",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Tailscale Admin by Chevy, site form #577; shelved under standing SFW rule"
+    },
+    "form-576": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/VO9Wi6mx4KNtnPz8Ma_Dy",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Make My Kids Mind by Kevin, form #576; shelved under standing SFW rule"
+    },
+    "form-575": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/LMtfvwubXj9nqDm9cQXr2",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Cyber Coverage Checker by Kevin, form #575; shelved under standing SFW rule"
+    },
+    "form-574": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/29YDMR5aCwmgo8ltYXVhP",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Commercial Coverage Checker by Kevin, form #574; shelved under standing SFW rule"
+    },
+    "x-2116605877063225490": {
+      "author_handle": "@beastnug8",
+      "template_url": "https://x.ai/bot/D6JBYApstxlASM1rhotGG",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "2116605877063225490",
+      "note": "Creator Analytics & Channel Optimizer by beastnug, X reply tagging Phil+Nick; shelved under standing SFW rule"
+    },
+    "form-580": {
+      "author_handle": "",
+      "template_url": "https://x.ai/bot/O77giEZSfcdxq30tfFFM1",
+      "status": "pending",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Convert Bot by brflux, form #580; parked: no creator handle (X @brflux \"brflux (aka brett)\" likely match), asked Phil"
+    },
+    "form-579": {
+      "author_handle": "",
+      "template_url": "https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j",
+      "status": "pending",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Scam Check for X by brflux, form #579; parked: no creator handle (likely @brflux), asked Phil"
+    },
+    "x-2116605542047330473": {
+      "author_handle": "@CardCaptain",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-10-31",
+      "post_id": "2116605542047330473",
+      "note": "Asked to add Alexandria (librarian book bot) but post has no x.ai/bot template link; only alexandria.grok.me"
     }
   },
   "x-2114766675119886755": {
