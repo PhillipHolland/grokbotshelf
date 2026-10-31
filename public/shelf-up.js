@@ -157,7 +157,7 @@
     b.type = "button"; b.className = "gbs-cup";
     b.setAttribute("aria-label", "Buy us some Tokens (tip with X Money)");
     b.setAttribute("aria-expanded", "false"); b.setAttribute("aria-controls", "gbs-cup-pop");
-    b.innerHTML = (ICON ? ICON.outerHTML : "") + '<span class="lbl">Buy us some Tokens</span>';
+    b.innerHTML = (ICON ? ICON.outerHTML : "") + '<span class="lbl"><span class="lbl-l">Buy us some </span>Tokens</span>';
     var pop = document.createElement("div");
     pop.className = "gbs-cup-pop"; pop.id = "gbs-cup-pop"; pop.hidden = true;
     pop.setAttribute("role", "dialog"); pop.setAttribute("aria-label", "Buy us some Tokens");
