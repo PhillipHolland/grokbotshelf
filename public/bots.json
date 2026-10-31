@@ -10274,5 +10274,57 @@
     "creator_avatar": "/avatars/ZyMoProfit.webp",
     "source_post": "",
     "added": "2026-10-31"
+  },
+  {
+    "name": "Legal Counsel",
+    "emoji": "⚖️",
+    "description": "A research-and-drafting legal assistant for solo founders and small LLCs. Drafts contracts, vendor paperwork, privacy policies and terms, and tracks entity housekeeping and cross-border day counts. Never files, signs or sends without your yes.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/U82fEkqTsMfNaxRGn1VzG",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "creator_avatar": "/avatars/xenappblog.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "CTO",
+    "emoji": "🧑‍💻",
+    "description": "A hands-on engineer for site and server migrations, hosting, DNS and deploys. Reads before it changes, asks before anything irreversible, and confirms every fix with a live check.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/n0XcRjm9wtwl_UKU4azBE",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "creator_avatar": "/avatars/xenappblog.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Usage Guardian by Brandon",
+    "emoji": "🛡️",
+    "description": "Watches your Grok Bot usage every night, forecasts your run-out date, catches runaway loops and spikes, checks big jobs before you start them, and trims wasteful routines in a weekly recap. Read-only unless you say OK.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/pl01pkvfjzTws7ObUfPYe",
+    "creator_name": "Brandon Barton",
+    "creator_handle": "@BrandonBarton26",
+    "creator_url": "https://x.com/BrandonBarton26",
+    "creator_avatar": "/avatars/brandonbarton26.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Usage Monitor Bot by Serenejay",
+    "emoji": "🌱",
+    "description": "A usage and speed advisor for people who run several Grok Bots. Audits your bots, cuts wasted usage and build time without losing quality, and can act as your head of bots.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/JJTJQx-yp653nmJSI2Xgg",
+    "creator_name": "Serenejay",
+    "creator_handle": "@Serenejaysew",
+    "creator_url": "https://x.com/Serenejaysew",
+    "creator_avatar": "/avatars/serenejaysew.webp",
+    "source_post": "https://x.com/Serenejaysew/status/2116521024493633805",
+    "added": "2026-10-31"
   }
 ]

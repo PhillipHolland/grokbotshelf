@@ -5831,12 +5831,12 @@
       "note": "site form #497 (via Shelfer); standing auto-shelve rule (9 AM CDT run)"
     },
     "form-496": {
-      "author_handle": "",
+      "author_handle": "@Serenejaysew",
       "template_url": "https://x.ai/bot/JJTJQx-yp653nmJSI2Xgg",
-      "status": "parked",
+      "status": "approved",
       "date": "2026-10-30",
-      "post_id": "",
-      "note": "site form #496 Usage Monitor Bot by Serenejay; parked: no X creator handle"
+      "post_id": "2116521024493633805",
+      "note": "site form #496 Usage Monitor Bot by Serenejay; parked: no X creator handle; approved 2026-10-31: creator confirmed as @Serenejaysew via X reply 2116521024493633805 (sharer name Serenejay sew)"
     },
     "form-501": {
       "author_handle": "@kcmcdonald",
@@ -6213,6 +6213,38 @@
       "date": "2026-10-31",
       "post_id": "",
       "note": "Hacked Account Recovery Helper by Z23; approved_by Phillip Holland (\"Ok add the good ones\"); reviewed: defensive, official recovery steps only, never asks for passwords/codes, warns about recovery scams"
+    },
+    "form-549": {
+      "author_handle": "@xenappblog",
+      "template_url": "https://x.ai/bot/U82fEkqTsMfNaxRGn1VzG",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Legal Counsel by Trond; auto-shelved under Phillip's standing shelve-SFW rule"
+    },
+    "form-548": {
+      "author_handle": "@xenappblog",
+      "template_url": "https://x.ai/bot/n0XcRjm9wtwl_UKU4azBE",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "CTO by Trond; auto-shelved under Phillip's standing shelve-SFW rule"
+    },
+    "form-547": {
+      "author_handle": "@brandonbarton26",
+      "template_url": "https://x.ai/bot/pl01pkvfjzTws7ObUfPYe",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Usage Guardian by Brandon; auto-shelved under Phillip's standing shelve-SFW rule"
+    },
+    "x-2116521024493633805": {
+      "author_handle": "@Serenejaysew",
+      "template_url": "https://x.ai/bot/JJTJQx-yp653nmJSI2Xgg",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "2116521024493633805",
+      "note": "reply 'you forgot mine' for form #496"
     }
   },
   "x-2114766675119886755": {
