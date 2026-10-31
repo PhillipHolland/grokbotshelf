@@ -6429,6 +6429,30 @@
       "date": "2026-10-31",
       "post_id": "",
       "note": "Child Safety Coach by Phillip Holland; owner-requested add"
+    },
+    "form-572": {
+      "author_handle": "@marshallfrith",
+      "template_url": "https://x.ai/bot/MYLwEWHf7Wod4r_3Zm2U6",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "2116547268367298915",
+      "note": "Know Your Politician by Marshall; creator handle from his own X post; auto-shelved under Phillip's standing shelve-SFW rule"
+    },
+    "x-2116547268367298915": {
+      "author_handle": "@marshallfrith",
+      "template_url": "https://x.ai/bot/MYLwEWHf7Wod4r_3Zm2U6",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "2116547268367298915",
+      "note": "Know Your Politician by Marshall; creator handle from his own X post; auto-shelved under Phillip's standing shelve-SFW rule"
+    },
+    "x-2116560838232563997": {
+      "author_handle": "@CaliLumberJack",
+      "template_url": "https://x.ai/bot/mOunuXA9lKjg8sWImIzgy",
+      "status": "already_on_shelf",
+      "date": "2026-10-31",
+      "post_id": "2116560838232563997",
+      "note": "Fleet Lead promo post"
     }
   },
   "x-2114766675119886755": {
