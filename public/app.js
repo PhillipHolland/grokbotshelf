@@ -577,7 +577,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         const g = list.filter(([b]) => ckey(b) === c.key);
         if (!g.length) return null;
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
-        return { L: letterOf(c.label), k: c.key, f: () => groupEl(c, g, shown) };
+        return { L: letterOf(c.label), k: c.key, n: shown.length, f: () => groupEl(c, g, shown) };
       }).filter(Boolean);
       // Every grouped render is built on demand, not only the first: the groups up to the last one on screen now
       // (creator order never changes, so that is where the visitor is reading), at least FIRST_GROUPS, the rest
@@ -590,7 +590,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         for (const sec of railGroups) { if (!sec.isConnected) continue; const r = sec.getBoundingClientRect(); if (r.top >= innerHeight) break; last = Math.max(last, cIdx.get(sec.getAttribute("aria-labelledby").slice(2)) ?? -1); }
         keep = Math.max(keep, parts.filter((g) => cIdx.get(g.k) <= last).length);
       }
-      if (parts.length > keep + TAIL_GROUPS) tail = parts.splice(keep);
+      // a small result (a few dozen cards) is cheap to build whole, so it goes in at once like before
+      if (parts.length > keep + TAIL_GROUPS && parts.reduce((s, g) => s + g.n, 0) > FLAT_STEP) tail = parts.splice(keep);
       if (tail.length && top < innerHeight) results.style.minHeight = was + "px";
       place(results, strip.concat(parts.map((g) => g.f())));
       if (tail.length && top < innerHeight) {
