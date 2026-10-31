@@ -10729,5 +10729,18 @@
     "creator_avatar": "/avatars/beastnug8.webp",
     "source_post": "https://x.com/beastnug8/status/2116605877063225490",
     "added": "2026-10-31"
+  },
+  {
+    "name": "Charter Builder",
+    "emoji": "📜",
+    "description": "Walks you through the Six R's (role, responsibility, resources, routine, rules, result) to turn a rough bot idea into a charter document you and your bot work from.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/d9ZUeMEuY14IS4izBWtXX",
+    "creator_name": "Dave Gambrill",
+    "creator_handle": "@gambrill",
+    "creator_url": "https://x.com/gambrill",
+    "creator_avatar": "/avatars/gambrill.webp",
+    "source_post": "https://x.com/gambrill/status/2116623129908817947",
+    "added": "2026-10-31"
   }
 ]

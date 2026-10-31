@@ -6541,7 +6541,8 @@
       "date": "2026-10-31",
       "post_id": "2116605542047330473",
       "note": "Asked to add Alexandria (librarian book bot) but post has no x.ai/bot template link; only alexandria.grok.me"
-    }
+    },
+    "2116623129908817947": "approved"
   },
   "x-2114766675119886755": {
     "status": "denied",
@@ -6686,5 +6687,13 @@
     "date": "2026-10-30",
     "post_id": "2116245439158833258",
     "note": "asks @everestchris6 to shelve his iPhone shortcut; not a Grok Bot template"
+  },
+  "x-2116623129908817947": {
+    "author_handle": "@gambrill",
+    "template_url": "https://x.ai/bot/d9ZUeMEuY14IS4izBWtXX",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "2116623129908817947",
+    "note": "form #581 Charter Builder by Dave; standing auto-shelve SFW rule"
   }
 }
