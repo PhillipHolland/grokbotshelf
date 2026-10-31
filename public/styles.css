@@ -866,13 +866,15 @@ a.badge.coll:hover{background:var(--hover)}
 
 /* Tip card (scripts/tip.js) at the top of every footer, and the floating Tokens button + panel (public/shelf-up.js).
    X Money transfer look: one rounded card, two people, amount chips that only copy, one pill CTA.
-   z-index: the button 17 like the jump-to-top button (it stacks above it), the panel 18; both below the toast (50). */
+   z-index: the button 44 and the panel 45, above the sticky dock (20), rail, tooltips and cards; below the toast (50)
+   and the Shelfer sheet / skip link (60). Both are children of body, so no ancestor stacking context can trap them. */
 .tipcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;max-width:640px;margin:16px auto 20px;padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--hover),var(--bg));text-align:left}
 .site-foot .tipcard p{text-align:left;margin:0}
 .tipcard h2{margin:6px 0 14px;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
 .tc-eye{display:flex;align-items:center;gap:6px;font-size:13px!important;font-weight:700;color:var(--text)!important}
 .tc-eye .tc-via{font-weight:400;color:var(--text2)}
-.tc-cup{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tc-cup{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tc-cup .f{fill:currentColor;stroke-width:1}
 .tc-who{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .site-foot a.tc-p,.tc-p{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:4px 12px 4px 4px;border:1px solid var(--line);border-radius:9999px;background:var(--bg);color:var(--text);text-decoration:none}
 .site-foot a.tc-p:hover,.tc-p:hover{background:var(--hover);color:var(--text);text-decoration:none}
@@ -901,7 +903,7 @@ html.mobile .tipcard{grid-template-columns:1fr}
 
 /* Floating Tokens button: bottom-right; on phones it sits above the floating URL bar like .gbs-up (shelf-up.js
    places both, the jump-to-top button one step above this one) and hides while you scroll down */
-.gbs-cup{position:fixed;z-index:17;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:inline-flex;align-items:center;gap:6px;height:40px;margin:0;padding:0 14px 0 11px;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);font:700 14px/1 var(--font);cursor:pointer;transition:opacity .2s,transform .2s,visibility 0s,background .2s;-webkit-tap-highlight-color:transparent}
+.gbs-cup{position:fixed;z-index:44;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:inline-flex;align-items:center;gap:6px;height:40px;margin:0;padding:0 14px 0 11px;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);font:700 14px/1 var(--font);cursor:pointer;transition:opacity .2s,transform .2s,visibility 0s,background .2s;-webkit-tap-highlight-color:transparent}
 .gbs-cup:hover,.gbs-cup[aria-expanded="true"]{background:var(--hover)}
 .gbs-cup:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
 .gbs-cup .tc-cup{width:18px;height:18px}
@@ -917,7 +919,7 @@ html[data-theme="light"] .gbs-cup{box-shadow:0 2px 10px rgba(15,20,25,.08)}
   .gbs-cup .tc-cup{width:20px;height:20px}
   html.has-rail .gbs-cup{right:calc(max(0px,env(safe-area-inset-right)) + 44px)}
 }
-.gbs-cup-pop{position:fixed;z-index:18;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:calc(max(16px,calc(env(safe-area-inset-bottom) + 10px)) + 52px);width:min(460px,calc(100vw - 24px));max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line2);border-radius:20px;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.gbs-cup-pop{position:fixed;z-index:45;isolation:isolate;-webkit-transform:translateZ(0);transform:translateZ(0);right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:calc(max(16px,calc(env(safe-area-inset-bottom) + 10px)) + 52px);width:min(460px,calc(100vw - 24px));max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);overflow:auto;overscroll-behavior:contain;border:1px solid var(--line2);border-radius:20px;background:var(--bg);box-shadow:0 12px 40px rgba(0,0,0,.45)}
 html[data-theme="light"] .gbs-cup-pop{box-shadow:0 12px 40px rgba(15,20,25,.18)}
 .gbs-cup-pop[hidden]{display:none}
 .gbs-cup-pop .tipcard{margin:0;border:0;border-radius:0;background:none;padding:18px 18px 16px;gap:16px}

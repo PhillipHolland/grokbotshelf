@@ -6,8 +6,9 @@
 // The QR (desktop only) is public/tip-qr.svg, drawn by scripts/tip-qr.js; run that again if TIP_URL changes.
 const TIP_URL = "https://x.com/i/money/pay/Phil_Holland";
 const AMOUNTS = [3, 5, 10];
-// Token: two stacked coins (the shelf's "Buy us some Tokens" ask; X Money itself is USD)
-const CUP = `<svg class="tc-cup" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="9" cy="7" rx="6" ry="3"/><path d="M3 7v4c0 1.66 2.69 3 6 3s6-1.34 6-3V7"/><path d="M9 14v3c0 1.66 2.69 3 6 3s6-1.34 6-3v-4c0-1.66-2.69-3-6-3"/><path d="M9 17c0-1.66 2.69-3 6-3"/></svg>`;
+// Token: one coin with a four-point spark (the shelf's "Buy us some Tokens" ask; X Money itself is USD).
+// Drawn for 18-20px: 2px ring, filled spark, so it reads on dark and light.
+const CUP = `<svg class="tc-cup" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path class="f" d="M12 6.6c.5 2.6 1.6 3.9 4.4 5.4-2.8 1.5-3.9 2.8-4.4 5.4-.5-2.6-1.6-3.9-4.4-5.4 2.8-1.5 3.9-2.8 4.4-5.4z"/></svg>`;
 const XLOGO = `<svg class="tc-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
 // v: the build's versioned() (content-hash ?v= for local files)
 const tipCard = (v = (s) => s) => `<section class="tipcard" id="tip" aria-labelledby="tip-h">

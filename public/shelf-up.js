@@ -187,11 +187,17 @@
     var narrow = window.matchMedia && window.matchMedia("(max-width:1199px)");
     function place() {
       // Phones: like .gbs-up, sit above whatever browser chrome covers the bottom of the layout viewport
-      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; return; }
+      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; pop.style.maxHeight = ""; return; }
       var vv = window.visualViewport, lh = window.innerHeight || de.clientHeight || 0;
       var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0, base = Math.max(68, hidden + 16);
       b.style.bottom = "calc(" + base + "px + env(safe-area-inset-bottom))";
       pop.style.bottom = "calc(" + (base + 56) + "px + env(safe-area-inset-bottom))";
+      // Keep the panel's top below the sticky search dock (it scrolls inside instead of reaching under the header)
+      if (open) {
+        var dock = document.querySelector(".dock"), top = dock ? Math.max(0, dock.getBoundingClientRect().bottom) : 0;
+        var visBottom = vv ? vv.height + vv.offsetTop : lh, pb = pop.getBoundingClientRect().bottom || (visBottom - base - 56);
+        pop.style.maxHeight = Math.max(220, Math.round(pb - top - 12)) + "px";
+      }
     }
     function sync() {
       raf = 0;
