@@ -168,6 +168,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 @media (max-width:400px){.add-top .opt{display:none}}
 .gift-top{white-space:nowrap}
 @media (max-width:440px){.gift-top .opt{display:none}}
+@media (max-width:420px){.hero{column-gap:6px}.hero-actions{gap:5px}}
 @media (max-width:380px){.hero{column-gap:6px}.hero h1{font-size:24px;gap:8px}.hero .mark{width:31px;height:31px}.hero-actions{gap:4px}.hero-actions .btn{padding:0 9px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
