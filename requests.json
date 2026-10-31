@@ -6189,6 +6189,30 @@
       "date": "2026-10-30",
       "post_id": "",
       "note": "Art Project Planner by Rachel; approved_by Phillip Holland (standing auto-shelve SFW rule)"
+    },
+    "form-545": {
+      "author_handle": "@the_seth_ard",
+      "template_url": "https://x.ai/bot/655ab6yqLkZd3Yt1R139B",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "PrintSmith by The; approved_by Phillip Holland (\"Ok add the good ones\")"
+    },
+    "form-546": {
+      "author_handle": "@the_seth_ard",
+      "template_url": "https://x.ai/bot/WYvOYF_brlFK8Z7lae69m",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "BrickSmith by The; approved_by Phillip Holland (\"Ok add the good ones\")"
+    },
+    "form-544": {
+      "author_handle": "@ZyMoProfit",
+      "template_url": "https://x.ai/bot/vY_HkDN3chtxVhPY6p1SR",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Hacked Account Recovery Helper by Z23; approved_by Phillip Holland (\"Ok add the good ones\"); reviewed: defensive, official recovery steps only, never asks for passwords/codes, warns about recovery scams"
     }
   },
   "x-2114766675119886755": {

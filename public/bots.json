@@ -10235,5 +10235,44 @@
     "creator_avatar": "/avatars/rachelvt42.webp",
     "source_post": "",
     "added": "2026-10-30"
+  },
+  {
+    "name": "PrintSmith",
+    "emoji": "🖨️",
+    "description": "Designs original 3D-printable items from plain-language ideas in free, open-source OpenSCAD, checks printability, and delivers color previews, ready-to-slice STL/3MF files, print-time estimates, and editable source.",
+    "category": "Design",
+    "url": "https://x.ai/bot/655ab6yqLkZd3Yt1R139B",
+    "creator_name": "Salty FL Cracker",
+    "creator_handle": "@the_seth_ard",
+    "creator_url": "https://x.com/the_seth_ard",
+    "creator_avatar": "/avatars/the_seth_ard.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "BrickSmith",
+    "emoji": "🧱",
+    "description": "Snap a photo of your loose LEGO-style bricks spread out in one layer and get fun build ideas with kid-friendly step-by-step instructions. Not affiliated with the LEGO Group.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/WYvOYF_brlFK8Z7lae69m",
+    "creator_name": "Salty FL Cracker",
+    "creator_handle": "@the_seth_ard",
+    "creator_url": "https://x.com/the_seth_ard",
+    "creator_avatar": "/avatars/the_seth_ard.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Hacked Account Recovery Helper by Z23",
+    "emoji": "🛟",
+    "description": "Walks you through each app's official recovery steps for a hacked or locked account (X, Facebook, Instagram, Gmail, Apple, Microsoft, WhatsApp, TikTok and more), then locks it down and helps you spot recovery scams. Never asks for passwords or codes.",
+    "category": "Security",
+    "url": "https://x.ai/bot/vY_HkDN3chtxVhPY6p1SR",
+    "creator_name": "ZyMoProfit",
+    "creator_handle": "@ZyMoProfit",
+    "creator_url": "https://x.com/ZyMoProfit",
+    "creator_avatar": "/avatars/ZyMoProfit.webp",
+    "source_post": "",
+    "added": "2026-10-31"
   }
 ]
