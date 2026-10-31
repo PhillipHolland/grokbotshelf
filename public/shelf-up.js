@@ -116,8 +116,8 @@
 // the X app open it there); on phones it opens in the same tab so that hand-off happens, on desktop in a new tab.
 // The button sits bottom-right and opens the same card in a small panel (over a scrim on phones and tablets). It stays
 // put while you scroll (Oct 31: it used to hide on scroll down; Phil wants it always there) and only steps away while
-// the footer card itself is on screen, so the ask never shows twice. On phones with the A-Z rail it sits in the rail's
-// column at the bottom (the rail ends above it), which is right of every card's "Get this bot", so it never covers one.
+// the footer card itself is on screen, so the ask never shows twice. On phones with the A-Z rail it floats above the strip,
+// just under the dock (the strip starts below it), clear of every card's "Get this bot".
 (function () {
   try {
     var card = document.getElementById("tip"), de = document.documentElement;
@@ -193,14 +193,18 @@
     var phone = window.matchMedia && window.matchMedia("(max-width:640px)");
     function place() {
       // Phones: like .gbs-up, sit above whatever browser chrome covers the bottom of the layout viewport
-      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; pop.style.maxHeight = ""; de.style.removeProperty("--cup-clear"); return; }
+      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; pop.style.maxHeight = ""; b.style.top = ""; de.style.removeProperty("--cup-top"); return; }
       var vv = window.visualViewport, lh = window.innerHeight || de.clientHeight || 0;
       var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0, base = Math.max(68, hidden + 16);
       b.style.bottom = "calc(" + base + "px + env(safe-area-inset-bottom))";
       pop.style.bottom = "calc(" + (base + 56) + "px + env(safe-area-inset-bottom))";
-      // Phones with the rail: the rail stops 8px above the button (styles.css reads --cup-clear)
-      if (phone && phone.matches && de.classList.contains("has-rail")) de.style.setProperty("--cup-clear", (base + 48) + "px");
-      else de.style.removeProperty("--cup-clear");
+      // Phones with the rail: the button floats above the A-Z strip, 8px under the dock's live bottom, and the strip
+      // starts 8px under the button (app.js syncRail reads --cup-top), so the button never sits over a card's controls
+      if (phone && phone.matches && de.classList.contains("has-rail")) {
+        var dk = document.querySelector(".dock"), dt = dk ? Math.max(0, Math.round(dk.getBoundingClientRect().bottom)) : 0;
+        b.style.top = (dt + 8) + "px"; b.style.bottom = "auto";
+        if (de.style.getPropertyValue("--cup-top") !== "48px") { de.style.setProperty("--cup-top", "48px"); window.dispatchEvent(new Event("scroll")); }
+      } else { b.style.top = ""; de.style.removeProperty("--cup-top"); }
       // The panel is a sheet over a scrim: it may rise over the sticky dock (z 45 > 20) up to 12px under the top of the
       // visible screen, so the whole card, CTA included, fits on a 390px phone; only very short screens scroll inside
       if (open) {

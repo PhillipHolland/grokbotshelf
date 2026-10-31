@@ -955,7 +955,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   function syncRail() {
     if (rail.hidden) return;
     // At the top of the page the dock sits below the hero; start the rail under the dock's real bottom, not its stuck one
-    const dr = dock.getBoundingClientRect(), t = Math.round(Math.max(0, dr.bottom)) + 10;
+    const dr = dock.getBoundingClientRect(), t = Math.round(Math.max(0, dr.bottom)) + 10 + (parseFloat(document.documentElement.style.getPropertyValue("--cup-top")) || 0); // Tokens button above the strip (shelf-up.js)
     let cur = railLock;
     if (!cur) {
       const top = dr.height + 24; let lo = 0, hi = railGroups.length - 1, idx = -1;
