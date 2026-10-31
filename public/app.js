@@ -590,8 +590,10 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         for (const sec of railGroups) { if (!sec.isConnected) continue; const r = sec.getBoundingClientRect(); if (r.top >= innerHeight) break; last = Math.max(last, cIdx.get(sec.getAttribute("aria-labelledby").slice(2)) ?? -1); }
         keep = Math.max(keep, parts.filter((g) => cIdx.get(g.k) <= last).length);
       }
-      // a small result (a few dozen cards) is cheap to build whole, so it goes in at once like before
-      if (parts.length > keep + TAIL_GROUPS && parts.reduce((s, g) => s + g.n, 0) > FLAT_STEP) tail = parts.splice(keep);
+      // On a re-render, a small result (a few dozen cards) is cheap to build whole, so it goes in at once like before
+      // round 6; the first load (empty #results) always builds on demand, so its first paint stays small.
+      const small = results.firstElementChild && parts.reduce((s, g) => s + g.n, 0) <= FLAT_STEP;
+      if (parts.length > keep + TAIL_GROUPS && !small) tail = parts.splice(keep);
       if (tail.length && top < innerHeight) results.style.minHeight = was + "px";
       place(results, strip.concat(parts.map((g) => g.f())));
       if (tail.length && top < innerHeight) {
