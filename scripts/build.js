@@ -3,6 +3,8 @@
 // (vercel.json buildCommand) and can be run locally: node scripts/build.js
 const fs = require("fs"), path = require("path");
 const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
+const { pageCss, words: cssWords } = require("./page-css");
+const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
 const bots = read("bots.json", []);
@@ -151,7 +153,8 @@ const FOOTER = `<footer class="site-foot wrap">
   <p>Not affiliated with SpaceXSI.</p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>`;
-const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctype html>
+// css: true (bot and creator pages) leaves a marker that becomes the inlined critical CSS once every page is built (round 6 #5)
+const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css }) => `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -184,7 +187,7 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld }) => `<!doctyp
 <meta name="twitter:creator" content="${esc(creator)}">
 ${ldScript(ld)}
 <script>${PREFETCH_JS}</script>
-<link rel="stylesheet" href="${versioned("/styles.css")}">
+${css ? PAGE_CSS_MARK : `<link rel="stylesheet" href="${versioned("/styles.css")}">`}
 <script src="${versioned("/shelf-up.js")}" defer></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -265,7 +268,7 @@ function page(b, related, similar) {
   // credited the same way the cards credit it
   const shareText = `${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf`;
   const share = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
-  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld })}
+  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld, css: true })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
@@ -310,12 +313,13 @@ ${FOOTER}
 
 // Per-bot pages (clear out pages for bots that were removed or renamed)
 const BOTDIR = path.join(PUB, "bot");
+const pagesOut = []; // [file, html] for the bot and creator pages, written once the critical CSS is known
 fs.rmSync(BOTDIR, { recursive: true, force: true });
 for (const b of items) {
   const related = items.filter((r) => ckey(r) === ckey(b) && r !== b).slice(0, 8);
   const dir = path.join(BOTDIR, b.slug);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), page(b, related, similarTo(b)));
+  pagesOut.push([path.join(dir, "index.html"), page(b, related, similarTo(b))]);
 }
 
 // Creator pages: one per handle, at /@<handle in lowercase> (the canonical URL used in links, sitemap and canonical tags).
@@ -351,7 +355,7 @@ function creatorPage(c) {
       itemListElement: c.bots.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) },
     { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], [c.name, url]]) },
   ] };
-  return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld })}
+  return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld, css: true })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
@@ -376,9 +380,20 @@ for (const f of fs.readdirSync(PUB)) if (f.startsWith("@")) fs.rmSync(path.join(
 for (const c of creatorList) {
   fs.mkdirSync(path.join(PUB, c.page.slice(1)), { recursive: true });
   const html = creatorPage(c);
-  fs.writeFileSync(path.join(PUB, c.page.slice(1), "index.html"), html);
-  if (c.handle !== c.handle.toLowerCase()) fs.writeFileSync(path.join(PUB, "@" + c.handle + ".html"), html.replace("</head>",
-    `<script>try{history.replaceState(history.state,"",${JSON.stringify(c.page)}+location.search+location.hash)}catch(e){}</script>\n</head>`));
+  pagesOut.push([path.join(PUB, c.page.slice(1), "index.html"), html]);
+  if (c.handle !== c.handle.toLowerCase()) pagesOut.push([path.join(PUB, "@" + c.handle + ".html"), html.replace("</head>",
+    `<script>try{history.replaceState(history.state,"",${JSON.stringify(c.page)}+location.search+location.hash)}catch(e){}</script>\n</head>`)]);
+}
+// Bot and creator pages get styles.css minus the rules that can't match on them, inlined (scripts/page-css.js), so the
+// first paint needs no stylesheet request. Anything the pages' HTML or their scripts mention keeps its rules. The full
+// stylesheet is prefetched at idle so going on to the shelf finds it cached, as it did when these pages linked it.
+{
+  const have = new Set();
+  for (const [, html] of pagesOut) cssWords(html, have);
+  for (const f of ["bot-page.js", "shelf-up.js"]) cssWords(fs.readFileSync(path.join(PUB, f), "utf8"), have);
+  const css = pageCss(fs.readFileSync(path.join(PUB, "styles.css"), "utf8"), have);
+  const warm = `<script>addEventListener("load",function(){setTimeout(function(){var l=document.createElement("link");l.rel="prefetch";l.href=${JSON.stringify(versioned("/styles.css"))};document.head.appendChild(l)},1500)})</script>`;
+  for (const [f, html] of pagesOut) fs.writeFileSync(f, html.replace(PAGE_CSS_MARK, () => `<style>${css}</style>\n${warm}`));
 }
 
 // Homepage cards are drawn by app.js into #results, and the featured view only links a few bots per creator.
