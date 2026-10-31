@@ -114,9 +114,10 @@
 // Chips only copy a dollar amount: the X Money pay link opens a transfer to @Phil_Holland but cannot preset the amount,
 // so the visitor types it in X. The pay link is the https URL everywhere (a Universal Link / App Link, so phones with
 // the X app open it there); on phones it opens in the same tab so that hand-off happens, on desktop in a new tab.
-// The button sits bottom-right (above the jump-to-top button's slot), opens the same card in a small panel, hides
-// while the footer card itself is on screen, and on touch phones hides while you scroll down so it never sits on a
-// card's "Get this bot".
+// The button sits bottom-right and opens the same card in a small panel (over a scrim on phones and tablets). It stays
+// put while you scroll (Oct 31: it used to hide on scroll down; Phil wants it always there) and only steps away while
+// the footer card itself is on screen, so the ask never shows twice. On phones with the A-Z rail it sits in the rail's
+// column at the bottom (the rail ends above it), which is right of every card's "Get this bot", so it never covers one.
 (function () {
   try {
     var card = document.getElementById("tip"), de = document.documentElement;
@@ -166,48 +167,51 @@
     clone.querySelectorAll("img[loading]").forEach(function (i) { i.removeAttribute("loading"); });
     pop.innerHTML = '<button type="button" class="gbs-cup-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
     pop.appendChild(clone);
-    document.body.appendChild(pop); document.body.appendChild(b);
+    var scrim = document.createElement("div");
+    scrim.className = "gbs-cup-scrim"; scrim.hidden = true; scrim.setAttribute("aria-hidden", "true");
+    document.body.appendChild(scrim); document.body.appendChild(pop); document.body.appendChild(b);
     de.classList.add("has-cup");
     wire(clone, "float");
 
     var open = false;
     function setOpen(v, focusBack) {
-      open = v; pop.hidden = !v; b.setAttribute("aria-expanded", String(v));
+      open = v; pop.hidden = !v; scrim.hidden = !v; b.setAttribute("aria-expanded", String(v));
       if (v) { track("tip_open", { placement: "float" }); var t = clone.querySelector("h2"); if (t) try { t.focus({ preventScroll: true }); } catch (e) { t.focus(); } sync(); }
-      else if (focusBack) b.focus();
+      else { sync(); if (focusBack && !b.classList.contains("away")) b.focus(); }
     }
     b.addEventListener("click", function () { setOpen(!open, false); });
     pop.querySelector(".gbs-cup-x").addEventListener("click", function () { setOpen(false, true); });
     document.addEventListener("keydown", function (e) { if (open && e.key === "Escape") setOpen(false, true); });
-    document.addEventListener("pointerdown", function (e) { if (open && !pop.contains(e.target) && !b.contains(e.target)) setOpen(false, false); }, true);
+    // Outside tap: on phones it lands on the scrim (closes on click, so the tap never reaches a card behind it);
+    // on desktop, where there is no scrim, any pointerdown outside closes
+    scrim.addEventListener("click", function () { setOpen(false, false); });
+    document.addEventListener("pointerdown", function (e) { if (open && e.target !== scrim && !pop.contains(e.target) && !b.contains(e.target)) setOpen(false, false); }, true);
 
-    // Visibility: away while the footer card is on screen; on touch phones also away while scrolling down
-    var cardSeen = false, coarse = window.matchMedia && window.matchMedia("(hover: none) and (pointer: coarse)");
-    var touch = mobile || (coarse && coarse.matches), lastY = window.pageYOffset || 0, downBy = 0, hiddenByScroll = false, raf = 0;
+    // Visibility: always shown, except while the footer card is on screen (no hide on scroll)
+    var cardSeen = false, raf = 0;
     var narrow = window.matchMedia && window.matchMedia("(max-width:1199px)");
+    var phone = window.matchMedia && window.matchMedia("(max-width:640px)");
     function place() {
       // Phones: like .gbs-up, sit above whatever browser chrome covers the bottom of the layout viewport
-      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; pop.style.maxHeight = ""; return; }
+      if (!(narrow && narrow.matches)) { b.style.bottom = ""; pop.style.bottom = ""; pop.style.maxHeight = ""; de.style.removeProperty("--cup-clear"); return; }
       var vv = window.visualViewport, lh = window.innerHeight || de.clientHeight || 0;
       var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0, base = Math.max(68, hidden + 16);
       b.style.bottom = "calc(" + base + "px + env(safe-area-inset-bottom))";
       pop.style.bottom = "calc(" + (base + 56) + "px + env(safe-area-inset-bottom))";
-      // Keep the panel's top below the sticky search dock (it scrolls inside instead of reaching under the header)
+      // Phones with the rail: the rail stops 8px above the button (styles.css reads --cup-clear)
+      if (phone && phone.matches && de.classList.contains("has-rail")) de.style.setProperty("--cup-clear", (base + 48) + "px");
+      else de.style.removeProperty("--cup-clear");
+      // The panel is a sheet over a scrim: it may rise over the sticky dock (z 45 > 20) up to 12px under the top of the
+      // visible screen, so the whole card, CTA included, fits on a 390px phone; only very short screens scroll inside
       if (open) {
-        var dock = document.querySelector(".dock"), top = dock ? Math.max(0, dock.getBoundingClientRect().bottom) : 0;
-        var visBottom = vv ? vv.height + vv.offsetTop : lh, pb = pop.getBoundingClientRect().bottom || (visBottom - base - 56);
-        pop.style.maxHeight = Math.max(220, Math.round(pb - top - 12)) + "px";
+        var visTop = vv ? vv.offsetTop : 0, visBottom = vv ? vv.height + vv.offsetTop : lh;
+        var pb = pop.getBoundingClientRect().bottom || (visBottom - base - 56);
+        pop.style.maxHeight = "calc(" + Math.max(240, Math.round(pb - visTop - 12)) + "px - env(safe-area-inset-top))";
       }
     }
     function sync() {
       raf = 0;
-      var y = window.pageYOffset || de.scrollTop || 0, d = y - lastY; lastY = y;
-      if (touch && !open) {
-        if (d > 6) { downBy += d; if (downBy > 24 && y > 120) hiddenByScroll = true; }
-        else if (d < -6) { downBy = 0; hiddenByScroll = false; }
-        if (y < 120) hiddenByScroll = false;
-      }
-      var away = !open && (cardSeen || hiddenByScroll);
+      var away = !open && cardSeen;
       b.classList.toggle("away", away);
       b.tabIndex = away ? -1 : 0;
       if (away) b.setAttribute("aria-hidden", "true"); else b.removeAttribute("aria-hidden");
