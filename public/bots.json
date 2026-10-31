@@ -10638,5 +10638,18 @@
     "creator_avatar": "/avatars/marshallfrith.webp",
     "source_post": "https://x.com/marshallfrith/status/2116547268367298915",
     "added": "2026-10-31"
+  },
+  {
+    "name": "Gmail Assistant",
+    "emoji": "📬",
+    "description": "Keeps your Gmail under control: a daily summary of what matters, spam cleanup, security alerts, auto-labels, a monthly subscription audit, and reply drafts. Never sends email without your OK.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/R1VmETValKUAUmG7NlKJI",
+    "creator_name": "JeebsTX",
+    "creator_handle": "@JeebsTX",
+    "creator_url": "https://x.com/JeebsTX",
+    "creator_avatar": "/avatars/jeebstx.webp",
+    "source_post": "",
+    "added": "2026-10-31"
   }
 ]
