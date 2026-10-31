@@ -37,7 +37,7 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   await p.click('#q', { clickCount: 3 }); await p.type('#q', K); await settle(); await scrollAll(p);
   const all = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   ok(by(K).every((x) => all.includes(x.name)) && !(await p.$('[data-more]')), `search "${K}" shows all ${by(K).length} of their bots, no Show more`);
-  await p.keyboard.press('Escape');
+  await p.keyboard.press('Escape'); await scrollAll(p); // a re-render builds on demand too
   ok((await inGroup(K)).length === CAP && await btn(K), 'Esc goes back to the capped home view');
   // a filter shows every match too
   await p.select('#creators', K); await painted(p);

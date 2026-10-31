@@ -1,6 +1,7 @@
 // Re-rendering reuses card nodes: sort, filter, Show more and Reset move the same <article> elements instead of
 // rebuilding them, keep order and markup identical to a fresh load of the same URL, repaint vote state on cards
-// that were off the page, and paint the pressed control before the cards re-render.
+// that were off the page, and paint the pressed control before the cards re-render. Re-renders build on demand like the
+// first load, so each check reads down the page (scrollAll) first.
 // Usage: NODE_PATH=/path/to/node_modules node test/reuse.js [base-url]
 const puppeteer = require('puppeteer-core');
 const scrollAll = require('./scroll-all');
@@ -48,12 +49,12 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   await settle();
   ok(/new=1/.test(path(p)), 'new=1 is in the URL');
   await p.click('#fresh'); await settle();
-  let [s, n] = await same(p, '__home');
+  await scrollAll(p); let [s, n] = await same(p, '__home');
   ok(n === n0 && s === n, `toggling back reuses every card node (${s} of ${n})`);
 
   // Sort: newest (flat list) then back to featured
   await p.focus('#sort'); await p.select('#sort', 'newest'); await settle();
-  [s, n] = await same(p, '__home');
+  await scrollAll(p); [s, n] = await same(p, '__home');
   ok(n > 0 && s === n, `sort Newest reuses the cards already built (${s} of ${n})`);
   await sameAsFresh(p, 'sort Newest');
   ok(await p.evaluate(() => document.activeElement && document.activeElement.id === 'sort'), 'focus stays on the sort menu');
@@ -62,7 +63,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   const gid = fid.slice(2);
   await p.$eval(`#${gid} .vb.up`, (e) => e.click()); await settle();
   await p.select('#sort', 'featured'); await settle();
-  [s, n] = await same(p, '__home');
+  await scrollAll(p); [s, n] = await same(p, '__home');
   ok(n === n0 && s === n, `back to Featured: every card is the original node (${s} of ${n})`);
   ok(await p.$eval(`#${fid} .vb.up`, (e) => e.getAttribute('aria-pressed')) === 'true', `the off-page builders card ${fid} shows the vote cast while it was hidden`);
   await sameAsFresh(p, 'back to Featured after a vote');
@@ -71,14 +72,14 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   // Filter by category
   const cat = await p.$eval('#cats', (e) => e.options[1].value);
   await p.select('#cats', cat); await settle();
-  [s, n] = await same(p, '__home');
+  await scrollAll(p); [s, n] = await same(p, '__home');
   ok(s === n, `category filter reuses the cards already built (${s} of ${n})`);
   await sameAsFresh(p, `filter ${cat}`);
   ok(await p.$eval('#cats', (e) => e.value) === cat && (await p.$$eval('#cats option', (o) => o.length)) > 2, 'category menu keeps its options and shows the choice');
 
   // Reset puts back the original nodes
   await p.click('#reset'); await settle();
-  [s, n] = await same(p, '__home');
+  await scrollAll(p); [s, n] = await same(p, '__home');
   ok(n === n0 && s === n && path(p) === '/', `Reset: original ${n0} nodes, clean URL (${s} of ${n}, ${path(p)})`);
 
   // Show more: cards above stay put (same nodes), new ones append, focus goes to the first new card
@@ -86,7 +87,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   const key = await p.$eval('#results button.more', (e) => e.dataset.more);
   const k0 = await p.$$eval(`[aria-labelledby="g-${key}"] .card`, (c) => c.length);
   await p.click(`[data-more="${key}"]`); await settle();
-  [s, n] = await same(p, '__before');
+  await scrollAll(p); [s, n] = await same(p, '__before');
   const fx = await p.evaluate((key, k0) => { const cs = document.querySelectorAll(`[aria-labelledby="g-${key}"] .card`); return { n: cs.length, focus: document.activeElement === cs[k0] }; }, key, k0);
   ok(n === n0 && s === n, `Show more keeps every card that was on the page (${s} of ${n})`);
   ok(fx.n > k0 && fx.focus, `Show more adds ${fx.n - k0} cards to ${key} and focuses the first new one`);

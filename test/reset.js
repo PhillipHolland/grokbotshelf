@@ -56,6 +56,7 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   await p.keyboard.press('Enter'); await settle(500);
   ok(path() === '/', 'Reset cleans the URL (no ?q, ?sort, ?one_job or ?more): ' + path());
   ok(await p.$eval('#q', e => e.value) === '' && await p.$eval('#sort', e => e.value) === 'featured' && await p.$eval('#cats', e => e.value) === '' && await p.$eval('#creators', e => e.value) === '', 'search, sort and filters back to defaults');
+  await scrollAll(p); // a re-render builds on demand too
   ok((await p.$$(`[aria-labelledby="g-${K}"] .card`)).length === CAP && !!(await p.$(`[data-more="${K}"]`)), `groups collapsed again (${K} shows ${CAP} and Show more)`);
   ok(!(await shown()), 'Reset hides itself afterwards');
   ok(await p.evaluate(() => document.activeElement.id) === 'q', 'focus moves to the search box (desktop)');

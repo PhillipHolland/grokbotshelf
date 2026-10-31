@@ -44,7 +44,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   ok(named.length >= 2 && named.includes('Grokbot Mail') && JSON.stringify(n2.slice(0, named.length).sort()) === JSON.stringify(named.slice().sort()) && n2.length > named.length,
     `bots named "mail" (${named.length}) rank before description-only matches: ` + n2.slice(0, named.length + 1).join(', '));
   // Esc clears
-  await p.keyboard.press('Escape');
+  await p.keyboard.press('Escape'); await scrollAll(p); // a re-render builds on demand too
   ok(await n() === HOME && (await p.$eval('#q', e => e.value)) === '', 'Esc clears search');
   // keyboard nav: Down from search focuses first card, Right moves, Enter opens
   await p.focus('#q'); await p.keyboard.press('ArrowDown');
@@ -96,6 +96,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   await p.goto(BASE + '?q=zzzzqqq', { waitUntil: 'networkidle0' });
   ok(await p.$eval('#empty', e => !e.hidden), 'empty state shows');
   await p.click('#empty-clear'); await painted(p);
+  await scrollAll(p);
   ok(await n() === HOME && !p.url().includes('?') && await p.$eval('#count', e => e.textContent) === `${TOTAL} bots`, `clear filters restores the home view (${HOME} shown of ${TOTAL})`);
   // deep link
   await p.goto(BASE + '?creator=phil_holland#bot-vuln-scout', { waitUntil: 'networkidle0' });

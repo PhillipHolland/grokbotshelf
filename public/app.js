@@ -14,7 +14,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
   const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
-  let bots = [], creators = [], cats = [], colls = [], oneJobs = 0, apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
+  let bots = [], creators = [], cIdx = new Map(), cats = [], colls = [], oneJobs = 0, apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
@@ -424,7 +424,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // the old behavior stays (the rest follows in small tasks right away) so the browser can restore the scroll position.
   const FIRST_GROUPS = 3, TAIL_GROUPS = 4, FLAT_STEP = 48;
   // tail: pending { L, f } groups (f builds the section), or pending [bot, match] rows of a flat view (tailFlat)
-  let tail = [], tailFlat = false, tailGal = false, tailT = 0, chunkNext = false;
+  let tail = [], tailFlat = false, tailGal = false, tailT = 0;
   const navType = (performance.getEntriesByType && (performance.getEntriesByType("navigation")[0] || {}).type) || "navigate";
   const eager = navType === "reload" || navType === "back_forward" || !("IntersectionObserver" in window);
   const sentinel = document.createElement("div"); sentinel.className = "sentinel"; sentinel.setAttribute("aria-hidden", "true");
@@ -559,7 +559,6 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     cancelRender();
     const then = afterRender; afterRender = null;
     clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailGal = false; tailHold = false; if (io) io.unobserve(sentinel);
-    const chunk = chunkNext; chunkNext = false;
     const list = filtered(), searching = !!st.q.trim();
     const by = {
       featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
@@ -580,8 +579,25 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
         return { L: letterOf(c.label), k: c.key, f: () => groupEl(c, g, shown) };
       }).filter(Boolean);
-      if (chunk && parts.length > FIRST_GROUPS + TAIL_GROUPS) tail = parts.splice(FIRST_GROUPS);
+      // Every grouped render is built on demand, not only the first: the groups up to the last one on screen now
+      // (creator order never changes, so that is where the visitor is reading), at least FIRST_GROUPS, the rest
+      // on the sentinel like on load. The results keep their old height while this builds, so the scroll position
+      // is not clamped, and if the new groups are shorter the next ones go in before anything paints.
+      const was = results.offsetHeight, top = results.getBoundingClientRect().top;
+      let keep = FIRST_GROUPS;
+      if (top < innerHeight) {
+        let last = -1;
+        for (const sec of railGroups) { if (!sec.isConnected) continue; const r = sec.getBoundingClientRect(); if (r.top >= innerHeight) break; last = Math.max(last, cIdx.get(sec.getAttribute("aria-labelledby").slice(2)) ?? -1); }
+        keep = Math.max(keep, parts.filter((g) => cIdx.get(g.k) <= last).length);
+      }
+      if (parts.length > keep + TAIL_GROUPS) tail = parts.splice(keep);
+      if (tail.length && top < innerHeight) results.style.minHeight = was + "px";
       place(results, strip.concat(parts.map((g) => g.f())));
+      if (tail.length && top < innerHeight) {
+        const until = innerHeight - results.getBoundingClientRect().top; // the viewport's bottom, inside #results
+        while (tail.length && results.lastElementChild && results.lastElementChild.getBoundingClientRect().bottom - results.getBoundingClientRect().top < until) appendTail(TAIL_GROUPS);
+        results.style.minHeight = "";
+      }
     } else if (gal) {
       if (list.length) { galEl = galEl || nodes('<div class="gal"></div>')[0]; place(galEl, tileEls(list.slice(0, FLAT_STEP))); }
       if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; tailGal = true; }
@@ -837,8 +853,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     let el = toBot();
     // an old link's ?more=<this creator> is dropped from the address bar too (the hash opens the group by itself)
     if (st.more.includes(ckey(hb))) hashOpen.add(ckey(hb));
-    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; hashOpen.add(ckey(hb)); chunkNext = true; render(); el = toBot(); }
-    if (!el) { st = blank(); st.more = [ckey(hb)]; hashOpen.clear(); hashOpen.add(ckey(hb)); syncInputs(); chunkNext = true; render(); el = toBot(); }
+    if (!el && !st.more.includes(ckey(hb))) { st.more = [...st.more, ckey(hb)]; hashOpen.add(ckey(hb)); render(); el = toBot(); }
+    if (!el) { st = blank(); st.more = [ckey(hb)]; hashOpen.clear(); hashOpen.add(ckey(hb)); syncInputs(); render(); el = toBot(); }
     writeURL(false);
     if (!el) return;
     const grp = el.closest(".group"); if (grp) grp.classList.add("landing");
@@ -1012,6 +1028,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       const seen = new Map();
       for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
       creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
+      creators.forEach((c, i) => cIdx.set(c.key, i));
       bots.forEach((b) => { b._ci = creators.findIndex((c) => c.key === ckey(b)); });
       cats = [...new Set(bots.map((b) => b.category))].sort();
       colls = [...new Set(bots.flatMap((b) => b._colls))].sort(); // only collections that have bots
@@ -1025,7 +1042,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       st = readURL(); syncInputs();
       const show = () => {
         if (shelfReady) return;
-        shelfReady = true; chunkNext = true; render();
+        shelfReady = true; render();
         writeURL(false);
         if (location.hash) requestAnimationFrame(() => openHash());
       };
