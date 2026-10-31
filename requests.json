@@ -6137,10 +6137,10 @@
     "form-525": {
       "author_handle": "@ALL_Jonah",
       "template_url": "https://x.ai/bot/XHEHu4DaZsgSH5pA4J3S6",
-      "status": "pending",
+      "status": "parked",
       "date": "2026-10-30",
       "post_id": "",
-      "note": "Grok Slots by Jonah parked for Phil: chases @jason money/X Money giveaways with ready-to-paste replies and odds; slots/giveaway framing"
+      "note": "Grok Slots by Jonah parked for Phil: chases @jason money/X Money giveaways with ready-to-paste replies and odds; slots/giveaway framing; parked 2026-10-31 per Phillip: chases @jason money giveaways"
     },
     "form-538": {
       "author_handle": "@RachelVT42",
@@ -6245,6 +6245,190 @@
       "date": "2026-10-31",
       "post_id": "2116521024493633805",
       "note": "reply 'you forgot mine' for form #496"
+    },
+    "form-550": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/ObM7rCdoKS-Je82GXZG5O",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Exercise Coach by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-551": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/Bl3pKNqYYkpGb8aHfV83I",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Hearing & Vision Helper by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-552": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/cHcCRwhWJtafWaBqM8LvG",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Weather & Outage Alerts by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-553": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/ISpAgfIYQjvA-Q1owFLNA",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Social Calendar by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-554": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/Av7cGuY80XR0rODoKoXG6",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Video Call Connector by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-555": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/2xKarNTWFchNEZ0Qsn406",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Home Maintenance Reminder by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-556": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/6EAJSJbfdfMeARfLAO-uZ",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Appointment Prep by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-557": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/eGa_rUKcG3nO2MGFB015s",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Reading & Puzzles Buddy by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-558": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/Woo_3j1Y6PE_uJORO3L3e",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Grocery & Meal Helper by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-559": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/OK79Mt-HuOE_Sxy-5eHvZ",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Ride Finder by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-560": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/qUjHDl3AQt34e61LkhyNY",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Pet Care Helper by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-561": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/Z-ZqjlO4n0JINnKosIHRN",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Benefits Finder by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-562": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/54C4HYk8PqwHSZqbadqa3",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Tech Helper by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-563": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/X6TWyRNPQOO8D_TCPIsP3",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Estate & Documents Organizer by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-564": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/gCu8VPhVGNlv2oDz0mGpr",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Home Safety Audit by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-565": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/EYrjHgekWcI8GlLoGcRpR",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Downsizing & Move Planner by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-566": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/uR-SLtLyX6mBQvzbvEglK",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Memory Book by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-567": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/DyutFvbkwOFfDwKbkl4fw",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Bill & Paperwork Watch by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-568": {
+      "author_handle": "@RachelVT42",
+      "template_url": "https://x.ai/bot/ZrYfogVbQsk8A9EOFYlSL",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Game sprite designer by Rachel; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-569": {
+      "author_handle": "@RachelVT42",
+      "template_url": "https://x.ai/bot/EYgMB4G4YlGfCfDBegFH7",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Chief financial officer by Rachel; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-570": {
+      "author_handle": "@RachelVT42",
+      "template_url": "https://x.ai/bot/Om5RFwN2ZEyZwstx7dgGX",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Chief strategy officer by Rachel; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "form-571": {
+      "author_handle": "@kcmcdonald",
+      "template_url": "https://x.ai/bot/D1yDI6q1x24eC-gt4KDhH",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Daily Check-In by Kevin; auto-shelved under Phillip's standing shelve-SFW rule (elder-care / builder pack, reviewed SFW)"
+    },
+    "phil-csc-2026-10-31": {
+      "author_handle": "@Phil_Holland",
+      "template_url": "https://x.ai/bot/MCxw03O1xLB7lH7uX0W5u",
+      "status": "approved",
+      "date": "2026-10-31",
+      "post_id": "",
+      "note": "Child Safety Coach by Phillip Holland; owner-requested add"
     }
   },
   "x-2114766675119886755": {
