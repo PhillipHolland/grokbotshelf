@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-10-28</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-10-31</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://grokbotshelf.com/bot/archivist</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/ibot-player</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/security-audit-bot</loc><lastmod>2026-10-24</lastmod></url>
@@ -630,13 +630,202 @@
   <url><loc>https://grokbotshelf.com/bot/fantasy-recap</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/integrator-setup-and-sync</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/bit-warden</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-10-28</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@phil_holland</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/short-form-clip-and-cross-post-studio</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bobby-axelrod</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hazel-comms-and-community</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/options-101</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/canary</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/morning-paper-editor</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/your-voice-editor</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pass-or-fail-checker</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bills-and-renewals-watcher</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/future-proof</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/nations-championship-fantasy</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/god-bot</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/arxiv-publisher</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/paywall-buster</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/workflow-sketcher</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/sobriety-bot</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/personal-voicemail</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/linkedin-desk</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/lead-desk</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/security-agent</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/jordan-peterson-bot</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/dollar-drive</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/rosie-cards</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/media-center-engineer</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hermes-ssh-relay</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/persona-bot</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/chefanny</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/head-of-people-and-processes</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/section-architect</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/roll-steward</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/funeral-planning-companion</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bivocational-week-shield</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/why-we-do-it-ledger</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/weather-call</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/prayer-care-log</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/volunteer-roster-keeper</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/weekly-bulletin-builder</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/sermon-multiplier</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/guest-follow-up</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/senior-benefits-compass</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/buzztap</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/proofcheck-by-john</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/unreplied-comments</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/x-account-health</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/font-designer</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bookmark-filer-by-mana</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/commercebook-agentic-seller</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/physical-science-phil</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/chemistry-casey</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/biology-brenda</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/quantum-physics-quinn</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/earth-and-sky-eddie</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/mathlete-mo</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/history-hal</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/sam-shakespeare</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/make-my-bot</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/job-hunt-helper-by-mitch</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/spam-call-stopper-by-z23</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/buyer-intent-lead-finder-by-z23</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/local-presence-and-review-desk-by-z23</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/cyber-checkup-by-z23</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/box-truck-work-finder-by-z23</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/template-bot-by-john</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/clockwork</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/flip-desk</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/small-business-books</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/signal-check</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/popdent-by-popper</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/network-ned</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/grok-bot-factory</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/paperwork-pam</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/tinker-tom</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/diploma-dana</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/mindful-maya</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/coder-cole</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/lingo-leo</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/civics-clara</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/econ-eli</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/artsy-abby</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/gearhead-grace</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/career-coach-by-ben</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/technical-writer-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/systems-administrator-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/researcher-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/playtester-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pixel-artist-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/patch-notes-writer-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/metrics-analyst-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/generative-music-prompt-writer-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/game-economist-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/faq-keeper-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/digital-librarian-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/communications-manager-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/career-coach-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/build-reviewer-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/brag-sheet-keeper-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/authenticity-checker-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/assistant-to-the-regional-manager-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/accountability-manager-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/the-wife-saver-by-brandon</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/civic-and-utility-reporter-by-dave</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/peek-by-menno</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/ai-video-producer-by-tavi</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/macro-desk-by-santa</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/leapfrog</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/game-night-planner-by-rob</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/learner-by-bill</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/steer-by-bill</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/remynd-assistant-by-bill</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/espanso-assistant-by-bill</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/diagram-designer-by-bill</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/herald-by-ai-revolution</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hatch-bot-templates-by-miloni</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/fleet-medic-by-john</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/gala-trump-club-analytics-by-vinman</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/domain-and-branding-researcher-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pitch-deck-reviewer-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/prototype-spec-writer-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/water-ot-cyber-event-tracker-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/professor-g-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/contract-clause-explainer-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/weekly-digest-bot-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/research-brief-writer-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/meeting-notes-summarizer-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/micro-step-manager-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bot-upskiller-and-onboarder-by-zachary</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/commute-cast-by-santa</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pokewatch-by-santa</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/holiday-table-by-santa</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/public-entity-governance-desk-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/provider-network-finder-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/cost-navigator-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/medication-transition-bot-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/family-coordination-bot-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/care-ledger-by-kevin</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/gangster-claude-by-john</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/headhunter-by-jonah</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/post-pal</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/local-event-hunter-by-andrew</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/home-math</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/raid-squad-builder</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/504ward-by-jonah</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hospitality-hank</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pew-purpose-paul</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/listening-lisa</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/desk-diet-dave</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bench-boss-ben</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/gatekeeper-gus</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/paper-trail-pete</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/risen-ray</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/close-the-loop-dan</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/stewart-hours</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/leaselord-by-jonah</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/chief-of-staff-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/decluttering-coach-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/kids-activities-and-crafts-planner-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/kids-building-and-craft-coach-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/meal-planner-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/art-project-planner-by-rachel</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/printsmith</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bricksmith</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hacked-account-recovery-helper-by-z23</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/legal-counsel</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/cto</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/usage-guardian-by-brandon</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/usage-monitor-bot-by-serenejay</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/child-safety-coach</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/daily-check-in-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/chief-strategy-officer-by-rachel</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/chief-financial-officer-by-rachel</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/game-sprite-designer-by-rachel</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bill-and-paperwork-watch-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/memory-book-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/downsizing-and-move-planner-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/home-safety-audit-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/estate-and-documents-organizer-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/tech-helper-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/benefits-finder-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/pet-care-helper-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/ride-finder-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/grocery-and-meal-helper-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/reading-and-puzzles-buddy-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/appointment-prep-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/home-maintenance-reminder-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/video-call-connector-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/social-calendar-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/weather-and-outage-alerts-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/hearing-and-vision-helper-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/exercise-coach-by-kevin</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@phil_holland</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thecsguy</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@levi_w_eck</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jprz1321</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@greedfi</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@xenappblog</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@xenappblog</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://grokbotshelf.com/@kentbweber</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@kevin_logan</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@moritzkremb</loc><lastmod>2026-10-24</lastmod></url>
@@ -644,24 +833,24 @@
   <url><loc>https://grokbotshelf.com/@ashleyschendel</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@mag_minnesota</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@chefmcmakin</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@all_jonah</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@all_jonah</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@addisonhoover</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@drbellahqw</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@gambrill</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@gambrill</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@joshmeyer</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@bradshannon</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@domainmaster</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jayzetd</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@testafortedev</loc><lastmod>2026-10-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@testafortedev</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@marshomestead</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@createwithima</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@teerex247</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@perwendelboe</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@suddenlyjon</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@jennymarquis</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@suddenlyjon</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@jennymarquis</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jorgeasaurus</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thesoragirls</loc><lastmod>2026-10-24</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@manaengineer</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@manaengineer</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://grokbotshelf.com/@richphotoio</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@weeb3dev</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@razzzu1</loc><lastmod>2026-10-24</lastmod></url>
@@ -674,11 +863,11 @@
   <url><loc>https://grokbotshelf.com/@shimecki</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@agent_nick_</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@ryangrowthh</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@calilumberjack</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@calilumberjack</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@timsonner</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@howdyollie</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@lisamausa</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@jimaggie</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@jimaggie</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://grokbotshelf.com/@heavymetalship</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@dkmitc</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thebowlboy</loc><lastmod>2026-10-24</lastmod></url>
@@ -695,7 +884,7 @@
   <url><loc>https://grokbotshelf.com/@marshallfrith</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@lowtimeprefrenz</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@monomyth</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@oliverparsons</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@oliverparsons</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://grokbotshelf.com/@realmattabrams</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@upeshinmars</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@probpolemicist</loc><lastmod>2026-10-25</lastmod></url>
@@ -709,7 +898,7 @@
   <url><loc>https://grokbotshelf.com/@j3pup</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@glenlittle</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@turnup2ez</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@themarkgshow</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@themarkgshow</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@wjenson</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@arhianddad</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@elvenmaidinn</loc><lastmod>2026-10-25</lastmod></url>
@@ -718,8 +907,8 @@
   <url><loc>https://grokbotshelf.com/@scribearchai</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@w0rldwid3vib3s</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@zaardaar</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@bfrench</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@miloniadams</loc><lastmod>2026-10-25</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@bfrench</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@miloniadams</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@mglashouwer</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@twilightsurfers</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@ladysoleil33</loc><lastmod>2026-10-25</lastmod></url>
@@ -728,7 +917,7 @@
   <url><loc>https://grokbotshelf.com/@carolinadill</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jonnycakesouza</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@johnklacynski</loc><lastmod>2026-10-25</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@nahjuin</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@nahjuin</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://grokbotshelf.com/@wayneb</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@bolster_15</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@ilytzki</loc><lastmod>2026-10-26</lastmod></url>
@@ -739,7 +928,7 @@
   <url><loc>https://grokbotshelf.com/@deancockett</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@fringesignalx</loc><lastmod>2026-10-25</lastmod></url>
   <url><loc>https://grokbotshelf.com/@josephstayhappy</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@the_seth_ard</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@the_seth_ard</loc><lastmod>2026-10-31</lastmod></url>
   <url><loc>https://grokbotshelf.com/@itsryanlenk</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@cillfore</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@phillipggreen</loc><lastmod>2026-10-26</lastmod></url>
@@ -755,7 +944,7 @@
   <url><loc>https://grokbotshelf.com/@emilioschwaiger</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@moondough</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@prince_twets</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@jimothyrac</loc><lastmod>2026-10-26</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@jimothyrac</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@chaddsmith</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@hungoncode</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@stealthtsla</loc><lastmod>2026-10-26</lastmod></url>
@@ -764,14 +953,14 @@
   <url><loc>https://grokbotshelf.com/@weaverwork</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@cam_orzen</loc><lastmod>2026-10-26</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jayrok35</loc><lastmod>2026-10-26</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@beastnug8</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@beastnug8</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@db_devildog</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@joshdbirdwell</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@myguypye</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@_danielwilson</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@erinnfl</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@spudstateusa</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@darinrmcclure</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@darinrmcclure</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@adamta</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@corbenh414</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@crisships</loc><lastmod>2026-10-27</lastmod></url>
@@ -780,21 +969,45 @@
   <url><loc>https://grokbotshelf.com/@sherylkravitz</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jvonfsdinmd</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@ralphbibera</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@howiemcmahan</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@ashleighewrites</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@howiemcmahan</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@ashleighewrites</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@gooper</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@cattois2pure</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@iamtheh0n3yp0t</loc><lastmod>2026-10-27</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@iamtheh0n3yp0t</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@tnvolman</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@johnp_creates</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@needmoremanas</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@matthew_abbott_</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@btcjohnnyb</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@iamthejustin</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@dave04291978</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@creatorxnature</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@adamdesgns</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@realjohnnewburg</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@kaiviti_cam</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@angleofdoubt</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@teslafsd</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thelobsternest</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@solimancf</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@cdepino</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@mindragon</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@tylermiranda</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@clawcalldev</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@seo</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@papagatorz</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@mimundoconia</loc><lastmod>2026-10-28</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@chrisbrainarts</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@jasonmyer</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@worksmarter7</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@zymoprofit</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@beardboss20</loc><lastmod>2026-10-29</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@mrpresidentaria</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@brandonbarton26</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@dutchkonnect</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@tavivideo</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@vinman</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@kcmcdonald</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@andrew51786</loc><lastmod>2026-10-30</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@rachelvt42</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@serenejaysew</loc><lastmod>2026-10-31</lastmod></url>
 </urlset>

@@ -1,11 +1,11 @@
 # Grok Bot Shelf
 
-> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 629 bots right now. Not affiliated with SpaceXSI.
+> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 818 bots right now. Not affiliated with SpaceXSI.
 
 ## Data
 
 - [bots.json](https://grokbotshelf.com/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
-- [bot-meta.json](https://grokbotshelf.com/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names. Set by the shelf; missing means unknown.
+- [bot-meta.json](https://grokbotshelf.com/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](https://grokbotshelf.com/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](https://grokbotshelf.com/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
 - [sitemap.xml](https://grokbotshelf.com/sitemap.xml): every bot page and creator page.
