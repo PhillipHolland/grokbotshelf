@@ -883,7 +883,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   pop.className = "rail-pop"; pop.hidden = true; pop.setAttribute("aria-hidden", "true");
   document.body.append(pop);
   // railGroups: every visible group, in page order (read once per render, not on every scroll frame)
-  let railLetters = [], railLock = "", railTop = -1, railGroups = [], railOn = null;
+  let railLetters = [], railLock = "", railTop = null, railGroups = [], railOn = null;
   function renderRail(grouped) {
     const seen = [];
     railGroups = grouped ? [...results.querySelectorAll(".group")] : [];
@@ -891,17 +891,19 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     for (const L of Ls) if (!seen.includes(L)) seen.push(L);
     const show = seen.length > 1;
     document.documentElement.classList.toggle("has-rail", show);
-    if (seen.join() === railLetters.join() && rail.hidden === !show) { syncRail(); return; }
-    railLetters = seen; rail.hidden = !show; railLock = ""; railTop = -1; railOn = null;
+    // syncRail reads layout: run it in the next frame (before paint), not here, where it would force a layout of
+    // everything this render just built, which the rest of the render then dirties again
+    if (seen.join() === railLetters.join() && rail.hidden === !show) { railSoon(); return; }
+    railLetters = seen; rail.hidden = !show; railLock = ""; railTop = null; railOn = null;
     const all = (seen.includes("#") ? ["#"] : []).concat(ALPHA);
     rail.innerHTML = show ? all.map((L) => {
       const on = seen.includes(L), name = L === "#" ? "a number or symbol" : L;
       return on
-        ? `<button type="button" data-l="${L}" tabindex="-1" aria-label="Jump to creators starting with ${name}">${L}</button>`
-        : `<button type="button" data-l="${L}" class="off" tabindex="-1" aria-disabled="true" aria-label="No creators starting with ${name}">${L}</button>`;
+        ? `<button type="button" data-l="${L}" tabindex="-1" aria-label="Jump to creators starting with ${name}"><span>${L}</span></button>`
+        : `<button type="button" data-l="${L}" class="off" tabindex="-1" aria-disabled="true" aria-label="No creators starting with ${name}"><span>${L}</span></button>`;
     }).join("") : "";
     const first = rail.querySelector("button:not(.off)"); if (first) first.tabIndex = 0;
-    syncRail();
+    railSoon();
   }
   const liveBtns = () => [...rail.querySelectorAll("button:not(.off)")];
   // Jumps never force every card to render (that was a style recalc of every card plus a full-page layout per tap).
@@ -956,10 +958,28 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
       while (lo <= hi) { const mid = (lo + hi) >> 1; if (railGroups[mid].getBoundingClientRect().top <= top) { idx = mid; lo = mid + 1; } else hi = mid - 1; }
       cur = idx >= 0 ? railGroups[idx].querySelector("h2[data-letter]").dataset.letter : "";
     }
-    if (t !== railTop) { railTop = t; rail.style.top = t + "px"; }
+    placeRail(t);
     markRail(cur);
   }
-  window.addEventListener("scroll", () => { if (!railRaf) railRaf = requestAnimationFrame(() => { railRaf = 0; syncRail(); }); }, { passive: true });
+  // The rail's box never moves or resizes (CSS: just under the stuck dock, down to the bottom margin), so scrolling
+  // shifts no layout. When the dock sits lower (top of the page) the column is moved and squeezed with a transform to
+  // where flexbox would put it in the shorter space (buttons shrink to fit, centered); each letter is scaled back
+  // (--rs), so it reads the same. Offsets are layout values, which transforms don't change.
+  function placeRail(t) {
+    const n = rail.children.length; if (!n) return;
+    const cs = getComputedStyle(rail), bs = getComputedStyle(rail.children[0]), g = parseFloat(cs.rowGap) || 0, vh = document.documentElement.clientHeight;
+    const T0 = parseFloat(cs.top), H0 = vh - T0 - parseFloat(cs.bottom), mx = parseFloat(bs.maxHeight) || Infinity;
+    const hMax = parseFloat(bs.flexGrow) > 0 ? mx : Math.min(parseFloat(bs.flexBasis) || 0, mx);
+    const fit = (H) => { const h = Math.max(0, Math.min(hMax, (H - (n - 1) * g) / n)); return [h, Math.max(0, (H - n * h - (n - 1) * g) / 2)]; };
+    const [h0, o0] = fit(H0), [h1, o1] = fit(H0 - (t - T0));
+    const k = (h1 + g) / (h0 + g || 1), d = t + o1 - T0 - k * o0;
+    const tf = Math.abs(k - 1) < 1e-3 && Math.abs(d) < 0.5 ? "" : `translateY(${d.toFixed(1)}px) scaleY(${k.toFixed(4)})`;
+    if (tf === railTop) return;
+    railTop = tf; rail.style.transform = tf;
+    if (tf) rail.style.setProperty("--rs", k.toFixed(4)); else rail.style.removeProperty("--rs");
+  }
+  function railSoon() { if (!railRaf) railRaf = requestAnimationFrame(() => { railRaf = 0; syncRail(); }); }
+  window.addEventListener("scroll", railSoon, { passive: true });
   // Your own scrolling (wheel, touch, keys outside the rail) hands the highlight back to the in-view letter
   const unlock = (e) => { if (railLock && !rail.contains(e.target)) { railLock = ""; } };
   for (const ev of ["wheel", "touchstart", "keydown", "mousedown"]) window.addEventListener(ev, unlock, { passive: true, capture: true });

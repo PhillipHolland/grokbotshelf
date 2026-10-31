@@ -2,7 +2,7 @@
 // (test/serve.js on a free port) or against a base URL you pass. Prints a summary; exit code 1 if anything failed.
 // Needs puppeteer-core outside the repo, e.g.  NODE_PATH=/path/to/node_modules node test/run.js [base-url]
 const { spawn, spawnSync } = require("child_process"), net = require("net"), path = require("path");
-const SUITES = ["credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk"];
+const SUITES = ["credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk", "railcls"];
 const freePort = () => new Promise((r) => { const s = net.createServer().listen(0, () => { const p = s.address().port; s.close(() => r(p)); }); });
 (async () => {
   let base = process.argv[2], server;

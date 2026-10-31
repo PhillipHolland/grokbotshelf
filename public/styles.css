@@ -352,6 +352,8 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 /* A-Z rail: fixed to the right edge under the dock (app.js sets top to the dock's real bottom), jumps to the first
    creator group per letter. Letters shrink to fit short screens; touch scrubbing maps finger height to letters. */
 .rail{position:fixed;z-index:15;right:max(4px,env(safe-area-inset-right));top:calc(var(--dock-h,110px) + 10px);bottom:max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column;justify-content:center;width:26px;pointer-events:none}
+.rail{transform-origin:0 0} /* app.js placeRail: moved and squeezed with a transform, never by top, so scrolling shifts no layout */
+.rail button span{display:block;transform:scaleY(calc(1 / var(--rs,1)))}
 .rail[hidden]{display:none}
 .rail.hold{visibility:hidden} /* #bot- deep link: shown once the landing scroll has placed it (app.js openHash) */
 .rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;touch-action:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}

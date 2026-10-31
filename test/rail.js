@@ -36,7 +36,7 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
     ok(hit.rl >= hit.cr, `${label}: rail (x ${Math.round(hit.rl)}) does not cover card controls (right ${Math.round(hit.cr)})`);
     // At the top of the page the dock sits below the hero; no letter may hide behind it
     await p.evaluate(() => scrollTo(0, 0)); await settle(200);
-    const t = await p.evaluate(() => ({ a: document.getElementById('rail').getBoundingClientRect().top, d: document.getElementById('dock').getBoundingClientRect().bottom }));
+    const t = await p.evaluate(() => ({ a: document.querySelector('#rail button').getBoundingClientRect().top, d: document.getElementById('dock').getBoundingClientRect().bottom }));
     ok(t.a >= t.d, `${label}: at the top, the rail (y ${Math.round(t.a)}) starts below the dock (${Math.round(t.d)})`);
     // A far jump (top to the last letter) is quick and keeps that letter marked even though its group can't reach the top
     const Z = letters[letters.length - 1], t0 = Date.now();
