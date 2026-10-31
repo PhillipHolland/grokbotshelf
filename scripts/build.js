@@ -84,6 +84,8 @@ const rolesOf = (b) => roleWordsOf(b).filter((r) => ROLES.some(([x]) => x === r)
 // Gallery view: the hash of the bot's thumbnail (public/og/thumb/<slug>.webp, drawn by scripts/og.js from its share
 // card), used as ?v= for both the thumbnail and the card; absent when either is missing (the tile says "No share card yet")
 const ogThumb = (b) => { const s = slugify(b.name); return fs.existsSync(path.join(PUB, "og", "bot", s + ".png")) && fileHash(`/og/thumb/${s}.webp`) || undefined; };
+// ...and of its 720px copy (public/og/thumb720/<slug>.webp), which the tile's srcset offers to 2x and 3x screens
+const ogThumb2 = (b) => { const s = slugify(b.name); return ogThumb(b) && fs.existsSync(path.join(PUB, "og", "thumb720", s + ".webp")) && fileHash(`/og/thumb720/${s}.webp`) || undefined; };
 // One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
@@ -91,7 +93,7 @@ const ogThumb = (b) => { const s = slugify(b.name); return fs.existsSync(path.jo
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
   const shelfData = JSON.stringify({ bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
     collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
-    og: ogThumb(b),
+    og: ogThumb(b), og2: ogThumb2(b),
     creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) })) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);

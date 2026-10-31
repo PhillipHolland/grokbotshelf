@@ -1,5 +1,5 @@
 // Round 4 #7: List / Gallery view on the home page. The choice is kept in localStorage (gbs_view) only, never in the URL.
-// Gallery tiles are each bot's share card (a lazy 480x252 WebP drawn by scripts/og.js, the full card for 2x screens)
+// Gallery tiles are each bot's share card (a lazy 480x252 WebP drawn by scripts/og.js, a 720x378 one for 2x/3x screens)
 // with a fixed 1200:630 box, so images never shift the page; a bot without a card gets an emoji tile that says
 // "No share card yet". Usage: NODE_PATH=/path/to/node_modules node test/gallery.js [base-url]
 const fs = require('fs'), path = require('path');
@@ -111,6 +111,8 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
   const pub = path.join(__dirname, '..', 'public');
   const thumbs = fs.readdirSync(path.join(pub, 'og', 'thumb')), cards = new Set(fs.readdirSync(path.join(pub, 'og', 'bot')).map((f) => f.replace(/\.png$/, '')));
   ok(thumbs.length === data.bots.length && thumbs.every((t) => cards.has(t.replace(/\.webp$/, ''))), `${thumbs.length} thumbnails, each next to its share card`);
+  const t720 = fs.readdirSync(path.join(pub, 'og', 'thumb720'));
+  ok(t720.length === thumbs.length && t720.every((t) => thumbs.includes(t)) && data.bots.every((x) => x.og2), `${t720.length} 720px thumbnails, one per 480px thumbnail, each with an "og2" hash`);
   ok(!errs.length, `no page or console errors, no missing images (${errs.slice(0, 3).join(' | ')})`);
   await b.close();
 })();

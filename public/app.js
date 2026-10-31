@@ -536,8 +536,11 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // Each tile reserves its 1200:630 box (width/height on the img plus aspect-ratio), so lazy images never shift anything.
   const tileCache = new Map();
   function tile(b) {
+    // srcset: the 480px webp, plus the 720px one (b.og2) for 2x and 3x screens; sizes is the tile's real width
+    // (2 columns under 700px, 3 above, at most 354px), so a phone at 3x picks the 720 and a 1x laptop the 480.
     const s = b._page.slice(5), v = "?v=" + b.og;
-    const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="/og/thumb/${s}.webp${v} 480w, /og/bot/${s}.png${v} 1200w" sizes="(max-width:699px) 50vw, 360px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
+    const set = `/og/thumb/${s}.webp${v} 480w` + (b.og2 ? `, /og/thumb720/${s}.webp?v=${b.og2} 720w` : "");
+    const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="${set}" sizes="(max-width:699px) calc(50vw - 20px), (max-width:1119px) calc(33.3vw - 20px), 354px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
       : `<span class="gi none"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nocard">No share card yet</span></span>`;
     return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${esc(b.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
   }
