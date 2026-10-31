@@ -112,7 +112,7 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
   const thumbs = fs.readdirSync(path.join(pub, 'og', 'thumb')), cards = new Set(fs.readdirSync(path.join(pub, 'og', 'bot')).map((f) => f.replace(/\.png$/, '')));
   ok(thumbs.length === data.bots.length && thumbs.every((t) => cards.has(t.replace(/\.webp$/, ''))), `${thumbs.length} thumbnails, each next to its share card`);
   const t720 = fs.readdirSync(path.join(pub, 'og', 'thumb720'));
-  ok(t720.length === thumbs.length && t720.every((t) => thumbs.includes(t)) && data.bots.every((x) => x.og2), `${t720.length} 720px thumbnails, one per 480px thumbnail, each with an "og2" hash`);
+  ok(t720.length === thumbs.length && t720.every((t) => thumbs.includes(t)) && /^[0-9a-f]{10}$/.test(data.og2) && data.bots.every((x) => !x.no720 && !('og2' in x)), `${t720.length} 720px thumbnails, one per 480px thumbnail, one shared "og2" version (${data.og2})`);
   ok(!errs.length, `no page or console errors, no missing images (${errs.slice(0, 3).join(' | ')})`);
   await b.close();
 })();

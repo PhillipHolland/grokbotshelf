@@ -535,11 +535,12 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
   // Thumbnails are drawn by scripts/og.js (a manual step, not part of the Vercel build); b.og is their content hash.
   // Each tile reserves its 1200:630 box (width/height on the img plus aspect-ratio), so lazy images never shift anything.
   const tileCache = new Map();
+  let og2 = ""; // the shared version of the 720px thumbnails (top-level "og2" in shelf-data.json)
   function tile(b) {
-    // srcset: the 480px webp, plus the 720px one (b.og2) for 2x and 3x screens; sizes is the tile's real width
+    // srcset: the 480px webp, plus the 720px one (shared ?v= og2, unless b.no720) for 2x and 3x screens; sizes is the tile's real width
     // (2 columns under 700px, 3 above, at most 354px), so a phone at 3x picks the 720 and a 1x laptop the 480.
     const s = b._page.slice(5), v = "?v=" + b.og;
-    const set = `/og/thumb/${s}.webp${v} 480w` + (b.og2 ? `, /og/thumb720/${s}.webp?v=${b.og2} 720w` : "");
+    const set = `/og/thumb/${s}.webp${v} 480w` + (og2 && !b.no720 ? `, /og/thumb720/${s}.webp?v=${og2} 720w` : "");
     const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="${set}" sizes="(max-width:699px) calc(50vw - 20px), (max-width:1119px) calc(33.3vw - 20px), 354px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
       : `<span class="gi none"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nocard">No share card yet</span></span>`;
     return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${esc(b.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
@@ -1046,7 +1047,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     if (shelfReady) renderNext();
   });
   function loadShelf() {
-    fetch(dataURL).then((r) => r.json()).then(({ bots: data }) => {
+    fetch(dataURL).then((r) => r.json()).then(({ bots: data, og2: v720 }) => {
+      og2 = v720 || "";
       bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _role: (b.roles || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
       const seen = new Map();
       for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });

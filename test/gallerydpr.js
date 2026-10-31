@@ -31,13 +31,13 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
     const r = await gallery(BASE, w, 1);
     ok(Math.abs(r.tile - sizes(w)) <= 6, `${w}px: sizes says ${Math.round(sizes(w))}px, the tile is ${Math.round(r.tile)}px`);
   }
-  // No 720 for a bot: no og2, its srcset has the 480 alone
+  // No 720 for a bot: "no720", its srcset has the 480 alone
   const slug = JSON.parse(fs.readFileSync(require('path').join(__dirname, '..', 'public', 'shelf-data.json'), 'utf8')).bots[0].name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const site = await tempSite(({ pub }) => fs.rmSync(pub('og', 'thumb720', slug + '.webp')), { images: true });
   try {
     const sd = JSON.parse(fs.readFileSync(site.pub('shelf-data.json'), 'utf8'));
     const r = await gallery(site.base, 390, 3);
-    ok(!sd.bots[0].og2 && sd.bots[0].og && sd.bots[1].og2 && /^\/og\/thumb\/[a-z0-9-]+\.webp\?v=[0-9a-f]+ 480w$/.test(r.set) && r.src[0] === '/og/thumb', `no 720 for a bot: no "og2", srcset is the 480 alone (${r.set})`);
+    ok(sd.bots[0].no720 === true && sd.bots[0].og && !sd.bots[1].no720 && /^[0-9a-f]{10}$/.test(sd.og2) && !sd.bots.some((x) => 'og2' in x) && /^\/og\/thumb\/[a-z0-9-]+\.webp\?v=[0-9a-f]+ 480w$/.test(r.set) && r.src[0] === '/og/thumb', `no 720 for a bot: "no720", srcset is the 480 alone (${r.set})`);
   } finally { site.close(); }
   await b.close();
 })();
