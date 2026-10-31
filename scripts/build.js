@@ -386,13 +386,14 @@ for (const c of creatorList) {
 }
 // Bot and creator pages get styles.css minus the rules that can't match on them, inlined (scripts/page-css.js), so the
 // first paint needs no stylesheet request. Anything the pages' HTML or their scripts mention keeps its rules. The full
-// stylesheet is prefetched at idle so going on to the shelf finds it cached, as it did when these pages linked it.
+// stylesheet is prefetched at idle so going on to the shelf finds it cached, as it did when these pages linked it
+// (not with Save-Data on or on 2g, the same rule as the page prefetch).
 {
   const have = new Set();
   for (const [, html] of pagesOut) cssWords(html, have);
   for (const f of ["bot-page.js", "shelf-up.js"]) cssWords(fs.readFileSync(path.join(PUB, f), "utf8"), have);
   const css = pageCss(fs.readFileSync(path.join(PUB, "styles.css"), "utf8"), have);
-  const warm = `<script>addEventListener("load",function(){setTimeout(function(){var l=document.createElement("link");l.rel="prefetch";l.href=${JSON.stringify(versioned("/styles.css"))};document.head.appendChild(l)},1500)})</script>`;
+  const warm = `<script>addEventListener("load",function(){var c=navigator.connection;if(c&&(c.saveData||/2g$/.test(c.effectiveType||"")))return;setTimeout(function(){var l=document.createElement("link");l.rel="prefetch";l.href=${JSON.stringify(versioned("/styles.css"))};document.head.appendChild(l)},1500)})</script>`;
   for (const [f, html] of pagesOut) fs.writeFileSync(f, html.replace(PAGE_CSS_MARK, () => `<style>${css}</style>\n${warm}`));
 }
 
