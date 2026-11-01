@@ -225,3 +225,22 @@
     sync();
   } catch (err) { if (window.console) console.error("shelf-up tip:", err); }
 })();
+// Gift Grok Bot (header .gift-top): the shelf has two hosts, so the referral code alternates by calendar day,
+// Phil on even days and Nick (@thecsguy) on odd days (days since 1970-01-01 in the viewer's local time). Every page
+// shows the same code all day, and the static HTML (Phil's code) stays the no-JS fallback. Re-picked on click so
+// a tab left open past midnight still follows the rotation.
+(function () {
+  try {
+    var CODES = ["K9VPNSANC263", "XFD9MZ5RKTT6"]; // Phil, Nick
+    function url() {
+      var now = new Date(), day = Math.floor((now.getTime() - now.getTimezoneOffset() * 60000) / 864e5);
+      return "https://grok.com/refer/bot?code=" + CODES[((day % 2) + 2) % 2];
+    }
+    function set() { var as = document.querySelectorAll("a.gift-top"); for (var i = 0; i < as.length; i++) as[i].href = url(); }
+    set();
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest && e.target.closest("a.gift-top");
+      if (a) a.href = url();
+    }, true);
+  } catch (err) { if (window.console) console.error("shelf-up gift:", err); }
+})();
