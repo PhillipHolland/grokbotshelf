@@ -15,6 +15,23 @@
     });
   });
 })();
+// pair_click: Amazon "Pairs with" affiliate click. Separate from get_bot so a gear link is not a bot install.
+// No-op unless the production GA snippet defined gtag. position is 1-based.
+(function () {
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a.pair");
+    if (!a || typeof gtag !== "function") return;
+    var card = document.querySelector("article.bp-card");
+    var raw = card ? (card.getAttribute("data-slug") || "") : "";
+    var pos = Number(a.getAttribute("data-position"));
+    gtag("event", "pair_click", {
+      bot_slug: raw.replace(/^bot-/, ""),
+      product_id: a.getAttribute("data-product") || "",
+      position: pos > 0 ? pos : undefined,
+      transport_type: "beacon"
+    });
+  });
+})();
 (function () {
   var mobile = document.documentElement.classList.contains("mobile");
   document.addEventListener("click", function (e) {

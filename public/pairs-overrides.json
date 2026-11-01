@@ -1,0 +1,26 @@
+{
+  "note": "Wins over public/pairs.json. none hides every product for that slug (pins included). block drops those product ids. pin inserts those ids first, still capped at 3. defaults.category.Bot Tools is none unless that slug sets none to false (keep the curated rows) or lists pin. A new bot with no curated row and no override shows nothing. Edit pairs.json for a scored reason; do not match on category.",
+  "defaults": {
+    "category": {
+      "Bot Tools": "none"
+    }
+  },
+  "bots": {
+    "ops-bot": {
+      "none": true,
+      "reason": "Patches bot packages and connectors. A drill is not relevant."
+    },
+    "archivist": {
+      "none": true,
+      "reason": "Writes standing rules into other bots. No physical gear."
+    },
+    "twain": {
+      "block": ["shure-mv7", "blue-yeti", "at2020usb", "sony-xm5", "airpods"],
+      "reason": "Literary voice of Mark Twain, not a microphone."
+    },
+    "sushi-and-ramen": {
+      "block": ["instant-pot-duo"],
+      "reason": "Finds sushi and ramen nearby. Not a pressure cooker."
+    }
+  }
+}

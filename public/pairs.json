@@ -1,0 +1,1436 @@
+{
+ "version": 1,
+ "tag": "botshelf-20",
+ "generated": "2026-11-01T08:52:59-06:00",
+ "pairs": {
+  "archivist": [],
+  "ibot-player": [
+   {
+    "id": "airpods",
+    "score": 4,
+    "reason": "Wireless earbuds for your new iPod-style player."
+   }
+  ],
+  "security-audit-bot": [],
+  "christian-devotional-bot": [],
+  "terminal-boss": [],
+  "apple-inventory-and-deal-bot": [
+   {
+    "id": "mac-mini-m4",
+    "score": 5,
+    "reason": "Top Apple desk buy this bot hunts stock and price on."
+   },
+   {
+    "id": "airpods",
+    "score": 4,
+    "reason": "Common Apple pick when watching stock and best delivery."
+   },
+   {
+    "id": "airtag-4pack",
+    "score": 4,
+    "reason": "Popular Apple add-on to check stock and price for."
+   }
+  ],
+  "sushi-and-ramen": [],
+  "botbagger": [],
+  "site-coach": [],
+  "apple-desk": [
+   {
+    "id": "mac-mini-m4",
+    "score": 5,
+    "reason": "Always-on Mac to host Reminders, Calendar, Notes and Messages for your bot."
+   },
+   {
+    "id": "beelink-mac-dock",
+    "score": 4,
+    "reason": "One-cable dock for a Mac that doubles as the bot desk."
+   },
+   {
+    "id": "anker-565-hub",
+    "score": 4,
+    "reason": "Adds ports to a Mac mini or MacBook running the bot."
+   }
+  ],
+  "grokbot-mail": [],
+  "app-store-connect": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Affordable Xcode machine for the builds you push to TestFlight."
+   }
+  ],
+  "coach": [
+   {
+    "id": "garmin-265",
+    "score": 4,
+    "reason": "Training-readiness watch to feed workouts and recovery into coaching."
+   }
+  ],
+  "mail-in-x-chat": [],
+  "imessage-relay": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Always-on Mac keeps the relay forwarding iMessages around the clock."
+   }
+  ],
+  "reel": [],
+  "disk-doctor": [
+   {
+    "id": "samsung-t7",
+    "score": 5,
+    "reason": "Offload big files from a full Mac drive instead of deleting them."
+   }
+  ],
+  "claude-remote": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Always-on Mac for Claude Code to run tasks you text in."
+   }
+  ],
+  "package-pal": [],
+  "home-scout": [],
+  "afterglow": [],
+  "starlink-check": [],
+  "vuln-scout": [],
+  "last-call": [],
+  "burn-rate": [],
+  "centelligence-brain-bot": [],
+  "atlas": [],
+  "smart-shopper": [],
+  "mail": [],
+  "promo": [],
+  "design": [],
+  "house-memory": [],
+  "apple-mac-tools": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Dedicated Mac where these command-line tools run for your bots."
+   }
+  ],
+  "script-this-routine": [],
+  "junk-mail-stopper": [],
+  "bridge-bot": [],
+  "clip-and-credit": [],
+  "vcardbot": [],
+  "trend-scout-for-x": [],
+  "shopping-agent": [],
+  "local-ai-manager": [
+   {
+    "id": "beelink-ser9",
+    "score": 5,
+    "reason": "More cores and RAM for running larger local models."
+   },
+   {
+    "id": "beelink-mini-s12",
+    "score": 5,
+    "reason": "Quiet, cheap always-on box for a small local model."
+   },
+   {
+    "id": "samsung-990-pro-2tb",
+    "score": 4,
+    "reason": "Fast NVMe for model weights and quick loads."
+   }
+  ],
+  "librarian": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Print spine and loan labels for your cataloged books."
+   }
+  ],
+  "unmute-america": [],
+  "mixtape-maker": [
+   {
+    "id": "sony-xm5",
+    "score": 4,
+    "reason": "Good headphones for digging through new playlists."
+   }
+  ],
+  "wedding-os": [],
+  "doctor-visit-prep-for-women": [],
+  "visit-ready": [],
+  "health-concierge": [],
+  "nfl-gameday-insider": [],
+  "ghost": [],
+  "cso": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Phishing-proof MFA for the accounts it audits."
+   }
+  ],
+  "tacks": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan tax forms and receipts for line-by-line prep."
+   }
+  ],
+  "mom-journey": [],
+  "research": [],
+  "finance": [],
+  "net-watch": [
+   {
+    "id": "deco-x55",
+    "score": 5,
+    "reason": "Mesh Wi-Fi fix for the dead zones and weak spots it finds."
+   }
+  ],
+  "parks": [
+   {
+    "id": "hydroflask-32",
+    "score": 4,
+    "reason": "Keeps water cold on long park trail days."
+   }
+  ],
+  "brick-scout": [],
+  "meetup-bot": [],
+  "bouncer": [],
+  "x-hygiene": [],
+  "3d-maker": [],
+  "kindle-courier": [],
+  "digger": [],
+  "nba-daily-insider": [],
+  "kitchen": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Fast weeknight cooker for the meal plans it builds."
+   }
+  ],
+  "news-desk": [],
+  "usage-meter": [],
+  "game-dev-pro": [],
+  "sports-fan-desk": [],
+  "inbox-zero": [],
+  "deal-detective": [],
+  "creative-video-studio": [
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Portable SSD for phone footage and finished renders."
+   }
+  ],
+  "brand-design-bot": [],
+  "list-front-page": [],
+  "security": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 4,
+    "reason": "Hardware key to lock down GitHub, domain and Cloudflare logins."
+   }
+  ],
+  "duobot": [],
+  "motion-director": [],
+  "the-sponsor": [],
+  "likeness": [],
+  "dead-man-s-bot": [],
+  "code-red": [],
+  "4-panez": [],
+  "vibe-coder": [],
+  "token-accountant": [],
+  "box-inspector": [],
+  "tab-janitor": [],
+  "rosettabot": [],
+  "oweno": [],
+  "payday-pilot": [],
+  "rezbot": [],
+  "adventure-bot": [],
+  "guide": [],
+  "benebot": [],
+  "nourishment": [],
+  "argubot": [],
+  "rude-bot": [],
+  "scrub-gate": [],
+  "grandbot": [],
+  "fashion-stylist-bot": [],
+  "fit-finder": [],
+  "intune-architect": [],
+  "clipper": [],
+  "mailman": [],
+  "shot-by-rich": [],
+  "costume-lab": [],
+  "look-up": [],
+  "tavern": [],
+  "personal-chef": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Batch-cooks the weekly family dinners it plans."
+   }
+  ],
+  "what-s-for-dinner-tonight": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Turns what's in the kitchen into dinner fast."
+   }
+  ],
+  "veil-and-vane": [],
+  "rebrander": [],
+  "delegatron-9000": [],
+  "solo": [],
+  "claim-denied": [],
+  "obsidian": [],
+  "burn-bot": [],
+  "irs-bot": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan W-2s, 1099s and receipts for the return."
+   }
+  ],
+  "omnipresence": [
+   {
+    "id": "deco-x55",
+    "score": 4,
+    "reason": "Solid mesh network backbone for the devices it maps and automates."
+   }
+  ],
+  "house-manager": [],
+  "prime-day": [],
+  "the-interviewer": [],
+  "same-language": [],
+  "onboarder": [],
+  "senior-care-helper": [],
+  "backup": [],
+  "resume-and-cover-letter-helper": [],
+  "home-manager": [
+   {
+    "id": "dewalt-drill",
+    "score": 4,
+    "reason": "Everyday drill for jobs on the maintenance calendar."
+   }
+  ],
+  "car-shopper": [],
+  "deep-research": [],
+  "twain": [],
+  "dickinson": [],
+  "kafka": [],
+  "streamer-s-dream": [
+   {
+    "id": "logitech-c922x",
+    "score": 5,
+    "reason": "Streamer webcam for the OBS setup it builds."
+   },
+   {
+    "id": "stream-deck-mk2",
+    "score": 5,
+    "reason": "One-tap OBS scene switching and alerts."
+   },
+   {
+    "id": "key-light-air-mk2",
+    "score": 5,
+    "reason": "Soft on-camera light for a pro-looking stream."
+   }
+  ],
+  "pin-bot": [],
+  "cancer-caregiver-hub": [],
+  "local-concert-scout": [],
+  "tinkabot": [],
+  "the-list": [],
+  "grok-bot-polish": [],
+  "resume-optimizer": [],
+  "habit-referee": [],
+  "text-cleanup": [],
+  "weather-bot": [],
+  "shelf-scout": [],
+  "viral-content-radar": [],
+  "backseat-buddy": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Keeps the kids' tablet or phone charged on long rides."
+   }
+  ],
+  "shop-everywhere": [],
+  "deal-hunting": [],
+  "dr-eggbot": [],
+  "photofix": [],
+  "login-ledger": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 4,
+    "reason": "Passkey hardware for the important accounts it maps."
+   }
+  ],
+  "head-of-content": [],
+  "fleet-lead": [],
+  "xcavator": [],
+  "burn-watch": [],
+  "model-bridge": [],
+  "ftc-report-scam-call": [],
+  "save-usage-bot": [],
+  "backup-bot": [],
+  "brain-dump-bestie": [],
+  "snap-and-flip": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Print shipping labels once your flips sell."
+   }
+  ],
+  "vet-bill-and-pet-care-buddy": [],
+  "strong-and-graceful-fitness": [],
+  "daily-grace-and-prayer-closet": [],
+  "auto-and-rideshare-claimshield": [],
+  "home-and-renters-claimshield": [],
+  "small-biz-bop-shield": [],
+  "bot-portfolio-manager": [],
+  "organizer-ceo-bot": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan receipts it logs."
+   }
+  ],
+  "online-vehicle-search": [],
+  "computer-shop-bot": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Label printer for eBay part orders and shop inventory."
+   }
+  ],
+  "gun-collection-assistant": [],
+  "stock-ladder-bot": [],
+  "boating-assistant": [],
+  "online-seller-assistant": [
+   {
+    "id": "brother-ql800",
+    "score": 5,
+    "reason": "Fast thermal printer for the shipping labels it buys."
+   }
+  ],
+  "vacation-vicky": [
+   {
+    "id": "airtag-4pack",
+    "score": 4,
+    "reason": "Track checked bags on the trips it books."
+   },
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Laptop-capable power bank for travel days."
+   }
+  ],
+  "jenny-genealogy": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Fast photo scanner to digitize old family photos and records."
+   }
+  ],
+  "ai-character-studio": [],
+  "bot-terminator": [],
+  "handyman": [
+   {
+    "id": "dewalt-drill",
+    "score": 5,
+    "reason": "Core cordless drill for the repairs and chores it tracks."
+   }
+  ],
+  "school-meeting-prep": [],
+  "vote-bot": [],
+  "small-business-bookkeeper": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Duplex scanner to batch receipts into the books."
+   }
+  ],
+  "phone-call-bot": [],
+  "ops-bot": [],
+  "kid-sick-day-helper": [],
+  "menopause-coach": [],
+  "vault-tidy": [],
+  "sceneedit-video-studio": [
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Fast portable SSD for footage and renders."
+   }
+  ],
+  "bot-shelf-tracker": [],
+  "chief-of-staff": [],
+  "sprite-bot": [
+   {
+    "id": "wacom-intuos",
+    "score": 4,
+    "reason": "Pen tablet for sketching and touching up game sprites."
+   }
+  ],
+  "daily-verse": [],
+  "spanish-tutor": [],
+  "asana-task-master": [],
+  "boost": [],
+  "the-algorithm": [],
+  "chair": [],
+  "board-room-finance": [],
+  "skeptic": [],
+  "mission": [],
+  "operator": [],
+  "counsel": [],
+  "livestream-raffle-host": [
+   {
+    "id": "stream-deck-mk2",
+    "score": 4,
+    "reason": "Hotkeys for raffle draws and scenes during livestreams."
+   },
+   {
+    "id": "logitech-c920",
+    "score": 4,
+    "reason": "Reliable webcam for X livestreams."
+   }
+  ],
+  "blitz": [],
+  "micdrop": [
+   {
+    "id": "shure-mv7",
+    "score": 5,
+    "reason": "Broadcast-ready mic for sounding good on Spaces."
+   },
+   {
+    "id": "at2020usb",
+    "score": 4,
+    "reason": "Affordable USB condenser for clearer Space audio."
+   }
+  ],
+  "kilo": [],
+  "skywatcher-buzz": [],
+  "forecast-fred": [],
+  "max-news": [],
+  "goldie-gems": [],
+  "silver-dollar-duke": [],
+  "show-companion": [],
+  "engineering-lead": [],
+  "what-s-new": [],
+  "stills-and-clips-desk": [
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Portable SSD for the footage it pulls stills and clips from."
+   }
+  ],
+  "dial-bot": [],
+  "skippy": [],
+  "writing-bot": [],
+  "tech-demos": [],
+  "genie": [],
+  "novaterra-foods": [],
+  "vital": [],
+  "site-engineer": [],
+  "scriptopher-nolan": [],
+  "glow-picasso": [],
+  "sazon": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Handles stews, beans and rice for the home-cuisine meal plans."
+   }
+  ],
+  "psalm": [],
+  "template-safety-checker": [],
+  "changelens": [],
+  "atc-baby": [],
+  "screening-reminder": [],
+  "fine-print": [],
+  "home-and-garage": [],
+  "family-travel-and-pto-planner": [],
+  "personal-cybersecurity-coach": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Hardware key for the account lockdown sessions."
+   }
+  ],
+  "fitness-coach": [],
+  "is-this-health-claim-true": [],
+  "curriculum-researcher": [],
+  "teacher-agent": [],
+  "parent-math-helper": [],
+  "truffle": [],
+  "rosetta": [],
+  "handel": [],
+  "space-monkey": [],
+  "data-ink": [],
+  "yusician": [
+   {
+    "id": "mac-mini-m4",
+    "score": 5,
+    "reason": "Apple Silicon box to run yue2-mlx song generation locally."
+   },
+   {
+    "id": "sony-xm5",
+    "score": 4,
+    "reason": "Closed-back headphones to check the WAV output."
+   }
+  ],
+  "xo": [],
+  "money-brief": [],
+  "bill-buster": [],
+  "north-star": [],
+  "mend-and-move": [],
+  "hookline": [],
+  "launch-coach": [],
+  "launch-coach-apprentice": [],
+  "elders-quorum-companion": [],
+  "group-tour-trip-planner": [],
+  "spiritual-advisor": [],
+  "business-creation-bot": [],
+  "daily-news-in-5-minutes": [],
+  "breast-awareness-coach": [],
+  "vaccine-and-checkup-tracker": [],
+  "usage-bot": [],
+  "collaboration-bot": [],
+  "social-media-manager": [],
+  "bot-team-pack": [],
+  "omabot": [],
+  "pep": [],
+  "hubspot-helper": [],
+  "sift": [],
+  "grok-bot-video-studio": [],
+  "asymmetric-opportunity-radar": [],
+  "syllabot": [],
+  "claudia-chief-of-staff": [],
+  "agent-zero": [],
+  "included": [],
+  "quoted": [],
+  "claimed": [],
+  "car-deal-scout": [],
+  "receipt-keeper": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Batch-scan paper receipts into the log."
+   }
+  ],
+  "gate-coffee": [],
+  "second-opinion": [],
+  "star-interview-coach": [],
+  "test-date-coach": [],
+  "techy": [
+   {
+    "id": "deco-x55",
+    "score": 4,
+    "reason": "Mesh Wi-Fi upgrade for the Wi-Fi problems it troubleshoots."
+   }
+  ],
+  "missed-call-rescuer": [],
+  "invoice-chaser": [],
+  "buyer-radar": [],
+  "caregiving-coordinator": [],
+  "pet-care-pal": [],
+  "meal-planner": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Batch-cooks the weekly menus and leftovers plans."
+   }
+  ],
+  "home-maintenance-tracker": [
+   {
+    "id": "dewalt-drill",
+    "score": 4,
+    "reason": "Basic drill for the seasonal checklist and repairs."
+   }
+  ],
+  "quote-closer": [],
+  "read-and-decide": [],
+  "lane-carrier-finder": [],
+  "family-schedule-manager": [],
+  "review-reply-desk": [],
+  "brand-deal-bouncer": [],
+  "ghost-subscription-hunter": [],
+  "shipper-hunter": [],
+  "eddie-fantasy-football-gm": [],
+  "bones-casino-and-craps-strategy-tutor": [],
+  "kids-channel-ceo": [],
+  "kids-short-auditor": [],
+  "film-code": [],
+  "character-voice-desk": [
+   {
+    "id": "sony-xm5",
+    "score": 4,
+    "reason": "Accurate headphones to pick the A/B voice takes by ear."
+   }
+  ],
+  "homekeepbot": [],
+  "free-games-scout": [],
+  "sous-chef": [],
+  "second-opinion-council": [],
+  "fleet-doctor": [],
+  "threadroost": [],
+  "podcast-booker": [
+   {
+    "id": "shure-mv7",
+    "score": 4,
+    "reason": "Broadcast-ready mic for the guest interviews it books."
+   }
+  ],
+  "viral-content-engine": [],
+  "stream-night-producer": [
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Portable SSD for the stream VODs it cuts into posts."
+   }
+  ],
+  "create-and-defend-your-clinical-note": [],
+  "jamb-practice-coach": [],
+  "side-hustle-scout": [],
+  "review-brief": [],
+  "what-would-elon-do": [],
+  "body-lab": [],
+  "small-business-general": [],
+  "drivr": [],
+  "va-claims-coach": [],
+  "porch": [],
+  "crate": [
+   {
+    "id": "sony-xm5",
+    "score": 4,
+    "reason": "Good headphones for long discovery playlists."
+   }
+  ],
+  "renovation-planner": [
+   {
+    "id": "dewalt-drill",
+    "score": 4,
+    "reason": "Cordless drill for the DIY parts of a renovation."
+   }
+  ],
+  "midas-for-the-inbox": [],
+  "inbox-triage": [],
+  "roof-water-and-contractor-bid-auditor": [],
+  "mortgage-payoff-and-bonus-snowball-planner": [],
+  "mahjong-pickleball-and-book-club-hostess-hq": [],
+  "pod-and-printable-boutique-studio": [],
+  "agency-pilot": [],
+  "realtor-reply-desk": [],
+  "tasha-from-remake": [],
+  "small-bets-radar": [],
+  "scholarship-scout": [],
+  "super-wedding-planning-bot": [],
+  "mr-bot-goes-to-washington": [],
+  "kids-trump-account-roth-and-529-coach": [],
+  "domain-scout": [],
+  "grokmas-elf": [],
+  "meal-planner-tobi": [],
+  "foundersales": [],
+  "dealscout": [],
+  "cleantext": [],
+  "spanishreviewer": [],
+  "familybank": [],
+  "immigrationguide": [],
+  "kjvbible": [],
+  "tripconcierge": [],
+  "gmail": [],
+  "yahoomail": [],
+  "grokbotscout": [],
+  "gemini": [],
+  "igor": [],
+  "starmind-chief-of-staff": [],
+  "pyloros-skill-gate": [],
+  "athena-peer-critique": [],
+  "mercury-finance": [],
+  "netscape-research": [],
+  "hermes-scribe": [],
+  "prodigy-home-rig": [],
+  "janus-jobs": [],
+  "grok-field-desk": [],
+  "ceres-shopper": [],
+  "hercules-body-health": [
+   {
+    "id": "garmin-265",
+    "score": 4,
+    "reason": "Wearable data source for the weekly workouts it builds."
+   }
+  ],
+  "table-charts": [],
+  "platepal": [],
+  "show-up-ai": [],
+  "your-echo": [],
+  "chop-bot-v6": [],
+  "coach-sam": [],
+  "wise-old-bot": [],
+  "heat-safety-coach": [],
+  "study-abroad-scholarship-finder": [],
+  "first-ai-side-job": [],
+  "rivaldo-bot": [],
+  "podcast-clipper-for-x": [],
+  "contrarian": [],
+  "solo-pleb": [],
+  "dig": [],
+  "growth-coach": [],
+  "art-bot": [],
+  "bot-budget-guard": [],
+  "fantasy-sports": [],
+  "alphabot-raffle-bot": [],
+  "vibeyourtv": [],
+  "christmas-card-bot": [],
+  "x-growth-coach": [],
+  "t1d-helper": [],
+  "it-resume-roaster": [],
+  "household-herald": [],
+  "family-history": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Scan old family photos and documents for the tree."
+   }
+  ],
+  "parent-radar": [],
+  "tubewright": [],
+  "shed-sales-pipeline": [],
+  "design-by-lu": [],
+  "social-media-auditor": [],
+  "facewright": [],
+  "tammy-true-total-travel-and-points-scout": [],
+  "cora-cruise-planner-and-loyalty-perks-tracker": [],
+  "prompt-upgrader": [],
+  "scam-guard": [],
+  "fitness-coach-by-jenna": [],
+  "postwright": [],
+  "x-hit-pattern-scanner": [],
+  "sunday-open-brief": [],
+  "car-dealership-and-mechanic-quote-auditor": [],
+  "tesla-fsd-and-ev-true-cost-to-own-coach": [],
+  "creator-partnerships-and-brand-deal-hq": [],
+  "rivetroad-trip-planner": [],
+  "bid-desk": [],
+  "tender-watch": [],
+  "patch-alert": [],
+  "wainwright-manager": [],
+  "budgie": [],
+  "football-research-analyst": [],
+  "career-agent": [],
+  "first-officer": [],
+  "books": [],
+  "hackathon-hunter": [],
+  "tesla-inventory-finder": [],
+  "spark": [],
+  "workout-demo-builder": [],
+  "shelfer": [],
+  "bot-architect": [],
+  "study-tutor": [],
+  "home-helper": [],
+  "wellbeing": [],
+  "personal-trainer-by-sal": [],
+  "remove-me": [],
+  "travel": [],
+  "household": [],
+  "finance-by-outwork-ventures": [],
+  "transition-to-operations-manager": [],
+  "genealogy": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan family photos and records into the research."
+   }
+  ],
+  "iris": [],
+  "webops": [],
+  "agent-zero-by-outwork-ventures": [],
+  "product-idea-stress-test": [],
+  "reg": [],
+  "bottleneck-desk": [],
+  "usage-bot-by-outwork-ventures": [],
+  "app-security-tester": [],
+  "chandler": [],
+  "ladle": [
+   {
+    "id": "instant-pot-duo",
+    "score": 4,
+    "reason": "Cheap, fast dinners from pantry staples."
+   }
+  ],
+  "sommelier-bot": [],
+  "park-lookout": [
+   {
+    "id": "hydroflask-32",
+    "score": 4,
+    "reason": "Cold water for long days on park trails."
+   }
+  ],
+  "indeed-auto-apply": [],
+  "x-success-coach": [],
+  "pastor-pete": [],
+  "idea-ike": [],
+  "rookie-card-ray": [],
+  "comic-book-carl": [],
+  "lifehack-jack": [],
+  "green-thumb-granny": [],
+  "congressional-connection": [],
+  "ballot-box-bob": [],
+  "local-services-samantha": [],
+  "test-prep-tess": [],
+  "grease-monkey-wally": [],
+  "appliance-fix-annie": [
+   {
+    "id": "dewalt-drill",
+    "score": 4,
+    "reason": "Drill/driver for opening panels and swapping parts on DIY fixes."
+   }
+  ],
+  "utility-eugene": [],
+  "thrifty-theo": [],
+  "game-on-gary": [],
+  "realty-rita": [],
+  "research-ruby": [],
+  "sponsorship-hunter": [],
+  "cve-desk": [],
+  "radar": [],
+  "pixato": [],
+  "thrift-hunter": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Shipping labels for the flips you resell."
+   }
+  ],
+  "brobot": [],
+  "foreman": [],
+  "job-apply-bot": [],
+  "jimothy-s-free-finds": [],
+  "unbundled": [],
+  "been-there-next-stop": [],
+  "ai-usage-hub": [],
+  "garage": [],
+  "fed-decoder": [],
+  "groktext": [],
+  "heimdall": [],
+  "groksters-anonymous": [],
+  "box-solution-builder": [],
+  "salesforce-product-expert": [],
+  "quickbooks-product-expert": [],
+  "airtable-product-expert": [],
+  "dostoyevsky": [],
+  "austen": [],
+  "shakespeare": [],
+  "woolf": [],
+  "shelley": [],
+  "tolstoy": [],
+  "poe": [],
+  "grimy": [],
+  "karenbot": [],
+  "si": [],
+  "chief-health": [],
+  "gridlock": [],
+  "fixer": [
+   {
+    "id": "dewalt-drill",
+    "score": 4,
+    "reason": "Cordless drill for the sourced fixes on its upkeep calendar."
+   }
+  ],
+  "scout": [],
+  "planner": [],
+  "solo-co": [],
+  "exec-deck": [],
+  "perf-reporting": [],
+  "odd-desk": [],
+  "page-watcher": [],
+  "stuart": [],
+  "chief-of-staff-by-cameron": [],
+  "writing-bot-by-cameron": [],
+  "homie": [],
+  "trade-pro-office-manager": [],
+  "mural": [],
+  "truck-inventory": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Label bins and parts on the truck inventory."
+   }
+  ],
+  "x-link-triager": [],
+  "cfb-recruiting-and-portal-tracker": [],
+  "playbook": [],
+  "swarm": [],
+  "grok-bot-remix-producer": [],
+  "buy": [],
+  "tess-design-desk": [],
+  "product-cataloger": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Print SKU labels to match the catalog."
+   }
+  ],
+  "scrollstopper-social-media-manager": [],
+  "garden": [],
+  "bookmark-kitchen": [],
+  "kitchen-studio": [],
+  "creator-portfolio": [],
+  "dean-of-students": [],
+  "winning-ad-spy-and-boutique-creative-studio": [],
+  "home-warranty-and-appliance-claim-denial-fighter": [],
+  "home-inspection-report-and-closing-disclosure-auditor": [],
+  "hoa-fine-violation-and-condo-special-assessment-shield": [],
+  "college-financial-aid-fafsa-and-merit-appeal-coach": [],
+  "checkout-promo-code-and-creator-discount-hunter": [],
+  "deal-scout": [],
+  "law-desk": [],
+  "idea-lab-and-brainstorm-logger": [],
+  "counsel-by-mikeysmolecules": [],
+  "mike-research-chief": [],
+  "libby-tool-scout": [],
+  "story-director": [],
+  "anne-fair-witness": [],
+  "dora": [],
+  "war-dog-bot": [],
+  "seo-and-aeo-desk": [],
+  "backlink-generator-bot": [],
+  "pitch-board": [],
+  "any-crm": [],
+  "freelance-invoice-chaser": [],
+  "outbound-prospecting": [],
+  "account-research": [],
+  "x-growth-manager": [],
+  "links": [],
+  "medical-bill-checker": [],
+  "prepper": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "High-capacity bank to keep phones and a laptop going in an outage."
+   }
+  ],
+  "college-fit": [],
+  "powder-alert": [],
+  "sneaky-unfollowers-caught": [],
+  "package-tracker": [],
+  "recall-radar": [],
+  "pumpkin-spice-bot": [],
+  "cart-blanche": [],
+  "hrrrr-file-agent": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Batch-scan paper documents and receipts into searchable PDFs."
+   }
+  ],
+  "small-business-starter": [],
+  "launch-guide": [],
+  "money-coach": [],
+  "gov-contracting-starter": [],
+  "website-and-affiliate-builder": [],
+  "botduplicator": [],
+  "use-cases": [],
+  "x-growth-and-voice-learning-coach": [],
+  "chart-signals": [],
+  "merger-watch": [],
+  "salon-suite-medspa-and-solo-stylist-front-desk": [],
+  "contractor-supplement-and-missed-call-front-desk": [],
+  "nailed-it-hype-jar": [],
+  "x-follow-finder": [],
+  "family-disaster-prep": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Backup power for phones and laptops in the readiness kit."
+   }
+  ],
+  "usage-doctor": [],
+  "docs-keeper": [],
+  "outage-watch": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Keeps devices charged when the outage alert hits."
+   }
+  ],
+  "accessibility-check": [],
+  "address-mover": [],
+  "fsa-receipt-keeper": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan paper FSA/HSA receipts before the claim deadline."
+   }
+  ],
+  "birthday-bot": [],
+  "perp-pulse": [],
+  "threads": [],
+  "stream-producer": [
+   {
+    "id": "stream-deck-mk2",
+    "score": 4,
+    "reason": "One-tap go-live scenes and macros for your schedule."
+   }
+  ],
+  "ai-legal-prep-desk": [],
+  "critique": [],
+  "warranty-and-returns-keeper": [],
+  "exegesis": [],
+  "presents": [],
+  "claimcheck": [],
+  "realitycheck": [],
+  "bills-and-subscriptions-manager": [],
+  "spam-call-scrubber": [],
+  "clean-slate": [],
+  "zero-day-desk": [],
+  "tally-ai": [],
+  "great-books-reading-paths": [],
+  "harvard-classics-15-minutes-a-day": [],
+  "money-bot": [],
+  "mail-bot": [],
+  "slack-ready-fleet-ops": [],
+  "slack-ready-team-bot": [],
+  "project-pm": [],
+  "umbrella-pm": [],
+  "secondbrain": [],
+  "davebot": [],
+  "doc-mastro": [
+   {
+    "id": "sony-xm5",
+    "score": 4,
+    "reason": "Reliable headphones for checking mixes and masters."
+   }
+  ],
+  "mason-the-incorporator": [],
+  "pulse-gaming-laptop-tech": [
+   {
+    "id": "samsung-990-pro-2tb",
+    "score": 4,
+    "reason": "NVMe upgrade, a common fix for slow, full gaming laptops."
+   }
+  ],
+  "psycho-chief-mind-reader": [],
+  "verse-ai-songwriter": [],
+  "rank-seo-specialist": [],
+  "bookmark-librarian": [],
+  "apple-deal-price-slicer": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Popular Mac to price-hunt new, refurbished or open-box."
+   }
+  ],
+  "file-gst-india": [],
+  "act-before-noon": [],
+  "my-quant": [],
+  "avatar-ninja": [],
+  "fantasy-recap": [],
+  "integrator-setup-and-sync": [],
+  "bit-warden": [],
+  "short-form-clip-and-cross-post-studio": [
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Portable SSD for stream footage and exported shorts."
+   }
+  ],
+  "bobby-axelrod": [],
+  "hazel-comms-and-community": [],
+  "options-101": [],
+  "canary": [],
+  "morning-paper-editor": [],
+  "your-voice-editor": [],
+  "pass-or-fail-checker": [],
+  "bills-and-renewals-watcher": [],
+  "future-proof": [],
+  "nations-championship-fantasy": [],
+  "god-bot": [],
+  "arxiv-publisher": [],
+  "paywall-buster": [],
+  "workflow-sketcher": [],
+  "sobriety-bot": [],
+  "personal-voicemail": [],
+  "linkedin-desk": [],
+  "lead-desk": [],
+  "security-agent": [],
+  "jordan-peterson-bot": [],
+  "dollar-drive": [],
+  "rosie-cards": [],
+  "media-center-engineer": [
+   {
+    "id": "beelink-mini-s12",
+    "score": 5,
+    "reason": "Quiet, low-power mini PC to host the media server."
+   },
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Portable SSD for library backups."
+   }
+  ],
+  "hermes-ssh-relay": [
+   {
+    "id": "mac-mini-m4",
+    "score": 4,
+    "reason": "Always-on Mac for the Hermes agent and its scheduled jobs."
+   }
+  ],
+  "persona-bot": [],
+  "chefanny": [],
+  "head-of-people-and-processes": [],
+  "section-architect": [],
+  "roll-steward": [],
+  "funeral-planning-companion": [],
+  "bivocational-week-shield": [],
+  "why-we-do-it-ledger": [],
+  "weather-call": [],
+  "prayer-care-log": [],
+  "volunteer-roster-keeper": [],
+  "weekly-bulletin-builder": [],
+  "sermon-multiplier": [],
+  "guest-follow-up": [],
+  "senior-benefits-compass": [],
+  "buzztap": [],
+  "proofcheck-by-john": [],
+  "unreplied-comments": [],
+  "x-account-health": [],
+  "font-designer": [],
+  "bookmark-filer-by-mana": [],
+  "commercebook-agentic-seller": [],
+  "physical-science-phil": [],
+  "chemistry-casey": [],
+  "biology-brenda": [],
+  "quantum-physics-quinn": [],
+  "earth-and-sky-eddie": [],
+  "mathlete-mo": [],
+  "history-hal": [],
+  "sam-shakespeare": [],
+  "make-my-bot": [],
+  "job-hunt-helper-by-mitch": [],
+  "spam-call-stopper-by-z23": [],
+  "buyer-intent-lead-finder-by-z23": [],
+  "local-presence-and-review-desk-by-z23": [],
+  "cyber-checkup-by-z23": [],
+  "box-truck-work-finder-by-z23": [],
+  "template-bot-by-john": [],
+  "clockwork": [],
+  "flip-desk": [
+   {
+    "id": "brother-ql800",
+    "score": 4,
+    "reason": "Fast shipping labels once your collectibles sell."
+   }
+  ],
+  "small-business-books": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan receipts into the ledger and year-end tax packet."
+   }
+  ],
+  "signal-check": [],
+  "popdent-by-popper": [],
+  "network-ned": [
+   {
+    "id": "deco-x55",
+    "score": 5,
+    "reason": "Wi-Fi 6 mesh for the small-office and home-office plans it draws."
+   }
+  ],
+  "grok-bot-factory": [],
+  "paperwork-pam": [],
+  "tinker-tom": [],
+  "diploma-dana": [],
+  "mindful-maya": [],
+  "coder-cole": [],
+  "lingo-leo": [],
+  "civics-clara": [],
+  "econ-eli": [],
+  "artsy-abby": [],
+  "gearhead-grace": [],
+  "career-coach-by-ben": [],
+  "technical-writer-by-zachary": [],
+  "systems-administrator-by-zachary": [],
+  "researcher-by-zachary": [],
+  "playtester-by-zachary": [],
+  "pixel-artist-by-zachary": [],
+  "patch-notes-writer-by-zachary": [],
+  "metrics-analyst-by-zachary": [],
+  "generative-music-prompt-writer-by-zachary": [],
+  "game-economist-by-zachary": [],
+  "faq-keeper-by-zachary": [],
+  "digital-librarian-by-zachary": [],
+  "communications-manager-by-zachary": [],
+  "career-coach-by-zachary": [],
+  "build-reviewer-by-zachary": [],
+  "brag-sheet-keeper-by-zachary": [],
+  "authenticity-checker-by-zachary": [],
+  "assistant-to-the-regional-manager-by-zachary": [],
+  "accountability-manager-by-zachary": [],
+  "the-wife-saver-by-brandon": [],
+  "civic-and-utility-reporter-by-dave": [],
+  "peek-by-menno": [],
+  "ai-video-producer-by-tavi": [],
+  "macro-desk-by-santa": [],
+  "leapfrog": [],
+  "game-night-planner-by-rob": [],
+  "learner-by-bill": [],
+  "steer-by-bill": [],
+  "remynd-assistant-by-bill": [],
+  "espanso-assistant-by-bill": [],
+  "diagram-designer-by-bill": [],
+  "herald-by-ai-revolution": [],
+  "hatch-bot-templates-by-miloni": [],
+  "fleet-medic-by-john": [],
+  "gala-trump-club-analytics-by-vinman": [],
+  "domain-and-branding-researcher-by-kevin": [],
+  "pitch-deck-reviewer-by-kevin": [],
+  "prototype-spec-writer-by-kevin": [],
+  "water-ot-cyber-event-tracker-by-kevin": [],
+  "professor-g-by-kevin": [],
+  "contract-clause-explainer-by-kevin": [],
+  "weekly-digest-bot-by-kevin": [],
+  "research-brief-writer-by-kevin": [],
+  "meeting-notes-summarizer-by-kevin": [],
+  "micro-step-manager-by-zachary": [],
+  "bot-upskiller-and-onboarder-by-zachary": [],
+  "commute-cast-by-santa": [],
+  "pokewatch-by-santa": [],
+  "holiday-table-by-santa": [],
+  "public-entity-governance-desk-by-kevin": [],
+  "provider-network-finder-by-kevin": [],
+  "cost-navigator-by-kevin": [],
+  "medication-transition-bot-by-kevin": [],
+  "family-coordination-bot-by-kevin": [],
+  "care-ledger-by-kevin": [],
+  "gangster-claude-by-john": [],
+  "headhunter-by-jonah": [],
+  "post-pal": [],
+  "local-event-hunter-by-andrew": [],
+  "home-math": [],
+  "raid-squad-builder": [],
+  "504ward-by-jonah": [],
+  "hospitality-hank": [],
+  "pew-purpose-paul": [],
+  "listening-lisa": [],
+  "desk-diet-dave": [],
+  "bench-boss-ben": [],
+  "gatekeeper-gus": [],
+  "paper-trail-pete": [],
+  "risen-ray": [],
+  "close-the-loop-dan": [],
+  "stewart-hours": [],
+  "leaselord-by-jonah": [],
+  "chief-of-staff-by-rachel": [],
+  "decluttering-coach-by-rachel": [],
+  "kids-activities-and-crafts-planner-by-rachel": [],
+  "kids-building-and-craft-coach-by-rachel": [],
+  "meal-planner-by-rachel": [],
+  "art-project-planner-by-rachel": [],
+  "printsmith": [],
+  "bricksmith": [],
+  "hacked-account-recovery-helper-by-z23": [],
+  "legal-counsel": [],
+  "cto": [],
+  "usage-guardian-by-brandon": [],
+  "usage-monitor-bot-by-serenejay": [],
+  "child-safety-coach": [],
+  "daily-check-in-by-kevin": [],
+  "chief-strategy-officer-by-rachel": [],
+  "chief-financial-officer-by-rachel": [],
+  "game-sprite-designer-by-rachel": [
+   {
+    "id": "wacom-intuos",
+    "score": 4,
+    "reason": "Beginner-friendly pen tablet for drawing game sprites."
+   }
+  ],
+  "bill-and-paperwork-watch-by-kevin": [],
+  "memory-book-by-kevin": [],
+  "downsizing-and-move-planner-by-kevin": [],
+  "home-safety-audit-by-kevin": [],
+  "estate-and-documents-organizer-by-kevin": [
+   {
+    "id": "epson-ff680w",
+    "score": 4,
+    "reason": "Scan key family documents into one organized set."
+   }
+  ],
+  "tech-helper-by-kevin": [
+   {
+    "id": "deco-x55",
+    "score": 4,
+    "reason": "Mesh Wi-Fi fix when the trouble is weak signal around the house."
+   }
+  ],
+  "benefits-finder-by-kevin": [],
+  "pet-care-helper-by-kevin": [],
+  "ride-finder-by-kevin": [],
+  "grocery-and-meal-helper-by-kevin": [],
+  "reading-and-puzzles-buddy-by-kevin": [],
+  "appointment-prep-by-kevin": [],
+  "home-maintenance-reminder-by-kevin": [],
+  "video-call-connector-by-kevin": [
+   {
+    "id": "logitech-c920",
+    "score": 4,
+    "reason": "Simple plug-in webcam for family video calls on a computer."
+   }
+  ],
+  "social-calendar-by-kevin": [],
+  "weather-and-outage-alerts-by-kevin": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Keeps a phone and medical devices charged through an outage."
+   }
+  ],
+  "hearing-and-vision-helper-by-kevin": [],
+  "exercise-coach-by-kevin": [],
+  "know-your-politician-by-marshall": [],
+  "gmail-assistant": [],
+  "ablelatch": [],
+  "tailscale-admin": [],
+  "make-my-kids-mind-by-kevin": [],
+  "cyber-coverage-checker-by-kevin": [],
+  "commercial-coverage-checker-by-kevin": [],
+  "creator-analytics-and-channel-optimizer": [],
+  "charter-builder": [],
+  "blockato-blockbench": [],
+  "device-repair-expert": [],
+  "homeowners-policy-explainer-by-kevin": [],
+  "coi-checker-by-kevin": [],
+  "claim-filing-helper-by-kevin": [],
+  "teen-driver-coach-by-kevin": [],
+  "disaster-ready-kit-by-kevin": [
+   {
+    "id": "anker-737",
+    "score": 4,
+    "reason": "Power bank for the go-bag and outage plan."
+   },
+   {
+    "id": "samsung-t7",
+    "score": 4,
+    "reason": "Rugged SSD for the document backups in the plan."
+   }
+  ],
+  "chore-and-allowance-tracker-by-kevin": [],
+  "homework-helper-by-kevin": [],
+  "contract-insurance-clause-reviewer-by-kevin": [],
+  "renewal-prep-coach-by-kevin": [],
+  "crypto-securities-counsel-by-thecryptosteward": [],
+  "i-am-trying-to-be-like-jesus-by-tyler": [],
+  "spaces-phone-line-by-igor": [
+   {
+    "id": "shure-mv7",
+    "score": 4,
+    "reason": "Broadcast-quality mic for hosting the X Spaces you open to callers."
+   }
+  ],
+  "static-site-deployer-by-igor": [],
+  "movie-quote-inspiration-by-tyler": [],
+  "literature-inspiration-by-tyler": [],
+  "stock-research-by-tyler": [],
+  "crime-in-your-zip-code-by-marshall": [
+   {
+    "id": "unifi-g4-doorbell",
+    "score": 4,
+    "reason": "Local-first video doorbell if your ZIP's numbers worry you."
+   }
+  ],
+  "black-friday-real-deal-checker": [],
+  "refund-and-delivery-chaser": [],
+  "scam-second-opinion": []
+ }
+}

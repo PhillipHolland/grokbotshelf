@@ -27,7 +27,8 @@ const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepare
 // away (calls queue, the page_view config included); gtag.js itself is fetched after the load event, when the
 // main thread is idle, so its ~180 KB of script does not compete with the first render on phones.
 // get_bot (public/app.js and public/bot-page.js) is the conversion for "Get this bot" / "Add to Bot app".
-// Mark it as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
+// pair_click (public/bot-page.js) fires on a "Pairs with" Amazon link with bot_slug, product_id, and position.
+// Mark get_bot as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
 const GA_ID = /^G-[A-Z0-9]{4,20}$/.test(process.env.GA_MEASUREMENT_ID || "") ? process.env.GA_MEASUREMENT_ID : "";
 const GSC = /^[\w-]{10,100}$/.test(process.env.GSC_VERIFICATION || "") ? process.env.GSC_VERIFICATION : "";
 const GA_JS = GA_ID ? `<script>
@@ -305,14 +306,15 @@ function sameJob(b) {
   }).join("");
   return `\n  <section class="bp-more"><h2>Bots for the same job</h2><ul>${items}</ul></section>`;
 }
-// Quiet Amazon row under the bot card. Empty when nothing in products.json matches.
+// Quiet Amazon row under the bot card. Curated pairs.json plus overrides. Empty when nothing qualifies.
+// Disclosure sits in this section only, not again in the footer.
 function pairsSection(b) {
   const hits = pairsFor(b, products);
   if (!hits.length) return "";
   const rel = products.ux.rel;
-  const rows = hits.map(({ product: p }) => {
+  const rows = hits.map(({ product: p }, i) => {
     const href = productUrl(p, products.tag);
-    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
+    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
   }).join("");
   return `\n  <section class="bp-pairs" aria-labelledby="pairs-h"><div class="pairs-head"><h2 id="pairs-h">${esc(products.ux.label)}</h2><span class="badge pair">Amazon</span></div><ul class="pairs">${rows}</ul><p class="fine">${esc(products.disclosure)}</p></section>`;
 }
@@ -365,7 +367,7 @@ ${HEADER}
     <p class="fine">On a dark background, use <code>${BADGE.dark}</code> instead.</p>
   </section>
 </main>
-${footer(pairsFor(b, products).length ? products.disclosure : "")}
+${footer()}
 <script src="/bot-page.js" defer></script>
 </body>
 </html>
@@ -668,7 +670,9 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 ## Data
 
 - [bots.json](${SITE}/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
-- [products.json](${SITE}/products.json): Amazon gear shown as "Pairs with" on matching bot pages only. Each product has an ASIN and match rules (bot_names, keywords, categories). Links use tag botshelf-20. At most 3 per page, name match before keyword before category.
+- [products.json](${SITE}/products.json): Amazon gear catalog. Links use tag botshelf-20. Match rules are specific phrases only; category does not attach a product.
+- [pairs.json](${SITE}/pairs.json): curated "Pairs with" rows, bot slug to 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3 per bot page. Not on the homepage, creator pages, or collections.
+- [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, or none per slug. Overrides win. Bot Tools defaults to none.
 - [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
