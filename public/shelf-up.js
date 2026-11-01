@@ -18,7 +18,7 @@
     var de = document.documentElement;
     var b = document.createElement("button");
     b.type = "button"; b.className = "gbs-up"; b.setAttribute("aria-label", "Jump to top");
-    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5"/><path d="m6 11 6-6 6 6"/></svg>';
+    b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>';
     b.tabIndex = -1; b.setAttribute("aria-hidden", "true");
     (document.body || de).appendChild(b);
     var on = false, raf = 0, mq = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -165,7 +165,7 @@
     clone.removeAttribute("id"); clone.removeAttribute("aria-labelledby");
     var h = clone.querySelector("h2"); if (h) { h.removeAttribute("id"); h.setAttribute("tabindex", "-1"); }
     clone.querySelectorAll("img[loading]").forEach(function (i) { i.removeAttribute("loading"); });
-    pop.innerHTML = '<button type="button" class="gbs-cup-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>';
+    pop.innerHTML = '<button type="button" class="gbs-cup-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>';
     pop.appendChild(clone);
     var scrim = document.createElement("div");
     scrim.className = "gbs-cup-scrim"; scrim.hidden = true; scrim.setAttribute("aria-hidden", "true");

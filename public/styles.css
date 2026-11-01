@@ -53,12 +53,12 @@ html[data-theme="light"] .theme-btn .sun{display:block}
 html[data-theme="light"] .theme-btn .moon{display:none}
 
 /* Sticky header with search, the only translucent surface */
-.dock{position:sticky;top:0;z-index:20;padding:max(8px,env(safe-area-inset-top)) 0 8px;background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.dock{background:var(--bg)}}
+.dock{--dock:var(--head);position:sticky;top:0;z-index:20;padding:max(8px,env(safe-area-inset-top)) 0 8px;background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.dock{--dock:var(--bg);background:var(--bg)}}
 .capsule{display:flex;align-items:center;height:44px;border-radius:9999px;background:var(--field);border:1px solid transparent;padding:0 4px 0 16px;transition:border-color .15s,background .15s}
 .capsule:focus-within{background:var(--bg);border-color:var(--blue)}
 .capsule:focus-within .i-search{stroke:var(--blue)}
-.i-search{width:18px;height:18px;flex:none;fill:none;stroke:var(--text2);stroke-width:2.2;stroke-linecap:round}
+.i-search{width:18px;height:18px;flex:none;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 #q{flex:1;min-width:0;height:100%;border:0;background:none;color:var(--text);font:inherit;font-size:15px;padding:0 12px;outline:none}
 #q::placeholder{color:var(--text2)}
 #q::-webkit-search-cancel-button{-webkit-appearance:none}
@@ -68,7 +68,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 #sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:700 14px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
 #sort:hover{background:var(--hover)}
 #sort option{background:#fff;color:#111}
-.sortwrap svg{position:absolute;right:10px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.sortwrap svg{position:absolute;right:10px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 
 /* Filters: creator + category dropdowns in the dock */
 .filterbar{display:flex;gap:8px;margin-top:8px}
@@ -78,7 +78,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .selwrap select:focus-visible{outline:none;border-color:var(--blue);background:var(--bg)}
 .selwrap select.on{border-color:var(--line2)}
 .selwrap select option,.selwrap select optgroup{background:#fff;color:#111;font-weight:400} /* Android native pickers ignore dark option colors; keep options dark-on-white */
-.selwrap svg{position:absolute;right:12px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.selwrap svg{position:absolute;right:12px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 @media (min-width:700px){.selwrap{flex:0 1 260px}}
 .status{display:flex;align-items:center;gap:12px;min-height:36px;margin:8px 0 4px}
 .count{margin:0;font-size:13px;color:var(--text2);font-variant-numeric:tabular-nums}
@@ -126,13 +126,15 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .tools{display:flex;gap:2px;margin-left:-8px}
 .ib{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9999px;border:0;background:none;color:var(--text2);cursor:pointer;text-decoration:none;transition:background .15s,color .15s}
 .ib:hover{background:var(--mark);color:var(--blue)}
-.ib svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ib svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ib svg.fill{fill:currentColor;stroke:none;width:15px;height:15px}
 .get,.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 16px;border:0;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font:700 14px var(--font);text-decoration:none;cursor:pointer;transition:background .15s}
 .get:hover,.btn:hover{background:var(--pill-h)}
 
 /* Empty, add, toast */
-.empty{text-align:center;padding:48px 16px;margin:16px 0 36px;border:1px solid var(--line);border-radius:16px}
+.empty{text-align:center;padding:36px 16px 28px;margin:8px 0 36px;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+.empty-i{display:flex;justify-content:center;margin:0 0 12px;color:var(--text2)}
+.empty-i .li{width:22px;height:22px}
 .empty-t{margin:0 0 4px;font-size:20px;font-weight:800;letter-spacing:-.02em}
 .empty-s{margin:0 0 16px;color:var(--text2)}
 /* Hold the results area open until the first render so #add starts below the fold (no layout shift) */
@@ -237,7 +239,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .gets{display:flex;align-items:center;gap:4px;margin-left:auto}
 .card .app{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9999px;color:var(--text2);text-decoration:none;transition:background .15s,color .15s}
 .card .app:hover{background:var(--mark);color:var(--blue)}
-.card .app svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.card .app svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .card .app .t{display:none}
 html.mobile .card .gets{width:100%;margin-left:0}
 html.mobile .card .app{flex:1;display:inline-flex;justify-content:center;gap:6px;width:auto;background:var(--btn-blue);color:#fff;font:700 14px var(--font)}
@@ -257,7 +259,7 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 
 /* Extra filters */
 .filterbar{align-items:center}
-.chip{flex:none;height:36px;padding:0 14px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:700 14px var(--font);cursor:pointer;white-space:nowrap}
+.chip{flex:none;height:36px;padding:0 14px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:700 14px var(--font);cursor:pointer;white-space:nowrap}
 .chip:hover{background:var(--hover)}
 .chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
 @media (max-width:699px){.filterbar{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-16px;margin-right:-16px;padding:0 16px}.filterbar::-webkit-scrollbar{display:none}.selwrap{flex:0 0 auto;min-width:140px;max-width:180px}
@@ -266,8 +268,8 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .fb-more{display:none}
 @media (max-width:699px){
   .dock .wrap{position:relative}
-  .fb-more{display:grid;place-items:center end;position:absolute;right:0;bottom:0;width:64px;height:44px;padding:0 10px 0 0;border:0;background:linear-gradient(to right,transparent,var(--bg) 60%);color:var(--text);cursor:pointer;transition:opacity .15s}
-  .fb-more svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .fb-more{display:grid;place-items:center end;position:absolute;right:0;bottom:0;width:64px;height:44px;padding:0 10px 0 0;border:0;background:linear-gradient(to right,transparent,var(--dock,var(--head)) 58%);color:var(--text);cursor:pointer;transition:opacity .15s}
+  .fb-more svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .dock.fb-end .fb-more{opacity:0;pointer-events:none}
 }
 @media (min-width:700px){.selwrap.sm{flex:0 1 180px}}
@@ -292,9 +294,9 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 /* Green check inside the template field: a valid template link that is not on the shelf yet (the text is in #sub-dupe for screen readers) */
 .sub-bot-wrap{position:relative}
 .sub-form .sub-bot-wrap input{padding-right:38px}
-.sub-ok{position:absolute;right:12px;top:50%;margin-top:-9px;fill:#00ba7c;visibility:hidden;pointer-events:none}
+.sub-ok{position:absolute;right:12px;top:50%;margin-top:-9px;fill:none;stroke:#00ba7c;visibility:hidden;pointer-events:none}
 .sub-ok.on{visibility:visible}
-html[data-theme="light"] .sub-ok{fill:#00805a}
+html[data-theme="light"] .sub-ok{stroke:#00805a}
 .or{margin:4px 0 12px!important;font-size:13px}
 
 /* Per-bot page */
@@ -516,7 +518,7 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
 .ss-x::before{content:"";position:absolute;inset:6px;border-radius:50%;background:var(--ss-well);box-shadow:inset 0 0 0 1px var(--ss-hair),inset 0 1px 0 rgba(255,255,255,.12);transition:background .15s}
 .ss-x:hover::before{background:var(--ss-hair)}
 .ss-x:hover{color:var(--ss-ink)}
-.ss-x svg{position:relative;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.ss-x svg{position:relative;width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ss-top{display:flex;align-items:center;gap:14px;margin:6px 0 18px}
 .ss-tile{flex:none;width:52px;height:52px;display:grid;place-items:center;border-radius:15px;color:#fff;
   background:linear-gradient(155deg,#43b0f7 0%,#1677c9 55%,#0e5aa0 100%);
@@ -539,7 +541,7 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
   background:linear-gradient(180deg,#1a7fd1,#1166b3);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(0,0,0,.2),0 10px 28px -10px rgba(29,155,240,.75);transition:transform .15s ease,filter .15s ease,box-shadow .15s ease}
 .ss-cta:hover{filter:brightness(1.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -1px 0 rgba(0,0,0,.2),0 14px 32px -10px rgba(29,155,240,.85)}
 .ss-cta:active{transform:scale(.985)}
-.ss-cta svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.ss-cta svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ss-later{height:46px;border:0;border-radius:999px;background:none;color:var(--ss-ink2);font:600 15px var(--font);cursor:pointer;transition:background .15s,color .15s}
 .ss-later:hover{background:var(--ss-well);color:var(--ss-ink)}
 .ss :is(.ss-cta,.ss-later,.ss-x,.ss-fine a):focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
@@ -711,8 +713,8 @@ html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;ju
 html.mobile .hero-actions :is(.btn,.theme-btn){position:relative}
 html.mobile .hero-actions :is(.btn,.theme-btn)::after{content:"";position:absolute;inset:-6px}
 /* "Try again" on the load-failure card (round 2 #10) */
-html.mobile .empty [data-retry]{position:relative}
-html.mobile .empty [data-retry]::after{content:"";position:absolute;inset:-5px -6px}
+html.mobile .empty .btn{position:relative}
+html.mobile .empty .btn::after{content:"";position:absolute;inset:-5px -6px}
 html.mobile #sort{height:44px}
 /* Card title: its link stretches over the whole card head (icon, title, meta line); the creator link stays on top,
    and its meta line grows to 44px into the head's margins so the creator name is a 44px tap. */
@@ -901,7 +903,7 @@ a.badge.coll:hover{background:var(--hover)}
 .view button:hover{color:var(--text)}
 .view button[aria-pressed="true"]{background:var(--field);color:var(--text)}
 .view button:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
-.view svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.view svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:699px){.view button{width:40px;height:40px}}
 .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:6px 0 24px}
 @media (max-width:699px){.gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}

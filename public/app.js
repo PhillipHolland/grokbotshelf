@@ -1106,7 +1106,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       else { show(); loadVotes(); }
     }).catch(() => {
       shelfDone(null); results.removeAttribute("aria-busy"); document.documentElement.classList.remove("tailing");
-      results.innerHTML = '<div class="empty" role="alert"><p class="empty-t">The shelf did not load</p><p class="empty-s">Check your connection, then try again.</p><button type="button" class="btn" data-retry>Try again</button></div>';
+      results.innerHTML = '<div class="empty" role="alert"><div class="empty-i" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.34-4.34"/></svg></div><p class="empty-t">The shelf did not load</p><p class="empty-s">Check your connection, then try again.</p><button type="button" class="btn" data-retry>Try again</button></div>';
       results.querySelector("[data-retry]").addEventListener("click", (e) => {
         e.currentTarget.disabled = true; e.currentTarget.textContent = "Loading…";
         shelfData = new Promise((r) => { shelfDone = r; });

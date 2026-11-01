@@ -7,7 +7,7 @@ const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
 const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards, listPairSlice } = require("./pairs");
-const { lucide, lucideSprite, emojiIcon, botMark } = require("./icons");
+const { lucide, lucideSprite, emojiIcon, botMark, actionSprite, markLookup, PATHS } = require("./icons");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -155,7 +155,7 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
     .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+      ${lucide("chevron-down")}
     </div>` : ""}<!-- roles:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
@@ -212,7 +212,7 @@ const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "confi
 // title:true wraps that link in the page's h1 (the homepage). job is the "Find by job" line.
 // addCurrent marks the Add bot button on /add. Anything else is a copy that will drift.
 const MARK = `<svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>`;
-const THEME_BTN = `<button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>`;
+const THEME_BTN = `<button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode">${lucide("moon", { className: "moon" })}${lucide("sun", { className: "sun" })}</button>`;
 function shelvedLabel(d) {
   return /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
 }
@@ -267,6 +267,35 @@ function stampHeader(file, html) {
 }
 stampHeader("index.html", siteHeader({ title: true, growth: true, job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks">Stacks</a>` }));
 stampHeader("404.html", HEADER);
+// Card-action sprite (#i-share and the rest). index.html and the lab mock both <use> it.
+function stampActions(file) {
+  const f = path.join(PUB, file), h = fs.readFileSync(f, "utf8");
+  const block = `<!-- actions:start -->${actionSprite()}<!-- actions:end -->`;
+  const n = h.includes("<!-- actions:end -->")
+    ? h.replace(/<!-- actions:start -->[\s\S]*?<!-- actions:end -->/, block)
+    : h.replace(/<svg width="0" height="0" style="position:absolute"[\s\S]*?<\/svg>/, block);
+  if (!n.includes('id="i-share"') || !n.includes('id="i-x"')) throw new Error(`${file}: action sprite did not land`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
+stampActions("index.html");
+stampActions("lab/desk/index.html");
+// The lab mock redraws cards from shelf-data.json. Stamp the emoji map so those icons stay Lucide.
+function stampDeskMarks() {
+  const f = path.join(PUB, "lab/desk.js");
+  const h = fs.readFileSync(f, "utf8");
+  if (!h.includes("/* gbs-marks:end */")) throw new Error("lab/desk.js: missing gbs-marks markers");
+  const block = `/* gbs-marks:start */${JSON.stringify(markLookup())}/* gbs-marks:end */`;
+  const n = h.replace(/\/\* gbs-marks:start \*\/[\s\S]*?\/\* gbs-marks:end \*\//, block);
+  if (!n.includes("function botIcon") || !n.includes("M12 8V4H8")) throw new Error("lab/desk.js: Lucide mark table did not land");
+  if (n !== h) fs.writeFileSync(f, n);
+}
+stampDeskMarks();
+{
+  const f = path.join(PUB, "lab/desk/index.html");
+  const h = fs.readFileSync(f, "utf8");
+  const n = h.replace(/(href|src)="(\/(?:styles\.css|shelf-up\.js|lab\/desk\.js))(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned(file)}"`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 // Plan note is homepage-only, above the tip card. Bot pages and 404 keep the tip card alone.
 {
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
@@ -384,9 +413,9 @@ const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.
 const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
 
 // Up/down vote pill on bot pages. public/bot-page.js loads the tally and posts to /api/votes (same cookie as the homepage).
-const SVG = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+const SVG = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${PATHS[name]}</svg>`;
 const XLOGO = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
-const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" data-tip="No votes yet. Be the first"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn zero">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
+const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" data-tip="No votes yet. Be the first"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG("arrow-up")}</button><span class="vn zero">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG("arrow-down")}</button></span>`;
 // JSON-LD: only fields the shelf actually has. No ratings or vote counts, no publisher.
 const crumbs = (list) => ({ "@type": "BreadcrumbList", itemListElement: list.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
 function crumbsNav(list) {
@@ -570,7 +599,7 @@ ${HEADER}
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
     ${jobLinks}
   </article>
-  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}">${markSpan(b.emoji)} ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}">${markSpan(b.emoji)} ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG("arrow-up")}${SVG("arrow-down")}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
   ${paired ? disclosure() : ""}
 </main>
 ${footer()}
