@@ -82,6 +82,23 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   const q = await p.evaluate(() => ({ box: (document.querySelector('input[type=search]') || {}).value, names: [...document.querySelectorAll('#results .card h3')].map((h) => h.textContent) }));
   await go('/'); const all = await p.$$eval('#results .card', (c) => c.length);
   ok(q.box === 'archivist' && q.names.length >= 1 && q.names.length < all && q.names.includes('Archivist'), `/?q=archivist filters on load (${q.names.length} cards vs ${all}, box "${q.box}")`);
+  // Logo + title are one home link. The shelf list (including a search) was the page where the title was not a link.
+  const brand = () => p.evaluate(() => {
+    const a = document.querySelector('header a.home');
+    if (!a) return null;
+    const svg = a.querySelector('svg.mark');
+    const add = document.querySelector('header .add-top'), gift = document.querySelector('header .gift-top');
+    return { href: a.getAttribute('href'), text: a.textContent.trim(), mark: !!(svg && svg.parentElement === a), add: add && add.getAttribute('href'), gift: gift && gift.getAttribute('href'), theme: !!document.querySelector('header #theme') };
+  });
+  for (const path of ['/', '/?q=archivist', '/?sort=creator', '/bot/archivist', '/@thecsguy', '/collections', '/collection/email', '/add', '/bot/does-not-exist']) {
+    await go(path);
+    const b = await brand();
+    ok(b && b.href === '/' && b.text === 'Grok Bot Shelf' && b.mark && b.add === '/add' && /^https:\/\/grok\.com\/refer\/bot\?code=/.test(b.gift || '') && b.theme, `${path}: logo and title link home, header actions stay`);
+  }
+  await go('/?creator=thecsguy&q=archivist');
+  await Promise.all([p.waitForNavigation({ waitUntil: 'networkidle0' }), p.click('header a.home')]);
+  const back = await p.evaluate(() => ({ path: location.pathname, search: location.search, q: (document.querySelector('#q') || {}).value || '', creator: (document.querySelector('#creators') || {}).value || '' }));
+  ok(back.path === '/' && back.search === '' && back.q === '' && back.creator === '', `logo click clears a filtered shelf (${back.path}${back.search} q="${back.q}" creator="${back.creator}")`);
   ok(errs.length === 0, 'no console errors ' + errs.join(' | '));
   await b.close();
 })();

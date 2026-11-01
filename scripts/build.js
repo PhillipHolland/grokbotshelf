@@ -177,11 +177,35 @@ for (const c of jobCollections) for (const b of c.members) {
 }
 // Shelfer template link, read from public/config.js (window.SHELFER_URL) for llms.txt and the protocol copy
 const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
-const HEADER = `<header class="wrap hero">
-  <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
-  <div class="hero-actions"><a class="btn add-top" href="/add">Add bot</a><a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button></div>
-  <p class="affil">Not affiliated with SpaceXSI.</p>
+// One header for every shelf page. The mark and the "Grok Bot Shelf" words are a single link to /.
+// title:true wraps that link in the page's h1 (the homepage). job is the "Find by job" line.
+// addCurrent marks the Add bot button on /add. Anything else is a copy that will drift.
+const MARK = `<svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>`;
+const THEME_BTN = `<button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>`;
+function siteHeader({ title = false, job = "", addCurrent = false } = {}) {
+  const link = `<a class="home${title ? " gbs-brand" : ""}" href="/">${MARK}Grok Bot Shelf</a>`;
+  const brand = title ? `<h1>${link}</h1>` : link;
+  const add = `<a class="btn add-top" href="/add"${addCurrent ? ` aria-current="page"` : ""}>Add bot</a>`;
+  const gift = `<a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a>`;
+  const jobLine = job ? `\n<p class="job-find">Not sure which bot? ${job}</p>` : "";
+  // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
+  // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
+  const homeSize = title ? `<style>.gbs-brand{font:inherit;letter-spacing:inherit;color:inherit;gap:12px;min-width:0}@media (max-width:640px){.gbs-brand{gap:9px}}@media (max-width:380px){.gbs-brand{gap:8px}}</style>\n` : "";
+  return `${homeSize}<header class="wrap hero">
+  ${brand}
+  <div class="hero-actions">${add}${gift}${THEME_BTN}</div>
+  <p class="affil">Not affiliated with SpaceXSI.</p>${jobLine}
 </header>`;
+}
+const HEADER = siteHeader();
+function stampHeader(file, html) {
+  const f = path.join(PUB, file), h = fs.readFileSync(f, "utf8");
+  if (!h.includes("<!-- header:end -->")) throw new Error(`${file}: missing <!-- header:start --> / <!-- header:end --> markers`);
+  const n = h.replace(/<!-- header:start -->[\s\S]*?<!-- header:end -->/, `<!-- header:start -->\n${html}\n<!-- header:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
+stampHeader("index.html", siteHeader({ title: true, job: `<a href="/collections">Find by job</a>` }));
+stampHeader("404.html", HEADER);
 // Tip card (scripts/tip.js) opens every footer; index.html and 404.html get it between their tip markers
 const TIP = tipCard(versioned);
 for (const page of ["index.html", "404.html"]) {
@@ -481,7 +505,7 @@ function jobBot(b) {
 }
 function jobHeader(onIndex) {
   const link = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
-  return HEADER.replace("</header>", `<p class="job-find">Not sure which bot? ${link}</p>\n</header>`);
+  return siteHeader({ job: link });
 }
 function writeJob(rel, html) {
   const f = path.join(PUB, rel);
@@ -632,7 +656,7 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
   fs.mkdirSync(path.join(PUB, "add"), { recursive: true });
   fs.writeFileSync(path.join(PUB, "add", "index.html"), `${page}
 <body class="botpage addpage">
-${HEADER.replace('<a class="btn add-top" href="/add">', '<a class="btn add-top" href="/add" aria-current="page">')}
+${siteHeader({ addCurrent: true })}
 <main class="wrap bp" id="main">
   ${sec}
 </main>

@@ -66,9 +66,9 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   ok(new URL(p.url()).pathname === '/bot/' + act.replace(/^(f-)?bot-/, ''), 'Enter opens focused bot page: ' + p.url());
   await p.goto(BASE, { waitUntil: 'networkidle0' });
   // ⌘K / slash
-  await p.click('h1'); await p.keyboard.press('/');
+  await p.click('.affil'); await p.keyboard.press('/');
   ok(await p.evaluate(() => document.activeElement.id) === 'q', '/ focuses search');
-  await p.click('h1'); await p.keyboard.down('Control'); await p.keyboard.press('k'); await p.keyboard.up('Control');
+  await p.click('.affil'); await p.keyboard.down('Control'); await p.keyboard.press('k'); await p.keyboard.up('Control');
   ok(await p.evaluate(() => document.activeElement.id) === 'q', 'Ctrl/Cmd+K focuses search');
   // filters
   // filters: creator and category are <select>s; several categories at once come from the URL (cat=a,b)
