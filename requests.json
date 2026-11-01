@@ -6857,5 +6857,14 @@
     "date": "2026-11-01",
     "post_id": "2116869417845813499",
     "note": "form #600 Crime in Your Zip Code by Marshall; standing auto-shelve SFW rule; author verified from @marshallfrith X post linking the template"
+  },
+  "form-656": {
+    "author_handle": "@CarolinaDill",
+    "template_url": "https://x.ai/bot/B82ZGqnqYRYk8hVGvrHyW",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #656 BotImprover by Carolina; Phil approved 2026-11-01; no X source post",
+    "approved_by": "Phillip Holland"
   }
 }

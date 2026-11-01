@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 01 Nov 2026 21:24:33 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 23:09:26 GMT</lastBuildDate>
+  <item>
+    <title>🔧 BotImprover by Carolina</title>
+    <link>https://grokbotshelf.com/bot/botimprover</link>
+    <guid isPermaLink="false">https://x.ai/bot/B82ZGqnqYRYk8hVGvrHyW</guid>
+    <description>Once a week it reviews your other Grok Bots and points out friction like loose personas, noisy empty wakes, and retry problems.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:09 GMT</pubDate>
+  </item>
   <item>
     <title>🛟 Lifeboat by Terry</title>
     <link>https://grokbotshelf.com/bot/lifeboat</link>
@@ -447,15 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Sun, 01 Nov 2026 12:14:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏢 Property Schedule Builder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/property-schedule-builder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/IjT9FWcBfGXQ_hRYxOkaf</guid>
-    <description>Turns building lists, addresses and photos into a statement of values (SOV) spreadsheet with construction, occupancy, protection and exposure fields, and flags replacement-cost and valuation questions for the broker.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:19 GMT</pubDate>
   </item>
 </channel>
 </rss>
