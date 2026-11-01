@@ -1,0 +1,75 @@
+{
+  "tag": "botshelf-20",
+  "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
+  "products": [
+    {
+      "id": "shure-mv7",
+      "asin": "B091CD47BZ",
+      "name": "Shure MV7",
+      "blurb": "USB/XLR mic that sounds broadcast-ready for voice bots.",
+      "emoji": "🎙️",
+      "match": {
+        "bot_names": ["micDrop"],
+        "keywords": ["podcast mic"]
+      }
+    },
+    {
+      "id": "shure-case",
+      "asin": "B000000001",
+      "name": "shure mv7",
+      "blurb": "Casing check for the same title.",
+      "emoji": "🎙️",
+      "match": {
+        "keywords": ["podcast mic"]
+      }
+    },
+    {
+      "id": "samsung-t7",
+      "asin": "B0874XN4D8",
+      "name": "Samsung T7 SSD",
+      "blurb": "Fast portable SSD for models, clips, and backups.",
+      "emoji": "💾",
+      "match": {
+        "keywords": ["portable ssd"]
+      }
+    },
+    {
+      "id": "kindle-paperwhite",
+      "asin": "B0CFPJYX7P",
+      "name": "Kindle Paperwhite",
+      "blurb": "Paperwhite for reading bots.",
+      "emoji": "📖",
+      "match": {
+        "keywords": ["kindle"]
+      }
+    },
+    {
+      "id": "echo-dot",
+      "asin": "B09B8V1LZ3",
+      "name": "Echo Dot",
+      "blurb": "Smart speaker left unpaired unless the bot is clearly Alexa.",
+      "emoji": "🔊",
+      "pair_note": "Do not attach from the Home category.",
+      "auto": false,
+      "flag": "Leave unpaired unless the bot is clearly Alexa.",
+      "match": {
+        "keywords": ["echo dot"]
+      }
+    },
+    {
+      "id": "gone-asin",
+      "asin": "B000000099",
+      "name": "Missing Item",
+      "blurb": "Lookup fails closed.",
+      "emoji": "❓",
+      "match": {
+        "keywords": ["missing item"]
+      }
+    }
+  ],
+  "ux": {
+    "label": "Pairs with",
+    "cta": "View on Amazon",
+    "rel": "noopener sponsored"
+  }
+}

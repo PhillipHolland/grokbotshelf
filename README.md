@@ -84,6 +84,26 @@ node scripts/build.js
 }
 ```
 
+## Refresh the catalog (Creators API)
+
+`node scripts/creators-refresh.js` reads `public/products.json` and looks up each ASIN with Creators API GetItems (`https://creatorsapi.amazon/catalog/v1/getItems`, up to 10 ASINs per call). The default is a dry run: a JSON report on stdout, catalog untouched. `--apply` writes `amazon_title` and `last_refreshed`, and changes `name` only when the Amazon title is the same words with cleaner casing or punctuation. A long listing title stays in `amazon_title` for a diff. `blurb`, `emoji`, `match`, `auto`, `flag`, and `pair_note` stay as curated. `partnerTag` is `botshelf-20`.
+
+The script does not store image URLs. Pair rows render the emoji as a Lucide icon, and an empty image must leave that mark as it is. Image URLs are in the report only (`images.primary.large`).
+
+Creators API replaced PA-API and uses OAuth client credentials, not a refresh token. In Associates Central, open Tools → Creators API → Create Application → Add New Credential, then export the values shown once:
+
+```sh
+export AMAZON_CREATORS_CLIENT_ID="Credential ID"
+export AMAZON_CREATORS_CLIENT_SECRET="Credential Secret"
+export AMAZON_CREATORS_VERSION="3.1"   # optional. 3.1 NA (www.amazon.com), 3.2 EU, 3.3 FE
+node scripts/creators-refresh.js --report /tmp/creators-refresh.json
+node scripts/creators-refresh.js --apply
+```
+
+With those variables unset, the command exits 0 and prints this setup. It does not call Amazon. `--fixture response.json` replays a saved GetItems body offline. Do not commit the secret. Full notes are at the top of `scripts/creators-refresh.js`.
+
+Docs: [GetItems](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/api-reference/operations/get-items), [using cURL](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/get-started/using-curl), [register](https://affiliate-program.amazon.com/creatorsapi/docs/en-us/onboarding/register-for-creators-api).
+
 ## Find by job (collections)
 
 When several bots do the same kind of work, they stay in the catalog (merging them would break Template Rewards credit). `public/collections.json` is a separate layer: a short list of jobs. The home page links to `/collections` ("Find by job"). Each hub is `/collection/<slug>`.
