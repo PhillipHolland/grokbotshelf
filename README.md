@@ -106,7 +106,7 @@ The shelf has no install or Template Rewards feed. Do not add fake counts. When 
 
 Then `node scripts/build.js`. A slug or url that is not on the shelf fails the build. This is not the Family-style tag in `bot-meta.json` (`?collection=family` on the home filters). Leave that alone.
 
-Job hub icons are Lucide (`icon` on the collection, drawn by `scripts/icons.js`). The `emoji` field stays so older notes still map. See the ICON_MAP comment in that file. Bot emojis in `bots.json` are the bot's own mark and stay on the cards.
+Job hub icons and bot card marks are Lucide (`scripts/icons.js`). The `emoji` field stays in `bots.json` and in a bot's name or description. List cards (home, creator, collection, job) draw `botMark(emoji)` from the ICON_MAP comment in that file. An emoji with no mapping draws the Lucide `bot` icon.
 
 ## Shelf stacks
 

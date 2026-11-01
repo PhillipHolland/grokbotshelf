@@ -7,7 +7,7 @@ const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
 const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards, listPairSlice } = require("./pairs");
-const { lucide, lucideSprite, emojiIcon } = require("./icons");
+const { lucide, lucideSprite, emojiIcon, botMark } = require("./icons");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -28,6 +28,12 @@ function disclosure({ className = "assoc", id = "", hidden = false } = {}) {
 }
 function hubGlyph(c) {
   return lucide(c.icon || emojiIcon(c.emoji));
+}
+function markIcon(emoji) {
+  return lucide(botMark(emoji));
+}
+function markSpan(emoji) {
+  return `<span class="mk" aria-hidden="true">${markIcon(emoji)}</span>`;
 }
 // Search snippets cut off around 160 characters. The page and the JSON-LD keep the full text.
 function clipDesc(s, n = 155) {
@@ -125,11 +131,13 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
-  const pairIcons = new Set();
+  const pairIcons = new Set(["bot"]);
   const shelfData = JSON.stringify({ og2: OG2, bots: bots.map((b) => {
     const packed = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
     for (const p of packed.pairs) if (p.icon) pairIcons.add(p.icon);
-    return { ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+    const mark = botMark(b.emoji);
+    pairIcons.add(mark);
+    return { ...b, mark, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
     collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
     og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
     pairs: packed.pairs.length ? packed.pairs : undefined,
@@ -382,7 +390,7 @@ function sameJob(b) {
   const items = jobs.flatMap((c) => {
     const others = c.members.filter((m) => m.slug !== b.slug).slice(0, 3);
     return [
-      ...others.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}${r.creator_name ? `<small>${esc(r.creator_name)}</small>` : ""}</a></li>`),
+      ...others.map((r) => `<li><a href="${r.page}">${markSpan(r.emoji)} ${esc(r.name)}${r.creator_name ? `<small>${esc(r.creator_name)}</small>` : ""}</a></li>`),
       `<li><a href="/collection/${esc(c.slug)}"><span class="job-glyph" aria-hidden="true">${hubGlyph(c)}</span> Also in: ${esc(c.name)}</a></li>`,
     ];
   }).join("");
@@ -435,7 +443,7 @@ ${HEADER}
 <main class="wrap bp" id="main">
   ${crumbsNav(trail)}
   <article class="bp-card" data-slug="bot-${b.slug}">
-    <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
+    <div class="bp-head"><div class="icon big" aria-hidden="true">${markIcon(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
       <p class="sub">${b.creator_handle ? `<a href="/@${esc(ckey(b))}"><img src="${esc(avatarSm(b.creator_avatar))}" alt="" width="16" height="16"> ${esc(b.creator_name)}</a>` : esc(b.creator_name)}<span class="dot" aria-hidden="true">·</span><a href="/?cat=${esc(slugify(b.category))}">${esc(b.category)}</a>${bm ? `<span class="dot" aria-hidden="true">·</span>${bm}` : ""}</p>
     </div><a class="bp-share" href="${esc(share)}" rel="noopener" target="_blank" aria-label="Share ${esc(b.name)} on X">${XLOGO}<span class="lbl">Share</span></a></div>
@@ -456,8 +464,8 @@ ${HEADER}
   </article>
   ${pairsSection(b)}
   ${underTheHood(b)}${sameJob(b)}
-  ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}
-  ${related.length ? `<section class="bp-more"><h2>More from ${esc(b.creator_name)}</h2><ul>${related.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}</a></li>`).join("")}</ul></section>` : ""}
+  ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}">${markSpan(r.emoji)} ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}
+  ${related.length ? `<section class="bp-more"><h2>More from ${esc(b.creator_name)}</h2><ul>${related.map((r) => `<li><a href="${r.page}">${markSpan(r.emoji)} ${esc(r.name)}</a></li>`).join("")}</ul></section>` : ""}
   <section class="bp-embed" aria-labelledby="em-h">
     <h2 id="em-h">Featured badge</h2>
     <p class="fine">Made this bot? Put the badge in your README or site. It links back to this page.</p>
@@ -538,7 +546,7 @@ ${HEADER}
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
     ${jobLinks}
   </article>
-  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}">${markSpan(b.emoji)} ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
   ${paired ? disclosure() : ""}
 </main>
 ${footer()}
@@ -564,7 +572,7 @@ function jobWho(b) {
 }
 function jobBot(b) {
   const who = jobWho(b);
-  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><h3>${esc(b.name)}</h3><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
+  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${markIcon(b.emoji)}</span><span class="jt"><h3>${esc(b.name)}</h3><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
 }
 function jobHeader(onIndex) {
   const jobs = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
@@ -619,7 +627,7 @@ ${jobHeader(false)}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", "/collections"], [c.name, ""]])}
   <article class="bp-card">
-    <div class="bp-head"><div class="icon big" aria-hidden="true">${hubGlyph(c)}</div><div>
+    <div class="bp-head hub-head"><div class="icon big" aria-hidden="true">${hubGlyph(c)}</div><div>
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="/collections">Find by job</a><span class="dot" aria-hidden="true">·</span><span>${n} ${n === 1 ? "bot" : "bots"}</span></p>
     </div></div>
@@ -783,13 +791,13 @@ const stacks = loadStacks(read("stacks.json", null), items);
   const cards = stacks.map((s) => `<li id="${esc(s.slug)}"><article class="stack">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${lucide(s.icon)}</div><div>
       <h2>${esc(s.title)}</h2>
-      <p class="sub">${s.members.length} bots, in order</p>
+      <p class="stack-meta">${s.members.length} bots, in order</p>
     </div></div>
     <p class="bp-desc">${esc(s.blurb)}</p>
-    <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
+    <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${markSpan(b.emoji)}${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
   </article></li>`).join("");
   writeJob("stacks/index.html", `${head({ title: "Shelf stacks · Grok Bot Shelf", desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: "Shelf stacks", alt: "Ordered install stacks on Grok Bot Shelf", creator: "@Phil_Holland", ld })}
-<body class="botpage">
+<body class="botpage stackspage">
 ${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks" aria-current="page">Stacks</a>` })}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Stacks", ""]])}

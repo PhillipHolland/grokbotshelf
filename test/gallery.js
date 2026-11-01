@@ -78,7 +78,7 @@ const wait = (ms) => new Promise((x) => setTimeout(x, ms));
     ok(back.cards > 0 && back.strips > 0 && back.ls === 'list', `${w}: List brings back the cards and strips, saved as list`);
     await ctx.close();
   }
-  // A bot without a share card: the emoji tile with "No share card yet", same size as the others, no request for an image
+  // A bot without a share card: a Lucide mark and "No share card yet", same size as the others, no request for an image
   const site = await tempSite(({ pub }) => { fs.rmSync(pub('og', 'thumb', slugs[1].replace(/^bot-/, '') + '.webp')); }, { images: true });
   try {
     const sd = JSON.parse(fs.readFileSync(site.pub('shelf-data.json'), 'utf8'));

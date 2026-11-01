@@ -189,7 +189,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .site-foot a:hover{color:var(--blue);text-decoration:underline}
 
 /* From the builders strip: a quiet panel, founder handles with an obvious "All N bots" pill */
-.builders{margin:16px 0 36px;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(29,155,240,.045)}
+.builders{margin:16px 0 36px;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
 .builders .grid{align-items:start}
 .bhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin:0 0 16px}
 .bhead h2{margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
@@ -199,8 +199,8 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .bsub a{text-decoration:none}
 .bsub a.h{color:var(--text);font-weight:700}
 .bsub a.h:hover{color:var(--blue);text-decoration:underline}
-.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:#fff;background:var(--btn-blue);border:1px solid var(--btn-blue);border-radius:999px;line-height:1.3}
-.bsub a.all:hover{background:var(--btn-blue-h);border-color:var(--btn-blue-h);text-decoration:none}
+.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:var(--pill-ink);background:var(--pill);border:1px solid var(--pill);border-radius:999px;line-height:1.3}
+.bsub a.all:hover{background:var(--pill-h);border-color:var(--pill-h);text-decoration:none}
 .bsub a.all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media (max-width:640px){.builders{padding:14px 12px 16px;border-radius:14px}.bhead h2{font-size:19px}.builders .grid>:nth-child(n+4){display:none}}
 
@@ -251,9 +251,7 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 /* Badges: agency + works with */
 .badges{display:flex;flex-wrap:wrap;gap:4px;margin:-6px 0 12px}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:9999px;border:1px solid var(--line);color:var(--text2);font:600 12px/1 var(--font);white-space:nowrap}
-.badge.ag-acts{border-color:rgba(249,24,128,.45);color:#f91880}
-.badge.ag-drafts{border-color:rgba(255,212,0,.45);color:#d4a500}
-.badge.ag-reads{border-color:rgba(0,186,124,.45);color:#00ba7c}
+.badge.ag-acts,.badge.ag-drafts,.badge.ag-reads{border-color:var(--line);color:var(--text2)}
 .sub .bm{display:inline-flex;align-items:center;gap:3px}
 .sub .bm svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
 
@@ -355,12 +353,11 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp-pairs{border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 24px}
 .pairs-head{display:flex;align-items:center;gap:8px;margin:0 0 12px}
 .pairs-head h2{font-size:17px;margin:0}
-.badge.pair{border-color:rgba(29,155,240,.4);color:var(--blue)}
+.badge.pair{border-color:var(--line);color:var(--text2)}
 .bp-pairs .pairs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 a.pair{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);text-decoration:none}
 a.pair:hover{background:var(--hover)}
-a.pair .icon{width:40px;height:40px;font-size:20px;background:rgba(29,155,240,.06)}
-html[data-theme="light"] a.pair .icon{background:rgba(29,155,240,.08)}
+a.pair .icon{width:40px;height:40px;font-size:20px;background:var(--field)}
 .pair-copy{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
 .pair-name{font-weight:700;font-size:14px;line-height:1.3}
 .pair-blurb{font-size:13px;font-weight:400;color:var(--text2);line-height:1.35}
@@ -375,8 +372,8 @@ html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
 .card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:8px 0 0;width:100%;min-width:0;max-width:100%}
 .card>.card-pairs{flex:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
 .card-pairs-l{flex:none;color:var(--text2);font:600 12px/1.3 var(--font)}
-a.pair.pair-mini{position:relative;display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 10px;border:1px solid rgba(29,155,240,.55);border-radius:9999px;background:rgba(29,155,240,.12);color:var(--text);font:600 13px/1.3 var(--font)}
-a.pair.pair-mini:hover{background:rgba(29,155,240,.22);border-color:rgba(29,155,240,.85);color:var(--text)}
+a.pair.pair-mini{position:relative;display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 10px;border:1px solid var(--line);border-radius:9999px;background:var(--field);color:var(--text);font:600 13px/1.3 var(--font)}
+a.pair.pair-mini:hover{background:var(--hover);border-color:var(--line2);color:var(--text)}
 a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:700 12px/1.3 var(--font);text-decoration:none}
 a.pair-more:hover{color:var(--blue);background:transparent;text-decoration:underline}
 .bp-more a.pair-mini{display:inline-flex;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:600}
@@ -416,14 +413,14 @@ html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-heig
 @media (min-width:1200px){.rail{right:max(12px,calc((100vw - 1120px) / 2 - 44px))}}
 /* Narrower screens: a thin strip on the edge; give the main column (and footer) extra right padding so cards never sit under it.
    has-rail is set in index.html's first head script for views that will show the rail, so this padding is there before the first paint. */
-@media (max-width:1199px){html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(30px,calc(env(safe-area-inset-right) + 28px))}}
+@media (max-width:1199px){html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(38px,calc(env(safe-area-inset-right) + 36px))}}
 /* Phones: the visible letters stay in a 20px strip, but each button is 30px wide (reaching into the card's empty edge
    padding, never its controls) so thumbs land; the whole strip scrubs */
 @media (max-width:640px){
   .rail{width:30px;right:max(0px,env(safe-area-inset-right))}
   .rail button{position:relative;width:30px;padding:0 2px 0 8px;font-size:11px}
   .rail button::before{content:"";position:absolute;top:0;bottom:0;left:-14px;right:0}
-  html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(24px,calc(env(safe-area-inset-right) + 22px))}
+  html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(38px,calc(env(safe-area-inset-right) + 36px))}
   .grid{grid-template-columns:minmax(0,1fr)}.card .ttl{min-width:0}
 }
 /* 500px and under: 44px tap targets for the card "Add to Bot app" link, the crawl list links and the A-Z rail. Rail
@@ -436,7 +433,7 @@ html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-heig
   .crawl a{display:inline-flex;align-items:center;min-height:44px}
   .rail button{flex:1 1 0;max-height:44px}
   .rail button:hover,.rail button.on{background:radial-gradient(circle 11px at calc(100% - 12px) 50%,var(--mark) 10.5px,transparent 11px)}
-  html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(28px,calc(env(safe-area-inset-right) + 26px))}
+  html.has-rail main.wrap,html.has-rail .site-foot{padding-right:max(40px,calc(env(safe-area-inset-right) + 38px))}
 }
 
 /* Light mode: darker blue for text links and badge colors so they pass 4.5:1 on white */
@@ -767,8 +764,8 @@ html.tailing .sentinel{height:100vh}
    edge, "Under the hood" rows), too faint to outline a floating card. Outlined containers take --line2, the grey the light
    theme already uses for inputs and ghost buttons; hover takes --field, because --hover (1.06:1) is invisible on white. ---------- */
 html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.bp-pairs,a.pair,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
-html[data-theme="light"] a.pair.pair-mini{border-color:rgba(15,108,189,.55);background:rgba(29,155,240,.12);color:var(--text)}
-html[data-theme="light"] a.pair.pair-mini:hover{background:rgba(29,155,240,.2);border-color:rgba(15,108,189,.8);color:var(--text)}
+html[data-theme="light"] a.pair.pair-mini{border-color:var(--line2);background:var(--field);color:var(--text)}
+html[data-theme="light"] a.pair.pair-mini:hover{background:var(--hover);border-color:var(--line2);color:var(--text)}
 html[data-theme="light"] :is(.card>.card-pairs,.job-bot .card-pairs,.bp-more li>.card-pairs){border-top-color:var(--line2)}
 html[data-theme="light"] .cp-list li{border-color:var(--line2)}
 html[data-theme="light"] .badge:not([class*="ag-"]){border-color:var(--line2)}
@@ -805,6 +802,8 @@ html.mobile .card .sub>a.cn{margin-top:0;padding-top:4px;align-items:flex-start;
    spacing matches desktop (3px under the title) instead of floating in a 44px band. The 13px above sits over the h1,
    which is not a link. */
 html.mobile .bp .sub{margin-top:-13px;margin-bottom:-13px}
+/* Stack counts and job-hub lines are not the bot creator row. The pull above would sit on a wrapping title. */
+html.mobile :is(.stack, .hub-head) .sub{margin-top:4px;margin-bottom:0}
 html.mobile .bp-head{align-items:flex-start}
 html.mobile .bp-head :is(.icon.big,.cp-av){margin-top:2px}
 /* Creator page: the two facts stack (no dot left dangling at the end of line one) */
@@ -924,7 +923,7 @@ a.badge.coll:hover{background:var(--hover)}
    X Money transfer look: one rounded card, two people, amount chips that only copy, one pill CTA.
    z-index: the button 44 and the panel 45, above the sticky dock (20), rail, tooltips and cards; below the toast (50)
    and the Shelfer sheet / skip link (60). Both are children of body, so no ancestor stacking context can trap them. */
-.tipcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;max-width:640px;margin:16px auto 20px;padding:20px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--hover),var(--bg));text-align:left}
+.tipcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;max-width:640px;margin:16px auto 20px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--bg);text-align:left}
 .site-foot .tipcard p{text-align:left;margin:0}
 .tipcard h2{margin:8px 0 16px;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
 .tc-eye{display:flex;align-items:center;gap:6px;font-size:13px!important;font-weight:700;color:var(--text)!important}
@@ -1034,10 +1033,8 @@ html.mobile .job-find a{display:inline-flex;align-items:center;min-height:44px}
 .job-bot .jt h3{margin:0;font-size:15px;font-weight:700;line-height:1.3}
 .job-bot .job-main:hover h3{text-decoration:underline}
 .job-card small{display:block;margin-top:3px;font-size:13px;font-weight:400;color:var(--text2);line-height:1.4}
-.job-picks{margin:0 0 28px;padding:16px;border:1px solid rgba(255,255,255,.14);border-radius:16px;
-  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02) 42%),rgba(22,24,28,.55);
-  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
-html[data-theme="light"] .job-picks{border-color:var(--line2);background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.42)),rgba(255,255,255,.6)}
+.job-picks{margin:0 0 28px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+html[data-theme="light"] .job-picks{border-color:var(--line2)}
 .job-picks h2,.job-alts h2{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
 .job-kicker{margin:0 0 12px;color:var(--text2);font-size:14px;line-height:1.4}
 .job-bots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
@@ -1066,8 +1063,11 @@ html.mobile .crumbs a{display:inline-flex;align-items:center;min-height:44px}
 .job-more a:hover{background:var(--hover)}
 html.mobile .job-more a{min-height:44px}
 html[data-theme="light"] .job-more a{border-color:var(--line2)}
-/* Lucide chrome (scripts/icons.js). One 2px stroke. Bot emoji in the catalog stays on the card. */
+/* Lucide (scripts/icons.js). One 2px stroke. Card marks use the ICON_MAP; unmapped bot emoji falls back to bot. */
 svg.li{width:16px;height:16px;flex:none;display:block}
+.mk{display:inline-flex;vertical-align:-3px;margin-right:4px}
+.tlist .em svg.li{width:20px;height:20px}
+.gtile .gi.none .em svg.li{width:32px;height:32px}
 .icon>svg.li{width:22px;height:22px}
 .icon.big>svg.li{width:28px;height:28px}
 a.pair .icon>svg.li{width:20px;height:20px}
@@ -1083,7 +1083,9 @@ a.pair.pair-mini[data-soft]{border-color:var(--line2);background:transparent;col
 html[data-theme="light"] a.pair[data-soft],html[data-theme="light"] a.pair.pair-mini[data-soft]{border-color:var(--line2)}
 .stack-index{list-style:none;margin:0 0 36px;padding:0;display:flex;flex-direction:column;gap:16px}
 .stack{border:1px solid var(--line);border-radius:16px;padding:16px 20px;background:var(--bg)}
-.stack h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.stack .bp-head{align-items:flex-start;margin-bottom:12px}
+.stack h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.3;white-space:normal}
+.stack-meta{margin:4px 0 0;font-size:13px;line-height:1.4;color:var(--text2)}
 .stack .bp-desc{margin:0}
 .stack-steps{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .stack-steps a{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none}
@@ -1094,3 +1096,6 @@ html[data-theme="light"] a.pair[data-soft],html[data-theme="light"] a.pair.pair-
 .stack-steps small{display:block;margin-top:2px;color:var(--text2);font-size:13px;font-weight:400;line-height:1.4}
 html.mobile .stack-steps a{min-height:44px}
 html[data-theme="light"] .stack,html[data-theme="light"] .stack-steps a{border-color:var(--line2)}
+/* /stacks has no creator groups, so no A-Z rail. Keep any rail out of this page and keep stack titles clear of the right edge. */
+body.stackspage .rail,body.stackspage .rail-pop{display:none!important}
+@media (max-width:640px){.stack h2{overflow-wrap:anywhere}.stack .bp-head>div{padding-right:2px}}

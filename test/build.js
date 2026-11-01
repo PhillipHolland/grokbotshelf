@@ -42,6 +42,18 @@ try {
     const stacksHtml = fs.readFileSync(pub("stacks", "index.html"), "utf8");
     const homeNow = fs.readFileSync(pub("index.html"), "utf8");
     ok(index.includes('class="li"') && !/>💪</.test(index) && stacksHtml.includes("Shelf stacks") && stacksHtml.includes("/bot/child-safety-coach") && stacksHtml.includes("/bot/local-ai-manager") && !stacksHtml.includes("botshelf-20") && homeNow.includes('class="growth"') && homeNow.includes("with Amazon pairs"), "Lucide on job hubs, public stacks page, homepage growth strip");
+    const sd = JSON.parse(fs.readFileSync(path.join(TMP, "public", "shelf-data.json"), "utf8"));
+    const relay = sd.bots.find((b) => b.name === "iMessage Relay");
+    const audit = sd.bots.find((b) => b.name === "Security Audit Bot");
+    const reel = sd.bots.find((b) => b.name.includes("Reel"));
+    const fit = fs.readFileSync(path.join(TMP, "public", "collection", "fitness", "index.html"), "utf8");
+    const fitBot = fs.readFileSync(path.join(TMP, "public", "bot", "fitness-coach", "index.html"), "utf8");
+    const { botMark } = require(path.join(TMP, "scripts", "icons"));
+    ok(relay.mark === "message-circle" && audit.mark === "lock" && reel.emoji === "🎬" && reel.mark === "clapperboard" && reel.name.includes("➡️") && botMark("🦄") === "bot", "card marks map emoji to Lucide and keep emoji inside the name");
+    ok(fit.includes('class="li"') && !fit.includes(">💪<") && fitBot.includes('class="icon big"') && fitBot.includes('class="li"') && !fitBot.includes(">💪<") && stacksHtml.includes('class="mk"'), "list cards and the bot header draw a Lucide mark, not the emoji glyph");
+    ok(stacksHtml.includes('class="stack-meta"') && !stacksHtml.includes('class="sub"'), "stack count line is its own row, not the bot-page subtitle");
+    const cssNow = fs.readFileSync(path.join(TMP, "public", "styles.css"), "utf8");
+    ok(stacksHtml.includes('class="botpage stackspage"') && cssNow.includes("body.stackspage .rail") && cssNow.includes("background:var(--field);color:var(--text);font:600 13px"), "stacks page hides any A-Z rail and pair chips stay flat");
     const { rankJobMembers } = require(path.join(TMP, "scripts", "collections"));
     const demo = ["a", "b", "c", "d"].map((s) => ({ slug: s, url: "https://x.ai/bot/" + s }));
     const ed = rankJobMembers(demo, ["b", "a"], null);
