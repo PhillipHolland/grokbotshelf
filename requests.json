@@ -6795,17 +6795,19 @@
   "form-584": {
     "author_handle": "@thecryptostewrd",
     "template_url": "https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-10-31",
     "post_id": "2116690914101895630",
-    "note": "form #584 Legal Counsel by TheCryptoSteward; parked: name clash with existing Legal Counsel (@xenappblog) and drafts securities/crypto legal opinions; X post links generic x.ai/bot/ page"
+    "note": "form #584 shelved as Crypto Securities Counsel by TheCryptoSteward (slug crypto-securities-counsel-by-thecryptosteward); Phillip approved 2026-10-31; distinct from Legal Counsel (@xenappblog)",
+    "approved_by": "Phillip Holland"
   },
   "x-2116690914101895630": {
     "author_handle": "@thecryptostewrd",
     "template_url": "https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-10-31",
     "post_id": "2116690914101895630",
-    "note": "same as form-584, parked"
+    "note": "same as form-584, shelved",
+    "approved_by": "Phillip Holland"
   }
 }
