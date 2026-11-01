@@ -191,6 +191,39 @@ try {
   const notSmall = data.filter((d) => fresh(d) && !/^\/avatars\/48\/[^?]+\.webp\?v=[0-9a-f]{10}$/.test(d.avatar_sm));
   ok(!notSmall.length && data.every((d) => (!d.creator_avatar && !d.avatar_sm) || (/\?v=[0-9a-f]{10}$/.test(d.avatar_sm) && /\?v=[0-9a-f]{10}$/.test(d.creator_avatar))), `every bot with a current small copy uses it, all avatar URLs versioned (not: ${notSmall.length})`);
   if (arch) ok(fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8").includes(`src="${data.find((d) => d.name === "Archivist").avatar_sm}"`), "bot page byline uses the small avatar");
+  // Amazon "Pairs with": products.json, name > keyword > category, cap 3, tag and sponsored rel, disclosure only on matching pages.
+  const { pairsFor, productUrl } = require(path.join(TMP, "scripts", "pairs"));
+  const catalog = JSON.parse(fs.readFileSync(pub("products.json"), "utf8"));
+  const idsOf = (name) => pairsFor(bots.find((b) => b.name === name), catalog).map((h) => h.product.id).join(",");
+  ok(catalog.tag === "botshelf-20" && catalog.products.length === 36 && new Set(catalog.products.map((p) => p.asin)).size === 36 && catalog.products.every((p) => productUrl(p, catalog.tag) === `https://www.amazon.com/dp/${p.asin}?tag=botshelf-20`), "products.json: 36 unique Amazon ASINs, tag botshelf-20");
+  ok(idsOf("Local AI Manager") === "beelink-mini-s12,samsung-t7,beelink-ser9", `Local AI Manager pairs: ${idsOf("Local AI Manager")}`);
+  ok(idsOf("Apple Desk") === "mac-mini-m4,anker-565-hub,ugreen-hub", `Apple Desk pairs: ${idsOf("Apple Desk")}`);
+  ok(idsOf("micDrop") === "shure-mv7,blue-yeti,at2020usb", `micDrop pairs: ${idsOf("micDrop")}`);
+  ok(idsOf("Reel ➡️ 𝕏") === "samsung-t7,stream-deck-mk2,sony-xm5" && idsOf("Clipper") === "samsung-t7,stream-deck-mk2,sony-xm5", `Reel and Clipper pairs: ${idsOf("Reel ➡️ 𝕏")} / ${idsOf("Clipper")}`);
+  ok(idsOf("Streamer's Dream") === "blue-yeti,logitech-c920,stream-deck-mk2", `Streamer's Dream pairs: ${idsOf("Streamer's Dream")}`);
+  ok(idsOf("Archivist") === "", "Archivist has no pairs");
+  ok(pairsFor({ name: "Nope Dev", description: "Writes code.", category: "Developer" }, catalog).map((h) => h.product.id).join(",") === "beelink-mini-s12,mx-master-3s,mx-keys-s", "a Developer bot with no keyword hit gets the first three Developer products");
+  ok(pairsFor({ name: "Homelab Box", description: "Runs ollama on a mini pc.", category: "Lifestyle" }, catalog).some((h) => h.tier === "keyword" && h.product.id === "beelink-mini-s12"), "keyword match uses the description");
+  const covered = ["Lifestyle", "Home", "Food", "Health & Fitness", "Travel", "Security", "Design", "Money", "Faith", "Shopping"];
+  const missed = covered.filter((c) => !pairsFor({ name: "Sample", description: "Helps with everyday tasks.", category: c }, catalog).length);
+  ok(!missed.length, `category rules cover ${covered.join(", ")} (missing: ${missed.join(", ") || "none"})`);
+  const expectPairs = new Set(["local-ai-manager", "apple-desk", "micdrop", "reel", "clipper", "streamer-s-dream"]);
+  const badPair = [];
+  for (const s of botDirs) {
+    const html = fs.readFileSync(pub("bot", s, "index.html"), "utf8");
+    const links = [...html.matchAll(/<a class="pair" href="(https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=botshelf-20)" rel="noopener sponsored" target="_blank">/g)];
+    const shown = html.includes('class="bp-pairs"');
+    if (shown !== links.length > 0 || (html.match(/amazon\.com/g) || []).length !== links.length) badPair.push(s + " section/links");
+    if (shown && !html.includes(catalog.disclosure)) badPair.push(s + " disclosure");
+    if (shown && (html.split(catalog.disclosure).length - 1) < 2) badPair.push(s + " fine print");
+    if (!shown && html.includes("botshelf-20")) badPair.push(s + " stray");
+    if (/heygen|opus\.pro|runwayml|synthesia/i.test(html)) badPair.push(s + " non-amazon");
+    if (expectPairs.has(s) && !shown) badPair.push(s + " missing");
+  }
+  ok(!badPair.length, `bot pages: sponsored Amazon links and disclosure only where products match (bad: ${badPair.slice(0, 4).join("; ") || "none"})`);
+  const homePairs = fs.readFileSync(pub("index.html"), "utf8");
+  ok(!homePairs.includes("botshelf-20") && !homePairs.includes("bp-pairs") && !homePairs.includes("Pairs with"), "homepage has no product cards or Associates links");
+  ok(!fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="bp-pairs"'), "creator pages have no Pairs with section");
   // A missing or outdated small copy falls back to the original
   const victim = data.find((d) => /\/avatars\/48\//.test(d.avatar_sm)), vf = /^\/avatars\/([^/?]+)/.exec(victim.creator_avatar)[1];
   fs.rmSync(pub("avatars", "48", vf.replace(/\.\w+$/, ".webp")));

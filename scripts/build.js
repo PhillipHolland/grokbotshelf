@@ -6,10 +6,14 @@ const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
 const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
+const { pairsFor, productUrl, assertCatalog } = require("./pairs");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
 const bots = read("bots.json", []);
+const products = read("products.json", null);
+if (!products) throw new Error("public/products.json is missing");
+assertCatalog(products);
 // one_job: true only for a short, single-purpose description (not a pack, crew, or "and also").
 const meta = (read("bot-meta.json", {}).bots) || {};
 const social = (read("social.json", {}).posts) || {};
@@ -179,10 +183,10 @@ for (const page of ["index.html", "404.html"]) {
   const n = h.replace(/<!-- tip:start -->[\s\S]*?<!-- tip:end -->/, () => `<!-- tip:start -->\n${TIP}\n<!-- tip:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
-const FOOTER = `<footer class="site-foot wrap">
+const footer = (assoc) => `<footer class="site-foot wrap">
 ${TIP}
   <p>Not affiliated with SpaceXSI.</p>
-  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
+${assoc ? `  <p class="assoc">${esc(assoc)}</p>\n` : ""}  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>`;
 // css: true (bot and creator pages) leaves a marker that becomes the inlined critical CSS once every page is built (round 6 #5)
 const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css }) => `<!doctype html>
@@ -301,6 +305,17 @@ function sameJob(b) {
   }).join("");
   return `\n  <section class="bp-more"><h2>Bots for the same job</h2><ul>${items}</ul></section>`;
 }
+// Quiet Amazon row under the bot card. Empty when nothing in products.json matches.
+function pairsSection(b) {
+  const hits = pairsFor(b, products);
+  if (!hits.length) return "";
+  const rel = products.ux.rel;
+  const rows = hits.map(({ product: p }) => {
+    const href = productUrl(p, products.tag);
+    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
+  }).join("");
+  return `\n  <section class="bp-pairs" aria-labelledby="pairs-h"><div class="pairs-head"><h2 id="pairs-h">${esc(products.ux.label)}</h2><span class="badge pair">Amazon</span></div><ul class="pairs">${rows}</ul><p class="fine">${esc(products.disclosure)}</p></section>`;
+}
 function page(b, related, similar) {
   const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
@@ -337,6 +352,7 @@ ${HEADER}
     </p>
     ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
+  ${pairsSection(b)}
   ${underTheHood(b)}${sameJob(b)}
   ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}
   ${related.length ? `<section class="bp-more"><h2>More from ${esc(b.creator_name)}</h2><ul>${related.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}</a></li>`).join("")}</ul></section>` : ""}
@@ -349,7 +365,7 @@ ${HEADER}
     <p class="fine">On a dark background, use <code>${BADGE.dark}</code> instead.</p>
   </section>
 </main>
-${FOOTER}
+${footer(pairsFor(b, products).length ? products.disclosure : "")}
 <script src="/bot-page.js" defer></script>
 </body>
 </html>
@@ -415,7 +431,7 @@ ${HEADER}
   </article>
   <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
 </main>
-${FOOTER}
+${footer()}
 <script src="${versioned("/bot-page.js")}" defer></script>
 </body>
 </html>
@@ -469,7 +485,7 @@ ${jobHeader(true)}
   </article>
   <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${esc(c.emoji)}</span><span><strong>${esc(c.name)}</strong><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
 </main>
-${FOOTER}
+${footer()}
 </body>
 </html>
 `);
@@ -502,7 +518,7 @@ ${jobHeader(false)}
   </section>
   ${alts}
 </main>
-${FOOTER}
+${footer()}
 </body>
 </html>
 `);
@@ -596,7 +612,7 @@ ${HEADER.replace('<a class="btn add-top" href="/add">', '<a class="btn add-top" 
 <main class="wrap bp" id="main">
   ${sec}
 </main>
-${FOOTER}
+${footer()}
 </body>
 </html>
 `);
@@ -652,6 +668,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 ## Data
 
 - [bots.json](${SITE}/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
+- [products.json](${SITE}/products.json): Amazon gear shown as "Pairs with" on matching bot pages only. Each product has an ASIN and match rules (bot_names, keywords, categories). Links use tag botshelf-20. At most 3 per page, name match before keyword before category.
 - [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
