@@ -316,6 +316,26 @@ try {
   execFileSync(process.execPath, [path.join(TMP, "scripts", "build.js")], { encoding: "utf8", env: { ...process.env, GA_MEASUREMENT_ID: "", GSC_VERIFICATION: "" } });
   const after = JSON.parse(fs.readFileSync(pub("shelf-data.json"), "utf8")).bots.find((d) => d.name === victim.name);
   ok(after.avatar_sm === after.creator_avatar && after.avatar_sm.startsWith(`/avatars/${vf}?v=`), `missing small copy falls back to the original (${after.avatar_sm})`);
+  // The mark and the title are one link to / on every page that renders the shelf header.
+  const walk = (dir, out = []) => { for (const name of fs.readdirSync(dir)) { const p = path.join(dir, name), st = fs.statSync(p); if (st.isDirectory()) walk(p, out); else if (name.endsWith(".html")) out.push(p); } return out; };
+  const brandRe = /<a class="home(?: gbs-brand)?" href="\/"><svg class="mark"[\s\S]*?<\/svg>Grok Bot Shelf<\/a>/;
+  const badBrand = [];
+  let headers = 0, homeOk = false;
+  for (const f of walk(pub())) {
+    const html = fs.readFileSync(f, "utf8");
+    const header = html.match(/<header class="wrap hero">[\s\S]*?<\/header>/);
+    if (!header) continue;
+    headers++;
+    const rel = path.relative(pub(), f);
+    const lab = /\blab-desk\b/.test(html);
+    if (!brandRe.test(header[0])) badBrand.push(rel);
+    if (rel === "index.html") homeOk = /<h1><a class="home gbs-brand" href="\/">/.test(header[0]) && header[0].includes('href="/collections">Find by job</a>');
+    if (!lab && !/<a class="btn add-top" href="\/add"/.test(header[0])) badBrand.push(rel + " missing add");
+    if (!lab && !header[0].includes('class="btn gift-top"')) badBrand.push(rel + " missing gift");
+    if (!header[0].includes('id="theme"')) badBrand.push(rel + " missing theme");
+    if (rel !== "index.html" && header[0].includes("gbs-brand")) badBrand.push(rel + " homepage brand class");
+  }
+  ok(headers > 100 && !badBrand.length && homeOk, `header logo links home on ${headers} pages (bad: ${badBrand.slice(0, 4).join(", ") || "none"})`);
 } finally {
   fs.rmSync(TMP, { recursive: true, force: true });
 }
