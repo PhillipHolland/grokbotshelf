@@ -230,7 +230,7 @@ function siteHeader({ title = false, job = "", addCurrent = false, growth = fals
   const brand = title ? `<h1>${link}</h1>` : link;
   const add = `<a class="btn add-top" href="/add"${addCurrent ? ` aria-current="page"` : ""}>Add bot</a>`;
   const gift = `<a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a>`;
-  const jobLine = job ? `\n<p class="job-find">Not sure which bot? ${job}</p>` : "";
+  const jobLine = job ? `\n<p class="job-find">${job}</p>` : "";
   const growthLine = growth ? `\n${growthStrip()}` : "";
   // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
   // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
@@ -586,7 +586,7 @@ function writeJob(rel, html) {
 fs.rmSync(path.join(PUB, "collection"), { recursive: true, force: true });
 fs.rmSync(path.join(PUB, "collections"), { recursive: true, force: true });
 {
-  const desc = "Pick the job you need. Each page shows a few bots to start with, then the rest. Every bot stays on the shelf, with the person who made it.";
+  const desc = "Pick a job. Each page starts with a few bots, then lists the rest.";
   const url = `${SITE}/collections`;
   const ld = { "@context": "https://schema.org", "@graph": [
     { "@type": "CollectionPage", "@id": url, url, name: "Find a bot by the job", description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
@@ -599,7 +599,7 @@ fs.rmSync(path.join(PUB, "collections"), { recursive: true, force: true });
 ${jobHeader(true)}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", ""]])}
-  <article class="bp-card">
+  <article class="bp-card page-intro">
     <h1>Find a bot by the job</h1>
     <p class="job-lead">${esc(desc)}</p>
   </article>
@@ -619,24 +619,22 @@ ${footer()}
         mainEntity: { "@type": "ItemList", numberOfItems: n, itemListElement: c.members.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) } },
       { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", SITE + "/collections"], [c.name, url]]) },
     ] };
-    const alts = c.rest.length ? `<section class="job-alts" aria-labelledby="more-h"><h2 id="more-h">More like this</h2><p class="job-kicker">The other bots for this job. Each one is still its own template.</p><ul class="job-bots">${c.rest.map(jobBot).join("")}</ul></section>` : "";
+    const alts = c.rest.length ? `<section class="job-alts" aria-labelledby="more-h"><h2 id="more-h">More like this</h2><ul class="job-bots">${c.rest.map(jobBot).join("")}</ul></section>` : "";
     const hubPairs = c.members.some((b) => pairsFor(b, products).length);
     writeJob(`collection/${c.slug}/index.html`, `${head({ title: `${c.name} · Grok Bot Shelf`, desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: `${c.name} bots on Grok Bot Shelf`, alt: `${c.name}: bots for this job on Grok Bot Shelf`, creator: "@Phil_Holland", ld })}
 <body class="botpage">
 ${jobHeader(false)}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", "/collections"], [c.name, ""]])}
-  <article class="bp-card">
+  <article class="bp-card page-intro">
     <div class="bp-head hub-head"><div class="icon big" aria-hidden="true">${hubGlyph(c)}</div><div>
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="/collections">Find by job</a><span class="dot" aria-hidden="true">·</span><span>${n} ${n === 1 ? "bot" : "bots"}</span></p>
     </div></div>
     <p class="bp-desc">${esc(desc)}</p>
-    <p class="fine">Every bot here stays on the shelf. The person who made it stays credited.</p>
   </article>
   <section class="job-picks" aria-labelledby="start-h">
     <h2 id="start-h">Start here</h2>
-    <p class="job-kicker">A few to open first. If one is not quite right, the rest are just below.</p>
     <ul class="job-bots">${c.start.map(jobBot).join("")}</ul>
   </section>
   ${alts}
@@ -780,7 +778,7 @@ function loadStacks(data, list) {
 }
 const stacks = loadStacks(read("stacks.json", null), items);
 {
-  const desc = "A few bots, in the order to add them. Each one is still its own template. Nothing here is locked.";
+  const desc = "A few bots, in the order to add them.";
   const url = `${SITE}/stacks`;
   const ld = { "@context": "https://schema.org", "@graph": [
     { "@type": "CollectionPage", "@id": url, url, name: "Shelf stacks", description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
@@ -801,7 +799,7 @@ const stacks = loadStacks(read("stacks.json", null), items);
 ${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks" aria-current="page">Stacks</a>` })}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Stacks", ""]])}
-  <article class="bp-card">
+  <article class="bp-card page-intro">
     <h1>Shelf stacks</h1>
     <p class="job-lead">${esc(desc)}</p>
   </article>

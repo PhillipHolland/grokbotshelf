@@ -259,7 +259,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       const u = c ? c.url : "https://x.com/" + h.replace(/^@/, "");
       const n = c ? bots.filter((b) => ckey(b) === k).length : 0;
       const av = c && c.sm ? `<img src="${esc(c.sm)}" alt="" width="24" height="24" loading="lazy" decoding="async">` : "";
-      return `<span class="who">${av}<a class="h" href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? `<a class="all" href="${esc(profilePath(c.key))}" aria-label="All ${n} bots by ${esc(c.label)}">All ${n} bots →</a>` : "") + "</span>";
+      return `<span class="who">${av}<a class="h" href="${esc(u)}" rel="noopener" target="_blank">${esc(h)}</a>` + (c ? `<a class="all" href="${esc(profilePath(c.key))}" aria-label="All ${n} bots by ${esc(c.label)}">All ${n} bots</a>` : "") + "</span>";
     }).join("");
     return `<section class="builders" aria-labelledby="builders-h"><div class="bhead"><h2 id="builders-h">From the builders</h2><p class="bsub">${people}</p></div>
 <div class="grid">${picks.map((b) => card(b, null, "f-")).join("")}</div></section>`;
@@ -276,7 +276,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     for (const t of top) { const k = ckey(t[0]); if ((per[k] = (per[k] || 0) + 1) > 2) continue; capped.push(t); if (capped.length === TOP_N) break; }
     top.length = 0; top.push(...capped);
     if (!top.length) return "";
-    return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
+    return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all</a></div>
 <ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${mark(b)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc" data-tip="${esc(voteTip(s))}">${I.up}${s.score}<span class="sr">${esc(voteWords(s.score, s))}</span></span></a></li>`).join("")}</ol>`;
   }
   let topEl = null;
@@ -298,7 +298,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     const per = {}, picks = [];
     for (const b of recent) { const k = ckey(b); if ((per[k] = (per[k] || 0) + 1) > 2) continue; picks.push(b); if (picks.length === NEW_N) break; }
     const all = recent.length === bots.length, h = all ? "Just added" : "New this week";
-    return `<section class="topvotes newv" aria-labelledby="newv-h"><div class="thead"><h2 id="newv-h">${h}</h2><a class="tall" href="/?sort=newest${all ? "" : "&new=1"}">See all ${recent.length.toLocaleString("en-US")} by date added →</a></div>
+    return `<section class="topvotes newv" aria-labelledby="newv-h"><div class="thead"><h2 id="newv-h">${h}</h2><a class="tall" href="/?sort=newest${all ? "" : "&new=1"}">See all ${recent.length.toLocaleString("en-US")}</a></div>
 <ol class="tlist">${picks.map((b) => `<li><a href="${b._page}" title="Added ${esc(fmtDay(b.added))}"><span class="em" aria-hidden="true">${mark(b)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc dt">${esc(fmtDay(b.added))}<span class="sr"> added</span></span></a></li>`).join("")}</ol></section>`;
   }
   let newEl;
