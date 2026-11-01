@@ -10989,5 +10989,44 @@
     "creator_avatar": "/avatars/marshallfrith.webp",
     "source_post": "https://x.com/marshallfrith/status/2116869417845813499",
     "added": "2026-11-01"
+  },
+  {
+    "name": "Black Friday Real-Deal Checker",
+    "emoji": "🏷️",
+    "description": "Logs prices for products you paste daily, then tells you on Black Friday and Cyber Monday if each is a real deal vs its 30-day low.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/Xe3MVO3fgpnjY4-e2k5bH",
+    "creator_name": "Prabhu",
+    "creator_handle": "@KuttyPrabhu",
+    "creator_url": "https://x.com/KuttyPrabhu",
+    "creator_avatar": "/avatars/kuttyprabhu.webp",
+    "source_post": "https://x.com/KuttyPrabhu/status/2116892748406206635",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Refund & Delivery Chaser",
+    "emoji": "📦",
+    "description": "Keeps a case file for each stuck order or missing refund and drafts the right next message, escalating calmly one stage at a time.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/Dka-gTc2gh8EZezo-F5_7",
+    "creator_name": "Prabhu",
+    "creator_handle": "@KuttyPrabhu",
+    "creator_url": "https://x.com/KuttyPrabhu",
+    "creator_avatar": "/avatars/kuttyprabhu.webp",
+    "source_post": "https://x.com/KuttyPrabhu/status/2116892748406206635",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Scam Second Opinion",
+    "emoji": "🛡️",
+    "description": "A calm second opinion before you click, pay, or reply to a suspicious message, call, or link: red flags and one safe next step.",
+    "category": "Security",
+    "url": "https://x.ai/bot/UoJ81zfk-RrkdEkMdIw9w",
+    "creator_name": "Prabhu",
+    "creator_handle": "@KuttyPrabhu",
+    "creator_url": "https://x.com/KuttyPrabhu",
+    "creator_avatar": "/avatars/kuttyprabhu.webp",
+    "source_post": "https://x.com/KuttyPrabhu/status/2116892748406206635",
+    "added": "2026-11-01"
   }
 ]
