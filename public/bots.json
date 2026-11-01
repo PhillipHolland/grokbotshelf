@@ -11808,5 +11808,18 @@
     "creator_avatar": "/avatars/tchap248.webp",
     "source_post": "https://x.com/Tchap248/status/2116761054516580513",
     "added": "2026-11-01"
+  },
+  {
+    "name": "BotImprover",
+    "emoji": "🔧",
+    "description": "Once a week it reviews your other Grok Bots and points out friction like loose personas, noisy empty wakes, and retry problems.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/B82ZGqnqYRYk8hVGvrHyW",
+    "creator_name": "Carolina",
+    "creator_handle": "@CarolinaDill",
+    "creator_url": "https://x.com/CarolinaDill",
+    "creator_avatar": "/avatars/carolinadill.webp",
+    "source_post": "",
+    "added": "2026-11-01"
   }
 ]
