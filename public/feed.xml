@@ -6,456 +6,456 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 01 Nov 2026 14:57:45 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 15:32:51 GMT</lastBuildDate>
   <item>
-    <title>🛡️ Scam Second Opinion by Prabhu</title>
-    <link>https://grokbotshelf.com/bot/scam-second-opinion</link>
-    <guid isPermaLink="false">https://x.ai/bot/UoJ81zfk-RrkdEkMdIw9w</guid>
-    <description>A calm second opinion before you click, pay, or reply to a suspicious message, call, or link: red flags and one safe next step.</description>
-    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
+    <title>📦 Home Inventory Keeper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/home-inventory-keeper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/pYZkygXwPWP8eVwtLF94A</guid>
+    <description>Builds a room-by-room home inventory from your photos and receipts for insurance: item, estimated value, age, and proof, with a yearly refresh reminder and a claim-ready export.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>📝 Insurance Claim Appeal Writer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/insurance-claim-appeal-writer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/R8FWzNByMfJpuX6BLxmhg</guid>
+    <description>Helps a policyholder appeal a denied or underpaid insurance claim: reads the denial, organizes evidence, and drafts a clear appeal letter. General information, not legal advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌀 Hurricane Season Prep by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/hurricane-season-prep-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/Ace4O2-5PJRVNGRhxZ_mj</guid>
+    <description>Helps homeowners and property managers get ready for hurricane season with pre-storm checklists, photo documentation, shutter and generator prep, evacuation plans, and a post-storm insurance claim plan.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌊 Flood Zone Checker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/flood-zone-checker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/G1ltzc7vMCCB3eSvQ7Tkd</guid>
+    <description>Looks up public FEMA flood map info for any address, explains the flood zone and risk in plain words, and outlines NFIP and private flood insurance options plus questions to ask an agent.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Risk Pool Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/risk-pool-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/GDf6k2wxh1Ujape8AjybB</guid>
+    <description>Explains in plain language how public-entity insurance risk pools work for city, county, school and housing officials: governance, contributions, reinsurance, claims, and how they compare with commercial insurance.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏗️ Builder&apos;s Risk Starter by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/builder-s-risk-starter-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/FsFm9Pp3rP5jeRPdwmvSh</guid>
+    <description>Turns a construction or renovation project&apos;s details into a builder&apos;s risk insurance application checklist: costs, timeline, construction type, protections, and key coverage questions.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚖️ Governmental Immunity Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/governmental-immunity-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/_jrnic0o9lQO5j9lwQfI8</guid>
+    <description>Plain-language, state-by-state overviews of governmental immunity and tort claim caps from public statutes, with citations. For risk managers, brokers, and public entities; not legal advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏘️ Tax Credit Housing Basics by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/tax-credit-housing-basics-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/-4nZSlPi3IWxJqRvGU82I</guid>
+    <description>Explains how low-income housing tax credit (LIHTC) deals work for new developers and board members: allocation, compliance period, investors, syndication, and insurance basics. General education only.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏠 Fair Housing Checklist by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/fair-housing-checklist-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/gCMLj4I_3u2qHZ0C_uaeR</guid>
+    <description>Helps small landlords follow fair housing basics: consistent tenant screening, reasonable accommodation requests, advertising language, and record keeping. General guidance, not legal advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:53 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔑 Landlord Insurance Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/landlord-insurance-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/Ha8KzQ5OHS9VsWD3TsK03</guid>
+    <description>Helps rental property owners understand and compare landlord insurance: dwelling fire forms, loss of rents, liability, umbrella, vacancy clauses, and the questions to ask an agent.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎣 Phishing Coach by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/phishing-coach-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/YN0Rtn1ZDLjd7TFBOl9aq</guid>
+    <description>Paste a suspicious email, text, or call script and get a plain-language risk rating, the red flags, and what to do next. Never clicks links or contacts the sender.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Security</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:08 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:51 GMT</pubDate>
   </item>
   <item>
-    <title>📦 Refund &amp; Delivery Chaser by Prabhu</title>
-    <link>https://grokbotshelf.com/bot/refund-and-delivery-chaser</link>
-    <guid isPermaLink="false">https://x.ai/bot/Dka-gTc2gh8EZezo-F5_7</guid>
-    <description>Keeps a case file for each stuck order or missing refund and drafts the right next message, escalating calmly one stage at a time.</description>
-    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:07 GMT</pubDate>
+    <title>💧 Water Utility Cyber Watch by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/water-utility-cyber-watch-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/47M19lHzzYvmD8hsqGcvN</guid>
+    <description>Tracks public CISA, EPA, and vendor advisories about attacks on industrial control systems and PLCs, and turns them into plain-language alerts and checklists for small water and wastewater utilities.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:50 GMT</pubDate>
   </item>
   <item>
-    <title>🏷️ Black Friday Real-Deal Checker by Prabhu</title>
-    <link>https://grokbotshelf.com/bot/black-friday-real-deal-checker</link>
-    <guid isPermaLink="false">https://x.ai/bot/Xe3MVO3fgpnjY4-e2k5bH</guid>
-    <description>Logs prices for products you paste daily, then tells you on Black Friday and Cyber Monday if each is a real deal vs its 30-day low.</description>
-    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:06 GMT</pubDate>
+    <title>✅ Cyber Readiness Checklist by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/cyber-readiness-checklist-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/BpFiwpiSRR3tE55bNkYBO</guid>
+    <description>Runs a 20-question cyber hygiene checkup for small offices and gives a prioritized fix list that also helps with cyber insurance applications.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:49 GMT</pubDate>
   </item>
   <item>
-    <title>🚨 Crime in Your Zip Code by Marshall</title>
-    <link>https://grokbotshelf.com/bot/crime-in-your-zip-code-by-marshall</link>
-    <guid isPermaLink="false">https://x.ai/bot/62GtLnYAwa39PP6Gs7Smd</guid>
-    <description>Enter a US zip code to get a sourced map of reported crime, split into serious and lesser crimes, plus the latest posts from law enforcement on X.</description>
-    <dc:creator>Marshall (@marshallfrith)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Stock Research by Tyler</title>
-    <link>https://grokbotshelf.com/bot/stock-research-by-tyler</link>
-    <guid isPermaLink="false">https://x.ai/bot/PIU_p6CvpO-6xew6tTeIC</guid>
-    <description>A beginner-friendly stock research helper that summarizes earnings and a daily market report and teaches options with lessons and quizzes. Educational only.</description>
-    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
+    <title>📓 Prediction Market Journal by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/prediction-market-journal-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/VLiK-ZptAlJhJVNH_0ENZ</guid>
+    <description>Keeps a trading journal for prediction markets: logs each trade&apos;s thesis, price, size and outcome, then reports calibration, win rate and lessons. Never places trades; not financial advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Money</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:04 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:48 GMT</pubDate>
   </item>
   <item>
-    <title>📚 Literature Inspiration by Tyler</title>
-    <link>https://grokbotshelf.com/bot/literature-inspiration-by-tyler</link>
-    <guid isPermaLink="false">https://x.ai/bot/k4rBSQV28iL-9Hh1748R2</guid>
-    <description>Answers your questions and gives advice through quotes from great literature, always citing the book and author, and sends inspiring quotes twice a day.</description>
-    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:03 GMT</pubDate>
+    <title>📞 Earnings Call Summarizer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/earnings-call-summarizer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/nPJqI7PKkuMtyE5j49k1N</guid>
+    <description>Turns any public company&apos;s earnings call or report into plain takeaways: guidance, key numbers, risks, and analyst questions. General information, not financial advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:47 GMT</pubDate>
   </item>
   <item>
-    <title>🎬 Movie Quote Inspiration by Tyler</title>
-    <link>https://grokbotshelf.com/bot/movie-quote-inspiration-by-tyler</link>
-    <guid isPermaLink="false">https://x.ai/bot/IT-UOFV-dyjKiLBj9C6PY</guid>
-    <description>Answers your questions and gives advice through great movie quotes, with clip links, and sends inspiring quotes on a schedule.</description>
-    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Static Site Deployer by Igor by Igor Holt</title>
-    <link>https://grokbotshelf.com/bot/static-site-deployer-by-igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/VL3ZTAbOtZrxqVXUUDu39</guid>
-    <description>Builds and updates a simple static website from chat and deploys it to your own Cloudflare Pages or Netlify account after you preview it.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>📞 Spaces Phone Line by Igor by Igor Holt</title>
-    <link>https://grokbotshelf.com/bot/spaces-phone-line-by-igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/UyXfJR6mI8-kBE8Vm60wg</guid>
-    <description>Plans and sets up a call-in phone line for your X Spaces so listeners can join or ask questions by phone, using your own accounts and numbers.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕊️ I Am Trying To Be Like Jesus by Tyler</title>
-    <link>https://grokbotshelf.com/bot/i-am-trying-to-be-like-jesus-by-tyler</link>
-    <guid isPermaLink="false">https://x.ai/bot/I5XoF4H0buRMi0OAfQJZt</guid>
-    <description>A gentle guide that answers your questions and gives advice the way Jesus would, using His own words from the Sermon on the Mount (KJV) and His life.</description>
-    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚖️ Crypto Securities Counsel by TheCryptoSteward</title>
-    <link>https://grokbotshelf.com/bot/crypto-securities-counsel-by-thecryptosteward</link>
-    <guid isPermaLink="false">https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE</guid>
-    <description>Drafts plain-language securities and crypto opinions under federal and state law, citing an official source for every claim. Drafts only, not legal advice.</description>
-    <dc:creator>TheCryptoSteward (@thecryptostewrd)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗓️ Renewal Prep Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/renewal-prep-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/f8Ck1oxbuh9hVd48TLy6r</guid>
-    <description>Gets a business ready for its insurance renewal 90 to 120 days out with a timeline, document checklist, and stale property value flags.</description>
+    <title>🔗 Supply Chain Mapper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/supply-chain-mapper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/DaeE1yB1XYrL9dcf9qBOj</guid>
+    <description>Maps a public company&apos;s known suppliers and customers from public filings, press releases and news, flags concentration and single-source risks, and cites every source.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:57 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:46 GMT</pubDate>
   </item>
   <item>
-    <title>📑 Contract Insurance Clause Reviewer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/contract-insurance-clause-reviewer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/00V6Sus5vIxSQYpMVz4CS</guid>
-    <description>Reads the indemnity, hold-harmless, waiver of subrogation, and insurance-requirements sections of a lease or contract and explains them in plain language.</description>
+    <title>🛰️ Satellite Internet Picker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/satellite-internet-picker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/8ckzZF7w4n_rIvveSDcRo</guid>
+    <description>Compares satellite and mobile internet plans and hardware, like Starlink plans and dishes, for RV, boat, travel, or rural use, based on your needs and budget and current public pricing.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:56 GMT</pubDate>
+    <category>Travel</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:45 GMT</pubDate>
   </item>
   <item>
-    <title>✏️ Homework Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/homework-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/vBnhH6eT78GFJWGaPYME8</guid>
-    <description>Helps kids with homework through hints, guiding questions, and step-by-step checks without handing over answers, adapted to grade level.</description>
+    <title>🔭 AI Tool Scout by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/ai-tool-scout-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/QLOxCd0gb0wjbEwKz_vDr</guid>
+    <description>Finds new and notable AI tools every week and scores how well each fits your work and interests, with pricing and a one-line reason it matters.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Productivity</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:55 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:44 GMT</pubDate>
   </item>
   <item>
-    <title>🧹 Chore &amp; Allowance Tracker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/chore-and-allowance-tracker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/nTXcnt1sVmDP_aAVYRfw1</guid>
-    <description>Tracks kids&apos; chores, awards points, converts them to allowance or rewards, and sends a weekly total, with parents setting the rules.</description>
+    <title>🔨 Home Project Planner by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/home-project-planner-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/u32qgeHvr6eHtVMOecSTl</guid>
+    <description>Turns a home remodel or DIY idea into a step-by-step plan, materials list, budget range, and questions to ask a contractor.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:54 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:43 GMT</pubDate>
   </item>
   <item>
-    <title>🌪️ Disaster Ready Kit by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/disaster-ready-kit-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/WCLL7gMJ7sfF215B0OkE7</guid>
-    <description>Builds a household plan for hurricanes, tornadoes, floods, wildfire, or winter storms: supplies, home inventory, document backups, and evacuation and meet-up plans.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚙 Teen Driver Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/teen-driver-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/jz0dVivfDexGXLXX6LCyH</guid>
-    <description>Helps families with a new teen driver log supervised practice hours, plan practice by stage, and understand their state&apos;s graduated-license rules.</description>
+    <title>📚 Kids&apos; Book Writer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/kids-book-writer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/ylaLKTVJsot8rgl--ZN-w</guid>
+    <description>Helps a parent write and illustrate a short children&apos;s picture book: story idea, age-right page text, illustration prompts, and a printable layout.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:52 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:42 GMT</pubDate>
   </item>
   <item>
-    <title>🧯 Claim Filing Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/claim-filing-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Mb0iuP9q9kxVAVKJMjP2d</guid>
-    <description>Walks a homeowner or small business through the first 72 hours after a fire, water, storm, theft, or cyber loss: safety, photos, and preventing more damage.</description>
+    <title>🐷 Family Money Coach by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/family-money-coach-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/4N3RbHeE-fL6ha1YfDgWJ</guid>
+    <description>Teaches kids money basics with save, give and spend goals, simple age-appropriate lessons, and progress check-ins for parents.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:51 GMT</pubDate>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:41 GMT</pubDate>
   </item>
   <item>
-    <title>✅ COI Checker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/coi-checker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/dt4z9u730fcQilhDlsOik</guid>
-    <description>Checks a certificate of insurance against your contract or vendor requirements and gives you a plain-language pass/fix list plus a short request to send.</description>
+    <title>🏪 Small Business Insurance Starter by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/small-business-insurance-starter-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/ybZPhEbQl_SyHl74zlotT</guid>
+    <description>Helps a new small business figure out which insurance it likely needs (general liability, property, workers&apos; comp, auto, cyber, professional) and what to ask an agent.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:50 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:40 GMT</pubDate>
   </item>
   <item>
-    <title>🏡 Homeowners Policy Explainer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/homeowners-policy-explainer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/3ElovH5wCuS_-QdbDP0Va</guid>
-    <description>Explains a homeowners or renters policy and declarations page in plain English, including coverages, deductibles, and flood and earthquake gaps.</description>
+    <title>⚖️ Insurance Quote Comparer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/insurance-quote-comparer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/SPzlhzkpBIqzDuc8CKAiV</guid>
+    <description>Lines up two or more insurance quotes side by side: limits, deductibles, exclusions, endorsements and price, with plain-language differences.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔍 Property Inspection Prep by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/property-inspection-prep-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/7DEdx04d1wp3XRDiwcHX5</guid>
+    <description>Gets a property owner ready for an insurance inspection with a roof, electrical, plumbing, fire protection and housekeeping checklist plus photo tips.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:49 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:38 GMT</pubDate>
   </item>
   <item>
-    <title>🔧 Device Repair Expert by Igor Holt</title>
-    <link>https://grokbotshelf.com/bot/device-repair-expert</link>
-    <guid isPermaLink="false">https://x.ai/bot/XufJcCAZTyM7Y_Bf6yzM0</guid>
-    <description>Diagnoses hardware faults from software and firmware signals on Google Home/Nest, Pixel, iOS 16+, and macOS 26+ devices, then guides repairs starting with the cheapest checks.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <title>🚗 Rental Car &amp; Travel Coverage Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/rental-car-and-travel-coverage-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/OJddJKeHHZtczQmFoe81v</guid>
+    <description>Explains whether your personal auto policy, credit card, or travel insurance covers a rental car or trip, and what to accept or decline at the counter.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:37 GMT</pubDate>
+  </item>
+  <item>
+    <title>📑 Construction Contract Insurance Checker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/construction-contract-insurance-checker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/SV9JJWNWu8A8H18FjM4nF</guid>
+    <description>Compares a construction contract&apos;s insurance requirements to a contractor&apos;s COI and endorsements, and flags gaps in limits, additional insured forms, primary and noncontributory, waiver of subrogation, and completed ops.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚨 Cyber Incident First Steps by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/cyber-incident-first-steps-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/2XM4Fx9qncL9CEwM2lJns</guid>
+    <description>Walks a small business through the first 24 hours after a suspected cyber incident: who to call, evidence to preserve, notifying the insurer, and what not to do. General guidance, not legal advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌧️ Flood Insurance Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/flood-insurance-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/f7pD8qCB_CC2fBeHGCzCl</guid>
+    <description>Explains NFIP vs private flood policies, waiting periods, building vs contents limits, and elevation certificates in plain words. For homeowners, landlords, and the people who advise them.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:48 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:34 GMT</pubDate>
   </item>
   <item>
-    <title>🧊 Blockato · Blockbench by Emilio</title>
-    <link>https://grokbotshelf.com/bot/blockato-blockbench</link>
-    <guid isPermaLink="false">https://x.ai/bot/LtV1nNOz3yPYwe8bRQwxe</guid>
-    <description>Builds, hand-textures, and animates Minecraft-style low-poly Blockbench models like blocks, items, mobs, and player cosmetics, showing rough options before handing over the files.</description>
-    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
-    <category>Design</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:47 GMT</pubDate>
+    <title>📖 Insurance Glossary Tutor by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/insurance-glossary-tutor-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/egy2canzm8O9rM1ebBBKs</guid>
+    <description>Explains insurance terms and jargon in plain language with real-world examples and quick quizzes. For consumers, new agents, and board members.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:33 GMT</pubDate>
   </item>
   <item>
-    <title>📜 Charter Builder by Dave Gambrill</title>
-    <link>https://grokbotshelf.com/bot/charter-builder</link>
-    <guid isPermaLink="false">https://x.ai/bot/d9ZUeMEuY14IS4izBWtXX</guid>
-    <description>Walks you through the Six R&apos;s (role, responsibility, resources, routine, rules, result) to turn a rough bot idea into a charter document you and your bot work from.</description>
-    <dc:creator>Dave Gambrill (@gambrill)</dc:creator>
+    <title>🧮 Life Insurance Needs Calculator by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/life-insurance-needs-calculator-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/DwIZ2fWY4N5KuGXXKNqzB</guid>
+    <description>Estimates a ballpark life insurance coverage amount from income replacement, debts, college goals and existing coverage, and explains term vs permanent in plain words. General education only, no personal data needed.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚚 Auto Fleet Safety Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/auto-fleet-safety-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/GCaZ6t95v7mA2Qzo2b1Ep</guid>
+    <description>Helps small businesses set up an auto fleet safety program: driver eligibility and MVR review, vehicle use rules, telematics, accident reporting, and what commercial auto underwriters look for.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Workers&apos; Comp Audit Prep by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/workers-comp-audit-prep-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/s4fOEMGwrAZvWnUjVLXz5</guid>
+    <description>Helps a small business prepare for its workers&apos; compensation premium audit: payroll by class code, overtime and officer exclusions, subcontractor certificates, and a pre-audit checklist.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧸 Toy Rotation Organizer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/toy-rotation-organizer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/iiY8o5uSn2l-F_yvj5uTo</guid>
+    <description>Helps parents tame toy clutter with storage ideas by room, a toy rotation schedule, declutter and donate checklists, and kid-friendly cleanup routines.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎪 Event Insurance Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/event-insurance-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/7t6YU9DB0XuOmkcIFoRyA</guid>
+    <description>Helps people planning weddings, festivals or fundraisers understand event liability, liquor liability, cancellation coverage and venue certificate requirements, in plain language.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤝 Nonprofit D&amp;O Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/nonprofit-d-and-o-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/eJoDz9AdvWddUM4v_phDE</guid>
+    <description>Explains directors and officers insurance for nonprofit and volunteer boards in plain language: coverage, common exclusions, employment practices, and the questions to ask at renewal.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩺 Medicare vs. Employer Plan Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/medicare-vs-employer-plan-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/zd7VcQxxJf4WaaHjT6r60</guid>
+    <description>Helps people turning 65 who are still working decide between staying on an employer plan and enrolling in Medicare, covering enrollment windows, penalties, HSA rules, and questions for HR.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Premium Increase Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/premium-increase-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/41dFBekbCEPP_LZArVeLI</guid>
+    <description>Reads an insurance renewal notice or quote and explains in plain words why the premium went up, plus which levers (deductibles, limits, loss control, remarketing) could help.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>💵 Subrogation &amp; Recovery Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/subrogation-and-recovery-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/o2VflT-u1Genjn23RJCVf</guid>
+    <description>Helps you recover money from an at-fault party after a loss: track deductible reimbursement and subrogation status, draft demand letters, and keep a timeline. General guidance, not legal advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏭 Business Interruption Estimator by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/business-interruption-estimator-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/mGplHYt0NOIDEzOTBhBxH</guid>
+    <description>Helps a business estimate business income and extra expense needs from revenue, fixed costs and recovery time, and explains coinsurance and waiting periods.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚙 Auto Claim Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/auto-claim-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/5TDHLwdB0B68Jwp7KCl_T</guid>
+    <description>Guides a driver after a car accident: what to collect at the scene, filing the claim, rental and repair choices, total-loss valuation, and diminished value questions.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>☂️ Umbrella Coverage Sizer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/umbrella-coverage-sizer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/lh1T8PTv7l0jixhScsvkZ</guid>
+    <description>Helps a family or small business estimate how much umbrella or excess liability coverage to consider, based on assets, exposures and underlying limits, with questions to bring to their agent. General education, not advice.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚦 Usage Watch Walt by Jim</title>
+    <link>https://grokbotshelf.com/bot/usage-watch-walt</link>
+    <guid isPermaLink="false">https://x.ai/bot/aPgoCcrr2G2TOjYzjocbz</guid>
+    <description>A plain-English Grok Bot usage watchdog: a green, yellow or red gauge with a forecast, which bots and routines use the most, and simple ways to save so extra charges never surprise you.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Bot Tools</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:46 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:20 GMT</pubDate>
   </item>
   <item>
-    <title>📈 Creator Analytics &amp; Channel Optimizer by beastnug</title>
-    <link>https://grokbotshelf.com/bot/creator-analytics-and-channel-optimizer</link>
-    <guid isPermaLink="false">https://x.ai/bot/D6JBYApstxlASM1rhotGG</guid>
-    <description>Checks your X, YouTube Shorts and TikTok numbers every morning, explains what broke out and why, flags repliers worth following back, and tunes your YouTube playlists and keywords.</description>
-    <dc:creator>beastnug (@beastnug8)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>📋 Commercial Coverage Checker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/commercial-coverage-checker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/29YDMR5aCwmgo8ltYXVhP</guid>
-    <description>Reviews a company&apos;s commercial insurance documents across every line and returns a line-by-line gap report and a list of questions for the broker.</description>
+    <title>🏢 Property Schedule Builder by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/property-schedule-builder-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/IjT9FWcBfGXQ_hRYxOkaf</guid>
+    <description>Turns building lists, addresses and photos into a statement of values (SOV) spreadsheet with construction, occupancy, protection and exposure fields, and flags replacement-cost and valuation questions for the broker.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:44 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:19 GMT</pubDate>
   </item>
   <item>
-    <title>🛡️ Cyber Coverage Checker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/cyber-coverage-checker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/LMtfvwubXj9nqDm9cQXr2</guid>
-    <description>Reviews a company&apos;s cyber insurance policy and security questionnaire against public breach and ransomware benchmarks, then writes a plain-language gap report with questions for your broker.</description>
+    <title>🗂️ Board Meeting Prep by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/board-meeting-prep-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/bwfyKBMS46XyPJzPEpyNc</guid>
+    <description>Helps nonprofit and public boards prepare meetings: agendas, packet checklists, notice timelines, motions, and minutes templates, plus action-item follow-up.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:43 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:18 GMT</pubDate>
   </item>
   <item>
-    <title>🚀 Make My Kids Mind by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/make-my-kids-mind-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/VO9Wi6mx4KNtnPz8Ma_Dy</guid>
-    <description>A playful mission-control voice parents play in front of their kids to nudge good behavior with countdowns, chore missions, points and praise. Theatrical, never scary.</description>
+    <title>🧳 Family Trip Planner by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/family-trip-planner-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/woKFnjGqesdlHSEGE_Jnu</guid>
+    <description>Plans kid-friendly family trips: day-by-day itineraries, drive times and rest stops, packing lists by age, budgets, and rainy-day backups.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:42 GMT</pubDate>
+    <category>Travel</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:17 GMT</pubDate>
   </item>
   <item>
-    <title>🔐 Tailscale Admin by Chevy Phillip</title>
-    <link>https://grokbotshelf.com/bot/tailscale-admin</link>
-    <guid isPermaLink="false">https://x.ai/bot/xoIfh7oH4feicifYOgRMg</guid>
-    <description>Puts your bot&apos;s cloud box on your tailnet safely, then audits ACLs, manages devices, sets up Tailscale SSH and troubleshoots, confirming before every change.</description>
-    <dc:creator>Chevy Phillip (@chevonphillip)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>♿ AbleLatch by Calix</title>
-    <link>https://grokbotshelf.com/bot/ablelatch</link>
-    <guid isPermaLink="false">https://x.ai/bot/M6gJAA-Hlh1u3rcwychpu</guid>
-    <description>A daily helper for people with disabilities and limited input. It uses number menus that work with eye-gaze, switch, voice, AAC, BCI and caregivers, in any language.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:40 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 Gmail Assistant by JeebsTX</title>
-    <link>https://grokbotshelf.com/bot/gmail-assistant</link>
-    <guid isPermaLink="false">https://x.ai/bot/R1VmETValKUAUmG7NlKJI</guid>
-    <description>Keeps your Gmail under control: a daily summary of what matters, spam cleanup, security alerts, auto-labels, a monthly subscription audit, and reply drafts. Never sends email without your OK.</description>
-    <dc:creator>JeebsTX (@JeebsTX)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:39 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗳️ Know Your Politician by Marshall</title>
-    <link>https://grokbotshelf.com/bot/know-your-politician-by-marshall</link>
-    <guid isPermaLink="false">https://x.ai/bot/MYLwEWHf7Wod4r_3Zm2U6</guid>
-    <description>Nonpartisan, sourced reports on any local, state or federal politician with background, top issues, campaign money and a donor network graph, plus PDF and CSV exports and courteous ways to contact them.</description>
-    <dc:creator>Marshall (@marshallfrith)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧘 Exercise Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/exercise-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/ObM7rCdoKS-Je82GXZG5O</guid>
-    <description>Gentle daily movement coach for older adults with short balance, stretch, strength and walking routines.</description>
+    <title>📨 Certificate Request Writer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/certificate-request-writer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/yYspCMr_waqBmTe0lmU_q</guid>
+    <description>Reads the insurance requirements in a contract or lease and writes a clean certificate of insurance request to send to your insurance agent.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:37 GMT</pubDate>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:16 GMT</pubDate>
   </item>
   <item>
-    <title>👓 Hearing &amp; Vision Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/hearing-and-vision-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Bl3pKNqYYkpGb8aHfV83I</guid>
-    <description>Reads photographed mail, labels and forms back in large text or voice for older adults with poor sight or hearing.</description>
+    <title>📋 Vendor Contract Tracker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/vendor-contract-tracker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/3RZPdVVHiMlS6c8hQ5D_B</guid>
+    <description>Tracks vendor and subcontractor contracts and certificates of insurance: expirations, required limits, missing endorsements, and reminders before work starts or coverage lapses.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:36 GMT</pubDate>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:15 GMT</pubDate>
   </item>
   <item>
-    <title>⛈️ Weather &amp; Outage Alerts by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/weather-and-outage-alerts-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/cHcCRwhWJtafWaBqM8LvG</guid>
-    <description>Watches weather and power outages for an older adult&apos;s area and sends plain alerts with safety steps.</description>
+    <title>📉 Loss Run Reader by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/loss-run-reader-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/iN1GKemjJ0EHAIb0Qvtqn</guid>
+    <description>Reads insurance loss runs you share and writes a plain-language claims summary with trends, large losses, open claims, and renewal talking points. For brokers, risk managers, and business owners.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:35 GMT</pubDate>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:14 GMT</pubDate>
   </item>
   <item>
-    <title>📅 Social Calendar by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/social-calendar-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/ISpAgfIYQjvA-Q1owFLNA</guid>
-    <description>Keeps an older adult connected by finding nearby senior-center events, classes, clubs and volunteer spots each week.</description>
+    <title>⚽ Sports Season Organizer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/sports-season-organizer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/Wq1Aq8WRJoZfTM8CaD6kX</guid>
+    <description>Organizes a kid&apos;s or team&apos;s sports season: schedule, snack and carpool rotations, gear checklists, and game-day reminders for parents and coaches.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:34 GMT</pubDate>
+    <pubDate>Sun, 01 Nov 2026 12:14:13 GMT</pubDate>
   </item>
   <item>
-    <title>📹 Video Call Connector by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/video-call-connector-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Av7cGuY80XR0rODoKoXG6</guid>
-    <description>Makes family video calls easy for an older adult with one-tap setup, a call schedule and reminders.</description>
+    <title>🦺 Small Business Safety Program by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/small-business-safety-program-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/A_Nj98BzyCjvBBIKto2l0</guid>
+    <description>Helps a small business draft a basic written safety program, training log, incident report form and return-to-work policy that workers&apos; comp underwriters like to see. Generic templates, not legal advice.</description>
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔧 Home Maintenance Reminder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/home-maintenance-reminder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/2xKarNTWFchNEZ0Qsn406</guid>
-    <description>Seasonal home maintenance reminders for an older adult, plus vetted local repair pros and scam warnings.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 Appointment Prep by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/appointment-prep-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/6EAJSJbfdfMeARfLAO-uZ</guid>
-    <description>Preps an older adult for doctor visits with a one-page sheet, then turns notes into a plain-language summary.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧩 Reading &amp; Puzzles Buddy by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/reading-and-puzzles-buddy-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/eGa_rUKcG3nO2MGFB015s</guid>
-    <description>Daily companion for an older adult with calm news summaries plus trivia, word games and memory puzzles.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥗 Grocery &amp; Meal Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/grocery-and-meal-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Woo_3j1Y6PE_uJORO3L3e</guid>
-    <description>Plans simple weekly meals for an older adult around diet, budget and taste, then builds the grocery list.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚗 Ride Finder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/ride-finder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/OK79Mt-HuOE_Sxy-5eHvZ</guid>
-    <description>Arranges rides for an older adult by comparing rideshare, senior transit, paratransit and volunteer drivers.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐾 Pet Care Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/pet-care-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/qUjHDl3AQt34e61LkhyNY</guid>
-    <description>Helps an older adult care for a pet with feeding, walk, vet and refill reminders, plus nearby sitters and vets.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧭 Benefits Finder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/benefits-finder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Z-ZqjlO4n0JINnKosIHRN</guid>
-    <description>Helps older adults find benefits they qualify for, like Medicare plans, Extra Help, SNAP and LIHEAP.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>📱 Tech Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/tech-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/54C4HYk8PqwHSZqbadqa3</guid>
-    <description>Patient tech helper that walks older adults through phone, TV, Wi-Fi and printer issues one step at a time.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗄️ Estate &amp; Documents Organizer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/estate-and-documents-organizer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/X6TWyRNPQOO8D_TCPIsP3</guid>
-    <description>Helps a family organize an older adult&apos;s key documents: what exists, where it&apos;s kept, and who the agents are.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏠 Home Safety Audit by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/home-safety-audit-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/gCu8VPhVGNlv2oDz0mGpr</guid>
-    <description>Reviews photos of an older adult&apos;s home room by room and returns a prioritized fall-risk and safety checklist.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 Downsizing &amp; Move Planner by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/downsizing-and-move-planner-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/EYrjHgekWcI8GlLoGcRpR</guid>
-    <description>Plans a senior&apos;s downsizing or move: compares senior-living costs, builds a timeline and keep/sell/donate lists.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>📖 Memory Book by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/memory-book-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/uR-SLtLyX6mBQvzbvEglK</guid>
-    <description>Helps an older adult record life stories one warm question at a time and turns them into a family keepsake.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧾 Bill &amp; Paperwork Watch by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/bill-and-paperwork-watch-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/DyutFvbkwOFfDwKbkl4fw</guid>
-    <description>Watches an older adult&apos;s bills and mail for late bills, odd or duplicate charges, price hikes and renewals.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>👾 Game Sprite Designer by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/game-sprite-designer-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/ZrYfogVbQsk8A9EOFYlSL</guid>
-    <description>Friendly game art mentor that helps beginners design original characters, items and places as game-ready sprites.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Design</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:19 GMT</pubDate>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:12 GMT</pubDate>
   </item>
 </channel>
 </rss>

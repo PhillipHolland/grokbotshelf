@@ -33,29 +33,51 @@ section and filter chip automatically; a new `category` gets its own chip.
 
 Check the template link works first: `curl -sI https://x.ai/bot/XXXXXXXX | head -1`
 
+Then give the new bot a pairs row and rebuild:
+
+```sh
+node scripts/pairs-gen.js && node scripts/build.js
+```
+
+`pairs-gen` only fills slugs that are missing from `public/pairs.json`. It never replaces a curated row. The build fails if any bot slug has no key (an empty list is fine).
+
 ## Pairs with (Amazon)
 
-`public/products.json` is the gear catalog (Amazon only). `node scripts/build.js` puts a quiet "Pairs with" block on a bot page when that bot matches at least one product. The homepage, job hubs, and creator pages stay free of product cards. There is no store in the nav. Category rules cover Lifestyle, Home, Food, Health & Fitness, Travel, Security, Design, Money, Faith, and Shopping as well as Developer and Creator & Media. A category string has to match `bots.json` exactly.
+`public/products.json` is the Amazon-only gear catalog. Tag is `botshelf-20`. There is no store in the nav, and category matching stays off.
 
-Each product needs `id`, `asin`, `name`, `blurb`, `emoji`, and `match`:
+A bot page with a qualifying row gets the full "Pairs with" section (name, blurb, disclosure). Homepage cards, creator lists, and job-hub cards show a short chip row beside the bot link (at most two products, then `+N` to the bot page) when that bot has pairs. One disclosure line per page, and only when something is shown. Empty stays empty.
 
-- `bot_names`: exact `name` from `bots.json` (best match)
-- `keywords`: a word or phrase in the bot name or description
-- `categories`: the bot's category, used when nothing above hits
+Each product needs `id`, `asin` (a `B` plus nine characters), `name`, `blurb`, `emoji`, and `match`:
 
-A page shows at most 3, ranked name, then keyword, then category. Ties keep the order in `products.json`, so move a product up to feature it. Every link is `https://www.amazon.com/dp/{asin}?tag=botshelf-20` with `rel="noopener sponsored"`. Amazon only. The disclosure string in the file is printed on pages that show products.
+- `bot_names`: exact `name` from `bots.json`. Score 5.
+- `phrases`: a distinctive word or phrase in the bot name or description. One phrase scores 4. Two phrases, or a phrase plus a support keyword, score 5.
+- `keywords`: multi-word phrases count like `phrases`. A single word of five or more letters can only bump a phrase to 5. It never scores alone. Do not use `voice`, `desk`, `tools`, `tracker`, `hub`, `network`, `scanner`, `backup`, or `export`.
+- `exclude` / `exclude_names`: drop this product for that text or exact bot name.
+- `auto: false` on the product: the scorer skips it (Echo Dot). Pin it from `pairs-overrides.json` if a bot should show it.
+
+Do not add `categories`. A category string never attaches a product.
+
+At most 3 products. Ties keep catalog order. Every link is `https://www.amazon.com/dp/{asin}?tag=botshelf-20` with `rel="noopener sponsored"`.
+
+`public/pairs.json` has one key per bot slug. A non-empty row with no `"auto": true` flag is curated and is left alone. `public/pairs-overrides.json` wins at render time (`none`, `block`, `pin`). Bot Tools defaults to `none` unless that slug sets `"none": false`.
+
+```sh
+node scripts/pairs-gen.js              # new bots only
+node scripts/pairs-gen.js --backfill   # after products.json changes; rescores empty and auto rows
+node scripts/build.js
+```
 
 ```json
 {
   "id": "samsung-t7",
   "asin": "B0874XN4D8",
   "name": "Samsung T7 SSD",
-  "blurb": "Fast portable SSD for models, clips, and backups.",
+  "blurb": "Fast portable SSD for models and clips.",
   "emoji": "💾",
   "match": {
-    "bot_names": ["Local AI Manager", "Disk Doctor"],
-    "keywords": ["ssd", "storage", "backup"],
-    "categories": []
+    "bot_names": ["Local AI Manager"],
+    "phrases": ["portable ssd"],
+    "keywords": ["nvme"]
   }
 }
 ```
@@ -194,6 +216,8 @@ The homepage HTML also includes a closed "All bots and creators" list (`#all`) w
 `scripts/build.js` injects GA4 when `GA_MEASUREMENT_ID` is set. The tag loads only on `grokbotshelf.com` and `www.grokbotshelf.com`. Preview hosts and localhost do not load it.
 
 "Get this bot" and "Add to Bot app" send a `get_bot` event with `bot_slug` and `destination` (`x.ai` or `app`). Mark it as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
+
+An Amazon "Pairs with" link sends `pair_click` with `bot_slug`, `product_id`, `position` (1-based), and `surface` (`home`, `creator`, `collection`, or `bot`). The listener lives in `public/shelf-up.js`.
 
 ## Under the hood
 

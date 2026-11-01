@@ -369,6 +369,21 @@ a.pair:hover .pair-cta{background:var(--btn-blue-h);color:#fff}
 .site-foot .assoc{margin-top:4px}
 html.mobile a.pair{flex-wrap:wrap}
 html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
+/* Compact "Pairs with" chips beside a list card. Not the full bot-page row. */
+.card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 0}
+.card-pairs-l{color:var(--text2);font:600 12px/1.3 var(--font)}
+a.pair.pair-mini{display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:3px 8px;border-radius:9999px;font:600 12px/1.3 var(--font)}
+a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:700 12px/1.3 var(--font);text-decoration:none}
+a.pair-more:hover{color:var(--blue);background:transparent;text-decoration:underline}
+.bp-more a.pair-mini{display:inline-flex;padding:3px 8px;border-radius:9999px;font-size:12px;font-weight:600}
+.bp-more a.pair-more{display:inline;padding:0 2px;border:0;border-radius:0;font-weight:700;background:transparent}
+.bp-more a.pair-more:hover{background:transparent}
+.bp-more .card-pairs{margin:8px 2px 2px}
+.job-bot .card-pairs{margin:6px 0 0 52px}
+.pairs-note{margin:10px 0 0;font-size:12px;color:var(--text2)}
+html.mobile a.pair.pair-mini{flex-wrap:nowrap;min-height:44px}
+html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
+html.mobile .job-bot .card-pairs{margin-left:0}
 
 .card{cursor:pointer}
 

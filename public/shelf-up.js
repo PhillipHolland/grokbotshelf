@@ -244,3 +244,20 @@
     }, true);
   } catch (err) { if (window.console) console.error("shelf-up gift:", err); }
 })();
+// pair_click: Amazon "Pairs with" on homepage cards, creator lists, job hubs, and bot pages.
+// One listener so a page that loads this file does not double-count. surface is home, creator,
+// collection, or bot. No-op unless the production GA snippet defined gtag.
+(function () {
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest && e.target.closest("a.pair");
+    if (!a || typeof gtag !== "function") return;
+    var pos = Number(a.getAttribute("data-position"));
+    gtag("event", "pair_click", {
+      bot_slug: a.getAttribute("data-bot") || "",
+      product_id: a.getAttribute("data-product") || "",
+      position: pos > 0 ? pos : undefined,
+      surface: a.getAttribute("data-surface") || "",
+      transport_type: "beacon"
+    });
+  });
+})();
