@@ -6719,5 +6719,93 @@
     "date": "2026-10-31",
     "post_id": "2116654331428827335",
     "note": "Template Rewards pilot interest, not a shelf add request"
+  },
+  "form-593": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/3ElovH5wCuS_-QdbDP0Va",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #593 Homeowners Policy Explainer by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-592": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/dt4z9u730fcQilhDlsOik",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #592 COI Checker by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-591": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/Mb0iuP9q9kxVAVKJMjP2d",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #591 Claim Filing Helper by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-590": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/jz0dVivfDexGXLXX6LCyH",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #590 Teen Driver Coach by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-589": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/WCLL7gMJ7sfF215B0OkE7",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #589 Disaster Ready Kit by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-588": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/nTXcnt1sVmDP_aAVYRfw1",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #588 Chore & Allowance Tracker by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-587": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/vBnhH6eT78GFJWGaPYME8",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #587 Homework Helper by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-586": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/00V6Sus5vIxSQYpMVz4CS",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #586 Contract Insurance Clause Reviewer by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-585": {
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/f8Ck1oxbuh9hVd48TLy6r",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #585 Renewal Prep Coach by Kevin; standing auto-shelve SFW rule"
+  },
+  "form-584": {
+    "author_handle": "@thecryptostewrd",
+    "template_url": "https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE",
+    "status": "pending",
+    "date": "2026-10-31",
+    "post_id": "2116690914101895630",
+    "note": "form #584 Legal Counsel by TheCryptoSteward; parked: name clash with existing Legal Counsel (@xenappblog) and drafts securities/crypto legal opinions; X post links generic x.ai/bot/ page"
+  },
+  "x-2116690914101895630": {
+    "author_handle": "@thecryptostewrd",
+    "template_url": "https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE",
+    "status": "pending",
+    "date": "2026-10-31",
+    "post_id": "2116690914101895630",
+    "note": "same as form-584, parked"
   }
 }
