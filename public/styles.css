@@ -1184,3 +1184,22 @@ a.pair.pair-mini,html[data-theme="light"] a.pair.pair-mini{border-color:var(--li
 
 /* ---------- Tokens FAB: solid, so card text never shows through it ---------- */
 .gbs-cup{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* Homepage footer: how pairs and Gift help cover the plan. A hairline under the
+   note, then the tip card. No box, so it does not nest inside the tip card.
+   Fee dollars stay off this surface until a real total exists. */
+.site-foot .cover-note{max-width:640px;margin:8px auto 0;padding:8px 0 16px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
+html[data-theme="light"] .site-foot .cover-note{border-bottom-color:var(--line2)}
+.site-foot .cover-note h2{margin:0 0 8px;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.3;color:var(--text);text-align:left}
+.site-foot .cover-note p{margin:0;text-align:left}
+.site-foot .cover-note .cover-note-line{font-size:14px;line-height:1.4;color:var(--text2)}
+.site-foot .cover-note .cover-note-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.cover-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 12px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text2);font:600 13px/1.2 var(--font);text-decoration:none}
+.cover-chip b{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums}
+.cover-chip .li{width:15px;height:15px;color:currentColor}
+.site-foot a.cover-chip{color:var(--blue);text-decoration:none}
+.site-foot a.cover-chip:hover{background:var(--hover);color:var(--blue);text-decoration:none}
+html[data-theme="light"] .site-foot a.cover-chip,html[data-theme="light"] .site-foot a.cover-chip:hover{color:var(--btn-blue)}
+.site-foot .cover-note .cover-note-fees{margin-top:8px;font-size:13px;line-height:1.4;color:var(--text2)}
+@media (max-width:640px){.cover-chip{min-height:44px;padding:0 12px}}
+html.mobile .cover-chip{min-height:44px}}

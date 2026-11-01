@@ -42,6 +42,10 @@ try {
     const stacksHtml = fs.readFileSync(pub("stacks", "index.html"), "utf8");
     const homeNow = fs.readFileSync(pub("index.html"), "utf8");
     ok(index.includes('class="li"') && !/>💪</.test(index) && stacksHtml.includes("Shelf stacks") && stacksHtml.includes("/bot/child-safety-coach") && stacksHtml.includes("/bot/local-ai-manager") && !stacksHtml.includes("botshelf-20") && homeNow.includes('class="growth"') && homeNow.includes("with Amazon pairs"), "Lucide on job hubs, public stacks page, homepage growth strip");
+    const plan = homeNow.slice(homeNow.indexOf("<!-- plan:start -->"), homeNow.indexOf("<!-- plan:end -->"));
+    const planBot = fs.readFileSync(pub("bot", "coach", "index.html"), "utf8");
+    const plan404 = fs.readFileSync(pub("404.html"), "utf8");
+    ok(plan.includes('id="cover-note-h"') && plan.includes("Helps pay for Grok Bot") && plan.includes("Affiliate Fees will show here once they start.") && plan.includes('class="cover-chip gift-top"') && plan.includes("with pairs") && !/\$\d/.test(plan) && !plan.includes("botshelf-20") && !plan.includes("amazon.com") && !planBot.includes("cover-note") && !plan404.includes("cover-note"), "homepage plan note is a zero-fee story and stays off bot pages");
     const sd = JSON.parse(fs.readFileSync(path.join(TMP, "public", "shelf-data.json"), "utf8"));
     const relay = sd.bots.find((b) => b.name === "iMessage Relay");
     const audit = sd.bots.find((b) => b.name === "Security Audit Bot");

@@ -225,6 +225,23 @@ function growthStrip() {
   ${when ? `<span>${lucide("calendar")}Shelved ${esc(when)}</span>` : ""}
 </p>`;
 }
+// Homepage footer only. Amazon pairs and the Gift referral help cover the plan.
+// No fee dollars until a real Associates total exists: the line says they will show once they start.
+// The Gift link uses .gift-top so shelf-up.js rotates Phil and Nick with the header.
+function planNote() {
+  const paired = items.filter((b) => pairsFor(b, products).length).length;
+  const n = (x) => x.toLocaleString("en-US");
+  return `<section class="cover-note" aria-labelledby="cover-note-h">
+  <h2 id="cover-note-h">Helps pay for Grok Bot</h2>
+  <p class="cover-note-line">Amazon pairs and Gift referrals help cover the plan. The shelf stays free.</p>
+  <p class="cover-note-row">
+    <span class="cover-chip">${lucide("bot")}<b>${n(items.length)}</b> bots</span>
+    <span class="cover-chip">${lucide("shopping-bag")}<b>${n(paired)}</b> with pairs</span>
+    <a class="cover-chip gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">${lucide("gift")}Gift Grok Bot</a>
+  </p>
+  <p class="cover-note-fees">Affiliate Fees will show here once they start.</p>
+</section>`;
+}
 function siteHeader({ title = false, job = "", addCurrent = false, growth = false } = {}) {
   const link = `<a class="home${title ? " gbs-brand" : ""}" href="/">${MARK}Grok Bot Shelf</a>`;
   const brand = title ? `<h1>${link}</h1>` : link;
@@ -250,6 +267,13 @@ function stampHeader(file, html) {
 }
 stampHeader("index.html", siteHeader({ title: true, growth: true, job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks">Stacks</a>` }));
 stampHeader("404.html", HEADER);
+// Plan note is homepage-only, above the tip card. Bot pages and 404 keep the tip card alone.
+{
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  if (!h.includes("<!-- plan:end -->")) throw new Error("index.html: missing <!-- plan:start --> / <!-- plan:end --> markers");
+  const n = h.replace(/<!-- plan:start -->[\s\S]*?<!-- plan:end -->/, () => `<!-- plan:start -->\n${planNote()}\n<!-- plan:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
 // Tip card (scripts/tip.js) opens every footer; index.html and 404.html get it between their tip markers
 const TIP = tipCard(versioned);
 for (const page of ["index.html", "404.html"]) {
