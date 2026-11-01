@@ -3,8 +3,9 @@
 // and pairs-gen will not overwrite it. Rows marked "auto": true were proposed by the scorer.
 // public/pairs-overrides.json wins at render time: none, block, and pin. Bot Tools defaults
 // to none unless that slug sets "none": false or lists pin ids.
-// Category fields never match. The scorer uses exact bot_names, strong phrases, and a
-// support word only as a bump on a phrase. A single generic word never scores.
+// Category fields never match. Named match means the bot name contains the product.
+// A bot_names entry alone does not score. Strong phrases score, and a support word
+// only bumps a phrase. A single generic word never scores.
 //
 // New bot: node scripts/pairs-gen.js && node scripts/build.js
 // After editing products.json: node scripts/pairs-gen.js --backfill && node scripts/build.js
@@ -175,8 +176,31 @@ function excluded(bot, product) {
   return (m.exclude || []).some((k) => keywordHit(hay, k));
 }
 
-// Deterministic 0–3 proposals. Exact bot name → 5. Two strong phrases, or one phrase plus a
-// support word → 5. One strong phrase → 4. Support alone, a generic word, or a category → nothing.
+// Tokens too generic to count as "the bot is named for this product".
+const NAME_STOP = new Set(["classic", "large", "print", "study", "mini", "pack", "plus", "medium", "essentials", "wireless", "professional", "basic"]);
+
+function productTokens(product) {
+  const raw = `${(product && product.name) || ""} ${(product && product.id) || ""}`;
+  const seen = new Set();
+  const out = [];
+  for (const t of raw.toLowerCase().split(/[^a-z0-9]+/)) {
+    if (t.length < 4 || GENERIC_SUPPORT.has(t) || NAME_STOP.has(t) || seen.has(t)) continue;
+    seen.add(t);
+    out.push(t);
+  }
+  return out;
+}
+
+// True only when the bot's own name contains the product (Moleskine, AirPods, KJV…).
+// A bot_names list entry is not this. "Christian Devotional Bot" does not name a notebook.
+function nameMentionsProduct(botName, product) {
+  return productTokens(product).some((t) => keywordHit(botName, t));
+}
+
+// Deterministic 0–3 proposals. Named match (bot name contains the product) → 5.
+// Two strong phrases, or one phrase plus a support word → 5. One strong phrase → 4.
+// A bot_names entry alone is not a named match and does not score. Support alone,
+// a generic word, or a category → nothing.
 // Products with auto:false are curated-only (Echo Dot). Catalog order breaks score ties.
 function proposePairs(bot, catalog) {
   const products = (catalog && catalog.products) || [];
@@ -188,8 +212,11 @@ function proposePairs(bot, catalog) {
     if (excluded(bot, p)) return;
     const m = p.match || {};
     if ((m.bot_names || []).some((n) => n === name)) {
-      hits.push({ id: p.id, score: 5, reason: `Named match for ${name}.`, index, auto: true });
-      return;
+      if (nameMentionsProduct(name, p)) {
+        hits.push({ id: p.id, score: 5, reason: `Named match for ${name}.`, index, auto: true });
+        return;
+      }
+      // Listed, but the bot name does not contain the product. Not a named match.
     }
     const phrases = strongPhrases(p).filter((k) => keywordHit(hay, k));
     if (!phrases.length) return;
@@ -209,6 +236,22 @@ function proposePairs(bot, catalog) {
     if (out.length === 3) break;
   }
   return out;
+}
+
+function pinnedRow(bot, row, catalog, overrides) {
+  if (!row || !row.id) return false;
+  const product = (catalog.products || []).find((p) => p.id === row.id);
+  if (!product || product.auto === false) return false;
+  if (excluded(bot, product)) return false;
+  const names = (product.match && product.match.bot_names) || [];
+  if (!names.includes(String(bot.name || ""))) return false;
+  const slug = bot.slug || slugify(bot.name || "");
+  const ov = (overrides && overrides.bots && overrides.bots[slug]) || {};
+  if (ov.none === true) return false;
+  if ((ov.block || []).includes(row.id)) return false;
+  const catDefault = overrides && overrides.defaults && overrides.defaults.category && overrides.defaults.category[String(bot.category || "")];
+  if (catDefault === "none" && ov.none !== false) return false;
+  return true;
 }
 
 function rowsAreCurated(rows) {
@@ -248,7 +291,21 @@ function generatePairs({ bots, catalog, curated, overrides, mode }) {
       ordered[slug] = existing;
       continue;
     }
-    ordered[slug] = proposalsFor({ ...bot, slug }, catalog, overrides);
+    const proposed = proposalsFor({ ...bot, slug }, catalog, overrides);
+    // Keep an existing auto pin whose bot is still listed on the product. Those rows
+    // were exact bot_names pins, not named matches. Backfill must not drop them just
+    // because the bot name does not contain the product. A list entry that was removed
+    // (or a bot that is excluded) is not kept, so a bad pin stays gone.
+    const kept = (Array.isArray(existing) ? existing : []).filter((r) => pinnedRow({ ...bot, slug }, r, catalog, overrides));
+    const merged = [];
+    const seen = new Set();
+    for (const r of [...kept, ...proposed]) {
+      if (!r || seen.has(r.id)) continue;
+      seen.add(r.id);
+      merged.push(r);
+      if (merged.length === 3) break;
+    }
+    ordered[slug] = JSON.stringify(existing) === JSON.stringify(merged) ? existing : merged;
   }
   return ordered;
 }
@@ -293,5 +350,5 @@ function pairsFor(bot, catalog) {
 module.exports = {
   pairsFor, resolvePairs, matchTier, keywordHit, productUrl, assertCatalog, assertCurated,
   proposePairs, proposalsFor, generatePairs, assertPairKeys, resetPairCache, pairCards,
-  rowsAreCurated, strongPhrases, TIERS, BANNED_KEYWORDS, GENERIC_SUPPORT,
+  rowsAreCurated, strongPhrases, nameMentionsProduct, TIERS, BANNED_KEYWORDS, GENERIC_SUPPORT,
 };

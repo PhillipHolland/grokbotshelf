@@ -43,7 +43,7 @@ const out = {
   version: curated.version || 1,
   tag: "botshelf-20",
   generated: new Date().toISOString(),
-  note: "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (exact name, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
+  note: "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
   pairs: nextPairs,
 };
 fs.writeFileSync(path.join(PUB, "pairs.json"), JSON.stringify(out, null, 1) + "\n");

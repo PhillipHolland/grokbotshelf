@@ -2,7 +2,7 @@
  "version": 1,
  "tag": "botshelf-20",
  "generated": "2026-11-01T15:31:10.692Z",
- "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (exact name, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
+ "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
   "ibot-player": [
@@ -13,38 +13,9 @@
    }
   ],
   "security-audit-bot": [],
-  "christian-devotional-bot": [
-   {
-    "id": "moleskine-classic",
-    "score": 5,
-    "reason": "Named match for Christian Devotional Bot.",
-    "auto": true
-   },
-   {
-    "id": "kjv-study-bible",
-    "score": 5,
-    "reason": "Named match for Christian Devotional Bot.",
-    "auto": true
-   }
-  ],
+  "christian-devotional-bot": [],
   "terminal-boss": [],
-  "apple-inventory-and-deal-bot": [
-   {
-    "id": "mac-mini-m4",
-    "score": 5,
-    "reason": "Top Apple desk buy this bot hunts stock and price on."
-   },
-   {
-    "id": "airpods",
-    "score": 4,
-    "reason": "Common Apple pick when watching stock and best delivery."
-   },
-   {
-    "id": "airtag-4pack",
-    "score": 4,
-    "reason": "Popular Apple add-on to check stock and price for."
-   }
-  ],
+  "apple-inventory-and-deal-bot": [],
   "sushi-and-ramen": [],
   "botbagger": [],
   "site-coach": [],
@@ -66,13 +37,7 @@
    }
   ],
   "grokbot-mail": [],
-  "app-store-connect": [
-   {
-    "id": "mac-mini-m4",
-    "score": 4,
-    "reason": "Affordable Xcode machine for the builds you push to TestFlight."
-   }
-  ],
+  "app-store-connect": [],
   "coach": [
    {
     "id": "garmin-265",
