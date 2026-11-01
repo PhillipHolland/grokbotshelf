@@ -2,7 +2,7 @@
   "tag": "botshelf-20",
   "link": "https://www.amazon.com/dp/{asin}?tag=botshelf-20",
   "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
-  "note": "Expanded Nov 1 2026 — ~36 Amazon-only SKUs for diverse bot categories. Every ASIN HTTP-200 verified with tag=botshelf-20.",
+  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1), replacing unavailable Lightning AirPods 2 (B07PXGQC1Q). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG), replacing the 2013 Pen & Touch CTH-680 (B00EN27UC2). Garmin Forerunner 265 is flagged: see that product's flag. Echo Dot stays in the catalog and is not category-paired. Tag botshelf-20.",
   "products": [
     {
       "id": "beelink-mini-s12",
@@ -17,9 +17,6 @@
           "Computer Shop Bot",
           "Device Repair Expert",
           "Media Center Engineer"
-        ],
-        "categories": [
-          "Developer"
         ],
         "keywords": [
           "local ai",
@@ -66,9 +63,8 @@
           "Podcast Clipper for X"
         ],
         "keywords": [
-          "podcast",
+          "podcast mic",
           "microphone",
-          "voice",
           "mic"
         ]
       }
@@ -89,10 +85,9 @@
           "Clipper"
         ],
         "keywords": [
+          "portable ssd",
           "ssd",
-          "storage",
-          "backup",
-          "export"
+          "nvme"
         ]
       }
     },
@@ -131,7 +126,7 @@
         ],
         "keywords": [
           "usb-c hub",
-          "dock",
+          "thunderbolt dock",
           "hdmi",
           "desk setup"
         ]
@@ -150,9 +145,8 @@
           "Device Repair Expert"
         ],
         "keywords": [
-          "usb-c",
-          "hub",
-          "adapter"
+          "usb-c hub",
+          "multiport hub"
         ]
       }
     },
@@ -172,7 +166,7 @@
         ],
         "keywords": [
           "usb mic",
-          "streaming",
+          "livestream",
           "podcast"
         ]
       }
@@ -213,8 +207,7 @@
         ],
         "keywords": [
           "webcam",
-          "stream",
-          "camera",
+          "livestream",
           "1080p"
         ]
       }
@@ -233,14 +226,9 @@
           "Site Engineer",
           "CTO"
         ],
-        "categories": [
-          "Productivity",
-          "Developer"
-        ],
         "keywords": [
           "mouse",
-          "productivity",
-          "desk"
+          "mx master"
         ]
       }
     },
@@ -280,14 +268,10 @@
           "Yusician",
           "Writing Bot"
         ],
-        "categories": [
-          "Productivity",
-          "Creator & Media"
-        ],
         "keywords": [
           "headphones",
           "noise cancel",
-          "listening"
+          "noise-cancel"
         ]
       }
     },
@@ -324,14 +308,9 @@
           "CTO",
           "Site Engineer"
         ],
-        "categories": [
-          "Productivity",
-          "Developer"
-        ],
         "keywords": [
           "keyboard",
-          "typing",
-          "writer"
+          "mx keys"
         ]
       }
     },
@@ -347,9 +326,6 @@
           "Apple Mac Tools",
           "CTO",
           "Local AI Manager"
-        ],
-        "categories": [
-          "Developer"
         ],
         "keywords": [
           "mechanical keyboard",
@@ -374,14 +350,10 @@
           "Reel ➡️ 𝕏",
           "Clipper"
         ],
-        "categories": [
-          "Creator & Media"
-        ],
         "keywords": [
           "stream deck",
           "obs",
-          "twitch",
-          "macros"
+          "twitch"
         ]
       }
     },
@@ -402,7 +374,6 @@
         ],
         "keywords": [
           "key light",
-          "lighting",
           "stream light",
           "on camera"
         ]
@@ -420,9 +391,6 @@
           "Backseat Buddy",
           "Park Lookout",
           "Grok · Field Desk"
-        ],
-        "categories": [
-          "Travel"
         ],
         "keywords": [
           "power bank",
@@ -444,14 +412,10 @@
           "Pumpkin Spice Bot",
           "RezBot"
         ],
-        "categories": [
-          "Food"
-        ],
         "keywords": [
           "instant pot",
           "pressure cooker",
-          "meal prep",
-          "cooking"
+          "meal prep"
         ]
       }
     },
@@ -468,13 +432,9 @@
           "Pep",
           "Sobriety Bot"
         ],
-        "categories": [
-          "Health & Fitness"
-        ],
         "keywords": [
           "water bottle",
-          "hydration",
-          "gym"
+          "hydration"
         ]
       }
     },
@@ -492,22 +452,20 @@
           "Media Center Engineer",
           "House Memory"
         ],
-        "categories": [
-          "Home"
-        ],
         "keywords": [
           "mesh wifi",
           "wifi 6",
+          "wi-fi 6",
           "router",
-          "network"
+          "home network"
         ]
       }
     },
     {
       "id": "echo-dot",
       "asin": "B09B94RL1R",
-      "name": "Echo Dot",
-      "blurb": "Compact smart speaker for routines and room audio.",
+      "name": "Echo Dot (5th Gen)",
+      "blurb": "Alexa speaker. Pair only with a bot that actually runs a smart home.",
       "emoji": "🔊",
       "match": {
         "bot_names": [
@@ -516,15 +474,14 @@
           "House Memory",
           "Personal Voicemail"
         ],
-        "categories": [
-          "Home"
-        ],
         "keywords": [
           "alexa",
-          "echo",
-          "smart speaker"
+          "echo dot",
+          "smart speaker",
+          "smart home"
         ]
-      }
+      },
+      "pair_note": "Do not attach from the Home category. Leave unpaired unless the bot is clearly Alexa, Echo, or smart-home routines."
     },
     {
       "id": "unifi-g4-doorbell",
@@ -540,15 +497,11 @@
           "Home Manager",
           "Network Ned"
         ],
-        "categories": [
-          "Security",
-          "Home"
-        ],
         "keywords": [
           "doorbell",
-          "camera",
           "unifi",
-          "home security"
+          "home security",
+          "video doorbell"
         ]
       }
     },
@@ -565,13 +518,9 @@
           "Park Lookout",
           "Remove Me"
         ],
-        "categories": [
-          "Travel",
-          "Lifestyle"
-        ],
         "keywords": [
           "airtag",
-          "tracker",
+          "air tag",
           "find my",
           "luggage"
         ]
@@ -592,9 +541,6 @@
           "Hacked Account Recovery Helper by Z23",
           "Cyber Checkup by Z23",
           "Spam-Call Scrubber"
-        ],
-        "categories": [
-          "Security"
         ],
         "keywords": [
           "yubikey",
@@ -618,16 +564,13 @@
           "Pep",
           "Coach"
         ],
-        "categories": [
-          "Health & Fitness"
-        ],
         "keywords": [
           "garmin",
           "running watch",
-          "gps watch",
-          "training"
+          "gps watch"
         ]
-      }
+      },
+      "flag": "Amazon title groups Forerunner 265 and 265S on one listing (UPC 753759313654 is the 46mm watch). It is not the Deco charging-dock bundles B0F6NXDRJJ and B0F6NZCP55. Confirm the buy box is the watch alone."
     },
     {
       "id": "anker-wireless-pad",
@@ -641,14 +584,10 @@
           "Apple Inventory & Deal Bot",
           "Home Helper"
         ],
-        "categories": [
-          "Productivity",
-          "Lifestyle"
-        ],
         "keywords": [
           "wireless charger",
-          "qi",
-          "phone charger"
+          "qi charger",
+          "magsafe"
         ]
       }
     },
@@ -674,9 +613,9 @@
     },
     {
       "id": "airpods",
-      "asin": "B07PXGQC1Q",
-      "name": "Apple AirPods",
-      "blurb": "Everyday wireless earbuds for calls and short clips.",
+      "asin": "B0DGJ7HYG1",
+      "name": "AirPods 4 (ANC)",
+      "blurb": "AirPods 4 with active noise cancellation and a USB-C case.",
       "emoji": "🎧",
       "match": {
         "bot_names": [
@@ -684,10 +623,6 @@
           "Apple Deal Price Slicer",
           "Personal Voicemail",
           "Video Call Connector by Kevin"
-        ],
-        "categories": [
-          "Lifestyle",
-          "Shopping"
         ],
         "keywords": [
           "airpods",
@@ -712,13 +647,10 @@
           "The Wife Saver by Brandon",
           "Device Repair Expert"
         ],
-        "categories": [
-          "Home"
-        ],
         "keywords": [
+          "cordless drill",
+          "power drill",
           "drill",
-          "tools",
-          "diy",
           "handyman"
         ]
       }
@@ -736,10 +668,6 @@
           "Fitness Coach by Jenna",
           "Personal Trainer by Sal"
         ],
-        "categories": [
-          "Travel",
-          "Health & Fitness"
-        ],
         "keywords": [
           "hydro flask",
           "insulated bottle",
@@ -749,9 +677,9 @@
     },
     {
       "id": "wacom-intuos",
-      "asin": "B00EN27UC2",
+      "asin": "B079NWPZTG",
       "name": "Wacom Intuos Medium",
-      "blurb": "Pressure-sensitive tablet for illustration bots.",
+      "blurb": "Bluetooth pen tablet (CTL-6100WL) for illustration and sprites.",
       "emoji": "✏️",
       "match": {
         "bot_names": [
@@ -761,14 +689,11 @@
           "Pixel Artist by Zachary",
           "Fashion Stylist Bot"
         ],
-        "categories": [
-          "Design"
-        ],
         "keywords": [
           "wacom",
           "drawing tablet",
-          "illustration",
-          "pen tablet"
+          "pen tablet",
+          "illustration"
         ]
       }
     },
@@ -786,16 +711,10 @@
           "Desk-Diet Dave",
           "Obsidian"
         ],
-        "categories": [
-          "Productivity",
-          "Faith",
-          "Lifestyle"
-        ],
         "keywords": [
-          "notebook",
-          "journal",
           "moleskine",
-          "writing"
+          "paper journal",
+          "journaling"
         ]
       }
     },
@@ -813,11 +732,6 @@
           "Flip Desk",
           "Truck Inventory",
           "Checkout Promo Code & Creator-Discount Hunter"
-        ],
-        "categories": [
-          "Money",
-          "Shopping",
-          "Business & Marketing"
         ],
         "keywords": [
           "label printer",
@@ -841,24 +755,20 @@
           "Law Desk",
           "ODD Desk"
         ],
-        "categories": [
-          "Money",
-          "Productivity"
-        ],
         "keywords": [
-          "scanner",
-          "receipts",
+          "receipt scanner",
           "document scan",
-          "fastfoto"
+          "fastfoto",
+          "scan receipts"
         ]
       }
     }
   ],
   "ux": {
-    "placement": "Quiet section on matching bot pages only (not homepage mall). Max 3 products per bot page, ranked by name match > keyword > category.",
+    "placement": "Quiet section on bot pages that have a curated pair (public/pairs.json), after overrides. Not the homepage, creator pages, or collections. Max 3. Empty is correct.",
     "label": "Pairs with",
     "cta": "View on Amazon",
     "rel": "noopener sponsored",
-    "style": "Match /lab/desk pair-card chrome scaled down for bot pages: Amazon badge, short blurb, View on Amazon button. Stay subtle — not a storefront. Prefer wider category/keyword coverage so Lifestyle, Home, Food, Fitness, Travel, Security, Design, Money, Faith all get matches when relevant."
+    "style": "Amazon badge, short blurb, View on Amazon. Stay subtle. Relevance over coverage: no category spray, no ambiguous single-word keywords."
   }
 }
