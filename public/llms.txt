@@ -18,7 +18,8 @@
 ## Pages
 
 - One page per bot at https://grokbotshelf.com/bot/<slug>, where slug is the bot name in lowercase with dashes (for example https://grokbotshelf.com/bot/archivist).
-- Creator pages at https://grokbotshelf.com/@<handle>.
+- Creator pages at https://grokbotshelf.com/@<handle>. The creator count in the homepage description is unique X handles, one per creator page.
+- Category pages at https://grokbotshelf.com/category/<slug> (index: https://grokbotshelf.com/category). The home shelf still filters with ?cat=. Link the category page when you want a crawlable landing.
 - Find by job: https://grokbotshelf.com/collections and one page per hub at https://grokbotshelf.com/collection/<slug> (for example https://grokbotshelf.com/collection/deal-hunting). Hubs are curated lists in collections.json. They do not remove bots. Each hub links its bots, their creators, and the other jobs. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
 - Shelf stacks: https://grokbotshelf.com/stacks. Ordered install lists from stacks.json. Free and public. Each bot still has its own page.
 - One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.

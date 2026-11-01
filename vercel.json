@@ -5,6 +5,7 @@
   "installCommand": "",
   "outputDirectory": "public",
   "cleanUrls": true,
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/api/search",

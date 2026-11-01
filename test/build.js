@@ -34,7 +34,8 @@ try {
   const sm = fs.readFileSync(pub("sitemap.xml"), "utf8"), locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const jobFile = JSON.parse(fs.readFileSync(pub("collections.json"), "utf8"));
   const jobN = Array.isArray(jobFile.collections) ? jobFile.collections.length : 0;
-  ok(locs.length === 3 + (jobN ? 1 + jobN : 0) + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && locs.includes("https://grokbotshelf.com/stacks") && (!jobN || locs.includes("https://grokbotshelf.com/collections") && jobFile.collections.every((c) => locs.includes("https://grokbotshelf.com/collection/" + c.slug))) && new Set(locs).size === locs.length, `sitemap has home + /add + /stacks + jobs + bots + creators, no duplicates (${locs.length})`);
+  const catN = new Set(bots.map((b) => slugify(b.category))).size;
+  ok(locs.length === 4 + catN + (jobN ? 1 + jobN : 0) + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && locs.includes("https://grokbotshelf.com/stacks") && locs.includes("https://grokbotshelf.com/category") && [...new Set(bots.map((b) => slugify(b.category)))].every((s) => locs.includes("https://grokbotshelf.com/category/" + s)) && (!jobN || locs.includes("https://grokbotshelf.com/collections") && jobFile.collections.every((c) => locs.includes("https://grokbotshelf.com/collection/" + c.slug))) && new Set(locs).size === locs.length, `sitemap has home + /add + /stacks + /category + jobs + bots + creators, no duplicates (${locs.length})`);
   if (jobN) {
     const hub = fs.readFileSync(pub("collection", jobFile.collections[0].slug, "index.html"), "utf8");
     const index = fs.readFileSync(pub("collections", "index.html"), "utf8");
@@ -85,6 +86,7 @@ try {
   if (arch) {
     const h = fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8"), ch = arch.creator_handle.replace(/^@/, "").toLowerCase();
     ok(h.includes('<link rel="canonical" href="https://grokbotshelf.com/bot/archivist">') && h.includes(`href="${arch.url}"`) && h.includes(`href="/@${ch}"`), "archivist page: canonical, template link, lowercase creator link");
+    ok(h.includes("<title>Archivist: Grok Bot template by Phillip Holland · Grok Bot Shelf</title>") && !/<title>[^<]*[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(h) && h.includes(`href="/category/${slugify(arch.category)}"`) && h.includes("<h1>Archivist</h1>"), "archivist title has no emoji and the category links to its hub");
   }
   // JSON-LD: bot page = WebPage + SoftwareApplication + BreadcrumbList, creator page = ProfilePage + Person + ItemList,
   // home = WebSite + SearchAction. Only real fields: no ratings, vote counts or publisher, and "<" is always escaped.
@@ -99,9 +101,9 @@ try {
     const ch = arch.creator_handle.replace(/^@/, "");
     ok(wp && wp.url === "https://grokbotshelf.com/bot/archivist" && app["@type"] === "SoftwareApplication" && app.name === "Archivist" && app.description === arch.description && app.url === wp.url
       && /^https:\/\/grokbotshelf\.com\/og\/bot\/archivist\.png\?v=[0-9a-f]{10}$/.test(app.image) && app.sameAs === arch.url, "bot JSON-LD: WebPage with mainEntity SoftwareApplication (name, description, url, share image)");
-    ok(app.applicationCategory === arch.category, `bot JSON-LD: applicationCategory is the bot's category (${app.applicationCategory})`);
+    ok(app.applicationCategory === arch.category && app.operatingSystem === "Grok Bot" && app.offers && app.offers["@type"] === "Offer" && app.offers.price === "0" && app.offers.priceCurrency === "USD" && !app.aggregateRating, `bot JSON-LD: operatingSystem Grok Bot, free USD offer, no rating (${app.operatingSystem})`);
     { // round 2 #8: homepage description and share title carry the live counts, twitter:site set; robots keeps crawlers off /api/
-      const home = fs.readFileSync(pub("index.html"), "utf8"), nc = new Set(bots.map((b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slugify(b.creator_name))).size;
+      const home = fs.readFileSync(pub("index.html"), "utf8"), nc = new Set(bots.map((b) => (b.creator_handle || "").replace(/^@/, "").toLowerCase()).filter(Boolean)).size;
       const desc = `${bots.length} shared Grok Bot templates from ${nc} creators. Search by category, app and what the bot does. Import in one tap.`;
       const m = (sel) => (home.match(new RegExp(`<meta ${sel} content="([^"]*)">`)) || [])[1];
       ok(m('name="description"') === desc && m('property="og:description"') === desc && m('name="twitter:description"') === desc, `homepage description: ${m('name="description"')}`);
@@ -139,7 +141,7 @@ try {
   ok(withMeta.length > 0 && withSocial.length > 0 && withMeta.every((d) => only(d.meta, ["agency", "works_with", "one_job"])) && withSocial.every((d) => only(d.social, ["bookmarks", "likes"])),
     `shelf-data.json carries only the meta (${withMeta.length}) and social (${withSocial.length}) fields the cards use`);
   const crypto = require("crypto"), raw = fs.readFileSync(pub("shelf-data.json")), v = crypto.createHash("sha256").update(raw).digest("hex").slice(0, 10);
-  ok(fs.readFileSync(pub("index.html"), "utf8").includes(`<link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous">`), "index.html preloads shelf-data.json at its content hash " + v);
+  ok(fs.readFileSync(pub("index.html"), "utf8").includes(`<link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous" fetchpriority="high">`), "index.html preloads shelf-data.json at its content hash " + v);
   const home = fs.readFileSync(pub("index.html"), "utf8");
   const botHrefs = new Set([...home.matchAll(/href="(\/bot\/[^"]+)"/g)].map((m) => m[1]));
   const creatorHrefs = new Set([...home.matchAll(/href="(\/@[^"]+)"/g)].map((m) => m[1]));
@@ -333,6 +335,17 @@ try {
   ok(/<title>Grok Bot Shelf: \d+ shared Grok Bot templates<\/title>/.test(homeSeo) && homeSeo.includes('name="twitter:image:alt"') && homeSeo.includes('name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"'), "homepage title matches the share title and asks for large image previews");
   ok(fs.readFileSync(pub("bot", "coach", "index.html"), "utf8").includes('"installUrl":"https://x.ai/bot/') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('property="og:type" content="profile"') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="cp-av"') && /alt="[^"]+"/.test(fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8")), "bot pages name an install URL; creator pages are profiles with a named avatar");
   {
+    const catHtml = fs.readFileSync(pub("category", "bot-tools", "index.html"), "utf8");
+    const catLd = JSON.parse((catHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1] || "null");
+    const list = catLd && catLd["@graph"] && catLd["@graph"].find((x) => x.mainEntity && x.mainEntity["@type"] === "ItemList").mainEntity;
+    const fitGuide = fs.readFileSync(pub("collection", "fitness", "index.html"), "utf8");
+    const fitLd = JSON.parse((fitGuide.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1]);
+    const words = (fitGuide.match(/<div class="hub-guide">([\s\S]*?)<\/div>/) || ["", ""])[1].replace(/<[^>]+>/g, " ").trim().split(/\s+/).filter(Boolean).length;
+    ok(catHtml.includes("<h1>Bot Tools</h1>") && catHtml.includes('aria-label="Breadcrumb"') && /\/og\/category\/bot-tools\.png/.test(catHtml) && list.numberOfItems > 0 && list.category === "Bot Tools" && list.itemListElement.length === list.numberOfItems, `category hub lists Bot Tools (${list && list.numberOfItems})`);
+    ok(fitGuide.includes('"@type":"FAQPage"') && fitLd["@graph"].some((x) => x["@type"] === "FAQPage" && x.mainEntity.length === 3) && words >= 80 && words <= 150 && fitGuide.includes('href="/category/'), `job hub guide is ${words} words, with FAQPage and a category link`);
+    ok(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8").includes('"trailingSlash": false'), "trailingSlash false sends /bot/slug/ to /bot/slug");
+  }
+  {
     const { assertPairKeys, resetPairCache } = require(path.join(TMP, "scripts", "pairs"));
     const file = pub("pairs.json");
     const saved = fs.readFileSync(file, "utf8");
@@ -369,7 +382,7 @@ try {
     const rel = path.relative(pub(), f);
     const lab = /\blab-desk\b/.test(html);
     if (!brandRe.test(header[0])) badBrand.push(rel);
-    if (rel === "index.html") homeOk = /<h1><a class="home gbs-brand" href="\/">/.test(header[0]) && header[0].includes('href="/collections">Find by job</a>');
+    if (rel === "index.html") homeOk = /<h1 class="shelf-h1">[\d,]+ Grok Bot templates you can import<\/h1>/.test(header[0]) && /<a class="home gbs-brand" href="\/">/.test(header[0]) && !/<h1><a class="home gbs-brand"/.test(header[0]) && header[0].includes('href="/collections">Find by job</a>');
     if (!lab && !/<a class="btn add-top" href="\/add"/.test(header[0])) badBrand.push(rel + " missing add");
     if (!lab && !header[0].includes('class="btn gift-top"')) badBrand.push(rel + " missing gift");
     if (!header[0].includes('id="theme"')) badBrand.push(rel + " missing theme");
