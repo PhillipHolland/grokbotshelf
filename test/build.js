@@ -200,6 +200,7 @@ try {
   const hasId = (name, id) => pairsFor(bots.find((b) => b.name === name), catalog).some((h) => h.product.id === id);
   ok(catalog.tag === "botshelf-20" && catalog.products.length === 36 && new Set(catalog.products.map((p) => p.asin)).size === 36 && catalog.products.every((p) => productUrl(p, catalog.tag) === `https://www.amazon.com/dp/${p.asin}?tag=botshelf-20`), "products.json: 36 unique Amazon ASINs, tag botshelf-20");
   ok(catalog.products.find((p) => p.id === "airpods").asin === "B0DGJ7HYG1" && catalog.products.find((p) => p.id === "wacom-intuos").asin === "B079NWPZTG", "AirPods 4 ANC and current Wacom Intuos Medium replace the stale ASINs");
+  ok(catalog.products.find((p) => p.id === "beelink-ser9").asin === "B0HG9JYSV9" && productUrl(catalog.products.find((p) => p.id === "beelink-ser9"), catalog.tag) === "https://www.amazon.com/dp/B0HG9JYSV9?tag=botshelf-20", "Beelink SER9 ASIN is the Ryzen AI mini PC, not AirPods Pro 2");
   ok(/265\/265S|bundle/i.test(catalog.products.find((p) => p.id === "garmin-265").flag || ""), "Garmin Forerunner listing is flagged (265/265S parent, not a dock bundle)");
   const bannedKw = catalog.products.flatMap((p) => (p.match && p.match.keywords) || []).filter((k) => BANNED_KEYWORDS.has(String(k).trim().toLowerCase()));
   const withCats = catalog.products.filter((p) => p.match && Array.isArray(p.match.categories) && p.match.categories.length);
@@ -244,6 +245,7 @@ try {
     if (!shown && html.includes("botshelf-20")) badPair.push(s + " stray");
     if (/heygen|opus\.pro|runwayml|synthesia/i.test(html)) badPair.push(s + " non-amazon");
     if (expectPairs.has(s) && !shown) badPair.push(s + " missing");
+    if (s === "local-ai-manager" && (!html.includes("/dp/B0HG9JYSV9?tag=botshelf-20") || html.includes("B0D1XD1ZV3") || !html.includes("Beelink SER9"))) badPair.push("local-ai-manager ser9 asin");
     if (s === "ops-bot" && /B00ET5VMTU/.test(html)) badPair.push("ops-bot drill");
     if (s === "twain" && /B091CD47BZ|B08GYKNCCP|B07YNLBS7R/.test(html)) badPair.push("twain mic");
     if (s === "sushi-and-ramen" && /B00FLYWNYQ/.test(html)) badPair.push("sushi instant pot");

@@ -2,7 +2,7 @@
   "tag": "botshelf-20",
   "link": "https://www.amazon.com/dp/{asin}?tag=botshelf-20",
   "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
-  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1), replacing unavailable Lightning AirPods 2 (B07PXGQC1Q). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG), replacing the 2013 Pen & Touch CTH-680 (B00EN27UC2). Garmin Forerunner 265 is flagged: see that product's flag. Echo Dot stays in the catalog and is not category-paired. Tag botshelf-20.",
+  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1), replacing unavailable Lightning AirPods 2 (B07PXGQC1Q). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG), replacing the 2013 Pen & Touch CTH-680 (B00EN27UC2). Beelink SER9 ASIN is the Ryzen AI mini PC (B0HG9JYSV9), replacing B0D1XD1ZV3 (AirPods Pro 2). Garmin Forerunner 265 is flagged: see that product's flag. Echo Dot stays in the catalog and is not category-paired. Tag botshelf-20.",
   "products": [
     {
       "id": "beelink-mini-s12",
@@ -93,7 +93,7 @@
     },
     {
       "id": "beelink-ser9",
-      "asin": "B0D1XD1ZV3",
+      "asin": "B0HG9JYSV9",
       "name": "Beelink SER9",
       "blurb": "Beefier mini PC when local AI needs more cores and RAM.",
       "emoji": "⚙️",
