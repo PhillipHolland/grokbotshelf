@@ -33,6 +33,28 @@ section and filter chip automatically; a new `category` gets its own chip.
 
 Check the template link works first: `curl -sI https://x.ai/bot/XXXXXXXX | head -1`
 
+## Find by job (collections)
+
+When several bots do the same kind of work, they stay in the catalog (merging them would break Template Rewards credit). `public/collections.json` is a separate layer: a short list of jobs. The home page links to `/collections` ("Find by job"). Each hub is `/collection/<slug>`.
+
+A hub has `id`, `slug`, `name`, `emoji`, a plain `blurb`, `bots` (every member, as a bot slug or an `https://x.ai/bot/<id>` url), and `picks` (1 to 3 of those, shown as "Start here"). The rest are "More like this". `rank` is accepted as another name for `picks`. Order in the file is the order on the page.
+
+The shelf has no install or Template Rewards feed. Do not add fake counts. When a real usage map exists, set `usageByTemplateId` in `scripts/build.js` to `{ "<template id>": <number> }`. `rankJobMembers` in `scripts/collections.js` then sorts by that number (missing keys count as 0, ties keep the editor order) and the first few become "Start here". The pages still do not print the numbers.
+
+```json
+{
+  "id": "deal-hunting",
+  "slug": "deal-hunting",
+  "name": "Deal hunting",
+  "emoji": "🏷️",
+  "blurb": "You want a real price before you buy.",
+  "picks": ["deal-scout", "deal-detective"],
+  "bots": ["deal-scout", "deal-detective", "smart-shopper"]
+}
+```
+
+Then `node scripts/build.js`. A slug or url that is not on the shelf fails the build. This is not the Family-style tag in `bot-meta.json` (`?collection=family` on the home filters). Leave that alone.
+
 ## Redeploy (one command)
 
 ```sh

@@ -964,3 +964,37 @@ html[data-theme="light"] .gbs-cup-scrim{background:rgba(15,20,25,.32)}
 .gbs-cup-scrim[hidden]{display:none}
 @media (min-width:1200px){.gbs-cup-scrim{display:none}}
 @media (prefers-reduced-motion:reduce){.gbs-cup,.gbs-cup.away{transition:none}}
+
+/* Find by job (/collections, /collection/<slug>, and the home header link).
+   New class names only, so the inlined critical CSS on bot pages stays the same. */
+.job-find{flex:1 0 100%;margin:2px 0 0;font-size:15px;line-height:1.35;color:var(--text)}
+.job-find a{color:var(--blue);font-weight:700;text-decoration:none}
+.job-find a:hover{text-decoration:underline}
+html.mobile .job-find a{display:inline-flex;align-items:center;min-height:44px}
+.job-lead{margin:0;font-size:17px;line-height:1.45}
+.job-index{list-style:none;margin:0 0 36px;padding:0;display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:640px){.job-index{grid-template-columns:1fr 1fr}}
+.job-card{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--bg);color:var(--text);text-decoration:none}
+.job-card:hover{background:var(--hover)}
+.job-card .icon{flex:none}
+.job-card strong{display:block;font-size:16px;letter-spacing:-.01em}
+.job-card small{display:block;margin-top:3px;font-size:13px;font-weight:400;color:var(--text2);line-height:1.4}
+.job-picks{margin:0 0 28px;padding:16px;border:1px solid rgba(255,255,255,.14);border-radius:16px;
+  background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02) 42%),rgba(22,24,28,.55);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+html[data-theme="light"] .job-picks{border-color:var(--line2);background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(255,255,255,.42)),rgba(255,255,255,.6)}
+.job-picks h2,.job-alts h2{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.job-kicker{margin:0 0 12px;color:var(--text2);font-size:14px;line-height:1.4}
+.job-bots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.job-bot{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
+.job-bot .job-main{display:flex;gap:12px;align-items:flex-start;color:var(--text);text-decoration:none;font-weight:700}
+.job-bot .job-main:hover strong{text-decoration:underline}
+.job-bot .jt{min-width:0}
+.job-bot .jt small{display:block;margin-top:3px;font-size:13px;font-weight:400;color:var(--text2);line-height:1.4}
+.job-bot .by{margin:6px 0 0 52px;font-size:13px;color:var(--text2)}
+.job-bot .by a{color:var(--text);font-weight:700;text-decoration:none}
+.job-bot .by a:hover{color:var(--blue);text-decoration:underline}
+html.mobile .job-bot .job-main{min-height:44px}
+html.mobile .job-bot .by a{display:inline-flex;align-items:center;min-height:44px}
+html[data-theme="light"] .job-card,html[data-theme="light"] .job-bot{border-color:var(--line2)}
+.job-alts{margin:0 0 36px}

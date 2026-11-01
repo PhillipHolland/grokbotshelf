@@ -3,6 +3,7 @@
 // (vercel.json buildCommand) and can be run locally: node scripts/build.js
 const fs = require("fs"), path = require("path");
 const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
+const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
 const PAGE_CSS_MARK = "<!-- page-css -->";
@@ -149,6 +150,19 @@ function similarTo(b) {
     .sort((x, y) => y.score - x.score || (x.o.name < y.o.name ? -1 : x.o.name > y.o.name ? 1 : 0))
     .slice(0, 3).map((r) => r.o);
 }
+// Job hubs (Find by job). Editors' picks until a real usage map exists. See scripts/collections.js.
+// Plug Template Rewards in here later, as { [templateId]: number }. Leave this null until then.
+// Do not invent install counts, and do not print a number the map does not have.
+const usageByTemplateId = null;
+const jobCollections = loadCollections(read("collections.json", {}), items).map((c) => {
+  const ranked = rankJobMembers(c.members, c.pickSlugs, usageByTemplateId);
+  return { ...c, ...ranked };
+});
+const jobBySlug = new Map();
+for (const c of jobCollections) for (const b of c.members) {
+  if (!jobBySlug.has(b.slug)) jobBySlug.set(b.slug, []);
+  jobBySlug.get(b.slug).push(c);
+}
 // Shelfer template link, read from public/config.js (window.SHELFER_URL) for llms.txt and the protocol copy
 const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
 const HEADER = `<header class="wrap hero">
@@ -273,6 +287,20 @@ function botLd(b, url, img) {
     { "@id": url + "#breadcrumb", ...crumbs(trail) },
   ] };
 }
+// Other bots in the same job hub, plus a link to the hub. Uses the existing bot-page list
+// styles so this does not add classes the critical CSS pass would have to learn.
+function sameJob(b) {
+  const jobs = jobBySlug.get(b.slug) || [];
+  if (!jobs.length) return "";
+  const items = jobs.flatMap((c) => {
+    const others = c.members.filter((m) => m.slug !== b.slug).slice(0, 3);
+    return [
+      ...others.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}${r.creator_name ? `<small>${esc(r.creator_name)}</small>` : ""}</a></li>`),
+      `<li><a href="/collection/${esc(c.slug)}"><span aria-hidden="true">${esc(c.emoji)}</span> Also in: ${esc(c.name)}</a></li>`,
+    ];
+  }).join("");
+  return `\n  <section class="bp-more"><h2>Bots for the same job</h2><ul>${items}</ul></section>`;
+}
 function page(b, related, similar) {
   const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
@@ -305,11 +333,11 @@ ${HEADER}
       ${b.source_post ? `<a href="${esc(b.source_post)}" rel="noopener" target="_blank">Original post</a>` : ""}
       ${b.code_url ? `<a href="${esc(b.code_url)}" rel="noopener" target="_blank">Source code</a>` : ""}
       <a href="/#bot-${b.slug}">See it on the shelf</a>
-      ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}
+      ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}${(jobBySlug.get(b.slug) || []).map((c) => `\n      <a href="/collection/${esc(c.slug)}">Also in: ${esc(c.name)}</a>`).join("")}
     </p>
     ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
-  ${underTheHood(b)}
+  ${underTheHood(b)}${sameJob(b)}
   ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}
   ${related.length ? `<section class="bp-more"><h2>More from ${esc(b.creator_name)}</h2><ul>${related.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}</a></li>`).join("")}</ul></section>` : ""}
   <section class="bp-embed" aria-labelledby="em-h">
@@ -401,6 +429,85 @@ for (const c of creatorList) {
   if (c.handle !== c.handle.toLowerCase()) pagesOut.push([path.join(PUB, "@" + c.handle + ".html"), html.replace("</head>",
     `<script>try{history.replaceState(history.state,"",${JSON.stringify(c.page)}+location.search+location.hash)}catch(e){}</script>\n</head>`)]);
 }
+// Find by job. These pages link the full stylesheet (they are not in pagesOut), so their classes
+// stay out of the inlined critical CSS on bot and creator pages. Header, tip card and theme
+// toggle are the same as every other shelf page.
+function jobWho(b) {
+  if (b.creator_handle) return `<a href="/@${esc(ckey(b))}">${esc(b.creator_name)}</a>`;
+  return b.creator_name ? esc(b.creator_name) : "";
+}
+function jobBot(b) {
+  const who = jobWho(b);
+  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><strong>${esc(b.name)}</strong><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}</li>`;
+}
+function jobHeader(onIndex) {
+  const link = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
+  return HEADER.replace("</header>", `<p class="job-find">Not sure which bot? ${link}</p>\n</header>`);
+}
+function writeJob(rel, html) {
+  const f = path.join(PUB, rel);
+  fs.mkdirSync(path.dirname(f), { recursive: true });
+  fs.writeFileSync(f, html);
+}
+fs.rmSync(path.join(PUB, "collection"), { recursive: true, force: true });
+fs.rmSync(path.join(PUB, "collections"), { recursive: true, force: true });
+{
+  const desc = "Pick the job you need. Each page shows a few bots to start with, then the rest. Every bot stays on the shelf, with the person who made it.";
+  const url = `${SITE}/collections`;
+  const ld = { "@context": "https://schema.org", "@graph": [
+    { "@type": "CollectionPage", "@id": url, url, name: "Find a bot by the job", description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
+      mainEntity: { "@type": "ItemList", numberOfItems: jobCollections.length, itemListElement: jobCollections.map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/collection/${c.slug}`, name: c.name })) } },
+    { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", url]]) },
+  ] };
+  writeJob("collections/index.html", `${head({ title: "Find a bot by the job · Grok Bot Shelf", desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: "Find a bot by the job", alt: "Grok Bot Shelf, find a bot by the job you need", creator: "@Phil_Holland", ld })}
+<body class="botpage">
+${jobHeader(true)}
+<main class="wrap bp" id="main">
+  <article class="bp-card">
+    <h1>Find a bot by the job</h1>
+    <p class="job-lead">${esc(desc)}</p>
+  </article>
+  <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${esc(c.emoji)}</span><span><strong>${esc(c.name)}</strong><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
+</main>
+${FOOTER}
+</body>
+</html>
+`);
+  for (const c of jobCollections) {
+    const url = `${SITE}/collection/${c.slug}`;
+    const n = c.members.length;
+    const desc = c.blurb;
+    const ld = { "@context": "https://schema.org", "@graph": [
+      { "@type": "CollectionPage", "@id": url, url, name: c.name, description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
+        mainEntity: { "@type": "ItemList", numberOfItems: n, itemListElement: c.members.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) } },
+      { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", SITE + "/collections"], [c.name, url]]) },
+    ] };
+    const alts = c.rest.length ? `<section class="job-alts" aria-labelledby="more-h"><h2 id="more-h">More like this</h2><p class="job-kicker">The other bots for this job. Each one is still its own template.</p><ul class="job-bots">${c.rest.map(jobBot).join("")}</ul></section>` : "";
+    writeJob(`collection/${c.slug}/index.html`, `${head({ title: `${c.emoji} ${c.name} · Grok Bot Shelf`, desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: `${c.name} bots on Grok Bot Shelf`, alt: `${c.name}: bots for this job on Grok Bot Shelf`, creator: "@Phil_Holland", ld })}
+<body class="botpage">
+${jobHeader(false)}
+<main class="wrap bp" id="main">
+  <article class="bp-card">
+    <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(c.emoji)}</div><div>
+      <h1>${esc(c.name)}</h1>
+      <p class="sub"><a href="/collections">Find by job</a><span class="dot" aria-hidden="true">·</span><span>${n} ${n === 1 ? "bot" : "bots"}</span></p>
+    </div></div>
+    <p class="bp-desc">${esc(desc)}</p>
+    <p class="fine">Every bot here stays on the shelf. The person who made it stays credited.</p>
+  </article>
+  <section class="job-picks" aria-labelledby="start-h">
+    <h2 id="start-h">Start here</h2>
+    <p class="job-kicker">A few to open first. If one is not quite right, the rest are just below.</p>
+    <ul class="job-bots">${c.start.map(jobBot).join("")}</ul>
+  </section>
+  ${alts}
+</main>
+${FOOTER}
+</body>
+</html>
+`);
+  }
+}
 // Bot and creator pages get styles.css minus the rules that can't match on them, inlined (scripts/page-css.js), so the
 // first paint needs no stylesheet request. Anything the pages' HTML or their scripts mention keeps its rules. The full
 // stylesheet is prefetched at idle so going on to the shelf finds it cached, as it did when these pages linked it
@@ -431,6 +538,11 @@ ${botLinks}
 <p class="crawl-h">Creators</p>
 <nav aria-label="All creators">
 ${creatorLinks}
+</nav>
+<p class="crawl-h">Jobs</p>
+<nav aria-label="Find by job">
+<a href="/collections">Find by job</a>
+${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}</a>`).join("\n")}
 </nav>
 </details>
 </section>`;
@@ -498,6 +610,7 @@ fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="U
   <url><loc>${SITE}/</loc><lastmod>${lastmod(newest)}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 ${items.map((b) => `  <url><loc>${SITE}${b.page}</loc><lastmod>${lastmod(b.added)}</lastmod></url>`).join("\n")}
   <url><loc>${SITE}/add</loc><lastmod>${lastmod(newest)}</lastmod></url>
+${jobCollections.length ? `  <url><loc>${SITE}/collections</loc><lastmod>${lastmod(newest)}</lastmod></url>\n` : ""}${jobCollections.map((c) => `  <url><loc>${SITE}/collection/${c.slug}</loc><lastmod>${lastmod(c.members.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 ${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c.bots.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 </urlset>
 `);
@@ -549,6 +662,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 
 - One page per bot at ${SITE}/bot/<slug>, where slug is the bot name in lowercase with dashes (for example ${SITE}${items[0] ? items[0].page : "/bot/archivist"}).
 - Creator pages at ${SITE}/@<handle>.
+- Find by job: ${SITE}/collections and one page per hub at ${SITE}/collection/<slug> (for example ${SITE}/collection/${jobCollections[0] ? jobCollections[0].slug : "deal-hunting"}). Hubs are curated lists in collections.json. They do not remove bots. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
 - One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.
 - To add a template inside the Grok Bot app: grokbot://app/v1/bot-template?id=<id>, where id is the part after https://x.ai/bot/.
 
@@ -598,4 +712,4 @@ curl -X POST ${SITE}/api/submit \\
 \`\`\`
 `);
 
-console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, sitemap, robots, feed (${recent.length}), llms.txt`);
+console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, ${jobCollections.length} job collections, sitemap, robots, feed (${recent.length}), llms.txt`);
