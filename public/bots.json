@@ -10742,5 +10742,31 @@
     "creator_avatar": "/avatars/gambrill.webp",
     "source_post": "https://x.com/gambrill/status/2116623129908817947",
     "added": "2026-10-31"
+  },
+  {
+    "name": "Blockato · Blockbench",
+    "emoji": "🧊",
+    "description": "Builds, hand-textures, and animates Minecraft-style low-poly Blockbench models like blocks, items, mobs, and player cosmetics, showing rough options before handing over the files.",
+    "category": "Design",
+    "url": "https://x.ai/bot/LtV1nNOz3yPYwe8bRQwxe",
+    "creator_name": "Emilio",
+    "creator_handle": "@EmilioSchwaiger",
+    "creator_url": "https://x.com/EmilioSchwaiger",
+    "creator_avatar": "/avatars/emilioschwaiger.webp",
+    "source_post": "",
+    "added": "2026-10-31"
+  },
+  {
+    "name": "Device Repair Expert",
+    "emoji": "🔧",
+    "description": "Diagnoses hardware faults from software and firmware signals on Google Home/Nest, Pixel, iOS 16+, and macOS 26+ devices, then guides repairs starting with the cheapest checks.",
+    "category": "Home",
+    "url": "https://x.ai/bot/XufJcCAZTyM7Y_Bf6yzM0",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-10-31"
   }
 ]

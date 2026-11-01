@@ -6695,5 +6695,29 @@
     "date": "2026-10-31",
     "post_id": "2116623129908817947",
     "note": "form #581 Charter Builder by Dave; standing auto-shelve SFW rule"
+  },
+  "form-583": {
+    "author_handle": "@EmilioSchwaiger",
+    "template_url": "https://x.ai/bot/LtV1nNOz3yPYwe8bRQwxe",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #583 Blockato · Blockbench by Emilio; standing auto-shelve SFW rule"
+  },
+  "form-582": {
+    "author_handle": "@holt_igor",
+    "template_url": "https://x.ai/bot/XufJcCAZTyM7Y_Bf6yzM0",
+    "status": "approved",
+    "date": "2026-10-31",
+    "post_id": "",
+    "note": "form #582 Device Repair Expert by Igor; standing auto-shelve SFW rule"
+  },
+  "x-2116654331428827335": {
+    "author_handle": "@HowieMcMahan",
+    "template_url": "https://x.ai/bot/Cr7MZCnOJ-XpWgwsEzV04",
+    "status": "skipped",
+    "date": "2026-10-31",
+    "post_id": "2116654331428827335",
+    "note": "Template Rewards pilot interest, not a shelf add request"
   }
 }
