@@ -37,7 +37,6 @@
         "bot_names": [
           "Apple Desk",
           "Apple Mac Tools",
-          "Apple Inventory & Deal Bot",
           "Apple Deal Price Slicer"
         ],
         "keywords": [
@@ -282,8 +281,7 @@
       "match": {
         "bot_names": [
           "Apple Desk",
-          "Apple Mac Tools",
-          "Apple Inventory & Deal Bot"
+          "Apple Mac Tools"
         ],
         "keywords": [
           "mac dock",
@@ -571,7 +569,6 @@
       "match": {
         "bot_names": [
           "Apple Desk",
-          "Apple Inventory & Deal Bot",
           "Home Helper"
         ],
         "keywords": [
@@ -609,7 +606,6 @@
       "emoji": "🎧",
       "match": {
         "bot_names": [
-          "Apple Inventory & Deal Bot",
           "Apple Deal Price Slicer",
           "Video Call Connector by Kevin"
         ],
@@ -696,8 +692,10 @@
         "bot_names": [
           "Writing Bot",
           "Idea Lab & Brainstorm Logger",
-          "Christian Devotional Bot",
           "Obsidian"
+        ],
+        "exclude_names": [
+          "Christian Devotional Bot"
         ],
         "keywords": [
           "moleskine",
@@ -1054,7 +1052,6 @@
       "emoji": "📖",
       "match": {
         "bot_names": [
-          "Christian Devotional Bot",
           "Daily Grace & Prayer Closet",
           "Daily Verse",
           "Psalm",
@@ -1063,6 +1060,9 @@
           "Exegesis",
           "Spiritual Advisor",
           "I Am Trying To Be Like Jesus by Tyler"
+        ],
+        "exclude_names": [
+          "Christian Devotional Bot"
         ],
         "phrases": [
           "bible verse",

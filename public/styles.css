@@ -369,21 +369,21 @@ a.pair:hover .pair-cta{background:var(--btn-blue-h);color:#fff}
 .site-foot .assoc{margin-top:4px}
 html.mobile a.pair{flex-wrap:wrap}
 html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
-/* Compact "Pairs with" chips beside a list card. Not the full bot-page row. */
-.card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 0}
-.card-pairs-l{color:var(--text2);font:600 12px/1.3 var(--font)}
-a.pair.pair-mini{display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:3px 8px;border-radius:9999px;font:600 12px/1.3 var(--font)}
+/* Compact "Pairs with" chips under a list card. Not the full bot-page row. */
+.card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 0;width:100%;min-width:0;max-width:100%}
+.card>.card-pairs{flex:none;margin-top:10px}
+.card-pairs-l{flex:none;color:var(--text2);font:600 12px/1.3 var(--font)}
+a.pair.pair-mini{display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 8px;border-radius:9999px;font:600 12px/1.3 var(--font)}
 a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:700 12px/1.3 var(--font);text-decoration:none}
 a.pair-more:hover{color:var(--blue);background:transparent;text-decoration:underline}
 .bp-more a.pair-mini{display:inline-flex;padding:3px 8px;border-radius:9999px;font-size:12px;font-weight:600}
 .bp-more a.pair-more{display:inline;padding:0 2px;border:0;border-radius:0;font-weight:700;background:transparent}
 .bp-more a.pair-more:hover{background:transparent}
 .bp-more .card-pairs{margin:8px 2px 2px}
-.job-bot .card-pairs{margin:6px 0 0 52px}
+.job-bot .card-pairs{margin:8px 0 0;width:100%}
 .pairs-note{margin:10px 0 0;font-size:12px;color:var(--text2)}
 html.mobile a.pair.pair-mini{flex-wrap:nowrap;min-height:44px}
 html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
-html.mobile .job-bot .card-pairs{margin-left:0}
 
 .card{cursor:pointer}
 
@@ -457,9 +457,12 @@ html.mobile .tools{margin-left:-10px}
 html.mobile .bp-actions .bp-vote{align-self:stretch;justify-content:center;height:44px;gap:8px}
 html.mobile .bp-vote .vb{width:44px;height:40px}
 
-/* Similar / More from tiles fill their grid cell so a row lines up */
-.bp-more li{display:flex}
-.bp-more li>a{flex:1;min-width:0}
+/* Similar / More from tiles fill their grid cell so a row lines up.
+   Pair chips are a full-width row under the link. A side-by-side row squeezed the
+   bot into the emoji column and left the link border as a vertical rule beside the pills. */
+.bp-more li{display:flex;flex-direction:column;align-items:stretch;min-width:0}
+.bp-more li>a{flex:1 1 auto;width:100%;min-width:0}
+.bp-more li>.card-pairs{width:100%;min-width:0;margin:8px 0 0}
 /* Bot page title wraps on narrow phones instead of running off the card */
 .bp h1{white-space:normal;overflow-wrap:anywhere}
 .bp-head>div{min-width:0}

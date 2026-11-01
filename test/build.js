@@ -192,7 +192,7 @@ try {
   ok(!notSmall.length && data.every((d) => (!d.creator_avatar && !d.avatar_sm) || (/\?v=[0-9a-f]{10}$/.test(d.avatar_sm) && /\?v=[0-9a-f]{10}$/.test(d.creator_avatar))), `every bot with a current small copy uses it, all avatar URLs versioned (not: ${notSmall.length})`);
   if (arch) ok(fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8").includes(`src="${data.find((d) => d.name === "Archivist").avatar_sm}"`), "bot page byline uses the small avatar");
   // Amazon "Pairs with": curated public/pairs.json (score >= 4) plus overrides. No category matching.
-  const { pairsFor, productUrl, matchTier, resolvePairs, BANNED_KEYWORDS } = require(path.join(TMP, "scripts", "pairs"));
+  const { pairsFor, productUrl, matchTier, resolvePairs, proposePairs, BANNED_KEYWORDS } = require(path.join(TMP, "scripts", "pairs"));
   const catalog = JSON.parse(fs.readFileSync(pub("products.json"), "utf8"));
   const curated = JSON.parse(fs.readFileSync(pub("pairs.json"), "utf8"));
   const overrides = JSON.parse(fs.readFileSync(pub("pairs-overrides.json"), "utf8"));
@@ -214,6 +214,17 @@ try {
   ok(!hasId("Ops Bot", "dewalt-drill") && idsOf("Ops Bot") === "", `Ops Bot has no drill: ${idsOf("Ops Bot") || "none"}`);
   ok(!hasId("Twain", "shure-mv7") && !hasId("Twain", "blue-yeti") && !hasId("Twain", "at2020usb") && idsOf("Twain") === "", "Twain has no mic");
   ok(!hasId("Sushi & Ramen", "instant-pot-duo") && idsOf("Sushi & Ramen") === "", "Sushi & Ramen has no Instant Pot");
+  ok(!hasId("Christian Devotional Bot", "moleskine-classic") && !hasId("Christian Devotional Bot", "kjv-study-bible") && idsOf("Christian Devotional Bot") === "", "Christian Devotional Bot is not a notebook or a KJV");
+  ok(!hasId("Apple Inventory & Deal Bot", "mac-mini-m4") && !hasId("Apple Inventory & Deal Bot", "airpods") && !hasId("Apple Inventory & Deal Bot", "airtag-4pack") && idsOf("Apple Inventory & Deal Bot") === "", "Apple Inventory & Deal Bot does not advertise those SKUs");
+  ok(!hasId("App Store Connect", "mac-mini-m4") && idsOf("App Store Connect") === "", "App Store Connect is not a Mac mini");
+  ok(hasId("iBot Player", "airpods") && hasId("Coach", "garmin-265"), "iBot Player keeps AirPods and Coach keeps the Forerunner");
+  const devo = bots.find((b) => b.name === "Christian Devotional Bot");
+  const devoRows = proposePairs(devo, catalog);
+  ok(!devoRows.some((r) => r.id === "moleskine-classic" || r.id === "kjv-study-bible" || /^Named match/.test(r.reason || "")), "devotional copy does not named-match a notebook or a translation-specific Bible");
+  const mole = catalog.products.find((p) => p.id === "moleskine-classic");
+  const sprayedCatalog = { ...catalog, products: catalog.products.map((p) => p.id === "moleskine-classic" ? { ...p, match: { ...(p.match || {}), bot_names: [...new Set([...(p.match && p.match.bot_names || []), devo.name])], exclude_names: [] } } : p) };
+  ok(!proposePairs(devo, sprayedCatalog).some((r) => r.id === "moleskine-classic"), "bot_names alone is not a named match when the bot name does not contain the product");
+  ok(mole && mole.id === "moleskine-classic", "moleskine still in the catalog");
   ok(idsOf("Apple Desk") === "mac-mini-m4,beelink-mac-dock,anker-565-hub", `Apple Desk pairs: ${idsOf("Apple Desk")}`);
   ok(idsOf("Streamer's Dream") === "logitech-c922x,stream-deck-mk2,key-light-air-mk2", `Streamer's Dream pairs: ${idsOf("Streamer's Dream")}`);
   ok(idsOf("Archivist") === "" && idsOf("Reel ➡️ 𝕏") === "" && idsOf("Clipper") === "", "Archivist, Reel, and Clipper have no pairs");
@@ -252,6 +263,11 @@ try {
     if (s === "ops-bot" && /B00ET5VMTU/.test(html)) badPair.push("ops-bot drill");
     if (s === "twain" && /B091CD47BZ|B08GYKNCCP|B07YNLBS7R/.test(html)) badPair.push("twain mic");
     if (s === "sushi-and-ramen" && /B00FLYWNYQ/.test(html)) badPair.push("sushi instant pot");
+    if (s === "christian-devotional-bot" && /moleskine-classic|kjv-study-bible/.test(html)) badPair.push("christian stretch");
+    if (s === "apple-inventory-and-deal-bot" && /mac-mini-m4|data-product="airpods"|airtag-4pack/.test(html)) badPair.push("apple inventory ads");
+    if (s === "app-store-connect" && /mac-mini-m4/.test(html)) badPair.push("app store mac mini");
+    if (s === "ibot-player" && !html.includes('data-product="airpods"')) badPair.push("ibot airpods");
+    if (s === "coach" && !html.includes('data-product="garmin-265"')) badPair.push("coach garmin");
   }
   ok(!badPair.length, `bot pages: one disclosure, sponsored Amazon links only on curated pairs (bad: ${badPair.slice(0, 4).join("; ") || "none"})`);
   const shelfUp = fs.readFileSync(pub("shelf-up.js"), "utf8");
@@ -261,7 +277,9 @@ try {
   ok(!/amazon\.com\/dp\//.test(homePairs) && !homePairs.includes("bp-pairs") && homePairs.includes('id="pairs-note"') && homePairs.includes(catalog.disclosure), "homepage static HTML has one hidden disclosure and no product links");
   const creatorHtml = fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8");
   const creatorShown = creatorHtml.includes("card-pairs");
-  ok(!creatorHtml.includes('class="bp-pairs"') && (!creatorShown || (creatorHtml.split(catalog.disclosure).length - 1) === 1 && creatorHtml.includes('data-surface="creator"') && creatorHtml.includes("</a><p class=\"card-pairs\"")), "creator pages use chips beside the bot link, not a Pairs section");
+  ok(!creatorHtml.includes('class="bp-pairs"') && (!creatorShown || (creatorHtml.split(catalog.disclosure).length - 1) === 1 && creatorHtml.includes('data-surface="creator"') && creatorHtml.includes("</a><p class=\"card-pairs\"")), "creator pages use chips under the bot link, not a Pairs section");
+  const css = fs.readFileSync(pub("styles.css"), "utf8");
+  ok(/\.bp-more li\{display:flex;flex-direction:column/.test(css) && /\.card>\.card-pairs\{flex:none/.test(css) && !/html\.mobile \.job-bot \.card-pairs\{margin-left:0\}/.test(css), "pair chips stack under the card on creator, home, and job lists");
   const collPages = ["collections/index.html", ...fs.readdirSync(pub("collection")).map((c) => `collection/${c}/index.html`)];
   const collBad = [];
   for (const f of collPages) {
