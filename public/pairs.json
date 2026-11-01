@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-01T15:31:10.692Z",
+ "generated": "2026-11-01T16:16:15.589Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -196,8 +196,22 @@
   "meetup-bot": [],
   "bouncer": [],
   "x-hygiene": [],
-  "3d-maker": [],
-  "kindle-courier": [],
+  "3d-maker": [
+   {
+    "id": "hatchbox-pla",
+    "score": 4,
+    "reason": "Mentions “filament”.",
+    "auto": true
+   }
+  ],
+  "kindle-courier": [
+   {
+    "id": "kindle-paperwhite",
+    "score": 5,
+    "reason": "Named match for Kindle Courier.",
+    "auto": true
+   }
+  ],
   "digger": [],
   "nba-daily-insider": [],
   "kitchen": [
@@ -1278,7 +1292,14 @@
   "rookie-card-ray": [],
   "comic-book-carl": [],
   "lifehack-jack": [],
-  "green-thumb-granny": [],
+  "green-thumb-granny": [
+   {
+    "id": "fiskars-bypass",
+    "score": 5,
+    "reason": "Mentions “sick plant” and another gear cue.",
+    "auto": true
+   }
+  ],
   "congressional-connection": [],
   "ballot-box-bob": [],
   "local-services-samantha": [],
@@ -1452,7 +1473,14 @@
    }
   ],
   "scrollstopper-social-media-manager": [],
-  "garden": [],
+  "garden": [
+   {
+    "id": "fiskars-bypass",
+    "score": 4,
+    "reason": "Mentions “watering and feeding”.",
+    "auto": true
+   }
+  ],
   "bookmark-kitchen": [
    {
     "id": "instant-pot-duo",
@@ -1973,7 +2001,14 @@
   "public-entity-governance-desk-by-kevin": [],
   "provider-network-finder-by-kevin": [],
   "cost-navigator-by-kevin": [],
-  "medication-transition-bot-by-kevin": [],
+  "medication-transition-bot-by-kevin": [
+   {
+    "id": "ezy-dose-weekly",
+    "score": 4,
+    "reason": "Mentions “pill bottles”.",
+    "auto": true
+   }
+  ],
   "family-coordination-bot-by-kevin": [],
   "care-ledger-by-kevin": [],
   "gangster-claude-by-john": [],

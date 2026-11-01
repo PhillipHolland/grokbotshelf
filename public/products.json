@@ -2,7 +2,7 @@
   "tag": "botshelf-20",
   "link": "https://www.amazon.com/dp/{asin}?tag=botshelf-20",
   "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
-  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. Catalog expanded to verified unique ASINs for money, home, faith, travel, fitness, food, design, and safety. UGREEN hub ASIN is the 5-in-1 USB-C hub B0BR3M8XHK; B08CFSZLQ4 now resolves to a Pixel phone and was dropped. Echo Dot stays in the catalog with auto:false so the scorer will not attach it. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG). Beelink SER9 ASIN is the Ryzen AI mini PC (B0HG9JYSV9). Tag botshelf-20.",
+  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. Catalog expanded to verified unique ASINs for money, home, faith, travel, fitness, food, design, and safety. UGREEN hub ASIN is the 5-in-1 USB-C hub B0BR3M8XHK; B08CFSZLQ4 now resolves to a Pixel phone and was dropped. Echo Dot stays in the catalog with auto:false so the scorer will not attach it. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG). Beelink SER9 ASIN is the Ryzen AI mini PC (B0HG9JYSV9). Added Nov 1: Kindle Paperwhite 16GB 2024 (B0CFPJYX7P), HATCHBOX black PLA 1kg (B00J0ECR5I), Ezy Dose weekly AM/PM organizer (B00LSS92TI), Fiskars 5/8 bypass shears (B00002N66H). Phrases stay specific. Tag botshelf-20.",
   "products": [
     {
       "id": "beelink-mini-s12",
@@ -1239,6 +1239,73 @@
         "phrases": [
           "reusable notebook",
           "smart notebook"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "kindle-paperwhite",
+      "asin": "B0CFPJYX7P",
+      "name": "Kindle Paperwhite",
+      "blurb": "7-inch glare-free reader. Kindle Courier sends EPUBs here.",
+      "emoji": "📖",
+      "match": {
+        "bot_names": [
+          "Kindle Courier"
+        ],
+        "phrases": [
+          "kindle"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "hatchbox-pla",
+      "asin": "B00J0ECR5I",
+      "name": "HATCHBOX PLA Filament",
+      "blurb": "1 kg black PLA spool for the printer 3D Maker is slicing for.",
+      "emoji": "🧵",
+      "match": {
+        "bot_names": [
+          "3D Maker"
+        ],
+        "phrases": [
+          "filament"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "ezy-dose-weekly",
+      "asin": "B00LSS92TI",
+      "name": "Ezy Dose Weekly Pill Case",
+      "blurb": "Seven-day AM/PM case for a medication list you review with a pharmacist.",
+      "emoji": "💊",
+      "match": {
+        "bot_names": [
+          "Medication Transition Bot by Kevin"
+        ],
+        "phrases": [
+          "pill bottles"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "fiskars-bypass",
+      "asin": "B00002N66H",
+      "name": "Fiskars Bypass Shears",
+      "blurb": "5/8-inch bypass pruners for the plants a garden bot just identified.",
+      "emoji": "🌱",
+      "match": {
+        "bot_names": [
+          "Green Thumb Granny",
+          "Garden"
+        ],
+        "phrases": [
+          "sick plant",
+          "planting calendar",
+          "watering and feeding"
         ],
         "keywords": []
       }

@@ -369,20 +369,22 @@ a.pair:hover .pair-cta{background:var(--btn-blue-h);color:#fff}
 .site-foot .assoc{margin-top:4px}
 html.mobile a.pair{flex-wrap:wrap}
 html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
-/* Compact "Pairs with" chips under a list card. Not the full bot-page row. */
+/* Compact "Pairs with" chips under a list card. Not the full bot-page row.
+   The row is full width under the card body so the emoji and open-link stay intact. */
 .card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 0;width:100%;min-width:0;max-width:100%}
-.card>.card-pairs{flex:none;margin-top:10px}
+.card>.card-pairs{flex:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
 .card-pairs-l{flex:none;color:var(--text2);font:600 12px/1.3 var(--font)}
-a.pair.pair-mini{display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 8px;border-radius:9999px;font:600 12px/1.3 var(--font)}
+a.pair.pair-mini{position:relative;display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 10px;border:1px solid rgba(29,155,240,.55);border-radius:9999px;background:rgba(29,155,240,.12);color:var(--text);font:600 13px/1.3 var(--font)}
+a.pair.pair-mini:hover{background:rgba(29,155,240,.22);border-color:rgba(29,155,240,.85);color:var(--text)}
 a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:700 12px/1.3 var(--font);text-decoration:none}
 a.pair-more:hover{color:var(--blue);background:transparent;text-decoration:underline}
-.bp-more a.pair-mini{display:inline-flex;padding:3px 8px;border-radius:9999px;font-size:12px;font-weight:600}
+.bp-more a.pair-mini{display:inline-flex;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:600}
 .bp-more a.pair-more{display:inline;padding:0 2px;border:0;border-radius:0;font-weight:700;background:transparent}
 .bp-more a.pair-more:hover{background:transparent}
 .bp-more .card-pairs{margin:8px 2px 2px}
-.job-bot .card-pairs{margin:8px 0 0;width:100%}
+.job-bot .card-pairs{margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line);width:100%}
 .pairs-note{margin:10px 0 0;font-size:12px;color:var(--text2)}
-html.mobile a.pair.pair-mini{flex-wrap:nowrap;min-height:44px}
+html.mobile a.pair.pair-mini{flex-wrap:nowrap;min-height:44px;padding:8px 12px}
 html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
 
 .card{cursor:pointer}
@@ -462,7 +464,7 @@ html.mobile .bp-vote .vb{width:44px;height:40px}
    bot into the emoji column and left the link border as a vertical rule beside the pills. */
 .bp-more li{display:flex;flex-direction:column;align-items:stretch;min-width:0}
 .bp-more li>a{flex:1 1 auto;width:100%;min-width:0}
-.bp-more li>.card-pairs{width:100%;min-width:0;margin:8px 0 0}
+.bp-more li>.card-pairs{width:100%;min-width:0;margin:10px 0 0;padding-top:10px;border-top:1px solid var(--line)}
 /* Bot page title wraps on narrow phones instead of running off the card */
 .bp h1{white-space:normal;overflow-wrap:anywhere}
 .bp-head>div{min-width:0}
@@ -683,7 +685,7 @@ html.mobile .card .gets .get{height:44px;padding:0 14px}
 html.mobile .bp .sub{gap:0 2px;margin-left:-6px}
 html.mobile :is(.bp .sub a,.bp-links a){min-height:44px;display:inline-flex;align-items:center;padding:0 6px}
 html.mobile .bp-links{gap:0 4px;margin-left:-6px}
-html.mobile :is(.snip-h .clear,.bp-actions :is(.get,.app),.bp-more a){min-height:44px}
+html.mobile :is(.snip-h .clear,.bp-actions :is(.get,.app),.bp-more a:not(.pair-mini):not(.pair-more)){min-height:44px}
 html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Skip link: hidden until focused, first stop on the page (audit #8) ---------- */
@@ -756,6 +758,8 @@ html.tailing .sentinel{height:100vh}
    edge, "Under the hood" rows), too faint to outline a floating card. Outlined containers take --line2, the grey the light
    theme already uses for inputs and ghost buttons; hover takes --field, because --hover (1.06:1) is invisible on white. ---------- */
 html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.bp-pairs,a.pair,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
+html[data-theme="light"] a.pair.pair-mini{border-color:rgba(15,108,189,.55);background:rgba(29,155,240,.12);color:var(--text)}
+html[data-theme="light"] a.pair.pair-mini:hover{background:rgba(29,155,240,.2);border-color:rgba(15,108,189,.8);color:var(--text)}
 html[data-theme="light"] .badge:not([class*="ag-"]){border-color:var(--line2)}
 html[data-theme="light"] :is(.card:hover,.bp-more a:hover,.tlist a:hover,.theme-btn:hover){background:var(--field)}
 
