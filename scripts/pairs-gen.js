@@ -7,8 +7,14 @@
 //     Also rescores empty rows and rows marked "auto": true (catalog grew).
 //     A non-empty row with no auto flag is curated and is left as written.
 //
+// A product id that was not already on the row is saved with probation:true and
+// since:YYYY-MM-DD. An id that was already there is not put on probation.
+// Promote it in public/pairs-overrides.json ("promote": ["product-id"] or true)
+// or record real pair_click counts in public/pair-signals.json (min, default 3).
+// Do not invent click counts. Curated rows are never rewritten.
+//
 // Then node scripts/build.js. The build fails if any bot slug is missing.
-// Overrides (none / block / pin) and the Bot Tools default of none are applied
+// Overrides (none / block / pin / promote) and the Bot Tools default of none are applied
 // before an auto row is saved, so hidden gear is not written. Category matching stays off.
 
 const fs = require("fs");
@@ -43,7 +49,7 @@ const out = {
   version: curated.version || 1,
   tag: "botshelf-20",
   generated: new Date().toISOString(),
-  note: "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
+  note: "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
   pairs: nextPairs,
 };
 fs.writeFileSync(path.join(PUB, "pairs.json"), JSON.stringify(out, null, 1) + "\n");

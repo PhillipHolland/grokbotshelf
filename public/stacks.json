@@ -1,0 +1,54 @@
+{
+  "_note": "Public install stacks at /stacks. Each bots array is the order to add them. Slugs only, from the live catalog. Free page, no membership gate. scripts/build.js fails if a slug is missing.",
+  "stacks": [
+    {
+      "slug": "train-this-week",
+      "title": "Train this week",
+      "icon": "dumbbell",
+      "blurb": "A plan that fits your body, a session for today, and a log of what you actually did.",
+      "bots": ["fitness-coach", "coach", "mend-and-move"]
+    },
+    {
+      "slug": "inbox-to-empty",
+      "title": "Inbox to empty",
+      "icon": "mail",
+      "blurb": "Sort what matters, draft the replies, and keep the rest from piling back up. You still send the mail.",
+      "bots": ["inbox-zero", "gmail-assistant", "mailman"]
+    },
+    {
+      "slug": "a-model-on-your-machine",
+      "title": "A model on your machine",
+      "icon": "cpu",
+      "blurb": "Stand up a local model, check the disk it lives on, then keep the terminal work in one place.",
+      "bots": ["local-ai-manager", "disk-doctor", "terminal-boss"]
+    },
+    {
+      "slug": "a-safer-phone-for-a-kid",
+      "title": "A safer phone for a kid",
+      "icon": "shield-check",
+      "blurb": "Lock the phone and the AI apps on it, then the accounts around the family, then keep an eye on what changes.",
+      "bots": ["child-safety-coach", "personal-cybersecurity-coach", "parent-radar"]
+    },
+    {
+      "slug": "dinner-decided",
+      "title": "Dinner, decided",
+      "icon": "utensils",
+      "blurb": "Tonight's meal from what you have, then a kitchen that remembers, then a week of dinners.",
+      "bots": ["what-s-for-dinner-tonight", "kitchen", "meal-planner"]
+    },
+    {
+      "slug": "look-before-you-click",
+      "title": "Look before you click",
+      "icon": "shield-alert",
+      "blurb": "A first read of a suspicious message, a second opinion, and the report if it is a scam.",
+      "bots": ["scam-guard", "scam-second-opinion", "ftc-report-scam-call"]
+    },
+    {
+      "slug": "the-house-list",
+      "title": "The house list",
+      "icon": "house",
+      "blurb": "The repair in front of you, the maintenance you keep skipping, and a memory of the house itself.",
+      "bots": ["handyman", "home-maintenance-tracker", "house-memory"]
+    }
+  ]
+}

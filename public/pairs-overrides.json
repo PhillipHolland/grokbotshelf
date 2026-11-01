@@ -1,5 +1,5 @@
 {
-  "note": "Wins over public/pairs.json. none hides every product for that slug (pins included). block drops those product ids. pin inserts those ids first, still capped at 3. defaults.category.Bot Tools is none unless that slug sets none to false (keep the curated rows) or lists pin. A new bot with no curated row and no override shows nothing. Edit pairs.json for a scored reason; do not match on category.",
+  "note": "Wins over public/pairs.json. none hides every product for that slug (pins included). block drops those product ids. pin inserts those ids first, still capped at 3. promote: true, or promote: [product ids], lifts probation for that slug (full chip, not the muted one). Probation is pairs-gen's flag on a newly added auto id. It also lifts when public/pair-signals.json has min real pair_click counts for that slug and product. defaults.category.Bot Tools is none unless that slug sets none to false (keep the curated rows) or lists pin. A new bot with no curated row and no override shows nothing. Edit pairs.json for a scored reason; do not match on category. Curated rows (no auto flag) are never rewritten by pairs-gen.",
   "defaults": {
     "category": {
       "Bot Tools": "none"

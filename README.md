@@ -47,6 +47,8 @@ node scripts/pairs-gen.js && node scripts/build.js
 
 A bot page with a qualifying row gets the full "Pairs with" section (name, blurb, disclosure). Homepage cards, creator lists, and job-hub cards show a short chip row beside the bot link (at most two products, then `+N` to the bot page) when that bot has pairs. One disclosure line per page, and only when something is shown. Empty stays empty.
 
+A product id that `pairs-gen` adds is marked `"probation": true` with `"since"`. List cards show that chip muted, and at most one probation chip. The bot page still lists it. It leaves probation when `pairs-overrides.json` sets `"promote": ["that-product-id"]` (or `"promote": true` for the slug), or when `public/pair-signals.json` has at least `min` real `pair_click` counts for that slug and product (default 3). Paste those counts from GA4. Do not invent them. A curated row (no `auto: true`) is never rewritten.
+
 Each product needs `id`, `asin` (a `B` plus nine characters), `name`, `blurb`, `emoji`, and `match`:
 
 - `bot_names`: exact `name` from `bots.json`. Score 5.
@@ -103,6 +105,12 @@ The shelf has no install or Template Rewards feed. Do not add fake counts. When 
 ```
 
 Then `node scripts/build.js`. A slug or url that is not on the shelf fails the build. This is not the Family-style tag in `bot-meta.json` (`?collection=family` on the home filters). Leave that alone.
+
+Job hub icons are Lucide (`icon` on the collection, drawn by `scripts/icons.js`). The `emoji` field stays so older notes still map. See the ICON_MAP comment in that file. Bot emojis in `bots.json` are the bot's own mark and stay on the cards.
+
+## Shelf stacks
+
+`public/stacks.json` is a short list of ordered installs at `/stacks`. Each stack has a title, a blurb, a Lucide `icon`, and 2 to 6 bot slugs in the order to add them. The page is public. There is no membership gate. A missing slug fails the build.
 
 ## Redeploy (one command)
 

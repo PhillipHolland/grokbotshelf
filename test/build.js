@@ -34,11 +34,14 @@ try {
   const sm = fs.readFileSync(pub("sitemap.xml"), "utf8"), locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const jobFile = JSON.parse(fs.readFileSync(pub("collections.json"), "utf8"));
   const jobN = Array.isArray(jobFile.collections) ? jobFile.collections.length : 0;
-  ok(locs.length === 2 + (jobN ? 1 + jobN : 0) + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && (!jobN || locs.includes("https://grokbotshelf.com/collections") && jobFile.collections.every((c) => locs.includes("https://grokbotshelf.com/collection/" + c.slug))) && new Set(locs).size === locs.length, `sitemap has home + /add + jobs + bots + creators, no duplicates (${locs.length})`);
+  ok(locs.length === 3 + (jobN ? 1 + jobN : 0) + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && locs.includes("https://grokbotshelf.com/stacks") && (!jobN || locs.includes("https://grokbotshelf.com/collections") && jobFile.collections.every((c) => locs.includes("https://grokbotshelf.com/collection/" + c.slug))) && new Set(locs).size === locs.length, `sitemap has home + /add + /stacks + jobs + bots + creators, no duplicates (${locs.length})`);
   if (jobN) {
     const hub = fs.readFileSync(pub("collection", jobFile.collections[0].slug, "index.html"), "utf8");
     const index = fs.readFileSync(pub("collections", "index.html"), "utf8");
     ok(index.includes("Find a bot by the job") && index.includes("job-card") && hub.includes("Start here") && hub.includes("More like this") && /by <a href="\/@/.test(hub), `job pages: index plus ${jobFile.collections[0].slug} with picks, alternates and creator credit`);
+    const stacksHtml = fs.readFileSync(pub("stacks", "index.html"), "utf8");
+    const homeNow = fs.readFileSync(pub("index.html"), "utf8");
+    ok(index.includes('class="li"') && !/>💪</.test(index) && stacksHtml.includes("Shelf stacks") && stacksHtml.includes("/bot/child-safety-coach") && stacksHtml.includes("/bot/local-ai-manager") && !stacksHtml.includes("botshelf-20") && homeNow.includes('class="growth"') && homeNow.includes("with Amazon pairs"), "Lucide on job hubs, public stacks page, homepage growth strip");
     const { rankJobMembers } = require(path.join(TMP, "scripts", "collections"));
     const demo = ["a", "b", "c", "d"].map((s) => ({ slug: s, url: "https://x.ai/bot/" + s }));
     const ed = rankJobMembers(demo, ["b", "a"], null);
@@ -192,7 +195,7 @@ try {
   ok(!notSmall.length && data.every((d) => (!d.creator_avatar && !d.avatar_sm) || (/\?v=[0-9a-f]{10}$/.test(d.avatar_sm) && /\?v=[0-9a-f]{10}$/.test(d.creator_avatar))), `every bot with a current small copy uses it, all avatar URLs versioned (not: ${notSmall.length})`);
   if (arch) ok(fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8").includes(`src="${data.find((d) => d.name === "Archivist").avatar_sm}"`), "bot page byline uses the small avatar");
   // Amazon "Pairs with": curated public/pairs.json (score >= 4) plus overrides. No category matching.
-  const { pairsFor, productUrl, matchTier, resolvePairs, proposePairs, BANNED_KEYWORDS } = require(path.join(TMP, "scripts", "pairs"));
+  const { pairsFor, productUrl, matchTier, resolvePairs, proposePairs, listPairSlice, generatePairs, BANNED_KEYWORDS } = require(path.join(TMP, "scripts", "pairs"));
   const catalog = JSON.parse(fs.readFileSync(pub("products.json"), "utf8"));
   const curated = JSON.parse(fs.readFileSync(pub("pairs.json"), "utf8"));
   const overrides = JSON.parse(fs.readFileSync(pub("pairs-overrides.json"), "utf8"));
@@ -246,12 +249,23 @@ try {
   ok(resolvePairs({ name: "Sushi & Ramen", slug: "sushi-and-ramen", category: "Food" }, catalog, { pairs: { "sushi-and-ramen": [{ id: "instant-pot-duo", score: 5, reason: "no" }] } }, overrides).length === 0, "sushi instant-pot block wins");
   ok(resolvePairs({ name: "Pin", slug: "pin-me", category: "Home" }, catalog, { pairs: { "pin-me": [{ id: "dewalt-drill", score: 5, reason: "a" }, { id: "shure-mv7", score: 3, reason: "low" }] } }, { bots: { "pin-me": { block: ["dewalt-drill"], pin: ["mac-mini-m4"] } } }).map((h) => h.product.id).join(",") === "mac-mini-m4", "pin and block win; score below 4 is dropped");
   ok(resolvePairs({ name: "Gear", slug: "gear-bot", category: "Bot Tools" }, catalog, { pairs: { "gear-bot": [{ id: "samsung-t7", score: 5, reason: "disk" }] } }, { defaults: { category: { "Bot Tools": "none" } }, bots: { "gear-bot": { none: false } } }).map((h) => h.product.id).join(",") === "samsung-t7", "Bot Tools can opt in when the gear is clearly relevant");
+  const softRows = { pairs: { "soft-bot": [{ id: "mac-mini-m4", score: 5, reason: "desk" }, { id: "dewalt-drill", score: 4, reason: "new", probation: true, auto: true }, { id: "shure-mv7", score: 4, reason: "new", probation: true, auto: true }] } };
+  const softHits = resolvePairs({ name: "Soft", slug: "soft-bot", category: "Home" }, catalog, softRows, { bots: {} });
+  const softSlice = listPairSlice(softHits);
+  ok(softHits.filter((h) => h.soft).map((h) => h.product.id).join(",") === "dewalt-drill,shure-mv7" && softSlice.shown.length === 2 && softSlice.shown.filter((h) => h.soft).length === 1 && softSlice.extra === 1, "probation stays on the bot page, and a list card shows at most one muted chip");
+  ok(!resolvePairs({ name: "Soft", slug: "soft-bot", category: "Home" }, catalog, softRows, { bots: { "soft-bot": { promote: ["dewalt-drill"] } } }).find((h) => h.product.id === "dewalt-drill").soft, "promote in pairs-overrides lifts that product");
+  ok(!resolvePairs({ name: "Soft", slug: "soft-bot", category: "Home" }, catalog, softRows, { bots: {} }, { min: 3, clicks: { "soft-bot": { "shure-mv7": 3 } } }).find((h) => h.product.id === "shure-mv7").soft, "three pair_click signals lift probation");
+  const curatedSlug = Object.entries(curated.pairs).find(([, rows]) => Array.isArray(rows) && rows.length && rows.some((r) => !r || r.auto !== true));
+  if (curatedSlug) {
+    const next = generatePairs({ bots: bots.map((b) => ({ ...b, slug: slugify(b.name) })), catalog, curated, overrides, mode: "backfill" });
+    ok(JSON.stringify(next[curatedSlug[0]]) === JSON.stringify(curated.pairs[curatedSlug[0]]), `curated row ${curatedSlug[0]} is not rewritten by backfill`);
+  } else ok(false, "expected at least one curated pairs row");
   ok(curated.pairs && Object.keys(curated.pairs).length === bots.length, "pairs.json has a row for every bot slug");
   const expectPairs = new Set(["local-ai-manager", "apple-desk", "micdrop", "streamer-s-dream"]);
   const badPair = [];
   for (const s of botDirs) {
     const html = fs.readFileSync(pub("bot", s, "index.html"), "utf8");
-    const links = [...html.matchAll(/<a class="pair" href="(https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=botshelf-20)" rel="noopener sponsored" target="_blank" data-product="([^"]+)" data-position="([123])" data-bot="[^"]+" data-surface="bot">/g)];
+    const links = [...html.matchAll(/<a class="pair" href="(https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=botshelf-20)" rel="noopener sponsored" target="_blank" data-product="([^"]+)" data-position="([123])" data-bot="[^"]+" data-surface="bot"(?: data-soft="")?>/g)];
     const shown = html.includes('class="bp-pairs"');
     if (shown !== links.length > 0 || (html.match(/amazon\.com/g) || []).length !== links.length) badPair.push(s + " section/links");
     if (shown && (html.split(catalog.disclosure).length - 1) !== 1) badPair.push(s + " disclosure once");

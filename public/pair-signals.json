@@ -1,0 +1,5 @@
+{
+  "note": "Real pair_click counts from GA4 (event pair_click, broken out by bot_slug and product_id). A pairs.json row with probation:true is shown at full strength once its count reaches min. Until then list cards show it muted, and at most one probation chip. pairs-overrides.json promote lifts it sooner. Do not invent counts. An empty clicks object is correct until an export is pasted here. Keys are bot slug, then product id.",
+  "min": 3,
+  "clicks": {}
+}

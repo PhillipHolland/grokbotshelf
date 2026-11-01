@@ -10,12 +10,22 @@
 // New bot: node scripts/pairs-gen.js && node scripts/build.js
 // After editing products.json: node scripts/pairs-gen.js --backfill && node scripts/build.js
 // Do not turn category matching back on.
+//
+// Probation. pairs-gen marks a newly added auto product id with "probation": true and
+// "since": YYYY-MM-DD. Curated rows (any product without auto:true) are never rewritten.
+// A probation row stays in the catalog. On list cards it is muted and at most one of
+// those chips is shown. It leaves probation when public/pair-signals.json has at least
+// `min` real pair_click counts for that slug+product (default 3), or when
+// pairs-overrides.json sets "promote": true or "promote": ["product-id"] on the slug.
+// Paste counts from GA4. Do not invent them. Empty clicks is correct.
 
 const fs = require("fs");
 const path = require("path");
 const { slugify } = require("./shelf");
+const { emojiIcon } = require("./icons");
 
 const TIERS = { pin: 0, curated: 1, name: 2, keyword: 3 };
+const PROBATION_CLICKS = 3;
 const ASIN = /^B[0-9A-Z]{9}$/;
 const BANNED_KEYWORDS = new Set(["voice", "desk", "tools", "tracker", "hub", "network", "scanner", "backup", "export"]);
 // Single words that must not score on their own, and must not bump a phrase to 5.
@@ -86,8 +96,38 @@ function readJson(name) {
 
 let cache;
 function loadPairFiles() {
-  if (!cache) cache = { curated: readJson("pairs.json"), overrides: readJson("pairs-overrides.json") };
+  if (!cache) cache = { curated: readJson("pairs.json"), overrides: readJson("pairs-overrides.json"), signals: loadSignals() };
   return cache;
+}
+
+function loadSignals() {
+  const file = path.join(PUB, "pair-signals.json");
+  try {
+    const doc = JSON.parse(fs.readFileSync(file, "utf8"));
+    const min = Number(doc && doc.min);
+    return { min: Number.isFinite(min) && min > 0 ? min : PROBATION_CLICKS, clicks: (doc && doc.clicks) || {} };
+  } catch {
+    return { min: PROBATION_CLICKS, clicks: {} };
+  }
+}
+
+function clickCount(signals, slug, id) {
+  const clicks = signals && signals.clicks;
+  if (!clicks || !slug || !id) return 0;
+  const bucket = clicks[slug];
+  const raw = bucket && typeof bucket === "object" ? bucket[id] : clicks[`${slug}|${id}`];
+  const n = Number(raw);
+  return Number.isFinite(n) && n > 0 ? n : 0;
+}
+
+// A row with probation:true is soft until a promote flag or enough real pair_clicks.
+function isSoft(slug, row, overrides, signals) {
+  if (!row || row.probation !== true) return false;
+  const ov = (overrides && overrides.bots && overrides.bots[slug]) || {};
+  if (ov.promote === true) return false;
+  if (Array.isArray(ov.promote) && ov.promote.includes(row.id)) return false;
+  const min = Number(signals && signals.min) || PROBATION_CLICKS;
+  return clickCount(signals, slug, row.id) < min;
 }
 
 function assertCurated(curated, catalog) {
@@ -107,9 +147,10 @@ function assertCurated(curated, catalog) {
 }
 
 // curated + overrides → products to render. opts may replace the files (tests).
-function resolvePairs(bot, catalog, curated, overrides) {
+function resolvePairs(bot, catalog, curated, overrides, signals) {
   const slug = bot.slug || slugify(bot.name || "");
   const ov = (overrides && overrides.bots && overrides.bots[slug]) || {};
+  const sig = signals || loadSignals();
   if (ov.none === true) return [];
   const catDefault = overrides && overrides.defaults && overrides.defaults.category && overrides.defaults.category[String(bot.category || "")];
   const dropCurated = catDefault === "none" && ov.none !== false;
@@ -123,17 +164,29 @@ function resolvePairs(bot, catalog, curated, overrides) {
     const product = byId.get(id);
     if (!product) return;
     seen.add(id);
-    out.push({ product, ...meta });
+    const soft = meta.tier === "pin" ? false : isSoft(slug, { id, probation: meta.probation }, overrides, sig);
+    out.push({ product, ...meta, probation: meta.probation === true, soft });
   }
-  for (const id of ov.pin || []) push(id, { tier: "pin", score: 5, reason: ov.reason || "Pinned." });
+  for (const id of ov.pin || []) push(id, { tier: "pin", score: 5, reason: ov.reason || "Pinned.", probation: false });
   if (!dropCurated) {
     const rows = (curated && curated.pairs && curated.pairs[slug]) || [];
     for (const r of rows) {
       if (!r || typeof r.score !== "number" || r.score < 4) continue;
-      push(r.id, { tier: "curated", score: r.score, reason: r.reason || "" });
+      push(r.id, { tier: "curated", score: r.score, reason: r.reason || "", probation: r.probation === true });
     }
   }
-  return out;
+  const hard = out.filter((h) => !h.soft);
+  const soft = out.filter((h) => h.soft);
+  return hard.concat(soft);
+}
+
+// List cards: up to two chips, and at most one of them is still on probation.
+function listPairSlice(hits) {
+  const hard = (hits || []).filter((h) => !h.soft);
+  const soft = (hits || []).filter((h) => h.soft);
+  const shown = hard.slice(0, 2);
+  if (shown.length < 2 && soft.length) shown.push(soft[0]);
+  return { shown, extra: Math.max(0, (hits || []).length - shown.length) };
 }
 
 function isMultiWord(keyword) {
@@ -305,9 +358,28 @@ function generatePairs({ bots, catalog, curated, overrides, mode }) {
       merged.push(r);
       if (merged.length === 3) break;
     }
-    ordered[slug] = JSON.stringify(existing) === JSON.stringify(merged) ? existing : merged;
+    const stamped = stampProbation(existing, merged);
+    ordered[slug] = JSON.stringify(existing) === JSON.stringify(stamped) ? existing : stamped;
   }
   return ordered;
+}
+
+// New product ids written by pairs-gen start on probation. An id that was already
+// in the row keeps its probation flag, or stays at full strength if it never had one.
+// Curated rows never reach this function.
+function stampProbation(existing, merged) {
+  const today = new Date().toISOString().slice(0, 10);
+  const prev = new Map((Array.isArray(existing) ? existing : []).filter((r) => r && r.id).map((r) => [r.id, r]));
+  return merged.map((r) => {
+    const old = prev.get(r.id);
+    if (!old) return { ...r, probation: true, since: today };
+    if (old.probation === true) return { ...r, probation: true, since: old.since || today };
+    if (r.auto === old.auto && r.score === old.score && r.reason === old.reason && r.id === old.id) return old;
+    const next = { ...r };
+    delete next.probation;
+    delete next.since;
+    return next;
+  });
 }
 
 function assertPairKeys(bots, curated) {
@@ -329,12 +401,24 @@ function resetPairCache() {
 }
 
 // Compact fields the homepage card needs. The tag is applied in the client.
+// `pairs` is the list-card subset (at most one probation chip). `more` is the rest,
+// still shown on the bot page.
 function pairCards(hits) {
-  return hits.map(({ product: p }) => ({ id: p.id, name: p.name, emoji: p.emoji || "", asin: p.asin }));
+  const { shown, extra } = listPairSlice(hits);
+  return {
+    pairs: shown.map(({ product: p, soft }) => ({
+      id: p.id,
+      name: p.name,
+      icon: emojiIcon(p.emoji),
+      asin: p.asin,
+      ...(soft ? { soft: true } : {}),
+    })),
+    more: extra,
+  };
 }
 
 function pairsFor(bot, catalog) {
-  const { curated, overrides } = loadPairFiles();
+  const { curated, overrides, signals } = loadPairFiles();
   if (!pairsFor._checked) {
     assertCurated(curated, catalog);
     pairsFor._checked = true;
@@ -342,13 +426,14 @@ function pairsFor(bot, catalog) {
   const slug = bot.slug || slugify(bot.name || "");
   if (!curated.pairs || !Object.prototype.hasOwnProperty.call(curated.pairs, slug)) {
     const rows = proposePairs(bot, catalog);
-    return resolvePairs({ ...bot, slug }, catalog, { pairs: { [slug]: rows } }, overrides);
+    return resolvePairs({ ...bot, slug }, catalog, { pairs: { [slug]: rows } }, overrides, signals);
   }
-  return resolvePairs(bot, catalog, curated, overrides);
+  return resolvePairs(bot, catalog, curated, overrides, signals);
 }
 
 module.exports = {
   pairsFor, resolvePairs, matchTier, keywordHit, productUrl, assertCatalog, assertCurated,
   proposePairs, proposalsFor, generatePairs, assertPairKeys, resetPairCache, pairCards,
+  listPairSlice, isSoft, loadSignals, PROBATION_CLICKS,
   rowsAreCurated, strongPhrases, nameMentionsProduct, TIERS, BANNED_KEYWORDS, GENERIC_SUPPORT,
 };
