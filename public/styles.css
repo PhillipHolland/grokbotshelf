@@ -805,6 +805,8 @@ html.mobile .card .sub>a.cn{margin-top:0;padding-top:4px;align-items:flex-start;
    spacing matches desktop (3px under the title) instead of floating in a 44px band. The 13px above sits over the h1,
    which is not a link. */
 html.mobile .bp .sub{margin-top:-13px;margin-bottom:-13px}
+/* Stack counts and job-hub lines are not the bot creator row. The pull above would sit on a wrapping title. */
+html.mobile :is(.stack, .hub-head) .sub{margin-top:4px;margin-bottom:0}
 html.mobile .bp-head{align-items:flex-start}
 html.mobile .bp-head :is(.icon.big,.cp-av){margin-top:2px}
 /* Creator page: the two facts stack (no dot left dangling at the end of line one) */
@@ -1066,8 +1068,11 @@ html.mobile .crumbs a{display:inline-flex;align-items:center;min-height:44px}
 .job-more a:hover{background:var(--hover)}
 html.mobile .job-more a{min-height:44px}
 html[data-theme="light"] .job-more a{border-color:var(--line2)}
-/* Lucide chrome (scripts/icons.js). One 2px stroke. Bot emoji in the catalog stays on the card. */
+/* Lucide (scripts/icons.js). One 2px stroke. Card marks use the ICON_MAP; unmapped bot emoji falls back to bot. */
 svg.li{width:16px;height:16px;flex:none;display:block}
+.mk{display:inline-flex;vertical-align:-3px;margin-right:4px}
+.tlist .em svg.li{width:20px;height:20px}
+.gtile .gi.none .em svg.li{width:32px;height:32px}
 .icon>svg.li{width:22px;height:22px}
 .icon.big>svg.li{width:28px;height:28px}
 a.pair .icon>svg.li{width:20px;height:20px}
@@ -1083,7 +1088,9 @@ a.pair.pair-mini[data-soft]{border-color:var(--line2);background:transparent;col
 html[data-theme="light"] a.pair[data-soft],html[data-theme="light"] a.pair.pair-mini[data-soft]{border-color:var(--line2)}
 .stack-index{list-style:none;margin:0 0 36px;padding:0;display:flex;flex-direction:column;gap:16px}
 .stack{border:1px solid var(--line);border-radius:16px;padding:16px 20px;background:var(--bg)}
-.stack h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em}
+.stack .bp-head{align-items:flex-start;margin-bottom:12px}
+.stack h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.3;white-space:normal}
+.stack-meta{margin:4px 0 0;font-size:13px;line-height:1.4;color:var(--text2)}
 .stack .bp-desc{margin:0}
 .stack-steps{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .stack-steps a{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none}

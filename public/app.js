@@ -209,6 +209,9 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     if (!name) return "";
     return `<svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-${esc(name)}"/></svg>`;
   }
+  function mark(b) {
+    return li(b.mark || "bot");
+  }
   function pairsHTML(b, surface) {
     const rows = b.pairs;
     if (!rows || !rows.length) return "";
@@ -229,7 +232,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     const bk = nb ? `<span class="dot" aria-hidden="true">·</span><span class="bm" title="${nb} ${bw} on the original X post (not a rating)">${I.bm}${nb.toLocaleString("en-US")}<span class="sr"> ${bw} on X</span></span>` : "";
     const av = b.avatar_sm || b.creator_avatar;
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
-<div class="head"><div class="icon" aria-hidden="true">${esc(b.emoji)}</div><div class="ttl">
+<div class="head"><div class="icon" aria-hidden="true">${mark(b)}</div><div class="ttl">
 <h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
 <div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${esc(b.creator_name)}</a>` : `<span class="cn">${esc(b.creator_name)}</span>`}${bk}</div>
 </div></div>
@@ -274,7 +277,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     top.length = 0; top.push(...capped);
     if (!top.length) return "";
     return `<div class="thead"><h2 id="topv-h">Top voted</h2><a class="tall" href="/?sort=votes" data-sortvotes>See all by votes →</a></div>
-<ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc" data-tip="${esc(voteTip(s))}">${I.up}${s.score}<span class="sr">${esc(voteWords(s.score, s))}</span></span></a></li>`).join("")}</ol>`;
+<ol class="tlist">${top.map(([b, s], i) => `<li><a href="${b._page}"><span class="rk">${i + 1}</span><span class="em" aria-hidden="true">${mark(b)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc" data-tip="${esc(voteTip(s))}">${I.up}${s.score}<span class="sr">${esc(voteWords(s.score, s))}</span></span></a></li>`).join("")}</ol>`;
   }
   let topEl = null;
   function topNode() {
@@ -296,7 +299,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     for (const b of recent) { const k = ckey(b); if ((per[k] = (per[k] || 0) + 1) > 2) continue; picks.push(b); if (picks.length === NEW_N) break; }
     const all = recent.length === bots.length, h = all ? "Just added" : "New this week";
     return `<section class="topvotes newv" aria-labelledby="newv-h"><div class="thead"><h2 id="newv-h">${h}</h2><a class="tall" href="/?sort=newest${all ? "" : "&new=1"}">See all ${recent.length.toLocaleString("en-US")} by date added →</a></div>
-<ol class="tlist">${picks.map((b) => `<li><a href="${b._page}" title="Added ${esc(fmtDay(b.added))}"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc dt">${esc(fmtDay(b.added))}<span class="sr"> added</span></span></a></li>`).join("")}</ol></section>`;
+<ol class="tlist">${picks.map((b) => `<li><a href="${b._page}" title="Added ${esc(fmtDay(b.added))}"><span class="em" aria-hidden="true">${mark(b)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc dt">${esc(fmtDay(b.added))}<span class="sr"> added</span></span></a></li>`).join("")}</ol></section>`;
   }
   let newEl;
   function newNode() { if (newEl === undefined) { const h = newHTML(); newEl = h ? nodes(h)[0] : null; } return newEl; }
@@ -566,7 +569,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     const s = b._page.slice(5), v = "?v=" + b.og;
     const set = `/og/thumb/${s}.webp${v} 480w` + (og2 && !b.no720 ? `, /og/thumb720/${s}.webp?v=${og2} 720w` : "");
     const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="${set}" sizes="(max-width:699px) calc(50vw - 20px), (max-width:1119px) calc(33.3vw - 20px), 354px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
-      : `<span class="gi none"><span class="em" aria-hidden="true">${esc(b.emoji)}</span><span class="nocard">No share card yet</span></span>`;
+      : `<span class="gi none"><span class="em" aria-hidden="true">${mark(b)}</span><span class="nocard">No share card yet</span></span>`;
     return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${esc(b.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
   }
   function tileEls(rows) {
