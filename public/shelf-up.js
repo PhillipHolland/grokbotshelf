@@ -244,9 +244,10 @@
     }, true);
   } catch (err) { if (window.console) console.error("shelf-up gift:", err); }
 })();
-// pair_click: Amazon "Pairs with" on homepage cards, creator lists, job hubs, and bot pages.
-// One listener so a page that loads this file does not double-count. surface is home, creator,
-// collection, or bot. No-op unless the production GA snippet defined gtag.
+// pair_click: Amazon "Pairs with" on homepage cards, search results, the builders strip,
+// creator lists, job hubs, and bot pages. One listener so a page that loads this file does
+// not double-count. surface is home, search, builders, creator, collection, or bot.
+// No-op unless the production GA snippet defined gtag.
 (function () {
   document.addEventListener("click", function (e) {
     var a = e.target && e.target.closest && e.target.closest("a.pair");

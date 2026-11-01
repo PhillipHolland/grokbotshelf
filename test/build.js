@@ -272,7 +272,7 @@ try {
   ok(!badPair.length, `bot pages: one disclosure, sponsored Amazon links only on curated pairs (bad: ${badPair.slice(0, 4).join("; ") || "none"})`);
   const shelfUp = fs.readFileSync(pub("shelf-up.js"), "utf8");
   ok(shelfUp.includes('gtag("event", "pair_click"') && shelfUp.includes("product_id") && shelfUp.includes("position") && shelfUp.includes("bot_slug") && shelfUp.includes("surface") && pageJs.includes('gtag("event", "get_bot"') && !pageJs.includes("pair_click"), "pair_click lives in shelf-up.js with bot_slug, product_id, position, surface; get_bot still fires");
-  ok(appJs.includes('data-surface="home"') && appJs.includes("card-pairs") && appJs.includes("tag=botshelf-20") && appJs.includes("pairsHTML"), "homepage cards render compact pairs from shelf-data");
+  ok(appJs.includes('data-surface="home"') && appJs.includes('data-surface="builders"') && appJs.includes('data-surface="search"') && appJs.includes("card-pairs") && appJs.includes("tag=botshelf-20") && appJs.includes("pairsHTML"), "homepage cards render compact pairs from shelf-data, with home, search, and builders surfaces");
   const homePairs = fs.readFileSync(pub("index.html"), "utf8");
   ok(!/amazon\.com\/dp\//.test(homePairs) && !homePairs.includes("bp-pairs") && homePairs.includes('id="pairs-note"') && homePairs.includes(catalog.disclosure), "homepage static HTML has one hidden disclosure and no product links");
   const creatorHtml = fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8");
@@ -292,6 +292,11 @@ try {
     if (!shown && (html.includes("botshelf-20") || discs)) collBad.push(f + " stray");
   }
   ok(collPages.length > 1 && !collBad.length, `job hubs show chips and one disclosure only when a member has pairs (bad: ${collBad.slice(0, 3).join(", ") || "none"})`);
+  const fit = fs.readFileSync(pub("collection", "fitness", "index.html"), "utf8");
+  const homeSeo = fs.readFileSync(pub("index.html"), "utf8");
+  ok(fit.includes('aria-label="Breadcrumb"') && fit.includes('class="job-more"') && fit.includes("<h3>") && fit.includes('name="twitter:image:alt"') && fit.includes('property="og:locale" content="en_US"') && !homeSeo.includes("botshelf-20"), "collection hubs: breadcrumbs, sibling jobs, bot headings, share alt; the index stays free of product links");
+  ok(/<title>Grok Bot Shelf: \d+ shared Grok Bot templates<\/title>/.test(homeSeo) && homeSeo.includes('name="twitter:image:alt"') && homeSeo.includes('name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"'), "homepage title matches the share title and asks for large image previews");
+  ok(fs.readFileSync(pub("bot", "coach", "index.html"), "utf8").includes('"installUrl":"https://x.ai/bot/') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('property="og:type" content="profile"') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="cp-av"') && /alt="[^"]+"/.test(fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8")), "bot pages name an install URL; creator pages are profiles with a named avatar");
   {
     const { assertPairKeys, resetPairCache } = require(path.join(TMP, "scripts", "pairs"));
     const file = pub("pairs.json");

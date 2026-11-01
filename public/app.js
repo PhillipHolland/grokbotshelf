@@ -205,19 +205,21 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     // Always present (empty without meta) so the tag line sits at the same height on every card
     return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
   }
-  function pairsHTML(b) {
+  function pairsHTML(b, surface) {
     const rows = b.pairs;
     if (!rows || !rows.length) return "";
+    const face = surface === "builders" || surface === "search" ? surface : "home";
+    const attr = face === "builders" ? 'data-surface="builders"' : face === "search" ? 'data-surface="search"' : 'data-surface="home"';
     const show = rows.slice(0, 2);
     const extra = rows.length - show.length;
     const links = show.map((p, i) => {
       const href = `https://www.amazon.com/dp/${encodeURIComponent(p.asin)}?tag=botshelf-20`;
-      return `<a class="pair pair-mini" href="${esc(href)}" rel="noopener sponsored" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b._page.slice(5))}" data-surface="home">${esc(p.emoji || "")} ${esc(p.name)}</a>`;
+      return `<a class="pair pair-mini" href="${esc(href)}" rel="noopener sponsored" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b._page.slice(5))}" ${attr}>${esc(p.emoji || "")} ${esc(p.name)}</a>`;
     }).join("");
     const more = extra ? `<a class="pair-more" href="${esc(b._page)}#pairs-h">+${extra}</a>` : "";
     return `<p class="card-pairs"><span class="card-pairs-l">Pairs with</span>${links}${more}</p>`;
   }
-  function card(b, m, pre) {
+  function card(b, m, pre, surface) {
     const h = m ? m.hits : {}, id = (pre || "") + b._slug;
     const nb = b._social && b._social.bookmarks, bw = nb === 1 ? "bookmark" : "bookmarks";
     const bk = nb ? `<span class="dot" aria-hidden="true">·</span><span class="bm" title="${nb} ${bw} on the original X post (not a rating)">${I.bm}${nb.toLocaleString("en-US")}<span class="sr"> ${bw} on X</span></span>` : "";
@@ -237,7 +239,7 @@ ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" tar
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
 ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"></span>'}
 </div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add to Bot app: ${esc(b.name)}" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get this bot: ${esc(b.name)} on x.ai">Get this bot</a></div></div>
-${pairsHTML(b)}
+${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
 </article>`;
   }
   /* ---------- From the builders strip (home Featured view only) ---------- */
@@ -503,10 +505,15 @@ ${pairsHTML(b)}
     const v = el.querySelector(".vote"); if (v) paintVoteEl(v);
   }
   function cardEls(rows, pre) {
+    const surface = pre === "f-" ? "builders" : (st.q.trim() || filtering() ? "search" : "home");
     const out = new Array(rows.length), miss = [];
     rows.forEach(([b, m], i) => {
       const id = (pre || "") + b._slug, sig = m ? JSON.stringify(m.hits) : "", el = cardCache.get(id);
-      if (el && el._sig === sig) { reuse(el); out[i] = el; } else miss.push([i, id, sig, card(b, m, pre)]);
+      if (el && el._sig === sig) {
+        reuse(el);
+        el.querySelectorAll("a.pair-mini").forEach((a) => { if (a.dataset.surface !== surface) a.dataset.surface = surface; });
+        out[i] = el;
+      } else miss.push([i, id, sig, card(b, m, pre, surface)]);
     });
     if (miss.length) nodes(miss.map((x) => x[3]).join("")).forEach((el, k) => {
       const [i, id, sig] = miss[k]; el._sig = sig; cardCache.set(id, el); out[i] = el;
