@@ -1099,3 +1099,88 @@ html[data-theme="light"] .stack,html[data-theme="light"] .stack-steps a{border-c
 /* /stacks has no creator groups, so no A-Z rail. Keep any rail out of this page and keep stack titles clear of the right edge. */
 body.stackspage .rail,body.stackspage .rail-pop{display:none!important}
 @media (max-width:640px){.stack h2{overflow-wrap:anywhere}.stack .bp-head>div{padding-right:2px}}
+
+/* ==================== De-slop pass ====================
+   Subtract, flatten, unify, quiet. No new colors, radii or type sizes: the sections
+   below lose their outer boxes (the cards inside keep theirs, so nothing nests),
+   filled chip blobs become the same outline chips used everywhere else, and the
+   hero stops stacking three meta lines under a wrapped button row. */
+
+/* ---------- Hero: one gap, and no accidental second row ----------
+   The disclaimer, the job links and the counts were spaced 8px, then 14px.
+   One row-gap replaces both. On the homepage the large wordmark cannot share
+   a 390px row with Add and Gift, so the buttons wrap. A right-aligned wrap
+   reads as a collision. Below 430px they are a left-aligned toolbar under the
+   wordmark. Other pages keep one row until 360px, where the small wordmark
+   also runs out of room. */
+.hero{row-gap:8px;padding-bottom:16px}
+.job-find,.growth{margin:0}
+.job-find a{font-weight:600}
+@media (max-width:429px){
+  .hero:has(h1){padding-top:max(20px,env(safe-area-inset-top))}
+  .hero:has(h1) .hero-actions{flex:1 0 100%;justify-content:flex-start;margin-left:0}
+}
+@media (max-width:359px){
+  .hero-actions{flex:1 0 100%;justify-content:flex-start;margin-left:0}
+}
+
+/* ---------- Flatten: one level of boxes, not boxes in boxes ---------- */
+.builders{padding:0;border:0;border-radius:0;background:transparent}
+.topvotes{padding:0;border:0;border-radius:0;background:transparent}
+.builders+.topvotes,.topvotes+.newv{margin-top:0}
+.job-picks{padding:0;border:0;border-radius:0;background:transparent}
+.stack{padding:0;border:0;border-radius:0;background:transparent}
+.stack-index{gap:0}
+.stack-index>li+li{margin-top:28px;padding-top:28px;border-top:1px solid var(--line)}
+html[data-theme="light"] .stack-index>li+li{border-top-color:var(--line2)}
+.stack-steps{gap:0}
+.stack-steps a{padding:10px 2px;border:0;border-radius:10px}
+.stack-steps>li+li a{border-top:1px solid var(--line)}
+html[data-theme="light"] .stack-steps>li+li a{border-top-color:var(--line2)}
+/* Bot page: Pairs and Under the hood are sections under the card, not second cards */
+.bp-pairs,.bp-panel{padding:20px 0 0;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+html[data-theme="light"] :is(.bp-pairs,.bp-panel){border-top-color:var(--line2)}
+
+/* ---------- Quiet chips: outline, no filled blob ---------- */
+.cp-cats a{background:transparent;border:1px solid var(--line)}
+.cp-cats a:hover{background:var(--hover)}
+html[data-theme="light"] .cp-cats a{border-color:var(--line2)}
+html[data-theme="light"] .cp-cats a:hover{background:var(--field)}
+.bsub a.all{background:transparent;color:var(--text);border-color:var(--line2)}
+.bsub a.all:hover{background:var(--hover);border-color:var(--line2)}
+html[data-theme="light"] .bsub a.all:hover{background:var(--field)}
+a.pair.pair-mini,html[data-theme="light"] a.pair.pair-mini{background:transparent}
+a.pair.pair-mini:hover,html[data-theme="light"] a.pair.pair-mini:hover{background:var(--hover)}
+
+/* Page title blocks were cards whose only job was a heading. The list below
+   already has the boxes, so the title sits on the page. */
+.bp-card.page-intro{border:0;border-radius:0;padding:0;margin:0 0 28px;background:transparent}
+.page-intro .bp-desc{margin-bottom:0}
+.page-intro .job-lead{margin:8px 0 0}
+.job-picks h2,.job-alts h2,.job-more h2{margin:0 0 12px}
+
+/* Collection rows were a second card language next to the flat stack steps.
+   Same list: a mark, the name, the line under it, a hairline between rows. */
+.job-bots{gap:0}
+.job-bot{padding:14px 0;border:0;border-radius:0;background:transparent}
+.job-bots>li+li{border-top:1px solid var(--line)}
+html[data-theme="light"] .job-bots>li+li{border-top-color:var(--line2)}
+.job-bot .icon{width:24px;height:24px;border:0;border-radius:0;background:transparent}
+.job-bot .icon>svg.li{width:20px;height:20px}
+.job-bot .job-main{gap:10px}
+.job-bot .by{margin-left:34px}
+.job-bot .card-pairs{margin-top:8px;padding:0 0 0 34px;border-top:0}
+html.mobile .job-bot .by{display:flex;align-items:center;gap:4px;min-height:44px;margin-top:2px}
+
+/* Section marks were 56px app tiles. The steps already carry a small mark,
+   so the title uses the same size and the tile goes. */
+.stack .icon.big,.page-intro .icon.big{width:22px;height:22px;margin-top:2px;border:0;border-radius:0;background:transparent}
+.stack .icon.big>svg.li,.page-intro .icon.big>svg.li{width:22px;height:22px}
+.stack .bp-head,.page-intro .bp-head{align-items:flex-start;gap:10px}
+
+/* Outline chips share one stroke. The filled field behind pair chips was a second surface. */
+a.pair.pair-mini,html[data-theme="light"] a.pair.pair-mini{border-color:var(--line2)}
+.cp-cats a,html[data-theme="light"] .cp-cats a{border-color:var(--line2)}
+
+/* ---------- Tokens FAB: solid, so card text never shows through it ---------- */
+.gbs-cup{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}
