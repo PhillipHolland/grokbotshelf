@@ -2,7 +2,7 @@
   "tag": "botshelf-20",
   "link": "https://www.amazon.com/dp/{asin}?tag=botshelf-20",
   "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
-  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1), replacing unavailable Lightning AirPods 2 (B07PXGQC1Q). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG), replacing the 2013 Pen & Touch CTH-680 (B00EN27UC2). Beelink SER9 ASIN is the Ryzen AI mini PC (B0HG9JYSV9), replacing B0D1XD1ZV3 (AirPods Pro 2). Garmin Forerunner 265 is flagged: see that product's flag. Echo Dot stays in the catalog and is not category-paired. Tag botshelf-20.",
+  "note": "Relevance pass Nov 1 2026. Category matching is off. Ambiguous keywords (voice, desk, tools, tracker, hub, network, scanner, backup, export) are gone. Catalog expanded to verified unique ASINs for money, home, faith, travel, fitness, food, design, and safety. UGREEN hub ASIN is the 5-in-1 USB-C hub B0BR3M8XHK; B08CFSZLQ4 now resolves to a Pixel phone and was dropped. Echo Dot stays in the catalog with auto:false so the scorer will not attach it. AirPods ASIN is AirPods 4 ANC (B0DGJ7HYG1). Wacom ASIN is Intuos Medium Bluetooth CTL-6100WL (B079NWPZTG). Beelink SER9 ASIN is the Ryzen AI mini PC (B0HG9JYSV9). Tag botshelf-20.",
   "products": [
     {
       "id": "beelink-mini-s12",
@@ -80,9 +80,7 @@
           "Local AI Manager",
           "Disk Doctor",
           "Backup",
-          "Creative Video Studio",
-          "Reel ➡️ 𝕏",
-          "Clipper"
+          "Creative Video Studio"
         ],
         "keywords": [
           "portable ssd",
@@ -134,9 +132,9 @@
     },
     {
       "id": "ugreen-hub",
-      "asin": "B08CFSZLQ4",
-      "name": "UGREEN USB-C Hub",
-      "blurb": "Affordable multiport hub for travel laptops and MacBooks.",
+      "asin": "B0BR3M8XHK",
+      "name": "UGREEN 5-in-1 USB-C Hub",
+      "blurb": "HDMI, 100W charging, and extra USB-A ports from one USB-C cable.",
       "emoji": "📎",
       "match": {
         "bot_names": [
@@ -346,9 +344,7 @@
           "Stream Producer",
           "Stream Night Producer",
           "Creative Video Studio",
-          "Grok Bot Video Studio",
-          "Reel ➡️ 𝕏",
-          "Clipper"
+          "Grok Bot Video Studio"
         ],
         "keywords": [
           "stream deck",
@@ -409,8 +405,7 @@
         "bot_names": [
           "Bookmark Kitchen",
           "Kitchen Studio",
-          "Pumpkin Spice Bot",
-          "RezBot"
+          "Pumpkin Spice Bot"
         ],
         "keywords": [
           "instant pot",
@@ -428,9 +423,7 @@
       "match": {
         "bot_names": [
           "Fitness Coach by Jenna",
-          "Personal Trainer by Sal",
-          "Pep",
-          "Sobriety Bot"
+          "Personal Trainer by Sal"
         ],
         "keywords": [
           "water bottle",
@@ -471,8 +464,7 @@
         "bot_names": [
           "Home Manager",
           "Home Helper",
-          "House Memory",
-          "Personal Voicemail"
+          "House Memory"
         ],
         "keywords": [
           "alexa",
@@ -481,7 +473,8 @@
           "smart home"
         ]
       },
-      "pair_note": "Do not attach from the Home category. Leave unpaired unless the bot is clearly Alexa, Echo, or smart-home routines."
+      "pair_note": "Do not attach from the Home category. Leave unpaired unless the bot is clearly Alexa, Echo, or smart-home routines.",
+      "auto": false
     },
     {
       "id": "unifi-g4-doorbell",
@@ -515,8 +508,7 @@
         "bot_names": [
           "Tammy — True-Total Travel & Points Scout",
           "Backseat Buddy",
-          "Park Lookout",
-          "Remove Me"
+          "Park Lookout"
         ],
         "keywords": [
           "airtag",
@@ -539,8 +531,7 @@
           "CVE Desk",
           "Zero-Day Desk",
           "Hacked Account Recovery Helper by Z23",
-          "Cyber Checkup by Z23",
-          "Spam-Call Scrubber"
+          "Cyber Checkup by Z23"
         ],
         "keywords": [
           "yubikey",
@@ -561,7 +552,6 @@
         "bot_names": [
           "Fitness Coach by Jenna",
           "Personal Trainer by Sal",
-          "Pep",
           "Coach"
         ],
         "keywords": [
@@ -621,7 +611,6 @@
         "bot_names": [
           "Apple Inventory & Deal Bot",
           "Apple Deal Price Slicer",
-          "Personal Voicemail",
           "Video Call Connector by Kevin"
         ],
         "keywords": [
@@ -708,7 +697,6 @@
           "Writing Bot",
           "Idea Lab & Brainstorm Logger",
           "Christian Devotional Bot",
-          "Desk-Diet Dave",
           "Obsidian"
         ],
         "keywords": [
@@ -762,13 +750,505 @@
           "scan receipts"
         ]
       }
+    },
+    {
+      "id": "lodge-skillet",
+      "asin": "B00006JSUA",
+      "name": "Lodge 10.25\" Skillet",
+      "blurb": "Pre-seasoned cast iron for weeknight searing and oven finishes.",
+      "emoji": "🍳",
+      "match": {
+        "bot_names": [
+          "Personal Chef",
+          "Chefanny",
+          "What's for Dinner Tonight?",
+          "Sazón",
+          "Pumpkin Spice Bot",
+          "Holiday Table by Santa",
+          "Bookmark Kitchen"
+        ],
+        "phrases": [
+          "cast iron",
+          "home cooking"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "ninja-af101",
+      "asin": "B07FDJMC9Q",
+      "name": "Ninja AF101 Air Fryer",
+      "blurb": "4-quart air fryer for crisp weeknight cooking.",
+      "emoji": "🍟",
+      "match": {
+        "bot_names": [
+          "What's for Dinner Tonight?",
+          "Ladle",
+          "Chefanny",
+          "Homie"
+        ],
+        "phrases": [
+          "air fryer"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "victorinox-8",
+      "asin": "B000638D32",
+      "name": "Victorinox Fibrox 8\" Knife",
+      "blurb": "Swiss chef's knife for chopping, slicing, and daily prep.",
+      "emoji": "🔪",
+      "match": {
+        "bot_names": [
+          "Chefanny",
+          "Personal Chef",
+          "Bookmark Kitchen"
+        ],
+        "phrases": [
+          "chef knife",
+          "chef's knife"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "oxo-food-scale",
+      "asin": "B079D9B82W",
+      "name": "OXO 11 lb Food Scale",
+      "blurb": "Pull-out display scale for portions, macros, and meal prep.",
+      "emoji": "⚖️",
+      "match": {
+        "bot_names": [
+          "Nourishment",
+          "T1D Helper",
+          "Personal Chef",
+          "Meal Planner by Rachel"
+        ],
+        "phrases": [
+          "food scale",
+          "kitchen scale"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "rubbermaid-meal",
+      "asin": "B08WR1P45C",
+      "name": "Rubbermaid Brilliance Meal Prep",
+      "blurb": "Leakproof divided containers for planned meals and leftovers.",
+      "emoji": "🥡",
+      "match": {
+        "bot_names": [
+          "Meal Planner",
+          "Meal Planner (Tobi)",
+          "Meal Planner by Rachel",
+          "Sous-Chef",
+          "Ladle",
+          "Grocery & Meal Helper by Kevin",
+          "PlatePal"
+        ],
+        "phrases": [
+          "meal plan",
+          "meal plans",
+          "grocery list"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "fit-simplify-bands",
+      "asin": "B01AVDVHTI",
+      "name": "Fit Simplify Resistance Bands",
+      "blurb": "Five loop bands for home strength work with no rack.",
+      "emoji": "🏋️",
+      "match": {
+        "bot_names": [
+          "Strong & Graceful Fitness",
+          "Exercise Coach by Kevin",
+          "Chief Health",
+          "Mend & Move",
+          "Fitness Coach"
+        ],
+        "phrases": [
+          "resistance band",
+          "home workout",
+          "strength workout"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "triggerpoint-grid",
+      "asin": "B0040EGNIU",
+      "name": "TriggerPoint GRID Roller",
+      "blurb": "Multi-density foam roller for sore muscles after training.",
+      "emoji": "🛼",
+      "match": {
+        "bot_names": [
+          "Mend & Move",
+          "Strong & Graceful Fitness",
+          "Exercise Coach by Kevin"
+        ],
+        "phrases": [
+          "foam roller",
+          "foam roll"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "gaiam-mat",
+      "asin": "B07HB1JXF3",
+      "name": "Gaiam Essentials Yoga Mat",
+      "blurb": "6mm mat with a carry strap for floor workouts at home.",
+      "emoji": "🧘",
+      "match": {
+        "bot_names": [
+          "Strong & Graceful Fitness",
+          "Exercise Coach by Kevin",
+          "Vital"
+        ],
+        "phrases": [
+          "yoga mat"
+        ],
+        "keywords": [
+          "yoga"
+        ]
+      }
+    },
+    {
+      "id": "blenderbottle",
+      "asin": "B07TL6PNLD",
+      "name": "BlenderBottle Classic 28 oz",
+      "blurb": "Shaker bottle for protein shakes and pre-workout.",
+      "emoji": "🥤",
+      "match": {
+        "bot_names": [
+          "Strong & Graceful Fitness",
+          "Fitness Coach by Jenna"
+        ],
+        "phrases": [
+          "protein shake",
+          "shaker bottle"
+        ],
+        "keywords": [
+          "protein"
+        ]
+      }
+    },
+    {
+      "id": "bagail-cubes",
+      "asin": "B08S35399Y",
+      "name": "BAGAIL Packing Cubes",
+      "blurb": "Eight packing cubes that keep a suitcase sorted.",
+      "emoji": "🧳",
+      "match": {
+        "bot_names": [
+          "Vacation Vicky",
+          "Family Trip Planner by Kevin",
+          "Travel",
+          "Atlas",
+          "Parks",
+          "Family Travel & PTO Planner",
+          "Guide",
+          "TripConcierge"
+        ],
+        "phrases": [
+          "packing list",
+          "packing cubes"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "etekcity-scale",
+      "asin": "B0B7RKRMRP",
+      "name": "Etekcity Luggage Scale",
+      "blurb": "Handheld scale so a checked bag stays under the limit.",
+      "emoji": "⚖️",
+      "match": {
+        "bot_names": [
+          "Vacation Vicky",
+          "Tammy — True-Total Travel & Points Scout",
+          "Guide",
+          "Group Tour Trip Planner",
+          "Travel"
+        ],
+        "phrases": [
+          "luggage scale",
+          "checked bag"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "epicka-adapter",
+      "asin": "B078S3M2NX",
+      "name": "EPICKA Travel Adapter",
+      "blurb": "One plug for US, UK, EU, and AU outlets. Not a voltage converter.",
+      "emoji": "🔌",
+      "match": {
+        "bot_names": [
+          "Vacation Vicky",
+          "TripConcierge",
+          "Group Tour Trip Planner",
+          "Travel",
+          "Tammy — True-Total Travel & Points Scout"
+        ],
+        "phrases": [
+          "travel adapter",
+          "plug adapter"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "ba-ii-plus-pro",
+      "asin": "B0001EMLZW",
+      "name": "BA II Plus Professional",
+      "blurb": "Texas Instruments financial calculator for loans, mortgages, and cash flows.",
+      "emoji": "🧮",
+      "match": {
+        "bot_names": [
+          "Mortgage Payoff & Bonus Snowball Planner",
+          "Home Math",
+          "OweNo",
+          "Life Insurance Needs Calculator by Kevin"
+        ],
+        "phrases": [
+          "debt payoff",
+          "mortgage payoff",
+          "financial calculator"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "macrox-fire-bag",
+      "asin": "B07SPZ93V5",
+      "name": "Macrox Fireproof Document Bag",
+      "blurb": "Locking fire-resistant bag for tax papers, IDs, and policies.",
+      "emoji": "🗂️",
+      "match": {
+        "bot_names": [
+          "IRS Bot",
+          "Tacks",
+          "Small Business Books",
+          "Clean Slate",
+          "Credit Score Scotty"
+        ],
+        "phrases": [
+          "tax packet",
+          "credit reports",
+          "w-2s"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "kjv-study-bible",
+      "asin": "B00SLSJYHI",
+      "name": "KJV Study Bible, Large Print",
+      "blurb": "Thomas Nelson King James study Bible with notes and red-letter text.",
+      "emoji": "📖",
+      "match": {
+        "bot_names": [
+          "Christian Devotional Bot",
+          "Daily Grace & Prayer Closet",
+          "Daily Verse",
+          "Psalm",
+          "KJVBible",
+          "Pastor Pete",
+          "Exegesis",
+          "Spiritual Advisor",
+          "I Am Trying To Be Like Jesus by Tyler"
+        ],
+        "phrases": [
+          "bible verse",
+          "bible study",
+          "king james",
+          "daily devotional",
+          "bible stories",
+          "bible translation"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "klein-ncvt1p",
+      "asin": "B099SJ6469",
+      "name": "Klein NCVT1P Tester",
+      "blurb": "Non-contact voltage pen before you open a switch or outlet.",
+      "emoji": "🔦",
+      "match": {
+        "bot_names": [
+          "Handyman",
+          "Fixer",
+          "Home Maintenance Tracker",
+          "The Wife Saver by Brandon",
+          "Appliance Fix Annie"
+        ],
+        "phrases": [
+          "voltage tester",
+          "non-contact voltage"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "stanley-tape",
+      "asin": "B00PUUCAEY",
+      "name": "Stanley 25 ft Tape",
+      "blurb": "25-foot tape measure for repairs, rooms, and trim.",
+      "emoji": "📏",
+      "match": {
+        "bot_names": [
+          "Handyman",
+          "Fixer",
+          "Home Maintenance Tracker",
+          "Renovation Planner",
+          "The Wife Saver by Brandon"
+        ],
+        "phrases": [
+          "tape measure"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "leatherman-wave",
+      "asin": "B09GDKXBKH",
+      "name": "Leatherman Wave+",
+      "blurb": "18-in-1 multi-tool for home fixes and a field kit.",
+      "emoji": "🛠️",
+      "match": {
+        "bot_names": [
+          "Handyman",
+          "Fixer",
+          "Grok · Field Desk",
+          "The Wife Saver by Brandon"
+        ],
+        "phrases": [
+          "multi-tool",
+          "multitool"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "kidde-fa110",
+      "asin": "B00002ND64",
+      "name": "Kidde FA110 Extinguisher",
+      "blurb": "Home fire extinguisher, 1-A:10-B:C, for a kitchen or hall.",
+      "emoji": "🧯",
+      "match": {
+        "bot_names": [
+          "Small Business Safety Program by Kevin",
+          "Handyman",
+          "Home Maintenance Tracker"
+        ],
+        "phrases": [
+          "fire extinguisher"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "first-alert-smico",
+      "asin": "B0CJMNJ6GF",
+      "name": "First Alert Smoke & CO Alarm",
+      "blurb": "10-year sealed battery alarm for smoke and carbon monoxide.",
+      "emoji": "🚨",
+      "match": {
+        "bot_names": [
+          "Small Business Safety Program by Kevin",
+          "Paper Trail Pete",
+          "Home Maintenance Tracker"
+        ],
+        "phrases": [
+          "smoke alarm",
+          "carbon monoxide"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "bluedriver",
+      "asin": "B00652G4TS",
+      "name": "BlueDriver OBD2 Scanner",
+      "blurb": "Bluetooth code reader for check-engine lights. No subscription.",
+      "emoji": "🚗",
+      "match": {
+        "bot_names": [
+          "Grease Monkey Wally"
+        ],
+        "phrases": [
+          "check engine",
+          "obd2",
+          "obd-ii"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "apple-pencil-usbc",
+      "asin": "B0CL7J12YK",
+      "name": "Apple Pencil (USB-C)",
+      "blurb": "USB-C Pencil for sketching and markup on a compatible iPad.",
+      "emoji": "✏️",
+      "match": {
+        "bot_names": [
+          "Design",
+          "Glow Picasso",
+          "Tess Design Desk",
+          "Pixel Artist by Zachary",
+          "Fashion Stylist Bot"
+        ],
+        "phrases": [
+          "apple pencil",
+          "ipad drawing"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "philips-hue-color",
+      "asin": "B098BZN2CH",
+      "name": "Philips Hue White and Color 2-Pack",
+      "blurb": "Two A19 Hue bulbs. Bluetooth or a Hue Bridge.",
+      "emoji": "💡",
+      "match": {
+        "bot_names": [],
+        "phrases": [
+          "philips hue",
+          "smart bulb",
+          "hue bulb"
+        ],
+        "keywords": []
+      }
+    },
+    {
+      "id": "rocketbook-core",
+      "asin": "B0DP3JF67Q",
+      "name": "Rocketbook Core Notebook",
+      "blurb": "Reusable letter notebook that scans pages to the cloud.",
+      "emoji": "📓",
+      "match": {
+        "bot_names": [],
+        "phrases": [
+          "reusable notebook",
+          "smart notebook"
+        ],
+        "keywords": []
+      }
     }
   ],
   "ux": {
-    "placement": "Quiet section on bot pages that have a curated pair (public/pairs.json), after overrides. Not the homepage, creator pages, or collections. Max 3. Empty is correct.",
+    "placement": "Full section on a bot page that has pairs. Compact row on homepage cards, creator lists, and job-hub member cards when that bot has pairs. One disclosure per page. Max 3. Empty is correct.",
     "label": "Pairs with",
     "cta": "View on Amazon",
     "rel": "noopener sponsored",
-    "style": "Amazon badge, short blurb, View on Amazon. Stay subtle. Relevance over coverage: no category spray, no ambiguous single-word keywords."
+    "style": "Amazon badge on the bot page; a short chip row on list cards. Stay subtle. Relevance over coverage: no category spray, no single generic keywords."
   }
 }

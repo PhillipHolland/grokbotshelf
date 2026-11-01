@@ -1,7 +1,8 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-01T08:52:59-06:00",
+ "generated": "2026-11-01T15:31:10.692Z",
+ "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (exact name, strong phrase, phrase plus support). Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
   "ibot-player": [
@@ -12,7 +13,20 @@
    }
   ],
   "security-audit-bot": [],
-  "christian-devotional-bot": [],
+  "christian-devotional-bot": [
+   {
+    "id": "moleskine-classic",
+    "score": 5,
+    "reason": "Named match for Christian Devotional Bot.",
+    "auto": true
+   },
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Christian Devotional Bot.",
+    "auto": true
+   }
+  ],
   "terminal-boss": [],
   "apple-inventory-and-deal-bot": [
    {
@@ -97,12 +111,39 @@
   "last-call": [],
   "burn-rate": [],
   "centelligence-brain-bot": [],
-  "atlas": [],
+  "atlas": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for Atlas.",
+    "auto": true
+   }
+  ],
   "smart-shopper": [],
   "mail": [],
   "promo": [],
-  "design": [],
-  "house-memory": [],
+  "design": [
+   {
+    "id": "wacom-intuos",
+    "score": 5,
+    "reason": "Named match for Design.",
+    "auto": true
+   },
+   {
+    "id": "apple-pencil-usbc",
+    "score": 5,
+    "reason": "Named match for Design.",
+    "auto": true
+   }
+  ],
+  "house-memory": [
+   {
+    "id": "deco-x55",
+    "score": 5,
+    "reason": "Named match for House Memory.",
+    "auto": true
+   }
+  ],
   "apple-mac-tools": [
    {
     "id": "mac-mini-m4",
@@ -235,18 +276,58 @@
   "box-inspector": [],
   "tab-janitor": [],
   "rosettabot": [],
-  "oweno": [],
+  "oweno": [
+   {
+    "id": "ba-ii-plus-pro",
+    "score": 5,
+    "reason": "Named match for OweNo.",
+    "auto": true
+   }
+  ],
   "payday-pilot": [],
   "rezbot": [],
   "adventure-bot": [],
-  "guide": [],
+  "guide": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for Guide.",
+    "auto": true
+   },
+   {
+    "id": "etekcity-scale",
+    "score": 5,
+    "reason": "Named match for Guide.",
+    "auto": true
+   }
+  ],
   "benebot": [],
-  "nourishment": [],
+  "nourishment": [
+   {
+    "id": "oxo-food-scale",
+    "score": 5,
+    "reason": "Named match for Nourishment.",
+    "auto": true
+   }
+  ],
   "argubot": [],
   "rude-bot": [],
   "scrub-gate": [],
   "grandbot": [],
-  "fashion-stylist-bot": [],
+  "fashion-stylist-bot": [
+   {
+    "id": "wacom-intuos",
+    "score": 5,
+    "reason": "Named match for Fashion Stylist Bot.",
+    "auto": true
+   },
+   {
+    "id": "apple-pencil-usbc",
+    "score": 5,
+    "reason": "Named match for Fashion Stylist Bot.",
+    "auto": true
+   }
+  ],
   "fit-finder": [],
   "intune-architect": [],
   "clipper": [],
@@ -274,7 +355,14 @@
   "delegatron-9000": [],
   "solo": [],
   "claim-denied": [],
-  "obsidian": [],
+  "obsidian": [
+   {
+    "id": "moleskine-classic",
+    "score": 5,
+    "reason": "Named match for Obsidian.",
+    "auto": true
+   }
+  ],
   "burn-bot": [],
   "irs-bot": [
    {
@@ -374,8 +462,34 @@
    }
   ],
   "vet-bill-and-pet-care-buddy": [],
-  "strong-and-graceful-fitness": [],
-  "daily-grace-and-prayer-closet": [],
+  "strong-and-graceful-fitness": [
+   {
+    "id": "fit-simplify-bands",
+    "score": 5,
+    "reason": "Named match for Strong & Graceful Fitness.",
+    "auto": true
+   },
+   {
+    "id": "triggerpoint-grid",
+    "score": 5,
+    "reason": "Named match for Strong & Graceful Fitness.",
+    "auto": true
+   },
+   {
+    "id": "gaiam-mat",
+    "score": 5,
+    "reason": "Named match for Strong & Graceful Fitness.",
+    "auto": true
+   }
+  ],
+  "daily-grace-and-prayer-closet": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Daily Grace & Prayer Closet.",
+    "auto": true
+   }
+  ],
   "auto-and-rideshare-claimshield": [],
   "home-and-renters-claimshield": [],
   "small-biz-bop-shield": [],
@@ -463,7 +577,14 @@
     "reason": "Pen tablet for sketching and touching up game sprites."
    }
   ],
-  "daily-verse": [],
+  "daily-verse": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Daily Verse.",
+    "auto": true
+   }
+  ],
   "spanish-tutor": [],
   "asana-task-master": [],
   "boost": [],
@@ -517,14 +638,66 @@
   ],
   "dial-bot": [],
   "skippy": [],
-  "writing-bot": [],
+  "writing-bot": [
+   {
+    "id": "mx-master-3s",
+    "score": 5,
+    "reason": "Named match for Writing Bot.",
+    "auto": true
+   },
+   {
+    "id": "sony-xm5",
+    "score": 5,
+    "reason": "Named match for Writing Bot.",
+    "auto": true
+   },
+   {
+    "id": "mx-keys-s",
+    "score": 5,
+    "reason": "Named match for Writing Bot.",
+    "auto": true
+   }
+  ],
   "tech-demos": [],
   "genie": [],
   "novaterra-foods": [],
-  "vital": [],
-  "site-engineer": [],
+  "vital": [
+   {
+    "id": "gaiam-mat",
+    "score": 5,
+    "reason": "Named match for Vital.",
+    "auto": true
+   }
+  ],
+  "site-engineer": [
+   {
+    "id": "mx-master-3s",
+    "score": 5,
+    "reason": "Named match for Site Engineer.",
+    "auto": true
+   },
+   {
+    "id": "mx-keys-s",
+    "score": 5,
+    "reason": "Named match for Site Engineer.",
+    "auto": true
+   }
+  ],
   "scriptopher-nolan": [],
-  "glow-picasso": [],
+  "glow-picasso": [
+   {
+    "id": "wacom-intuos",
+    "score": 5,
+    "reason": "Named match for Glow Picasso.",
+    "auto": true
+   },
+   {
+    "id": "apple-pencil-usbc",
+    "score": 5,
+    "reason": "Named match for Glow Picasso.",
+    "auto": true
+   }
+  ],
   "sazon": [
    {
     "id": "instant-pot-duo",
@@ -532,14 +705,28 @@
     "reason": "Handles stews, beans and rice for the home-cuisine meal plans."
    }
   ],
-  "psalm": [],
+  "psalm": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Psalm.",
+    "auto": true
+   }
+  ],
   "template-safety-checker": [],
   "changelens": [],
   "atc-baby": [],
   "screening-reminder": [],
   "fine-print": [],
   "home-and-garage": [],
-  "family-travel-and-pto-planner": [],
+  "family-travel-and-pto-planner": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for Family Travel & PTO Planner.",
+    "auto": true
+   }
+  ],
   "personal-cybersecurity-coach": [
    {
     "id": "yubikey-5c-nfc",
@@ -547,7 +734,14 @@
     "reason": "Hardware key for the account lockdown sessions."
    }
   ],
-  "fitness-coach": [],
+  "fitness-coach": [
+   {
+    "id": "fit-simplify-bands",
+    "score": 5,
+    "reason": "Named match for Fitness Coach.",
+    "auto": true
+   }
+  ],
   "is-this-health-claim-true": [],
   "curriculum-researcher": [],
   "teacher-agent": [],
@@ -573,13 +767,46 @@
   "money-brief": [],
   "bill-buster": [],
   "north-star": [],
-  "mend-and-move": [],
+  "mend-and-move": [
+   {
+    "id": "fit-simplify-bands",
+    "score": 5,
+    "reason": "Named match for Mend & Move.",
+    "auto": true
+   },
+   {
+    "id": "triggerpoint-grid",
+    "score": 5,
+    "reason": "Named match for Mend & Move.",
+    "auto": true
+   }
+  ],
   "hookline": [],
   "launch-coach": [],
   "launch-coach-apprentice": [],
   "elders-quorum-companion": [],
-  "group-tour-trip-planner": [],
-  "spiritual-advisor": [],
+  "group-tour-trip-planner": [
+   {
+    "id": "etekcity-scale",
+    "score": 5,
+    "reason": "Named match for Group Tour Trip Planner.",
+    "auto": true
+   },
+   {
+    "id": "epicka-adapter",
+    "score": 5,
+    "reason": "Named match for Group Tour Trip Planner.",
+    "auto": true
+   }
+  ],
+  "spiritual-advisor": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Spiritual Advisor.",
+    "auto": true
+   }
+  ],
   "business-creation-bot": [],
   "daily-news-in-5-minutes": [],
   "breast-awareness-coach": [],
@@ -592,11 +819,37 @@
   "pep": [],
   "hubspot-helper": [],
   "sift": [],
-  "grok-bot-video-studio": [],
+  "grok-bot-video-studio": [
+   {
+    "id": "logitech-c920",
+    "score": 5,
+    "reason": "Named match for Grok Bot Video Studio.",
+    "auto": true
+   },
+   {
+    "id": "stream-deck-mk2",
+    "score": 5,
+    "reason": "Named match for Grok Bot Video Studio.",
+    "auto": true
+   },
+   {
+    "id": "key-light-air-mk2",
+    "score": 5,
+    "reason": "Named match for Grok Bot Video Studio.",
+    "auto": true
+   }
+  ],
   "asymmetric-opportunity-radar": [],
   "syllabot": [],
   "claudia-chief-of-staff": [],
-  "agent-zero": [],
+  "agent-zero": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Named match for Agent Zero.",
+    "auto": true
+   }
+  ],
   "included": [],
   "quoted": [],
   "claimed": [],
@@ -620,7 +873,20 @@
    }
   ],
   "missed-call-rescuer": [],
-  "invoice-chaser": [],
+  "invoice-chaser": [
+   {
+    "id": "brother-ql800",
+    "score": 5,
+    "reason": "Named match for Invoice Chaser.",
+    "auto": true
+   },
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for Invoice Chaser.",
+    "auto": true
+   }
+  ],
   "buyer-radar": [],
   "caregiving-coordinator": [],
   "pet-care-pal": [],
@@ -660,7 +926,14 @@
   ],
   "homekeepbot": [],
   "free-games-scout": [],
-  "sous-chef": [],
+  "sous-chef": [
+   {
+    "id": "rubbermaid-meal",
+    "score": 5,
+    "reason": "Named match for Sous-Chef.",
+    "auto": true
+   }
+  ],
   "second-opinion-council": [],
   "fleet-doctor": [],
   "threadroost": [],
@@ -706,7 +979,14 @@
   "midas-for-the-inbox": [],
   "inbox-triage": [],
   "roof-water-and-contractor-bid-auditor": [],
-  "mortgage-payoff-and-bonus-snowball-planner": [],
+  "mortgage-payoff-and-bonus-snowball-planner": [
+   {
+    "id": "ba-ii-plus-pro",
+    "score": 5,
+    "reason": "Named match for Mortgage Payoff & Bonus Snowball Planner.",
+    "auto": true
+   }
+  ],
   "mahjong-pickleball-and-book-club-hostess-hq": [],
   "pod-and-printable-boutique-studio": [],
   "agency-pilot": [],
@@ -719,15 +999,42 @@
   "kids-trump-account-roth-and-529-coach": [],
   "domain-scout": [],
   "grokmas-elf": [],
-  "meal-planner-tobi": [],
+  "meal-planner-tobi": [
+   {
+    "id": "rubbermaid-meal",
+    "score": 5,
+    "reason": "Named match for Meal Planner (Tobi).",
+    "auto": true
+   }
+  ],
   "foundersales": [],
   "dealscout": [],
   "cleantext": [],
   "spanishreviewer": [],
   "familybank": [],
   "immigrationguide": [],
-  "kjvbible": [],
-  "tripconcierge": [],
+  "kjvbible": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for KJVBible.",
+    "auto": true
+   }
+  ],
+  "tripconcierge": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for TripConcierge.",
+    "auto": true
+   },
+   {
+    "id": "epicka-adapter",
+    "score": 5,
+    "reason": "Named match for TripConcierge.",
+    "auto": true
+   }
+  ],
   "gmail": [],
   "yahoomail": [],
   "grokbotscout": [],
@@ -741,7 +1048,20 @@
   "hermes-scribe": [],
   "prodigy-home-rig": [],
   "janus-jobs": [],
-  "grok-field-desk": [],
+  "grok-field-desk": [
+   {
+    "id": "anker-737",
+    "score": 5,
+    "reason": "Named match for Grok · Field Desk.",
+    "auto": true
+   },
+   {
+    "id": "leatherman-wave",
+    "score": 5,
+    "reason": "Named match for Grok · Field Desk.",
+    "auto": true
+   }
+  ],
   "ceres-shopper": [],
   "hercules-body-health": [
    {
@@ -751,7 +1071,14 @@
    }
   ],
   "table-charts": [],
-  "platepal": [],
+  "platepal": [
+   {
+    "id": "rubbermaid-meal",
+    "score": 5,
+    "reason": "Named match for PlatePal.",
+    "auto": true
+   }
+  ],
   "show-up-ai": [],
   "your-echo": [],
   "chop-bot-v6": [],
@@ -761,7 +1088,14 @@
   "study-abroad-scholarship-finder": [],
   "first-ai-side-job": [],
   "rivaldo-bot": [],
-  "podcast-clipper-for-x": [],
+  "podcast-clipper-for-x": [
+   {
+    "id": "shure-mv7",
+    "score": 5,
+    "reason": "Named match for Podcast Clipper for X.",
+    "auto": true
+   }
+  ],
   "contrarian": [],
   "solo-pleb": [],
   "dig": [],
@@ -773,7 +1107,14 @@
   "vibeyourtv": [],
   "christmas-card-bot": [],
   "x-growth-coach": [],
-  "t1d-helper": [],
+  "t1d-helper": [
+   {
+    "id": "oxo-food-scale",
+    "score": 5,
+    "reason": "Named match for T1D Helper.",
+    "auto": true
+   }
+  ],
   "it-resume-roaster": [],
   "household-herald": [],
   "family-history": [
@@ -789,11 +1130,49 @@
   "design-by-lu": [],
   "social-media-auditor": [],
   "facewright": [],
-  "tammy-true-total-travel-and-points-scout": [],
+  "tammy-true-total-travel-and-points-scout": [
+   {
+    "id": "anker-737",
+    "score": 5,
+    "reason": "Named match for Tammy — True-Total Travel & Points Scout.",
+    "auto": true
+   },
+   {
+    "id": "airtag-4pack",
+    "score": 5,
+    "reason": "Named match for Tammy — True-Total Travel & Points Scout.",
+    "auto": true
+   },
+   {
+    "id": "hydroflask-32",
+    "score": 5,
+    "reason": "Named match for Tammy — True-Total Travel & Points Scout.",
+    "auto": true
+   }
+  ],
   "cora-cruise-planner-and-loyalty-perks-tracker": [],
   "prompt-upgrader": [],
   "scam-guard": [],
-  "fitness-coach-by-jenna": [],
+  "fitness-coach-by-jenna": [
+   {
+    "id": "contigo-ashland",
+    "score": 5,
+    "reason": "Named match for Fitness Coach by Jenna.",
+    "auto": true
+   },
+   {
+    "id": "garmin-265",
+    "score": 5,
+    "reason": "Named match for Fitness Coach by Jenna.",
+    "auto": true
+   },
+   {
+    "id": "hydroflask-32",
+    "score": 5,
+    "reason": "Named match for Fitness Coach by Jenna.",
+    "auto": true
+   }
+  ],
   "postwright": [],
   "x-hit-pattern-scanner": [],
   "sunday-open-brief": [],
@@ -805,7 +1184,20 @@
   "tender-watch": [],
   "patch-alert": [],
   "wainwright-manager": [],
-  "budgie": [],
+  "budgie": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for Budgie.",
+    "auto": true
+   },
+   {
+    "id": "ba-ii-plus-pro",
+    "score": 4,
+    "reason": "Mentions “debt payoff”.",
+    "auto": true
+   }
+  ],
   "football-research-analyst": [],
   "career-agent": [],
   "first-officer": [],
@@ -817,11 +1209,62 @@
   "shelfer": [],
   "bot-architect": [],
   "study-tutor": [],
-  "home-helper": [],
+  "home-helper": [
+   {
+    "id": "deco-x55",
+    "score": 5,
+    "reason": "Named match for Home Helper.",
+    "auto": true
+   },
+   {
+    "id": "anker-wireless-pad",
+    "score": 5,
+    "reason": "Named match for Home Helper.",
+    "auto": true
+   }
+  ],
   "wellbeing": [],
-  "personal-trainer-by-sal": [],
+  "personal-trainer-by-sal": [
+   {
+    "id": "contigo-ashland",
+    "score": 5,
+    "reason": "Named match for Personal Trainer by Sal.",
+    "auto": true
+   },
+   {
+    "id": "garmin-265",
+    "score": 5,
+    "reason": "Named match for Personal Trainer by Sal.",
+    "auto": true
+   },
+   {
+    "id": "hydroflask-32",
+    "score": 5,
+    "reason": "Named match for Personal Trainer by Sal.",
+    "auto": true
+   }
+  ],
   "remove-me": [],
-  "travel": [],
+  "travel": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for Travel.",
+    "auto": true
+   },
+   {
+    "id": "etekcity-scale",
+    "score": 5,
+    "reason": "Named match for Travel.",
+    "auto": true
+   },
+   {
+    "id": "epicka-adapter",
+    "score": 5,
+    "reason": "Named match for Travel.",
+    "auto": true
+   }
+  ],
   "household": [],
   "finance-by-outwork-ventures": [],
   "transition-to-operations-manager": [],
@@ -858,7 +1301,14 @@
   ],
   "indeed-auto-apply": [],
   "x-success-coach": [],
-  "pastor-pete": [],
+  "pastor-pete": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Pastor Pete.",
+    "auto": true
+   }
+  ],
   "idea-ike": [],
   "rookie-card-ray": [],
   "comic-book-carl": [],
@@ -868,7 +1318,20 @@
   "ballot-box-bob": [],
   "local-services-samantha": [],
   "test-prep-tess": [],
-  "grease-monkey-wally": [],
+  "grease-monkey-wally": [
+   {
+    "id": "dewalt-drill",
+    "score": 5,
+    "reason": "Named match for Grease Monkey Wally.",
+    "auto": true
+   },
+   {
+    "id": "bluedriver",
+    "score": 5,
+    "reason": "Named match for Grease Monkey Wally.",
+    "auto": true
+   }
+  ],
   "appliance-fix-annie": [
    {
     "id": "dewalt-drill",
@@ -882,7 +1345,14 @@
   "realty-rita": [],
   "research-ruby": [],
   "sponsorship-hunter": [],
-  "cve-desk": [],
+  "cve-desk": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Named match for CVE Desk.",
+    "auto": true
+   }
+  ],
   "radar": [],
   "pixato": [],
   "thrift-hunter": [
@@ -902,11 +1372,25 @@
   "garage": [],
   "fed-decoder": [],
   "groktext": [],
-  "heimdall": [],
+  "heimdall": [
+   {
+    "id": "unifi-g4-doorbell",
+    "score": 5,
+    "reason": "Named match for Heimdall.",
+    "auto": true
+   }
+  ],
   "groksters-anonymous": [],
   "box-solution-builder": [],
   "salesforce-product-expert": [],
-  "quickbooks-product-expert": [],
+  "quickbooks-product-expert": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for QuickBooks Product Expert.",
+    "auto": true
+   }
+  ],
   "airtable-product-expert": [],
   "dostoyevsky": [],
   "austen": [],
@@ -918,7 +1402,14 @@
   "grimy": [],
   "karenbot": [],
   "si": [],
-  "chief-health": [],
+  "chief-health": [
+   {
+    "id": "fit-simplify-bands",
+    "score": 5,
+    "reason": "Named match for Chief Health.",
+    "auto": true
+   }
+  ],
   "gridlock": [],
   "fixer": [
    {
@@ -932,12 +1423,33 @@
   "solo-co": [],
   "exec-deck": [],
   "perf-reporting": [],
-  "odd-desk": [],
+  "odd-desk": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for ODD Desk.",
+    "auto": true
+   }
+  ],
   "page-watcher": [],
   "stuart": [],
   "chief-of-staff-by-cameron": [],
-  "writing-bot-by-cameron": [],
-  "homie": [],
+  "writing-bot-by-cameron": [
+   {
+    "id": "mx-keys-s",
+    "score": 5,
+    "reason": "Named match for Writing Bot by Cameron.",
+    "auto": true
+   }
+  ],
+  "homie": [
+   {
+    "id": "ninja-af101",
+    "score": 5,
+    "reason": "Named match for Homie.",
+    "auto": true
+   }
+  ],
   "trade-pro-office-manager": [],
   "mural": [],
   "truck-inventory": [
@@ -953,7 +1465,20 @@
   "swarm": [],
   "grok-bot-remix-producer": [],
   "buy": [],
-  "tess-design-desk": [],
+  "tess-design-desk": [
+   {
+    "id": "wacom-intuos",
+    "score": 5,
+    "reason": "Named match for Tess Design Desk.",
+    "auto": true
+   },
+   {
+    "id": "apple-pencil-usbc",
+    "score": 5,
+    "reason": "Named match for Tess Design Desk.",
+    "auto": true
+   }
+  ],
   "product-cataloger": [
    {
     "id": "brother-ql800",
@@ -963,8 +1488,34 @@
   ],
   "scrollstopper-social-media-manager": [],
   "garden": [],
-  "bookmark-kitchen": [],
-  "kitchen-studio": [],
+  "bookmark-kitchen": [
+   {
+    "id": "instant-pot-duo",
+    "score": 5,
+    "reason": "Named match for Bookmark Kitchen.",
+    "auto": true
+   },
+   {
+    "id": "lodge-skillet",
+    "score": 5,
+    "reason": "Named match for Bookmark Kitchen.",
+    "auto": true
+   },
+   {
+    "id": "victorinox-8",
+    "score": 5,
+    "reason": "Named match for Bookmark Kitchen.",
+    "auto": true
+   }
+  ],
+  "kitchen-studio": [
+   {
+    "id": "instant-pot-duo",
+    "score": 5,
+    "reason": "Named match for Kitchen Studio.",
+    "auto": true
+   }
+  ],
   "creator-portfolio": [],
   "dean-of-students": [],
   "winning-ad-spy-and-boutique-creative-studio": [],
@@ -972,10 +1523,31 @@
   "home-inspection-report-and-closing-disclosure-auditor": [],
   "hoa-fine-violation-and-condo-special-assessment-shield": [],
   "college-financial-aid-fafsa-and-merit-appeal-coach": [],
-  "checkout-promo-code-and-creator-discount-hunter": [],
+  "checkout-promo-code-and-creator-discount-hunter": [
+   {
+    "id": "brother-ql800",
+    "score": 5,
+    "reason": "Named match for Checkout Promo Code & Creator-Discount Hunter.",
+    "auto": true
+   }
+  ],
   "deal-scout": [],
-  "law-desk": [],
-  "idea-lab-and-brainstorm-logger": [],
+  "law-desk": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for Law Desk.",
+    "auto": true
+   }
+  ],
+  "idea-lab-and-brainstorm-logger": [
+   {
+    "id": "moleskine-classic",
+    "score": 5,
+    "reason": "Named match for Idea Lab & Brainstorm Logger.",
+    "auto": true
+   }
+  ],
   "counsel-by-mikeysmolecules": [],
   "mike-research-chief": [],
   "libby-tool-scout": [],
@@ -987,7 +1559,14 @@
   "backlink-generator-bot": [],
   "pitch-board": [],
   "any-crm": [],
-  "freelance-invoice-chaser": [],
+  "freelance-invoice-chaser": [
+   {
+    "id": "brother-ql800",
+    "score": 5,
+    "reason": "Named match for Freelance Invoice Chaser.",
+    "auto": true
+   }
+  ],
   "outbound-prospecting": [],
   "account-research": [],
   "x-growth-manager": [],
@@ -1005,8 +1584,28 @@
   "sneaky-unfollowers-caught": [],
   "package-tracker": [],
   "recall-radar": [],
-  "pumpkin-spice-bot": [],
-  "cart-blanche": [],
+  "pumpkin-spice-bot": [
+   {
+    "id": "instant-pot-duo",
+    "score": 5,
+    "reason": "Named match for Pumpkin Spice Bot.",
+    "auto": true
+   },
+   {
+    "id": "lodge-skillet",
+    "score": 5,
+    "reason": "Named match for Pumpkin Spice Bot.",
+    "auto": true
+   }
+  ],
+  "cart-blanche": [
+   {
+    "id": "brother-ql800",
+    "score": 5,
+    "reason": "Named match for Cart Blanche.",
+    "auto": true
+   }
+  ],
   "hrrrr-file-agent": [
    {
     "id": "epson-ff680w",
@@ -1066,18 +1665,46 @@
   "ai-legal-prep-desk": [],
   "critique": [],
   "warranty-and-returns-keeper": [],
-  "exegesis": [],
+  "exegesis": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for Exegesis.",
+    "auto": true
+   }
+  ],
   "presents": [],
   "claimcheck": [],
   "realitycheck": [],
   "bills-and-subscriptions-manager": [],
   "spam-call-scrubber": [],
-  "clean-slate": [],
-  "zero-day-desk": [],
+  "clean-slate": [
+   {
+    "id": "macrox-fire-bag",
+    "score": 5,
+    "reason": "Named match for Clean Slate.",
+    "auto": true
+   }
+  ],
+  "zero-day-desk": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Named match for Zero-Day Desk.",
+    "auto": true
+   }
+  ],
   "tally-ai": [],
   "great-books-reading-paths": [],
   "harvard-classics-15-minutes-a-day": [],
-  "money-bot": [],
+  "money-bot": [
+   {
+    "id": "epson-ff680w",
+    "score": 5,
+    "reason": "Named match for Money Bot.",
+    "auto": true
+   }
+  ],
   "mail-bot": [],
   "slack-ready-fleet-ops": [],
   "slack-ready-team-bot": [],
@@ -1130,7 +1757,26 @@
   "options-101": [],
   "canary": [],
   "morning-paper-editor": [],
-  "your-voice-editor": [],
+  "your-voice-editor": [
+   {
+    "id": "shure-mv7",
+    "score": 5,
+    "reason": "Named match for Your Voice Editor.",
+    "auto": true
+   },
+   {
+    "id": "at2020usb",
+    "score": 5,
+    "reason": "Named match for Your Voice Editor.",
+    "auto": true
+   },
+   {
+    "id": "sony-xm5",
+    "score": 5,
+    "reason": "Named match for Your Voice Editor.",
+    "auto": true
+   }
+  ],
   "pass-or-fail-checker": [],
   "bills-and-renewals-watcher": [],
   "future-proof": [],
@@ -1167,7 +1813,26 @@
    }
   ],
   "persona-bot": [],
-  "chefanny": [],
+  "chefanny": [
+   {
+    "id": "lodge-skillet",
+    "score": 5,
+    "reason": "Named match for Chefanny.",
+    "auto": true
+   },
+   {
+    "id": "ninja-af101",
+    "score": 5,
+    "reason": "Named match for Chefanny.",
+    "auto": true
+   },
+   {
+    "id": "victorinox-8",
+    "score": 5,
+    "reason": "Named match for Chefanny.",
+    "auto": true
+   }
+  ],
   "head-of-people-and-processes": [],
   "section-architect": [],
   "roll-steward": [],
@@ -1201,7 +1866,20 @@
   "spam-call-stopper-by-z23": [],
   "buyer-intent-lead-finder-by-z23": [],
   "local-presence-and-review-desk-by-z23": [],
-  "cyber-checkup-by-z23": [],
+  "cyber-checkup-by-z23": [
+   {
+    "id": "unifi-g4-doorbell",
+    "score": 5,
+    "reason": "Named match for Cyber Checkup by Z23.",
+    "auto": true
+   },
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Named match for Cyber Checkup by Z23.",
+    "auto": true
+   }
+  ],
   "box-truck-work-finder-by-z23": [],
   "template-bot-by-john": [],
   "clockwork": [],
@@ -1244,7 +1922,20 @@
   "systems-administrator-by-zachary": [],
   "researcher-by-zachary": [],
   "playtester-by-zachary": [],
-  "pixel-artist-by-zachary": [],
+  "pixel-artist-by-zachary": [
+   {
+    "id": "wacom-intuos",
+    "score": 5,
+    "reason": "Named match for Pixel Artist by Zachary.",
+    "auto": true
+   },
+   {
+    "id": "apple-pencil-usbc",
+    "score": 5,
+    "reason": "Named match for Pixel Artist by Zachary.",
+    "auto": true
+   }
+  ],
   "patch-notes-writer-by-zachary": [],
   "metrics-analyst-by-zachary": [],
   "generative-music-prompt-writer-by-zachary": [],
@@ -1258,7 +1949,26 @@
   "authenticity-checker-by-zachary": [],
   "assistant-to-the-regional-manager-by-zachary": [],
   "accountability-manager-by-zachary": [],
-  "the-wife-saver-by-brandon": [],
+  "the-wife-saver-by-brandon": [
+   {
+    "id": "dewalt-drill",
+    "score": 5,
+    "reason": "Named match for The Wife Saver by Brandon.",
+    "auto": true
+   },
+   {
+    "id": "klein-ncvt1p",
+    "score": 5,
+    "reason": "Named match for The Wife Saver by Brandon.",
+    "auto": true
+   },
+   {
+    "id": "stanley-tape",
+    "score": 5,
+    "reason": "Named match for The Wife Saver by Brandon.",
+    "auto": true
+   }
+  ],
   "civic-and-utility-reporter-by-dave": [],
   "peek-by-menno": [],
   "ai-video-producer-by-tavi": [],
@@ -1287,7 +1997,14 @@
   "bot-upskiller-and-onboarder-by-zachary": [],
   "commute-cast-by-santa": [],
   "pokewatch-by-santa": [],
-  "holiday-table-by-santa": [],
+  "holiday-table-by-santa": [
+   {
+    "id": "lodge-skillet",
+    "score": 5,
+    "reason": "Named match for Holiday Table by Santa.",
+    "auto": true
+   }
+  ],
   "public-entity-governance-desk-by-kevin": [],
   "provider-network-finder-by-kevin": [],
   "cost-navigator-by-kevin": [],
@@ -1298,7 +2015,14 @@
   "headhunter-by-jonah": [],
   "post-pal": [],
   "local-event-hunter-by-andrew": [],
-  "home-math": [],
+  "home-math": [
+   {
+    "id": "ba-ii-plus-pro",
+    "score": 5,
+    "reason": "Named match for Home Math.",
+    "auto": true
+   }
+  ],
   "raid-squad-builder": [],
   "504ward-by-jonah": [],
   "hospitality-hank": [],
@@ -1307,7 +2031,14 @@
   "desk-diet-dave": [],
   "bench-boss-ben": [],
   "gatekeeper-gus": [],
-  "paper-trail-pete": [],
+  "paper-trail-pete": [
+   {
+    "id": "first-alert-smico",
+    "score": 5,
+    "reason": "Named match for Paper Trail Pete.",
+    "auto": true
+   }
+  ],
   "risen-ray": [],
   "close-the-loop-dan": [],
   "stewart-hours": [],
@@ -1316,13 +2047,52 @@
   "decluttering-coach-by-rachel": [],
   "kids-activities-and-crafts-planner-by-rachel": [],
   "kids-building-and-craft-coach-by-rachel": [],
-  "meal-planner-by-rachel": [],
+  "meal-planner-by-rachel": [
+   {
+    "id": "oxo-food-scale",
+    "score": 5,
+    "reason": "Named match for Meal Planner by Rachel.",
+    "auto": true
+   },
+   {
+    "id": "rubbermaid-meal",
+    "score": 5,
+    "reason": "Named match for Meal Planner by Rachel.",
+    "auto": true
+   }
+  ],
   "art-project-planner-by-rachel": [],
   "printsmith": [],
   "bricksmith": [],
-  "hacked-account-recovery-helper-by-z23": [],
+  "hacked-account-recovery-helper-by-z23": [
+   {
+    "id": "yubikey-5c-nfc",
+    "score": 5,
+    "reason": "Named match for Hacked Account Recovery Helper by Z23.",
+    "auto": true
+   }
+  ],
   "legal-counsel": [],
-  "cto": [],
+  "cto": [
+   {
+    "id": "mx-master-3s",
+    "score": 5,
+    "reason": "Named match for CTO.",
+    "auto": true
+   },
+   {
+    "id": "mx-keys-s",
+    "score": 5,
+    "reason": "Named match for CTO.",
+    "auto": true
+   },
+   {
+    "id": "keychron-k2",
+    "score": 5,
+    "reason": "Named match for CTO.",
+    "auto": true
+   }
+  ],
   "usage-guardian-by-brandon": [],
   "usage-monitor-bot-by-serenejay": [],
   "child-safety-coach": [],
@@ -1357,10 +2127,24 @@
   "benefits-finder-by-kevin": [],
   "pet-care-helper-by-kevin": [],
   "ride-finder-by-kevin": [],
-  "grocery-and-meal-helper-by-kevin": [],
+  "grocery-and-meal-helper-by-kevin": [
+   {
+    "id": "rubbermaid-meal",
+    "score": 5,
+    "reason": "Named match for Grocery & Meal Helper by Kevin.",
+    "auto": true
+   }
+  ],
   "reading-and-puzzles-buddy-by-kevin": [],
   "appointment-prep-by-kevin": [],
-  "home-maintenance-reminder-by-kevin": [],
+  "home-maintenance-reminder-by-kevin": [
+   {
+    "id": "dewalt-drill",
+    "score": 5,
+    "reason": "Named match for Home Maintenance Reminder by Kevin.",
+    "auto": true
+   }
+  ],
   "video-call-connector-by-kevin": [
    {
     "id": "logitech-c920",
@@ -1377,7 +2161,26 @@
    }
   ],
   "hearing-and-vision-helper-by-kevin": [],
-  "exercise-coach-by-kevin": [],
+  "exercise-coach-by-kevin": [
+   {
+    "id": "fit-simplify-bands",
+    "score": 5,
+    "reason": "Named match for Exercise Coach by Kevin.",
+    "auto": true
+   },
+   {
+    "id": "triggerpoint-grid",
+    "score": 5,
+    "reason": "Named match for Exercise Coach by Kevin.",
+    "auto": true
+   },
+   {
+    "id": "gaiam-mat",
+    "score": 5,
+    "reason": "Named match for Exercise Coach by Kevin.",
+    "auto": true
+   }
+  ],
   "know-your-politician-by-marshall": [],
   "gmail-assistant": [],
   "ablelatch": [],
@@ -1388,7 +2191,26 @@
   "creator-analytics-and-channel-optimizer": [],
   "charter-builder": [],
   "blockato-blockbench": [],
-  "device-repair-expert": [],
+  "device-repair-expert": [
+   {
+    "id": "beelink-mini-s12",
+    "score": 5,
+    "reason": "Named match for Device Repair Expert.",
+    "auto": true
+   },
+   {
+    "id": "anker-565-hub",
+    "score": 5,
+    "reason": "Named match for Device Repair Expert.",
+    "auto": true
+   },
+   {
+    "id": "ugreen-hub",
+    "score": 5,
+    "reason": "Named match for Device Repair Expert.",
+    "auto": true
+   }
+  ],
   "homeowners-policy-explainer-by-kevin": [],
   "coi-checker-by-kevin": [],
   "claim-filing-helper-by-kevin": [],
@@ -1410,7 +2232,14 @@
   "contract-insurance-clause-reviewer-by-kevin": [],
   "renewal-prep-coach-by-kevin": [],
   "crypto-securities-counsel-by-thecryptosteward": [],
-  "i-am-trying-to-be-like-jesus-by-tyler": [],
+  "i-am-trying-to-be-like-jesus-by-tyler": [
+   {
+    "id": "kjv-study-bible",
+    "score": 5,
+    "reason": "Named match for I Am Trying To Be Like Jesus by Tyler.",
+    "auto": true
+   }
+  ],
   "spaces-phone-line-by-igor": [
    {
     "id": "shure-mv7",
@@ -1418,7 +2247,14 @@
     "reason": "Broadcast-quality mic for hosting the X Spaces you open to callers."
    }
   ],
-  "static-site-deployer-by-igor": [],
+  "static-site-deployer-by-igor": [
+   {
+    "id": "anker-565-hub",
+    "score": 5,
+    "reason": "Named match for Static Site Deployer by Igor.",
+    "auto": true
+   }
+  ],
   "movie-quote-inspiration-by-tyler": [],
   "literature-inspiration-by-tyler": [],
   "stock-research-by-tyler": [],
@@ -1431,6 +2267,93 @@
   ],
   "black-friday-real-deal-checker": [],
   "refund-and-delivery-chaser": [],
-  "scam-second-opinion": []
+  "scam-second-opinion": [],
+  "credit-score-scotty": [
+   {
+    "id": "macrox-fire-bag",
+    "score": 5,
+    "reason": "Named match for Credit Score Scotty.",
+    "auto": true
+   }
+  ],
+  "grant-finder-by-kevin": [],
+  "college-and-scholarship-planner-by-kevin": [],
+  "small-business-safety-program-by-kevin": [
+   {
+    "id": "kidde-fa110",
+    "score": 5,
+    "reason": "Named match for Small Business Safety Program by Kevin.",
+    "auto": true
+   },
+   {
+    "id": "first-alert-smico",
+    "score": 5,
+    "reason": "Named match for Small Business Safety Program by Kevin.",
+    "auto": true
+   }
+  ],
+  "sports-season-organizer-by-kevin": [],
+  "loss-run-reader-by-kevin": [],
+  "vendor-contract-tracker-by-kevin": [],
+  "certificate-request-writer-by-kevin": [],
+  "family-trip-planner-by-kevin": [
+   {
+    "id": "bagail-cubes",
+    "score": 5,
+    "reason": "Named match for Family Trip Planner by Kevin.",
+    "auto": true
+   }
+  ],
+  "board-meeting-prep-by-kevin": [],
+  "property-schedule-builder-by-kevin": [],
+  "usage-watch-walt": [],
+  "umbrella-coverage-sizer-by-kevin": [],
+  "auto-claim-helper-by-kevin": [],
+  "business-interruption-estimator-by-kevin": [],
+  "subrogation-and-recovery-helper-by-kevin": [],
+  "premium-increase-explainer-by-kevin": [],
+  "medicare-vs-employer-plan-helper-by-kevin": [],
+  "nonprofit-d-and-o-explainer-by-kevin": [],
+  "event-insurance-helper-by-kevin": [],
+  "toy-rotation-organizer-by-kevin": [],
+  "workers-comp-audit-prep-by-kevin": [],
+  "auto-fleet-safety-helper-by-kevin": [],
+  "life-insurance-needs-calculator-by-kevin": [
+   {
+    "id": "ba-ii-plus-pro",
+    "score": 5,
+    "reason": "Named match for Life Insurance Needs Calculator by Kevin.",
+    "auto": true
+   }
+  ],
+  "insurance-glossary-tutor-by-kevin": [],
+  "flood-insurance-explainer-by-kevin": [],
+  "cyber-incident-first-steps-by-kevin": [],
+  "construction-contract-insurance-checker-by-kevin": [],
+  "rental-car-and-travel-coverage-helper-by-kevin": [],
+  "property-inspection-prep-by-kevin": [],
+  "insurance-quote-comparer-by-kevin": [],
+  "small-business-insurance-starter-by-kevin": [],
+  "family-money-coach-by-kevin": [],
+  "kids-book-writer-by-kevin": [],
+  "home-project-planner-by-kevin": [],
+  "ai-tool-scout-by-kevin": [],
+  "satellite-internet-picker-by-kevin": [],
+  "supply-chain-mapper-by-kevin": [],
+  "earnings-call-summarizer-by-kevin": [],
+  "prediction-market-journal-by-kevin": [],
+  "cyber-readiness-checklist-by-kevin": [],
+  "water-utility-cyber-watch-by-kevin": [],
+  "phishing-coach-by-kevin": [],
+  "landlord-insurance-helper-by-kevin": [],
+  "fair-housing-checklist-by-kevin": [],
+  "tax-credit-housing-basics-by-kevin": [],
+  "governmental-immunity-explainer-by-kevin": [],
+  "builder-s-risk-starter-by-kevin": [],
+  "risk-pool-explainer-by-kevin": [],
+  "flood-zone-checker-by-kevin": [],
+  "hurricane-season-prep-by-kevin": [],
+  "insurance-claim-appeal-writer-by-kevin": [],
+  "home-inventory-keeper-by-kevin": []
  }
 }

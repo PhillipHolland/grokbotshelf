@@ -205,6 +205,18 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     // Always present (empty without meta) so the tag line sits at the same height on every card
     return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
   }
+  function pairsHTML(b) {
+    const rows = b.pairs;
+    if (!rows || !rows.length) return "";
+    const show = rows.slice(0, 2);
+    const extra = rows.length - show.length;
+    const links = show.map((p, i) => {
+      const href = `https://www.amazon.com/dp/${encodeURIComponent(p.asin)}?tag=botshelf-20`;
+      return `<a class="pair pair-mini" href="${esc(href)}" rel="noopener sponsored" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b._page.slice(5))}" data-surface="home">${esc(p.emoji || "")} ${esc(p.name)}</a>`;
+    }).join("");
+    const more = extra ? `<a class="pair-more" href="${esc(b._page)}#pairs-h">+${extra}</a>` : "";
+    return `<p class="card-pairs"><span class="card-pairs-l">Pairs with</span>${links}${more}</p>`;
+  }
   function card(b, m, pre) {
     const h = m ? m.hits : {}, id = (pre || "") + b._slug;
     const nb = b._social && b._social.bookmarks, bw = nb === 1 ? "bookmark" : "bookmarks";
@@ -225,6 +237,7 @@ ${b.source_post ? `<a class="ib" href="${esc(b.source_post)}" rel="noopener" tar
 ${b.code_url ? `<a class="ib" href="${esc(b.code_url)}" rel="noopener" target="_blank" aria-label="${esc(b.name)}: source code" title="Source code">${I.code}</a>` : ""}
 ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"></span>'}
 </div><div class="gets">${b._app ? `<a class="app" href="${esc(b._app)}" data-app="${b._slug}" aria-label="Add to Bot app: ${esc(b.name)}" title="Add to Bot app (opens the Grok Bot app if installed)">${I.app}<span class="t">Add to Bot app</span></a>` : ""}<a class="get" href="${esc(b.url)}" rel="noopener" target="_blank" aria-label="Get this bot: ${esc(b.name)} on x.ai">Get this bot</a></div></div>
+${pairsHTML(b)}
 </article>`;
   }
   /* ---------- From the builders strip (home Featured view only) ---------- */
@@ -617,6 +630,7 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     const roleWord = rl === rl.toUpperCase() ? rl : rl.toLowerCase();
     $("#count").textContent = `${list.length} ${list.length === 1 ? "bot" : "bots"}` + (roleWord ? ` that ${list.length === 1 ? "says" : "say"} \u201c${roleWord}\u201d` : "");
     paintCover();
+    paintPairsNote(gal ? false : list.some(([b]) => b.pairs && b.pairs.length));
     resetEl.classList.toggle("on", changed());
     results.removeAttribute("aria-busy"); renderRail(grouped);
     watchTail();
@@ -675,6 +689,8 @@ ${b.source_post || b.code_url ? "" : '<span class="ib slot" aria-hidden="true"><
     coverEl.hidden = !on;
   }
   if (coverEl) coverEl.addEventListener("click", (e) => { if (e.target.closest(".cover-all")) set({ agency: "", app: "", oneJob: false }, true); });
+  const pairsNote = document.getElementById("pairs-note");
+  function paintPairsNote(show) { if (pairsNote) pairsNote.hidden = !show; }
 
   function set(patch, push) { Object.assign(st, patch); paintControls(); writeURL(push); renderNext(); }
   function syncInputs() { q.value = st.q; sortEl.value = st.sort; }

@@ -1,12 +1,13 @@
-// "Pairs with" on bot pages. public/pairs.json is the curated source of truth
-// (bot slug → 0–3 products, each score 4 or 5 plus a short reason). Empty means no row.
-// public/pairs-overrides.json wins: none, block, and pin. Bot Tools defaults to none
-// unless that slug sets "none": false or lists pin ids.
-// Category fields never match. Keyword rules in products.json are documentation only;
-// pairsFor does not spray them onto pages.
+// "Pairs with". public/pairs.json is one row per bot slug: 0–3 products, each score 4 or 5
+// plus a short reason. Empty means nothing relevant. A row with no "auto" flag is curated
+// and pairs-gen will not overwrite it. Rows marked "auto": true were proposed by the scorer.
+// public/pairs-overrides.json wins at render time: none, block, and pin. Bot Tools defaults
+// to none unless that slug sets "none": false or lists pin ids.
+// Category fields never match. The scorer uses exact bot_names, strong phrases, and a
+// support word only as a bump on a phrase. A single generic word never scores.
 //
-// New bot: add its slug to public/pairs.json (score >= 4, at most 3, or an empty array)
-// or pin/block/none in public/pairs-overrides.json, then run node scripts/build.js.
+// New bot: node scripts/pairs-gen.js && node scripts/build.js
+// After editing products.json: node scripts/pairs-gen.js --backfill && node scripts/build.js
 // Do not turn category matching back on.
 
 const fs = require("fs");
@@ -16,6 +17,14 @@ const { slugify } = require("./shelf");
 const TIERS = { pin: 0, curated: 1, name: 2, keyword: 3 };
 const ASIN = /^B[0-9A-Z]{9}$/;
 const BANNED_KEYWORDS = new Set(["voice", "desk", "tools", "tracker", "hub", "network", "scanner", "backup", "export"]);
+// Single words that must not score on their own, and must not bump a phrase to 5.
+const GENERIC_SUPPORT = new Set([
+  "drill", "mouse", "keyboard", "webcam", "router", "bottle", "camera", "speaker", "watch", "light",
+  "podcast", "laptop", "phone", "email", "video", "audio", "music", "photo", "photos", "files", "notes",
+  "paper", "home", "food", "money", "bible", "church", "travel", "workout", "health", "design", "price",
+  "deal", "budget", "receipt", "receipts", "invoice", "flight", "hotel", "recipe", "recipes", "kitchen",
+  "scanner", "backup", "tools", "voice", "desk", "tracker", "hub", "export", "network",
+]);
 const PUB = path.join(__dirname, "..", "public");
 
 function keywordHit(hay, keyword) {
@@ -126,13 +135,163 @@ function resolvePairs(bot, catalog, curated, overrides) {
   return out;
 }
 
+function isMultiWord(keyword) {
+  return String(keyword || "").trim().split(/\s+/).filter(Boolean).length >= 2;
+}
+
+// A strong phrase is multi-word, or an explicit match.phrases entry (a distinctive token the
+// editor listed on purpose). Generic one-word keywords are support at most.
+function strongPhrases(product) {
+  const m = product.match || {};
+  const out = [];
+  for (const k of m.phrases || []) {
+    const s = String(k || "").trim();
+    if (s && !BANNED_KEYWORDS.has(s.toLowerCase())) out.push(s);
+  }
+  for (const k of m.keywords || []) {
+    const s = String(k || "").trim();
+    if (s && isMultiWord(s) && !BANNED_KEYWORDS.has(s.toLowerCase())) out.push(s);
+  }
+  return out;
+}
+
+function supportWords(product) {
+  const m = product.match || {};
+  const out = [];
+  for (const k of m.keywords || []) {
+    const s = String(k || "").trim();
+    const low = s.toLowerCase();
+    if (!s || isMultiWord(s) || BANNED_KEYWORDS.has(low) || GENERIC_SUPPORT.has(low) || low.length < 5) continue;
+    out.push(s);
+  }
+  return out;
+}
+
+function excluded(bot, product) {
+  const m = product.match || {};
+  const hay = `${bot.name || ""}\n${bot.description || ""}`;
+  const name = String(bot.name || "");
+  if ((m.exclude_names || []).some((n) => n === name)) return true;
+  return (m.exclude || []).some((k) => keywordHit(hay, k));
+}
+
+// Deterministic 0–3 proposals. Exact bot name → 5. Two strong phrases, or one phrase plus a
+// support word → 5. One strong phrase → 4. Support alone, a generic word, or a category → nothing.
+// Products with auto:false are curated-only (Echo Dot). Catalog order breaks score ties.
+function proposePairs(bot, catalog) {
+  const products = (catalog && catalog.products) || [];
+  const name = String(bot.name || "");
+  const hay = `${name}\n${bot.description || ""}`;
+  const hits = [];
+  products.forEach((p, index) => {
+    if (p.auto === false) return;
+    if (excluded(bot, p)) return;
+    const m = p.match || {};
+    if ((m.bot_names || []).some((n) => n === name)) {
+      hits.push({ id: p.id, score: 5, reason: `Named match for ${name}.`, index, auto: true });
+      return;
+    }
+    const phrases = strongPhrases(p).filter((k) => keywordHit(hay, k));
+    if (!phrases.length) return;
+    const support = supportWords(p).filter((k) => keywordHit(hay, k));
+    const score = phrases.length >= 2 || support.length >= 1 ? 5 : 4;
+    const why = phrases[0];
+    const reason = phrases.length >= 2 || support.length
+      ? `Mentions “${why}” and another gear cue.`
+      : `Mentions “${why}”.`;
+    hits.push({ id: p.id, score, reason, index, auto: true });
+  });
+  hits.sort((a, b) => b.score - a.score || a.index - b.index);
+  const out = [];
+  for (const h of hits) {
+    if (out.some((r) => r.id === h.id)) continue;
+    out.push({ id: h.id, score: h.score, reason: h.reason, auto: true });
+    if (out.length === 3) break;
+  }
+  return out;
+}
+
+function rowsAreCurated(rows) {
+  return Array.isArray(rows) && rows.length > 0 && rows.some((r) => !r || r.auto !== true);
+}
+
+// What render would keep, so auto rows do not store gear an override or Bot Tools none would hide.
+function proposalsFor(bot, catalog, overrides) {
+  const slug = bot.slug || slugify(bot.name || "");
+  const rows = proposePairs(bot, catalog);
+  const shown = resolvePairs({ ...bot, slug }, catalog, { pairs: { [slug]: rows } }, overrides);
+  const byId = new Map(rows.map((r) => [r.id, r]));
+  return shown.map((h) => byId.get(h.product.id)).filter(Boolean);
+}
+
+// mode "missing": only slugs with no key. mode "backfill": also rescore auto rows and empty
+// placeholders. A non-empty row that lacks auto is curated and is never replaced.
+function generatePairs({ bots, catalog, curated, overrides, mode }) {
+  const prev = (curated && curated.pairs) || {};
+  const fillEmpty = mode === "backfill";
+  const ordered = {};
+  for (const bot of bots) {
+    const slug = bot.slug || slugify(bot.name || "");
+    const has = Object.prototype.hasOwnProperty.call(prev, slug);
+    const existing = has ? prev[slug] : undefined;
+    if (has && rowsAreCurated(existing)) {
+      ordered[slug] = existing;
+      continue;
+    }
+    const autoRows = has && Array.isArray(existing) && existing.length > 0 && existing.every((r) => r && r.auto === true);
+    const empty = has && Array.isArray(existing) && existing.length === 0;
+    if (has && !autoRows && !empty) {
+      ordered[slug] = existing;
+      continue;
+    }
+    if (has && !fillEmpty) {
+      ordered[slug] = existing;
+      continue;
+    }
+    ordered[slug] = proposalsFor({ ...bot, slug }, catalog, overrides);
+  }
+  return ordered;
+}
+
+function assertPairKeys(bots, curated) {
+  const pairs = curated && curated.pairs;
+  if (!pairs || typeof pairs !== "object") throw new Error("public/pairs.json: pairs object missing");
+  const missing = [];
+  for (const b of bots) {
+    const slug = b.slug || slugify(b.name || "");
+    if (!Object.prototype.hasOwnProperty.call(pairs, slug)) missing.push(slug);
+  }
+  if (missing.length) {
+    throw new Error(`public/pairs.json is missing ${missing.length} bot slug${missing.length === 1 ? "" : "s"} (${missing.slice(0, 5).join(", ")}). Run: node scripts/pairs-gen.js`);
+  }
+}
+
+function resetPairCache() {
+  cache = undefined;
+  pairsFor._checked = false;
+}
+
+// Compact fields the homepage card needs. The tag is applied in the client.
+function pairCards(hits) {
+  return hits.map(({ product: p }) => ({ id: p.id, name: p.name, emoji: p.emoji || "", asin: p.asin }));
+}
+
 function pairsFor(bot, catalog) {
   const { curated, overrides } = loadPairFiles();
   if (!pairsFor._checked) {
     assertCurated(curated, catalog);
     pairsFor._checked = true;
   }
+  const slug = bot.slug || slugify(bot.name || "");
+  if (!curated.pairs || !Object.prototype.hasOwnProperty.call(curated.pairs, slug)) {
+    const rows = proposePairs(bot, catalog);
+    return resolvePairs({ ...bot, slug }, catalog, { pairs: { [slug]: rows } }, overrides);
+  }
   return resolvePairs(bot, catalog, curated, overrides);
 }
 
-module.exports = { pairsFor, resolvePairs, matchTier, keywordHit, productUrl, assertCatalog, assertCurated, TIERS, BANNED_KEYWORDS };
+module.exports = {
+  pairsFor, resolvePairs, matchTier, keywordHit, productUrl, assertCatalog, assertCurated,
+  proposePairs, proposalsFor, generatePairs, assertPairKeys, resetPairCache, pairCards,
+  rowsAreCurated, strongPhrases, TIERS, BANNED_KEYWORDS, GENERIC_SUPPORT,
+};

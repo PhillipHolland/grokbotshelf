@@ -6,7 +6,7 @@ const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
 const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
-const { pairsFor, productUrl, assertCatalog } = require("./pairs");
+const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards } = require("./pairs");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -14,6 +14,7 @@ const bots = read("bots.json", []);
 const products = read("products.json", null);
 if (!products) throw new Error("public/products.json is missing");
 assertCatalog(products);
+assertPairKeys(bots.map((b) => ({ ...b, slug: slugify(b.name) })), JSON.parse(fs.readFileSync(path.join(PUB, "pairs.json"), "utf8")));
 // one_job: true only for a short, single-purpose description (not a pack, crew, or "and also").
 const meta = (read("bot-meta.json", {}).bots) || {};
 const social = (read("social.json", {}).posts) || {};
@@ -27,7 +28,7 @@ const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepare
 // away (calls queue, the page_view config included); gtag.js itself is fetched after the load event, when the
 // main thread is idle, so its ~180 KB of script does not compete with the first render on phones.
 // get_bot (public/app.js and public/bot-page.js) is the conversion for "Get this bot" / "Add to Bot app".
-// pair_click (public/bot-page.js) fires on a "Pairs with" Amazon link with bot_slug, product_id, and position.
+// pair_click (public/shelf-up.js) fires on a "Pairs with" Amazon link with bot_slug, product_id, position, and surface.
 // Mark get_bot as a key event in GA4 Admin → Data display → Events → get_bot → Mark as key event.
 const GA_ID = /^G-[A-Z0-9]{4,20}$/.test(process.env.GA_MEASUREMENT_ID || "") ? process.env.GA_MEASUREMENT_ID : "";
 const GSC = /^[\w-]{10,100}$/.test(process.env.GSC_VERIFICATION || "") ? process.env.GSC_VERIFICATION : "";
@@ -106,14 +107,20 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
-  const shelfData = JSON.stringify({ og2: OG2, bots: bots.map((b) => ({ ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+  const shelfData = JSON.stringify({ og2: OG2, bots: bots.map((b) => {
+    const pairs = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
+    return { ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
     collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
     og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
-    creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) })) });
+    pairs: pairs.length ? pairs : undefined,
+    creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) };
+  }) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  if (!h.includes("<!-- pairs-note:end -->")) throw new Error("index.html: the <!-- pairs-note:start --> / <!-- pairs-note:end --> markers are missing");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
+    .replace(/<!-- pairs-note:start -->[\s\S]*?<!-- pairs-note:end -->/, `<!-- pairs-note:start --><p id="pairs-note" class="assoc pairs-note" hidden>${esc(products.disclosure)}</p><!-- pairs-note:end -->`)
     .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
@@ -314,9 +321,23 @@ function pairsSection(b) {
   const rel = products.ux.rel;
   const rows = hits.map(({ product: p }, i) => {
     const href = productUrl(p, products.tag);
-    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
+    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="bot"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
   }).join("");
   return `\n  <section class="bp-pairs" aria-labelledby="pairs-h"><div class="pairs-head"><h2 id="pairs-h">${esc(products.ux.label)}</h2><span class="badge pair">Amazon</span></div><ul class="pairs">${rows}</ul><p class="fine">${esc(products.disclosure)}</p></section>`;
+}
+// Quiet chip row beside a list card. At most two Amazon links, then +N to the bot page section.
+// Not inside the bot's own link. Disclosure is once per page, not on the card.
+function miniPairs(b, surface) {
+  const hits = pairsFor(b, products);
+  if (!hits.length) return "";
+  const show = hits.slice(0, 2);
+  const extra = hits.length - show.length;
+  const links = show.map(({ product: p }, i) => {
+    const href = productUrl(p, products.tag);
+    return `<a class="pair pair-mini" href="${esc(href)}" rel="${esc(products.ux.rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="${surface}">${esc(p.emoji || "")} ${esc(p.name)}</a>`;
+  }).join("");
+  const more = extra ? `<a class="pair-more" href="${b.page}#pairs-h">+${extra}</a>` : "";
+  return `<p class="card-pairs"><span class="card-pairs-l">${esc(products.ux.label)}</span>${links}${more}</p>`;
 }
 function page(b, related, similar) {
   const title = `${b.emoji} ${titled(b)} · Grok Bot Shelf`;
@@ -431,9 +452,9 @@ ${HEADER}
       return `<li><a href="/?creator=${esc(c.handle.toLowerCase())}&amp;cat=${esc(slugify(k))}">${esc(k)}${n > 1 ? ` <span class="n" aria-label="${m} ${m === 1 ? "bot" : "bots"}">${m}</span>` : ""}</a></li>`; }).join("")}</ul>
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
   </article>
-  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a></li>`).join("")}</ul></section>
+  <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
 </main>
-${footer()}
+${footer(c.bots.some((b) => pairsFor(b, products).length) ? products.disclosure : "")}
 <script src="${versioned("/bot-page.js")}" defer></script>
 </body>
 </html>
@@ -456,7 +477,7 @@ function jobWho(b) {
 }
 function jobBot(b) {
   const who = jobWho(b);
-  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><strong>${esc(b.name)}</strong><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}</li>`;
+  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><strong>${esc(b.name)}</strong><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
 }
 function jobHeader(onIndex) {
   const link = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
@@ -501,6 +522,7 @@ ${footer()}
       { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", SITE + "/collections"], [c.name, url]]) },
     ] };
     const alts = c.rest.length ? `<section class="job-alts" aria-labelledby="more-h"><h2 id="more-h">More like this</h2><p class="job-kicker">The other bots for this job. Each one is still its own template.</p><ul class="job-bots">${c.rest.map(jobBot).join("")}</ul></section>` : "";
+    const hubPairs = c.members.some((b) => pairsFor(b, products).length);
     writeJob(`collection/${c.slug}/index.html`, `${head({ title: `${c.emoji} ${c.name} · Grok Bot Shelf`, desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: `${c.name} bots on Grok Bot Shelf`, alt: `${c.name}: bots for this job on Grok Bot Shelf`, creator: "@Phil_Holland", ld })}
 <body class="botpage">
 ${jobHeader(false)}
@@ -520,7 +542,7 @@ ${jobHeader(false)}
   </section>
   ${alts}
 </main>
-${footer()}
+${footer(hubPairs ? products.disclosure : "")}
 </body>
 </html>
 `);
@@ -671,7 +693,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 
 - [bots.json](${SITE}/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
 - [products.json](${SITE}/products.json): Amazon gear catalog. Links use tag botshelf-20. Match rules are specific phrases only; category does not attach a product.
-- [pairs.json](${SITE}/pairs.json): curated "Pairs with" rows, bot slug to 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3 per bot page. Not on the homepage, creator pages, or collections.
+- [pairs.json](${SITE}/pairs.json): one "Pairs with" row per bot slug, 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3. Shown on the bot page and, when a row exists, as a short chip on homepage, creator, and job-hub cards. Run node scripts/pairs-gen.js when a bot is added. Add --backfill after products.json changes. The build fails if a slug is missing.
 - [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, or none per slug. Overrides win. Bot Tools defaults to none.
 - [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.

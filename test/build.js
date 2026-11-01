@@ -198,7 +198,7 @@ try {
   const overrides = JSON.parse(fs.readFileSync(pub("pairs-overrides.json"), "utf8"));
   const idsOf = (name) => pairsFor(bots.find((b) => b.name === name), catalog).map((h) => h.product.id).join(",");
   const hasId = (name, id) => pairsFor(bots.find((b) => b.name === name), catalog).some((h) => h.product.id === id);
-  ok(catalog.tag === "botshelf-20" && catalog.products.length === 36 && new Set(catalog.products.map((p) => p.asin)).size === 36 && catalog.products.every((p) => productUrl(p, catalog.tag) === `https://www.amazon.com/dp/${p.asin}?tag=botshelf-20`), "products.json: 36 unique Amazon ASINs, tag botshelf-20");
+  ok(catalog.tag === "botshelf-20" && catalog.products.length >= 60 && catalog.products.length <= 80 && new Set(catalog.products.map((p) => p.asin)).size === catalog.products.length && catalog.products.every((p) => productUrl(p, catalog.tag) === `https://www.amazon.com/dp/${p.asin}?tag=botshelf-20`), `products.json: ${catalog.products.length} unique Amazon ASINs, tag botshelf-20`);
   ok(catalog.products.find((p) => p.id === "airpods").asin === "B0DGJ7HYG1" && catalog.products.find((p) => p.id === "wacom-intuos").asin === "B079NWPZTG", "AirPods 4 ANC and current Wacom Intuos Medium replace the stale ASINs");
   ok(catalog.products.find((p) => p.id === "beelink-ser9").asin === "B0HG9JYSV9" && productUrl(catalog.products.find((p) => p.id === "beelink-ser9"), catalog.tag) === "https://www.amazon.com/dp/B0HG9JYSV9?tag=botshelf-20", "Beelink SER9 ASIN is the Ryzen AI mini PC, not AirPods Pro 2");
   ok(/265\/265S|bundle/i.test(catalog.products.find((p) => p.id === "garmin-265").flag || ""), "Garmin Forerunner listing is flagged (265/265S parent, not a dock bundle)");
@@ -225,7 +225,10 @@ try {
   ok(!echoBots.length, `Echo Dot is not paired (only a clear smart-home bot would qualify; got ${echoBots.join(", ") || "none"})`);
   const counts = [0, 0, 0, 0];
   for (const b of bots) counts[pairsFor(b, catalog).length]++;
-  ok(counts[0] === 764 && counts[1] === 75 && counts[2] === 6 && counts[3] === 4, `pair coverage 0/1/2/3 = ${counts.join("/")}`);
+  const paired = counts[1] + counts[2] + counts[3];
+  ok(counts.reduce((s, n) => s + n, 0) === bots.length && paired > 85 && counts[0] > 0, `pair coverage 0/1/2/3 = ${counts.join("/")} (${paired} with products)`);
+  const toolHits = bots.filter((b) => b.category === "Bot Tools" && pairsFor(b, catalog).length);
+  ok(!toolHits.length, `Bot Tools stays empty unless a bot opts in (hit: ${toolHits.slice(0, 3).map((b) => b.name).join(", ") || "none"})`);
   const drill = catalog.products.find((p) => p.id === "dewalt-drill");
   ok(resolvePairs({ name: "Ops Bot", slug: "ops-bot", category: "Bot Tools" }, catalog, { pairs: { "ops-bot": [{ id: "dewalt-drill", score: 5, reason: "no" }] } }, overrides).length === 0, "Bot Tools default and ops-bot none beat a curated drill");
   ok(resolvePairs({ name: "Twain", slug: "twain", category: "Lifestyle" }, catalog, { pairs: { twain: [{ id: "shure-mv7", score: 5, reason: "no" }] } }, overrides).length === 0, "twain mic block wins");
@@ -237,7 +240,7 @@ try {
   const badPair = [];
   for (const s of botDirs) {
     const html = fs.readFileSync(pub("bot", s, "index.html"), "utf8");
-    const links = [...html.matchAll(/<a class="pair" href="(https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=botshelf-20)" rel="noopener sponsored" target="_blank" data-product="([^"]+)" data-position="([123])">/g)];
+    const links = [...html.matchAll(/<a class="pair" href="(https:\/\/www\.amazon\.com\/dp\/[A-Z0-9]{10}\?tag=botshelf-20)" rel="noopener sponsored" target="_blank" data-product="([^"]+)" data-position="([123])" data-bot="[^"]+" data-surface="bot">/g)];
     const shown = html.includes('class="bp-pairs"');
     if (shown !== links.length > 0 || (html.match(/amazon\.com/g) || []).length !== links.length) badPair.push(s + " section/links");
     if (shown && (html.split(catalog.disclosure).length - 1) !== 1) badPair.push(s + " disclosure once");
@@ -251,13 +254,44 @@ try {
     if (s === "sushi-and-ramen" && /B00FLYWNYQ/.test(html)) badPair.push("sushi instant pot");
   }
   ok(!badPair.length, `bot pages: one disclosure, sponsored Amazon links only on curated pairs (bad: ${badPair.slice(0, 4).join("; ") || "none"})`);
-  ok(pageJs.includes('gtag("event", "pair_click"') && pageJs.includes("product_id") && pageJs.includes("position") && pageJs.includes("bot_slug") && pageJs.includes('gtag("event", "get_bot"'), "pair_click fires with bot_slug, product_id, position and get_bot still fires");
+  const shelfUp = fs.readFileSync(pub("shelf-up.js"), "utf8");
+  ok(shelfUp.includes('gtag("event", "pair_click"') && shelfUp.includes("product_id") && shelfUp.includes("position") && shelfUp.includes("bot_slug") && shelfUp.includes("surface") && pageJs.includes('gtag("event", "get_bot"') && !pageJs.includes("pair_click"), "pair_click lives in shelf-up.js with bot_slug, product_id, position, surface; get_bot still fires");
+  ok(appJs.includes('data-surface="home"') && appJs.includes("card-pairs") && appJs.includes("tag=botshelf-20") && appJs.includes("pairsHTML"), "homepage cards render compact pairs from shelf-data");
   const homePairs = fs.readFileSync(pub("index.html"), "utf8");
-  ok(!homePairs.includes("botshelf-20") && !homePairs.includes("bp-pairs") && !homePairs.includes("Pairs with"), "homepage has no product cards or Associates links");
-  ok(!fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="bp-pairs"'), "creator pages have no Pairs with section");
+  ok(!/amazon\.com\/dp\//.test(homePairs) && !homePairs.includes("bp-pairs") && homePairs.includes('id="pairs-note"') && homePairs.includes(catalog.disclosure), "homepage static HTML has one hidden disclosure and no product links");
+  const creatorHtml = fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8");
+  const creatorShown = creatorHtml.includes("card-pairs");
+  ok(!creatorHtml.includes('class="bp-pairs"') && (!creatorShown || (creatorHtml.split(catalog.disclosure).length - 1) === 1 && creatorHtml.includes('data-surface="creator"') && creatorHtml.includes("</a><p class=\"card-pairs\"")), "creator pages use chips beside the bot link, not a Pairs section");
   const collPages = ["collections/index.html", ...fs.readdirSync(pub("collection")).map((c) => `collection/${c}/index.html`)];
-  const collBad = collPages.filter((f) => fs.readFileSync(pub(...f.split("/")), "utf8").includes('class="bp-pairs"') || fs.readFileSync(pub(...f.split("/")), "utf8").includes("botshelf-20"));
-  ok(collPages.length > 1 && !collBad.length, `collections have no Pairs with (bad: ${collBad.slice(0, 3).join(", ") || "none"})`);
+  const collBad = [];
+  for (const f of collPages) {
+    const html = fs.readFileSync(pub(...f.split("/")), "utf8");
+    if (html.includes('class="bp-pairs"')) collBad.push(f + " section");
+    const shown = html.includes("card-pairs");
+    const discs = html.split(catalog.disclosure).length - 1;
+    if (f === "collections/index.html") { if (shown || html.includes("botshelf-20") || discs) collBad.push(f + " index"); continue; }
+    if (shown && (discs !== 1 || !html.includes('data-surface="collection"') || !html.includes("</a>"))) collBad.push(f + " disclosure");
+    if (!shown && (html.includes("botshelf-20") || discs)) collBad.push(f + " stray");
+  }
+  ok(collPages.length > 1 && !collBad.length, `job hubs show chips and one disclosure only when a member has pairs (bad: ${collBad.slice(0, 3).join(", ") || "none"})`);
+  {
+    const { assertPairKeys, resetPairCache } = require(path.join(TMP, "scripts", "pairs"));
+    const file = pub("pairs.json");
+    const saved = fs.readFileSync(file, "utf8");
+    const doc = JSON.parse(saved);
+    const victim = "local-ai-manager";
+    delete doc.pairs[victim];
+    let threw = false;
+    try { assertPairKeys(bots.map((b) => ({ ...b, slug: slugify(b.name) })), doc); } catch (e) { threw = /missing/.test(e.message) && /pairs-gen/.test(e.message); }
+    ok(threw, "build check throws when a bot slug is missing from pairs.json");
+    fs.writeFileSync(file, JSON.stringify(doc, null, 1) + "\n");
+    resetPairCache();
+    execFileSync(process.execPath, [path.join(TMP, "scripts", "pairs-gen.js")], { encoding: "utf8" });
+    const filled = JSON.parse(fs.readFileSync(file, "utf8")).pairs[victim];
+    ok(Array.isArray(filled) && filled.length > 0 && filled.every((r) => r.auto === true), `pairs-gen fills a missing slug and marks it auto (${victim}: ${(filled || []).map((r) => r.id).join(",")})`);
+    fs.writeFileSync(file, saved);
+    resetPairCache();
+  }
   // A missing or outdated small copy falls back to the original
   const victim = data.find((d) => /\/avatars\/48\//.test(d.avatar_sm)), vf = /^\/avatars\/([^/?]+)/.exec(victim.creator_avatar)[1];
   fs.rmSync(pub("avatars", "48", vf.replace(/\.\w+$/, ".webp")));
