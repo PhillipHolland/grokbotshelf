@@ -234,7 +234,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${mark(b)}</div><div class="ttl">
 <h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
-<div class="sub"><span>${esc(b.category)}</span><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${esc(b.creator_name)}</a>` : `<span class="cn">${esc(b.creator_name)}</span>`}${bk}</div>
+<div class="sub"><a class="catlink" href="/category/${esc(slug(b.category))}">${hl(b.category, h.category)}</a><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${esc(b.creator_name)}</a>` : `<span class="cn">${esc(b.creator_name)}</span>`}${bk}</div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
 ${badgesHTML(b)}
