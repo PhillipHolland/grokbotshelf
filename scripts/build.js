@@ -6,7 +6,8 @@ const { slugify, templateId, appLink, postId, ldScript } = require("./shelf");
 const { loadCollections, rankJobMembers } = require("./collections");
 const { pageCss, words: cssWords } = require("./page-css");
 const { tipCard } = require("./tip");
-const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards } = require("./pairs");
+const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards, listPairSlice } = require("./pairs");
+const { lucide, lucideSprite, emojiIcon } = require("./icons");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -19,6 +20,15 @@ assertPairKeys(bots.map((b) => ({ ...b, slug: slugify(b.name) })), JSON.parse(fs
 const meta = (read("bot-meta.json", {}).bots) || {};
 const social = (read("social.json", {}).posts) || {};
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+// One sentence, from products.json. class "fine" on the bot-page section (that page must not also use .assoc).
+// class "assoc" everywhere else. Hidden on the homepage until a card actually shows a chip.
+function disclosure({ className = "assoc", id = "", hidden = false } = {}) {
+  const idAttr = id ? ` id="${id}"` : "";
+  return `<p${idAttr} class="${className}"${hidden ? " hidden" : ""}>${esc(products.disclosure)}</p>`;
+}
+function hubGlyph(c) {
+  return lucide(c.icon || emojiIcon(c.emoji));
+}
 // Search snippets cut off around 160 characters. The page and the JSON-LD keep the full text.
 function clipDesc(s, n = 155) {
   const t = String(s ?? "").replace(/\s+/g, " ").trim();
@@ -115,20 +125,25 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 {
   const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
+  const pairIcons = new Set();
   const shelfData = JSON.stringify({ og2: OG2, bots: bots.map((b) => {
-    const pairs = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
+    const packed = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
+    for (const p of packed.pairs) if (p.icon) pairIcons.add(p.icon);
     return { ...b, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
     collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
     og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
-    pairs: pairs.length ? pairs : undefined,
+    pairs: packed.pairs.length ? packed.pairs : undefined,
+    pairsMore: packed.more || undefined,
     creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) };
   }) });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   if (!h.includes("<!-- pairs-note:end -->")) throw new Error("index.html: the <!-- pairs-note:start --> / <!-- pairs-note:end --> markers are missing");
+  if (!h.includes("<!-- icons:end -->")) throw new Error("index.html: the <!-- icons:start --> / <!-- icons:end --> markers are missing");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous"><!-- data:end -->`)
-    .replace(/<!-- pairs-note:start -->[\s\S]*?<!-- pairs-note:end -->/, `<!-- pairs-note:start --><p id="pairs-note" class="assoc pairs-note" hidden>${esc(products.disclosure)}</p><!-- pairs-note:end -->`)
+    .replace(/<!-- pairs-note:start -->[\s\S]*?<!-- pairs-note:end -->/, `<!-- pairs-note:start -->${disclosure({ className: "assoc pairs-note", id: "pairs-note", hidden: true })}<!-- pairs-note:end -->`)
+    .replace(/<!-- icons:start -->[\s\S]*?<!-- icons:end -->/, `<!-- icons:start -->${lucideSprite(pairIcons)}<!-- icons:end -->`)
     .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
@@ -190,19 +205,32 @@ const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "confi
 // addCurrent marks the Add bot button on /add. Anything else is a copy that will drift.
 const MARK = `<svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>`;
 const THEME_BTN = `<button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>`;
-function siteHeader({ title = false, job = "", addCurrent = false } = {}) {
+function shelvedLabel(d) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
+}
+function growthStrip() {
+  const paired = items.filter((b) => pairsFor(b, products).length).length;
+  const when = shelvedLabel(items.reduce((m, b) => ((b.added || "") > m ? b.added : m), ""));
+  return `<p class="growth" aria-label="Shelf">
+  <span>${lucide("bot")}<b>${items.length.toLocaleString("en-US")}</b> bots</span>
+  <span>${lucide("shopping-bag")}<b>${paired.toLocaleString("en-US")}</b> with Amazon pairs</span>
+  ${when ? `<span>${lucide("calendar")}Shelved ${esc(when)}</span>` : ""}
+</p>`;
+}
+function siteHeader({ title = false, job = "", addCurrent = false, growth = false } = {}) {
   const link = `<a class="home${title ? " gbs-brand" : ""}" href="/">${MARK}Grok Bot Shelf</a>`;
   const brand = title ? `<h1>${link}</h1>` : link;
   const add = `<a class="btn add-top" href="/add"${addCurrent ? ` aria-current="page"` : ""}>Add bot</a>`;
   const gift = `<a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a>`;
   const jobLine = job ? `\n<p class="job-find">Not sure which bot? ${job}</p>` : "";
+  const growthLine = growth ? `\n${growthStrip()}` : "";
   // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
   // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
   const homeSize = title ? `<style>.gbs-brand{font:inherit;letter-spacing:inherit;color:inherit;gap:12px;min-width:0}@media (max-width:640px){.gbs-brand{gap:9px}}@media (max-width:380px){.gbs-brand{gap:8px}}</style>\n` : "";
   return `${homeSize}<header class="wrap hero">
   ${brand}
   <div class="hero-actions">${add}${gift}${THEME_BTN}</div>
-  <p class="affil">Not affiliated with SpaceXSI.</p>${jobLine}
+  <p class="affil">Not affiliated with SpaceXSI.</p>${jobLine}${growthLine}
 </header>`;
 }
 const HEADER = siteHeader();
@@ -212,7 +240,7 @@ function stampHeader(file, html) {
   const n = h.replace(/<!-- header:start -->[\s\S]*?<!-- header:end -->/, `<!-- header:start -->\n${html}\n<!-- header:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
-stampHeader("index.html", siteHeader({ title: true, job: `<a href="/collections">Find by job</a>` }));
+stampHeader("index.html", siteHeader({ title: true, growth: true, job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks">Stacks</a>` }));
 stampHeader("404.html", HEADER);
 // Tip card (scripts/tip.js) opens every footer; index.html and 404.html get it between their tip markers
 const TIP = tipCard(versioned);
@@ -223,10 +251,11 @@ for (const page of ["index.html", "404.html"]) {
   const n = h.replace(/<!-- tip:start -->[\s\S]*?<!-- tip:end -->/, () => `<!-- tip:start -->\n${TIP}\n<!-- tip:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
-const footer = (assoc) => `<footer class="site-foot wrap">
+const footer = (showAssoc) => `<footer class="site-foot wrap">
 ${TIP}
   <p>Not affiliated with SpaceXSI.</p>
-${assoc ? `  <p class="assoc">${esc(assoc)}</p>\n` : ""}  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
+${showAssoc ? `  ${disclosure()}\n` : ""}  <p class="by"><a href="/collections">Find by job</a> · <a href="/stacks">Stacks</a> · <a href="/add">Add a bot</a></p>
+  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>`;
 // css: true (bot and creator pages) leaves a marker that becomes the inlined critical CSS once every page is built (round 6 #5)
 const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css, ogType }) => {
@@ -354,7 +383,7 @@ function sameJob(b) {
     const others = c.members.filter((m) => m.slug !== b.slug).slice(0, 3);
     return [
       ...others.map((r) => `<li><a href="${r.page}"><span aria-hidden="true">${esc(r.emoji)}</span> ${esc(r.name)}${r.creator_name ? `<small>${esc(r.creator_name)}</small>` : ""}</a></li>`),
-      `<li><a href="/collection/${esc(c.slug)}"><span aria-hidden="true">${esc(c.emoji)}</span> Also in: ${esc(c.name)}</a></li>`,
+      `<li><a href="/collection/${esc(c.slug)}"><span class="job-glyph" aria-hidden="true">${hubGlyph(c)}</span> Also in: ${esc(c.name)}</a></li>`,
     ];
   }).join("");
   return `\n  <section class="bp-more"><h2>Bots for the same job</h2><ul>${items}</ul></section>`;
@@ -365,22 +394,24 @@ function pairsSection(b) {
   const hits = pairsFor(b, products);
   if (!hits.length) return "";
   const rel = products.ux.rel;
-  const rows = hits.map(({ product: p }, i) => {
+  const rows = hits.map(({ product: p, soft }, i) => {
     const href = productUrl(p, products.tag);
-    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="bot"><span class="icon" aria-hidden="true">${esc(p.emoji || "")}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
+    const softAttr = soft ? ` data-soft=""` : "";
+    return `<li><a class="pair" href="${esc(href)}" rel="${esc(rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="bot"${softAttr}><span class="icon" aria-hidden="true">${lucide(emojiIcon(p.emoji))}</span><span class="pair-copy"><span class="pair-name">${esc(p.name)}</span><span class="pair-blurb">${esc(p.blurb)}</span></span><span class="pair-cta">${esc(products.ux.cta)}</span></a></li>`;
   }).join("");
-  return `\n  <section class="bp-pairs" aria-labelledby="pairs-h"><div class="pairs-head"><h2 id="pairs-h">${esc(products.ux.label)}</h2><span class="badge pair">Amazon</span></div><ul class="pairs">${rows}</ul><p class="fine">${esc(products.disclosure)}</p></section>`;
+  return `\n  <section class="bp-pairs" aria-labelledby="pairs-h"><div class="pairs-head"><h2 id="pairs-h">${esc(products.ux.label)}</h2><span class="badge pair">Amazon</span></div><ul class="pairs">${rows}</ul>${disclosure({ className: "fine" })}</section>`;
 }
-// Quiet chip row beside a list card. At most two Amazon links, then +N to the bot page section.
+// Quiet chip row beside a list card. At most two Amazon links, and at most one of them
+// is still on probation (muted). Then +N to the bot page, which still lists every pair.
 // Not inside the bot's own link. Disclosure is once per page, not on the card.
 function miniPairs(b, surface) {
   const hits = pairsFor(b, products);
   if (!hits.length) return "";
-  const show = hits.slice(0, 2);
-  const extra = hits.length - show.length;
-  const links = show.map(({ product: p }, i) => {
+  const { shown, extra } = listPairSlice(hits);
+  const links = shown.map(({ product: p, soft }, i) => {
     const href = productUrl(p, products.tag);
-    return `<a class="pair pair-mini" href="${esc(href)}" rel="${esc(products.ux.rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="${surface}">${esc(p.emoji || "")} ${esc(p.name)}</a>`;
+    const softAttr = soft ? ` data-soft=""` : "";
+    return `<a class="pair pair-mini" href="${esc(href)}" rel="${esc(products.ux.rel)}" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b.slug)}" data-surface="${surface}"${softAttr}>${lucide(emojiIcon(p.emoji))} ${esc(p.name)}</a>`;
   }).join("");
   const more = extra ? `<a class="pair-more" href="${b.page}#pairs-h">+${extra}</a>` : "";
   return `<p class="card-pairs"><span class="card-pairs-l">${esc(products.ux.label)}</span>${links}${more}</p>`;
@@ -490,7 +521,8 @@ function creatorPage(c) {
   const jobs = [];
   const seenJob = new Set();
   for (const b of c.bots) for (const j of jobBySlug.get(b.slug) || []) if (!seenJob.has(j.slug)) { seenJob.add(j.slug); jobs.push(j); }
-  const jobLinks = jobs.length ? `<p class="bp-links">${jobs.map((j) => `<a href="/collection/${esc(j.slug)}">${esc(j.emoji)} ${esc(j.name)}</a>`).join("")}</p>` : "";
+  const paired = c.bots.some((b) => pairsFor(b, products).length);
+  const jobLinks = jobs.length ? `<p class="bp-links">${jobs.map((j) => `<a href="/collection/${esc(j.slug)}"><span class="job-glyph" aria-hidden="true">${hubGlyph(j)}</span> ${esc(j.name)}</a>`).join("")}</p>` : "";
   return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld, css: true, ogType: "profile" })}
 <body class="botpage">
 ${HEADER}
@@ -507,8 +539,9 @@ ${HEADER}
     ${jobLinks}
   </article>
   <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
+  ${paired ? disclosure() : ""}
 </main>
-${footer(c.bots.some((b) => pairsFor(b, products).length) ? products.disclosure : "")}
+${footer()}
 <script src="${versioned("/bot-page.js")}" defer></script>
 </body>
 </html>
@@ -534,8 +567,8 @@ function jobBot(b) {
   return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><h3>${esc(b.name)}</h3><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
 }
 function jobHeader(onIndex) {
-  const link = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
-  return siteHeader({ job: link });
+  const jobs = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
+  return siteHeader({ job: `${jobs}<span aria-hidden="true"> · </span><a href="/stacks">Stacks</a>` });
 }
 function writeJob(rel, html) {
   const f = path.join(PUB, rel);
@@ -562,7 +595,7 @@ ${jobHeader(true)}
     <h1>Find a bot by the job</h1>
     <p class="job-lead">${esc(desc)}</p>
   </article>
-  <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${esc(c.emoji)}</span><span><h2>${esc(c.name)}</h2><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
+  <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${hubGlyph(c)}</span><span><h2>${esc(c.name)}</h2><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
 </main>
 ${footer()}
 </body>
@@ -580,13 +613,13 @@ ${footer()}
     ] };
     const alts = c.rest.length ? `<section class="job-alts" aria-labelledby="more-h"><h2 id="more-h">More like this</h2><p class="job-kicker">The other bots for this job. Each one is still its own template.</p><ul class="job-bots">${c.rest.map(jobBot).join("")}</ul></section>` : "";
     const hubPairs = c.members.some((b) => pairsFor(b, products).length);
-    writeJob(`collection/${c.slug}/index.html`, `${head({ title: `${c.emoji} ${c.name} · Grok Bot Shelf`, desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: `${c.name} bots on Grok Bot Shelf`, alt: `${c.name}: bots for this job on Grok Bot Shelf`, creator: "@Phil_Holland", ld })}
+    writeJob(`collection/${c.slug}/index.html`, `${head({ title: `${c.name} · Grok Bot Shelf`, desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: `${c.name} bots on Grok Bot Shelf`, alt: `${c.name}: bots for this job on Grok Bot Shelf`, creator: "@Phil_Holland", ld })}
 <body class="botpage">
 ${jobHeader(false)}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", "/collections"], [c.name, ""]])}
   <article class="bp-card">
-    <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(c.emoji)}</div><div>
+    <div class="bp-head"><div class="icon big" aria-hidden="true">${hubGlyph(c)}</div><div>
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="/collections">Find by job</a><span class="dot" aria-hidden="true">·</span><span>${n} ${n === 1 ? "bot" : "bots"}</span></p>
     </div></div>
@@ -599,9 +632,10 @@ ${jobHeader(false)}
     <ul class="job-bots">${c.start.map(jobBot).join("")}</ul>
   </section>
   ${alts}
-  ${jobCollections.length > 1 ? `<nav class="job-more" aria-label="Other jobs"><h2>Other jobs</h2><ul>${jobCollections.filter((o) => o.slug !== c.slug).map((o) => `<li><a href="/collection/${esc(o.slug)}"><span aria-hidden="true">${esc(o.emoji)}</span> ${esc(o.name)}</a></li>`).join("")}</ul></nav>` : ""}
+  ${hubPairs ? disclosure() : ""}
+  ${jobCollections.length > 1 ? `<nav class="job-more" aria-label="Other jobs"><h2>Other jobs</h2><ul>${jobCollections.filter((o) => o.slug !== c.slug).map((o) => `<li><a href="/collection/${esc(o.slug)}"><span class="job-glyph" aria-hidden="true">${hubGlyph(o)}</span> ${esc(o.name)}</a></li>`).join("")}</ul></nav>` : ""}
 </main>
-${footer(hubPairs ? products.disclosure : "")}
+${footer()}
 </body>
 </html>
 `);
@@ -641,6 +675,7 @@ ${creatorLinks}
 <p class="crawl-h">Jobs</p>
 <nav aria-label="Find by job">
 <a href="/collections">Find by job</a>
+<a href="/stacks">Stacks</a>
 ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}</a>`).join("\n")}
 </nav>
 </details>
@@ -658,7 +693,7 @@ const homeDesc = `${items.length} shared Grok Bot templates from ${new Set(items
 {
   const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/", description: homeDesc,
     potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" },
-    hasPart: jobCollections.map((c) => ({ "@type": "CollectionPage", name: c.name, url: `${SITE}/collection/${c.slug}` })) };
+    hasPart: [{ "@type": "CollectionPage", name: "Shelf stacks", url: `${SITE}/stacks` }, ...jobCollections.map((c) => ({ "@type": "CollectionPage", name: c.name, url: `${SITE}/collection/${c.slug}` }))] };
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   const n = h.replace(/<!-- ld:start -->[\s\S]*?<!-- ld:end -->/, `<!-- ld:start -->${ldScript(site)}<!-- ld:end -->`)
     .replace(/<!-- prefetch:start -->[\s\S]*?<!-- prefetch:end -->/, `<!-- prefetch:start --><script>${PREFETCH_JS}</script><!-- prefetch:end -->`);
@@ -705,6 +740,70 @@ ${footer()}
 `);
 }
 
+// Shelf stacks: ordered install lists. Free public page, no paywall. Slugs must exist.
+function loadStacks(data, list) {
+  const by = new Map(list.map((b) => [b.slug, b]));
+  const rows = Array.isArray(data && data.stacks) ? data.stacks : [];
+  if (rows.length < 5 || rows.length > 9) throw new Error(`public/stacks.json: need 5 to 9 stacks (got ${rows.length})`);
+  const seen = new Set();
+  return rows.map((raw, i) => {
+    const slug = String(raw.slug || "").trim();
+    const title = String(raw.title || "").trim();
+    const blurb = String(raw.blurb || "").trim();
+    const icon = String(raw.icon || "").trim();
+    const where = `stacks.json #${i + 1}${slug ? ` (${slug})` : ""}`;
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`${where}: slug must be lowercase words separated by dashes`);
+    if (seen.has(slug)) throw new Error(`${where}: duplicate slug`);
+    seen.add(slug);
+    if (!title || !blurb || !icon) throw new Error(`${where}: title, blurb, and icon are required`);
+    const refs = Array.isArray(raw.bots) ? raw.bots : [];
+    if (refs.length < 2 || refs.length > 6) throw new Error(`${where}: list 2 to 6 bots, in install order`);
+    const members = [];
+    const have = new Set();
+    for (const ref of refs) {
+      const b = by.get(String(ref || "").trim());
+      if (!b) throw new Error(`${where}: unknown bot "${ref}"`);
+      if (have.has(b.slug)) throw new Error(`${where}: duplicate bot ${b.slug}`);
+      have.add(b.slug);
+      members.push(b);
+    }
+    return { slug, title, blurb, icon, members };
+  });
+}
+const stacks = loadStacks(read("stacks.json", null), items);
+{
+  const desc = "A few bots, in the order to add them. Each one is still its own template. Nothing here is locked.";
+  const url = `${SITE}/stacks`;
+  const ld = { "@context": "https://schema.org", "@graph": [
+    { "@type": "CollectionPage", "@id": url, url, name: "Shelf stacks", description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
+      breadcrumb: { "@id": url + "#breadcrumb" },
+      mainEntity: { "@type": "ItemList", numberOfItems: stacks.length, itemListElement: stacks.map((s, i) => ({ "@type": "ListItem", position: i + 1, name: s.title, url: `${url}#${s.slug}` })) } },
+    { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Stacks", url]]) },
+  ] };
+  const cards = stacks.map((s) => `<li id="${esc(s.slug)}"><article class="stack">
+    <div class="bp-head"><div class="icon big" aria-hidden="true">${lucide(s.icon)}</div><div>
+      <h2>${esc(s.title)}</h2>
+      <p class="sub">${s.members.length} bots, in order</p>
+    </div></div>
+    <p class="bp-desc">${esc(s.blurb)}</p>
+    <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
+  </article></li>`).join("");
+  writeJob("stacks/index.html", `${head({ title: "Shelf stacks · Grok Bot Shelf", desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: "Shelf stacks", alt: "Ordered install stacks on Grok Bot Shelf", creator: "@Phil_Holland", ld })}
+<body class="botpage">
+${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks" aria-current="page">Stacks</a>` })}
+<main class="wrap bp" id="main">
+  ${crumbsNav([["Grok Bot Shelf", "/"], ["Stacks", ""]])}
+  <article class="bp-card">
+    <h1>Shelf stacks</h1>
+    <p class="job-lead">${esc(desc)}</p>
+  </article>
+  <ol class="stack-index">${cards}</ol>
+</main>
+${footer()}
+</body>
+</html>
+`);
+}
 // sitemap.xml
 const lastmod = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d || "") ? d : today);
 const newest = items.reduce((m, b) => (b.added > m ? b.added : m), "");
@@ -713,7 +812,8 @@ fs.writeFileSync(path.join(PUB, "sitemap.xml"), `<?xml version="1.0" encoding="U
   <url><loc>${SITE}/</loc><lastmod>${lastmod(newest)}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 ${items.map((b) => `  <url><loc>${SITE}${b.page}</loc><lastmod>${lastmod(b.added)}</lastmod></url>`).join("\n")}
   <url><loc>${SITE}/add</loc><lastmod>${lastmod(newest)}</lastmod></url>
-${jobCollections.length ? `  <url><loc>${SITE}/collections</loc><lastmod>${lastmod(newest)}</lastmod></url>\n` : ""}${jobCollections.map((c) => `  <url><loc>${SITE}/collection/${c.slug}</loc><lastmod>${lastmod(c.members.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
+${jobCollections.length ? `  <url><loc>${SITE}/collections</loc><lastmod>${lastmod(newest)}</lastmod></url>\n` : ""}  <url><loc>${SITE}/stacks</loc><lastmod>${lastmod(newest)}</lastmod></url>
+${jobCollections.map((c) => `  <url><loc>${SITE}/collection/${c.slug}</loc><lastmod>${lastmod(c.members.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 ${creatorList.map((c) => `  <url><loc>${SITE}${c.page}</loc><lastmod>${lastmod(c.bots.reduce((m, b) => (b.added > m ? b.added : m), ""))}</lastmod></url>`).join("\n")}
 </urlset>
 `);
@@ -756,8 +856,9 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 
 - [bots.json](${SITE}/bots.json): the full catalog. One object per bot: name, emoji, description, category, url (x.ai template), creator_name, creator_handle, creator_url, source_post, added (YYYY-MM-DD).
 - [products.json](${SITE}/products.json): Amazon gear catalog. Links use tag botshelf-20. Match rules are specific phrases only; category does not attach a product.
-- [pairs.json](${SITE}/pairs.json): one "Pairs with" row per bot slug, 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3. Shown on the bot page and, when a row exists, as a short chip on homepage, creator, and job-hub cards. Run node scripts/pairs-gen.js when a bot is added. Add --backfill after products.json changes. The build fails if a slug is missing.
-- [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, or none per slug. Overrides win. Bot Tools defaults to none.
+- [pairs.json](${SITE}/pairs.json): one "Pairs with" row per bot slug, 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3. Shown on the bot page and, when a row exists, as a short chip on homepage, creator, and job-hub cards. A new auto product id is marked probation until it is promoted. Run node scripts/pairs-gen.js when a bot is added. Add --backfill after products.json changes. The build fails if a slug is missing. Curated rows (no auto flag) are never rewritten.
+- [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, none, or promote per slug. Overrides win. promote lifts probation. Bot Tools defaults to none.
+- [pair-signals.json](${SITE}/pair-signals.json): real pair_click counts (bot slug, then product id). A probation row leaves probation at min clicks (default 3). Do not invent counts.
 - [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
@@ -769,6 +870,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 - One page per bot at ${SITE}/bot/<slug>, where slug is the bot name in lowercase with dashes (for example ${SITE}${items[0] ? items[0].page : "/bot/archivist"}).
 - Creator pages at ${SITE}/@<handle>.
 - Find by job: ${SITE}/collections and one page per hub at ${SITE}/collection/<slug> (for example ${SITE}/collection/${jobCollections[0] ? jobCollections[0].slug : "deal-hunting"}). Hubs are curated lists in collections.json. They do not remove bots. Each hub links its bots, their creators, and the other jobs. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
+- Shelf stacks: ${SITE}/stacks. Ordered install lists from stacks.json. Free and public. Each bot still has its own page.
 - One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.
 - To add a template inside the Grok Bot app: grokbot://app/v1/bot-template?id=<id>, where id is the part after https://x.ai/bot/.
 
@@ -818,4 +920,4 @@ curl -X POST ${SITE}/api/submit \\
 \`\`\`
 `);
 
-console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, ${jobCollections.length} job collections, sitemap, robots, feed (${recent.length}), llms.txt`);
+console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, ${jobCollections.length} job collections, ${stacks.length} stacks, sitemap, robots, feed (${recent.length}), llms.txt`);

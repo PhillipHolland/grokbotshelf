@@ -205,16 +205,20 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     // Always present (empty without meta) so the tag line sits at the same height on every card
     return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
   }
+  function li(name) {
+    if (!name) return "";
+    return `<svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-${esc(name)}"/></svg>`;
+  }
   function pairsHTML(b, surface) {
     const rows = b.pairs;
     if (!rows || !rows.length) return "";
     const face = surface === "builders" || surface === "search" ? surface : "home";
     const attr = face === "builders" ? 'data-surface="builders"' : face === "search" ? 'data-surface="search"' : 'data-surface="home"';
-    const show = rows.slice(0, 2);
-    const extra = rows.length - show.length;
-    const links = show.map((p, i) => {
+    const extra = b.pairsMore || 0;
+    const links = rows.map((p, i) => {
       const href = `https://www.amazon.com/dp/${encodeURIComponent(p.asin)}?tag=botshelf-20`;
-      return `<a class="pair pair-mini" href="${esc(href)}" rel="noopener sponsored" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b._page.slice(5))}" ${attr}>${esc(p.emoji || "")} ${esc(p.name)}</a>`;
+      const soft = p.soft ? ` data-soft=""` : "";
+      return `<a class="pair pair-mini" href="${esc(href)}" rel="noopener sponsored" target="_blank" data-product="${esc(p.id)}" data-position="${i + 1}" data-bot="${esc(b._page.slice(5))}" ${attr}${soft}>${li(p.icon)} ${esc(p.name)}</a>`;
     }).join("");
     const more = extra ? `<a class="pair-more" href="${esc(b._page)}#pairs-h">+${extra}</a>` : "";
     return `<p class="card-pairs"><span class="card-pairs-l">Pairs with</span>${links}${more}</p>`;

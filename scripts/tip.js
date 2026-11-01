@@ -6,9 +6,9 @@
 // The QR (desktop only) is public/tip-qr.svg, drawn by scripts/tip-qr.js; run that again if TIP_URL changes.
 const TIP_URL = "https://x.com/i/money/pay/Phil_Holland";
 const AMOUNTS = [3, 5, 10];
-// Token: one coin with a four-point spark (the shelf's "Buy us some Tokens" ask; X Money itself is USD).
-// Drawn for 18-20px: 2px ring, filled spark, so it reads on dark and light.
-const CUP = `<svg class="tc-cup" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path class="f" d="M12 6.6c.5 2.6 1.6 3.9 4.4 5.4-2.8 1.5-3.9 2.8-4.4 5.4-.5-2.6-1.6-3.9-4.4-5.4 2.8-1.5 3.9-2.8 4.4-5.4z"/></svg>`;
+// Tokens: Lucide coins (scripts/icons.js) plus the word Tokens. Not a lone coin with no label.
+const { lucide } = require("./icons");
+const CUP = lucide("coins", { className: "tc-cup" });
 const XLOGO = `<svg class="tc-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>`;
 // v: the build's versioned() (content-hash ?v= for local files)
 const tipCard = (v = (s) => s) => `<section class="tipcard" id="tip" aria-labelledby="tip-h">

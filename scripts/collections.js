@@ -59,6 +59,7 @@ function loadCollections(data, items) {
     const slug = String(raw.slug || "").trim();
     const name = String(raw.name || "").trim();
     const emoji = String(raw.emoji || "").trim();
+    const icon = String(raw.icon || "").trim();
     const blurb = String(raw.blurb || "").trim();
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`${where}: slug must be lowercase words separated by dashes`);
     if (seen.has(slug)) throw new Error(`${where}: duplicate slug`);
@@ -88,7 +89,7 @@ function loadCollections(data, items) {
     }
     if (pickSlugs.length < 1) throw new Error(`${where}: picks resolved to nothing`);
     if (members.length < pickSlugs.length + 1) throw new Error(`${where}: add at least one bot besides the picks, so the page can show "More like this"`);
-    return { id: String(raw.id || slug).trim() || slug, slug, name, emoji, blurb, pickSlugs, members };
+    return { id: String(raw.id || slug).trim() || slug, slug, name, emoji, icon, blurb, pickSlugs, members };
   });
 }
 

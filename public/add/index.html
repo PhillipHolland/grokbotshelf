@@ -34,14 +34,14 @@
 <meta name="twitter:creator" content="@Phil_Holland">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Add your bot","url":"https://grokbotshelf.com/add","description":"Suggest a Grok Bot template for the shelf: paste the template link, add your X post if you like, and it goes to review. Bots can POST /api/submit.","isPartOf":{"@type":"WebSite","name":"Grok Bot Shelf","url":"https://grokbotshelf.com"}}</script>
 <script>(function(){var c=navigator.connection;if(c&&(c.saveData||/2g$/.test(c.effectiveType||"")))return;if(HTMLScriptElement.supports&&HTMLScriptElement.supports("speculationrules")){var r=document.createElement("script");r.type="speculationrules";r.textContent="{\"prefetch\":[{\"source\":\"document\",\"eagerness\":\"moderate\",\"where\":{\"and\":[{\"or\":[{\"href_matches\":\"/bot/*\"},{\"href_matches\":\"/@*\"}]},{\"not\":{\"href_matches\":\"/api/*\"}},{\"not\":{\"selector_matches\":\"a[href*=\\\"?\\\"]\"}}]}}]}";document.head.appendChild(r);return}var done={},busy=0,timer;function url(a){var h=a.getAttribute("href")||"",u;if(h.indexOf("?")>=0)return"";try{u=new URL(h,location.href)}catch(e){return""}if(u.origin!==location.origin||u.search||!/^\/(bot\/|@)/.test(u.pathname)||u.pathname===location.pathname)return"";return u.origin+u.pathname}function go(a){var h=a&&url(a);if(!h||done[h]||busy>=2)return;done[h]=1;busy++;var l=document.createElement("link");l.rel="prefetch";l.href=h;l.onload=l.onerror=function(){busy--};document.head.appendChild(l)}function link(e){return e.target&&e.target.closest?e.target.closest("a[href]"):null}document.addEventListener("pointerenter",function(e){var a=e.target;if(a&&a.matches&&a.matches("a[href]")){clearTimeout(timer);timer=setTimeout(function(){go(a)},100)}},true);document.addEventListener("pointerleave",function(e){if(e.target&&e.target.matches&&e.target.matches("a[href]"))clearTimeout(timer)},true);document.addEventListener("touchstart",function(e){go(link(e))},{passive:true,capture:true})})()</script>
-<link rel="stylesheet" href="/styles.css?v=ed9d304278">
+<link rel="stylesheet" href="/styles.css?v=b55027a8da">
 <script src="/shelf-up.js?v=fe24c873e0" defer></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
 
-<meta name="shelf-data" content="/shelf-data.json?v=919cba3dfe">
+<meta name="shelf-data" content="/shelf-data.json?v=0c76733021">
 <script src="/config.js" defer></script>
-<script src="/add.js?v=ebedd48236" defer></script>
+<script src="/add.js?v=a2f430e723" defer></script>
 </head>
 <body class="botpage addpage">
 <header class="wrap hero">
@@ -68,14 +68,14 @@
     </form>
     <p id="add-text">Bots: POST <a href="https://grokbotshelf.com/api/submit">https://grokbotshelf.com/api/submit</a> with JSON {"bot_url","post_url?","note?"}, or import <a class="shelfer-link" href="https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi" rel="noopener" target="_blank">Shelfer</a> in Grok Bot and paste a template link. It checks for dupes and queues it here. Humans: the form, a tag on X, or email <a href="mailto:pbh+shelf@mail.grokbot.com">pbh+shelf@mail.grokbot.com</a> with the x.ai/bot link (and an optional post link) in the body. Shelf Inbox, Phillip's review bot, still reviews every submission. Protocol: <a href="/llms.txt">llms.txt</a>.</p>
     <p>Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human.</p>
-    <a class="btn" id="post-x" href="https://twitter.com/intent/tweet?text=Hey%20%40Phil_Holland%20%40thecsguy%2C%20add%20my%20bot%20to%20Grok%20Bot%20Shelf%20%F0%9F%A4%96%0Ax.ai%2Fbot%2F" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" style="fill:currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
+    <a class="btn" id="post-x" href="https://twitter.com/intent/tweet?text=Hey%20%40Phil_Holland%20%40thecsguy%2C%20add%20my%20bot%20to%20Grok%20Bot%20Shelf%0Ax.ai%2Fbot%2F" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" style="fill:currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Post on X</a>
     <p class="fine">Added bots credit you by name and link to your X profile.</p>
   </section>
 </main>
 <footer class="site-foot wrap">
 <section class="tipcard" id="tip" aria-labelledby="tip-h">
   <div class="tc-main">
-    <p class="tc-eye"><svg class="tc-cup" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path class="f" d="M12 6.6c.5 2.6 1.6 3.9 4.4 5.4-2.8 1.5-3.9 2.8-4.4 5.4-.5-2.6-1.6-3.9-4.4-5.4 2.8-1.5 3.9-2.8 4.4-5.4z"/></svg><span>Tip jar</span><span class="tc-via">via X Money</span></p>
+    <p class="tc-eye"><svg class="tc-cup" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="6" /><path d="M18.09 10.37A6 6 0 1 1 10.34 18" /><path d="M7 6h1v4" /><path d="m16.71 13.88.7.71-2.82 2.82" /></svg><span>Tip jar</span><span class="tc-via">via X Money</span></p>
     <h2 id="tip-h">Buy us some Tokens</h2>
     <div class="tc-who">
       <a class="tc-p" href="https://x.com/Phil_Holland" rel="noopener" target="_blank"><img src="/avatars/phil_holland.webp?v=64602445ef" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Phil</b><small>@Phil_Holland</small></span></a>
@@ -91,6 +91,7 @@
   <figure class="tc-qr"><img src="/tip-qr.svg?v=bec3180f29" alt="QR code that opens X Money to tip @Phil_Holland" width="136" height="136" loading="lazy" decoding="async"><figcaption>Scan to tip from your phone</figcaption></figure>
 </section>
   <p>Not affiliated with SpaceXSI.</p>
+  <p class="by"><a href="/collections">Find by job</a> · <a href="/stacks">Stacks</a> · <a href="/add">Add a bot</a></p>
   <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>
 </body>
