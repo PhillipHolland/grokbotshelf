@@ -797,7 +797,7 @@ const stacks = loadStacks(read("stacks.json", null), items);
     <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${markSpan(b.emoji)}${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
   </article></li>`).join("");
   writeJob("stacks/index.html", `${head({ title: "Shelf stacks · Grok Bot Shelf", desc, url, img: `${SITE}${versioned("/og.png")}`, ogTitle: "Shelf stacks", alt: "Ordered install stacks on Grok Bot Shelf", creator: "@Phil_Holland", ld })}
-<body class="botpage">
+<body class="botpage stackspage">
 ${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks" aria-current="page">Stacks</a>` })}
 <main class="wrap bp" id="main">
   ${crumbsNav([["Grok Bot Shelf", "/"], ["Stacks", ""]])}
