@@ -1,0 +1,108 @@
+{
+  "errors": [
+    {
+      "code": "ItemNotAccessible",
+      "message": "The ItemId B000000099 is not accessible through the Creators API."
+    }
+  ],
+  "itemResults": {
+    "items": [
+      {
+        "asin": "B091CD47BZ",
+        "detailPageURL": "https://www.amazon.com/dp/B091CD47BZ?tag=botshelf-20",
+        "images": {
+          "primary": {
+            "large": {
+              "height": 500,
+              "url": "https://m.media-amazon.com/images/I/example-mv7._SL500_.jpg",
+              "width": 500
+            }
+          }
+        },
+        "itemInfo": {
+          "title": {
+            "displayValue": "Shure MV7",
+            "label": "Title",
+            "locale": "en_US"
+          }
+        }
+      },
+      {
+        "asin": "B000000001",
+        "images": {
+          "primary": {
+            "large": {
+              "height": 500,
+              "url": "https://m.media-amazon.com/images/I/example-mv7-case._SL500_.jpg",
+              "width": 500
+            }
+          }
+        },
+        "itemInfo": {
+          "title": {
+            "displayValue": "Shure MV7",
+            "label": "Title",
+            "locale": "en_US"
+          }
+        }
+      },
+      {
+        "asin": "B0874XN4D8",
+        "images": {
+          "primary": {
+            "large": {
+              "height": 500,
+              "url": "https://m.media-amazon.com/images/I/example-t7._SL500_.jpg",
+              "width": 500
+            }
+          }
+        },
+        "itemInfo": {
+          "title": {
+            "displayValue": "Samsung T7 Portable SSD 1TB, USB 3.2 External Solid State Drive, Black",
+            "label": "Title",
+            "locale": "en_US"
+          }
+        }
+      },
+      {
+        "asin": "B0CFPJYX7P",
+        "images": {
+          "primary": {
+            "large": {
+              "height": 500,
+              "url": "https://m.media-amazon.com/images/I/example-kindle._SL500_.jpg",
+              "width": 500
+            }
+          }
+        },
+        "itemInfo": {
+          "title": {
+            "displayValue": "Echo Dot (5th Gen) Smart Speaker",
+            "label": "Title",
+            "locale": "en_US"
+          }
+        }
+      },
+      {
+        "asin": "B09B8V1LZ3",
+        "images": {
+          "primary": {
+            "large": {
+              "height": 500,
+              "url": "https://m.media-amazon.com/images/I/example-echo._SL500_.jpg",
+              "width": 500
+            }
+          }
+        },
+        "itemInfo": {
+          "title": {
+            "displayValue": "Echo Dot (5th Gen, 2022 release) | Charcoal",
+            "label": "Title",
+            "locale": "en_US"
+          }
+        }
+      }
+    ]
+  }
+}

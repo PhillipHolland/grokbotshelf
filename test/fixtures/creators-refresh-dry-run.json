@@ -1,0 +1,85 @@
+{
+  "mode": "dry-run",
+  "source": "fixture",
+  "partnerTag": "botshelf-20",
+  "marketplace": "www.amazon.com",
+  "endpoint": "https://creatorsapi.amazon/catalog/v1/getItems",
+  "resources": [
+    "itemInfo.title",
+    "images.primary.large"
+  ],
+  "batch_size": 10,
+  "generated_at": "2026-11-01T00:00:00.000Z",
+  "image_policy": "Primary image URLs are listed on each row for hygiene only. products.json does not store them. Pair UI renders the product emoji as a Lucide icon, so an empty image leaves that mark as it is.",
+  "summary": {
+    "products": 6,
+    "name_updates": 1,
+    "kept": 3,
+    "mismatches": 1,
+    "missing": 1,
+    "transport_errors": 0
+  },
+  "rows": [
+    {
+      "id": "shure-mv7",
+      "asin": "B091CD47BZ",
+      "name": "Shure MV7",
+      "amazon_title": "Shure MV7",
+      "name_action": "keep",
+      "reason": "Title already matches.",
+      "image": "https://m.media-amazon.com/images/I/example-mv7._SL500_.jpg",
+      "last_refreshed": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "shure-case",
+      "asin": "B000000001",
+      "name": "shure mv7",
+      "amazon_title": "Shure MV7",
+      "name_action": "update",
+      "proposed_name": "Shure MV7",
+      "reason": "Same words with cleaner casing or punctuation.",
+      "image": "https://m.media-amazon.com/images/I/example-mv7-case._SL500_.jpg",
+      "last_refreshed": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "samsung-t7",
+      "asin": "B0874XN4D8",
+      "name": "Samsung T7 SSD",
+      "amazon_title": "Samsung T7 Portable SSD 1TB, USB 3.2 External Solid State Drive, Black",
+      "name_action": "keep",
+      "reason": "Same product, but the Amazon title is a long listing name. Curated short name kept.",
+      "image": "https://m.media-amazon.com/images/I/example-t7._SL500_.jpg",
+      "last_refreshed": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "kindle-paperwhite",
+      "asin": "B0CFPJYX7P",
+      "name": "Kindle Paperwhite",
+      "amazon_title": "Echo Dot (5th Gen) Smart Speaker",
+      "name_action": "mismatch",
+      "reason": "Amazon title does not contain this product's name. Curated name left unchanged.",
+      "image": "https://m.media-amazon.com/images/I/example-kindle._SL500_.jpg",
+      "last_refreshed": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "echo-dot",
+      "asin": "B09B8V1LZ3",
+      "name": "Echo Dot",
+      "amazon_title": "Echo Dot (5th Gen, 2022 release) | Charcoal",
+      "name_action": "keep",
+      "reason": "Same product, but the Amazon title is a long listing name. Curated short name kept.",
+      "image": "https://m.media-amazon.com/images/I/example-echo._SL500_.jpg",
+      "last_refreshed": "2026-11-01T00:00:00.000Z"
+    },
+    {
+      "id": "gone-asin",
+      "asin": "B000000099",
+      "name": "Missing Item",
+      "amazon_title": null,
+      "name_action": "missing",
+      "reason": "The ItemId B000000099 is not accessible through the Creators API.",
+      "image": null,
+      "error_code": "ItemNotAccessible"
+    }
+  ]
+}
