@@ -33,6 +33,33 @@ section and filter chip automatically; a new `category` gets its own chip.
 
 Check the template link works first: `curl -sI https://x.ai/bot/XXXXXXXX | head -1`
 
+## Pairs with (Amazon)
+
+`public/products.json` is the gear catalog (Amazon only). `node scripts/build.js` puts a quiet "Pairs with" block on a bot page when that bot matches at least one product. The homepage, job hubs, and creator pages stay free of product cards. There is no store in the nav. Category rules cover Lifestyle, Home, Food, Health & Fitness, Travel, Security, Design, Money, Faith, and Shopping as well as Developer and Creator & Media. A category string has to match `bots.json` exactly.
+
+Each product needs `id`, `asin`, `name`, `blurb`, `emoji`, and `match`:
+
+- `bot_names`: exact `name` from `bots.json` (best match)
+- `keywords`: a word or phrase in the bot name or description
+- `categories`: the bot's category, used when nothing above hits
+
+A page shows at most 3, ranked name, then keyword, then category. Ties keep the order in `products.json`, so move a product up to feature it. Every link is `https://www.amazon.com/dp/{asin}?tag=botshelf-20` with `rel="noopener sponsored"`. Amazon only. The disclosure string in the file is printed on pages that show products.
+
+```json
+{
+  "id": "samsung-t7",
+  "asin": "B0874XN4D8",
+  "name": "Samsung T7 SSD",
+  "blurb": "Fast portable SSD for models, clips, and backups.",
+  "emoji": "💾",
+  "match": {
+    "bot_names": ["Local AI Manager", "Disk Doctor"],
+    "keywords": ["ssd", "storage", "backup"],
+    "categories": []
+  }
+}
+```
+
 ## Find by job (collections)
 
 When several bots do the same kind of work, they stay in the catalog (merging them would break Template Rewards credit). `public/collections.json` is a separate layer: a short list of jobs. The home page links to `/collections` ("Find by job"). Each hub is `/collection/<slug>`.

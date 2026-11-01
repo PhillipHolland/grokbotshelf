@@ -1,0 +1,864 @@
+{
+  "tag": "botshelf-20",
+  "link": "https://www.amazon.com/dp/{asin}?tag=botshelf-20",
+  "disclosure": "As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.",
+  "note": "Expanded Nov 1 2026 — ~36 Amazon-only SKUs for diverse bot categories. Every ASIN HTTP-200 verified with tag=botshelf-20.",
+  "products": [
+    {
+      "id": "beelink-mini-s12",
+      "asin": "B0C54W24HR",
+      "name": "Beelink Mini S12",
+      "blurb": "Quiet mini PC for local models and always-on desk bots.",
+      "emoji": "🖥️",
+      "match": {
+        "bot_names": [
+          "Local AI Manager",
+          "Pulse · Gaming Laptop Tech",
+          "Computer Shop Bot",
+          "Device Repair Expert",
+          "Media Center Engineer"
+        ],
+        "categories": [
+          "Developer"
+        ],
+        "keywords": [
+          "local ai",
+          "mini pc",
+          "homelab",
+          "ollama",
+          "self-host"
+        ]
+      }
+    },
+    {
+      "id": "mac-mini-m4",
+      "asin": "B0DLBTPDCS",
+      "name": "Mac mini M4",
+      "blurb": "Compact Apple silicon desk for Mac-first bots and builds.",
+      "emoji": "🍎",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Mac Tools",
+          "Apple Inventory & Deal Bot",
+          "Apple Deal Price Slicer"
+        ],
+        "keywords": [
+          "mac mini",
+          "macos",
+          "apple silicon",
+          "xcode"
+        ]
+      }
+    },
+    {
+      "id": "shure-mv7",
+      "asin": "B091CD47BZ",
+      "name": "Shure MV7",
+      "blurb": "USB/XLR mic that sounds broadcast-ready for voice bots.",
+      "emoji": "🎙️",
+      "match": {
+        "bot_names": [
+          "micDrop",
+          "Character Voice Desk",
+          "Podcast Booker",
+          "Your Voice Editor",
+          "Podcast Clipper for X"
+        ],
+        "keywords": [
+          "podcast",
+          "microphone",
+          "voice",
+          "mic"
+        ]
+      }
+    },
+    {
+      "id": "samsung-t7",
+      "asin": "B0874XN4D8",
+      "name": "Samsung T7 SSD",
+      "blurb": "Fast portable SSD for models, clips, and backups.",
+      "emoji": "💾",
+      "match": {
+        "bot_names": [
+          "Local AI Manager",
+          "Disk Doctor",
+          "Backup",
+          "Creative Video Studio",
+          "Reel ➡️ 𝕏",
+          "Clipper"
+        ],
+        "keywords": [
+          "ssd",
+          "storage",
+          "backup",
+          "export"
+        ]
+      }
+    },
+    {
+      "id": "beelink-ser9",
+      "asin": "B0D1XD1ZV3",
+      "name": "Beelink SER9",
+      "blurb": "Beefier mini PC when local AI needs more cores and RAM.",
+      "emoji": "⚙️",
+      "match": {
+        "bot_names": [
+          "Local AI Manager",
+          "Pulse · Gaming Laptop Tech",
+          "Computer Shop Bot"
+        ],
+        "keywords": [
+          "local ai",
+          "ryzen",
+          "homelab"
+        ]
+      }
+    },
+    {
+      "id": "anker-565-hub",
+      "asin": "B09V3KXJPB",
+      "name": "Anker 565 USB-C Hub",
+      "blurb": "One cable desk expansion: HDMI, ethernet, SD, USB-A.",
+      "emoji": "🔌",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Mac Tools",
+          "Network Ned",
+          "Device Repair Expert",
+          "Static Site Deployer by Igor"
+        ],
+        "keywords": [
+          "usb-c hub",
+          "dock",
+          "hdmi",
+          "desk setup"
+        ]
+      }
+    },
+    {
+      "id": "ugreen-hub",
+      "asin": "B08CFSZLQ4",
+      "name": "UGREEN USB-C Hub",
+      "blurb": "Affordable multiport hub for travel laptops and MacBooks.",
+      "emoji": "📎",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Network Ned",
+          "Device Repair Expert"
+        ],
+        "keywords": [
+          "usb-c",
+          "hub",
+          "adapter"
+        ]
+      }
+    },
+    {
+      "id": "blue-yeti",
+      "asin": "B08GYKNCCP",
+      "name": "Blue Yeti",
+      "blurb": "Plug-and-play USB mic classic for stream and podcast desks.",
+      "emoji": "🔵",
+      "match": {
+        "bot_names": [
+          "micDrop",
+          "Streamer's Dream",
+          "Stream Producer",
+          "Stream Night Producer",
+          "Character Voice Desk"
+        ],
+        "keywords": [
+          "usb mic",
+          "streaming",
+          "podcast"
+        ]
+      }
+    },
+    {
+      "id": "at2020usb",
+      "asin": "B07YNLBS7R",
+      "name": "AT2020USB+",
+      "blurb": "Studio condenser tone over USB for voiceover and podcasts.",
+      "emoji": "🎧",
+      "match": {
+        "bot_names": [
+          "micDrop",
+          "Character Voice Desk",
+          "Podcast Booker",
+          "Your Voice Editor"
+        ],
+        "keywords": [
+          "condenser",
+          "podcast mic",
+          "voiceover"
+        ]
+      }
+    },
+    {
+      "id": "logitech-c920",
+      "asin": "B006NTPLJW",
+      "name": "Logitech C920",
+      "blurb": "1080p webcam staple for stream, meet, and creator bots.",
+      "emoji": "📷",
+      "match": {
+        "bot_names": [
+          "Streamer's Dream",
+          "Stream Producer",
+          "Creative Video Studio",
+          "Grok Bot Video Studio",
+          "Video Call Connector by Kevin"
+        ],
+        "keywords": [
+          "webcam",
+          "stream",
+          "camera",
+          "1080p"
+        ]
+      }
+    },
+    {
+      "id": "mx-master-3s",
+      "asin": "B09HMKFDXC",
+      "name": "MX Master 3S",
+      "blurb": "Quiet precision mouse for long coding and editing sessions.",
+      "emoji": "🖱️",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Mac Tools",
+          "Writing Bot",
+          "Site Engineer",
+          "CTO"
+        ],
+        "categories": [
+          "Productivity",
+          "Developer"
+        ],
+        "keywords": [
+          "mouse",
+          "productivity",
+          "desk"
+        ]
+      }
+    },
+    {
+      "id": "samsung-990-pro-2tb",
+      "asin": "B0BHJJ9Y77",
+      "name": "Samsung 990 PRO 2TB",
+      "blurb": "Internal NVMe speed for local models, VMs, and video caches.",
+      "emoji": "⚡",
+      "match": {
+        "bot_names": [
+          "Local AI Manager",
+          "Disk Doctor",
+          "Pulse · Gaming Laptop Tech",
+          "Computer Shop Bot",
+          "Media Center Engineer"
+        ],
+        "keywords": [
+          "nvme",
+          "ssd",
+          "internal drive",
+          "local models"
+        ]
+      }
+    },
+    {
+      "id": "sony-xm5",
+      "asin": "B09XS7JWHH",
+      "name": "Sony WH-1000XM5",
+      "blurb": "Noise-cancel headphones for deep work and mix checks.",
+      "emoji": "🎧",
+      "match": {
+        "bot_names": [
+          "micDrop",
+          "Your Voice Editor",
+          "Mixtape Maker",
+          "Yusician",
+          "Writing Bot"
+        ],
+        "categories": [
+          "Productivity",
+          "Creator & Media"
+        ],
+        "keywords": [
+          "headphones",
+          "noise cancel",
+          "listening"
+        ]
+      }
+    },
+    {
+      "id": "beelink-mac-dock",
+      "asin": "B0FHWCCRZT",
+      "name": "Beelink Mac Dock",
+      "blurb": "Mac-friendly dock when one cable has to do everything.",
+      "emoji": "🖥️",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Mac Tools",
+          "Apple Inventory & Deal Bot"
+        ],
+        "keywords": [
+          "mac dock",
+          "thunderbolt",
+          "usb-c dock"
+        ]
+      }
+    },
+    {
+      "id": "mx-keys-s",
+      "asin": "B0BKVZK4TH",
+      "name": "Logitech MX Keys S",
+      "blurb": "Low-profile wireless keyboard for writers and builders.",
+      "emoji": "⌨️",
+      "match": {
+        "bot_names": [
+          "Writing Bot",
+          "Writing Bot by Cameron",
+          "Apple Desk",
+          "CTO",
+          "Site Engineer"
+        ],
+        "categories": [
+          "Productivity",
+          "Developer"
+        ],
+        "keywords": [
+          "keyboard",
+          "typing",
+          "writer"
+        ]
+      }
+    },
+    {
+      "id": "keychron-k2",
+      "asin": "B09SGBQ9Y7",
+      "name": "Keychron K2",
+      "blurb": "Hot-swap mechanical board with Mac/Windows layouts.",
+      "emoji": "⌨️",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Mac Tools",
+          "CTO",
+          "Local AI Manager"
+        ],
+        "categories": [
+          "Developer"
+        ],
+        "keywords": [
+          "mechanical keyboard",
+          "keychron",
+          "hot-swap"
+        ]
+      }
+    },
+    {
+      "id": "stream-deck-mk2",
+      "asin": "B09738CV2G",
+      "name": "Elgato Stream Deck MK.2",
+      "blurb": "15 LCD keys for OBS, Twitch, and creator macros.",
+      "emoji": "🎛️",
+      "match": {
+        "bot_names": [
+          "Streamer's Dream",
+          "Stream Producer",
+          "Stream Night Producer",
+          "Creative Video Studio",
+          "Grok Bot Video Studio",
+          "Reel ➡️ 𝕏",
+          "Clipper"
+        ],
+        "categories": [
+          "Creator & Media"
+        ],
+        "keywords": [
+          "stream deck",
+          "obs",
+          "twitch",
+          "macros"
+        ]
+      }
+    },
+    {
+      "id": "key-light-air-mk2",
+      "asin": "B0GYDFGCCQ",
+      "name": "Elgato Key Light Air MK.2",
+      "blurb": "Soft key light for talking-head and livestream bots.",
+      "emoji": "💡",
+      "match": {
+        "bot_names": [
+          "Streamer's Dream",
+          "Stream Producer",
+          "Creative Video Studio",
+          "Grok Bot Video Studio",
+          "Character Voice Desk",
+          "Video Call Connector by Kevin"
+        ],
+        "keywords": [
+          "key light",
+          "lighting",
+          "stream light",
+          "on camera"
+        ]
+      }
+    },
+    {
+      "id": "anker-737",
+      "asin": "B09VPHVT2Z",
+      "name": "Anker 737 Power Bank",
+      "blurb": "140W laptop-capable bank for travel and field desks.",
+      "emoji": "🔋",
+      "match": {
+        "bot_names": [
+          "Tammy — True-Total Travel & Points Scout",
+          "Backseat Buddy",
+          "Park Lookout",
+          "Grok · Field Desk"
+        ],
+        "categories": [
+          "Travel"
+        ],
+        "keywords": [
+          "power bank",
+          "travel charger",
+          "portable battery"
+        ]
+      }
+    },
+    {
+      "id": "instant-pot-duo",
+      "asin": "B00FLYWNYQ",
+      "name": "Instant Pot Duo 6-Qt",
+      "blurb": "Weeknight pressure cooker staple for kitchen bots.",
+      "emoji": "🍲",
+      "match": {
+        "bot_names": [
+          "Bookmark Kitchen",
+          "Kitchen Studio",
+          "Pumpkin Spice Bot",
+          "RezBot"
+        ],
+        "categories": [
+          "Food"
+        ],
+        "keywords": [
+          "instant pot",
+          "pressure cooker",
+          "meal prep",
+          "cooking"
+        ]
+      }
+    },
+    {
+      "id": "contigo-ashland",
+      "asin": "B08RSJRNMF",
+      "name": "Contigo Ashland Bottle",
+      "blurb": "Leak-proof straw bottle for gym and desk hydration.",
+      "emoji": "🥤",
+      "match": {
+        "bot_names": [
+          "Fitness Coach by Jenna",
+          "Personal Trainer by Sal",
+          "Pep",
+          "Sobriety Bot"
+        ],
+        "categories": [
+          "Health & Fitness"
+        ],
+        "keywords": [
+          "water bottle",
+          "hydration",
+          "gym"
+        ]
+      }
+    },
+    {
+      "id": "deco-x55",
+      "asin": "B09WTM34DF",
+      "name": "TP-Link Deco X55 (2-Pack)",
+      "blurb": "Wi-Fi 6 mesh that kills dead zones for home bots.",
+      "emoji": "📶",
+      "match": {
+        "bot_names": [
+          "Network Ned",
+          "Home Manager",
+          "Home Helper",
+          "Media Center Engineer",
+          "House Memory"
+        ],
+        "categories": [
+          "Home"
+        ],
+        "keywords": [
+          "mesh wifi",
+          "wifi 6",
+          "router",
+          "network"
+        ]
+      }
+    },
+    {
+      "id": "echo-dot",
+      "asin": "B09B94RL1R",
+      "name": "Echo Dot",
+      "blurb": "Compact smart speaker for routines and room audio.",
+      "emoji": "🔊",
+      "match": {
+        "bot_names": [
+          "Home Manager",
+          "Home Helper",
+          "House Memory",
+          "Personal Voicemail"
+        ],
+        "categories": [
+          "Home"
+        ],
+        "keywords": [
+          "alexa",
+          "echo",
+          "smart speaker"
+        ]
+      }
+    },
+    {
+      "id": "unifi-g4-doorbell",
+      "asin": "B097P6ZF8N",
+      "name": "UniFi Protect G4 Doorbell",
+      "blurb": "Local-first video doorbell for security-minded homes.",
+      "emoji": "🚪",
+      "match": {
+        "bot_names": [
+          "Heimdall",
+          "Security",
+          "Cyber Checkup by Z23",
+          "Home Manager",
+          "Network Ned"
+        ],
+        "categories": [
+          "Security",
+          "Home"
+        ],
+        "keywords": [
+          "doorbell",
+          "camera",
+          "unifi",
+          "home security"
+        ]
+      }
+    },
+    {
+      "id": "airtag-4pack",
+      "asin": "B0GJTXVN9Z",
+      "name": "AirTag 4-Pack",
+      "blurb": "Find bags, keys, and gear with Precision Finding.",
+      "emoji": "📍",
+      "match": {
+        "bot_names": [
+          "Tammy — True-Total Travel & Points Scout",
+          "Backseat Buddy",
+          "Park Lookout",
+          "Remove Me"
+        ],
+        "categories": [
+          "Travel",
+          "Lifestyle"
+        ],
+        "keywords": [
+          "airtag",
+          "tracker",
+          "find my",
+          "luggage"
+        ]
+      }
+    },
+    {
+      "id": "yubikey-5c-nfc",
+      "asin": "B08DHL1YDL",
+      "name": "YubiKey 5C NFC",
+      "blurb": "Hardware key / passkey for accounts that matter.",
+      "emoji": "🔐",
+      "match": {
+        "bot_names": [
+          "Security",
+          "Agent Zero",
+          "CVE Desk",
+          "Zero-Day Desk",
+          "Hacked Account Recovery Helper by Z23",
+          "Cyber Checkup by Z23",
+          "Spam-Call Scrubber"
+        ],
+        "categories": [
+          "Security"
+        ],
+        "keywords": [
+          "yubikey",
+          "mfa",
+          "passkey",
+          "2fa",
+          "security key"
+        ]
+      }
+    },
+    {
+      "id": "garmin-265",
+      "asin": "B0FLS4QVT4",
+      "name": "Garmin Forerunner 265",
+      "blurb": "AMOLED running watch with training readiness cues.",
+      "emoji": "⌚",
+      "match": {
+        "bot_names": [
+          "Fitness Coach by Jenna",
+          "Personal Trainer by Sal",
+          "Pep",
+          "Coach"
+        ],
+        "categories": [
+          "Health & Fitness"
+        ],
+        "keywords": [
+          "garmin",
+          "running watch",
+          "gps watch",
+          "training"
+        ]
+      }
+    },
+    {
+      "id": "anker-wireless-pad",
+      "asin": "B07THHQMHM",
+      "name": "Anker Wireless Charger",
+      "blurb": "Simple Qi pad for overnight phone charging at the desk.",
+      "emoji": "📡",
+      "match": {
+        "bot_names": [
+          "Apple Desk",
+          "Apple Inventory & Deal Bot",
+          "Home Helper"
+        ],
+        "categories": [
+          "Productivity",
+          "Lifestyle"
+        ],
+        "keywords": [
+          "wireless charger",
+          "qi",
+          "phone charger"
+        ]
+      }
+    },
+    {
+      "id": "logitech-c922x",
+      "asin": "B01LXCDPPK",
+      "name": "Logitech C922x",
+      "blurb": "Streamer webcam with stronger low-light correction.",
+      "emoji": "📹",
+      "match": {
+        "bot_names": [
+          "Streamer's Dream",
+          "Stream Producer",
+          "Creative Video Studio",
+          "Video Call Connector by Kevin"
+        ],
+        "keywords": [
+          "webcam",
+          "c922",
+          "stream cam"
+        ]
+      }
+    },
+    {
+      "id": "airpods",
+      "asin": "B07PXGQC1Q",
+      "name": "Apple AirPods",
+      "blurb": "Everyday wireless earbuds for calls and short clips.",
+      "emoji": "🎧",
+      "match": {
+        "bot_names": [
+          "Apple Inventory & Deal Bot",
+          "Apple Deal Price Slicer",
+          "Personal Voicemail",
+          "Video Call Connector by Kevin"
+        ],
+        "categories": [
+          "Lifestyle",
+          "Shopping"
+        ],
+        "keywords": [
+          "airpods",
+          "earbuds",
+          "wireless earphones"
+        ]
+      }
+    },
+    {
+      "id": "dewalt-drill",
+      "asin": "B00ET5VMTU",
+      "name": "DEWALT 20V Drill Kit",
+      "blurb": "Cordless drill kit for home fix-it bots.",
+      "emoji": "🔧",
+      "match": {
+        "bot_names": [
+          "Handyman",
+          "Fixer",
+          "Home Maintenance Tracker",
+          "Home Maintenance Reminder by Kevin",
+          "Grease Monkey Wally",
+          "The Wife Saver by Brandon",
+          "Device Repair Expert"
+        ],
+        "categories": [
+          "Home"
+        ],
+        "keywords": [
+          "drill",
+          "tools",
+          "diy",
+          "handyman"
+        ]
+      }
+    },
+    {
+      "id": "hydroflask-32",
+      "asin": "B01M3U14I4",
+      "name": "Hydro Flask 32 oz",
+      "blurb": "Insulated bottle that stays cold on long travel days.",
+      "emoji": "💧",
+      "match": {
+        "bot_names": [
+          "Tammy — True-Total Travel & Points Scout",
+          "Backseat Buddy",
+          "Fitness Coach by Jenna",
+          "Personal Trainer by Sal"
+        ],
+        "categories": [
+          "Travel",
+          "Health & Fitness"
+        ],
+        "keywords": [
+          "hydro flask",
+          "insulated bottle",
+          "travel bottle"
+        ]
+      }
+    },
+    {
+      "id": "wacom-intuos",
+      "asin": "B00EN27UC2",
+      "name": "Wacom Intuos Medium",
+      "blurb": "Pressure-sensitive tablet for illustration bots.",
+      "emoji": "✏️",
+      "match": {
+        "bot_names": [
+          "Design",
+          "Glow Picasso",
+          "Tess Design Desk",
+          "Pixel Artist by Zachary",
+          "Fashion Stylist Bot"
+        ],
+        "categories": [
+          "Design"
+        ],
+        "keywords": [
+          "wacom",
+          "drawing tablet",
+          "illustration",
+          "pen tablet"
+        ]
+      }
+    },
+    {
+      "id": "moleskine-classic",
+      "asin": "B07RS4S5G6",
+      "name": "Moleskine Classic Notebook",
+      "blurb": "Hard-cover notebook for journaling and study notes.",
+      "emoji": "📓",
+      "match": {
+        "bot_names": [
+          "Writing Bot",
+          "Idea Lab & Brainstorm Logger",
+          "Christian Devotional Bot",
+          "Desk-Diet Dave",
+          "Obsidian"
+        ],
+        "categories": [
+          "Productivity",
+          "Faith",
+          "Lifestyle"
+        ],
+        "keywords": [
+          "notebook",
+          "journal",
+          "moleskine",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "brother-ql800",
+      "asin": "B01N49R9KP",
+      "name": "Brother QL-800",
+      "blurb": "Fast label printer for shipping and inventory desks.",
+      "emoji": "🏷️",
+      "match": {
+        "bot_names": [
+          "Invoice Chaser",
+          "Freelance Invoice Chaser",
+          "Cart Blanche",
+          "Flip Desk",
+          "Truck Inventory",
+          "Checkout Promo Code & Creator-Discount Hunter"
+        ],
+        "categories": [
+          "Money",
+          "Shopping",
+          "Business & Marketing"
+        ],
+        "keywords": [
+          "label printer",
+          "shipping labels",
+          "ql-800"
+        ]
+      }
+    },
+    {
+      "id": "epson-ff680w",
+      "asin": "B07DLX26BB",
+      "name": "Epson FastFoto FF-680W",
+      "blurb": "High-speed duplex scanner for receipts and archives.",
+      "emoji": "📄",
+      "match": {
+        "bot_names": [
+          "Invoice Chaser",
+          "Budgie",
+          "Money Bot",
+          "QuickBooks Product Expert",
+          "Law Desk",
+          "ODD Desk"
+        ],
+        "categories": [
+          "Money",
+          "Productivity"
+        ],
+        "keywords": [
+          "scanner",
+          "receipts",
+          "document scan",
+          "fastfoto"
+        ]
+      }
+    }
+  ],
+  "ux": {
+    "placement": "Quiet section on matching bot pages only (not homepage mall). Max 3 products per bot page, ranked by name match > keyword > category.",
+    "label": "Pairs with",
+    "cta": "View on Amazon",
+    "rel": "noopener sponsored",
+    "style": "Match /lab/desk pair-card chrome scaled down for bot pages: Amazon badge, short blurb, View on Amazon button. Stay subtle — not a storefront. Prefer wider category/keyword coverage so Lifestyle, Home, Food, Fitness, Travel, Security, Design, Money, Faith all get matches when relevant."
+  }
+}

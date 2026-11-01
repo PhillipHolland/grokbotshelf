@@ -350,6 +350,26 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp-panel .src{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:9999px;background:var(--field);color:var(--text2);font:600 11px/1 var(--font);white-space:nowrap}
 .bp-panel dd ul{list-style:none;margin:0;padding:0}
 
+/* Bot page: Amazon "Pairs with". Quiet list, same chrome as the lab desk cards, scaled to the 720px column. */
+.bp-pairs{border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:0 0 24px}
+.pairs-head{display:flex;align-items:center;gap:8px;margin:0 0 12px}
+.pairs-head h2{font-size:17px;margin:0}
+.badge.pair{border-color:rgba(29,155,240,.4);color:var(--blue)}
+.bp-pairs .pairs{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+a.pair{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);text-decoration:none}
+a.pair:hover{background:var(--hover)}
+a.pair .icon{width:40px;height:40px;font-size:20px;background:rgba(29,155,240,.06)}
+html[data-theme="light"] a.pair .icon{background:rgba(29,155,240,.08)}
+.pair-copy{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.pair-name{font-weight:700;font-size:14px;line-height:1.3}
+.pair-blurb{font-size:13px;font-weight:400;color:var(--text2);line-height:1.35}
+.pair-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border-radius:9999px;background:var(--btn-blue);color:#fff;font:700 13px/1 var(--font);white-space:nowrap}
+a.pair:hover .pair-cta{background:var(--btn-blue-h);color:#fff}
+.bp-pairs .fine{margin:12px 0 0}
+.site-foot .assoc{margin-top:4px}
+html.mobile a.pair{flex-wrap:wrap}
+html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
+
 .card{cursor:pointer}
 
 /* A-Z rail: fixed to the right edge under the dock (app.js sets top to the dock's real bottom), jumps to the first
@@ -717,7 +737,7 @@ html.tailing .sentinel{height:100vh}
 /* ---------- Round 3 #3: light mode. --line (#eff3f4) is 1.12:1 on white: fine for full-width hairlines (footer rule, dock
    edge, "Under the hood" rows), too faint to outline a floating card. Outlined containers take --line2, the grey the light
    theme already uses for inputs and ghost buttons; hover takes --field, because --hover (1.06:1) is invisible on white. ---------- */
-html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
+html[data-theme="light"] :is(.card,.bp-card,.bp-more a,.bp-panel,.bp-embed,.bp-pairs,a.pair,.builders,.topvotes,.empty,.add,.snip,.icon,.cp-av){border-color:var(--line2)}
 html[data-theme="light"] .badge:not([class*="ag-"]){border-color:var(--line2)}
 html[data-theme="light"] :is(.card:hover,.bp-more a:hover,.tlist a:hover,.theme-btn:hover){background:var(--field)}
 
@@ -730,10 +750,10 @@ html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-u
 /* Text links: an outline with air around it instead of a 2px box hugging the glyphs (pills keep the ring above) */
 :where(.bp-links a,.bp .sub a,.sub a.cn,.ghead .handle,.ghead a.nm,.crawl a,.site-foot a,.add p a,.thead .tall,.fb-link,.home,.cp-cats a):focus-visible{box-shadow:none;outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 /* Press feedback on pills, chips and tiles, and a fill on icon buttons (touch has no hover) */
-:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:scale(.97)}
+:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,a.pair,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:scale(.97)}
 :where(.ib,.vote .vb,.rail button):active{background:var(--mark);color:var(--blue)}
 .card{-webkit-tap-highlight-color:transparent}
-@media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:none;filter:brightness(.92)}}
+@media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,a.pair,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:none;filter:brightness(.92)}}
 /* Copy: the same quiet blue pill as Reset, not a native grey button */
 .snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
 .snip-h .clear:hover{background:var(--mark)}
