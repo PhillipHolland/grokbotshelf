@@ -6,7 +6,214 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 31 Oct 2026 21:58:47 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 14:18:07 GMT</lastBuildDate>
+  <item>
+    <title>🛡️ Scam Second Opinion by Prabhu</title>
+    <link>https://grokbotshelf.com/bot/scam-second-opinion</link>
+    <guid isPermaLink="false">https://x.ai/bot/UoJ81zfk-RrkdEkMdIw9w</guid>
+    <description>A calm second opinion before you click, pay, or reply to a suspicious message, call, or link: red flags and one safe next step.</description>
+    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
+    <category>Security</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>📦 Refund &amp; Delivery Chaser by Prabhu</title>
+    <link>https://grokbotshelf.com/bot/refund-and-delivery-chaser</link>
+    <guid isPermaLink="false">https://x.ai/bot/Dka-gTc2gh8EZezo-F5_7</guid>
+    <description>Keeps a case file for each stuck order or missing refund and drafts the right next message, escalating calmly one stage at a time.</description>
+    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏷️ Black Friday Real-Deal Checker by Prabhu</title>
+    <link>https://grokbotshelf.com/bot/black-friday-real-deal-checker</link>
+    <guid isPermaLink="false">https://x.ai/bot/Xe3MVO3fgpnjY4-e2k5bH</guid>
+    <description>Logs prices for products you paste daily, then tells you on Black Friday and Cyber Monday if each is a real deal vs its 30-day low.</description>
+    <dc:creator>Prabhu (@KuttyPrabhu)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚨 Crime in Your Zip Code by Marshall</title>
+    <link>https://grokbotshelf.com/bot/crime-in-your-zip-code-by-marshall</link>
+    <guid isPermaLink="false">https://x.ai/bot/62GtLnYAwa39PP6Gs7Smd</guid>
+    <description>Enter a US zip code to get a sourced map of reported crime, split into serious and lesser crimes, plus the latest posts from law enforcement on X.</description>
+    <dc:creator>Marshall (@marshallfrith)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Stock Research by Tyler</title>
+    <link>https://grokbotshelf.com/bot/stock-research-by-tyler</link>
+    <guid isPermaLink="false">https://x.ai/bot/PIU_p6CvpO-6xew6tTeIC</guid>
+    <description>A beginner-friendly stock research helper that summarizes earnings and a daily market report and teaches options with lessons and quizzes. Educational only.</description>
+    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>📚 Literature Inspiration by Tyler</title>
+    <link>https://grokbotshelf.com/bot/literature-inspiration-by-tyler</link>
+    <guid isPermaLink="false">https://x.ai/bot/k4rBSQV28iL-9Hh1748R2</guid>
+    <description>Answers your questions and gives advice through quotes from great literature, always citing the book and author, and sends inspiring quotes twice a day.</description>
+    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Movie Quote Inspiration by Tyler</title>
+    <link>https://grokbotshelf.com/bot/movie-quote-inspiration-by-tyler</link>
+    <guid isPermaLink="false">https://x.ai/bot/IT-UOFV-dyjKiLBj9C6PY</guid>
+    <description>Answers your questions and gives advice through great movie quotes, with clip links, and sends inspiring quotes on a schedule.</description>
+    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚀 Static Site Deployer by Igor by Igor Holt</title>
+    <link>https://grokbotshelf.com/bot/static-site-deployer-by-igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/VL3ZTAbOtZrxqVXUUDu39</guid>
+    <description>Builds and updates a simple static website from chat and deploys it to your own Cloudflare Pages or Netlify account after you preview it.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>📞 Spaces Phone Line by Igor by Igor Holt</title>
+    <link>https://grokbotshelf.com/bot/spaces-phone-line-by-igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/UyXfJR6mI8-kBE8Vm60wg</guid>
+    <description>Plans and sets up a call-in phone line for your X Spaces so listeners can join or ask questions by phone, using your own accounts and numbers.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 01 Nov 2026 12:14:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕊️ I Am Trying To Be Like Jesus by Tyler</title>
+    <link>https://grokbotshelf.com/bot/i-am-trying-to-be-like-jesus-by-tyler</link>
+    <guid isPermaLink="false">https://x.ai/bot/I5XoF4H0buRMi0OAfQJZt</guid>
+    <description>A gentle guide that answers your questions and gives advice the way Jesus would, using His own words from the Sermon on the Mount (KJV) and His life.</description>
+    <dc:creator>Tyler (@Tylerhi11j)</dc:creator>
+    <category>Faith</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:59 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚖️ Crypto Securities Counsel by TheCryptoSteward</title>
+    <link>https://grokbotshelf.com/bot/crypto-securities-counsel-by-thecryptosteward</link>
+    <guid isPermaLink="false">https://x.ai/bot/d9fsSvmQvKrMtYftjT7gE</guid>
+    <description>Drafts plain-language securities and crypto opinions under federal and state law, citing an official source for every claim. Drafts only, not legal advice.</description>
+    <dc:creator>TheCryptoSteward (@thecryptostewrd)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗓️ Renewal Prep Coach by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/renewal-prep-coach-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/f8Ck1oxbuh9hVd48TLy6r</guid>
+    <description>Gets a business ready for its insurance renewal 90 to 120 days out with a timeline, document checklist, and stale property value flags.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>📑 Contract Insurance Clause Reviewer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/contract-insurance-clause-reviewer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/00V6Sus5vIxSQYpMVz4CS</guid>
+    <description>Reads the indemnity, hold-harmless, waiver of subrogation, and insurance-requirements sections of a lease or contract and explains them in plain language.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:56 GMT</pubDate>
+  </item>
+  <item>
+    <title>✏️ Homework Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/homework-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/vBnhH6eT78GFJWGaPYME8</guid>
+    <description>Helps kids with homework through hints, guiding questions, and step-by-step checks without handing over answers, adapted to grade level.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:55 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧹 Chore &amp; Allowance Tracker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/chore-and-allowance-tracker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/nTXcnt1sVmDP_aAVYRfw1</guid>
+    <description>Tracks kids&apos; chores, awards points, converts them to allowance or rewards, and sends a weekly total, with parents setting the rules.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌪️ Disaster Ready Kit by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/disaster-ready-kit-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/WCLL7gMJ7sfF215B0OkE7</guid>
+    <description>Builds a household plan for hurricanes, tornadoes, floods, wildfire, or winter storms: supplies, home inventory, document backups, and evacuation and meet-up plans.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:53 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚙 Teen Driver Coach by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/teen-driver-coach-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/jz0dVivfDexGXLXX6LCyH</guid>
+    <description>Helps families with a new teen driver log supervised practice hours, plan practice by stage, and understand their state&apos;s graduated-license rules.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧯 Claim Filing Helper by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/claim-filing-helper-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/Mb0iuP9q9kxVAVKJMjP2d</guid>
+    <description>Walks a homeowner or small business through the first 72 hours after a fire, water, storm, theft, or cyber loss: safety, photos, and preventing more damage.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:51 GMT</pubDate>
+  </item>
+  <item>
+    <title>✅ COI Checker by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/coi-checker-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/dt4z9u730fcQilhDlsOik</guid>
+    <description>Checks a certificate of insurance against your contract or vendor requirements and gives you a plain-language pass/fix list plus a short request to send.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:50 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏡 Homeowners Policy Explainer by Kevin by Kevin McDonald</title>
+    <link>https://grokbotshelf.com/bot/homeowners-policy-explainer-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/3ElovH5wCuS_-QdbDP0Va</guid>
+    <description>Explains a homeowners or renters policy and declarations page in plain English, including coverages, deductibles, and flood and earthquake gaps.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:49 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔧 Device Repair Expert by Igor Holt</title>
+    <link>https://grokbotshelf.com/bot/device-repair-expert</link>
+    <guid isPermaLink="false">https://x.ai/bot/XufJcCAZTyM7Y_Bf6yzM0</guid>
+    <description>Diagnoses hardware faults from software and firmware signals on Google Home/Nest, Pixel, iOS 16+, and macOS 26+ devices, then guides repairs starting with the cheapest checks.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:48 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧊 Blockato · Blockbench by Emilio</title>
+    <link>https://grokbotshelf.com/bot/blockato-blockbench</link>
+    <guid isPermaLink="false">https://x.ai/bot/LtV1nNOz3yPYwe8bRQwxe</guid>
+    <description>Builds, hand-textures, and animates Minecraft-style low-poly Blockbench models like blocks, items, mobs, and player cosmetics, showing rough options before handing over the files.</description>
+    <dc:creator>Emilio (@EmilioSchwaiger)</dc:creator>
+    <category>Design</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:47 GMT</pubDate>
+  </item>
+  <item>
+    <title>📜 Charter Builder by Dave Gambrill</title>
+    <link>https://grokbotshelf.com/bot/charter-builder</link>
+    <guid isPermaLink="false">https://x.ai/bot/d9ZUeMEuY14IS4izBWtXX</guid>
+    <description>Walks you through the Six R&apos;s (role, responsibility, resources, routine, rules, result) to turn a rough bot idea into a charter document you and your bot work from.</description>
+    <dc:creator>Dave Gambrill (@gambrill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sat, 31 Oct 2026 12:13:46 GMT</pubDate>
+  </item>
   <item>
     <title>📈 Creator Analytics &amp; Channel Optimizer by beastnug</title>
     <link>https://grokbotshelf.com/bot/creator-analytics-and-channel-optimizer</link>
@@ -249,213 +456,6 @@
     <dc:creator>Rachel V (@RachelVT42)</dc:creator>
     <category>Design</category>
     <pubDate>Sat, 31 Oct 2026 12:13:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>💰 Chief Financial Officer by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/chief-financial-officer-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/EYgMB4G4YlGfCfDBegFH7</guid>
-    <description>Practical CFO for solo builders: one simple ledger, runway and AI tool spend tracking, and cost flags.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>♟️ Chief Strategy Officer by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/chief-strategy-officer-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/Om5RFwN2ZEyZwstx7dgGX</guid>
-    <description>Strategy lead for solo builders and small teams: maps your work and picks up to 3 priorities for 90 days.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>☀️ Daily Check-In by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/daily-check-in-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/D1yDI6q1x24eC-gt4KDhH</guid>
-    <description>Gentle daily check-in for an older adult on sleep, meals, meds and mood; alerts family if something&apos;s off.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔐 Child Safety Coach by Phillip Holland</title>
-    <link>https://grokbotshelf.com/bot/child-safety-coach</link>
-    <guid isPermaLink="false">https://x.ai/bot/MCxw03O1xLB7lH7uX0W5u</guid>
-    <description>Helps parents lock down a kid&apos;s iPhone or Samsung/Android and the AI apps on it, then circles back so settings don&apos;t silently revert.</description>
-    <dc:creator>Phillip Holland (@Phil_Holland)</dc:creator>
-    <category>Security</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌱 Usage Monitor Bot by Serenejay</title>
-    <link>https://grokbotshelf.com/bot/usage-monitor-bot-by-serenejay</link>
-    <guid isPermaLink="false">https://x.ai/bot/JJTJQx-yp653nmJSI2Xgg</guid>
-    <description>A usage and speed advisor for people who run several Grok Bots. Audits your bots, cuts wasted usage and build time without losing quality, and can act as your head of bots.</description>
-    <dc:creator>Serenejay (@Serenejaysew)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ Usage Guardian by Brandon by Brandon Barton</title>
-    <link>https://grokbotshelf.com/bot/usage-guardian-by-brandon</link>
-    <guid isPermaLink="false">https://x.ai/bot/pl01pkvfjzTws7ObUfPYe</guid>
-    <description>Watches your Grok Bot usage every night, forecasts your run-out date, catches runaway loops and spikes, checks big jobs before you start them, and trims wasteful routines in a weekly recap. Read-only unless you say OK.</description>
-    <dc:creator>Brandon Barton (@BrandonBarton26)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧑‍💻 CTO by Trond Eirik Haavarstein</title>
-    <link>https://grokbotshelf.com/bot/cto</link>
-    <guid isPermaLink="false">https://x.ai/bot/n0XcRjm9wtwl_UKU4azBE</guid>
-    <description>A hands-on engineer for site and server migrations, hosting, DNS and deploys. Reads before it changes, asks before anything irreversible, and confirms every fix with a live check.</description>
-    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚖️ Legal Counsel by Trond Eirik Haavarstein</title>
-    <link>https://grokbotshelf.com/bot/legal-counsel</link>
-    <guid isPermaLink="false">https://x.ai/bot/U82fEkqTsMfNaxRGn1VzG</guid>
-    <description>A research-and-drafting legal assistant for solo founders and small LLCs. Drafts contracts, vendor paperwork, privacy policies and terms, and tracks entity housekeeping and cross-border day counts. Never files, signs or sends without your yes.</description>
-    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛟 Hacked Account Recovery Helper by Z23 by ZyMoProfit</title>
-    <link>https://grokbotshelf.com/bot/hacked-account-recovery-helper-by-z23</link>
-    <guid isPermaLink="false">https://x.ai/bot/vY_HkDN3chtxVhPY6p1SR</guid>
-    <description>Walks you through each app&apos;s official recovery steps for a hacked or locked account (X, Facebook, Instagram, Gmail, Apple, Microsoft, WhatsApp, TikTok and more), then locks it down and helps you spot recovery scams. Never asks for passwords or codes.</description>
-    <dc:creator>ZyMoProfit (@ZyMoProfit)</dc:creator>
-    <category>Security</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧱 BrickSmith by Salty FL Cracker</title>
-    <link>https://grokbotshelf.com/bot/bricksmith</link>
-    <guid isPermaLink="false">https://x.ai/bot/WYvOYF_brlFK8Z7lae69m</guid>
-    <description>Snap a photo of your loose LEGO-style bricks spread out in one layer and get fun build ideas with kid-friendly step-by-step instructions. Not affiliated with the LEGO Group.</description>
-    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖨️ PrintSmith by Salty FL Cracker</title>
-    <link>https://grokbotshelf.com/bot/printsmith</link>
-    <guid isPermaLink="false">https://x.ai/bot/655ab6yqLkZd3Yt1R139B</guid>
-    <description>Designs original 3D-printable items from plain-language ideas in free, open-source OpenSCAD, checks printability, and delivers color previews, ready-to-slice STL/3MF files, print-time estimates, and editable source.</description>
-    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
-    <category>Design</category>
-    <pubDate>Sat, 31 Oct 2026 12:13:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎨 Art Project Planner by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/art-project-planner-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/s_a2LRrtZd2sHDIFr0te0</guid>
-    <description>Helps visual artists turn an idea into a clear brief, concept images, a materials list, and a launch plan.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Design</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥕 Meal Planner by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/meal-planner-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/04sgrpvtAre-Khtz6KDyg</guid>
-    <description>Plans weekly meals around your pantry and budget, builds a priced, aisle-sorted grocery list, and reads food labels to suggest better swaps.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Food</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 Kids Building and Craft Coach by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/kids-building-and-craft-coach-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/kW_TG3B0lCCryQrRfYDMF</guid>
-    <description>A building and craft coach for kids aged 3 to 9 and a grown-up, turning cardboard, blocks, and play dough into short builds before sending kids off to play.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖍️ Kids Activities and Crafts Planner by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/kids-activities-and-crafts-planner-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/RX5YelxYzdzp1H7IrtLZZ</guid>
-    <description>Helps parents, carers, and teachers plan age-right kids activities and crafts for every season, schedule them ahead, and track what is in the craft cupboard.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧺 Decluttering Coach by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/decluttering-coach-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/z5T5TruD8TvrLEoddimh9</guid>
-    <description>Turns messy bedrooms and playrooms into simple 10-minute tidy routines for kids, using the bins a family already owns before suggesting new ones.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Home</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗂️ Chief of Staff by Rachel by Rachel V</title>
-    <link>https://grokbotshelf.com/bot/chief-of-staff-by-rachel</link>
-    <guid isPermaLink="false">https://x.ai/bot/Q95CiuxaGmjpJiBG02XGf</guid>
-    <description>A budget-aware chief of staff for solo builders and small teams that runs projects in the background and adds lean specialist bots only when a role is clear.</description>
-    <dc:creator>Rachel V (@RachelVT42)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏘️ LeaseLord by Jonah by Jonah Anthony</title>
-    <link>https://grokbotshelf.com/bot/leaselord-by-jonah</link>
-    <guid isPermaLink="false">https://x.ai/bot/cMtHljXnkIqtyUf20XbIE</guid>
-    <description>A rental assistant for small landlords and self-managing property managers that tracks rent, renewals, maintenance, and screening.</description>
-    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
-    <category>Home</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>⏱️ Stewart Hours by TNVOLMAN</title>
-    <link>https://grokbotshelf.com/bot/stewart-hours</link>
-    <guid isPermaLink="false">https://x.ai/bot/hUttoVQ9xM6Xu-TB_Jo6x</guid>
-    <description>Finds repeat church-office busywork like double entry, chasing forms, and piled-up approvals, and drafts one low-risk fix at a time.</description>
-    <dc:creator>TNVOLMAN (@TNVOLMAN)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Fri, 30 Oct 2026 12:13:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔁 Close-the-Loop Dan by TNVOLMAN</title>
-    <link>https://grokbotshelf.com/bot/close-the-loop-dan</link>
-    <guid isPermaLink="false">https://x.ai/bot/Yu219MMpC-W178v1ZWpO_</guid>
-    <description>Gives every mercy and ministry request one ticket, a promised date, and a real close, either fulfilled or a clear no, with confirmation.</description>
-    <dc:creator>TNVOLMAN (@TNVOLMAN)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Fri, 30 Oct 2026 12:12:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Risen Ray by TNVOLMAN</title>
-    <link>https://grokbotshelf.com/bot/risen-ray</link>
-    <guid isPermaLink="false">https://x.ai/bot/Y4GcysADVdsIo0ot3USe2</guid>
-    <description>Forecasts church attendance, kids check-ins, and volunteer slots weeks ahead so Easter, Christmas, and big Sundays are staffed before the crunch.</description>
-    <dc:creator>TNVOLMAN (@TNVOLMAN)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Fri, 30 Oct 2026 12:12:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>📋 Paper Trail Pete by TNVOLMAN</title>
-    <link>https://grokbotshelf.com/bot/paper-trail-pete</link>
-    <guid isPermaLink="false">https://x.ai/bot/DVF0NIE0ktoF5qgz7-ECa</guid>
-    <description>Keeps the church safety records insurers ask for, like child check-in, the two-adult rule, offering counts, and AED checks, and tracks every finding.</description>
-    <dc:creator>TNVOLMAN (@TNVOLMAN)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Fri, 30 Oct 2026 12:12:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ Gatekeeper Gus by TNVOLMAN</title>
-    <link>https://grokbotshelf.com/bot/gatekeeper-gus</link>
-    <guid isPermaLink="false">https://x.ai/bot/YnM3M8sM7rFuKJWibFhJu</guid>
-    <description>Tracks kids&apos; worker background checks and vendor insurance and W-9 paperwork for a church, and flags anything close to expiring.</description>
-    <dc:creator>TNVOLMAN (@TNVOLMAN)</dc:creator>
-    <category>Faith</category>
-    <pubDate>Fri, 30 Oct 2026 12:12:56 GMT</pubDate>
   </item>
 </channel>
 </rss>

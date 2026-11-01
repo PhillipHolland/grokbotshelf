@@ -1,0 +1,176 @@
+{
+  "_note": "Job hubs for visitors who are not sure which similar bot to open. Add an object under collections. slug is the page at /collection/<slug>. bots lists every member (bot slug or https://x.ai/bot/<id> url) in editor order. picks (or rank) is 1 to 3 of those, shown as Start here. Everyone else is More like this. Nothing is removed from the catalog. The shelf has no install counts: do not add fake numbers. When Template Rewards usage exists, scripts/build.js can pass a { templateId: number } map into rankJobMembers and that order replaces picks. See scripts/collections.js.",
+  "collections": [
+    {
+      "id": "deal-hunting",
+      "slug": "deal-hunting",
+      "name": "Deal hunting",
+      "emoji": "🏷️",
+      "blurb": "You want a real price before you buy. These bots watch stores, compare prices, and flag discounts that are not real.",
+      "picks": ["deal-scout", "deal-detective", "black-friday-real-deal-checker"],
+      "bots": ["deal-scout", "deal-detective", "black-friday-real-deal-checker", "deal-hunting", "smart-shopper", "thrifty-theo", "thrift-hunter", "ceres-shopper", "shopping-agent", "prime-day", "shop-everywhere", "apple-inventory-and-deal-bot", "apple-deal-price-slicer"]
+    },
+    {
+      "id": "scam-check",
+      "slug": "scam-check",
+      "name": "Scam check",
+      "emoji": "🛡️",
+      "blurb": "Something in a text, email, or call feels off. These bots give you a calm second look before you click, pay, or reply.",
+      "picks": ["scam-guard", "scam-second-opinion", "ftc-report-scam-call"],
+      "bots": ["scam-guard", "scam-second-opinion", "ftc-report-scam-call", "techy", "spam-call-scrubber"]
+    },
+    {
+      "id": "meal-plan",
+      "slug": "meal-plan",
+      "name": "Meal plan",
+      "emoji": "🍽️",
+      "blurb": "Dinner is the question. These bots plan meals from what you already have, watch allergies, and make a shopping list.",
+      "picks": ["what-s-for-dinner-tonight", "kitchen", "meal-planner"],
+      "bots": ["what-s-for-dinner-tonight", "kitchen", "meal-planner", "personal-chef", "nourishment", "sazon", "sous-chef", "meal-planner-tobi", "platepal", "ladle", "meal-planner-by-rachel", "grocery-and-meal-helper-by-kevin", "bookmark-kitchen", "kitchen-studio"]
+    },
+    {
+      "id": "church-ops",
+      "slug": "church-ops",
+      "name": "Church ops",
+      "emoji": "⛪",
+      "blurb": "The week around Sunday: the bulletin, first-time guests, volunteers, and the membership roll. These bots help with that work.",
+      "picks": ["weekly-bulletin-builder", "guest-follow-up", "roll-steward"],
+      "bots": ["weekly-bulletin-builder", "guest-follow-up", "roll-steward", "sermon-multiplier", "funeral-planning-companion", "bivocational-week-shield", "why-we-do-it-ledger", "weather-call", "hospitality-hank", "pew-purpose-paul", "listening-lisa", "desk-diet-dave", "bench-boss-ben", "gatekeeper-gus", "paper-trail-pete", "risen-ray", "close-the-loop-dan", "stewart-hours", "elders-quorum-companion"]
+    },
+    {
+      "id": "email",
+      "slug": "email",
+      "name": "Email",
+      "emoji": "✉️",
+      "blurb": "Your inbox is too full. These bots sort the mail and draft replies. You still decide what gets sent.",
+      "picks": ["inbox-zero", "gmail-assistant", "mailman"],
+      "bots": ["inbox-zero", "gmail-assistant", "mailman", "gmail", "inbox-triage", "midas-for-the-inbox", "mail-bot", "mail", "grokbot-mail", "mail-in-x-chat"]
+    },
+    {
+      "id": "insurance-claims",
+      "slug": "insurance-claims",
+      "name": "Insurance claims",
+      "emoji": "📄",
+      "blurb": "A claim, a denial, or a policy that is hard to read. These bots explain it in plain words and help you answer.",
+      "picks": ["claim-denied", "home-and-renters-claimshield", "va-claims-coach"],
+      "bots": ["claim-denied", "home-and-renters-claimshield", "va-claims-coach", "homeowners-policy-explainer-by-kevin", "auto-and-rideshare-claimshield", "health-concierge", "senior-benefits-compass", "claim-filing-helper-by-kevin", "renewal-prep-coach-by-kevin", "cost-navigator-by-kevin"]
+    },
+    {
+      "id": "fitness",
+      "slug": "fitness",
+      "name": "Fitness",
+      "emoji": "💪",
+      "blurb": "A workout that fits your body and your week. These bots plan sessions and help you log what you did.",
+      "picks": ["fitness-coach", "coach", "mend-and-move"],
+      "bots": ["fitness-coach", "coach", "mend-and-move", "fitness-coach-by-jenna", "strong-and-graceful-fitness", "hercules-body-health", "coach-sam", "personal-trainer-by-sal", "exercise-coach-by-kevin", "workout-demo-builder"]
+    },
+    {
+      "id": "resume-and-jobs",
+      "slug": "resume-and-jobs",
+      "name": "Résumé and job search",
+      "emoji": "💼",
+      "blurb": "You are looking for work. These bots help with the résumé, the applications, and a practice interview.",
+      "picks": ["resume-and-cover-letter-helper", "career-agent", "the-interviewer"],
+      "bots": ["resume-and-cover-letter-helper", "career-agent", "the-interviewer", "resume-optimizer", "star-interview-coach", "janus-jobs", "digger", "it-resume-roaster", "job-hunt-helper-by-mitch", "career-coach-by-ben", "career-coach-by-zachary", "headhunter-by-jonah"]
+    },
+    {
+      "id": "trip-planning",
+      "slug": "trip-planning",
+      "name": "Trip planning",
+      "emoji": "✈️",
+      "blurb": "A trip to plan, from the flight to the days in between. These bots compare options and build a simple itinerary.",
+      "picks": ["tripconcierge", "vacation-vicky", "tammy-true-total-travel-and-points-scout"],
+      "bots": ["tripconcierge", "vacation-vicky", "tammy-true-total-travel-and-points-scout", "family-travel-and-pto-planner", "atlas", "guide", "parks", "travel", "group-tour-trip-planner", "gate-coffee", "rivetroad-trip-planner"]
+    },
+    {
+      "id": "parents-and-kids",
+      "slug": "parents-and-kids",
+      "name": "Parents and kids",
+      "emoji": "👨‍👩‍👧",
+      "blurb": "School, sick days, homework, and getting everyone out the door. These bots help a parent with the next thing.",
+      "picks": ["kid-sick-day-helper", "homework-helper-by-kevin", "school-meeting-prep"],
+      "bots": ["kid-sick-day-helper", "homework-helper-by-kevin", "school-meeting-prep", "parent-math-helper", "child-safety-coach", "vaccine-and-checkup-tracker", "backseat-buddy", "parent-radar", "family-coordination-bot-by-kevin", "chore-and-allowance-tracker-by-kevin", "kids-activities-and-crafts-planner-by-rachel", "504ward-by-jonah"]
+    },
+    {
+      "id": "security-check",
+      "slug": "security-check",
+      "name": "Security check",
+      "emoji": "🔐",
+      "blurb": "You want to know if something is safe. These bots look for weak spots and tell you what to fix first.",
+      "picks": ["security-audit-bot", "personal-cybersecurity-coach", "vuln-scout"],
+      "bots": ["security-audit-bot", "personal-cybersecurity-coach", "vuln-scout", "cve-desk", "cyber-checkup-by-z23", "cso", "security"]
+    },
+    {
+      "id": "faith-and-prayer",
+      "slug": "faith-and-prayer",
+      "name": "Faith and prayer",
+      "emoji": "🙏",
+      "blurb": "A verse, a prayer, or a quiet daily habit. These bots sit with scripture and the day in front of you.",
+      "picks": ["christian-devotional-bot", "daily-verse", "kjvbible"],
+      "bots": ["christian-devotional-bot", "daily-verse", "kjvbible", "daily-grace-and-prayer-closet", "psalm", "pastor-pete", "prayer-care-log", "i-am-trying-to-be-like-jesus-by-tyler", "exegesis"]
+    },
+    {
+      "id": "weather-and-outages",
+      "slug": "weather-and-outages",
+      "name": "Weather and outages",
+      "emoji": "🌤️",
+      "blurb": "What to wear, whether to leave, and if the power is out. These bots watch the forecast and local alerts.",
+      "picks": ["forecast-fred", "weather-and-outage-alerts-by-kevin", "outage-watch"],
+      "bots": ["forecast-fred", "weather-and-outage-alerts-by-kevin", "outage-watch", "weather-bot", "commute-cast-by-santa", "heat-safety-coach", "powder-alert"]
+    },
+    {
+      "id": "taxes",
+      "slug": "taxes",
+      "name": "Taxes",
+      "emoji": "🧾",
+      "blurb": "Forms, write-offs, and the return. These bots help you get the papers in order.",
+      "picks": ["tacks", "irs-bot"],
+      "bots": ["tacks", "irs-bot", "small-business-bookkeeper", "small-business-books"]
+    },
+    {
+      "id": "pet-care",
+      "slug": "pet-care",
+      "name": "Pet care",
+      "emoji": "🐾",
+      "blurb": "Food, vet bills, and the daily routine. These bots help you look after the animals in the house.",
+      "picks": ["pet-care-pal", "vet-bill-and-pet-care-buddy"],
+      "bots": ["pet-care-pal", "vet-bill-and-pet-care-buddy", "pet-care-helper-by-kevin"]
+    },
+    {
+      "id": "refunds-and-returns",
+      "slug": "refunds-and-returns",
+      "name": "Refunds and returns",
+      "emoji": "📦",
+      "blurb": "A package is late, or a warranty said no. These bots help you follow up and ask for the refund.",
+      "picks": ["refund-and-delivery-chaser", "warranty-and-returns-keeper", "home-warranty-and-appliance-claim-denial-fighter"],
+      "bots": ["refund-and-delivery-chaser", "warranty-and-returns-keeper", "home-warranty-and-appliance-claim-denial-fighter", "cart-blanche"]
+    },
+    {
+      "id": "bills-and-budget",
+      "slug": "bills-and-budget",
+      "name": "Bills and budget",
+      "emoji": "💰",
+      "blurb": "Bills, subscriptions, and what is left before payday. These bots watch the money and help you make the call.",
+      "picks": ["bill-buster", "oweno", "ghost-subscription-hunter"],
+      "bots": ["bill-buster", "oweno", "ghost-subscription-hunter", "budgie", "payday-pilot", "bills-and-subscriptions-manager", "bot-budget-guard", "finance"]
+    },
+    {
+      "id": "car-shopping",
+      "slug": "car-shopping",
+      "name": "Car shopping",
+      "emoji": "🚗",
+      "blurb": "A car to buy, or a repair quote to check. These bots compare prices and read the fine print with you.",
+      "picks": ["car-shopper", "car-deal-scout", "car-dealership-and-mechanic-quote-auditor"],
+      "bots": ["car-shopper", "car-deal-scout", "car-dealership-and-mechanic-quote-auditor", "online-vehicle-search", "tesla-inventory-finder", "grease-monkey-wally", "garage"]
+    },
+    {
+      "id": "home-upkeep",
+      "slug": "home-upkeep",
+      "name": "Home upkeep",
+      "emoji": "🏠",
+      "blurb": "Filters, leaks, and the list of what the house needs. These bots remember the chores and the repair history.",
+      "picks": ["handyman", "home-maintenance-tracker", "appliance-fix-annie"],
+      "bots": ["handyman", "home-maintenance-tracker", "appliance-fix-annie", "home-manager", "fixer", "homekeepbot", "renovation-planner", "home-maintenance-reminder-by-kevin", "home-and-garage"]
+    }
+  ]
+}

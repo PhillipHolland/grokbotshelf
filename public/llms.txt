@@ -1,6 +1,6 @@
 # Grok Bot Shelf
 
-> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 826 bots right now. Not affiliated with SpaceXSI.
+> A community directory of shared Grok Bot templates, curated by Phillip Holland (@Phil_Holland) and Nick (@thecsguy). Each entry links to an x.ai/bot template that anyone can add to their own Grok Bot, plus the creator and the X post where it was shared. 849 bots right now. Not affiliated with SpaceXSI.
 
 ## Data
 
@@ -15,6 +15,7 @@
 
 - One page per bot at https://grokbotshelf.com/bot/<slug>, where slug is the bot name in lowercase with dashes (for example https://grokbotshelf.com/bot/archivist).
 - Creator pages at https://grokbotshelf.com/@<handle>.
+- Find by job: https://grokbotshelf.com/collections and one page per hub at https://grokbotshelf.com/collection/<slug> (for example https://grokbotshelf.com/collection/deal-hunting). Hubs are curated lists in collections.json. They do not remove bots. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
 - One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.
 - To add a template inside the Grok Bot app: grokbot://app/v1/bot-template?id=<id>, where id is the part after https://x.ai/bot/.
 

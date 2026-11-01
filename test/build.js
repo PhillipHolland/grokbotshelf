@@ -32,7 +32,20 @@ try {
       || h.replace(/<script>try\{history\.replaceState[^\n]*<\/script>\n/, "") !== canon; });
   ok(!badCase.length, `each display-casing page is the lowercase page plus the address-bar swap (bad: ${badCase.join(", ") || "none"})`);
   const sm = fs.readFileSync(pub("sitemap.xml"), "utf8"), locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  ok(locs.length === 2 + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && new Set(locs).size === locs.length, `sitemap has home + /add + bots + creators, no duplicates (${locs.length})`);
+  const jobFile = JSON.parse(fs.readFileSync(pub("collections.json"), "utf8"));
+  const jobN = Array.isArray(jobFile.collections) ? jobFile.collections.length : 0;
+  ok(locs.length === 2 + (jobN ? 1 + jobN : 0) + bots.length + handles.length && locs.includes("https://grokbotshelf.com/add") && (!jobN || locs.includes("https://grokbotshelf.com/collections") && jobFile.collections.every((c) => locs.includes("https://grokbotshelf.com/collection/" + c.slug))) && new Set(locs).size === locs.length, `sitemap has home + /add + jobs + bots + creators, no duplicates (${locs.length})`);
+  if (jobN) {
+    const hub = fs.readFileSync(pub("collection", jobFile.collections[0].slug, "index.html"), "utf8");
+    const index = fs.readFileSync(pub("collections", "index.html"), "utf8");
+    ok(index.includes("Find a bot by the job") && index.includes("job-card") && hub.includes("Start here") && hub.includes("More like this") && /by <a href="\/@/.test(hub), `job pages: index plus ${jobFile.collections[0].slug} with picks, alternates and creator credit`);
+    const { rankJobMembers } = require(path.join(TMP, "scripts", "collections"));
+    const demo = ["a", "b", "c", "d"].map((s) => ({ slug: s, url: "https://x.ai/bot/" + s }));
+    const ed = rankJobMembers(demo, ["b", "a"], null);
+    const us = rankJobMembers(demo, ["b"], { c: 5, a: 5 });
+    ok(ed.by === "editors" && ed.start.map((b) => b.slug).join() === "b,a" && ed.rest.map((b) => b.slug).join() === "c,d", "with no usage map, editors' picks stay Start here");
+    ok(us.by === "usage" && us.start.map((b) => b.slug).join() === "a,c,b" && us.rest.map((b) => b.slug).join() === "d", "a usage map sorts Start here by count, and a tie keeps editor order");
+  }
   ok(locs.filter((u) => u.includes("/@")).every((u) => u === u.toLowerCase()), "sitemap creator URLs are lowercase");
   const feed = fs.readFileSync(pub("feed.xml"), "utf8");
   ok((feed.match(/<item>/g) || []).length === Math.min(50, bots.length), "feed has the newest 50");
