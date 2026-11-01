@@ -6,7 +6,70 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 01 Nov 2026 16:55:57 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 01 Nov 2026 18:10:30 GMT</lastBuildDate>
+  <item>
+    <title>🛟 Lifeboat by Terry</title>
+    <link>https://grokbotshelf.com/bot/lifeboat</link>
+    <guid isPermaLink="false">https://x.ai/bot/YiW8gORWnd9lwFL8Cl-10</guid>
+    <description>Keeps a restorable backup of your Grok Bots and bot-computer files in storage you choose.</description>
+    <dc:creator>Terry (@Tchap248)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛎️ Home Assistant Butler by Martin</title>
+    <link>https://grokbotshelf.com/bot/home-assistant-butler</link>
+    <guid isPermaLink="false">https://x.ai/bot/YmN90seDnLHs_nZikbpUc</guid>
+    <description>Checks your Home Assistant, fixes devices that drop offline, and runs the vacuum after you say yes.</description>
+    <dc:creator>Martin (@MyPassion_M9T)</dc:creator>
+    <category>Home</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:07 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗺️ Weekend Outing Scout by Martin</title>
+    <link>https://grokbotshelf.com/bot/weekend-outing-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/j_CYY1zYj6oqUUgLK4SeZ</guid>
+    <description>Finds day-trip and weekend ideas near you, checked for weather, hours, travel time, and price.</description>
+    <dc:creator>Martin (@MyPassion_M9T)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚗 Tesla Update Scout by Martin</title>
+    <link>https://grokbotshelf.com/bot/tesla-update-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/IzSBsS5MZfpyGOVTPG6AR</guid>
+    <description>Checks which Tesla update your car is missing, how far the rollout is, and what creators say.</description>
+    <dc:creator>Martin (@MyPassion_M9T)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>📺 Watch Scout by Martin</title>
+    <link>https://grokbotshelf.com/bot/watch-scout</link>
+    <guid isPermaLink="false">https://x.ai/bot/4Z6aRR8A3CsZ7trJaoo_7</guid>
+    <description>Answers what to watch tonight with a few picks streaming now, each with an age rating and a reason.</description>
+    <dc:creator>Martin (@MyPassion_M9T)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:04 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏃 Running Coach by Martin</title>
+    <link>https://grokbotshelf.com/bot/running-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/QI0KHubMrxAt3iRtZQZIS</guid>
+    <description>Reads your Strava runs, builds a season plan with pace zones, and sends a Sunday review.</description>
+    <dc:creator>Martin (@MyPassion_M9T)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:03 GMT</pubDate>
+  </item>
+  <item>
+    <title>👕 Shirty by Jonah</title>
+    <link>https://grokbotshelf.com/bot/shirty</link>
+    <guid isPermaLink="false">https://x.ai/bot/iND3jNLfzk84Qs3qvUv0A</guid>
+    <description>Turns shirt ideas into Printify products with a trademark check, and drafts X posts to promote them.</description>
+    <dc:creator>Jonah (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:02 GMT</pubDate>
+  </item>
   <item>
     <title>📦 Home Inventory Keeper by Kevin by Kevin McDonald</title>
     <link>https://grokbotshelf.com/bot/home-inventory-keeper-by-kevin</link>
@@ -393,69 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sun, 01 Nov 2026 12:14:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗂️ Board Meeting Prep by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/board-meeting-prep-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/bwfyKBMS46XyPJzPEpyNc</guid>
-    <description>Helps nonprofit and public boards prepare meetings: agendas, packet checklists, notice timelines, motions, and minutes templates, plus action-item follow-up.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧳 Family Trip Planner by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/family-trip-planner-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/woKFnjGqesdlHSEGE_Jnu</guid>
-    <description>Plans kid-friendly family trips: day-by-day itineraries, drive times and rest stops, packing lists by age, budgets, and rainy-day backups.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Travel</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>📨 Certificate Request Writer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/certificate-request-writer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/yYspCMr_waqBmTe0lmU_q</guid>
-    <description>Reads the insurance requirements in a contract or lease and writes a clean certificate of insurance request to send to your insurance agent.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>📋 Vendor Contract Tracker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/vendor-contract-tracker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/3RZPdVVHiMlS6c8hQ5D_B</guid>
-    <description>Tracks vendor and subcontractor contracts and certificates of insurance: expirations, required limits, missing endorsements, and reminders before work starts or coverage lapses.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>📉 Loss Run Reader by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/loss-run-reader-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/iN1GKemjJ0EHAIb0Qvtqn</guid>
-    <description>Reads insurance loss runs you share and writes a plain-language claims summary with trends, large losses, open claims, and renewal talking points. For brokers, risk managers, and business owners.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚽ Sports Season Organizer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/sports-season-organizer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Wq1Aq8WRJoZfTM8CaD6kX</guid>
-    <description>Organizes a kid&apos;s or team&apos;s sports season: schedule, snack and carpool rotations, gear checklists, and game-day reminders for parents and coaches.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🦺 Small Business Safety Program by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/small-business-safety-program-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/A_Nj98BzyCjvBBIKto2l0</guid>
-    <description>Helps a small business draft a basic written safety program, training log, incident report form and return-to-work policy that workers&apos; comp underwriters like to see. Generic templates, not legal advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:12 GMT</pubDate>
   </item>
 </channel>
 </rss>
