@@ -6809,5 +6809,53 @@
     "post_id": "2116690914101895630",
     "note": "same as form-584, shelved",
     "approved_by": "Phillip Holland"
+  },
+  "form-595": {
+    "author_handle": "@holt_igor",
+    "template_url": "https://x.ai/bot/UyXfJR6mI8-kBE8Vm60wg",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #595 Spaces Phone Line by Igor; standing auto-shelve SFW rule"
+  },
+  "form-596": {
+    "author_handle": "@holt_igor",
+    "template_url": "https://x.ai/bot/VL3ZTAbOtZrxqVXUUDu39",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #596 Static Site Deployer by Igor; standing auto-shelve SFW rule"
+  },
+  "form-597": {
+    "author_handle": "@Tylerhi11j",
+    "template_url": "https://x.ai/bot/IT-UOFV-dyjKiLBj9C6PY",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #597 Movie Quote Inspiration by Tyler; standing auto-shelve SFW rule"
+  },
+  "form-598": {
+    "author_handle": "@Tylerhi11j",
+    "template_url": "https://x.ai/bot/k4rBSQV28iL-9Hh1748R2",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #598 Literature Inspiration by Tyler; standing auto-shelve SFW rule"
+  },
+  "form-599": {
+    "author_handle": "@Tylerhi11j",
+    "template_url": "https://x.ai/bot/PIU_p6CvpO-6xew6tTeIC",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "",
+    "note": "form #599 Stock Research by Tyler; standing auto-shelve SFW rule"
+  },
+  "form-600": {
+    "author_handle": "@marshallfrith",
+    "template_url": "https://x.ai/bot/62GtLnYAwa39PP6Gs7Smd",
+    "status": "approved",
+    "date": "2026-11-01",
+    "post_id": "2116869417845813499",
+    "note": "form #600 Crime in Your Zip Code by Marshall; standing auto-shelve SFW rule; author verified from @marshallfrith X post linking the template"
   }
 }

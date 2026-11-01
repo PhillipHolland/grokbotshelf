@@ -10911,5 +10911,83 @@
     "creator_avatar": "/avatars/tylerhi11j.webp",
     "source_post": "",
     "added": "2026-10-31"
+  },
+  {
+    "name": "Spaces Phone Line by Igor",
+    "emoji": "📞",
+    "description": "Plans and sets up a call-in phone line for your X Spaces so listeners can join or ask questions by phone, using your own accounts and numbers.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/UyXfJR6mI8-kBE8Vm60wg",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Static Site Deployer by Igor",
+    "emoji": "🚀",
+    "description": "Builds and updates a simple static website from chat and deploys it to your own Cloudflare Pages or Netlify account after you preview it.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/VL3ZTAbOtZrxqVXUUDu39",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Movie Quote Inspiration by Tyler",
+    "emoji": "🎬",
+    "description": "Answers your questions and gives advice through great movie quotes, with clip links, and sends inspiring quotes on a schedule.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/IT-UOFV-dyjKiLBj9C6PY",
+    "creator_name": "Tyler",
+    "creator_handle": "@Tylerhi11j",
+    "creator_url": "https://x.com/Tylerhi11j",
+    "creator_avatar": "/avatars/tylerhi11j.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Literature Inspiration by Tyler",
+    "emoji": "📚",
+    "description": "Answers your questions and gives advice through quotes from great literature, always citing the book and author, and sends inspiring quotes twice a day.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/k4rBSQV28iL-9Hh1748R2",
+    "creator_name": "Tyler",
+    "creator_handle": "@Tylerhi11j",
+    "creator_url": "https://x.com/Tylerhi11j",
+    "creator_avatar": "/avatars/tylerhi11j.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Stock Research by Tyler",
+    "emoji": "📈",
+    "description": "A beginner-friendly stock research helper that summarizes earnings and a daily market report and teaches options with lessons and quizzes. Educational only.",
+    "category": "Money",
+    "url": "https://x.ai/bot/PIU_p6CvpO-6xew6tTeIC",
+    "creator_name": "Tyler",
+    "creator_handle": "@Tylerhi11j",
+    "creator_url": "https://x.com/Tylerhi11j",
+    "creator_avatar": "/avatars/tylerhi11j.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Crime in Your Zip Code by Marshall",
+    "emoji": "🚨",
+    "description": "Enter a US zip code to get a sourced map of reported crime, split into serious and lesser crimes, plus the latest posts from law enforcement on X.",
+    "category": "Home",
+    "url": "https://x.ai/bot/62GtLnYAwa39PP6Gs7Smd",
+    "creator_name": "Marshall",
+    "creator_handle": "@marshallfrith",
+    "creator_url": "https://x.com/marshallfrith",
+    "creator_avatar": "/avatars/marshallfrith.webp",
+    "source_post": "https://x.com/marshallfrith/status/2116869417845813499",
+    "added": "2026-11-01"
   }
 ]
