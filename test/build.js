@@ -55,6 +55,11 @@ try {
     const { botMark } = require(path.join(TMP, "scripts", "icons"));
     ok(relay.mark === "message-circle" && audit.mark === "lock" && reel.emoji === "🎬" && reel.mark === "clapperboard" && reel.name.includes("➡️") && botMark("🦄") === "bot", "card marks map emoji to Lucide and keep emoji inside the name");
     ok(fit.includes('class="li"') && !fit.includes(">💪<") && fitBot.includes('class="icon big"') && fitBot.includes('class="li"') && !fitBot.includes(">💪<") && stacksHtml.includes('class="mk"'), "list cards and the bot header draw a Lucide mark, not the emoji glyph");
+    const lab = fs.readFileSync(pub("lab", "desk", "index.html"), "utf8");
+    const labChrome = lab.replace(/Reel ➡️ 𝕏/g, "");
+    ok(!/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(labChrome) && lab.includes('id="i-share"') && lab.includes("m16 6-4-4-4 4") && homeNow.includes('class="empty-i"') && homeNow.includes("m21 21-4.34-4.34") && fitBot.includes("m5 12 7-7 7 7"), "lab chrome, the empty state, and vote arrows use Lucide paths; a bot name can still carry emoji");
+    const desk = fs.readFileSync(pub("lab", "desk.js"), "utf8");
+    ok(desk.includes("function botIcon") && desk.includes("${botIcon(b.emoji)}") && !desk.includes("${esc(b.emoji)}") && desk.includes("M12 8V4H8") && desk.includes('"🎬"'), "lab cards redraw with the Lucide mark table, not the emoji glyph");
     ok(stacksHtml.includes('class="stack-meta"') && !stacksHtml.includes('class="sub"'), "stack count line is its own row, not the bot-page subtitle");
     const cssNow = fs.readFileSync(path.join(TMP, "public", "styles.css"), "utf8");
     ok(stacksHtml.includes('class="botpage stackspage"') && cssNow.includes("body.stackspage .rail") && cssNow.includes("background:var(--field);color:var(--text);font:600 13px"), "stacks page hides any A-Z rail and pair chips stay flat");

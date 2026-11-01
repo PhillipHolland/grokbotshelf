@@ -316,6 +316,17 @@ const PATHS = {
   "snowflake": "<path d=\"m10 20-1.25-2.5L6 18\" /><path d=\"M10 4 8.75 6.5 6 6\" /><path d=\"m14 20 1.25-2.5L18 18\" /><path d=\"m14 4 1.25 2.5L18 6\" /><path d=\"m17 21-3-6h-4\" /><path d=\"m17 3-3 6 1.5 3\" /><path d=\"M2 12h6.5L10 9\" /><path d=\"m20 10-1.5 2 1.5 2\" /><path d=\"M22 12h-6.5L14 15\" /><path d=\"m4 10 1.5 2L4 14\" /><path d=\"m7 21 3-6-1.5-3\" /><path d=\"m7 3 3 6h4\" />",
   "tornado": "<path d=\"M21 4H3\" /><path d=\"M18 8H6\" /><path d=\"M19 12H9\" /><path d=\"M16 16h-6\" /><path d=\"M11 20H9\" />",
   "waves": "<path d=\"M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\" /><path d=\"M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\" /><path d=\"M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1\" />",
+  "share": "<path d=\"M12 2v13\" /><path d=\"m16 6-4-4-4 4\" /><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\" />",
+  "code": "<path d=\"m16 18 6-6-6-6\" /><path d=\"m8 6-6 6 6 6\" />",
+  "arrow-up": "<path d=\"m5 12 7-7 7 7\" /><path d=\"M12 19V5\" />",
+  "arrow-down": "<path d=\"M12 5v14\" /><path d=\"m19 12-7 7-7-7\" />",
+  "moon": "<path d=\"M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z\" />",
+  "chevron-down": "<path d=\"m6 9 6 6 6-6\" />",
+  "chevron-right": "<path d=\"m9 18 6-6-6-6\" />",
+  "list": "<path d=\"M3 12h.01\" /><path d=\"M3 18h.01\" /><path d=\"M3 6h.01\" /><path d=\"M8 12h13\" /><path d=\"M8 18h13\" /><path d=\"M8 6h13\" />",
+  "layout-grid": "<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" /><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\" /><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\" /><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />",
+  "check": "<path d=\"M20 6 9 17l-5-5\" />",
+  "x": "<path d=\"M18 6 6 18\" /><path d=\"m6 6 12 12\" />",
 };
 
 const EMOJI_ICON = {
@@ -700,6 +711,23 @@ function botMark(emoji) {
   return emojiIcon(emoji, "bot");
 }
 
+// Lab desk re-renders cards in the browser, so it needs the same emoji → Lucide map as the build.
+// { m: normalized emoji → icon name, p: icon name → path body }. Unknown emoji uses "bot".
+function markLookup() {
+  const names = new Set(["bot"]);
+  const m = {};
+  for (const [emoji, name] of EMOJI_NORM) {
+    m[emoji] = name;
+    names.add(name);
+  }
+  const p = {};
+  for (const name of names) {
+    if (!PATHS[name]) throw new Error("markLookup: no Lucide path for " + name);
+    p[name] = PATHS[name];
+  }
+  return { m, p };
+}
+
 function lucide(name, opts) {
   const body = PATHS[name];
   if (!body) throw new Error("lucide: unknown icon " + name);
@@ -715,4 +743,13 @@ function lucideSprite(names) {
   return `<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false">${symbols}</svg>`;
 }
 
-module.exports = { PATHS, EMOJI_ICON, emojiIcon, botMark, lucide, lucideSprite };
+// Card actions (share, copy, source, votes, Add to Bot app, bookmarks). The X mark is the
+// brand logo, not a Lucide stroke. Ids stay #i-* so app.js and the lab mock can <use> them.
+const ACTION_ICONS = { share: "share", copy: "link", code: "code", up: "arrow-up", down: "arrow-down", app: "smartphone", bm: "bookmark" };
+const X_LOGO = `<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>`;
+function actionSprite() {
+  const symbols = Object.entries(ACTION_ICONS).map(([id, name]) => `<symbol id="i-${id}" viewBox="0 0 24 24">${PATHS[name]}</symbol>`).join("");
+  return `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">${symbols}<symbol id="i-x" viewBox="0 0 24 24">${X_LOGO}</symbol></svg>`;
+}
+
+module.exports = { PATHS, EMOJI_ICON, emojiIcon, botMark, lucide, lucideSprite, actionSprite, markLookup };
