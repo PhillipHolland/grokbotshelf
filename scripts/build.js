@@ -19,6 +19,14 @@ assertPairKeys(bots.map((b) => ({ ...b, slug: slugify(b.name) })), JSON.parse(fs
 const meta = (read("bot-meta.json", {}).bots) || {};
 const social = (read("social.json", {}).posts) || {};
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+// Search snippets cut off around 160 characters. The page and the JSON-LD keep the full text.
+function clipDesc(s, n = 155) {
+  const t = String(s ?? "").replace(/\s+/g, " ").trim();
+  if (t.length <= n) return t;
+  const cut = t.slice(0, n);
+  const i = cut.lastIndexOf(" ");
+  return (i > 80 ? cut.slice(0, i) : cut).replace(/[.,;:]+$/, "") + "...";
+}
 const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes actions" };
 const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
@@ -221,13 +229,17 @@ ${TIP}
 ${assoc ? `  <p class="assoc">${esc(assoc)}</p>\n` : ""}  <p class="by">Shelf by <a href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a> and <a href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a></p>
 </footer>`;
 // css: true (bot and creator pages) leaves a marker that becomes the inlined critical CSS once every page is built (round 6 #5)
-const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css }) => `<!doctype html>
+const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css, ogType }) => {
+  const meta = clipDesc(desc);
+  const type = ogType === "profile" ? "profile" : "website";
+  return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)}</title>
-<meta name="description" content="${esc(desc)}">
+<meta name="description" content="${esc(meta)}">
+<meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#000000">
 <script>${THEME_JS};${MOBILE_JS}</script>
@@ -237,19 +249,21 @@ const head = ({ title, desc, url, img, ogTitle, alt, creator, ld, css }) => `<!d
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/rss+xml" title="Grok Bot Shelf, newest bots" href="/feed.xml">
-<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="${type}">
 <meta property="og:site_name" content="Grok Bot Shelf">
 <meta property="og:title" content="${esc(ogTitle)}">
-<meta property="og:description" content="${esc(desc)}">
+<meta property="og:description" content="${esc(meta)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(alt)}">
-<meta name="twitter:card" content="summary_large_image">
+${type === "profile" ? `<meta property="profile:username" content="${esc(String(creator || "").replace(/^@/, ""))}">\n` : ""}<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(ogTitle)}">
-<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:description" content="${esc(meta)}">
 <meta name="twitter:image" content="${img}">
+<meta name="twitter:image:alt" content="${esc(alt)}">
 <meta name="twitter:site" content="@Phil_Holland">
 <meta name="twitter:creator" content="${esc(creator)}">
 ${ldScript(ld)}
@@ -260,6 +274,7 @@ ${css ? PAGE_CSS_MARK : `<link rel="stylesheet" href="${versioned("/styles.css")
 <script defer src="/_vercel/insights/script.js"></script>
 ${GOOGLE_HEAD}
 </head>`;
+};
 // "Under the hood" appears only when the creator supplied at least one of these optional bots.json fields:
 // connectors, routines [{name, schedule}], sends/posts/spends (true or false), permissions_note. Only those rows show.
 const CREATOR_SUPPLIED = `<span class="src">Creator-supplied</span>`;
@@ -313,13 +328,20 @@ const XLOGO = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25
 const VOTE = (b) => `<span class="vote bp-vote" data-vote="bot-${b.slug}" data-tip="No votes yet. Be the first"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote ${esc(b.name)}">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}</button><span class="vn zero">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote ${esc(b.name)}">${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}</button></span>`;
 // JSON-LD: only fields the shelf actually has. No ratings or vote counts, no publisher.
 const crumbs = (list) => ({ "@type": "BreadcrumbList", itemListElement: list.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })) });
+function crumbsNav(list) {
+  const parts = list.map(([name, href], i) => {
+    const last = i === list.length - 1;
+    return !last && href ? `<a href="${esc(href)}">${esc(name)}</a>` : `<span${last ? ' aria-current="page"' : ""}>${esc(name)}</span>`;
+  }).join('<span class="sep" aria-hidden="true">/</span>');
+  return `<nav class="crumbs" aria-label="Breadcrumb">${parts}</nav>`;
+}
 const xProfile = (handle) => "https://x.com/" + handle;
 function botLd(b, url, img) {
   const author = { "@type": "Person", name: b.creator_name, ...(b.creator_handle ? { url: SITE + "/@" + ckey(b), sameAs: xProfile(handleOf(b)) } : {}) };
   const trail = [["Grok Bot Shelf", SITE + "/"], ...(b.creator_handle ? [[b.creator_name, SITE + "/@" + ckey(b)]] : []), [b.name, url]];
   return { "@context": "https://schema.org", "@graph": [
     { "@type": "WebPage", "@id": url, url, name: titled(b), description: b.description, breadcrumb: { "@id": url + "#breadcrumb" },
-      mainEntity: { "@type": "SoftwareApplication", name: b.name, description: b.description, applicationCategory: b.category, url, sameAs: b.url, image: img, author } },
+      mainEntity: { "@type": "SoftwareApplication", name: b.name, description: b.description, applicationCategory: b.category, url, installUrl: b.url, sameAs: b.url, image: img, author } },
     { "@id": url + "#breadcrumb", ...crumbs(trail) },
   ] };
 }
@@ -375,10 +397,12 @@ function page(b, related, similar) {
   // credited the same way the cards credit it
   const shareText = `${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf`;
   const share = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
+  const trail = [["Grok Bot Shelf", "/"], ...(b.creator_handle ? [[b.creator_name, "/@" + ckey(b)]] : []), [b.name, ""]];
   return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld, css: true })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
+  ${crumbsNav(trail)}
   <article class="bp-card" data-slug="bot-${b.slug}">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(b.emoji)}</div><div>
       <h1>${esc(b.name)}</h1>
@@ -463,18 +487,24 @@ function creatorPage(c) {
       itemListElement: c.bots.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) },
     { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], [c.name, url]]) },
   ] };
-  return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld, css: true })}
+  const jobs = [];
+  const seenJob = new Set();
+  for (const b of c.bots) for (const j of jobBySlug.get(b.slug) || []) if (!seenJob.has(j.slug)) { seenJob.add(j.slug); jobs.push(j); }
+  const jobLinks = jobs.length ? `<p class="bp-links">${jobs.map((j) => `<a href="/collection/${esc(j.slug)}">${esc(j.emoji)} ${esc(j.name)}</a>`).join("")}</p>` : "";
+  return `${head({ title: `${c.name} (@${c.handle}) · Grok Bot Shelf`, desc, url, img: ogFile("creator", c.handle.toLowerCase()), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${nb} by ${c.name} on Grok Bot Shelf`, creator: "@" + c.handle, ld, css: true, ogType: "profile" })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
+  ${crumbsNav([["Grok Bot Shelf", "/"], [c.name, ""]])}
   <article class="bp-card">
-    <div class="bp-head"><img class="cp-av" src="${esc(versioned(c.avatar))}" alt="" width="56" height="56"><div>
+    <div class="bp-head"><img class="cp-av" src="${esc(versioned(c.avatar))}" alt="${esc(c.name)}" width="56" height="56"><div>
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="${esc(c.url)}" rel="noopener" target="_blank">@${esc(c.handle)} on X</a><span class="dot" aria-hidden="true">·</span><span>${nb}${dates.length ? ` since ${fmtDate(dates[0])}` : " on the shelf"}</span></p>
     </div></div>
     <ul class="cp-cats" aria-label="Categories">${cats.map((k) => { const m = c.bots.filter((b) => b.category === k).length;
       return `<li><a href="/?creator=${esc(c.handle.toLowerCase())}&amp;cat=${esc(slugify(k))}">${esc(k)}${n > 1 ? ` <span class="n" aria-label="${m} ${m === 1 ? "bot" : "bots"}">${m}</span>` : ""}</a></li>`; }).join("")}</ul>
     <p class="bp-links"><a href="/?creator=${esc(c.handle.toLowerCase())}">Open on the shelf</a><a href="${esc(c.url)}" rel="noopener" target="_blank">Follow on X</a></p>
+    ${jobLinks}
   </article>
   <section class="bp-more cp-list"><h2>Bots by ${esc(c.name)}</h2><ul>${c.bots.map((b) => `<li><a href="${b.page}"><span aria-hidden="true">${esc(b.emoji)}</span> ${esc(b.name)}<small class="cat"><span>${esc(b.category)}</span><span class="cp-sc zero" data-score="bot-${b.slug}" data-tip="No votes yet">${SVG('<path d="M12 19V5"/><path d="m6 11 6-6 6 6"/>')}${SVG('<path d="M12 5v14"/><path d="m6 13 6 6 6-6"/>')}<span class="n">0</span><span class="sr"> votes</span></span></small><small>${esc(b.description)}</small></a>${miniPairs(b, "creator")}</li>`).join("")}</ul></section>
 </main>
@@ -501,7 +531,7 @@ function jobWho(b) {
 }
 function jobBot(b) {
   const who = jobWho(b);
-  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><strong>${esc(b.name)}</strong><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
+  return `<li class="job-bot"><a class="job-main" href="${b.page}"><span class="icon" aria-hidden="true">${esc(b.emoji)}</span><span class="jt"><h3>${esc(b.name)}</h3><small>${esc(b.description)}</small></span></a>${who ? `<p class="by">by ${who}</p>` : ""}${miniPairs(b, "collection")}</li>`;
 }
 function jobHeader(onIndex) {
   const link = onIndex ? `<a href="/collections" aria-current="page">Find by job</a>` : `<a href="/collections">Find by job</a>`;
@@ -519,6 +549,7 @@ fs.rmSync(path.join(PUB, "collections"), { recursive: true, force: true });
   const url = `${SITE}/collections`;
   const ld = { "@context": "https://schema.org", "@graph": [
     { "@type": "CollectionPage", "@id": url, url, name: "Find a bot by the job", description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
+      breadcrumb: { "@id": url + "#breadcrumb" },
       mainEntity: { "@type": "ItemList", numberOfItems: jobCollections.length, itemListElement: jobCollections.map((c, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/collection/${c.slug}`, name: c.name })) } },
     { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", url]]) },
   ] };
@@ -526,11 +557,12 @@ fs.rmSync(path.join(PUB, "collections"), { recursive: true, force: true });
 <body class="botpage">
 ${jobHeader(true)}
 <main class="wrap bp" id="main">
+  ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", ""]])}
   <article class="bp-card">
     <h1>Find a bot by the job</h1>
     <p class="job-lead">${esc(desc)}</p>
   </article>
-  <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${esc(c.emoji)}</span><span><strong>${esc(c.name)}</strong><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
+  <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${esc(c.emoji)}</span><span><h2>${esc(c.name)}</h2><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
 </main>
 ${footer()}
 </body>
@@ -542,6 +574,7 @@ ${footer()}
     const desc = c.blurb;
     const ld = { "@context": "https://schema.org", "@graph": [
       { "@type": "CollectionPage", "@id": url, url, name: c.name, description: desc, isPartOf: { "@type": "WebSite", name: "Grok Bot Shelf", url: SITE + "/" },
+        breadcrumb: { "@id": url + "#breadcrumb" },
         mainEntity: { "@type": "ItemList", numberOfItems: n, itemListElement: c.members.map((b, i) => ({ "@type": "ListItem", position: i + 1, url: SITE + b.page, name: b.name })) } },
       { "@id": url + "#breadcrumb", ...crumbs([["Grok Bot Shelf", SITE + "/"], ["Find by job", SITE + "/collections"], [c.name, url]]) },
     ] };
@@ -551,6 +584,7 @@ ${footer()}
 <body class="botpage">
 ${jobHeader(false)}
 <main class="wrap bp" id="main">
+  ${crumbsNav([["Grok Bot Shelf", "/"], ["Find by job", "/collections"], [c.name, ""]])}
   <article class="bp-card">
     <div class="bp-head"><div class="icon big" aria-hidden="true">${esc(c.emoji)}</div><div>
       <h1>${esc(c.name)}</h1>
@@ -565,6 +599,7 @@ ${jobHeader(false)}
     <ul class="job-bots">${c.start.map(jobBot).join("")}</ul>
   </section>
   ${alts}
+  ${jobCollections.length > 1 ? `<nav class="job-more" aria-label="Other jobs"><h2>Other jobs</h2><ul>${jobCollections.filter((o) => o.slug !== c.slug).map((o) => `<li><a href="/collection/${esc(o.slug)}"><span aria-hidden="true">${esc(o.emoji)}</span> ${esc(o.name)}</a></li>`).join("")}</ul></nav>` : ""}
 </main>
 ${footer(hubPairs ? products.disclosure : "")}
 </body>
@@ -619,9 +654,11 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
 
 // Homepage JSON-LD and the prefetch script, between the ld and prefetch markers in index.html. The SearchAction is real:
 // app.js reads ?q= on load and filters the shelf to it.
+const homeDesc = `${items.length} shared Grok Bot templates from ${new Set(items.map(ckey)).size} creators. Search by category, app and what the bot does. Import in one tap.`;
 {
-  const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/",
-    potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" } };
+  const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/", description: homeDesc,
+    potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" },
+    hasPart: jobCollections.map((c) => ({ "@type": "CollectionPage", name: c.name, url: `${SITE}/collection/${c.slug}` })) };
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   const n = h.replace(/<!-- ld:start -->[\s\S]*?<!-- ld:end -->/, `<!-- ld:start -->${ldScript(site)}<!-- ld:end -->`)
     .replace(/<!-- prefetch:start -->[\s\S]*?<!-- prefetch:end -->/, `<!-- prefetch:start --><script>${PREFETCH_JS}</script><!-- prefetch:end -->`);
@@ -632,10 +669,11 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
 // Homepage description and share title carry the live counts; twitter:site matches the bot and creator pages
 {
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
-  const desc = `${items.length} shared Grok Bot templates from ${new Set(items.map(ckey)).size} creators. Search by category, app and what the bot does. Import in one tap.`;
+  const desc = homeDesc;
   const title = `Grok Bot Shelf: ${items.length} shared Grok Bot templates`;
   let n = h.replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(">)/g, `$1${esc(desc)}$2`)
-    .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(">)/g, `$1${esc(title)}$2`);
+    .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(">)/g, `$1${esc(title)}$2`)
+    .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
   if (!n.includes('name="twitter:site"')) n = n.replace('<meta name="twitter:creator" content="@Phil_Holland">', '<meta name="twitter:site" content="@Phil_Holland">\n<meta name="twitter:creator" content="@Phil_Holland">');
   if ((n.match(new RegExp(`content="${esc(desc).replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g")) || []).length !== 3 || !n.includes('name="twitter:site"')) throw new Error("homepage description/title meta tags not found");
   if (n !== h) fs.writeFileSync(f, n);
@@ -658,6 +696,7 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
 <body class="botpage addpage">
 ${siteHeader({ addCurrent: true })}
 <main class="wrap bp" id="main">
+  ${crumbsNav([["Grok Bot Shelf", "/"], ["Add your bot", ""]])}
   ${sec}
 </main>
 ${footer()}
@@ -729,7 +768,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 
 - One page per bot at ${SITE}/bot/<slug>, where slug is the bot name in lowercase with dashes (for example ${SITE}${items[0] ? items[0].page : "/bot/archivist"}).
 - Creator pages at ${SITE}/@<handle>.
-- Find by job: ${SITE}/collections and one page per hub at ${SITE}/collection/<slug> (for example ${SITE}/collection/${jobCollections[0] ? jobCollections[0].slug : "deal-hunting"}). Hubs are curated lists in collections.json. They do not remove bots. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
+- Find by job: ${SITE}/collections and one page per hub at ${SITE}/collection/<slug> (for example ${SITE}/collection/${jobCollections[0] ? jobCollections[0].slug : "deal-hunting"}). Hubs are curated lists in collections.json. They do not remove bots. Each hub links its bots, their creators, and the other jobs. "Start here" is the editors' picks until a usage feed exists. See scripts/collections.js.
 - One job filter (?one_job=1) keeps bots marked one_job in bot-meta.json. Most upvoted (?sort=votes) sorts by shelf vote score.
 - To add a template inside the Grok Bot app: grokbot://app/v1/bot-template?id=<id>, where id is the part after https://x.ai/bot/.
 
