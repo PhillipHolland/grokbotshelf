@@ -6,7 +6,7 @@ const http = require("http"), fs = require("fs"), path = require("path");
 const PUB = path.join(__dirname, "..", "public");
 const cfg = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "vercel.json"), "utf8"));
 const TYPES = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".svg": "image/svg+xml",
-  ".png": "image/png", ".webp": "image/webp", ".xml": "application/xml", ".txt": "text/plain; charset=utf-8", ".ico": "image/x-icon" };
+  ".png": "image/png", ".webp": "image/webp", ".woff2": "font/woff2", ".xml": "application/xml", ".txt": "text/plain; charset=utf-8", ".ico": "image/x-icon" };
 const file = (rel) => { const f = path.join(PUB, rel); if (!f.startsWith(PUB)) return null; try { return fs.statSync(f).isFile() ? f : null; } catch { return null; } };
 const resolve = (p) => file(p) || file(p + ".html") || file(path.join(p, "index.html"));
 const rewrites = (cfg.rewrites || []).map((r) => ({ re: new RegExp("^" + r.source.replace(/:\w+/g, "[^/]+") + "/?$"), to: r.destination }));

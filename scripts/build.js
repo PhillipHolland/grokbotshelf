@@ -89,11 +89,16 @@ const fileHash = (() => { const seen = new Map(); return (rel) => {
   return seen.get(f);
 }; })();
 const versioned = (rel) => (/^\/[^/]/.test(rel || "") && !String(rel).includes("?") && fileHash(rel) ? `${rel}?v=${fileHash(rel)}` : rel);
+// The font's URL lives in styles.css. Every page preloads it, since a stylesheet alone finds it only after the first layout.
+const FONT_URL = (fs.readFileSync(path.join(PUB, "styles.css"), "utf8").match(/url\("(\/fonts\/[^"]+\.woff2)"\)/) || [])[1];
+if (!FONT_URL || !fs.existsSync(path.join(PUB, FONT_URL))) throw new Error("styles.css does not name a font file in public/fonts");
+const FONT_PRELOAD = `<link rel="preload" href="${FONT_URL}" as="font" type="font/woff2" crossorigin>`;
+const withFontPreload = (h) => h.replace(/<link rel="preload" href="\/fonts\/[^>]*>\n?/, "").replace(/<link rel="stylesheet" href="\/styles\.css/, (m) => `${FONT_PRELOAD}\n${m}`);
 // styles.css, app.js, add.js and shelf-up.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
 for (const page of ["index.html", "404.html"]) {
   const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
   const h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/(href|src)="\/(styles\.css|app\.js|add\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
+  const n = withFontPreload(h).replace(/(href|src)="\/(styles\.css|app\.js|add\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const AVATARS_SM = read("avatars/48/manifest.json", {});
@@ -181,7 +186,7 @@ const docTitle = (b) => {
 const catSlug = (name) => slugify(name);
 const catPath = (name) => `/category/${catSlug(name)}`;
 const handleCount = (list) => new Set(list.map((b) => (b.creator_handle ? handleOf(b).toLowerCase() : "")).filter(Boolean)).size;
-const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}/og.png?v=2`;
+const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}/og.png?v=3`;
 const ogImg = (b) => ogFile("bot", b.slug);
 
 // Similar bots: same category, shared works_with apps, and shared description words weighted by rarity.
@@ -261,7 +266,7 @@ function siteHeader({ title = false, job = "", addCurrent = false, growth = fals
   const growthLine = growth ? `\n${growthStrip()}` : "";
   // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
   // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
-  const homeSize = title ? `<style>.gbs-brand{display:inline-flex;align-items:center;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:inherit;gap:12px;min-width:0;text-decoration:none}h1.shelf-h1{display:block;flex:1 0 100%;margin:2px 0 0;white-space:normal;font-size:clamp(22px,3.2vw,30px);font-weight:800;letter-spacing:-.03em;line-height:1.2}@media (max-width:640px){.gbs-brand{gap:9px;font-size:26px}h1.shelf-h1{font-size:22px}}@media (max-width:380px){.gbs-brand{gap:8px;font-size:24px}}</style>\n` : "";
+  const homeSize = title ? `<style>.gbs-brand{display:inline-flex;align-items:center;font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:0;word-spacing:-.06em;line-height:1.1;color:inherit;gap:12px;min-width:0;text-decoration:none}h1.shelf-h1{display:block;flex:1 0 100%;margin:2px 0 0;white-space:normal;font-size:clamp(22px,3.2vw,30px);font-weight:500;letter-spacing:0;line-height:1.2}@media (max-width:640px){.gbs-brand{gap:9px;font-size:26px}h1.shelf-h1{font-size:22px}}@media (max-width:380px){.gbs-brand{gap:8px;font-size:24px}}</style>\n` : "";
   return `${homeSize}<header class="wrap hero">
   ${brand}
   <div class="hero-actions">${add}${gift}${THEME_BTN}</div>
@@ -303,7 +308,7 @@ stampDeskMarks();
 {
   const f = path.join(PUB, "lab/desk/index.html");
   const h = fs.readFileSync(f, "utf8");
-  const n = h.replace(/(href|src)="(\/(?:styles\.css|shelf-up\.js|lab\/desk\.js))(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned(file)}"`);
+  const n = withFontPreload(h).replace(/(href|src)="(\/(?:styles\.css|shelf-up\.js|lab\/desk\.js))(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned(file)}"`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 // Plan note is homepage-only, above the tip card. Bot pages and 404 keep the tip card alone.
@@ -368,6 +373,7 @@ ${type === "profile" ? `<meta property="profile:username" content="${esc(String(
 <meta name="twitter:creator" content="${esc(creator)}">
 ${ldScript(ld)}
 <script>${PREFETCH_JS}</script>
+${FONT_PRELOAD}
 ${css ? PAGE_CSS_MARK : `<link rel="stylesheet" href="${versioned("/styles.css")}">`}
 <script src="${versioned("/shelf-up.js")}" defer></script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>

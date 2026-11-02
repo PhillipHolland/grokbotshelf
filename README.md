@@ -143,6 +143,14 @@ cd /workspace/bot-hub && vercel deploy --prod --yes
 Paste the X launch post URL into `public/config.js` (`window.LAUNCH_POST_URL = "..."`)
 and redeploy. Until it is set, the "Add your bot" section shows plain text with no link.
 
+## Font
+
+The site is set in [Shelf Serif](https://github.com/itsthecsguy/shelf-serif), self-hosted at `public/fonts/` with its license. The `@font-face` at the top of `public/styles.css` is the one place that names the file. `scripts/build.js` reads the URL from there for the preload on every page, and `scripts/og.js` reads it to embed the font in share cards.
+
+To take a new release, add the file under a new versioned name, change the URL in `styles.css`, then redraw the share cards and rebuild. The file is cached for a year, so a changed font needs a new name.
+
+Weights are lower than on a typical sans because Shelf Serif 400 has the ink of a normal Bold. Reading text uses `--w-read` (300), and the font stops at 700. `test/font.js` fails if the font stops loading.
+
 ## Share image and icons
 
 `public/og.png` (1200x630) is rendered from `build/og.html` with headless Chrome:

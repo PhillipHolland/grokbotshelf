@@ -92,7 +92,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
     for (let i = 0; i < 40 && !f; i++) { await p.keyboard.press('Tab'); f = await p.evaluate(() => { const a = document.activeElement; if (!a.closest('.bp-links')) return null; const cs = getComputedStyle(a); return { o: cs.outlineStyle, ow: cs.outlineWidth, off: cs.outlineOffset, bs: cs.boxShadow, fv: a.matches(':focus-visible') }; }); }
     ok(f && f.fv && f.o === 'solid' && f.ow === '2px' && f.off === '3px' && f.bs === 'none', `#5 ${w}: Tab to a .bp-links text link: offset outline, no glyph box (${JSON.stringify(f)})`);
     const c = await p.$eval('.snip-h .clear', (e) => { const cs = getComputedStyle(e); return { bw: cs.borderTopWidth, bg: cs.backgroundColor, r: cs.borderTopLeftRadius, app: cs.appearance, w: cs.fontWeight }; });
-    ok(c.bw === '0px' && c.bg === 'rgba(0, 0, 0, 0)' && parseFloat(c.r) > 100 && c.app === 'none' && c.w === '700', `#5 ${w}: Copy is a borderless bold pill (${JSON.stringify(c)})`);
+    ok(c.bw === '0px' && c.bg === 'rgba(0, 0, 0, 0)' && parseFloat(c.r) > 100 && c.app === 'none' && c.w === '350', `#5 ${w}: Copy is a borderless pill (${JSON.stringify(c)})`);
     const act = await p.evaluate(() => [...document.styleSheets].flatMap((s) => { try { return [...s.cssRules]; } catch (e) { return []; } }).some((r) => r.selectorText && /\.get/.test(r.selectorText) && /:active/.test(r.selectorText) && /scale/.test(r.cssText)));
     ok(act, `#5 ${w}: pills have an :active press state`);
     await p.close();

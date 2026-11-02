@@ -1,6 +1,10 @@
 /* Grok Bot Shelf. X styling: Lights out dark by default, X light via data-theme. */
+/* Shelf Serif, self-hosted. Bump the version in the file name for a new release: scripts/build.js and vercel.json key off it. */
+@font-face{font-family:"Shelf Serif";src:url("/fonts/ShelfSerif-5.000.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
 :root{
-  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font:"Shelf Serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  /* Shelf Serif 400 has the ink of the old Bold and 300 beats the old Regular, so most text is 300 and emphasis stays low. */
+  --w-read:300;
   --blue:#1d9bf0; --blue-h:#1a8cd8;
   --btn-blue:#1270c4; --btn-blue-h:#0f5fa8; /* white text on these passes 4.5:1 */
     --bg:#000; --text:#e7e9ea; --text2:#71767b; --line:#2f3336; --line2:#536471; --hover:#16181c; --field:#202327;
@@ -31,7 +35,12 @@ html.jumping .card{content-visibility:visible}
 /* The first two groups of a filtered view are on screen at load: render them at their real size, not the 200px
    content-visibility estimate, so the groups below do not move up a frame later (CLS on e.g. /?role=tutor) */
 #results>.group:nth-of-type(-n+2) .card{content-visibility:visible}
-body{margin:0;background:var(--bg);color:var(--text);font:400 15px/1.4 var(--font);-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--text);font:var(--w-read) 15px/1.4 var(--font);font-variant-numeric:proportional-nums;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+html{font-synthesis:none}
+h1,h2,h3,h4{font-weight:500}
+b,strong{font-weight:400}
+/* Buttons do not inherit the page font on their own, and a few hold text that swaps in (Copied) */
+button{font-family:inherit}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
@@ -40,8 +49,8 @@ a{color:inherit}
 
 /* Hero: title and add link */
 .hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;column-gap:16px;row-gap:6px;padding-top:max(28px,env(safe-area-inset-top));padding-bottom:20px}
-.affil{flex:1 0 100%;margin:0;font-size:12px;font-weight:400;letter-spacing:0;color:var(--text2);line-height:1.35}
-h1{display:flex;align-items:center;gap:12px;margin:0;white-space:nowrap;min-width:0;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.affil{flex:1 0 100%;margin:0;font-size:12px;font-weight:var(--w-read);letter-spacing:0;color:var(--text2);line-height:1.35}
+h1{display:flex;align-items:center;gap:12px;margin:0;white-space:nowrap;min-width:0;font-size:clamp(26px,4vw,34px);font-weight:500;letter-spacing:0;line-height:1.1}
 /* Shelf mark: three bars, static. Color follows the title. */
 .mark{display:block;flex:none;width:36px;height:36px;color:var(--text)}
 .hero-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex:none;margin-left:auto}
@@ -62,10 +71,10 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 #q{flex:1;min-width:0;height:100%;border:0;background:none;color:var(--text);font:inherit;font-size:15px;padding:0 12px;outline:none}
 #q::placeholder{color:var(--text2)}
 #q::-webkit-search-cancel-button{-webkit-appearance:none}
-.hint{font:500 12px/1 var(--font);color:var(--text2);border:1px solid var(--line);border-radius:6px;padding:4px 6px;margin-right:8px}
+.hint{font:var(--w-read) 12px/1 var(--font);color:var(--text2);border:1px solid var(--line);border-radius:6px;padding:4px 6px;margin-right:8px}
 @media (hover:none){.hint{display:none}}
 .sortwrap{position:relative;flex:none}
-#sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:700 14px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
+#sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:350 14px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
 #sort:hover{background:var(--hover)}
 #sort option{background:#fff;color:#111}
 .sortwrap svg{position:absolute;right:10px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
@@ -73,17 +82,17 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 /* Filters: creator + category dropdowns in the dock */
 .filterbar{display:flex;gap:8px;margin-top:8px}
 .selwrap{position:relative;flex:1 1 0;min-width:0}
-.selwrap select{appearance:none;-webkit-appearance:none;width:100%;height:36px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:700 14px var(--font);padding:0 32px 0 14px;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:border-color .15s,background .15s}
+.selwrap select{appearance:none;-webkit-appearance:none;width:100%;height:36px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:350 14px var(--font);padding:0 32px 0 14px;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:border-color .15s,background .15s}
 .selwrap select:hover{background:var(--hover)}
 .selwrap select:focus-visible{outline:none;border-color:var(--blue);background:var(--bg)}
 .selwrap select.on{border-color:var(--line2)}
-.selwrap select option,.selwrap select optgroup{background:#fff;color:#111;font-weight:400} /* Android native pickers ignore dark option colors; keep options dark-on-white */
+.selwrap select option,.selwrap select optgroup{background:#fff;color:#111;font-weight:var(--w-read)} /* Android native pickers ignore dark option colors; keep options dark-on-white */
 .selwrap svg{position:absolute;right:12px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
 @media (min-width:700px){.selwrap{flex:0 1 260px}}
 .status{display:flex;align-items:center;gap:12px;min-height:36px;margin:8px 0 4px}
 .count{margin:0;font-size:13px;color:var(--text2);font-variant-numeric:tabular-nums}
 /* Reset keeps its space while hidden (visibility, not display) so showing it never moves anything */
-.reset{visibility:hidden;min-height:36px;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
+.reset{visibility:hidden;min-height:36px;border:0;background:none;color:var(--blue);font:350 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
 .reset.on{visibility:visible}
 .reset:hover{background:var(--mark)}
 html[data-theme="light"] .reset{color:var(--btn-blue)}
@@ -97,14 +106,14 @@ html[data-theme="light"] .reset{color:var(--btn-blue)}
 .group .more{display:flex;width:fit-content;height:44px;margin:14px auto 0;padding:0 22px}
 .ghead{display:flex;align-items:center;gap:12px;margin:0 0 12px}
 .ghead img{width:40px;height:40px;border-radius:50%;flex:none}
-.ghead h2{display:flex;align-items:baseline;gap:5px;margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em;line-height:1.25;min-width:0;white-space:nowrap}
+.ghead h2{display:flex;align-items:baseline;gap:5px;margin:0;font-size:17px;font-weight:450;letter-spacing:0;line-height:1.25;min-width:0;white-space:nowrap}
 .ghead h2 .nm,.ghead h2 .handle{min-width:0;overflow:hidden;text-overflow:ellipsis}
 .ghead h2 .handle{flex:0 1000 auto}
 .ghead h2 .gn{flex:none}
-.ghead .handle,.ghead .gn{font-size:15px;font-weight:400;color:var(--text2);text-decoration:none}
+.ghead .handle,.ghead .gn{font-size:15px;font-weight:var(--w-read);color:var(--text2);text-decoration:none}
 .ghead .handle:hover{text-decoration:underline}
 .ghead .plink{flex:none;width:auto;min-width:34px;padding:0 8px;gap:6px;grid-auto-flow:column}
-.ghead .plink .ok{display:none;font-size:13px;font-weight:600;color:var(--blue)}
+.ghead .plink .ok{display:none;font-size:13px;font-weight:350;color:var(--blue)}
 .ghead .plink.done svg{display:none}.ghead .plink.done .ok{display:inline}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .flat{margin-top:16px;margin-bottom:36px}
@@ -115,7 +124,7 @@ html[data-theme="light"] .reset{color:var(--btn-blue)}
 @keyframes flash{0%,40%{background:var(--mark);box-shadow:0 0 0 2px var(--blue)}}
 .head{display:flex;gap:12px;align-items:center;margin-bottom:10px}
 .icon{flex:none;width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:22px;line-height:1;border:1px solid var(--line)}
-.card h3{margin:0;font-size:15px;font-weight:700;line-height:1.3}
+.card h3{margin:0;font-size:15px;font-weight:450;line-height:1.3}
 .card h3 a{text-decoration:none}
 .card h3 a:hover{text-decoration:underline}
 .sub{display:flex;align-items:center;gap:5px;margin-top:2px;font-size:13px;color:var(--text2);white-space:nowrap;overflow:hidden}
@@ -128,19 +137,19 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .ib:hover{background:var(--mark);color:var(--blue)}
 .ib svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ib svg.fill{fill:currentColor;stroke:none;width:15px;height:15px}
-.get,.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 16px;border:0;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font:700 14px var(--font);text-decoration:none;cursor:pointer;transition:background .15s}
+.get,.btn{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 16px;border:0;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font:400 14px var(--font);text-decoration:none;cursor:pointer;transition:background .15s}
 .get:hover,.btn:hover{background:var(--pill-h)}
 
 /* Empty, add, toast */
 .empty{text-align:center;padding:36px 16px 28px;margin:8px 0 36px;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
 .empty-i{display:flex;justify-content:center;margin:0 0 12px;color:var(--text2)}
 .empty-i .li{width:22px;height:22px}
-.empty-t{margin:0 0 4px;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.empty-t{margin:0 0 4px;font-size:20px;font-weight:500;letter-spacing:0}
 .empty-s{margin:0 0 16px;color:var(--text2)}
 /* Hold the results area open until the first render so #add starts below the fold (no layout shift) */
 #results[aria-busy="true"]{min-height:100vh}
 .add{scroll-margin-top:8px;border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 max(48px,env(safe-area-inset-bottom));max-width:640px}
-.add :is(h1,h2){margin:0 0 6px;font-size:20px;font-weight:800;letter-spacing:-.02em}
+.add :is(h1,h2){margin:0 0 6px;font-size:20px;font-weight:500;letter-spacing:0}
 /* /add: the form is the page */
 .addpage .add{margin:0 auto max(48px,env(safe-area-inset-bottom));max-width:none}
 .addpage .add h1{font-size:24px;margin-bottom:14px}
@@ -148,7 +157,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .add p a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
 .btn.post{background:var(--btn-blue);color:#fff;height:36px}
 .hero-actions .btn{height:36px}
-.btn.ghost{background:transparent;color:var(--text2);border:1px solid var(--line2);font-weight:600}
+.btn.ghost{background:transparent;color:var(--text2);border:1px solid var(--line2);font-weight:350}
 .btn.ghost:hover{background:var(--hover);color:var(--text)}
 .btn.post:hover{background:var(--btn-blue-h)}
 .btn.post svg{width:14px;height:14px;fill:currentColor}
@@ -178,9 +187,9 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 /* Static catalog in the homepage HTML. Closed by default so the card grid stays the shelf.
    Links remain in the DOM (crawlers do not need JavaScript, and app.js does not replace this node). */
 .crawl{margin:28px 0 12px}
-.crawl summary{cursor:pointer;color:var(--text2);font-size:13px;font-weight:700}
+.crawl summary{cursor:pointer;color:var(--text2);font-size:13px;font-weight:350}
 .crawl summary:hover{color:var(--text)}
-.crawl-h{margin:14px 0 0;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text2)}
+.crawl-h{margin:14px 0 0;font-size:12px;font-weight:325;letter-spacing:.04em;text-transform:uppercase;color:var(--text2)}
 .crawl nav{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px}
 .crawl a{font-size:13px;color:var(--text2);text-decoration:none}
 .crawl a:hover{color:var(--blue);text-decoration:underline}
@@ -194,14 +203,14 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .builders{margin:16px 0 36px;padding:18px 18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
 .builders .grid{align-items:start}
 .bhead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;margin:0 0 16px}
-.bhead h2{margin:0;font-size:21px;font-weight:800;letter-spacing:-.015em;line-height:1.2}
+.bhead h2{margin:0;font-size:21px;font-weight:500;letter-spacing:0;line-height:1.2}
 .bsub{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin:0;font-size:15px;color:var(--text2)}
 .bsub .who{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .bsub .who img{width:24px;height:24px;border-radius:50%;flex:none}
 .bsub a{text-decoration:none}
-.bsub a.h{color:var(--text);font-weight:700}
+.bsub a.h{color:var(--text);font-weight:450}
 .bsub a.h:hover{color:var(--blue);text-decoration:underline}
-.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:700;color:var(--pill-ink);background:var(--pill);border:1px solid var(--pill);border-radius:999px;line-height:1.3}
+.bsub a.all{display:inline-block;padding:5px 12px;font-size:13px;font-weight:350;color:var(--pill-ink);background:var(--pill);border:1px solid var(--pill);border-radius:999px;line-height:1.3}
 .bsub a.all:hover{background:var(--pill-h);border-color:var(--pill-h);text-decoration:none}
 .bsub a.all:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media (max-width:640px){.builders{padding:14px 12px 16px;border-radius:14px}.bhead h2{font-size:19px}.builders .grid>:nth-child(n+4){display:none}}
@@ -210,18 +219,18 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .topvotes{margin:0 0 36px;padding:14px 16px 16px;border:1px solid var(--line);border-radius:16px}
 .builders+.topvotes{margin-top:-20px}
 .thead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:0 0 10px}
-.thead h2{margin:0;font-size:17px;font-weight:800;letter-spacing:-.01em}
-.thead .tall{font-size:14px;font-weight:600;color:var(--blue);text-decoration:none}
+.thead h2{margin:0;font-size:17px;font-weight:500;letter-spacing:0}
+.thead .tall{font-size:14px;font-weight:350;color:var(--blue);text-decoration:none}
 .thead .tall:hover{text-decoration:underline}
 .tlist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 10px}
 .tlist a{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;color:var(--text);text-decoration:none;min-width:0}
 .tlist a:hover{background:var(--hover)}
-.tlist .rk{flex:none;width:18px;font-size:13px;font-weight:800;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
+.tlist .rk{flex:none;width:18px;font-size:13px;font-weight:350;color:var(--text2);text-align:center;font-variant-numeric:tabular-nums}
 .tlist .em{flex:none;font-size:20px;line-height:1}
-.tlist .nm{flex:1;min-width:0;font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tlist .nm small{display:block;font-size:12px;font-weight:500;color:var(--text2);overflow:hidden;text-overflow:ellipsis}
+.tlist .nm{flex:1;min-width:0;font-size:15px;font-weight:450;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tlist .nm small{display:block;font-size:12px;font-weight:var(--w-read);color:var(--text2);overflow:hidden;text-overflow:ellipsis}
 /* Vote counts everywhere (Top voted, creator tiles, cards, bot page): muted text and a thin arrow, no fill, in a fixed-width slot */
-.tlist .sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:48px;box-sizing:border-box;padding:0;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.tlist .sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:48px;box-sizing:border-box;padding:0;font-size:13px;font-weight:350;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .tlist .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:900px){.tlist{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.tlist{grid-template-columns:minmax(0,1fr)}.topvotes{padding:12px 10px 12px;border-radius:14px}}
@@ -230,7 +239,7 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .vote{display:inline-flex;align-items:center;margin-right:2px}
 .vote .vb{width:30px;height:34px}
 .vote .vb svg{width:15px;height:15px;stroke-width:1.75}
-.vote .vn{min-width:18px;padding:0 1px;font-size:13px;font-weight:600;color:var(--vmuted);text-align:center;font-variant-numeric:tabular-nums}
+.vote .vn{min-width:18px;padding:0 1px;font-size:13px;font-weight:350;color:var(--vmuted);text-align:center;font-variant-numeric:tabular-nums}
 .vote .up[aria-pressed="true"]{color:var(--blue)}
 .vote .dn[aria-pressed="true"]{color:#f4212e}
 .vote .dn:hover{background:rgba(244,33,46,.12);color:#f4212e}
@@ -242,24 +251,24 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .card .app svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .card .app .t{display:none}
 html.mobile .card .gets{width:100%;margin-left:0}
-html.mobile .card .app{flex:1;display:inline-flex;justify-content:center;gap:6px;width:auto;background:var(--btn-blue);color:#fff;font:700 14px var(--font)}
+html.mobile .card .app{flex:1;display:inline-flex;justify-content:center;gap:6px;width:auto;background:var(--btn-blue);color:#fff;font:400 14px var(--font)}
 html.mobile .card .app .t{display:inline}
 html.mobile .card .app:hover{background:var(--btn-blue-h);color:#fff}
 html.mobile .card .gets .get{background:transparent;color:var(--text);border:1px solid var(--line2);padding:0 14px}
-.app.big,.bp-actions .app{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:9999px;color:var(--text);font:700 15px var(--font);text-decoration:none}
+.app.big,.bp-actions .app{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:9999px;color:var(--text);font:400 15px var(--font);text-decoration:none}
 .bp-actions .app:hover{background:var(--hover)}
 html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-blue);color:#fff}
 
 /* Badges: agency + works with */
 .badges{display:flex;flex-wrap:wrap;gap:4px;margin:-6px 0 12px}
-.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:9999px;border:1px solid var(--line);color:var(--text2);font:600 12px/1 var(--font);white-space:nowrap}
+.badge{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:9999px;border:1px solid var(--line);color:var(--text2);font:325 12px/1 var(--font);white-space:nowrap}
 .badge.ag-acts,.badge.ag-drafts,.badge.ag-reads{border-color:var(--line);color:var(--text2)}
 .sub .bm{display:inline-flex;align-items:center;gap:3px}
 .sub .bm svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
 
 /* Extra filters */
 .filterbar{align-items:center}
-.chip{flex:none;height:36px;padding:0 14px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:700 14px var(--font);cursor:pointer;white-space:nowrap}
+.chip{flex:none;height:36px;padding:0 14px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:350 14px var(--font);cursor:pointer;white-space:nowrap}
 .chip:hover{background:var(--hover)}
 .chip[aria-pressed="true"]{border-color:var(--blue);color:var(--blue)}
 @media (max-width:699px){.filterbar{overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-left:-16px;margin-right:-16px;padding:0 16px}.filterbar::-webkit-scrollbar{display:none}.selwrap{flex:0 0 auto;min-width:140px;max-width:180px}
@@ -277,8 +286,8 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 
 /* Submit form */
 .sub-form{display:grid;gap:10px;margin:0 0 16px}
-.sub-form label{font-size:13px;font-weight:700;color:var(--text)}
-.sub-form input,.sub-form textarea{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:400 15px var(--font);padding:0 12px}
+.sub-form label{font-size:13px;font-weight:350;color:var(--text)}
+.sub-form input,.sub-form textarea{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:var(--w-read) 15px var(--font);padding:0 12px}
 .sub-form textarea{height:64px;padding:10px 12px;resize:vertical}
 .sub-form input:focus,.sub-form textarea:focus{outline:none;border-color:var(--blue)}
 .sub-form .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -289,7 +298,7 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
    the form looks exactly as before. It takes space only while it shows a message. */
 .sub-form .sub-dupe{position:absolute;margin:0;font-size:14px;line-height:20px;color:var(--text2)}
 .sub-form .sub-dupe.dupe-hit,.sub-form .sub-dupe.dupe-sent,.sub-form .sub-dupe.dupe-hint{position:static;margin-top:-4px}
-.sub-form .sub-dupe a{color:var(--blue);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+.sub-form .sub-dupe a{color:var(--blue);font-weight:450;text-decoration:underline;text-underline-offset:2px}
 .sub-form .sub-dupe.dupe-hit{color:var(--text)}
 /* Green check inside the template field: a valid template link that is not on the shelf yet (the text is in #sub-dupe for screen readers) */
 .sub-bot-wrap{position:relative}
@@ -300,12 +309,12 @@ html[data-theme="light"] .sub-ok{stroke:#00805a}
 .or{margin:4px 0 12px!important;font-size:13px}
 
 /* Per-bot page */
-.home{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--text);text-decoration:none}
+.home{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:500;letter-spacing:0;color:var(--text);text-decoration:none}
 .bp{max-width:720px}
 .bp-card{border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 24px}
 .bp-head{display:flex;gap:14px;align-items:center;margin-bottom:14px}
 .icon.big{width:56px;height:56px;font-size:30px;border-radius:14px}
-.bp h1{margin:0;font-size:24px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.bp h1{margin:0;font-size:24px;font-weight:500;letter-spacing:0;line-height:1.2}
 .bp .sub{flex-wrap:wrap;white-space:normal}
 .bp .sub a{color:var(--text2);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
 .bp .sub a:hover{text-decoration:underline}
@@ -316,7 +325,7 @@ html[data-theme="light"] .sub-ok{stroke:#00805a}
 /* Bot page vote: outlined pill next to the get buttons, same arrows and colors as the cards */
 .bp-actions .bp-vote{display:inline-flex;align-items:center;height:40px;padding:0 3px;margin:0;border:1px solid var(--line2);border-radius:9999px}
 .bp-vote .vb{width:34px;height:34px}
-.bp-vote .vn{min-width:22px;font-size:13px;font-weight:600;color:var(--vmuted)}
+.bp-vote .vn{min-width:22px;font-size:13px;font-weight:350;color:var(--vmuted)}
 html.mobile .bp-actions{flex-direction:column}
 html.mobile .bp-actions .app{order:-1;justify-content:center}
 html.mobile .bp-actions .get{justify-content:center;background:transparent;color:var(--text);border:1px solid var(--line2)}
@@ -326,7 +335,7 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp .fine{margin:14px 0 0;font-size:12px;color:var(--text2)}
 .bp-more h2{font-size:17px;margin:0 0 10px}
 .bp-more ul{list-style:none;margin:0 0 32px;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
-.bp-more a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;font-weight:600;font-size:14px}
+.bp-more a{display:block;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none;font-weight:350;font-size:14px}
 .bp-more a:hover{background:var(--hover)}
 
 /* Bot page: under the hood, similar bots, featured badge. Creator pages reuse .bp-card and .bp-more */
@@ -334,21 +343,21 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .bp-panel h2,.bp-embed h2{font-size:17px;margin:0 0 10px}
 .bp-panel dl{margin:0}
 .bp-panel dl>div{display:grid;grid-template-columns:180px 1fr;gap:4px 16px;padding:10px 0;border-top:1px solid var(--line)}
-.bp-panel dt{font-size:14px;font-weight:700}
+.bp-panel dt{font-size:14px;font-weight:450}
 .bp-panel dd{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;font-size:14px;line-height:1.4}
 .bp-panel .nl{color:var(--text2)}
 @media (max-width:560px){.bp-panel dl>div{grid-template-columns:1fr}}
-.bp-more a small{display:block;margin-top:2px;font-size:13px;font-weight:400;color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bp-more a small{display:block;margin-top:2px;font-size:13px;font-weight:var(--w-read);color:var(--text2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .cp-list a small{white-space:normal}
 .cp-av{flex:none;width:56px;height:56px;border-radius:50%;border:1px solid var(--line)}
 .bp-embed .fine{margin:0 0 12px}
 .em-prev{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
 .em-prev img{max-width:100%;height:auto}
 .snip{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;overflow:hidden}
-.snip-h{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 2px 12px;background:var(--hover);font-size:13px;font-weight:700;color:var(--text)}
+.snip-h{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 2px 12px;background:var(--hover);font-size:13px;font-weight:350;color:var(--text)}
 .snip pre{margin:0;padding:10px 12px;font:13px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-all;color:var(--text)}
 .bp-embed code{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
-.bp-panel .src{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:9999px;background:var(--field);color:var(--text2);font:600 11px/1 var(--font);white-space:nowrap}
+.bp-panel .src{display:inline-flex;align-items:center;height:20px;padding:0 7px;border-radius:9999px;background:var(--field);color:var(--text2);font:325 11px/1 var(--font);white-space:nowrap}
 .bp-panel dd ul{list-style:none;margin:0;padding:0}
 
 /* Bot page: Amazon "Pairs with". Quiet list, same chrome as the lab desk cards, scaled to the 720px column. */
@@ -361,9 +370,9 @@ a.pair{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px sol
 a.pair:hover{background:var(--hover)}
 a.pair .icon{width:40px;height:40px;font-size:20px;background:var(--field)}
 .pair-copy{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
-.pair-name{font-weight:700;font-size:14px;line-height:1.3}
-.pair-blurb{font-size:13px;font-weight:400;color:var(--text2);line-height:1.35}
-.pair-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border-radius:9999px;background:var(--btn-blue);color:#fff;font:700 13px/1 var(--font);white-space:nowrap}
+.pair-name{font-weight:450;font-size:14px;line-height:1.3}
+.pair-blurb{font-size:13px;font-weight:var(--w-read);color:var(--text2);line-height:1.35}
+.pair-cta{flex:none;display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 14px;border-radius:9999px;background:var(--btn-blue);color:#fff;font:350 13px/1 var(--font);white-space:nowrap}
 a.pair:hover .pair-cta{background:var(--btn-blue-h);color:#fff}
 .bp-pairs .fine{margin:12px 0 0}
 .site-foot .assoc{margin-top:4px}
@@ -373,13 +382,13 @@ html.mobile a.pair .pair-cta{flex:1 1 100%;height:44px}
    The row is full width under the card body so the emoji and open-link stay intact. */
 .card-pairs{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:8px 0 0;width:100%;min-width:0;max-width:100%}
 .card>.card-pairs{flex:none;margin-top:12px;padding-top:10px;border-top:1px solid var(--line)}
-.card-pairs-l{flex:none;color:var(--text2);font:600 12px/1.3 var(--font)}
-a.pair.pair-mini{position:relative;display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 10px;border:1px solid var(--line);border-radius:9999px;background:var(--field);color:var(--text);font:600 13px/1.3 var(--font)}
+.card-pairs-l{flex:none;color:var(--text2);font:325 12px/1.3 var(--font)}
+a.pair.pair-mini{position:relative;display:inline-flex;align-items:center;gap:4px;max-width:100%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 10px;border:1px solid var(--line);border-radius:9999px;background:var(--field);color:var(--text);font:350 13px/1.3 var(--font)}
 a.pair.pair-mini:hover{background:var(--hover);border-color:var(--line2);color:var(--text)}
-a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:700 12px/1.3 var(--font);text-decoration:none}
+a.pair-more{display:inline;padding:0 2px;border:0;background:transparent;color:var(--text2);font:325 12px/1.3 var(--font);text-decoration:none}
 a.pair-more:hover{color:var(--blue);background:transparent;text-decoration:underline}
-.bp-more a.pair-mini{display:inline-flex;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:600}
-.bp-more a.pair-more{display:inline;padding:0 2px;border:0;border-radius:0;font-weight:700;background:transparent}
+.bp-more a.pair-mini{display:inline-flex;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:350}
+.bp-more a.pair-more{display:inline;padding:0 2px;border:0;border-radius:0;font-weight:450;background:transparent}
 .bp-more a.pair-more:hover{background:transparent}
 .bp-more .card-pairs{margin:8px 2px 2px}
 .job-bot .card-pairs{margin:10px 0 0;padding:10px 0 0 52px;border-top:1px solid var(--line);width:100%}
@@ -400,7 +409,7 @@ html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-heig
 .rail button span{display:block;transform:scaleY(calc(1 / var(--rs,1)))}
 .rail[hidden]{display:none}
 .rail.hold{visibility:hidden} /* #bot- deep link: shown once the landing scroll has placed it (app.js openHash) */
-.rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:700 11px/1 var(--font);cursor:pointer;touch-action:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.rail button{pointer-events:auto;flex:0 1 22px;min-height:0;max-height:24px;width:26px;padding:0;border:0;border-radius:9999px;background:none;color:var(--text2);font:350 11px/1 var(--font);cursor:pointer;touch-action:none;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
 /* Letters with no creator group: dimmed, aria-disabled, not focusable; they keep their slot so spacing stays even */
 .rail button.off{color:var(--text2);opacity:.38;cursor:default}
 .rail button.off:hover{background:none;color:var(--text2)}
@@ -409,7 +418,7 @@ html.mobile .bp-more a.pair-more{display:inline-flex;align-items:center;min-heig
 .rail button:focus-visible{box-shadow:0 0 0 2px var(--blue)}
 .ghead h2:focus{outline:none}
 /* Letter bubble while scrubbing on touch (iOS Contacts-style) */
-.rail-pop{position:fixed;z-index:16;right:calc(max(0px,env(safe-area-inset-right)) + 44px);width:56px;height:56px;margin-top:-28px;display:grid;place-items:center;border-radius:16px;background:var(--blue);color:#fff;font:800 28px/1 var(--font);box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none}
+.rail-pop{position:fixed;z-index:16;right:calc(max(0px,env(safe-area-inset-right)) + 44px);width:56px;height:56px;margin-top:-28px;display:grid;place-items:center;border-radius:16px;background:var(--blue);color:#fff;font:500 28px/1 var(--font);box-shadow:0 6px 20px rgba(0,0,0,.35);pointer-events:none}
 .rail-pop[hidden]{display:none}
 /* Wide screens: the rail sits in the empty margin beside the 1120px column */
 @media (min-width:1200px){.rail{right:max(12px,calc((100vw - 1120px) / 2 - 44px))}}
@@ -524,9 +533,9 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
   background:linear-gradient(155deg,#43b0f7 0%,#1677c9 55%,#0e5aa0 100%);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(0,0,0,.18),0 10px 26px -8px rgba(29,155,240,.6)}
 .ss-tile svg{width:26px;height:26px;fill:currentColor;filter:drop-shadow(0 1px 1px rgba(0,0,0,.18))}
-.ss-eye{display:inline-flex;align-items:center;gap:8px;margin:0;padding:6px 12px 6px 10px;border-radius:999px;font:700 12px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ss-eye);background:var(--ss-well);box-shadow:inset 0 0 0 1px var(--ss-hair)}
+.ss-eye{display:inline-flex;align-items:center;gap:8px;margin:0;padding:6px 12px 6px 10px;border-radius:999px;font:325 12px/1 var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--ss-eye);background:var(--ss-well);box-shadow:inset 0 0 0 1px var(--ss-hair)}
 .ss-dot{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 0 3px rgba(29,155,240,.18)}
-.ss h2{margin:0 0 10px;font:800 clamp(27px,7.4vw,32px)/1.08 var(--font);letter-spacing:-.035em;color:var(--ss-ink);text-wrap:balance}
+.ss h2{margin:0 0 10px;font:500 clamp(27px,7.4vw,32px)/1.08 var(--font);letter-spacing:0;color:var(--ss-ink);text-wrap:balance}
 .ss h2 span{color:var(--ss-ink2)}
 .ss-lede{margin:0 0 18px;font-size:15.5px;line-height:1.5;color:var(--ss-ink2);text-wrap:pretty}
 .ss-steps{list-style:none;margin:0 0 20px;padding:4px 0;border-radius:18px;background:var(--ss-well);box-shadow:inset 0 0 0 1px var(--ss-hair),inset 0 1px 0 rgba(255,255,255,.06)}
@@ -534,15 +543,15 @@ html[data-theme="light"] .ss-sheet{box-shadow:inset 0 1px 0 #fff,0 -20px 60px -2
 .ss-steps li+li{border-top:1px solid var(--ss-hair)}
 .ss-steps svg{flex:none;width:34px;height:34px;padding:8px;border-radius:11px;fill:none;stroke:var(--ss-eye);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;background:rgba(29,155,240,.12);box-shadow:inset 0 0 0 1px rgba(29,155,240,.18)}
 .ss-steps div{display:flex;flex-direction:column;gap:2px;min-width:0}
-.ss-steps b{font-size:15px;font-weight:700;color:var(--ss-ink);letter-spacing:-.01em}
+.ss-steps b{font-size:15px;font-weight:450;color:var(--ss-ink);letter-spacing:0}
 .ss-steps span{font-size:13px;color:var(--ss-ink3);line-height:1.35}
 .ss-actions{display:flex;flex-direction:column;gap:6px}
-.ss-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:999px;text-decoration:none;color:#fff;font:700 16px var(--font);letter-spacing:-.01em;
+.ss-cta{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:999px;text-decoration:none;color:#fff;font:400 16px var(--font);letter-spacing:0;
   background:linear-gradient(180deg,#1a7fd1,#1166b3);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),inset 0 -1px 0 rgba(0,0,0,.2),0 10px 28px -10px rgba(29,155,240,.75);transition:transform .15s ease,filter .15s ease,box-shadow .15s ease}
 .ss-cta:hover{filter:brightness(1.08);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),inset 0 -1px 0 rgba(0,0,0,.2),0 14px 32px -10px rgba(29,155,240,.85)}
 .ss-cta:active{transform:scale(.985)}
 .ss-cta svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.ss-later{height:46px;border:0;border-radius:999px;background:none;color:var(--ss-ink2);font:600 15px var(--font);cursor:pointer;transition:background .15s,color .15s}
+.ss-later{height:46px;border:0;border-radius:999px;background:none;color:var(--ss-ink2);font:350 15px var(--font);cursor:pointer;transition:background .15s,color .15s}
 .ss-later:hover{background:var(--ss-well);color:var(--ss-ink)}
 .ss :is(.ss-cta,.ss-later,.ss-x,.ss-fine a):focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
 .ss .ss-x:focus-visible{box-shadow:none}.ss .ss-x:focus-visible::before{box-shadow:0 0 0 2px var(--blue)}
@@ -697,7 +706,7 @@ html.mobile :is(.snip-h .clear,.bp-actions :is(.get,.app),.bp-more a:not(.pair-m
 html.mobile .bp-actions :is(.get,.app){display:inline-flex;align-items:center;justify-content:center}
 
 /* ---------- Skip link: hidden until focused, first stop on the page (audit #8) ---------- */
-.skip{position:fixed;left:12px;top:12px;z-index:60;padding:10px 16px;border-radius:9999px;background:var(--btn-blue);color:#fff;font-weight:700;font-size:15px;text-decoration:none;transform:translateY(-200%)}
+.skip{position:fixed;left:12px;top:12px;z-index:60;padding:10px 16px;border-radius:9999px;background:var(--btn-blue);color:#fff;font-weight:450;font-size:15px;text-decoration:none;transform:translateY(-200%)}
 .skip:focus{transform:none}
 .skip:not(:focus){clip-path:inset(50%)}
 #results:focus{outline:none}
@@ -787,7 +796,7 @@ html.mobile .site-foot p.by a{color:var(--text);text-decoration:underline;text-u
 .card{-webkit-tap-highlight-color:transparent}
 @media (prefers-reduced-motion:reduce){:where(.get,.btn,.app,.chip,.reset,.theme-btn,.bp-more a,a.pair,.tlist a,.bsub a.all,.snip-h .clear,.cp-cats a):active{transform:none;filter:brightness(.92)}}
 /* Copy: the same quiet blue pill as Reset, not a native grey button */
-.snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:700 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
+.snip-h .clear{appearance:none;-webkit-appearance:none;border:0;background:none;color:var(--blue);font:350 13px var(--font);padding:6px 12px;border-radius:9999px;cursor:pointer}
 .snip-h .clear:hover{background:var(--mark)}
 
 /* ---------- Round 3 #6: phone card creator link. Its 44px tap used to start 10px up inside the title's line, where it beat
@@ -820,13 +829,13 @@ html.mobile .bp-links a{min-width:0;overflow-wrap:anywhere}
 /* ---------- Round 3 #8: creator page category chips, tile category ---------- */
 /* Chips go to this creator's bots in that category on the shelf; count only when the creator has more than one bot */
 .cp-cats{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.cp-cats a{position:relative;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:9999px;background:var(--field);color:var(--text);font:600 14px var(--font);text-decoration:none;white-space:nowrap}
+.cp-cats a{position:relative;display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 12px;border-radius:9999px;background:var(--field);color:var(--text);font:350 14px var(--font);text-decoration:none;white-space:nowrap}
 .cp-cats a:hover{background:var(--hover)}
-.cp-cats .n{color:var(--text2);font-weight:700;font-variant-numeric:tabular-nums}
+.cp-cats .n{color:var(--text2);font-weight:450;font-variant-numeric:tabular-nums}
 html.mobile .cp-cats{gap:12px 8px}
 html.mobile .cp-cats a{height:32px}
 html.mobile .cp-cats a::after{content:"";position:absolute;inset:-6px -4px}
-.cp-list a small.cat{margin-top:1px;color:var(--blue);font-size:12px;font-weight:600}
+.cp-list a small.cat{margin-top:1px;color:var(--blue);font-size:12px;font-weight:325}
 html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 
 /* ---------- Round 3 #9: sort is its own labeled pill, out of the search field ---------- */
@@ -837,7 +846,7 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 .dock .capsule{grid-column:1;grid-row:1;padding-right:8px}
 .dock .sortwrap{grid-column:2;grid-row:1;position:relative;flex:none}
 .dock .filterbar{grid-column:1/-1;grid-row:2}
-.sortwrap .pre{position:absolute;left:16px;top:50%;transform:translateY(-50%);font:500 14px var(--font);color:var(--text2);pointer-events:none}
+.sortwrap .pre{position:absolute;left:16px;top:50%;transform:translateY(-50%);font:325 14px var(--font);color:var(--text2);pointer-events:none}
 #sort{height:44px;padding:0 36px 0 56px;background:var(--field);border:1px solid transparent;transition:border-color .15s,background .15s}
 #sort:hover{background:var(--hover)}
 #sort:focus-visible{outline:none;border-color:var(--blue);background:var(--bg)}
@@ -853,14 +862,14 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 }
 
 /* Just added / New this week strip: reuses the Top voted list; the added date sits where the score does, on the quieter field chip (AA contrast) */
-.newv .tlist .sc.dt{color:var(--text);background:var(--field);font-weight:600;padding:3px 9px}
+.newv .tlist .sc.dt{color:var(--text);background:var(--field);font-weight:350;padding:3px 9px}
 .topvotes+.newv{margin-top:-20px}
 @media (max-width:560px){.newv .tlist li:nth-child(n+5){display:none}}
 /* Creator page tiles: net score at the right end of the category line. Fixed slot holding a quiet 0 from the server;
    bot-page.js puts the real score from GET /api/votes in the same place, so nothing moves */
 .cp-list a small.cat{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .cp-list a small.cat>span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.cp-sc{flex:none;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:350;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .cp-sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .cp-sc svg+svg{display:none}.cp-sc.neg svg{display:none}.cp-sc.neg svg+svg{display:inline}
 /* Round 4 #1: vote tooltips. The real up/down split from /api/votes (data-tip), shown on hover or keyboard focus.
@@ -868,7 +877,7 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
    (screen readers get the same words from the .sr text next to the count). */
 .vote[data-tip],.tlist .sc[data-tip],.cp-sc[data-tip],.gtile .sc[data-tip]{position:relative}
 :is(.vote,.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{content:attr(data-tip);content:attr(data-tip) / "";position:absolute;z-index:20;bottom:calc(100% + 6px);left:0;white-space:nowrap;
-  font:600 12px/1 var(--font);letter-spacing:0;padding:6px 8px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s,visibility .12s}
+  font:325 12px/1 var(--font);letter-spacing:0;padding:6px 8px;border-radius:6px;background:var(--text);color:var(--bg);box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;opacity:0;visibility:hidden;transition:opacity .12s,visibility .12s}
 /* .bp-actions raises this above the :is(.tlist .sc,…) rule's left:0, so the tip is centred on the pill */
 .bp-actions .bp-vote[data-tip]::after{left:50%;transform:translateX(-50%)}
 :is(.tlist .sc,.cp-sc,.gtile .sc)[data-tip]::after{left:auto;right:0}
@@ -878,7 +887,7 @@ html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 /* Round 4 #2: Share pill at the right of the bot page header. Phones get the icon alone (40px, 44px hit area) so the
    byline never wraps; the aria-label names the bot. */
 .bp-share{position:relative;flex:none;align-self:flex-start;margin-left:auto;display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid var(--line);border-radius:999px;
-  color:var(--vmuted);font:600 13px/1 var(--font);text-decoration:none;background:transparent}
+  color:var(--vmuted);font:350 13px/1 var(--font);text-decoration:none;background:transparent}
 .bp-share svg{width:13px;height:13px;fill:currentColor}
 .bp-share:hover,.bp-share:focus-visible{color:var(--text);background:var(--hover)}
 html.mobile .bp-share{height:40px;width:40px;padding:0;justify-content:center;margin:-2px -2px 0 auto}
@@ -914,11 +923,11 @@ a.badge.coll:hover{background:var(--hover)}
 .gtile .gi img{display:block;width:100%;height:100%;object-fit:cover}
 .gtile .gi.none{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center}
 .gtile .gi.none .em{font-size:34px;line-height:1}
-.gtile .nocard{color:var(--vmuted);font:500 12px/1.2 var(--font)}
-.gtile .gn{display:flex;align-items:center;gap:8px;margin-top:7px;font:700 14px/1.25 var(--font)}
+.gtile .nocard{color:var(--vmuted);font:var(--w-read) 12px/1.2 var(--font)}
+.gtile .gn{display:flex;align-items:center;gap:8px;margin-top:7px;font:450 14px/1.25 var(--font)}
 .gtile .gn .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .gtile:hover .gn .t{text-decoration:underline}
-.gtile .gn .sc{flex:none;position:relative;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:600;color:var(--vmuted);font-variant-numeric:tabular-nums}
+.gtile .gn .sc{flex:none;position:relative;display:inline-flex;align-items:center;justify-content:flex-end;gap:3px;min-width:44px;font-size:13px;font-weight:350;color:var(--vmuted);font-variant-numeric:tabular-nums}
 .gtile .gn .sc svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 
 /* Tip card (scripts/tip.js) at the top of every footer, and the floating Tokens button + panel (public/shelf-up.js).
@@ -927,9 +936,9 @@ a.badge.coll:hover{background:var(--hover)}
    and the Shelfer sheet / skip link (60). Both are children of body, so no ancestor stacking context can trap them. */
 .tipcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:center;max-width:640px;margin:16px auto 20px;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--bg);text-align:left}
 .site-foot .tipcard p{text-align:left;margin:0}
-.tipcard h2{margin:8px 0 16px;font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.2;color:var(--text)}
-.tc-eye{display:flex;align-items:center;gap:6px;font-size:13px!important;font-weight:700;color:var(--text)!important}
-.tc-eye .tc-via{font-weight:400;color:var(--text2)}
+.tipcard h2{margin:8px 0 16px;font-size:20px;font-weight:500;letter-spacing:0;line-height:1.2;color:var(--text)}
+.tc-eye{display:flex;align-items:center;gap:6px;font-size:13px!important;font-weight:350;color:var(--text)!important}
+.tc-eye .tc-via{font-weight:var(--w-read);color:var(--text2)}
 .tc-cup{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .tc-cup .f{fill:currentColor;stroke-width:1}
 .tc-who{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -938,16 +947,16 @@ a.badge.coll:hover{background:var(--hover)}
 .tc-p img{width:36px;height:36px;border-radius:50%;flex:none}
 .tc-p span{display:flex;flex-direction:column;min-width:0;line-height:1.2}
 .tc-p b,.tc-p small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tc-p b{font-size:15px;font-weight:700}
+.tc-p b{font-size:15px;font-weight:450}
 .tc-p small{font-size:13px;color:var(--text2)}
-.site-foot .tipcard .tc-split{margin-top:16px;line-height:1.3;font-size:15px;font-weight:700;color:var(--text)}
+.site-foot .tipcard .tc-split{margin-top:16px;line-height:1.3;font-size:15px;font-weight:450;color:var(--text)}
 .site-foot .tipcard .tc-why{margin-top:4px;font-size:14px;line-height:1.4;color:var(--text2)}
 .tc-amts{display:flex;gap:8px;margin-top:16px}
-.tc-amt{min-width:64px;height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:700 15px/1 var(--font);cursor:pointer;transition:background .15s,border-color .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.tc-amt{min-width:64px;height:44px;padding:0 16px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text);font:400 15px/1 var(--font);cursor:pointer;transition:background .15s,border-color .15s,color .15s;-webkit-tap-highlight-color:transparent}
 .tc-amt:hover{background:var(--hover)}
 .tc-amt[aria-pressed="true"]{border-color:var(--blue);background:var(--mark);color:var(--blue)}
 .site-foot .tipcard .tc-hint{margin-top:8px;font-size:13px;line-height:1.4;color:var(--text2);min-height:2.8em}
-.site-foot a.tc-go,.tc-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:12px;padding:0 24px;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font-weight:700;font-size:15px;text-decoration:none;transition:background .15s}
+.site-foot a.tc-go,.tc-go{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:12px;padding:0 24px;border-radius:9999px;background:var(--pill);color:var(--pill-ink);font-weight:450;font-size:15px;text-decoration:none;transition:background .15s}
 .site-foot a.tc-go:hover,.tc-go:hover{background:var(--pill-h);color:var(--pill-ink);text-decoration:none}
 .tc-x{width:16px;height:16px;fill:currentColor}
 .site-foot .tipcard .tc-fine{margin-top:8px;font-size:12px;color:var(--text2)}
@@ -969,7 +978,7 @@ html.mobile .tipcard{grid-template-columns:1fr}
 
 /* Floating Tokens button: bottom-right; on phones it sits above the floating URL bar like .gbs-up (shelf-up.js
    places both, the jump-to-top button one step above this one) and hides while you scroll down */
-.gbs-cup{position:fixed;z-index:44;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:inline-flex;align-items:center;gap:6px;height:40px;margin:0;padding:0 14px 0 11px;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);font:700 14px/1 var(--font);cursor:pointer;transition:opacity .2s,transform .2s,visibility 0s,background .2s;-webkit-tap-highlight-color:transparent}
+.gbs-cup{position:fixed;z-index:44;right:max(16px,calc(env(safe-area-inset-right) + 12px));bottom:max(16px,calc(env(safe-area-inset-bottom) + 10px));display:inline-flex;align-items:center;gap:6px;height:40px;margin:0;padding:0 14px 0 11px;border-radius:9999px;border:1px solid var(--line2);background:var(--head);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--text);font:400 14px/1 var(--font);cursor:pointer;transition:opacity .2s,transform .2s,visibility 0s,background .2s;-webkit-tap-highlight-color:transparent}
 .gbs-cup:hover,.gbs-cup[aria-expanded="true"]{background:var(--hover)}
 .gbs-cup:focus-visible{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--blue)}
 .gbs-cup .tc-cup{width:18px;height:18px}
@@ -1001,7 +1010,7 @@ html[data-theme="light"] .gbs-cup-pop{box-shadow:0 12px 40px rgba(15,20,25,.18)}
 .gbs-cup-pop .tipcard{margin:0;border:0;border-radius:0;background:none;padding:20px 20px 24px;gap:16px}
 .gbs-cup-pop .tipcard p{text-align:left;margin:0}
 .gbs-cup-pop .tc-eye{min-height:20px;padding-right:40px}
-.gbs-cup-pop .tc-split{margin-top:16px!important;font-size:15px;font-weight:700;line-height:1.3;color:var(--text)}
+.gbs-cup-pop .tc-split{margin-top:16px!important;font-size:15px;font-weight:400;line-height:1.3;color:var(--text)}
 .gbs-cup-pop .tc-why{margin-top:4px!important;font-size:14px;line-height:1.4;color:var(--text2)}
 .gbs-cup-pop .tc-hint{margin-top:8px!important;font-size:13px;line-height:1.4;color:var(--text2);min-height:2.8em}
 .gbs-cup-pop .tc-fine{margin-top:8px!important;font-size:12px;color:var(--text2)}
@@ -1022,7 +1031,7 @@ html[data-theme="light"] .gbs-cup-scrim{background:rgba(15,20,25,.32)}
 /* Find by job (/collections, /collection/<slug>, and the home header link).
    New class names only, so the inlined critical CSS on bot pages stays the same. */
 .job-find{flex:1 0 100%;margin:2px 0 0;font-size:15px;line-height:1.35;color:var(--text)}
-.job-find a{color:var(--blue);font-weight:700;text-decoration:none}
+.job-find a{color:var(--blue);font-weight:450;text-decoration:none}
 .job-find a:hover{text-decoration:underline}
 html.mobile .job-find a{display:inline-flex;align-items:center;min-height:44px}
 .job-lead{margin:0;font-size:17px;line-height:1.45}
@@ -1030,8 +1039,8 @@ html.mobile .job-find a{display:inline-flex;align-items:center;min-height:44px}
 .hub-guide p{margin:0 0 12px;font-size:16px;line-height:1.5}
 .hub-guide p:last-child{margin-bottom:0}
 .hub-faq{margin:8px 0 28px}
-.hub-faq h2{margin:0 0 12px;font-size:17px;font-weight:800;letter-spacing:-.01em}
-.hub-faq dt{margin:14px 0 4px;font-weight:700}
+.hub-faq h2{margin:0 0 12px;font-size:17px;font-weight:500;letter-spacing:0}
+.hub-faq dt{margin:14px 0 4px;font-weight:450}
 .hub-faq dd{margin:0;color:var(--text2);line-height:1.45}
 .stack .hub-guide{margin:0 0 4px}
 .stack .hub-guide p{font-size:15px}
@@ -1040,22 +1049,22 @@ html.mobile .job-find a{display:inline-flex;align-items:center;min-height:44px}
 .job-card{display:flex;gap:12px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:16px;background:var(--bg);color:var(--text);text-decoration:none}
 .job-card:hover{background:var(--hover)}
 .job-card .icon{flex:none}
-.job-card :is(strong,h2){display:block;margin:0;font-size:16px;font-weight:800;letter-spacing:-.01em;line-height:1.3}
-.job-bot .jt h3{margin:0;font-size:15px;font-weight:700;line-height:1.3}
+.job-card :is(strong,h2){display:block;margin:0;font-size:16px;font-weight:500;letter-spacing:0;line-height:1.3}
+.job-bot .jt h3{margin:0;font-size:15px;font-weight:450;line-height:1.3}
 .job-bot .job-main:hover h3{text-decoration:underline}
-.job-card small{display:block;margin-top:3px;font-size:13px;font-weight:400;color:var(--text2);line-height:1.4}
+.job-card small{display:block;margin-top:3px;font-size:13px;font-weight:var(--w-read);color:var(--text2);line-height:1.4}
 .job-picks{margin:0 0 28px;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
 html[data-theme="light"] .job-picks{border-color:var(--line2)}
-.job-picks h2,.job-alts h2{margin:0 0 4px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.job-picks h2,.job-alts h2{margin:0 0 4px;font-size:17px;font-weight:500;letter-spacing:0}
 .job-kicker{margin:0 0 12px;color:var(--text2);font-size:14px;line-height:1.4}
 .job-bots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .job-bot{padding:12px;border:1px solid var(--line);border-radius:14px;background:var(--bg)}
-.job-bot .job-main{display:flex;gap:12px;align-items:flex-start;color:var(--text);text-decoration:none;font-weight:700}
+.job-bot .job-main{display:flex;gap:12px;align-items:flex-start;color:var(--text);text-decoration:none;font-weight:450}
 .job-bot .job-main:hover strong{text-decoration:underline}
 .job-bot .jt{min-width:0}
-.job-bot .jt small{display:block;margin-top:3px;font-size:13px;font-weight:400;color:var(--text2);line-height:1.4}
+.job-bot .jt small{display:block;margin-top:3px;font-size:13px;font-weight:var(--w-read);color:var(--text2);line-height:1.4}
 .job-bot .by{margin:6px 0 0 52px;font-size:13px;color:var(--text2)}
-.job-bot .by a{color:var(--text);font-weight:700;text-decoration:none}
+.job-bot .by a{color:var(--text);font-weight:450;text-decoration:none}
 .job-bot .by a:hover{color:var(--blue);text-decoration:underline}
 html.mobile .job-bot .job-main{min-height:44px}
 html.mobile .job-bot .by a{display:inline-flex;align-items:center;min-height:44px}
@@ -1065,12 +1074,12 @@ html[data-theme="light"] .job-card,html[data-theme="light"] .job-bot{border-colo
 .crumbs a{color:var(--text2);text-decoration:none}
 .crumbs a:hover{color:var(--blue);text-decoration:underline}
 .crumbs .sep{color:var(--text2)}
-.crumbs [aria-current="page"]{color:var(--text);font-weight:700}
+.crumbs [aria-current="page"]{color:var(--text);font-weight:450}
 html.mobile .crumbs a{display:inline-flex;align-items:center;min-height:44px}
 .job-more{margin:8px 0 36px}
-.job-more h2{margin:0 0 10px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.job-more h2{margin:0 0 10px;font-size:17px;font-weight:500;letter-spacing:0}
 .job-more ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.job-more a{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);text-decoration:none;font-weight:700;font-size:14px}
+.job-more a{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text);text-decoration:none;font-weight:450;font-size:14px}
 .job-more a:hover{background:var(--hover)}
 html.mobile .job-more a{min-height:44px}
 html[data-theme="light"] .job-more a{border-color:var(--line2)}
@@ -1087,24 +1096,24 @@ a.pair.pair-mini>svg.li{width:14px;height:14px}
 .job-glyph .li,.job-more .li{width:15px;height:15px}
 .growth{flex:1 0 100%;display:flex;flex-wrap:wrap;gap:4px 18px;margin:8px 0 0;color:var(--text2);font-size:13px;line-height:1.35}
 .growth>span{display:inline-flex;align-items:center;gap:6px}
-.growth b{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums}
+.growth b{color:var(--text);font-weight:450;font-variant-numeric:tabular-nums}
 .growth .li{width:15px;height:15px;color:var(--text2)}
 a.pair[data-soft] .pair-cta{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px var(--line2)}
-a.pair.pair-mini[data-soft]{border-color:var(--line2);background:transparent;color:var(--text2);font-weight:500}
+a.pair.pair-mini[data-soft]{border-color:var(--line2);background:transparent;color:var(--text2);font-weight:325}
 html[data-theme="light"] a.pair[data-soft],html[data-theme="light"] a.pair.pair-mini[data-soft]{border-color:var(--line2)}
 .stack-index{list-style:none;margin:0 0 36px;padding:0;display:flex;flex-direction:column;gap:16px}
 .stack{border:1px solid var(--line);border-radius:16px;padding:16px 20px;background:var(--bg)}
 .stack .bp-head{align-items:flex-start;margin-bottom:12px}
-.stack h2{margin:0;font-size:18px;font-weight:800;letter-spacing:-.02em;line-height:1.3;white-space:normal}
+.stack h2{margin:0;font-size:18px;font-weight:500;letter-spacing:0;line-height:1.3;white-space:normal}
 .stack-meta{margin:4px 0 0;font-size:13px;line-height:1.4;color:var(--text2)}
 .stack .bp-desc{margin:0}
 .stack-steps{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
 .stack-steps a{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;color:var(--text);text-decoration:none}
 .stack-steps a:hover{background:var(--hover)}
-.stack-steps .sn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:999px;background:var(--field);font:700 13px/1 var(--font)}
+.stack-steps .sn{flex:none;width:28px;height:28px;display:grid;place-items:center;border-radius:999px;background:var(--field);font:350 13px/1 var(--font)}
 .stack-steps .st{min-width:0}
-.stack-steps .nm{display:block;font-weight:700}
-.stack-steps small{display:block;margin-top:2px;color:var(--text2);font-size:13px;font-weight:400;line-height:1.4}
+.stack-steps .nm{display:block;font-weight:450}
+.stack-steps small{display:block;margin-top:2px;color:var(--text2);font-size:13px;font-weight:var(--w-read);line-height:1.4}
 html.mobile .stack-steps a{min-height:44px}
 html[data-theme="light"] .stack,html[data-theme="light"] .stack-steps a{border-color:var(--line2)}
 /* /stacks has no creator groups, so no A-Z rail. Keep any rail out of this page and keep stack titles clear of the right edge. */
@@ -1126,7 +1135,7 @@ body.stackspage .rail,body.stackspage .rail-pop{display:none!important}
    also runs out of room. */
 .hero{row-gap:8px;padding-bottom:16px}
 .job-find,.growth{margin:0}
-.job-find a{font-weight:600}
+.job-find a{font-weight:350}
 @media (max-width:429px){
   .hero:has(h1){padding-top:max(20px,env(safe-area-inset-top))}
   .hero:has(h1) .hero-actions{flex:1 0 100%;justify-content:flex-start;margin-left:0}
@@ -1201,16 +1210,27 @@ a.pair.pair-mini,html[data-theme="light"] a.pair.pair-mini{border-color:var(--li
    Fee dollars stay off this surface until a real total exists. */
 .site-foot .cover-note{max-width:640px;margin:8px auto 0;padding:8px 0 16px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left}
 html[data-theme="light"] .site-foot .cover-note{border-bottom-color:var(--line2)}
-.site-foot .cover-note h2{margin:0 0 8px;font-size:15px;font-weight:700;letter-spacing:-.01em;line-height:1.3;color:var(--text);text-align:left}
+.site-foot .cover-note h2{margin:0 0 8px;font-size:15px;font-weight:450;letter-spacing:0;line-height:1.3;color:var(--text);text-align:left}
 .site-foot .cover-note p{margin:0;text-align:left}
 .site-foot .cover-note .cover-note-line{font-size:14px;line-height:1.4;color:var(--text2)}
 .site-foot .cover-note .cover-note-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.cover-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 12px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text2);font:600 13px/1.2 var(--font);text-decoration:none}
-.cover-chip b{color:var(--text);font-weight:700;font-variant-numeric:tabular-nums}
+.cover-chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:4px 12px;border:1px solid var(--line2);border-radius:9999px;background:transparent;color:var(--text2);font:350 13px/1.2 var(--font);text-decoration:none}
+.cover-chip b{color:var(--text);font-weight:400;font-variant-numeric:tabular-nums}
 .cover-chip .li{width:15px;height:15px;color:currentColor}
 .site-foot a.cover-chip{color:var(--blue);text-decoration:none}
 .site-foot a.cover-chip:hover{background:var(--hover);color:var(--blue);text-decoration:none}
 html[data-theme="light"] .site-foot a.cover-chip,html[data-theme="light"] .site-foot a.cover-chip:hover{color:var(--btn-blue)}
 .site-foot .cover-note .cover-note-fees{margin-top:8px;font-size:13px;line-height:1.4;color:var(--text2)}
 @media (max-width:640px){.cover-chip{min-height:44px;padding:0 12px}}
-html.mobile .cover-chip{min-height:44px}}
+html.mobile .cover-chip{min-height:44px}
+
+/* Shelf Serif adjustments that are not a straight weight swap */
+.site-foot .tipcard .tc-eye{font-weight:350}
+.site-foot .tipcard .tc-eye .tc-via{font-weight:var(--w-read)}
+.tlist .nm{font-weight:400}
+.tlist a{gap:8px}
+.ss h2{line-height:1.15}
+.hint{color:var(--vmuted)}
+html[data-theme="light"] .job-find a{color:var(--btn-blue)}
+.desc{line-height:1.45}
+@media (min-width:641px){.desc{min-height:calc(3 * 1.45em)}}

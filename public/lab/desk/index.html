@@ -13,19 +13,20 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/styles.css?v=75559cfd67">
+<link rel="preload" href="/fonts/ShelfSerif-5.000.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/styles.css?v=68be721593">
 <link rel="preload" href="/shelf-data.json" as="fetch" crossorigin>
 <style>
 /* Lab mock: pair cards share shelf chrome; meta row mirrors .badges so footers align. */
 .lab-banner{margin:0 0 18px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--field);color:var(--text2);font-size:13px;line-height:1.4}
-.lab-banner strong{color:var(--text);font-weight:700}
+.lab-banner strong{color:var(--text);font-weight:450}
 .lab-banner code{font-size:12px}
-.bp > h1{margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.bp > h1{margin:0 0 8px;font-size:clamp(26px,4vw,34px);font-weight:500;letter-spacing:0;line-height:1.1}
 .lab-lead{margin:0 0 6px;font-size:17px;line-height:1.45;color:var(--text);max-width:42rem}
 .lab-sub{margin:0 0 8px;font-size:14px;color:var(--text2);line-height:1.45;max-width:40rem}
 
 .lab-disclose{margin:0 0 16px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--field);color:var(--text2);font-size:13px;line-height:1.45;max-width:42rem}
-.lab-disclose strong{color:var(--text);font-weight:700}
+.lab-disclose strong{color:var(--text);font-weight:450}
 .lab-disclose .badge{vertical-align:middle;margin:0 2px}
 .lab-legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;align-items:center}
 .lab-legend .badge{margin:0}
@@ -39,7 +40,7 @@
 .card.pair{cursor:default}
 .card.pair .icon{background:rgba(29,155,240,.06)}
 html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
-.card.pair .sub .cn{color:var(--text2);font-weight:500;pointer-events:none}
+.card.pair .sub .cn{color:var(--text2);font-weight:325;pointer-events:none}
 .badge.pair{border-color:rgba(29,155,240,.4);color:var(--blue)}
 .badge.dummy{border-color:var(--line2);color:var(--text2)}
 
@@ -52,7 +53,7 @@ html[data-theme="light"] .card.pair .icon{background:rgba(29,155,240,.08)}
 .card.pair .meta > a{
   display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px 0 5px;
   border-radius:9999px;border:1px solid var(--line);color:var(--text2);
-  font:600 12px/1 var(--font);text-decoration:none;max-width:100%;
+  font:325 12px/1 var(--font);text-decoration:none;max-width:100%;
 }
 .card.pair .meta > a:hover{border-color:var(--blue);color:var(--blue);background:var(--mark)}
 .card.pair .meta > a .em{display:inline-flex;flex:none;color:var(--text2)}

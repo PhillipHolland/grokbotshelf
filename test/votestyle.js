@@ -25,6 +25,8 @@ const SPOTS = { top: ['.topvotes:not(.newv) .tlist .sc', 48, true], tile: ['.cp-
       if (/\/api\/votes/.test(u) && r.method() === 'GET') return setTimeout(() => r.respond({ status: 200, contentType: 'application/json', body: JSON.stringify(VOTES) }).catch(() => {}), 1200);
       if (/\/api\//.test(u)) return r.abort(); r.continue(); });
     await p.goto(new URL(path, BASE).href, { waitUntil: 'domcontentloaded' });
+    // The CLS check below is about the counts landing, so the font arriving is not part of it
+    await p.evaluate(() => document.fonts.ready.then(() => { window.__cls = 0; }));
     return p;
   }
   const look = (p, sel) => p.evaluate((sel) => {
@@ -47,8 +49,8 @@ const SPOTS = { top: ['.topvotes:not(.newv) .tlist .sc', 48, true], tile: ['.cp-
       await new Promise((x) => setTimeout(x, 500));
       for (const k of spots) {
         const [sel, slot, arrow] = SPOTS[k], a = await look(p, sel);
-        const style = a.length > 0 && a.every((x) => x.muted && x.fill && x.fs === '13px' && x.fw === '600' && (!arrow || x.svg === '12/1.75px'));
-        ok(style, `${w} ${theme} ${path} ${k}: muted 13px/600 text, no fill${arrow ? ', 12px arrow at 1.75' : ''} (${a.length} shown, e.g. ${JSON.stringify(a[0])})`);
+        const style = a.length > 0 && a.every((x) => x.muted && x.fill && x.fs === '13px' && x.fw === '350' && (!arrow || x.svg === '12/1.75px'));
+        ok(style, `${w} ${theme} ${path} ${k}: muted 13px/350 text, no fill${arrow ? ', 12px arrow at 1.75' : ''} (${a.length} shown, e.g. ${JSON.stringify(a[0])})`);
         const minCr = Math.min(...a.map((x) => x.cr));
         ok(a.length > 0 && minCr >= 4.5, `${w} ${theme} ${path} ${k}: counts pass 4.5:1 (lowest ${minCr})`);
         ok(a.length > 0 && a.every((x) => x.w === slot) && a.some((x) => x.t !== '0'), `${w} ${theme} ${path} ${k}: every count sits in a ${slot}px slot (${[...new Set(a.map((x) => x.w))]}) with real scores in (${a.slice(0, 6).map((x) => x.t)})`);

@@ -63,7 +63,7 @@ try {
     ok(desk.includes("function botIcon") && desk.includes("${botIcon(b.emoji)}") && !desk.includes("${esc(b.emoji)}") && desk.includes("M12 8V4H8") && desk.includes('"🎬"'), "lab cards redraw with the Lucide mark table, not the emoji glyph");
     ok(stacksHtml.includes('class="stack-meta"') && !stacksHtml.includes('class="sub"'), "stack count line is its own row, not the bot-page subtitle");
     const cssNow = fs.readFileSync(path.join(TMP, "public", "styles.css"), "utf8");
-    ok(stacksHtml.includes('class="botpage stackspage"') && cssNow.includes("body.stackspage .rail") && cssNow.includes("background:var(--field);color:var(--text);font:600 13px"), "stacks page hides any A-Z rail and pair chips stay flat");
+    ok(stacksHtml.includes('class="botpage stackspage"') && cssNow.includes("body.stackspage .rail") && cssNow.includes("background:var(--field);color:var(--text);font:350 13px"), "stacks page hides any A-Z rail and pair chips stay flat");
     const { rankJobMembers } = require(path.join(TMP, "scripts", "collections"));
     const demo = ["a", "b", "c", "d"].map((s) => ({ slug: s, url: "https://x.ai/bot/" + s }));
     const ed = rankJobMembers(demo, ["b", "a"], null);
@@ -82,6 +82,17 @@ try {
   const home0 = fs.readFileSync(pub("index.html"), "utf8");
   const generic = [...botDirs.map((s) => pub("bot", s, "index.html")), ...cDirs.map((d) => pub(d, "index.html"))].filter((f) => fs.readFileSync(f, "utf8").includes("/og.png?v=2"));
   ok(!generic.length, `no page falls back to the generic og.png (${generic.length})`);
+  // A stray } silently eats the next rule, and an eaten @font-face leaves every page on the fallback font with no error.
+  const cssBare = fs.readFileSync(pub("styles.css"), "utf8").replace(/\/\*[\s\S]*?\*\//g, "");
+  let depth = 0, unbalanced = false;
+  for (const c of cssBare) { if (c === "{") depth++; else if (c === "}" && --depth < 0) unbalanced = true; }
+  ok(!unbalanced && depth === 0, "styles.css braces balance");
+  const fontUrl = (cssBare.match(/@font-face\{[^}]*url\("(\/fonts\/[^"]+\.woff2)"\)/) || [])[1];
+  ok(fontUrl && fs.existsSync(pub(fontUrl)), `styles.css names a font file that exists (${fontUrl})`);
+  const preload = `<link rel="preload" href="${fontUrl}" as="font" type="font/woff2" crossorigin>`;
+  const pagesToPreload = [...botDirs.map((s) => pub("bot", s, "index.html")), ...cDirs.map((d) => pub(d, "index.html")), ...["index.html", "404.html", "add/index.html", "stacks/index.html", "lab/desk/index.html"].map((f) => pub(f))];
+  const noPreload = pagesToPreload.filter((f) => !fs.readFileSync(f, "utf8").includes(preload));
+  ok(!noPreload.length, `every page preloads the font (${noPreload.length} of ${pagesToPreload.length} do not)`);
   const arch = bots.find((b) => b.name === "Archivist");
   if (arch) {
     const h = fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8"), ch = arch.creator_handle.replace(/^@/, "").toLowerCase();

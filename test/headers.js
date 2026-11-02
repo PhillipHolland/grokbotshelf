@@ -20,7 +20,7 @@ const IMM = 'public, max-age=31536000, immutable';
 const cases = [
   ['/app.js?v=0123456789', IMM], ['/add.js?v=0123456789', IMM], ['/shelf-up.js?v=0123456789', IMM], ['/bot-page.js?v=0123456789', IMM],
   ['/styles.css?v=0123456789', IMM], ['/shelf-data.json?v=0123456789', IMM], ['/og.png?v=0123456789', IMM],
-  ['/avatars/48/x.webp?v=0123456789', IMM],
+  ['/avatars/48/x.webp?v=0123456789', IMM], ['/fonts/ShelfSerif-5.000.woff2', IMM],
   ['/app.js', 'public, max-age=300, stale-while-revalidate=86400'], ['/styles.css', 'public, max-age=300, stale-while-revalidate=86400'],
   ['/shelf-up.js', 'public, max-age=300, stale-while-revalidate=86400'], ['/shelf-data.json', 'public, max-age=300, stale-while-revalidate=86400'],
   ['/favicon.svg', 'public, max-age=86400'], ['/badge.svg', 'public, max-age=86400'], ['/apple-touch-icon.png', 'public, max-age=86400'],
