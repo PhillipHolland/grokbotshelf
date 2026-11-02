@@ -7765,5 +7765,275 @@
     "status": "approved",
     "date": "2026-11-02",
     "note": "form #669; Phil approved 2026-11-02; shelved"
+  },
+  "form-709": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/0f-Z9DWyIAprL_LwFdy3N",
+    "name": "Practice Plan Builder by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #709; Phil approved 2026-11-02; shelved"
+  },
+  "form-708": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/QGzcRNttvHwx5SmBdtPz4",
+    "name": "Handicap Tracker by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #708; Phil approved 2026-11-02; shelved"
+  },
+  "form-707": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/4HeOh10GXhdaH_232cYcU",
+    "name": "Rules & Etiquette Ref by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #707; Phil approved 2026-11-02; shelved"
+  },
+  "form-706": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/UCwBU2Afs7QBK3BNPjop4",
+    "name": "Club Fitting & Gapping Helper by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #706; Phil approved 2026-11-02; shelved"
+  },
+  "form-705": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/I_yhFY5sdD0lh8ChKFvkG",
+    "name": "Golf Trip Planner by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #705; Phil approved 2026-11-02; shelved"
+  },
+  "form-704": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/yB--scI4iEKx5WSMVoACJ",
+    "name": "Junior Golf Coach by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #704; Phil approved 2026-11-02; shelved"
+  },
+  "form-703": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/XdgOlUq4DUnWxdsARJP0H",
+    "name": "Golf Swing Improver by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #703; Phil approved 2026-11-02; shelved"
+  },
+  "form-702": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/qQyA_2ylOZzBZTUJik2dm",
+    "name": "Golf Fitness & Mobility Coach by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #702; Phil approved 2026-11-02; shelved"
+  },
+  "form-701": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/yWkbA8W2izrZYnacfcuqZ",
+    "name": "League & Scramble Organizer by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #701; Phil approved 2026-11-02; shelved"
+  },
+  "form-700": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/upxjn-OAkVd4inGzuXkVQ",
+    "name": "Mental Game Coach by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #700; Phil approved 2026-11-02; shelved"
+  },
+  "form-699": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/BNSCl09m4s6HVdJV-vptX",
+    "name": "Putt Reader by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #699; Phil approved 2026-11-02; shelved"
+  },
+  "form-698": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/msLKed5U8fgbmAklgMXIb",
+    "name": "Course Strategy Caddie by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #698; Phil approved 2026-11-02; shelved"
+  },
+  "form-697": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/uGvKM0k1JcGIS91qkyTOI",
+    "name": "Event Liability Planner by Kevin",
+    "status": "denied",
+    "date": "2026-11-02",
+    "note": "form #697; Phil denied 2026-11-02: near-duplicate of shelved Event Insurance Helper by Kevin"
+  },
+  "form-696": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/Xqv50rGsje0_mGXjZgCg4",
+    "name": "Classic Car Agreed Value Helper by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #696; Phil approved 2026-11-02; shelved"
+  },
+  "form-695": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/2IjR9KkYz0-Zkrx9-JiQg",
+    "name": "Surety Bond Basics by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #695; Phil approved 2026-11-02; shelved"
+  },
+  "form-694": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/1lWowYsdxJ-mexitxGh5A",
+    "name": "Hail Damage Roof Assessment by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #694; Phil approved 2026-11-02; shelved"
+  },
+  "form-693": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/xrur41VdViYkduZxPt6kW",
+    "name": "Roof Age & ACV Estimator by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #693; Phil approved 2026-11-02; shelved"
+  },
+  "form-710": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/luN4xMj_HvJRsrrkSFVs0",
+    "name": "Kids' Birthday Party Planner by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #710; Phil approved 2026-11-02; shelved"
+  },
+  "form-711": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/OmO3CTbMKXwEjf8-CsJjg",
+    "name": "Tough Talks Guide by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #711; Phil approved 2026-11-02; shelved"
+  },
+  "form-712": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/Zw0iNuWVT6geq5Y0yw5I1",
+    "name": "Babysitter Handoff Sheet by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #712; Phil approved 2026-11-02; shelved"
+  },
+  "form-713": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/wzntwaPjElXHt1gpuJZGd",
+    "name": "School Morning Launcher by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #713; Phil approved 2026-11-02; shelved"
+  },
+  "form-714": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/EVpdEsK65UDSLosfm-nKD",
+    "name": "Sibling Peacemaker by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #714; Phil approved 2026-11-02; shelved"
+  },
+  "form-715": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/sW-PgV6cP58CPwb7uI5zB",
+    "name": "Potty Training Coach by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #715; Phil approved 2026-11-02; shelved"
+  },
+  "form-716": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/FVf1ZEHebCd4Hk84YYKbr",
+    "name": "Big Feelings Coach by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #716; Phil approved 2026-11-02; shelved"
+  },
+  "form-717": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/sMUSA5hUoMTVv5fLl9HRS",
+    "name": "Picky Eater Helper by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #717; Phil approved 2026-11-02; shelved"
+  },
+  "form-718": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/GZuFqq4IS4ViWB6skLEO6",
+    "name": "Screen Time Planner by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #718; Phil approved 2026-11-02; shelved"
+  },
+  "form-719": {
+    "post_id": "",
+    "author_handle": "@kcmcdonald",
+    "template_url": "https://x.ai/bot/wdX5jvYVioJTtfrSZlf0C",
+    "name": "Bedtime Routine Builder by Kevin",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #719; Phil approved 2026-11-02; shelved"
+  },
+  "form-720": {
+    "post_id": "",
+    "author_handle": "@GrokBotsForBiz",
+    "template_url": "https://x.ai/bot/PkfuqRPuckq_Y4Df2i4Ck",
+    "name": "Tax Return by Scott",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #720; Phil approved 2026-11-02; shelved"
+  },
+  "form-721": {
+    "post_id": "",
+    "author_handle": "@GrokBotsForBiz",
+    "template_url": "https://x.ai/bot/c9zxS3sqkF5h7vXvs6NVn",
+    "name": "Drug Savings by Scott",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #721; Phil approved 2026-11-02; shelved"
+  },
+  "form-722": {
+    "post_id": "",
+    "author_handle": "@GrokBotsForBiz",
+    "template_url": "https://x.ai/bot/lj8-Co5IA-wbN4T84zK8L",
+    "name": "Meal Planning & Grocery Buying Bot by Scott",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #722; Phil approved 2026-11-02; shelved"
   }
 }

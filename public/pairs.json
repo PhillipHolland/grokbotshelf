@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-02T19:19:38.437Z",
+ "generated": "2026-11-02T23:23:17.272Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2393,6 +2393,53 @@
   "earthquake-deductible-calculator-by-kevin": [],
   "vacant-building-policy-checker-by-kevin": [],
   "inland-marine-cargo-tracker-by-kevin": [],
-  "landlord-liability-incident-reporter-by-kevin": []
+  "landlord-liability-incident-reporter-by-kevin": [],
+  "practice-plan-builder-by-kevin": [],
+  "handicap-tracker-by-kevin": [],
+  "rules-and-etiquette-ref-by-kevin": [],
+  "club-fitting-and-gapping-helper-by-kevin": [],
+  "golf-trip-planner-by-kevin": [],
+  "junior-golf-coach-by-kevin": [],
+  "golf-swing-improver-by-kevin": [],
+  "golf-fitness-and-mobility-coach-by-kevin": [],
+  "league-and-scramble-organizer-by-kevin": [],
+  "mental-game-coach-by-kevin": [],
+  "putt-reader-by-kevin": [],
+  "course-strategy-caddie-by-kevin": [],
+  "classic-car-agreed-value-helper-by-kevin": [],
+  "surety-bond-basics-by-kevin": [],
+  "hail-damage-roof-assessment-by-kevin": [],
+  "roof-age-and-acv-estimator-by-kevin": [],
+  "meal-planning-and-grocery-buying-bot-by-scott": [
+   {
+    "id": "rubbermaid-meal",
+    "score": 4,
+    "reason": "Mentions “grocery list”.",
+    "auto": true,
+    "probation": true,
+    "since": "2026-11-02"
+   }
+  ],
+  "drug-savings-by-scott": [
+   {
+    "id": "ezy-dose-weekly",
+    "score": 4,
+    "reason": "Mentions “pill bottles”.",
+    "auto": true,
+    "probation": true,
+    "since": "2026-11-02"
+   }
+  ],
+  "tax-return-by-scott": [],
+  "bedtime-routine-builder-by-kevin": [],
+  "screen-time-planner-by-kevin": [],
+  "picky-eater-helper-by-kevin": [],
+  "big-feelings-coach-by-kevin": [],
+  "potty-training-coach-by-kevin": [],
+  "sibling-peacemaker-by-kevin": [],
+  "school-morning-launcher-by-kevin": [],
+  "babysitter-handoff-sheet-by-kevin": [],
+  "tough-talks-guide-by-kevin": [],
+  "kids-birthday-party-planner-by-kevin": []
  }
 }
