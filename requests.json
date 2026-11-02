@@ -6001,10 +6001,13 @@
     "form-500": {
       "author_handle": "@kcmcdonald",
       "template_url": "https://x.ai/bot/MLJr7RXJx36mYaV2huL3-",
-      "status": "parked",
+      "status": "denied",
       "date": "2026-10-30",
       "post_id": "",
-      "note": "Spam-Call Scrubber by Kevin; parked: name clash with Spam-Call Scrubber by @TNVOLMAN on shelf"
+      "note": "Spam-Call Scrubber by Kevin; parked: name clash with Spam-Call Scrubber by @TNVOLMAN on shelf; denied for good 2026-11-01 per Phil standing practice: same name as shelved Spam-Call Scrubber by @TNVOLMAN (Phil denies same-name clashes)",
+      "denied_at": "2026-11-01",
+      "denied_by": "Phillip Holland",
+      "reason": "same name as shelved Spam-Call Scrubber by @TNVOLMAN (Phil denies same-name clashes)"
     },
     "form-523": {
       "author_handle": "@ALL_Jonah",
@@ -6137,10 +6140,13 @@
     "form-525": {
       "author_handle": "@ALL_Jonah",
       "template_url": "https://x.ai/bot/XHEHu4DaZsgSH5pA4J3S6",
-      "status": "parked",
+      "status": "denied",
       "date": "2026-10-30",
       "post_id": "",
-      "note": "Grok Slots by Jonah parked for Phil: chases @jason money/X Money giveaways with ready-to-paste replies and odds; slots/giveaway framing; parked 2026-10-31 per Phillip: chases @jason money giveaways"
+      "note": "Grok Slots by Jonah parked for Phil: chases @jason money/X Money giveaways with ready-to-paste replies and odds; slots/giveaway framing; parked 2026-10-31 per Phillip: chases @jason money giveaways; denied for good 2026-11-01 per Phil standing practice: giveaway/slots chase framing (chases @jason money/X Money giveaways)",
+      "denied_at": "2026-11-01",
+      "denied_by": "Phillip Holland",
+      "reason": "giveaway/slots chase framing (chases @jason money/X Money giveaways)"
     },
     "form-538": {
       "author_handle": "@RachelVT42",
@@ -6619,10 +6625,13 @@
   "x-2116153400601526458": {
     "author_handle": "@iamtheh0n3yp0t",
     "template_url": "https://x.ai/bot/j1BPP8XWqcrQb30vlaYt-",
-    "status": "parked",
+    "status": "denied",
     "date": "2026-10-30",
     "post_id": "2116153400601526458",
-    "note": "X reply: 'Shelfer by John' looks like a copy of Phillip's own Shelfer (PkJM_w44LhHGmBnqCG_gi); same name; held for Phillip"
+    "note": "X reply: 'Shelfer by John' looks like a copy of Phillip's own Shelfer (PkJM_w44LhHGmBnqCG_gi); same name; held for Phillip; denied for good 2026-11-01 per Phil standing practice: same name as Phillip’s own Shelfer (PkJM_w44LhHGmBnqCG_gi); copycat",
+    "denied_at": "2026-11-01",
+    "denied_by": "Phillip Holland",
+    "reason": "same name as Phillip’s own Shelfer (PkJM_w44LhHGmBnqCG_gi); copycat"
   },
   "x-2116015473703997613": {
     "author_handle": "@aceop_xyz",
@@ -7403,5 +7412,36 @@
     "url": "https://grokbotshelf.com/bot/botimprover",
     "note": "site form #656; Phil approved 2026-11-01; shelved Bot Tools",
     "date": "2026-11-01"
+  },
+  "form-659": {
+    "status": "approved",
+    "author": "@_DanielWilson",
+    "bot": "Bench Coach",
+    "template_url": "https://x.ai/bot/5patx2eCnpNfJ2VMWN28y",
+    "url": "https://grokbotshelf.com/bot/bench-coach",
+    "note": "site form #659; Phil standing SFW shelf practice (WDYT 2026-11-01); shelved Lifestyle",
+    "date": "2026-11-01",
+    "approved_by": "Phillip Holland"
+  },
+  "form-658": {
+    "status": "approved",
+    "author": "@johnp_creates",
+    "bot": "BotDoctor",
+    "template_url": "https://x.ai/bot/v_nXdMs_P3vL7RtMd95KB",
+    "url": "https://grokbotshelf.com/bot/botdoctor",
+    "note": "site form #658; source post https://x.com/johnp_creates/status/2117047204473176186; Phil standing SFW shelf practice (WDYT 2026-11-01); shelved Bot Tools",
+    "date": "2026-11-01",
+    "approved_by": "Phillip Holland",
+    "post_id": "2117047204473176186"
+  },
+  "form-657": {
+    "status": "approved",
+    "author": "@the_seth_ard",
+    "bot": "Steady Hand",
+    "template_url": "https://x.ai/bot/WNa0UvXDfvRkZ31PmJ93r",
+    "url": "https://grokbotshelf.com/bot/steady-hand",
+    "note": "site form #657; credited Salty FL Cracker (Seth) to match existing shelf credit; Phil standing SFW shelf practice (WDYT 2026-11-01); shelved Money",
+    "date": "2026-11-01",
+    "approved_by": "Phillip Holland"
   }
 }

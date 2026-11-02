@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 01 Nov 2026 23:14:24 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 01:07:00 GMT</lastBuildDate>
+  <item>
+    <title>🤝 Steady Hand by Salty FL Cracker</title>
+    <link>https://grokbotshelf.com/bot/steady-hand</link>
+    <guid isPermaLink="false">https://x.ai/bot/WNa0UvXDfvRkZ31PmJ93r</guid>
+    <description>Help for the weeks after losing a spouse: what to ask HR, Social Security, Medicare and insurers, and which bills are and aren’t yours, checked against your state’s current law.</description>
+    <dc:creator>Salty FL Cracker (@the_seth_ard)</dc:creator>
+    <category>Money</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩺 BotDoctor by John</title>
+    <link>https://grokbotshelf.com/bot/botdoctor</link>
+    <guid isPermaLink="false">https://x.ai/bot/v_nXdMs_P3vL7RtMd95KB</guid>
+    <description>Grades your Grok Bot setup like a patient chart, covering usage, routines and connectors, with a shareable chart image and one-tap fixes.</description>
+    <dc:creator>John (@johnp_creates)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏈 Bench Coach by Daniel Wilson</title>
+    <link>https://grokbotshelf.com/bot/bench-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/5patx2eCnpNfJ2VMWN28y</guid>
+    <description>Fantasy coach for Yahoo Fantasy football, basketball, baseball and hockey leagues: lineup, injury, waiver and trade calls scored to your league, with every move drafted for your OK.</description>
+    <dc:creator>Daniel Wilson (@_DanielWilson)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Sun, 01 Nov 2026 12:15:10 GMT</pubDate>
+  </item>
   <item>
     <title>🔧 BotImprover by Carolina</title>
     <link>https://grokbotshelf.com/bot/botimprover</link>
@@ -429,33 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sun, 01 Nov 2026 12:14:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚙 Auto Claim Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/auto-claim-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/5TDHLwdB0B68Jwp7KCl_T</guid>
-    <description>Guides a driver after a car accident: what to collect at the scene, filing the claim, rental and repair choices, total-loss valuation, and diminished value questions.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>☂️ Umbrella Coverage Sizer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/umbrella-coverage-sizer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/lh1T8PTv7l0jixhScsvkZ</guid>
-    <description>Helps a family or small business estimate how much umbrella or excess liability coverage to consider, based on assets, exposures and underlying limits, with questions to bring to their agent. General education, not advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚦 Usage Watch Walt by Jim</title>
-    <link>https://grokbotshelf.com/bot/usage-watch-walt</link>
-    <guid isPermaLink="false">https://x.ai/bot/aPgoCcrr2G2TOjYzjocbz</guid>
-    <description>A plain-English Grok Bot usage watchdog: a green, yellow or red gauge with a forecast, which bots and routines use the most, and simple ways to save so extra charges never surprise you.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:20 GMT</pubDate>
   </item>
 </channel>
 </rss>

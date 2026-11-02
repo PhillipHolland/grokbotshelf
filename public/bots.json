@@ -11821,5 +11821,44 @@
     "creator_avatar": "/avatars/carolinadill.webp",
     "source_post": "",
     "added": "2026-11-01"
+  },
+  {
+    "name": "Bench Coach",
+    "emoji": "🏈",
+    "description": "Fantasy coach for Yahoo Fantasy football, basketball, baseball and hockey leagues: lineup, injury, waiver and trade calls scored to your league, with every move drafted for your OK.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/5patx2eCnpNfJ2VMWN28y",
+    "creator_name": "Daniel Wilson",
+    "creator_handle": "@_DanielWilson",
+    "creator_url": "https://x.com/_DanielWilson",
+    "creator_avatar": "/avatars/_danielwilson.webp",
+    "source_post": "",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "BotDoctor",
+    "emoji": "🩺",
+    "description": "Grades your Grok Bot setup like a patient chart, covering usage, routines and connectors, with a shareable chart image and one-tap fixes.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/v_nXdMs_P3vL7RtMd95KB",
+    "creator_name": "John",
+    "creator_handle": "@johnp_creates",
+    "creator_url": "https://x.com/johnp_creates",
+    "creator_avatar": "/avatars/johnp_creates.webp",
+    "source_post": "https://x.com/johnp_creates/status/2117047204473176186",
+    "added": "2026-11-01"
+  },
+  {
+    "name": "Steady Hand",
+    "emoji": "🤝",
+    "description": "Help for the weeks after losing a spouse: what to ask HR, Social Security, Medicare and insurers, and which bills are and aren’t yours, checked against your state’s current law.",
+    "category": "Money",
+    "url": "https://x.ai/bot/WNa0UvXDfvRkZ31PmJ93r",
+    "creator_name": "Salty FL Cracker",
+    "creator_handle": "@the_seth_ard",
+    "creator_url": "https://x.com/the_seth_ard",
+    "creator_avatar": "/avatars/the_seth_ard.webp",
+    "source_post": "",
+    "added": "2026-11-01"
   }
 ]
