@@ -228,11 +228,9 @@ function shelvedLabel(d) {
   return /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" }) : "";
 }
 function growthStrip() {
-  const paired = items.filter((b) => pairsFor(b, products).length).length;
   const when = shelvedLabel(items.reduce((m, b) => ((b.added || "") > m ? b.added : m), ""));
   return `<p class="growth" aria-label="Shelf">
   <span>${lucide("bot")}<b>${items.length.toLocaleString("en-US")}</b> bots</span>
-  <span>${lucide("shopping-bag")}<b>${paired.toLocaleString("en-US")}</b> with Amazon pairs</span>
   ${when ? `<span>${lucide("calendar")}Shelved ${esc(when)}</span>` : ""}
 </p>`;
 }
