@@ -4,6 +4,8 @@
 // gallery's srcset offers to 2x and 3x screens (the gallery shows "No share card yet" for a bot without a card).
 // Only missing images are drawn unless you pass --all; a thumbnail is redrawn whenever its card is. Images of bots
 // and creators that are gone are deleted. This is a manual step: the Vercel build (scripts/build.js) does not run it.
+// Text is set in Shelf Serif from public/fonts, so cards draw the same on any machine. Emoji use an installed Noto Color Emoji;
+// where it is not installed, EMOJI_FONT names a copy to load. CHROME names the browser when it is not /usr/bin/google-chrome.
 // Needs puppeteer-core outside the repo:
 //   NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/og.js [--all]
 // Then run node scripts/build.js so the bot pages point at the new images.
@@ -14,16 +16,20 @@ const PUB = path.join(__dirname, "..", "public"), OUT = path.join(PUB, "og", "bo
 const bots = JSON.parse(fs.readFileSync(path.join(PUB, "bots.json"), "utf8"));
 const all = process.argv.includes("--all");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const fontUri = (f) => "data:font/woff2;base64," + fs.readFileSync(f).toString("base64");
+const FONT = fontUri(path.join(PUB, (fs.readFileSync(path.join(PUB, "styles.css"), "utf8").match(/url\("(\/fonts\/[^"]+\.woff2)"\)/) || [])[1]));
+const EMOJI = process.env.EMOJI_FONT ? `@font-face{font-family:"Noto Color Emoji";src:url(${fontUri(process.env.EMOJI_FONT)})}` : "";
 const dataUri = (p) => { try { return "data:image/webp;base64," + fs.readFileSync(path.join(PUB, p)).toString("base64"); } catch { return ""; } };
 const html = (b) => `<!doctype html><html><head><meta charset="utf-8"><style>
-html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#000;font-family:Inter,"Noto Color Emoji",sans-serif;color:#e7e9ea}
+@font-face{font-family:"Shelf Serif";src:url(${FONT}) format("woff2");font-weight:300 700}${EMOJI}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#000;font-family:"Shelf Serif","Noto Color Emoji",sans-serif;font-weight:300;color:#e7e9ea}
 .c{position:absolute;left:88px;right:88px;top:72px;bottom:64px;display:flex;flex-direction:column}
 .e{width:120px;height:120px;border:2px solid #2f3336;border-radius:28px;display:grid;place-items:center;font-size:68px;line-height:1;margin-bottom:36px;font-family:"Noto Color Emoji"}
-h1{font-size:${b.name.length > 26 ? 64 : 80}px;line-height:1.05;letter-spacing:-.035em;font-weight:800;margin:0 0 20px;max-height:180px;overflow:hidden}
-p{font-size:32px;line-height:1.3;margin:0;color:#a8adb2;letter-spacing:-.01em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+h1{font-size:${b.name.length > 22 ? 64 : 80}px;line-height:1.1;font-weight:500;margin:0 0 20px;max-height:180px;overflow:hidden}
+p{font-size:32px;line-height:1.3;margin:0;color:#a8adb2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .f{position:absolute;left:88px;right:88px;bottom:56px;display:flex;align-items:center;justify-content:space-between;font-size:28px;color:#71767b}
 .by{display:flex;align-items:center;gap:14px}.by img{width:44px;height:44px;border-radius:50%}
-.s{display:flex;align-items:center;gap:12px;font-weight:700;color:#e7e9ea}
+.s{display:flex;align-items:center;gap:12px;font-weight:400;color:#e7e9ea}
 .s svg{width:36px;height:36px}
 .av{width:120px;height:120px;border-radius:50%;margin-bottom:36px;border:2px solid #2f3336}
 </style></head><body><div class="c">${b.creator ? (dataUri(b.creator_avatar) ? `<img class="av" src="${dataUri(b.creator_avatar)}">` : "") : `<div class="e">${esc(b.emoji)}</div>`}<h1>${esc(b.name)}</h1><p>${esc(b.description)}</p></div>
@@ -47,7 +53,7 @@ const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(C
   const thumbs = bots.flatMap((b) => [[TOUT, 480, 252], [TOUT2, 720, 378]].map(([dir, w, h]) => ({ png: path.join(OUT, slugify(b.name) + ".png"), file: path.join(dir, slugify(b.name) + ".webp"), w, h })))
     .filter((t) => drawn.has(t.png) || !fs.existsSync(t.file));
   if (!todo.length && !thumbs.length) return console.log("og: nothing to draw");
-  const br = await puppeteer.launch({ executablePath: "/usr/bin/google-chrome", headless: "new", args: ["--no-sandbox"] });
+  const br = await puppeteer.launch({ executablePath: process.env.CHROME || "/usr/bin/google-chrome", headless: "new", args: ["--no-sandbox"] });
   const p = await br.newPage(); await p.setViewport({ width: 1200, height: 630 });
   for (const b of todo) {
     await p.setContent(html(b), { waitUntil: "load" });
