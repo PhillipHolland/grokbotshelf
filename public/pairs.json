@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-02T13:15:04.640Z",
+ "generated": "2026-11-02T19:19:38.437Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2370,6 +2370,29 @@
   "ai-video-ad-creator-by-tavi": [],
   "ai-anime-director-by-tavi": [],
   "ai-children-s-animation-creator-by-tavi": [],
-  "ai-video-analyst-by-tavi": []
+  "ai-video-analyst-by-tavi": [],
+  "boat-and-watercraft-policy-explainer-by-kevin": [],
+  "sewer-backup-and-sump-pump-guide-by-kevin": [],
+  "fallen-tree-claim-guide-by-kevin": [],
+  "theft-and-burglary-claim-kit-by-kevin": [],
+  "liquor-liability-helper-by-kevin": [],
+  "golf-cart-and-atv-coverage-guide-by-kevin": [],
+  "equipment-breakdown-coverage-helper-by-kevin": [],
+  "wildfire-smoke-claim-guide-by-kevin": [],
+  "tenant-damage-claim-intake-by-kevin": [],
+  "ho-3-vs-ho-5-coverage-diff-by-kevin": [],
+  "water-damage-mitigation-log-by-kevin": [],
+  "scheduled-personal-property-appraiser-by-kevin": [],
+  "commercial-auto-physical-damage-estimator-by-kevin": [],
+  "pet-injury-liability-helper-by-kevin": [],
+  "cobra-election-advisor-by-kevin": [],
+  "short-term-disability-claim-filer-by-kevin": [],
+  "hsa-vs-fsa-chooser-by-kevin": [],
+  "long-term-care-needs-estimator-by-kevin": [],
+  "retiree-health-plan-switcher-by-kevin": [],
+  "earthquake-deductible-calculator-by-kevin": [],
+  "vacant-building-policy-checker-by-kevin": [],
+  "inland-marine-cargo-tracker-by-kevin": [],
+  "landlord-liability-incident-reporter-by-kevin": []
  }
 }
