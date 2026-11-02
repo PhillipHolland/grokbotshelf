@@ -7443,5 +7443,55 @@
     "note": "site form #657; credited Salty FL Cracker (Seth) to match existing shelf credit; Phil standing SFW shelf practice (WDYT 2026-11-01); shelved Money",
     "date": "2026-11-01",
     "approved_by": "Phillip Holland"
+  },
+  "form-660": {
+    "status": "approved",
+    "author": "@tavivideo",
+    "bot": "AI Product Video Creator by tavi",
+    "template_url": "https://x.ai/bot/Q_tM45RdKXZUj2XPdOOPm",
+    "url": "https://grokbotshelf.com/bot/ai-product-video-creator-by-tavi",
+    "note": "site form #660; Phil standing SFW shelf practice; shelved Creator & Media",
+    "date": "2026-11-02",
+    "approved_by": "Phillip Holland"
+  },
+  "form-661": {
+    "status": "approved",
+    "author": "@tavivideo",
+    "bot": "AI Video Ad Creator by tavi",
+    "template_url": "https://x.ai/bot/0gb8thoTyrMSq1hFBd63C",
+    "url": "https://grokbotshelf.com/bot/ai-video-ad-creator-by-tavi",
+    "note": "site form #661; Phil standing SFW shelf practice; shelved Creator & Media",
+    "date": "2026-11-02",
+    "approved_by": "Phillip Holland"
+  },
+  "form-662": {
+    "status": "approved",
+    "author": "@tavivideo",
+    "bot": "AI Anime Director by tavi",
+    "template_url": "https://x.ai/bot/GQaZxm2s7wfXT09rLOBM0",
+    "url": "https://grokbotshelf.com/bot/ai-anime-director-by-tavi",
+    "note": "site form #662; Phil standing SFW shelf practice; shelved Creator & Media",
+    "date": "2026-11-02",
+    "approved_by": "Phillip Holland"
+  },
+  "form-663": {
+    "status": "approved",
+    "author": "@tavivideo",
+    "bot": "AI Children’s Animation Creator by tavi",
+    "template_url": "https://x.ai/bot/qPZUZfck2VJcLIl5vmLwl",
+    "url": "https://grokbotshelf.com/bot/ai-children-s-animation-creator-by-tavi",
+    "note": "site form #663; Phil standing SFW shelf practice; shelved Creator & Media",
+    "date": "2026-11-02",
+    "approved_by": "Phillip Holland"
+  },
+  "form-664": {
+    "status": "approved",
+    "author": "@tavivideo",
+    "bot": "AI Video Analyst by tavi",
+    "template_url": "https://x.ai/bot/vz8IEZ4rnb9z665B12gtN",
+    "url": "https://grokbotshelf.com/bot/ai-video-analyst-by-tavi",
+    "note": "site form #664; Phil standing SFW shelf practice; shelved Creator & Media",
+    "date": "2026-11-02",
+    "approved_by": "Phillip Holland"
   }
 }

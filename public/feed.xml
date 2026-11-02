@@ -6,7 +6,52 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 02 Nov 2026 01:07:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 13:15:07 GMT</lastBuildDate>
+  <item>
+    <title>📊 AI Video Analyst by tavi</title>
+    <link>https://grokbotshelf.com/bot/ai-video-analyst-by-tavi</link>
+    <guid isPermaLink="false">https://x.ai/bot/vz8IEZ4rnb9z665B12gtN</guid>
+    <description>Analyze a video’s opening, pacing, camera work, and script with Tavi, and see how the shots and story fit together.</description>
+    <dc:creator>tavi (@tavivideo)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:15:17 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧸 AI Children’s Animation Creator by tavi</title>
+    <link>https://grokbotshelf.com/bot/ai-children-s-animation-creator-by-tavi</link>
+    <guid isPermaLink="false">https://x.ai/bot/qPZUZfck2VJcLIl5vmLwl</guid>
+    <description>Make animated story clips for children with Tavi, starting from a bedtime story, a small adventure, or a good habit.</description>
+    <dc:creator>tavi (@tavivideo)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:15:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎌 AI Anime Director by tavi</title>
+    <link>https://grokbotshelf.com/bot/ai-anime-director-by-tavi</link>
+    <guid isPermaLink="false">https://x.ai/bot/GQaZxm2s7wfXT09rLOBM0</guid>
+    <description>Turn your story into anime-style video clips with Tavi: shape the characters, write each episode, and plan the shots.</description>
+    <dc:creator>tavi (@tavivideo)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:15:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>📣 AI Video Ad Creator by tavi</title>
+    <link>https://grokbotshelf.com/bot/ai-video-ad-creator-by-tavi</link>
+    <guid isPermaLink="false">https://x.ai/bot/0gb8thoTyrMSq1hFBd63C</guid>
+    <description>Make video ad clips with Tavi: a strong opening, a script built around one clear message, and a clear call to action.</description>
+    <dc:creator>tavi (@tavivideo)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:15:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>📦 AI Product Video Creator by tavi</title>
+    <link>https://grokbotshelf.com/bot/ai-product-video-creator-by-tavi</link>
+    <guid isPermaLink="false">https://x.ai/bot/Q_tM45RdKXZUj2XPdOOPm</guid>
+    <description>Make product video clips with Tavi from your photos and product details, showing what the product does and why someone would want it.</description>
+    <dc:creator>tavi (@tavivideo)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:15:13 GMT</pubDate>
+  </item>
   <item>
     <title>🤝 Steady Hand by Salty FL Cracker</title>
     <link>https://grokbotshelf.com/bot/steady-hand</link>
@@ -411,51 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Sun, 01 Nov 2026 12:14:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Nonprofit D&amp;O Explainer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/nonprofit-d-and-o-explainer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/eJoDz9AdvWddUM4v_phDE</guid>
-    <description>Explains directors and officers insurance for nonprofit and volunteer boards in plain language: coverage, common exclusions, employment practices, and the questions to ask at renewal.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 Medicare vs. Employer Plan Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/medicare-vs-employer-plan-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/zd7VcQxxJf4WaaHjT6r60</guid>
-    <description>Helps people turning 65 who are still working decide between staying on an employer plan and enrolling in Medicare, covering enrollment windows, penalties, HSA rules, and questions for HR.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Premium Increase Explainer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/premium-increase-explainer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/41dFBekbCEPP_LZArVeLI</guid>
-    <description>Reads an insurance renewal notice or quote and explains in plain words why the premium went up, plus which levers (deductibles, limits, loss control, remarketing) could help.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>💵 Subrogation &amp; Recovery Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/subrogation-and-recovery-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/o2VflT-u1Genjn23RJCVf</guid>
-    <description>Helps you recover money from an at-fault party after a loss: track deductible reimbursement and subrogation status, draft demand letters, and keep a timeline. General guidance, not legal advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏭 Business Interruption Estimator by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/business-interruption-estimator-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/mGplHYt0NOIDEzOTBhBxH</guid>
-    <description>Helps a business estimate business income and extra expense needs from revenue, fixed costs and recovery time, and explains coinsurance and waiting periods.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 01 Nov 2026 12:14:23 GMT</pubDate>
   </item>
 </channel>
 </rss>
