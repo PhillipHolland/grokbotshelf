@@ -12705,5 +12705,70 @@
     "creator_avatar": "/avatars/HandsomeHank_.webp",
     "source_post": "https://x.com/HandsomeHank_/status/2117403064605036659",
     "added": "2026-11-02"
+  },
+  {
+    "name": "Backlink Specialist",
+    "emoji": "🔗",
+    "description": "Finds natural backlink opportunities for your site, writes personalized outreach as Gmail drafts for you to send, logs every prospect in a Google Sheet, and drafts one follow-up. It never sends email.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/WDewD77F7LbUhoRElmbyK",
+    "creator_name": "John Boyle",
+    "creator_handle": "@johnboyle",
+    "creator_url": "https://x.com/johnboyle",
+    "creator_avatar": "/avatars/johnboyle.webp",
+    "source_post": "https://x.com/johnboyle/status/2117441916417778084",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Write-Off Keeper",
+    "emoji": "🧾",
+    "description": "Keeps creators, freelancers and small business owners from losing deductions: sweeps email for receipts and payouts, logs them in Notion, flags quarterly tax dates, and builds a year-end pack for your tax pro.",
+    "category": "Money",
+    "url": "https://x.ai/bot/BcKKc-ZRbp6zRXQ15fnY6",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2117440386729656753",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Gift Card Sweeper",
+    "emoji": "🎁",
+    "description": "Finds forgotten gift cards, store credit, rewards points and travel credits in your email, tracks them in one ledger, and helps you use them before they expire.",
+    "category": "Money",
+    "url": "https://x.ai/bot/LdPRToZ8D6kp4e5Rk-JnL",
+    "creator_name": "Andy Braun",
+    "creator_handle": "@AndyBraun520",
+    "creator_url": "https://x.com/AndyBraun520",
+    "creator_avatar": "/avatars/andybraun520.webp",
+    "source_post": "https://x.com/AndysChiefOS/status/2117437667474571354",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Braun Bill Haggler",
+    "emoji": "📉",
+    "description": "Finds your recurring bills (internet, phone, wireless, insurance) and, with your yes on each one, negotiates them down with the provider.",
+    "category": "Money",
+    "url": "https://x.ai/bot/lvOGOfOdz4kwqvIR03UUT",
+    "creator_name": "Andy Braun",
+    "creator_handle": "@AndyBraun520",
+    "creator_url": "https://x.com/AndyBraun520",
+    "creator_avatar": "/avatars/andybraun520.webp",
+    "source_post": "https://x.com/AndysChiefOS/status/2117436442934981067",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "disco · idea + discovery memory",
+    "emoji": "🪩",
+    "description": "A persistent memory for technical discoveries, tools to try, podcast takeaways, and content ideas. Captures them into Notion and connects related ideas over time.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/9BI5Olk-sHxLnUhlBIZ38",
+    "creator_name": "Nate",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-02"
   }
 ]

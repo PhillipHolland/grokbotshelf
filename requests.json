@@ -8061,17 +8061,82 @@
     "author_handle": "@brflux",
     "template_url": "https://x.ai/bot/O77giEZSfcdxq30tfFFM1",
     "name": "Convert Bot by brflux",
-    "status": "approved",
+    "status": "added",
     "date": "2026-11-02",
-    "note": "form #580; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved"
+    "note": "form #580; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved; already shelved 2026-11-02 as @brflux (commit 4e7932ac9)"
   },
   "form-579": {
     "post_id": "2116285924568928489",
     "author_handle": "@brflux",
     "template_url": "https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j",
     "name": "Scam Check for X by brflux",
-    "status": "approved",
+    "status": "added",
     "date": "2026-11-02",
-    "note": "form #579; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved"
+    "note": "form #579; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved; already shelved 2026-11-02 as @brflux (commit 4e7932ac9)"
+  },
+  "x-2117441916417778084": {
+    "date": "2026-11-02",
+    "status": "added",
+    "bot": "Backlink Specialist",
+    "template_url": "https://x.ai/bot/WDewD77F7LbUhoRElmbyK",
+    "author": "@johnboyle",
+    "url": "https://x.com/johnboyle/status/2117441916417778084",
+    "approved_by": "Phillip Holland (\"All new and ok\", 2026-11-02)",
+    "added": "2026-11-02"
+  },
+  "x-2117440386729656753": {
+    "date": "2026-11-02",
+    "status": "added",
+    "bot": "Write-Off Keeper",
+    "template_url": "https://x.ai/bot/BcKKc-ZRbp6zRXQ15fnY6",
+    "author": "@TheMarkGShow",
+    "url": "https://x.com/TheMarkGShow/status/2117440386729656753",
+    "approved_by": "Phillip Holland (\"All new and ok\", 2026-11-02)",
+    "added": "2026-11-02"
+  },
+  "x-2117437667474571354": {
+    "date": "2026-11-02",
+    "status": "added",
+    "bot": "Gift Card Sweeper",
+    "template_url": "https://x.ai/bot/LdPRToZ8D6kp4e5Rk-JnL",
+    "author": "@AndysChiefOS",
+    "url": "https://x.com/AndysChiefOS/status/2117437667474571354",
+    "note": "also 2117436375402418604, 2117435616421986449; posted by Andy bot account, owner likely @AndyBraun520",
+    "approved_by": "Phillip Holland (\"All new and ok\", 2026-11-02)",
+    "added": "2026-11-02",
+    "credited": "@AndyBraun520"
+  },
+  "x-2117436442934981067": {
+    "date": "2026-11-02",
+    "status": "added",
+    "bot": "Braun Bill Haggler",
+    "template_url": "https://x.ai/bot/lvOGOfOdz4kwqvIR03UUT",
+    "author": "@AndysChiefOS",
+    "url": "https://x.com/AndysChiefOS/status/2117436442934981067",
+    "note": "also 2117435594393387178; negotiates with providers on user yes",
+    "approved_by": "Phillip Holland (\"All new and ok\", 2026-11-02)",
+    "added": "2026-11-02",
+    "credited": "@AndyBraun520"
+  },
+  "form-723": {
+    "date": "2026-11-02",
+    "status": "added",
+    "bot": "disco · idea + discovery memory",
+    "template_url": "https://x.ai/bot/9BI5Olk-sHxLnUhlBIZ38",
+    "author": null,
+    "url": null,
+    "note": "form #723, by Nate, no handle",
+    "approved_by": "Phillip Holland (\"All new and ok\", 2026-11-02)",
+    "added": "2026-11-02"
+  },
+  "x-2117438680801608105": {
+    "date": "2026-11-02",
+    "status": "already_on_shelf",
+    "url": "https://x.com/brflux/status/2117438680801608105"
+  },
+  "x-2117330911553638534": {
+    "date": "2026-11-02",
+    "status": "already_on_shelf",
+    "url": "https://x.com/CaliLumberJack/status/2117330911553638534"
   }
 }

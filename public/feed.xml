@@ -6,7 +6,52 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 01:11:59 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 03:10:41 GMT</lastBuildDate>
+  <item>
+    <title>🪩 disco · idea + discovery memory by Nate</title>
+    <link>https://grokbotshelf.com/bot/disco-idea-discovery-memory</link>
+    <guid isPermaLink="false">https://x.ai/bot/9BI5Olk-sHxLnUhlBIZ38</guid>
+    <description>A persistent memory for technical discoveries, tools to try, podcast takeaways, and content ideas. Captures them into Notion and connects related ideas over time.</description>
+    <dc:creator>Nate</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>📉 Braun Bill Haggler by Andy Braun</title>
+    <link>https://grokbotshelf.com/bot/braun-bill-haggler</link>
+    <guid isPermaLink="false">https://x.ai/bot/lvOGOfOdz4kwqvIR03UUT</guid>
+    <description>Finds your recurring bills (internet, phone, wireless, insurance) and, with your yes on each one, negotiates them down with the provider.</description>
+    <dc:creator>Andy Braun (@AndyBraun520)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎁 Gift Card Sweeper by Andy Braun</title>
+    <link>https://grokbotshelf.com/bot/gift-card-sweeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/LdPRToZ8D6kp4e5Rk-JnL</guid>
+    <description>Finds forgotten gift cards, store credit, rewards points and travel credits in your email, tracks them in one ledger, and helps you use them before they expire.</description>
+    <dc:creator>Andy Braun (@AndyBraun520)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:20 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Write-Off Keeper by Mark</title>
+    <link>https://grokbotshelf.com/bot/write-off-keeper</link>
+    <guid isPermaLink="false">https://x.ai/bot/BcKKc-ZRbp6zRXQ15fnY6</guid>
+    <description>Keeps creators, freelancers and small business owners from losing deductions: sweeps email for receipts and payouts, logs them in Notion, flags quarterly tax dates, and builds a year-end pack for your tax pro.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:19 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔗 Backlink Specialist by John Boyle</title>
+    <link>https://grokbotshelf.com/bot/backlink-specialist</link>
+    <guid isPermaLink="false">https://x.ai/bot/WDewD77F7LbUhoRElmbyK</guid>
+    <description>Finds natural backlink opportunities for your site, writes personalized outreach as Gmail drafts for you to send, logs every prospect in a Google Sheet, and drafts one follow-up. It never sends email.</description>
+    <dc:creator>John Boyle (@johnboyle)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:18 GMT</pubDate>
+  </item>
   <item>
     <title>🗺️ Fern · Cartographer of the Wilds by HandsomeHank</title>
     <link>https://grokbotshelf.com/bot/fern-cartographer-of-the-wilds</link>
@@ -411,51 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:15:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 COBRA Election Advisor by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/cobra-election-advisor-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/b2qXydQL6oeExXdtJi_E_</guid>
-    <description>Guides someone leaving a job through the COBRA election: 60-day deadlines, cost math, comparing COBRA with marketplace and spouse plans, and a checklist so nothing lapses. Not legal advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>🐕 Pet Injury Liability Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/pet-injury-liability-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/P3jIEGcgQx-0PiTfvGyDw</guid>
-    <description>Explains liability coverage when a pet bites or injures someone or damages property: homeowners and renters liability, breed exclusions, canine liability policies, and what to document after an incident.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚚 Commercial Auto Physical Damage Estimator by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/commercial-auto-physical-damage-estimator-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/bRna4eUEkeGkT28H1yQOd</guid>
-    <description>Estimates repair or total-loss costs for commercial vehicles after a crash and explains collision vs comprehensive, deductibles, stated vs actual value, downtime and rental, and what to send the insurer. Estimates only.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>💍 Scheduled Personal Property Appraiser by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/scheduled-personal-property-appraiser-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/ZISFTcdrSH4w65_5XvHSb</guid>
-    <description>Helps you value and schedule jewelry, art, collectibles and instruments on a personal property endorsement: appraisal requirements, base-policy sub-limits, photo and receipt lists, and reappraisal reminders. Not a certified appraisal.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>💧 Water Damage Mitigation Log by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/water-damage-mitigation-log-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/X1lttGKXNqiyKbREsZUTE</guid>
-    <description>Keeps an adjuster-ready record of a water loss: source shutoff, moisture readings, drying equipment days, removed materials, and receipts and photos for your insurance claim.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:28 GMT</pubDate>
   </item>
 </channel>
 </rss>
