@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 21:17:27 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 23:10:14 GMT</lastBuildDate>
+  <item>
+    <title>🔍 Family Tree Detective by Kevin</title>
+    <link>https://grokbotshelf.com/bot/family-tree-detective-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/VUfsbMkwIy1P_yrOxWaZT</guid>
+    <description>A genealogy research assistant that digs through FamilySearch, the National Archives, old newspapers and county records to trace your family tree.</description>
+    <dc:creator>Kevin (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 03 Nov 2026 12:16:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤝 Wingman by Kevin</title>
+    <link>https://grokbotshelf.com/bot/wingman-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/ste7Kh_RShuYRtzzX_Xdh</guid>
+    <description>Your meeting and social wingman: public-info briefs and conversation openers before a meetup, quiet nudges during, and a recap with a draft follow-up after.</description>
+    <dc:creator>Kevin (@kcmcdonald)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 03 Nov 2026 12:16:38 GMT</pubDate>
+  </item>
   <item>
     <title>🕶️ Shadow by Kevin</title>
     <link>https://grokbotshelf.com/bot/shadow-by-kevin</link>
@@ -438,24 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Mon, 02 Nov 2026 12:15:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏆 League &amp; Scramble Organizer by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/league-and-scramble-organizer-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/yWkbA8W2izrZYnacfcuqZ</guid>
-    <description>Runs sign-ups, team pairings, formats, scoring and side games for club golf leagues or charity scrambles.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤸 Golf Fitness &amp; Mobility Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/golf-fitness-and-mobility-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/qQyA_2ylOZzBZTUJik2dm</guid>
-    <description>Short stretching and strength routines for golfers: better rotation, a healthier back, and quick pre-round warm-ups. Not medical advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:48 GMT</pubDate>
   </item>
 </channel>
 </rss>

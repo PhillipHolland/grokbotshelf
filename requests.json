@@ -6576,6 +6576,46 @@
       "status": "skipped",
       "date": "2026-11-03",
       "note": "shelf shout-out (996 bots), not an add request"
+    },
+    "neon-741": {
+      "status": "added",
+      "author": "@kcmcdonald",
+      "bot": "Family Tree Detective by Kevin",
+      "template_url": "https://x.ai/bot/VUfsbMkwIy1P_yrOxWaZT",
+      "url": "",
+      "note": "submit queue #741; overlaps Family History (Raina Hornaday); proposed 5pm run",
+      "date": "2026-11-03",
+      "approved_by": "Phillip Holland (approved 2026-11-03)",
+      "added": "2026-11-03",
+      "credited": "@kcmcdonald"
+    },
+    "neon-740": {
+      "status": "added",
+      "author": "@kcmcdonald",
+      "bot": "Wingman by Kevin",
+      "template_url": "https://x.ai/bot/ste7Kh_RShuYRtzzX_Xdh",
+      "url": "",
+      "note": "submit queue #740; proposed 5pm run",
+      "date": "2026-11-03",
+      "approved_by": "Phillip Holland (approved 2026-11-03)",
+      "added": "2026-11-03",
+      "credited": "@kcmcdonald"
+    },
+    "x-2117673399745167626": {
+      "post_id": "2117673399745167626",
+      "author_handle": "@AmericanGraceUS",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "cheer reply, not an add request"
+    },
+    "x-2117320691003584572": {
+      "post_id": "2117320691003584572",
+      "author_handle": "@ChefMcMakin",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "mentions Local Ai Manager already on shelf"
     }
   },
   "x-2114766675119886755": {
