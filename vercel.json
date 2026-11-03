@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "buildCommand": "node scripts/deny-pending-once.js && node scripts/build.js",
+  "buildCommand": "node scripts/build.js",
   "installCommand": "",
   "outputDirectory": "public",
   "cleanUrls": true,
