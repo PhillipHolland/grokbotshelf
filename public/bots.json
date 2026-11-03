@@ -12991,5 +12991,18 @@
     "creator_avatar": "/avatars/kcmcdonald.webp",
     "source_post": "",
     "added": "2026-11-03"
+  },
+  {
+    "name": "gmi",
+    "emoji": "🎬",
+    "description": "Makes images, video, voiceovers, and music on your GMI Cloud account, answers GMI questions, and reports your balance and spend. It quotes the price before spending.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/5IFu9DKwavLtu18sinCSv",
+    "creator_name": "Alberto Jauregui",
+    "creator_handle": "@weeb3dev",
+    "creator_url": "https://x.com/weeb3dev",
+    "creator_avatar": "/avatars/weeb3dev.webp",
+    "source_post": "https://x.com/weeb3dev/status/2117761853719798012",
+    "added": "2026-11-03"
   }
 ]
