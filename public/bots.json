@@ -12640,5 +12640,57 @@
     "creator_avatar": "/avatars/journeydeck.webp",
     "source_post": "",
     "added": "2026-11-02"
+  },
+  {
+    "name": "cline",
+    "emoji": "⌨️",
+    "description": "A Cline specialist that installs and drives Cline CLI and Cline Desktop, so you can hand it coding or other tasks and get verified results.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/gL7FcTFcs1SHMCD3pozTM",
+    "creator_name": "Alberto Jauregui",
+    "creator_handle": "@weeb3dev",
+    "creator_url": "https://x.com/weeb3dev",
+    "source_post": "https://x.com/weeb3dev/status/2117097053687882110",
+    "added": "2026-11-02",
+    "creator_avatar": "/avatars/weeb3dev.webp"
+  },
+  {
+    "name": "Switchboard",
+    "emoji": "🎛️",
+    "description": "One free, always-on message board for all your AI agents: mention @Claude, @Cursor or any Grok Bot and that agent answers.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/v6ciPTT0-3DeyOSkDyzJR",
+    "creator_name": "Terry",
+    "creator_handle": "@Tchap248",
+    "creator_url": "https://x.com/Tchap248",
+    "creator_avatar": "/avatars/tchap248.webp",
+    "source_post": "https://x.com/Tchap248/status/2117109388582199724",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Convert Bot",
+    "emoji": "🎞️",
+    "description": "Converts video and audio to other formats, reframes clips to vertical or square for social, trims, compresses, and pulls out audio.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/O77giEZSfcdxq30tfFFM1",
+    "creator_name": "Brett",
+    "creator_handle": "@brflux",
+    "creator_url": "https://x.com/brflux",
+    "creator_avatar": "/avatars/brflux.webp",
+    "source_post": "https://x.com/brflux/status/2112929836461367504",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Scam Check for X",
+    "emoji": "🕵️",
+    "description": "Paste any X post link and get a plain verdict on whether it's a scam, engagement bait, or legit, with the red flags spelled out.",
+    "category": "Security",
+    "url": "https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j",
+    "creator_name": "Brett",
+    "creator_handle": "@brflux",
+    "creator_url": "https://x.com/brflux",
+    "creator_avatar": "/avatars/brflux.webp",
+    "source_post": "https://x.com/brflux/status/2116285924568928489",
+    "added": "2026-11-02"
   }
 ]

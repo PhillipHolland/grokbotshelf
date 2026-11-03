@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 00:56:10 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 01:01:09 GMT</lastBuildDate>
+  <item>
+    <title>🕵️ Scam Check for X by Brett</title>
+    <link>https://grokbotshelf.com/bot/scam-check-for-x</link>
+    <guid isPermaLink="false">https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j</guid>
+    <description>Paste any X post link and get a plain verdict on whether it&apos;s a scam, engagement bait, or legit, with the red flags spelled out.</description>
+    <dc:creator>Brett (@brflux)</dc:creator>
+    <category>Security</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎞️ Convert Bot by Brett</title>
+    <link>https://grokbotshelf.com/bot/convert-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/O77giEZSfcdxq30tfFFM1</guid>
+    <description>Converts video and audio to other formats, reframes clips to vertical or square for social, trims, compresses, and pulls out audio.</description>
+    <dc:creator>Brett (@brflux)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎛️ Switchboard by Terry</title>
+    <link>https://grokbotshelf.com/bot/switchboard</link>
+    <guid isPermaLink="false">https://x.ai/bot/v6ciPTT0-3DeyOSkDyzJR</guid>
+    <description>One free, always-on message board for all your AI agents: mention @Claude, @Cursor or any Grok Bot and that agent answers.</description>
+    <dc:creator>Terry (@Tchap248)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>⌨️ cline by Alberto Jauregui</title>
+    <link>https://grokbotshelf.com/bot/cline</link>
+    <guid isPermaLink="false">https://x.ai/bot/gL7FcTFcs1SHMCD3pozTM</guid>
+    <description>A Cline specialist that installs and drives Cline CLI and Cline Desktop, so you can hand it coding or other tasks and get verified results.</description>
+    <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:13 GMT</pubDate>
+  </item>
   <item>
     <title>🔊 Echo · Audience &amp; Voice by Patrick</title>
     <link>https://grokbotshelf.com/bot/echo-audience-and-voice-by-patrick</link>
@@ -420,42 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 02 Nov 2026 12:15:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏚️ Tenant Damage Claim Intake by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/tenant-damage-claim-intake-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/laYVNlLRdbwOl2YGgL3xh</guid>
-    <description>Helps landlords and property managers handle tenant-caused damage: move-in vs move-out condition, photos, repair estimates, security deposit math, and whether to claim on the landlord policy or the tenant&apos;s renters liability.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔥 Wildfire Smoke Claim Guide by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/wildfire-smoke-claim-guide-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/fP6JPcQrkApF4ajxIYM-X</guid>
-    <description>Guides a policyholder through a wildfire smoke or ash damage claim: documenting soot and odor, cleaning and testing records, living expense receipts, contents lists, and adjuster questions. Explains, never decides coverage.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚙️ Equipment Breakdown Coverage Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/equipment-breakdown-coverage-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/g9AW36M5iVG0GXPU44gIz</guid>
-    <description>Explains equipment breakdown insurance in plain language for small businesses and building owners: covered breakdowns, spoilage, business interruption tie-ins, exclusions, and questions for your agent.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛺 Golf Cart &amp; ATV Coverage Guide by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/golf-cart-and-atv-coverage-guide-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/EUPSgnjGBA197nEUHhzU2</guid>
-    <description>Explains insurance for golf carts, ATVs, UTVs and dirt bikes in plain language: when homeowners coverage stops, street-legal rules, rider and guest liability, and specialty policy options.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:23 GMT</pubDate>
   </item>
 </channel>
 </rss>

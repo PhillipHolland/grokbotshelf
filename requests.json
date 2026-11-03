@@ -7501,18 +7501,20 @@
     "url": "https://x.com/weeb3dev/status/2117097053687882110",
     "template_url": "https://x.ai/bot/gL7FcTFcs1SHMCD3pozTM",
     "name": "cline",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-11-02",
-    "author_handle": "@weeb3dev"
+    "author_handle": "@weeb3dev",
+    "note": "Phil approved 2026-11-02; shelved"
   },
   "x-2117109388582199724": {
     "post_id": "2117109388582199724",
     "url": "https://x.com/Tchap248/status/2117109388582199724",
     "template_url": "https://x.ai/bot/v6ciPTT0-3DeyOSkDyzJR",
     "name": "Switchboard",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-11-02",
-    "author_handle": "@Tchap248"
+    "author_handle": "@Tchap248",
+    "note": "Phil approved 2026-11-02; shelved"
   },
   "form-668": {
     "post_id": "",
@@ -8035,5 +8037,23 @@
     "status": "approved",
     "date": "2026-11-02",
     "note": "form #722; Phil approved 2026-11-02; shelved"
+  },
+  "form-580": {
+    "post_id": "2112929836461367504",
+    "author_handle": "@brflux",
+    "template_url": "https://x.ai/bot/O77giEZSfcdxq30tfFFM1",
+    "name": "Convert Bot by brflux",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #580; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved"
+  },
+  "form-579": {
+    "post_id": "2116285924568928489",
+    "author_handle": "@brflux",
+    "template_url": "https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j",
+    "name": "Scam Check for X by brflux",
+    "status": "approved",
+    "date": "2026-11-02",
+    "note": "form #579; no handle on form, verified @brflux via template-link post; Phil approved 2026-11-02; shelved"
   }
 }
