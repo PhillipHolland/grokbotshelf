@@ -68,13 +68,13 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 .capsule:focus-within{background:var(--bg);border-color:var(--blue)}
 .capsule:focus-within .i-search{stroke:var(--blue)}
 .i-search{width:18px;height:18px;flex:none;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-#q{flex:1;min-width:0;height:100%;border:0;background:none;color:var(--text);font:inherit;font-size:15px;padding:0 12px;outline:none}
+#q{flex:1;min-width:0;height:100%;border:0;background:none;color:var(--text);font:inherit;font-size:16px;padding:0 12px;outline:none}
 #q::placeholder{color:var(--text2)}
 #q::-webkit-search-cancel-button{-webkit-appearance:none}
 .hint{font:var(--w-read) 12px/1 var(--font);color:var(--text2);border:1px solid var(--line);border-radius:6px;padding:4px 6px;margin-right:8px}
 @media (hover:none){.hint{display:none}}
 .sortwrap{position:relative;flex:none}
-#sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:350 14px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
+#sort{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--text);font:350 16px var(--font);height:36px;padding:0 30px 0 12px;border-radius:9999px;cursor:pointer}
 #sort:hover{background:var(--hover)}
 #sort option{background:#fff;color:#111}
 .sortwrap svg{position:absolute;right:10px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
@@ -82,7 +82,7 @@ html[data-theme="light"] .theme-btn .moon{display:none}
 /* Filters: creator + category dropdowns in the dock */
 .filterbar{display:flex;gap:8px;margin-top:8px}
 .selwrap{position:relative;flex:1 1 0;min-width:0}
-.selwrap select{appearance:none;-webkit-appearance:none;width:100%;height:36px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:350 14px var(--font);padding:0 32px 0 14px;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:border-color .15s,background .15s}
+.selwrap select{appearance:none;-webkit-appearance:none;width:100%;height:36px;border:1px solid transparent;border-radius:9999px;background:var(--field);color:var(--text);font:350 16px var(--font);padding:0 32px 0 14px;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;transition:border-color .15s,background .15s}
 .selwrap select:hover{background:var(--hover)}
 .selwrap select:focus-visible{outline:none;border-color:var(--blue);background:var(--bg)}
 .selwrap select.on{border-color:var(--line2)}
@@ -287,7 +287,7 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 /* Submit form */
 .sub-form{display:grid;gap:10px;margin:0 0 16px}
 .sub-form label{font-size:13px;font-weight:350;color:var(--text)}
-.sub-form input,.sub-form textarea{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:var(--w-read) 15px var(--font);padding:0 12px}
+.sub-form input,.sub-form textarea{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:var(--w-read) 16px var(--font);padding:0 12px}
 .sub-form textarea{height:64px;padding:10px 12px;resize:vertical}
 .sub-form input:focus,.sub-form textarea:focus{outline:none;border-color:var(--blue)}
 .sub-form .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
