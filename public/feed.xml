@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 01:01:09 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 01:04:13 GMT</lastBuildDate>
+  <item>
+    <title>🗺️ Fern · Cartographer of the Wilds by HandsomeHank</title>
+    <link>https://grokbotshelf.com/bot/fern-cartographer-of-the-wilds</link>
+    <guid isPermaLink="false">https://x.ai/bot/EOWNaMkt5FZ57oLCLQjT2</guid>
+    <description>A creative lead for builders of worlds: lore, mood boards, concept art, shot-by-shot videos, and build prompts for Cursor cloud agents.</description>
+    <dc:creator>HandsomeHank (@HandsomeHank_)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:17 GMT</pubDate>
+  </item>
   <item>
     <title>🕵️ Scam Check for X by Brett</title>
     <link>https://grokbotshelf.com/bot/scam-check-for-x</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
     <pubDate>Mon, 02 Nov 2026 12:15:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏠 HO-3 vs HO-5 Coverage Diff by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/ho-3-vs-ho-5-coverage-diff-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/D3mZW5VDjGeqs1PcSVQM4</guid>
-    <description>Explains the difference between HO-3 and HO-5 homeowners policies in plain language, and helps homeowners and advisors decide if the upgrade is worth it. Can read a declarations page you share.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:27 GMT</pubDate>
   </item>
 </channel>
 </rss>

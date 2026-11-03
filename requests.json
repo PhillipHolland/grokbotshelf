@@ -6550,7 +6550,25 @@
     },
     "2116623129908817947": "approved",
     "2117097053687882110": "pending",
-    "2117109388582199724": "pending"
+    "2117109388582199724": "pending",
+    "x-2117403064605036659": {
+      "status": "approved",
+      "author": "@HandsomeHank_",
+      "bot": "Fern · Cartographer of the Wilds",
+      "template_url": "https://x.ai/bot/EOWNaMkt5FZ57oLCLQjT2",
+      "url": "https://x.com/HandsomeHank_/status/2117403064605036659",
+      "note": "reply tagging Phil+Nick; proposed 2026-11-02 evening run",
+      "date": "2026-11-02"
+    },
+    "x-2117354507239649747": {
+      "status": "already_on_shelf",
+      "author": "@JennyMarquis",
+      "bot": "Font Designer",
+      "template_url": "",
+      "url": "https://x.com/JennyMarquis/status/2117354507239649747",
+      "note": "article link; Font Designer already shelved",
+      "date": "2026-11-02"
+    }
   },
   "x-2114766675119886755": {
     "status": "denied",
