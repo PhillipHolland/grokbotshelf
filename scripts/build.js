@@ -663,14 +663,20 @@ function chipNav(label, links) {
   if (!links.length) return "";
   return `<nav class="job-more" aria-label="${esc(label)}"><h2>${esc(label)}</h2><ul>${links.join("")}</ul></nav>`;
 }
+// Card text per share dir, saved to scripts/og-cards.json for og.js.
+const shareCards = {};
+process.on("exit", (c) => { if (!c) fs.writeFileSync(path.join(__dirname, "og-cards.json"), JSON.stringify(shareCards, null, 1) + "\n"); });
 function writeShares(dir, rows) {
   const abs = path.join(PUB, "og", dir);
   fs.mkdirSync(abs, { recursive: true });
   const keep = new Set(rows.map((r) => r.slug + ".png"));
   for (const f of fs.readdirSync(abs)) if (!keep.has(f)) fs.rmSync(path.join(abs, f));
   const urls = new Map();
+  shareCards[dir] = rows;
+  // og.js draws these in Shelf Serif; the bitmap cardPng only fills in a card that is missing.
   for (const r of rows) {
-    fs.writeFileSync(path.join(abs, r.slug + ".png"), cardPng(r.card));
+    const f = path.join(abs, r.slug + ".png");
+    if (!fs.existsSync(f)) fs.writeFileSync(f, cardPng(r.card));
     urls.set(r.slug, SITE + versioned(`/og/${dir}/${r.slug}.png`));
   }
   return urls;

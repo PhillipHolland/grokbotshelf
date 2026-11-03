@@ -1,0 +1,336 @@
+{
+ "hub": [
+  {
+   "slug": "deal-hunting",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Deal hunting",
+    "line": "13 bots"
+   }
+  },
+  {
+   "slug": "scam-check",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Scam check",
+    "line": "5 bots"
+   }
+  },
+  {
+   "slug": "meal-plan",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Meal plan",
+    "line": "14 bots"
+   }
+  },
+  {
+   "slug": "church-ops",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Church ops",
+    "line": "19 bots"
+   }
+  },
+  {
+   "slug": "email",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Email",
+    "line": "10 bots"
+   }
+  },
+  {
+   "slug": "insurance-claims",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Insurance claims",
+    "line": "10 bots"
+   }
+  },
+  {
+   "slug": "fitness",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Fitness",
+    "line": "10 bots"
+   }
+  },
+  {
+   "slug": "resume-and-jobs",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Résumé and job search",
+    "line": "12 bots"
+   }
+  },
+  {
+   "slug": "trip-planning",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Trip planning",
+    "line": "11 bots"
+   }
+  },
+  {
+   "slug": "parents-and-kids",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Parents and kids",
+    "line": "12 bots"
+   }
+  },
+  {
+   "slug": "security-check",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Security check",
+    "line": "7 bots"
+   }
+  },
+  {
+   "slug": "faith-and-prayer",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Faith and prayer",
+    "line": "9 bots"
+   }
+  },
+  {
+   "slug": "weather-and-outages",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Weather and outages",
+    "line": "7 bots"
+   }
+  },
+  {
+   "slug": "taxes",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Taxes",
+    "line": "4 bots"
+   }
+  },
+  {
+   "slug": "pet-care",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Pet care",
+    "line": "3 bots"
+   }
+  },
+  {
+   "slug": "refunds-and-returns",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Refunds and returns",
+    "line": "4 bots"
+   }
+  },
+  {
+   "slug": "bills-and-budget",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Bills and budget",
+    "line": "8 bots"
+   }
+  },
+  {
+   "slug": "car-shopping",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Car shopping",
+    "line": "7 bots"
+   }
+  },
+  {
+   "slug": "home-upkeep",
+   "card": {
+    "kicker": "Find by job",
+    "title": "Home upkeep",
+    "line": "9 bots"
+   }
+  }
+ ],
+ "category": [
+  {
+   "slug": "bot-tools",
+   "card": {
+    "kicker": "Category",
+    "title": "Bot Tools",
+    "line": "80 templates"
+   }
+  },
+  {
+   "slug": "business-and-marketing",
+   "card": {
+    "kicker": "Category",
+    "title": "Business & Marketing",
+    "line": "108 templates"
+   }
+  },
+  {
+   "slug": "creator-and-media",
+   "card": {
+    "kicker": "Category",
+    "title": "Creator & Media",
+    "line": "94 templates"
+   }
+  },
+  {
+   "slug": "design",
+   "card": {
+    "kicker": "Category",
+    "title": "Design",
+    "line": "21 templates"
+   }
+  },
+  {
+   "slug": "developer",
+   "card": {
+    "kicker": "Category",
+    "title": "Developer",
+    "line": "37 templates"
+   }
+  },
+  {
+   "slug": "faith",
+   "card": {
+    "kicker": "Category",
+    "title": "Faith",
+    "line": "29 templates"
+   }
+  },
+  {
+   "slug": "food",
+   "card": {
+    "kicker": "Category",
+    "title": "Food",
+    "line": "24 templates"
+   }
+  },
+  {
+   "slug": "health-and-fitness",
+   "card": {
+    "kicker": "Category",
+    "title": "Health & Fitness",
+    "line": "52 templates"
+   }
+  },
+  {
+   "slug": "home",
+   "card": {
+    "kicker": "Category",
+    "title": "Home",
+    "line": "80 templates"
+   }
+  },
+  {
+   "slug": "lifestyle",
+   "card": {
+    "kicker": "Category",
+    "title": "Lifestyle",
+    "line": "150 templates"
+   }
+  },
+  {
+   "slug": "money",
+   "card": {
+    "kicker": "Category",
+    "title": "Money",
+    "line": "95 templates"
+   }
+  },
+  {
+   "slug": "productivity",
+   "card": {
+    "kicker": "Category",
+    "title": "Productivity",
+    "line": "113 templates"
+   }
+  },
+  {
+   "slug": "security",
+   "card": {
+    "kicker": "Category",
+    "title": "Security",
+    "line": "37 templates"
+   }
+  },
+  {
+   "slug": "shopping",
+   "card": {
+    "kicker": "Category",
+    "title": "Shopping",
+    "line": "37 templates"
+   }
+  },
+  {
+   "slug": "travel",
+   "card": {
+    "kicker": "Category",
+    "title": "Travel",
+    "line": "21 templates"
+   }
+  }
+ ],
+ "stack": [
+  {
+   "slug": "train-this-week",
+   "card": {
+    "kicker": "Stack",
+    "title": "Train this week",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "inbox-to-empty",
+   "card": {
+    "kicker": "Stack",
+    "title": "Inbox to empty",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "a-model-on-your-machine",
+   "card": {
+    "kicker": "Stack",
+    "title": "A model on your machine",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "a-safer-phone-for-a-kid",
+   "card": {
+    "kicker": "Stack",
+    "title": "A safer phone for a kid",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "dinner-decided",
+   "card": {
+    "kicker": "Stack",
+    "title": "Dinner, decided",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "look-before-you-click",
+   "card": {
+    "kicker": "Stack",
+    "title": "Look before you click",
+    "line": "3 bots, in order"
+   }
+  },
+  {
+   "slug": "the-house-list",
+   "card": {
+    "kicker": "Stack",
+    "title": "The house list",
+    "line": "3 bots, in order"
+   }
+  }
+ ]
+}

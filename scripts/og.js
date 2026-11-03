@@ -8,7 +8,8 @@
 // where it is not installed, EMOJI_FONT names a copy to load. CHROME names the browser when it is not /usr/bin/google-chrome.
 // Needs puppeteer-core outside the repo:
 //   NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/og.js [--all]
-// Then run node scripts/build.js so the bot pages point at the new images.
+// Category, job hub and stack cards (public/og/{category,hub,stack}) are always redrawn from scripts/og-cards.json,
+// which build.js writes. Then run node scripts/build.js so the bot pages point at the new images.
 const fs = require("fs"), path = require("path");
 const puppeteer = require("puppeteer-core");
 const { slugify } = require("./shelf");
@@ -35,6 +36,20 @@ p{font-size:32px;line-height:1.3;margin:0;color:#a8adb2;display:-webkit-box;-web
 </style></head><body><div class="c">${b.creator ? (dataUri(b.creator_avatar) ? `<img class="av" src="${dataUri(b.creator_avatar)}">` : "") : `<div class="e">${esc(b.emoji)}</div>`}<h1>${esc(b.name)}</h1><p>${esc(b.description)}</p></div>
 <div class="f"><div class="by">${b.creator ? `<span>${esc(b.creator_handle)} on Grok Bot Shelf</span>` : `${dataUri(b.creator_avatar) ? `<img src="${dataUri(b.creator_avatar)}">` : ""}<span>${esc(b.creator_name)} ${esc(b.creator_handle)}</span>`}</div>
 <div class="s"><svg viewBox="0 0 16 16" fill="#e7e9ea"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>grokbotshelf.com</div></div></body></html>`;
+// Hub cards: kicker, title, count line, in the bot card's type
+const hubHtml = (c) => `<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:"Shelf Serif";src:url(${FONT}) format("woff2");font-weight:300 700}
+html,body{margin:0;width:1200px;height:630px;overflow:hidden;background:#000;font-family:"Shelf Serif",sans-serif;font-weight:300;color:#e7e9ea}
+.c{position:absolute;left:88px;right:88px;top:96px;display:flex;flex-direction:column}
+.k{font-size:30px;font-weight:400;color:#1d9bf0;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+h1{font-size:${c.title.length > 40 ? 68 : c.title.length > 22 ? 84 : 100}px;line-height:1.08;font-weight:500;margin:0 0 28px;max-height:300px;overflow:hidden}
+p{font-size:36px;margin:0;color:#a8adb2}
+.f{position:absolute;left:88px;right:88px;bottom:56px;display:flex;justify-content:flex-end;font-size:28px}
+.s{display:flex;align-items:center;gap:12px;font-weight:400}.s svg{width:36px;height:36px}
+</style></head><body><div class="c"><div class="k">${esc(c.kicker)}</div><h1>${esc(c.title)}</h1><p>${esc(c.line)}</p></div>
+<div class="f"><div class="s"><svg viewBox="0 0 16 16" fill="#e7e9ea"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>grokbotshelf.com</div></div></body></html>`;
+const hubs = Object.entries(JSON.parse(fs.readFileSync(path.join(__dirname, "og-cards.json"), "utf8")))
+  .flatMap(([dir, rows]) => rows.map((r) => ({ hub: true, ...r.card, file: path.join(PUB, "og", dir, r.slug + ".png") })));
 // One card per creator (first casing of the handle wins, as on the shelf), drawn with the same template.
 const groups = new Map();
 for (const b of bots) { const k = b.creator_handle.replace(/^@/, "").toLowerCase(); if (!k) continue; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(b); }
@@ -48,7 +63,7 @@ const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(C
   for (const f of fs.readdirSync(TOUT2)) if (!tkeep.has(f)) fs.rmSync(path.join(TOUT2, f));
   for (const f of fs.readdirSync(OUT)) if (!keep.has(f)) fs.rmSync(path.join(OUT, f));
   for (const f of fs.readdirSync(COUT)) if (!ckeep.has(f)) fs.rmSync(path.join(COUT, f));
-  const todo = bots.map((b) => ({ ...b, file: path.join(OUT, slugify(b.name) + ".png") })).concat(creators).filter((b) => all || !fs.existsSync(b.file));
+  const todo = bots.map((b) => ({ ...b, file: path.join(OUT, slugify(b.name) + ".png") })).concat(creators).filter((b) => all || !fs.existsSync(b.file)).concat(hubs);
   const drawn = new Set(todo.map((b) => b.file));
   const thumbs = bots.flatMap((b) => [[TOUT, 480, 252], [TOUT2, 720, 378]].map(([dir, w, h]) => ({ png: path.join(OUT, slugify(b.name) + ".png"), file: path.join(dir, slugify(b.name) + ".webp"), w, h })))
     .filter((t) => drawn.has(t.png) || !fs.existsSync(t.file));
@@ -56,7 +71,7 @@ const creators = [...groups].map(([k, g]) => ({ creator: true, file: path.join(C
   const br = await puppeteer.launch({ executablePath: process.env.CHROME || "/usr/bin/google-chrome", headless: "new", args: ["--no-sandbox"] });
   const p = await br.newPage(); await p.setViewport({ width: 1200, height: 630 });
   for (const b of todo) {
-    await p.setContent(html(b), { waitUntil: "load" });
+    await p.setContent(b.hub ? hubHtml(b) : html(b), { waitUntil: "load" });
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: b.file });
   }
