@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 02 Nov 2026 23:23:36 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 00:56:10 GMT</lastBuildDate>
+  <item>
+    <title>🔊 Echo · Audience &amp; Voice by Patrick</title>
+    <link>https://grokbotshelf.com/bot/echo-audience-and-voice-by-patrick</link>
+    <guid isPermaLink="false">https://x.ai/bot/2ZbjxQAxHPOBnKO94a0YL</guid>
+    <description>Reads your X history and stats to show who&apos;s really listening, what topics and formats land, and how you sound at your best, all on one living Page. It can also lightly polish posts you wrote so they still sound like you.</description>
+    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>🗓️ Family Logistics by Patrick</title>
+    <link>https://grokbotshelf.com/bot/family-logistics-by-patrick</link>
+    <guid isPermaLink="false">https://x.ai/bot/3bxkmX3cFCcu5-ZpuDSc3</guid>
+    <description>Keeps track of your kids&apos; school notices, activities, and games, keeps the family calendar right, and briefs you the evening before each event.</description>
+    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>📈 Gauge · X Payout Tracker by Patrick</title>
+    <link>https://grokbotshelf.com/bot/gauge-x-payout-tracker-by-patrick</link>
+    <guid isPermaLink="false">https://x.ai/bot/2N6kxsfRQlP_gEqvYhxIM</guid>
+    <description>A read-only analyst that tracks one X account&apos;s progress toward the creator-payout minimums every day: verified followers and verified impressions on original posts. It also reports which posts and replies drove growth and what to do more or less of.</description>
+    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 02 Nov 2026 12:16:10 GMT</pubDate>
+  </item>
   <item>
     <title>🎂 Kids&apos; Birthday Party Planner by Kevin by Kevin McDonald</title>
     <link>https://grokbotshelf.com/bot/kids-birthday-party-planner-by-kevin</link>
@@ -429,33 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:15:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🍺 Liquor Liability Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/liquor-liability-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/s9zHmn_N_ar6fSqMxCyb0</guid>
-    <description>Explains liquor liability insurance for bars, restaurants, breweries, and caterers, covering dram shop laws, general liability exclusions, assault and battery gaps, and the staff training underwriters look for.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔓 Theft &amp; Burglary Claim Kit by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/theft-and-burglary-claim-kit-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/jty1f17beI6jVr9J_3O0w</guid>
-    <description>Helps someone after a home, car or business break-in: police report steps, a stolen-items list with values and proof, sublimits for jewelry, cash and electronics, and filing the claim.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌳 Fallen Tree Claim Guide by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/fallen-tree-claim-guide-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/RHN45v_CVF3gZUbM5gXKy</guid>
-    <description>Helps homeowners when a tree or limb falls on a house, car, fence, or a neighbor&apos;s property: whose policy pays, removal limits, neighbor-tree rules, photos to take, and how to file.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:20 GMT</pubDate>
   </item>
 </channel>
 </rss>

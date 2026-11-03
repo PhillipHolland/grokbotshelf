@@ -12601,5 +12601,44 @@
     "creator_avatar": "/avatars/kcmcdonald.webp",
     "source_post": "",
     "added": "2026-11-02"
+  },
+  {
+    "name": "Gauge · X Payout Tracker by Patrick",
+    "emoji": "📈",
+    "description": "A read-only analyst that tracks one X account's progress toward the creator-payout minimums every day: verified followers and verified impressions on original posts. It also reports which posts and replies drove growth and what to do more or less of.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/2N6kxsfRQlP_gEqvYhxIM",
+    "creator_name": "Patrick",
+    "creator_handle": "@JourneyDeck",
+    "creator_url": "https://x.com/JourneyDeck",
+    "creator_avatar": "/avatars/journeydeck.webp",
+    "source_post": "",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Family Logistics by Patrick",
+    "emoji": "🗓️",
+    "description": "Keeps track of your kids' school notices, activities, and games, keeps the family calendar right, and briefs you the evening before each event.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/3bxkmX3cFCcu5-ZpuDSc3",
+    "creator_name": "Patrick",
+    "creator_handle": "@JourneyDeck",
+    "creator_url": "https://x.com/JourneyDeck",
+    "creator_avatar": "/avatars/journeydeck.webp",
+    "source_post": "https://x.com/JourneyDeck/status/2110476883976462673",
+    "added": "2026-11-02"
+  },
+  {
+    "name": "Echo · Audience & Voice by Patrick",
+    "emoji": "🔊",
+    "description": "Reads your X history and stats to show who's really listening, what topics and formats land, and how you sound at your best, all on one living Page. It can also lightly polish posts you wrote so they still sound like you.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/2ZbjxQAxHPOBnKO94a0YL",
+    "creator_name": "Patrick",
+    "creator_handle": "@JourneyDeck",
+    "creator_url": "https://x.com/JourneyDeck",
+    "creator_avatar": "/avatars/journeydeck.webp",
+    "source_post": "",
+    "added": "2026-11-02"
   }
 ]

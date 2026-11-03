@@ -7519,36 +7519,36 @@
     "author_handle": "@JourneyDeck",
     "template_url": "https://x.ai/bot/2N6kxsfRQlP_gEqvYhxIM",
     "name": "Gauge · X Payout Tracker by Patrick",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-11-02",
-    "note": "form #668; no handle on form, likely @JourneyDeck (Patrick); proposed to Phil"
+    "note": "form #668; Phil approved 2026-11-02; shelved"
   },
   "form-667": {
     "post_id": "2107439172243931414",
     "author_handle": "@JourneyDeck",
     "template_url": "https://x.ai/bot/r5gMnnIQ21PIbXKFeft-O",
     "name": "Job Application Bot by Patrick",
-    "status": "pending",
+    "status": "denied",
     "date": "2026-11-02",
-    "note": "form #667; post by @JourneyDeck (Patrick); flagged: needs personal info, post says no CAPTCHA is safe; proposed to Phil"
+    "note": "form #667; Phil denied 2026-11-02: security — asks for extensive personal info and submits applications on career sites; post says \"No CAPTCHA is safe!\" (CAPTCHA bypass)"
   },
   "form-666": {
     "post_id": "2110476883976462673",
     "author_handle": "@JourneyDeck",
     "template_url": "https://x.ai/bot/3bxkmX3cFCcu5-ZpuDSc3",
     "name": "Family Logistics by Patrick",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-11-02",
-    "note": "form #666; post by @JourneyDeck (Patrick); proposed to Phil"
+    "note": "form #666; Phil approved 2026-11-02; shelved"
   },
   "form-665": {
     "post_id": "",
     "author_handle": "@JourneyDeck",
     "template_url": "https://x.ai/bot/2ZbjxQAxHPOBnKO94a0YL",
     "name": "Echo · Audience & Voice by Patrick",
-    "status": "pending",
+    "status": "approved",
     "date": "2026-11-02",
-    "note": "form #665; no handle on form, likely @JourneyDeck (Patrick); proposed to Phil"
+    "note": "form #665; Phil approved 2026-11-02; shelved"
   },
   "form-692": {
     "post_id": "",
