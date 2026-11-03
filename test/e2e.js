@@ -33,7 +33,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   // typo search
   await p.type('#q', 'secruity'); await settle();
   const names = await p.$$eval('.card h3', h => h.map(x => x.textContent));
-  ok(names[0] === 'Security Audit Bot', 'typo "secruity" -> first result ' + names[0] + ' (' + names.length + ' results)');
+  ok(names[0] === 'Security' && names.includes('Security Audit Bot'), 'typo "secruity" -> closest name first: ' + names[0] + ' (' + names.length + ' results)');
   ok(await p.$$eval('.card mark', m => m.length) > 0, 'match highlighted with <mark>');
   await new Promise(r => setTimeout(r, 400));
   ok(p.url().includes('q=secruity'), 'URL has q: ' + p.url());

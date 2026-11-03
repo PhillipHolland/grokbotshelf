@@ -18,9 +18,15 @@
 </head>
 <body class="botpage">
 <!-- header:start -->
+<style>.hero-find{flex:1 0 100%;display:flex;align-items:center;height:44px;min-width:0;margin:0;border-radius:9999px;background:var(--field);border:1px solid transparent;padding:0 6px 0 14px}.hero-find:focus-within{background:var(--bg);border-color:var(--blue)}.hero-find:focus-within .hf-i{stroke:var(--blue)}.hero-find .hf-i{width:18px;height:18px;flex:none;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.hero-find input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:var(--text);font:inherit;font-size:15px;padding:0 10px;outline:none}.hero-find input::placeholder{color:var(--text2)}.hero-find input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}</style>
 <header class="wrap hero">
   <a class="home" href="/"><svg class="mark" viewBox="0 0 16 16" width="28" height="28" aria-hidden="true" fill="currentColor"><rect x="1" y="2" width="14" height="2.4" rx=".5"/><rect x="1" y="6.8" width="10" height="2.4" rx=".5"/><rect x="1" y="11.6" width="12" height="2.4" rx=".5"/></svg>Grok Bot Shelf</a>
   <div class="hero-actions"><a class="btn add-top" href="/add">Add bot</a><a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a><button type="button" class="theme-btn" id="theme" aria-label="Dark mode" aria-pressed="true" title="Toggle dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" /></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg></button></div>
+  <form class="hero-find" action="/" method="get" role="search">
+  <label class="sr" for="hq">Search bots</label>
+  <svg class="hf-i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+  <input id="hq" name="q" type="search" placeholder="Search bots" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+</form>
   <p class="affil">Not affiliated with SpaceXSI.</p>
 </header>
 <!-- header:end -->

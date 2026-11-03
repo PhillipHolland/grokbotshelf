@@ -256,6 +256,15 @@ function planNote() {
   <p class="cover-note-fees">Affiliate Fees will show here once they start.</p>
 </section>`;
 }
+// Search on every shelf header except the homepage, which already has the live dock.
+// Submits to /?q= so the homepage scorer runs the query. Styled here, not in styles.css,
+// so a header tweak does not rewrite the inlined CSS on every bot page.
+const HERO_FIND_STYLE = `<style>.hero-find{flex:1 0 100%;display:flex;align-items:center;height:44px;min-width:0;margin:0;border-radius:9999px;background:var(--field);border:1px solid transparent;padding:0 6px 0 14px}.hero-find:focus-within{background:var(--bg);border-color:var(--blue)}.hero-find:focus-within .hf-i{stroke:var(--blue)}.hero-find .hf-i{width:18px;height:18px;flex:none;fill:none;stroke:var(--text2);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.hero-find input{flex:1;min-width:0;height:100%;border:0;background:transparent;color:var(--text);font:inherit;font-size:15px;padding:0 10px;outline:none}.hero-find input::placeholder{color:var(--text2)}.hero-find input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}</style>\n`;
+const HERO_FIND = `<form class="hero-find" action="/" method="get" role="search">
+  <label class="sr" for="hq">Search bots</label>
+  <svg class="hf-i" viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+  <input id="hq" name="q" type="search" placeholder="Search bots" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+</form>`;
 function siteHeader({ title = false, job = "", addCurrent = false, growth = false } = {}) {
   const link = `<a class="home${title ? " gbs-brand" : ""}" href="/">${MARK}Grok Bot Shelf</a>`;
   const shelfH1 = title ? `\n  <h1 class="shelf-h1">${items.length.toLocaleString("en-US")} Grok Bot templates you can import</h1>` : "";
@@ -264,12 +273,14 @@ function siteHeader({ title = false, job = "", addCurrent = false, growth = fals
   const gift = `<a class="btn gift-top" href="https://grok.com/refer/bot?code=K9VPNSANC263" target="_blank" rel="noopener" aria-label="Gift Grok Bot (opens in new tab)">Gift<span class="opt"> Grok Bot</span></a>`;
   const jobLine = job ? `\n<p class="job-find">${job}</p>` : "";
   const growthLine = growth ? `\n${growthStrip()}` : "";
+  const findStyle = title ? "" : HERO_FIND_STYLE;
+  const find = title ? "" : `\n  ${HERO_FIND}`;
   // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
   // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
   const homeSize = title ? `<style>.gbs-brand{display:inline-flex;align-items:center;font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:0;word-spacing:-.06em;line-height:1.1;color:inherit;gap:12px;min-width:0;text-decoration:none}h1.shelf-h1{display:block;flex:1 0 100%;margin:2px 0 0;white-space:normal;font-size:clamp(22px,3.2vw,30px);font-weight:500;letter-spacing:0;line-height:1.2}@media (max-width:640px){.gbs-brand{gap:9px;font-size:26px}h1.shelf-h1{font-size:22px}}@media (max-width:380px){.gbs-brand{gap:8px;font-size:24px}}</style>\n` : "";
-  return `${homeSize}<header class="wrap hero">
+  return `${homeSize}${findStyle}<header class="wrap hero">
   ${brand}
-  <div class="hero-actions">${add}${gift}${THEME_BTN}</div>
+  <div class="hero-actions">${add}${gift}${THEME_BTN}</div>${find}
   <p class="affil">Not affiliated with SpaceXSI.</p>${shelfH1}${jobLine}${growthLine}
 </header>`;
 }
