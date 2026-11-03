@@ -8262,12 +8262,13 @@
   },
   "form-728": {
     "date": "2026-11-03",
-    "status": "parked",
+    "status": "denied",
     "bot": "Talk to a Licensed Broker by Kevin",
     "template_url": "https://x.ai/bot/M5ve_GBdFaivPCPqd7eJ3",
     "author": "@kcmcdonald",
     "url": "",
-    "note": "site form #728 via Shelfer; parked for Phil: template's whole job is to collect your details and draft a request email to Kevin, a licensed P&C broker (lead-gen for the author's brokerage, no standalone insurance help). Submitter flagged it as possibly too promotional. Left pending in Neon."
+    "note": "site form #728 via Shelfer; parked for Phil: template's whole job is to collect your details and draft a request email to Kevin, a licensed P&C broker (lead-gen for the author's brokerage, no standalone insurance help). Submitter flagged it as possibly too promotional. Left pending in Neon. Phil confirmed deny 2026-11-03.",
+    "reason": "lead-gen email drafter to author’s brokerage; no standalone insurance help"
   },
   "form-725": {
     "date": "2026-11-03",
