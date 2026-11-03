@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 19:09:07 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 03 Nov 2026 21:17:27 GMT</lastBuildDate>
+  <item>
+    <title>🕶️ Shadow by Kevin</title>
+    <link>https://grokbotshelf.com/bot/shadow-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/nA14kdvTueqWdYxy6Gubt</guid>
+    <description>A silent meeting assistant for Google Meet, Zoom, and Teams that sends you private one-line notes during the call and speaks only when you say its name.</description>
+    <dc:creator>Kevin (@kcmcdonald)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 03 Nov 2026 12:16:37 GMT</pubDate>
+  </item>
   <item>
     <title>🗳️ Ballot Scout by Yossi</title>
     <link>https://grokbotshelf.com/bot/ballot-scout</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Mon, 02 Nov 2026 12:15:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎥 Golf Swing Improver by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/golf-swing-improver-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/XdgOlUq4DUnWxdsARJP0H</guid>
-    <description>Upload your swing videos and get tips on setup, tempo and common faults, plus drills to fix them.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:47 GMT</pubDate>
   </item>
 </channel>
 </rss>

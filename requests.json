@@ -8312,5 +8312,17 @@
     "approved_by": "Phillip Holland (approved despite overlap with Ballot Box Bob, 2026-11-03)",
     "added": "2026-11-03",
     "credited": "@josephstayhappy"
+  },
+  "form-739": {
+    "date": "2026-11-03",
+    "status": "added",
+    "bot": "Shadow by Kevin",
+    "template_url": "https://x.ai/bot/nA14kdvTueqWdYxy6Gubt",
+    "author": "@kcmcdonald",
+    "url": null,
+    "note": "site form #739; template 200; no name clash; proposed to Phil 2026-11-03 3pm run",
+    "approved_by": "Phillip Holland (approved via shelf card, 2026-11-03)",
+    "added": "2026-11-03",
+    "credited": "@kcmcdonald"
   }
 }
