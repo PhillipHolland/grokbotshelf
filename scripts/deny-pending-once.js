@@ -1,5 +1,5 @@
 // One-shot: mark specific Neon submissions denied. Idempotent. Needs DATABASE_URL at build/runtime.
-const IDS = [525, 500, 618];
+const IDS = [692, 697, 667];
 const DB = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.DATABASE_URL_UNPOOLED || "";
 if (!DB || DB.includes("[SENSITIVE]")) {
   console.warn("deny-pending-once: no DATABASE_URL in this environment; skip");
