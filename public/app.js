@@ -27,7 +27,182 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   // Reset shows only when search, a filter or the sort differs from the default home view
   const changed = () => !!(st.q.trim() || filtering() || st.sort !== "featured");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+  /* gbs-search:start */
+  // Job-language search. test/search.js evals this block, so it stays free of the DOM.
+  function gbsSearch() {
+    "use strict";
+    const fold = (s) => String(s).toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
+    // Words that are not the job the visitor means. Dropped only when another word remains,
+    // so a search for "bot" itself still runs.
+    const FILL = new Set("a an the for to of and or in on with my me our your you i it is be bot bots grok please help want need some that this from at into about just can do does".split(" "));
+    const FIELDS = [["name", 3], ["category", 1.6], ["creator", 1.3], ["description", 1]];
+    function fields(b) {
+      const creatorName = fold(b.creator_name || "");
+      return {
+        name: fold(b.name || ""),
+        description: fold(b.description || ""),
+        category: fold(b.category || ""),
+        creator: fold((b.creator_name || "") + " " + (b.creator_handle || "")),
+        creatorNameLen: creatorName.length,
+      };
+    }
+    function tokensOf(q) {
+      const parts = fold(q).split(/[\s-]+/).map((t) => t.replace(/^@+/, "")).filter((t) => t.length);
+      const kept = parts.some((t) => t.length > 1) ? parts.filter((t) => t.length > 1) : parts;
+      const content = kept.filter((t) => !FILL.has(t));
+      return content.length ? content : kept;
+    }
+    // Light suffix fold: planning/planner, budgeting/budget, parenting/parent, taxes/tax.
+    // One or two rounds, and a 3-letter root only when a real ending came off (so "other" stays).
+    function stem(w) {
+      let s = w;
+      for (let n = 0; n < 2 && s.length >= 5; n++) {
+        let t = s;
+        if (t.length >= 6 && t.endsWith("ing")) t = t.slice(0, -3);
+        else if (t.length >= 6 && t.endsWith("ers")) t = t.slice(0, -3);
+        else if (t.length >= 5 && /(?:er|or|ed|ly|es)$/.test(t)) t = t.slice(0, -2);
+        else if (t.length >= 5 && t.endsWith("s") && !t.endsWith("ss")) t = t.slice(0, -1);
+        else break;
+        if (t.length >= 4 && t.charCodeAt(t.length - 1) === t.charCodeAt(t.length - 2)) t = t.slice(0, -1);
+        if (t.length < 3 || (t.length < 4 && !/(?:ing|ers|es)$/.test(s))) break;
+        if (t === s) break;
+        s = t;
+      }
+      return s;
+    }
+    function dist(a, b, max) {
+      if (Math.abs(a.length - b.length) > max) return max + 1;
+      let p2 = null, p = Array.from({ length: b.length + 1 }, (_, i) => i);
+      for (let i = 1; i <= a.length; i++) {
+        const c = [i]; let lo = i;
+        for (let j = 1; j <= b.length; j++) {
+          let v = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+          if (p2 && i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, p2[j - 2] + 1);
+          c[j] = v; if (v < lo) lo = v;
+        }
+        if (lo > max) return max + 1;
+        p2 = p; p = c;
+      }
+      return p[b.length];
+    }
+    function exactAt(tok, text, isName) {
+      let best = null, from = 0;
+      while (from < text.length) {
+        const i = text.indexOf(tok, from);
+        if (i < 0) break;
+        const end = i + tok.length;
+        const before = i === 0 || /[^a-z0-9]/.test(text[i - 1]);
+        const after = end === text.length || /[^a-z0-9]/.test(text[end]);
+        let s = 12;
+        if (before) s += 6;
+        if (before && after) s += 4;
+        if (isName && i === 0 && before) s += after && end === text.length ? 14 : 4;
+        if (!best || s > best[0]) best = [s, [i, end]];
+        if (s >= 36) break;
+        from = i + 1;
+      }
+      return best;
+    }
+    // Query word longer than the field word (planning → planner). Whole words only.
+    function stemAt(tok, text, isName) {
+      const st = stem(tok);
+      if (st === tok || st.length < 3) return null;
+      let best = null;
+      for (const m of text.matchAll(/[a-z0-9]+/g)) {
+        const w = m[0], sw = stem(w);
+        if (w !== st && sw !== st) continue;
+        const end = m.index + w.length;
+        let s = 16;
+        if (m.index === 0 || /[^a-z0-9]/.test(text[m.index - 1])) s += 4;
+        if (isName && m.index === 0 && end === text.length) s += 8;
+        if (!best || s > best[0]) best = [s, [m.index, end]];
+      }
+      return best;
+    }
+    function fuzzyAt(tok, text) {
+      if (tok.length < 4) return null;
+      const max = tok.length >= 7 ? 2 : 1;
+      let best = null;
+      for (const m of text.matchAll(/[a-z0-9]+/g)) {
+        const w = m[0];
+        const dw = dist(tok, w, max);
+        const dp = w.length > tok.length ? dist(tok, w.slice(0, tok.length), max) : max + 1;
+        let s = 0, end = m.index + w.length;
+        if (dw <= max) s = 8 - dw * 3 + Math.max(0, 3 - Math.abs(w.length - tok.length));
+        if (dp <= max && 5 - dp * 3 > s) { s = 5 - dp * 3; end = m.index + Math.min(tok.length, w.length); }
+        if (s > 0 && (!best || s > best[0])) best = [s, [m.index, end]];
+      }
+      return best;
+    }
+    function subseq(tok, text) {
+      let k = 0, start = -1;
+      for (let j = 0; j < text.length && k < tok.length; j++) if (text[j] === tok[k]) { if (start < 0) start = j; k++; }
+      return k === tok.length ? [2, [start, start + 1]] : null;
+    }
+    // [score, [start, end]] or null. Ranges are indexes into the folded field.
+    function tokenIn(tok, text, isName) {
+      return exactAt(tok, text, isName) || stemAt(tok, text, isName) || fuzzyAt(tok, text) || (isName ? subseq(tok, text) : null);
+    }
+    function nameBonus(name, toks) {
+      const q = toks.join(" ");
+      if (name === q) return 48;
+      if (q.length >= 2 && name.startsWith(q) && (name.length === q.length || /[^a-z0-9]/.test(name[q.length]))) return 10;
+      return 0;
+    }
+    // One-character typos: "shelfr" is closer to Shelfer than to a longer name that merely shares a prefix.
+    function nameClose(name, toks) {
+      const q = toks.join(" ");
+      if (q.length < 4 || name.includes(q) || Math.abs(name.length - q.length) > 2) return 0;
+      const d = dist(q, name, 2);
+      return d <= 2 ? (3 - d) * 14 : 0;
+    }
+    function coverBonus(name, toks) {
+      const words = name.split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !FILL.has(w));
+      if (!words.length) return 0;
+      let n = 0;
+      for (const w of words) {
+        if (toks.some((t) => t === w || stem(t) === stem(w) || (t.length >= 4 && w.startsWith(t)))) n++;
+      }
+      return n === words.length ? 18 : Math.round((10 * n) / words.length);
+    }
+    function scoreBot(b, toks, need) {
+      let total = 0, covered = 0;
+      const hits = { name: [], description: [], category: [], creator: [] };
+      for (const t of toks) {
+        let best = 0, bestF = null, bestR = null;
+        for (const [f, w] of FIELDS) {
+          const r = tokenIn(t, b._f[f], f === "name");
+          if (r && r[0] * w > best) { best = r[0] * w; bestF = f; bestR = r[1]; }
+        }
+        if (!best) continue;
+        covered++; total += best;
+        if (bestF === "creator") {
+          const lim = b._f.creatorNameLen || 0;
+          if (lim && bestR[0] >= lim) hits.creator.push([0, lim]); // handle match: mark the name that is on the card
+          else if (bestR[0] < lim) hits.creator.push([bestR[0], Math.min(bestR[1], lim)]);
+        } else hits[bestF].push(bestR);
+      }
+      if (covered < need) return null;
+      total += nameBonus(b._f.name, toks) + nameClose(b._f.name, toks) + coverBonus(b._f.name, toks);
+      if (need < toks.length) total += covered * 500;
+      return { score: total, hits, covered };
+    }
+    // Every content word must hit. When none do, keep bots that hit at least one so the shelf is not a blank page.
+    function rank(bots, query) {
+      const toks = tokensOf(query);
+      if (!toks.length) return [];
+      const strict = [];
+      for (const b of bots) { const m = scoreBot(b, toks, toks.length); if (m) strict.push([b, m]); }
+      if (strict.length || toks.length < 2) return strict;
+      const soft = [];
+      for (const b of bots) { const m = scoreBot(b, toks, 1); if (m) soft.push([b, m]); }
+      return soft;
+    }
+    return { fold, fields, rank };
+  }
+  /* gbs-search:end */
+  const searchApi = gbsSearch();
+  const fold = searchApi.fold;
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   // Group key: the lowercase handle, or "~" + name slug for creators with no X handle (they get no /@ page, avatar or share)
   const ckey = (b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slug(b.creator_name);
@@ -59,55 +234,6 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     try { localStorage.setItem("theme", next); } catch {}
   });
 
-  /* ---------- Fuzzy search ---------- */
-  // Optimal string alignment distance, capped at max+1.
-  function dist(a, b, max) {
-    if (Math.abs(a.length - b.length) > max) return max + 1;
-    let p2 = null, p = Array.from({ length: b.length + 1 }, (_, i) => i);
-    for (let i = 1; i <= a.length; i++) {
-      const c = [i]; let lo = i;
-      for (let j = 1; j <= b.length; j++) {
-        let v = Math.min(p[j] + 1, c[j - 1] + 1, p[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-        if (p2 && i > 1 && j > 1 && a[i - 1] === b[j - 2] && a[i - 2] === b[j - 1]) v = Math.min(v, p2[j - 2] + 1);
-        c[j] = v; if (v < lo) lo = v;
-      }
-      if (lo > max) return max + 1;
-      p2 = p; p = c;
-    }
-    return p[b.length];
-  }
-  // Score one query token against one field. Returns [score, [start, end]] or null.
-  function tokenIn(tok, text, isName) {
-    const i = text.indexOf(tok);
-    if (i >= 0) return [12 + (i === 0 || /[^a-z0-9]/.test(text[i - 1]) ? 6 : 0) + (isName && i === 0 ? 4 : 0), [i, i + tok.length]];
-    if (tok.length < 4) return null;
-    const max = tok.length >= 7 ? 2 : 1;
-    let best = null;
-    for (const m of text.matchAll(/[a-z0-9]+/g)) {
-      const w = m[0];
-      const d = Math.min(dist(tok, w, max), w.length > tok.length ? dist(tok, w.slice(0, tok.length), max) : max + 1);
-      if (d <= max && (!best || 8 - d * 3 > best[0])) best = [8 - d * 3, [m.index, m.index + w.length]];
-    }
-    if (best || !isName) return best;
-    let k = 0, start = -1; // subsequence fallback on names only
-    for (let j = 0; j < text.length && k < tok.length; j++) if (text[j] === tok[k]) { if (start < 0) start = j; k++; }
-    return k === tok.length ? [2, [start, start + 1]] : null;
-  }
-  const FIELDS = [["name", 3], ["category", 1.6], ["creator", 1.3], ["description", 1]];
-  function match(b, toks) {
-    let total = 0; const hits = { name: [], description: [] };
-    for (const t of toks) {
-      let best = 0, bestF = null, bestR = null;
-      for (const [f, w] of FIELDS) {
-        const r = tokenIn(t, b._f[f], f === "name");
-        if (r && r[0] * w > best) { best = r[0] * w; bestF = f; bestR = r[1]; }
-      }
-      if (!best) return null;
-      total += best;
-      if (hits[bestF]) hits[bestF].push(bestR);
-    }
-    return { score: total, hits };
-  }
   function hl(text, ranges) {
     if (!ranges || !ranges.length) return esc(text);
     const rs = ranges.slice().sort((a, b) => a[0] - b[0]); let out = "", pos = 0;
@@ -234,7 +360,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     return `<article class="card" id="${id}" tabindex="-1" data-url="${esc(b.url)}" aria-labelledby="${id}-t">
 <div class="head"><div class="icon" aria-hidden="true">${mark(b)}</div><div class="ttl">
 <h3 id="${id}-t"><a href="${b._page}">${hl(b.name, h.name)}</a></h3>
-<div class="sub"><a class="catlink" href="/category/${esc(slug(b.category))}">${hl(b.category, h.category)}</a><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${esc(b.creator_name)}</a>` : `<span class="cn">${esc(b.creator_name)}</span>`}${bk}</div>
+<div class="sub"><a class="catlink" href="/category/${esc(slug(b.category))}">${hl(b.category, h.category)}</a><span class="dot" aria-hidden="true">·</span>${av ? `<img src="${esc(av)}" alt="" width="16" height="16" loading="lazy" decoding="async">` : ""}${b.creator_handle ? `<a class="cn" href="${profilePath(ckey(b))}">${hl(b.creator_name, h.creator)}</a>` : `<span class="cn">${hl(b.creator_name, h.creator)}</span>`}${bk}</div>
 </div></div>
 <p class="desc">${hl(b.description, h.description)}</p>
 ${badgesHTML(b)}
@@ -409,8 +535,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   }
 
   function filtered(ignore) {
-    const toks = fold(st.q).split(/\s+/).filter(Boolean);
-    const out = [];
+    const pool = [];
     for (const b of bots) {
       if (ignore !== "creator" && st.creator && ckey(b) !== st.creator) continue;
       if (ignore !== "cat" && st.cats.length && !st.cats.includes(b.category)) continue;
@@ -420,10 +545,10 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       if (st.oneJob && !(b._meta && b._meta.one_job === true)) continue;
       if (st.coll && !b._coll.includes(st.coll)) continue;
       if (st.role && !b._role.includes(st.role)) continue;
-      const m = toks.length ? match(b, toks) : { score: 0, hits: {} };
-      if (m) out.push([b, m]);
+      pool.push(b);
     }
-    return out;
+    if (!st.q.trim()) return pool.map((b) => [b, { score: 0, hits: {} }]);
+    return searchApi.rank(pool, st.q);
   }
   const weekAgo = () => { const d = new Date(Date.now() - 6 * 864e5); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); };
   const bmOf = (b) => (b._social ? b._social.bookmarks : -1);
@@ -563,19 +688,27 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   // Each tile reserves its 1200:630 box (width/height on the img plus aspect-ratio), so lazy images never shift anything.
   const tileCache = new Map();
   let og2 = ""; // the shared version of the 720px thumbnails (top-level "og2" in shelf-data.json)
-  function tile(b) {
+  function tile(b, m) {
     // srcset: the 480px webp, plus the 720px one (shared ?v= og2, unless b.no720) for 2x and 3x screens; sizes is the tile's real width
     // (2 columns under 700px, 3 above, at most 354px), so a phone at 3x picks the 720 and a 1x laptop the 480.
     const s = b._page.slice(5), v = "?v=" + b.og;
     const set = `/og/thumb/${s}.webp${v} 480w` + (og2 && !b.no720 ? `, /og/thumb720/${s}.webp?v=${og2} 720w` : "");
     const pic = b.og ? `<span class="gi"><img src="/og/thumb/${s}.webp${v}" srcset="${set}" sizes="(max-width:699px) calc(50vw - 20px), (max-width:1119px) calc(33.3vw - 20px), 354px" width="480" height="252" alt="" loading="lazy" decoding="async"></span>`
       : `<span class="gi none"><span class="em" aria-hidden="true">${mark(b)}</span><span class="nocard">No share card yet</span></span>`;
-    return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${esc(b.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
+    return `<a class="gtile" id="t-${b._slug}" href="${b._page}">${pic}<span class="gn"><span class="t">${hl(b.name, m && m.hits.name)}</span><span class="sc" data-tile="${b._slug}"></span></span></a>`;
   }
   function tileEls(rows) {
-    const miss = rows.filter(([b]) => !tileCache.has(b._slug));
-    if (miss.length) nodes(miss.map(([b]) => tile(b)).join("")).forEach((el, i) => tileCache.set(miss[i][0]._slug, el));
-    return rows.map(([b]) => { const el = tileCache.get(b._slug); paintTile(el.querySelector(".sc")); return el; });
+    const out = new Array(rows.length), miss = [];
+    rows.forEach(([b, m], i) => {
+      const sig = m && m.hits ? JSON.stringify(m.hits.name || []) : "";
+      const el = tileCache.get(b._slug);
+      if (el && el._sig === sig) out[i] = el;
+      else miss.push([i, b, m, sig]);
+    });
+    if (miss.length) nodes(miss.map((x) => tile(x[1], x[2])).join("")).forEach((el, k) => {
+      const [i, b, , sig] = miss[k]; el._sig = sig; tileCache.set(b._slug, el); out[i] = el;
+    });
+    return out.map((el) => { paintTile(el.querySelector(".sc")); return el; });
   }
   let buildersEl, flatEl, galEl;
   function buildersNode() {
@@ -588,16 +721,19 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     const then = afterRender; afterRender = null;
     clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailGal = false; tailHold = false; if (io) io.unobserve(sentinel);
     const list = filtered(), searching = !!st.q.trim();
-    const by = {
-      featured: (a, b) => searching ? b[1].score - a[1].score || a[0]._i - b[0]._i : a[0]._i - b[0]._i,
+    // A typed query ranks by the search score first. The sort chip only breaks ties, and the list stays flat
+    // (creator groups would hide that order).
+    const bySort = {
+      featured: (a, b) => a[0]._i - b[0]._i,
       newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
       bookmarks: (a, b) => bmOf(b[0]) - bmOf(a[0]) || ((b[0]._social || {}).likes || 0) - ((a[0]._social || {}).likes || 0) || a[0]._i - b[0]._i,
       votes: (a, b) => ((vote.scores[b[0]._slug] || {}).score || 0) - ((vote.scores[a[0]._slug] || {}).score || 0) || ((vote.scores[b[0]._slug] || {}).up || 0) - ((vote.scores[a[0]._slug] || {}).up || 0) || a[0].name.localeCompare(b[0].name),
       az: (a, b) => a[0].name.replace(/^[^\p{L}\p{N}]+/u, "").localeCompare(b[0].name.replace(/^[^\p{L}\p{N}]+/u, "")),
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
     }[st.sort];
+    const by = searching ? (a, b) => b[1].score - a[1].score || bySort(a, b) : bySort;
     list.sort(by);
-    const gal = view === "gallery", grouped = !gal && (st.sort === "creator" || (st.sort === "featured" && !searching));
+    const gal = view === "gallery", grouped = !gal && !searching && (st.sort === "creator" || st.sort === "featured");
     const strip = !gal && st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode(), newNode()].filter(Boolean) : [];
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
@@ -1079,7 +1215,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   function loadShelf() {
     fetch(dataURL).then((r) => r.json()).then(({ bots: data, og2: v720 }) => {
       og2 = v720 || "";
-      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _role: (b.roles || []).map(slug), _f: { name: fold(b.name), description: fold(b.description), category: fold(b.category), creator: fold(b.creator_name + " " + b.creator_handle) } }));
+      bots = data.map((b, i) => ({ ...b, _i: i, _slug: "bot-" + slug(b.name), _page: "/bot/" + slug(b.name), _app: deep(b.url), _meta: b.meta || null, _social: b.social || null, _colls: b.collections || [], _coll: (b.collections || []).map(slug), _role: (b.roles || []).map(slug), _f: searchApi.fields(b) }));
       const seen = new Map();
       for (const b of bots) if (!seen.has(ckey(b))) seen.set(ckey(b), { key: ckey(b), anon: !b.creator_handle, url: b.creator_url, handle: b.creator_handle, avatar: b.creator_avatar, sm: b.avatar_sm || b.creator_avatar, short: b.creator_name, label: b.creator_name });
       creators = [...seen.values()].sort((a, b) => a.short.localeCompare(b.short, undefined, { sensitivity: "base" }));
