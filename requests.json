@@ -6568,6 +6568,14 @@
       "url": "https://x.com/JennyMarquis/status/2117354507239649747",
       "note": "article link; Font Designer already shelved",
       "date": "2026-11-02"
+    },
+    "x-2117626022896206127": {
+      "post_id": "2117626022896206127",
+      "author_handle": "@EmilioSchwaiger",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "shelf shout-out (996 bots), not an add request"
     }
   },
   "x-2114766675119886755": {
@@ -8292,5 +8300,17 @@
     "approved_by": "Phillip Holland (tavi KR/JP: standing @tavivideo SFW shelf practice; others clean review, 2026-11-03)",
     "added": "2026-11-03",
     "credited": "@calculatemyrate"
+  },
+  "x-2117677414293626946": {
+    "date": "2026-11-03",
+    "status": "added",
+    "bot": "Ballot Scout by Yossi",
+    "template_url": "https://x.ai/bot/tL4Rmvq9J8vcxKjaXz5G_",
+    "author": "@josephstayhappy",
+    "url": "https://x.com/josephstayhappy/status/2117677414293626946",
+    "note": "site form #738; proposed to Phil 2026-11-03 1pm run; overlaps Ballot Box Bob (@jimaggie) in purpose",
+    "approved_by": "Phillip Holland (approved despite overlap with Ballot Box Bob, 2026-11-03)",
+    "added": "2026-11-03",
+    "credited": "@josephstayhappy"
   }
 }
