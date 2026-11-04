@@ -748,8 +748,18 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       // on the sentinel like on load. The results keep their old height while this builds, so the scroll position
       // is not clamped, and if the new groups are shorter the next ones go in before anything paints.
       const was = results.offsetHeight, top = results.getBoundingClientRect().top;
+      // The reader's place is the group under the dock. Groups above it change height on a re-render (a filter on or
+      // off), and the browser's own scroll anchoring picks whatever node it likes, which can be a screen away. So the
+      // browser's anchoring is off for this one layout and the group is put back where it was by hand. A group that
+      // got shorter than the reader was deep into it (a filter showed it uncapped) lands with its head under the dock.
+      // A reader below every group (a filter left a short page and the scroll clamped) has no place to keep: the
+      // page starts over at the top of the results, built on demand like a first load, instead of all at once.
+      const dockB = dock.getBoundingClientRect().bottom, live = results.firstElementChild && top < innerHeight;
+      const anchor = live ? railGroups.find((s) => s.isConnected && s.getBoundingClientRect().bottom > dockB + 1) : null;
+      const past = !!live && !anchor && railGroups.some((s) => s.isConnected);
+      const a0 = anchor ? anchor.getBoundingClientRect().top : 0;
       let keep = FIRST_GROUPS;
-      if (top < innerHeight) {
+      if (top < innerHeight && !past) {
         let last = -1;
         for (const sec of railGroups) { if (!sec.isConnected) continue; const r = sec.getBoundingClientRect(); if (r.top >= innerHeight) break; last = Math.max(last, cIdx.get(sec.getAttribute("aria-labelledby").slice(2)) ?? -1); }
         keep = Math.max(keep, parts.filter((g) => cIdx.get(g.k) <= last).length);
@@ -759,12 +769,22 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       const small = results.firstElementChild && parts.reduce((s, g) => s + g.n, 0) <= FLAT_STEP;
       if (parts.length > keep + TAIL_GROUPS && !small) tail = parts.splice(keep);
       if (tail.length && top < innerHeight) results.style.minHeight = was + "px";
+      if (anchor || past) results.style.overflowAnchor = "none";
       place(results, strip.concat(parts.map((g) => g.f())));
       if (tail.length && top < innerHeight) {
         const until = innerHeight - results.getBoundingClientRect().top; // the viewport's bottom, inside #results
         while (tail.length && results.lastElementChild && results.lastElementChild.getBoundingClientRect().bottom - results.getBoundingClientRect().top < until) appendTail(TAIL_GROUPS);
         results.style.minHeight = "";
       }
+      if (anchor && anchor.isConnected) {
+        const r1 = anchor.getBoundingClientRect(), dy = r1.top - a0;
+        if (Math.abs(dy) > 1) scrollBy(0, dy); // the same frame as the layout, so nothing on screen is seen to move
+        // A group that came back shorter than the reader was deep into it would now sit above the screen: show its
+        // head under the dock, as a plain scroll in the next frame (a scroll is not a layout shift)
+        if (r1.bottom - dy < dockB + 40) requestAnimationFrame(() => { const r = anchor.getBoundingClientRect(); scrollBy(0, r.top - dock.getBoundingClientRect().bottom - 12); });
+      }
+      if (past) scrollTo(0, Math.max(0, scrollY + results.getBoundingClientRect().top - dockB - 12));
+      if (anchor || past) results.style.overflowAnchor = "";
     } else if (gal) {
       if (list.length) { galEl = galEl || nodes('<div class="gal"></div>')[0]; place(galEl, tileEls(list.slice(0, FLAT_STEP))); }
       if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; tailGal = true; }
