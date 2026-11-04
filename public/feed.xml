@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 03 Nov 2026 23:10:14 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 01:26:09 GMT</lastBuildDate>
+  <item>
+    <title>💌 E-Card Greetings Bot by Paige</title>
+    <link>https://grokbotshelf.com/bot/e-card-greetings-bot-by-paige</link>
+    <guid isPermaLink="false">https://x.ai/bot/gsXyaV3getUuez29IRkm_</guid>
+    <description>Personalizes and emails digital e-cards for any occasion: pick Thanksgiving, Christmas, Hanukkah, birthdays, weddings and more, type your message, and send.</description>
+    <dc:creator>Paige (@calculatemyrate)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 03 Nov 2026 12:00:02 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔍 X Algorithm Watch by beastnug</title>
+    <link>https://grokbotshelf.com/bot/x-algorithm-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3</guid>
+    <description>Reads every new commit to X&apos;s open-source algorithm repo, explains it in plain English, checks viral &apos;algorithm hack&apos; claims against the code, and turns real changes into posting rules for your account.</description>
+    <dc:creator>beastnug (@beastnug8)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 03 Nov 2026 12:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 gmi by Alberto Jauregui</title>
+    <link>https://grokbotshelf.com/bot/gmi</link>
+    <guid isPermaLink="false">https://x.ai/bot/5IFu9DKwavLtu18sinCSv</guid>
+    <description>Makes images, video, voiceovers, and music on your GMI Cloud account, answers GMI questions, and reports your balance and spend. It quotes the price before spending.</description>
+    <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Tue, 03 Nov 2026 12:00:00 GMT</pubDate>
+  </item>
   <item>
     <title>🔍 Family Tree Detective by Kevin</title>
     <link>https://grokbotshelf.com/bot/family-tree-detective-by-kevin</link>
@@ -429,33 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:15:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗺️ Course Strategy Caddie by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/course-strategy-caddie-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/msLKed5U8fgbmAklgMXIb</guid>
-    <description>Give it a course and your usual distances, and it writes a hole-by-hole game plan: tee clubs, where to lay up, and where to miss. For golfers who want smarter course management.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:52 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕳️ Putt Reader by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/putt-reader-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/BNSCl09m4s6HVdJV-vptX</guid>
-    <description>Upload a photo or video of your putt and get a read on slope and break, an aim line and speed, plus stroke tips from video.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧠 Mental Game Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/mental-game-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/upxjn-OAkVd4inGzuXkVQ</guid>
-    <description>A golf mental-game coach that builds pre-shot routines, bad-hole recovery habits and post-round reflection notes for consistency under pressure.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:50 GMT</pubDate>
   </item>
 </channel>
 </rss>

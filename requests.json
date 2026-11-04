@@ -6616,6 +6616,76 @@
       "status": "skipped",
       "date": "2026-11-03",
       "note": "mentions Local Ai Manager already on shelf"
+    },
+    "neon-742": {
+      "status": "added",
+      "author": "@calculatemyrate",
+      "bot": "E-Card Greetings Bot by Paige",
+      "template_url": "https://x.ai/bot/gsXyaV3getUuez29IRkm_",
+      "url": "https://x.com/calculatemyrate/status/2117779124936651217",
+      "note": "submit queue #742; proposed 7pm run",
+      "date": "2026-11-03",
+      "approved_by": "Phillip Holland (approved 2026-11-03)"
+    },
+    "x-2117761853719798012": {
+      "post_id": "2117761853719798012",
+      "author_handle": "@weeb3dev",
+      "bot": "gmi by Alberto",
+      "template_url": "https://x.ai/bot/5IFu9DKwavLtu18sinCSv",
+      "status": "added",
+      "date": "2026-11-03",
+      "note": "proposed 7pm run; flag spends GMI Cloud credits; already on shelf via 3dda940b5 (dedup)",
+      "approved_by": "Phillip Holland (approved 2026-11-03)"
+    },
+    "x-2117782275597410337": {
+      "post_id": "2117782275597410337",
+      "author_handle": "@beastnug8",
+      "bot": "X Algorithm Watch by beastnug",
+      "template_url": "https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3",
+      "status": "added",
+      "date": "2026-11-03",
+      "note": "proposed 7pm run; already on shelf via 12cdb7ed6 (dedup)",
+      "approved_by": "Phillip Holland (approved 2026-11-03)"
+    },
+    "x-2117783843352539271": {
+      "post_id": "2117783843352539271",
+      "author_handle": "@beastnug8",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "thanks reply, not an add"
+    },
+    "x-2117758646625120329": {
+      "post_id": "2117758646625120329",
+      "author_handle": "@gambrill",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "photo reply on 1000 post, no template"
+    },
+    "x-2117774425689088108": {
+      "post_id": "2117774425689088108",
+      "author_handle": "@weeb3dev",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "thanks reply"
+    },
+    "x-2117760478885921042": {
+      "post_id": "2117760478885921042",
+      "author_handle": "@ALL_Jonah",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "cheer reply"
+    },
+    "x-2117762751812489583": {
+      "post_id": "2117762751812489583",
+      "author_handle": "@marshallfrith",
+      "template_url": "",
+      "status": "skipped",
+      "date": "2026-11-03",
+      "note": "cheer reply"
     }
   },
   "x-2114766675119886755": {
