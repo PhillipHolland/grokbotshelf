@@ -94,11 +94,14 @@ const FONT_URL = (fs.readFileSync(path.join(PUB, "styles.css"), "utf8").match(/u
 if (!FONT_URL || !fs.existsSync(path.join(PUB, FONT_URL))) throw new Error("styles.css does not name a font file in public/fonts");
 const FONT_PRELOAD = `<link rel="preload" href="${FONT_URL}" as="font" type="font/woff2" crossorigin>`;
 const withFontPreload = (h) => h.replace(/<link rel="preload" href="\/fonts\/[^>]*>\n?/, "").replace(/<link rel="stylesheet" href="\/styles\.css/, (m) => `${FONT_PRELOAD}\n${m}`);
-// styles.css, app.js, add.js and shelf-up.js get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache.
+// styles.css and the page scripts get the same ?v= in index.html and 404.html, so a CSS/JS change is never served stale from cache;
+// vercel.json serves every one of them immutable once it carries ?v=.
 for (const page of ["index.html", "404.html"]) {
   const f = path.join(PUB, page); if (!fs.existsSync(f)) continue;
   const h = fs.readFileSync(f, "utf8");
-  const n = withFontPreload(h).replace(/(href|src)="\/(styles\.css|app\.js|add\.js|shelf-up\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`);
+  const n = withFontPreload(h).replace(/(href|src)="\/(styles\.css|app\.js|add\.js|shelf-up\.js|config\.js|shelfer-sheet\.js)(\?v=[^"]*)?"/g, (_, a, file) => `${a}="${versioned("/" + file)}"`)
+    // the share image too: X and Facebook cache a card by its URL, so a redrawn og.png needs a new ?v= here, as the hubs already get
+    .replace(/content="https:\/\/grokbotshelf\.com\/og\.png(\?v=[^"]*)?"/g, () => `content="${SITE}${versioned("/og.png")}"`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const AVATARS_SM = read("avatars/48/manifest.json", {});
@@ -1158,4 +1161,8 @@ curl -X POST ${SITE}/api/submit \\
 \`\`\`
 `);
 
+{ // Share cards come from scripts/og.js by hand, not from this build; say which bots still need one so it is not missed
+  const noCard = items.filter((b) => !fs.existsSync(path.join(PUB, "og", "bot", b.slug + ".png"))).map((b) => b.slug);
+  if (noCard.length) console.warn(`share cards missing for ${noCard.length} bot${noCard.length === 1 ? "" : "s"} (${noCard.join(", ")}): run node scripts/og.js, then build again`);
+}
 console.log(`built ${items.length} bot pages, ${creatorList.length} creator pages, ${categories.length} categories, ${jobCollections.length} job collections, ${stacks.length} stacks, sitemap, robots, feed (${recent.length}), llms.txt`);
