@@ -760,6 +760,7 @@ html.mobile .cover-all{min-height:44px;margin:-13px 0}
    complete, which is the only time you could scroll to them anyway. app.js keeps .tailing in sync; the head script sets
    it before first paint on /#bot- links. "Add your bot" (#add) shows the form at once and holds the appends. */
 html.tailing #add,html.tailing .site-foot{display:none}
+html.tailing.gallery-view .crawl{display:none} /* in the gallery only: tiles appending above the crawl list moved it while it was on screen (gallery CLS); the list view keeps it for crawlers and the targets test */
 /* ...but the page still needs room under the last built group, or a rail jump or deep link near the end can't scroll its
    target to the top. The empty sentinel stands in for the pending groups (it paints nothing, so it never counts as a shift). */
 html.tailing .sentinel{height:100vh}
