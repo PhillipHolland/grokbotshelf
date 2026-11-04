@@ -836,7 +836,7 @@ html.mobile .bp-links a{min-width:0;overflow-wrap:anywhere}
 .cp-cats .n{color:var(--text2);font-weight:450;font-variant-numeric:tabular-nums}
 html.mobile .cp-cats{gap:12px 8px}
 html.mobile .cp-cats a{height:32px}
-html.mobile .cp-cats a::after{content:"";position:absolute;inset:-6px -4px}
+html.mobile .cp-cats a::after{content:"";position:absolute;inset:-7px -5px} /* 32px chip plus 1px border: 44px tap */
 .cp-list a small.cat{margin-top:1px;color:var(--blue);font-size:12px;font-weight:325}
 html[data-theme="light"] .cp-list a small.cat{color:var(--btn-blue)}
 
