@@ -13004,5 +13004,18 @@
     "creator_avatar": "/avatars/weeb3dev.webp",
     "source_post": "https://x.com/weeb3dev/status/2117761853719798012",
     "added": "2026-11-03"
+  },
+  {
+    "name": "X Algorithm Watch",
+    "emoji": "🔍",
+    "description": "Reads every new commit to X's open-source algorithm repo, explains it in plain English, checks viral 'algorithm hack' claims against the code, and turns real changes into posting rules for your account.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3",
+    "creator_name": "beastnug",
+    "creator_handle": "@beastnug8",
+    "creator_url": "https://x.com/beastnug8",
+    "creator_avatar": "/avatars/beastnug8.webp",
+    "source_post": "https://x.com/beastnug8/status/2117782275597410337",
+    "added": "2026-11-03"
   }
 ]
