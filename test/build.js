@@ -42,7 +42,7 @@ try {
     ok(index.includes("Find a bot by the job") && index.includes("job-card") && hub.includes("Start here") && hub.includes("More like this") && /by <a href="\/@/.test(hub), `job pages: index plus ${jobFile.collections[0].slug} with picks, alternates and creator credit`);
     const stacksHtml = fs.readFileSync(pub("stacks", "index.html"), "utf8");
     const homeNow = fs.readFileSync(pub("index.html"), "utf8");
-    ok(index.includes('class="li"') && !/>💪</.test(index) && stacksHtml.includes("Shelf stacks") && stacksHtml.includes("/bot/child-safety-coach") && stacksHtml.includes("/bot/local-ai-manager") && !stacksHtml.includes("botshelf-20") && homeNow.includes('class="growth"') && homeNow.includes("with Amazon pairs"), "Lucide on job hubs, public stacks page, homepage growth strip");
+    ok(index.includes('class="li"') && !/>💪</.test(index) && stacksHtml.includes("Shelf stacks") && stacksHtml.includes("/bot/child-safety-coach") && stacksHtml.includes("/bot/local-ai-manager") && !stacksHtml.includes("botshelf-20") && homeNow.includes('class="growth"') && /<b>[\d,]+<\/b> bots/.test(homeNow) && homeNow.includes("Shelved "), "Lucide on job hubs, public stacks page, homepage growth strip");
     const plan = homeNow.slice(homeNow.indexOf("<!-- plan:start -->"), homeNow.indexOf("<!-- plan:end -->"));
     const planBot = fs.readFileSync(pub("bot", "coach", "index.html"), "utf8");
     const plan404 = fs.readFileSync(pub("404.html"), "utf8");
