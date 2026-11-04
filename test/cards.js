@@ -47,11 +47,13 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
       if (Math.abs(tools.top + tools.height / 2 - (gets.top + gets.height / 2)) > 2) out.footRows++;
     }
     const coach = document.querySelector('#f-bot-coach .vn'); out.coach = coach ? coach.textContent : '';
-    // Cards in the same row (same top) have their tag line and footer at the same height
+    // Cards in the same row (same top) have their tag line and footer at the same height. A "Pairs with" row under the
+    // footer takes the card's spare height (one or two chip lines), so cards are measured in sets by that row's height.
     const rows = new Map();
     for (const c of cards) { const t = Math.round(r(c).top + scrollY); if (!rows.has(t)) rows.set(t, []); rows.get(t).push(c); }
     out.rowBad = 0; out.rows = 0;
-    for (const cs of rows.values()) { if (cs.length < 2) continue; out.rows++; const bt = new Set(cs.map((c) => Math.round(r(c.querySelector('.badges')).bottom))), ft = new Set(cs.map((c) => Math.round(r(c.querySelector('.foot-row')).top))); if (bt.size > 1 || ft.size > 1) out.rowBad++; }
+    const pairsH = (c) => { const e = c.querySelector('.card-pairs'); return e ? Math.round(r(e).height) : 0; };
+    for (const row of rows.values()) for (const cs of Object.values(Object.groupBy(row, pairsH))) { if (cs.length < 2) continue; out.rows++; const bt = new Set(cs.map((c) => Math.round(r(c.querySelector('.badges')).bottom))), ft = new Set(cs.map((c) => Math.round(r(c.querySelector('.foot-row')).top))); if (bt.size > 1 || ft.size > 1) out.rowBad++; }
     const sel = [...document.querySelectorAll('.filterbar select, .filterbar .chip')].map((e) => Math.round(r(e).height));
     const sm = [...document.querySelectorAll('.filterbar .selwrap.sm')].map((e) => Math.round(r(e).width));
     out.sel = [...new Set(sel)]; out.sm = sm; out.vnW = [...out.vnW];
@@ -63,7 +65,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   ok(c.slotBad === 0, `1280: tools are vote, copy, share, then X post / code / empty slot (${c.slotBad} off)`);
   ok(c.clampBad === 0, `1280: descriptions clamp at 3 lines (${c.clampBad} over)`);
   ok(c.footRows === 0, `1280: footer is one row on every card (${c.footRows} wrapped)`);
-  ok(c.rows > 10 && c.rowBad === 0, `1280: tag lines and footers line up across ${c.rows} rows (${c.rowBad} rows off)`);
+  ok(c.rows > 10 && c.rowBad === 0, `1280: tag lines and footers line up across ${c.rows} row sets, grouped by Pairs row height (${c.rowBad} off)`);
   ok(c.sel.length === 1 && c.sel[0] === 36, `1280: filter selects and chips are all 36px tall (${c.sel.join(', ')})`);
   ok(c.sm.length === 2 && c.sm.every((w) => w === 190), `1280: "Works with" and "Can it act?" are 190px (${c.sm.join(', ')})`);
   await p.close();
