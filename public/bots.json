@@ -13043,5 +13043,18 @@
     "creator_avatar": "/avatars/jimothyrac.webp",
     "source_post": "",
     "added": "2026-11-03"
+  },
+  {
+    "name": "Pre-Call Brief",
+    "emoji": "📋",
+    "description": "Before each outside meeting on your Google or Outlook calendar, sends you a one-screen brief on who they are, what their company does and what you've already discussed. Read-only on calendar and mail.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/GjAx9sLjHoYK4AdKV-GxN",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2118025489394839597",
+    "added": "2026-11-04"
   }
 ]
