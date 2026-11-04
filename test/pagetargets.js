@@ -7,7 +7,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
 const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1';
 const SEL = '.bp .sub a, .bp-links a, .snip-h .clear, .bp-actions .get, .bp-actions .app, .bp-more a';
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function measure(path, w) {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));

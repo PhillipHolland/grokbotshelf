@@ -6,7 +6,7 @@ const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   for (const [label, vp] of [['390 @3x', { width: 390, height: 844, deviceScaleFactor: 3, isMobile: true, hasTouch: true }], ['1280', { width: 1280, height: 800 }], ['320', { width: 320, height: 568, deviceScaleFactor: 2, isMobile: true, hasTouch: true }]]) {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));

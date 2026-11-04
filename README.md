@@ -189,6 +189,15 @@ then every browser test against `test/serve.js`, a small local server that follo
 NODE_PATH=/path/to/node_modules node test/run.js [https://preview-url/]
 ```
 
+The browser tests launch `/usr/bin/google-chrome`. On a machine where Chrome lives elsewhere (a Mac, or a
+Playwright download), point `CHROME` at the binary, the same variable `scripts/og.js` reads:
+
+```sh
+CHROME="/path/to/Google Chrome for Testing" NODE_PATH=/path/to/node_modules node test/run.js
+```
+
+`test/votes.js` also needs `@electric-sql/pglite` on `NODE_PATH`.
+
 ## Search API (for bots)
 
 Bots (and anything else) can search the shelf without loading the full catalog:

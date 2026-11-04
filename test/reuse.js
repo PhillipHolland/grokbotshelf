@@ -9,7 +9,7 @@ const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function page() {
     const p = await b.newPage();

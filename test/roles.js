@@ -9,7 +9,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
 const WORD = { 'Chief of staff': /\bchiefs? of staff\b/i, Coach: /\bcoach(es)?\b/i, Tutor: /\btutors?\b/i, Scout: /\bscouts?\b/i, Manager: /\bmanagers?\b/i, Planner: /\bplanners?\b/i, Assistant: /\bassistants?\b/i,
   Researcher: /\bresearchers?\b/i, Advisor: /\badvis[oe]rs?\b/i, Analyst: /\banalysts?\b/i, Mentor: /\bmentors?\b/i, CFO: /\bcfos?\b/i };
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function open(base, path, { w = 1280 } = {}) {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));

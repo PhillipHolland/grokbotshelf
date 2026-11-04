@@ -6,7 +6,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
 const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   // /api/* and /_vercel/* only exist on Vercel, so the local server 404s them; any other failed request counts as an error
   const errs = []; p.on('pageerror', e => errs.push(e.message));

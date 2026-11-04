@@ -11,7 +11,7 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const by = (h) => BOTS.filter((x) => ckey(x) === h), CAP = 3;
   const K = [...new Set(BOTS.map(ckey))].filter((k) => k && by(k).length > CAP + 1).sort((a, b) => by(b).length - by(a).length)[0];
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   await p.setViewport({ width: 1280, height: 900 });

@@ -11,7 +11,7 @@ const VOTES = { global: true, scores: { 'bot-archivist': { up: 130, down: 7, sco
 // Where each count lives: the selector, the slot width it keeps, and whether it carries the 12px arrow
 const SPOTS = { top: ['.topvotes:not(.newv) .tlist .sc', 48, true], tile: ['.cp-sc', 44, true], card: ['.card .vote .vn', 24, false], bot: ['.bp-vote .vn', 30, false] };
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function open(path, w, theme) {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(path + ': ' + e.message));

@@ -23,7 +23,7 @@ const pages = process.env.ONLY ? process.env.ONLY.split(',') : [...new Set(['bot
     ok(m && !/rel="stylesheet"/.test(h) && m[1].length < full.length * 0.6, `/${pg}: CSS inlined (${m && m[1].length} B vs ${full.length} B styles.css), no stylesheet link`);
   }
   for (const f of ['index.html', '404.html', 'add/index.html']) ok(/<link rel="stylesheet" href="\/styles\.css\?v=/.test(fs.readFileSync(path.join(PUB, f), 'utf8')), `/${f} still links the full stylesheet`);
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   const snap = (p) => p.evaluate(() => {
     const out = [], els = [document.documentElement, ...document.querySelectorAll('body, body *')];

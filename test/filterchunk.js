@@ -9,7 +9,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
 const painted = (p) => p.evaluate(() => new Promise((r) => requestAnimationFrame(() => setTimeout(() => requestAnimationFrame(() => setTimeout(r, 0)), 0))));
 const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   for (const [label, vp] of [['desktop', { width: 1280, height: 900 }], ['phone', { width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }]]) {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));

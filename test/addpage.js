@@ -8,7 +8,7 @@ const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 (async () => {
   const bots = (await (await fetch(new URL('shelf-data.json', BASE))).json()).bots;
   const known = bots.find((b) => /^https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+$/.test(b.url));
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   for (const vp of [{ width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }, { width: 1280, height: 900 }]) {
     const W = vp.width + 'px: ';

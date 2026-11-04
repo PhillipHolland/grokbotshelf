@@ -20,7 +20,7 @@ function contrastOf(el) {
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const top = BOTS.slice(0, 3).map((x) => 'bot-' + x.name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''));
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function open(path, { width, theme = 'dark', ua } = {}) {
     const p = await b.newPage();

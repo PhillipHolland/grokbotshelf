@@ -17,7 +17,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   const HOME = groups.reduce((t, [, c]) => t + (c <= CAP + 1 ? c : CAP), 0), capped = groups.filter(([, c]) => c > CAP + 1);
   // typing re-renders after a 100ms debounce
   const settle = () => new Promise(r => setTimeout(r, 250));
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   // /api/* and /_vercel/* only exist on Vercel, so the local server 404s them; any other failed request counts as an error
   const errs = []; p.on('pageerror', e => errs.push(e.message));

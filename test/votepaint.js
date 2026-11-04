@@ -13,7 +13,7 @@ const slug = (s) => fold(s).replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').r
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   // Every other bot gets a distinct tally; the rest have none
   const scores = {}; BOTS.forEach((x, i) => { if (i % 2 === 0) scores['bot-' + slug(x.name)] = { up: (i % 7) + 1, down: i % 3, score: (i % 7) + 1 - (i % 3) }; });
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));
   await p.setViewport({ width: 1280, height: 900 });

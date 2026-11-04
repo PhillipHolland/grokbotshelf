@@ -11,7 +11,7 @@ const KEY = 'shelf_suggested';
   const listed = data.bots.find(b => /^https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+$/.test(b.url) && /[A-Z]/.test(b.url.slice(17)));
   const id = listed.url.slice('https://x.ai/bot/'.length), page = '/bot/' + listed.name.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   const NEW = 'https://x.ai/bot/NotListedYet42';
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   for (const vp of [{ width: 1280, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
     const W = vp.width + 'px: ';
     const p = await b.newPage(); await p.setViewport(vp);

@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-core');
 const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await (await b.createBrowserContext()).newPage();
   await p.setViewport({ width: 390, height: 844, deviceScaleFactor: 3, isMobile: true });
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);

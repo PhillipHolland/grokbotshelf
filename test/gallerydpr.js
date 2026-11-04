@@ -8,7 +8,7 @@ const BASE = process.argv[2] || 'http://localhost:8765/';
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 const wait = (ms) => new Promise((x) => setTimeout(x, ms));
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   async function gallery(base, w, dpr) {
     const ctx = await b.createBrowserContext(), p = await ctx.newPage(), reqs = [];
     await p.setViewport({ width: w, height: w < 700 ? 844 : 900, deviceScaleFactor: dpr, isMobile: w < 700, hasTouch: w < 700 });

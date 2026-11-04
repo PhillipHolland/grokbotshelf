@@ -10,7 +10,7 @@ const MSG = {
   cap_daily: "Daily vote limit reached.",
 };
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function open(path, slug, { reply, mine = {}, width = 1280 }) {
     const p = await b.newPage(), posts = [];

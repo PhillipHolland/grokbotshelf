@@ -4,7 +4,7 @@ const SHOTS = process.argv[3]; // optional folder for header screenshots
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 (async () => {
   const TOTAL = (await (await fetch(new URL('bots.json', BASE))).json()).length;
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const ctx = await b.createBrowserContext(); const p = await ctx.newPage();
   await p.setViewport({ width: 390, height: 844, deviceScaleFactor: 3 });
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);

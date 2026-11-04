@@ -9,7 +9,7 @@ const letterOf = (n) => { const ch = n.normalize('NFD').replace(/[\u0300-\u036f]
 (async () => {
   const BOTS = await (await fetch(new URL('bots.json', BASE))).json();
   const want = [...new Set(BOTS.map((b) => b.creator_name))].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' })).map(letterOf).filter((l, i, a) => a.indexOf(l) === i);
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   for (const [label, vp] of [['desktop', { width: 1360, height: 900 }], ['phone', { width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 }]]) {
     const p = await b.newPage(); p.on('pageerror', e => errs.push(e.message));

@@ -8,7 +8,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   const data = (await (await fetch(new URL('shelf-data.json', BASE))).json()).bots;
   const any = data.filter((b) => b.meta).length, ag = data.filter((b) => b.meta && b.meta.agency).length;
   const by = (k) => data.filter((b) => b.meta && b.meta.agency === k).length;
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   const open = async (path) => {
     const p = await b.newPage(); p.on('pageerror', (e) => errs.push(e.message));

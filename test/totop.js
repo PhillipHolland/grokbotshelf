@@ -9,7 +9,7 @@ const settle = (ms = 400) => new Promise(r => setTimeout(r, ms));
 const state = (p) => p.evaluate(() => { const b = document.querySelector('.gbs-up'); if (!b) return null; const s = getComputedStyle(b), r = b.getBoundingClientRect();
   return { shown: b.classList.contains('show') && s.visibility === 'visible', tab: b.tabIndex, label: b.getAttribute('aria-label'), r: { l: r.left, t: r.top, b: r.bottom, ri: r.right }, y: scrollY, vw: innerWidth, vh: innerHeight }; });
 (async () => {
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await b.newPage();
   for (const [name, vp] of [['desktop', { width: 1280, height: 800 }], ['phone', { width: 390, height: 844, isMobile: true, hasTouch: true }]]) {
     await p.setViewport(vp);

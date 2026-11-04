@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
 (async () => {
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   const port = server.address().port, BASE = `http://localhost:${port}`, OTHER = `http://127.0.0.1:${port}`;
-  const b = await puppeteer.launch({ executablePath: '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
+  const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const errs = [];
   async function open(path, { saveData, effectiveType, noRules } = {}) {
     const p = await b.newPage();
