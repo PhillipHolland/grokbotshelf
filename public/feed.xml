@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 04 Nov 2026 19:11:57 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 22:17:28 GMT</lastBuildDate>
+  <item>
+    <title>🚐 Ultimate RV Trip Planner by Chris</title>
+    <link>https://grokbotshelf.com/bot/ultimate-rv-trip-planner</link>
+    <guid isPermaLink="false">https://x.ai/bot/BZr7_j7WC1klRjG8SrwWx</guid>
+    <description>Plans multi-day RV trips around your rig: routes, leg length, campsites ranked by your memberships and budget, fuel, dump stations and weather. Lines up bookings for you to confirm; never pays on its own.</description>
+    <dc:creator>Chris</dc:creator>
+    <category>Travel</category>
+    <pubDate>Wed, 04 Nov 2026 12:00:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>📝 X Post Reviewer by Rob</title>
+    <link>https://grokbotshelf.com/bot/x-post-reviewer</link>
+    <guid isPermaLink="false">https://x.ai/bot/JfClE2layd1IcxXXfEzFl</guid>
+    <description>Paste in a draft X post and it reviews it against X&apos;s open-source ranking signals, telling you what helps and what hurts, then gives you a stronger rewrite in your own voice.</description>
+    <dc:creator>Rob (@testafortedev)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Wed, 04 Nov 2026 12:00:07 GMT</pubDate>
+  </item>
   <item>
     <title>🌯 burrito by Alberto Jauregui</title>
     <link>https://grokbotshelf.com/bot/burrito</link>
@@ -438,24 +456,6 @@
     <dc:creator>Scott (@GrokBotsForBiz)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:15:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>💊 Drug Savings by Scott</title>
-    <link>https://grokbotshelf.com/bot/drug-savings-by-scott</link>
-    <guid isPermaLink="false">https://x.ai/bot/c9zxS3sqkF5h7vXvs6NVn</guid>
-    <description>Checks what your own insurance would actually charge for each prescription (copay, tier, deductible) and compares it against manufacturer copay cards, discount cards, Cost Plus, Amazon RxPass and nearby pharmacies, so you always see the true cheapest way to fill it. Works with or without insurance. Snap your pill bottles to start.</description>
-    <dc:creator>Scott (@GrokBotsForBiz)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛒 Meal Planning &amp; Grocery Buying Bot by Scott</title>
-    <link>https://grokbotshelf.com/bot/meal-planning-and-grocery-buying-bot-by-scott</link>
-    <guid isPermaLink="false">https://x.ai/bot/lj8-Co5IA-wbN4T84zK8L</guid>
-    <description>Plans your weekly meals around your store&apos;s sales, keeps a running grocery list sorted by store section, loads your pickup cart with coupons clipped (or gives you a list-only mode for in-store trips), checks the receipt for missing items, and tracks what you spend. Never orders without your yes.</description>
-    <dc:creator>Scott (@GrokBotsForBiz)</dc:creator>
-    <category>Food</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:57 GMT</pubDate>
   </item>
 </channel>
 </rss>

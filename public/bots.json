@@ -13082,5 +13082,31 @@
     "creator_avatar": "/avatars/weeb3dev.webp",
     "source_post": "https://x.com/weeb3dev/status/2118052163574485048",
     "added": "2026-11-04"
+  },
+  {
+    "name": "X Post Reviewer",
+    "emoji": "📝",
+    "description": "Paste in a draft X post and it reviews it against X's open-source ranking signals, telling you what helps and what hurts, then gives you a stronger rewrite in your own voice.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/JfClE2layd1IcxXXfEzFl",
+    "creator_name": "Rob",
+    "creator_handle": "@testafortedev",
+    "creator_url": "https://x.com/testafortedev",
+    "creator_avatar": "/avatars/testafortedev.webp",
+    "source_post": "https://x.com/testafortedev/status/2118068076109541548",
+    "added": "2026-11-04"
+  },
+  {
+    "name": "Ultimate RV Trip Planner",
+    "emoji": "🚐",
+    "description": "Plans multi-day RV trips around your rig: routes, leg length, campsites ranked by your memberships and budget, fuel, dump stations and weather. Lines up bookings for you to confirm; never pays on its own.",
+    "category": "Travel",
+    "url": "https://x.ai/bot/BZr7_j7WC1klRjG8SrwWx",
+    "creator_name": "Chris",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-04"
   }
 ]

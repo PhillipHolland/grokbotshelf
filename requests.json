@@ -8641,22 +8641,26 @@
   "form-746": {
     "post_id": "2118068076109541548",
     "date": "2026-11-04",
-    "status": "pending",
+    "status": "added",
     "bot": "X Post Reviewer by Rob",
     "template_url": "https://x.ai/bot/JfClE2layd1IcxXXfEzFl",
     "author": "@testafortedev",
     "author_handle": "@testafortedev",
     "url": "https://x.com/testafortedev/status/2118068076109541548",
-    "note": "site form #746 + X post; template 200; not on shelf; no clash; proposed to Phil Nov 4 3PM run"
+    "note": "site form #746 + X post; template 200; not on shelf; no clash; proposed to Phil Nov 4 3PM run; added 2026-11-04 (catalog #1008)",
+    "added": "2026-11-04",
+    "approved_by": "Phillip Holland (approved 2026-11-04)"
   },
   "form-745": {
     "date": "2026-11-04",
-    "status": "pending",
+    "status": "added",
     "bot": "Ultimate RV Trip Planner by Chris",
     "template_url": "https://x.ai/bot/BZr7_j7WC1klRjG8SrwWx",
     "author": null,
     "url": null,
-    "note": "site form #745; template 200; not on shelf; FLAG no creator handle, tees up bookings (never pays itself); proposed Nov 4 3PM run"
+    "note": "site form #745; template 200; not on shelf; FLAG no creator handle, tees up bookings (never pays itself); proposed Nov 4 3PM run; added 2026-11-04 (catalog #1009)",
+    "added": "2026-11-04",
+    "approved_by": "Phillip Holland (approved 2026-11-04)"
   },
   "x-2118065534143009003": {
     "post_id": "2118065534143009003",
