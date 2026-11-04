@@ -24,7 +24,7 @@ const ckey = (x) => x.creator_handle.replace(/^@/, '').toLowerCase();
   ok(st === 200 && d.h1 === 'Archivist' && d.canonical === 'https://grokbotshelf.com/bot/archivist', `bot page /bot/archivist: ${st} "${d.h1}"`);
   ok(/^https:\/\/grokbotshelf\.com\/og\/bot\/archivist\.png\?v=[0-9a-f]{10}$/.test(d.og), 'bot page has its own share image: ' + d.og);
   ok(await p.$eval('.bp-actions .get', (e) => e.href) === arch.url, 'Get this bot links to the template');
-  ok(await p.$eval('.bp-head .sub a', (e) => new URL(e.href).pathname) === '/@' + ckey(arch), 'creator link uses the lowercase creator page');
+  ok(await p.$eval('.bp-head .sub a[href^="/@"]', (e) => new URL(e.href).pathname) === '/@' + ckey(arch), 'creator link uses the lowercase creator page');
 
   // creator page
   const nick = BOTS.filter((x) => ckey(x) === 'thecsguy');
