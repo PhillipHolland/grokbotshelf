@@ -14,8 +14,14 @@
   try {
     var MARGIN = 16;
     // Show after ~half a viewport (clamped 300-600px), hide at 60% of that; recomputed each sync so resize stays honest.
-    function show() { var h = window.innerHeight || de.clientHeight || 800; return Math.min(600, Math.max(300, Math.round(h * 0.5))); }
     var de = document.documentElement;
+    // The layout viewport height, read once and again after a resize: reading innerHeight inside the scroll handler
+    // right after the inline style writes forced a layout on every frame (Lighthouse: 33ms of forced reflow per page).
+    var VH = 0;
+    function vh() { return VH || (VH = window.innerHeight || de.clientHeight || 0); }
+    window.addEventListener("resize", function () { VH = 0; });
+    window.addEventListener("orientationchange", function () { VH = 0; });
+    function show() { var h = vh() || 800; return Math.min(600, Math.max(300, Math.round(h * 0.5))); }
     var b = document.createElement("button");
     b.type = "button"; b.className = "gbs-up"; b.setAttribute("aria-label", "Jump to top");
     b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>';
@@ -27,7 +33,7 @@
     // Inline bottom/right so iOS chrome over the layout viewport can't hide it; CSS keeps the look and the fallback.
     function place() {
       var vv = window.visualViewport;
-      var lh = window.innerHeight || de.clientHeight || 0;
+      var lh = vh();
       // How much of the layout viewport's bottom is outside the visible (visual) viewport: toolbar, URL bar, keyboard.
       var hidden = vv ? Math.max(0, lh - (vv.height + vv.offsetTop)) : 0;
       if (narrow && narrow.matches) {
