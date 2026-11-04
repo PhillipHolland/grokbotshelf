@@ -8593,13 +8593,14 @@
   },
   "x-2118025489394839597": {
     "date": "2026-11-04",
-    "status": "denied",
+    "status": "added",
     "bot": "Pre-Call Brief by Calix",
     "template_url": "https://x.ai/bot/GjAx9sLjHoYK4AdKV-GxN",
     "author": "@CaliLumberJack",
     "url": "https://x.com/CaliLumberJack/status/2118025489394839597",
-    "note": "promo tagging Phil/Nick; template 200; not on shelf; proposed to Phil 2026-11-04 11am run; denied 2026-11-04: Phil dismissed shelf approve card (unselected = deny)",
-    "approved_by": "Phillip Holland (dismissed approve card)"
+    "note": "promo tagging Phil/Nick; template 200; not on shelf; proposed to Phil 2026-11-04 11am run; Nick shelved same day (705b13bc3); local deny card dismissed — synced to added",
+    "approved_by": "Nick (@thecsguy) via commit 705b13bc3; Phil kept (manager sync 2026-11-04)",
+    "added": "2026-11-04"
   },
   "x-2118010472976834728": {
     "date": "2026-11-04",
