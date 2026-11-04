@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 04 Nov 2026 01:26:09 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 03:02:17 GMT</lastBuildDate>
+  <item>
+    <title>🪙 Jimothy Coin Check by Santa</title>
+    <link>https://grokbotshelf.com/bot/jimothy-coin-check-by-santa</link>
+    <guid isPermaLink="false">https://x.ai/bot/RewefuqGZopszv0q3KiM6</guid>
+    <description>Paste a Solana token&apos;s contract address or name and get a plain-English safety report: a 0–100 score and the biggest risks. Informational only; never asks for wallets, keys, or seed phrases and never buys or spends.</description>
+    <dc:creator>Santa (@JimothyRac)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 03 Nov 2026 12:00:03 GMT</pubDate>
+  </item>
   <item>
     <title>💌 E-Card Greetings Bot by Paige</title>
     <link>https://grokbotshelf.com/bot/e-card-greetings-bot-by-paige</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Mon, 02 Nov 2026 12:15:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚘 Classic Car Agreed Value Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/classic-car-agreed-value-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Xqv50rGsje0_mGXjZgCg4</guid>
-    <description>Helps collector and classic car owners set up agreed value coverage: valuation evidence, mileage and storage rules, restoration-in-progress coverage, and comparing collector policies with standard auto.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:53 GMT</pubDate>
   </item>
 </channel>
 </rss>
