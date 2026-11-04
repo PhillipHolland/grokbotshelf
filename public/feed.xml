@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 04 Nov 2026 03:02:17 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 04 Nov 2026 19:11:57 GMT</lastBuildDate>
+  <item>
+    <title>🌯 burrito by Alberto Jauregui</title>
+    <link>https://grokbotshelf.com/bot/burrito</link>
+    <guid isPermaLink="false">https://x.ai/bot/A-u45QsGO7eyt6d1zbwuU</guid>
+    <description>Finds the best burrito spots in New York City matched to where you are and what you&apos;re craving, with verified hours and what to order.</description>
+    <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
+    <category>Food</category>
+    <pubDate>Wed, 04 Nov 2026 12:00:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌮 taco by Alberto Jauregui</title>
+    <link>https://grokbotshelf.com/bot/taco</link>
+    <guid isPermaLink="false">https://x.ai/bot/kzRUNSKJpzatmaseduVUn</guid>
+    <description>Finds the best taco spots in New York City for where you are and what you&apos;re craving, with ranked picks and what to order.</description>
+    <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
+    <category>Food</category>
+    <pubDate>Wed, 04 Nov 2026 12:00:05 GMT</pubDate>
+  </item>
+  <item>
+    <title>📋 Pre-Call Brief by Calix</title>
+    <link>https://grokbotshelf.com/bot/pre-call-brief</link>
+    <guid isPermaLink="false">https://x.ai/bot/GjAx9sLjHoYK4AdKV-GxN</guid>
+    <description>Before each outside meeting on your Google or Outlook calendar, sends you a one-screen brief on who they are, what their company does and what you&apos;ve already discussed. Read-only on calendar and mail.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Wed, 04 Nov 2026 12:00:04 GMT</pubDate>
+  </item>
   <item>
     <title>🪙 Jimothy Coin Check by Santa</title>
     <link>https://grokbotshelf.com/bot/jimothy-coin-check-by-santa</link>
@@ -429,33 +456,6 @@
     <dc:creator>Scott (@GrokBotsForBiz)</dc:creator>
     <category>Food</category>
     <pubDate>Mon, 02 Nov 2026 12:15:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏠 Roof Age &amp; ACV Estimator by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/roof-age-and-acv-estimator-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/xrur41VdViYkduZxPt6kW</guid>
-    <description>Estimates a roof&apos;s age from records and clues, and its actual cash value using material lifespan and depreciation. Explains ACV vs replacement cost roof settlements and roof schedules. Estimates only.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌨️ Hail Damage Roof Assessment by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/hail-damage-roof-assessment-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/1lWowYsdxJ-mexitxGh5A</guid>
-    <description>Helps homeowners and property managers document hail damage to a roof for an insurance claim: storm records, a photo checklist, a damage log, and questions for the adjuster and roofer. Explains the process, never decides coverage.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>📜 Surety Bond Basics by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/surety-bond-basics-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/2IjR9KkYz0-Zkrx9-JiQg</guid>
-    <description>Explains surety bonds for contractors and small businesses in plain language: bid, performance, payment and license bonds, bonds vs insurance, underwriting, and indemnity agreements.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 02 Nov 2026 12:15:54 GMT</pubDate>
   </item>
 </channel>
 </rss>

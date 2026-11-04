@@ -13056,5 +13056,31 @@
     "creator_avatar": "/avatars/calilumberjack.webp",
     "source_post": "https://x.com/CaliLumberJack/status/2118025489394839597",
     "added": "2026-11-04"
+  },
+  {
+    "name": "taco",
+    "emoji": "🌮",
+    "description": "Finds the best taco spots in New York City for where you are and what you're craving, with ranked picks and what to order.",
+    "category": "Food",
+    "url": "https://x.ai/bot/kzRUNSKJpzatmaseduVUn",
+    "creator_name": "Alberto Jauregui",
+    "creator_handle": "@weeb3dev",
+    "creator_url": "https://x.com/weeb3dev",
+    "creator_avatar": "/avatars/weeb3dev.webp",
+    "source_post": "https://x.com/weeb3dev/status/2118052163574485048",
+    "added": "2026-11-04"
+  },
+  {
+    "name": "burrito",
+    "emoji": "🌯",
+    "description": "Finds the best burrito spots in New York City matched to where you are and what you're craving, with verified hours and what to order.",
+    "category": "Food",
+    "url": "https://x.ai/bot/A-u45QsGO7eyt6d1zbwuU",
+    "creator_name": "Alberto Jauregui",
+    "creator_handle": "@weeb3dev",
+    "creator_url": "https://x.com/weeb3dev",
+    "creator_avatar": "/avatars/weeb3dev.webp",
+    "source_post": "https://x.com/weeb3dev/status/2118052163574485048",
+    "added": "2026-11-04"
   }
 ]

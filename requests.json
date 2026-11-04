@@ -8571,5 +8571,70 @@
     "approved_by": "Phillip Holland (approved via shelf card, 2026-11-03)",
     "added": "2026-11-03",
     "credited": "@kcmcdonald"
+  },
+  "form-744": {
+    "date": "2026-11-04",
+    "status": "denied",
+    "bot": "Appy Meal",
+    "template_url": "https://x.ai/bot/SOjmsXdLcPEBu-ctQ-kZC",
+    "author": "@ryantyre",
+    "url": null,
+    "note": "site form #744 (Useful Bot Co.); template 200; not on shelf; no name clash; proposed to Phil 2026-11-04 9am run; denied 2026-11-04: Phil dismissed shelf approve card (unselected = deny)",
+    "approved_by": "Phillip Holland (dismissed approve card)"
+  },
+  "x-2117844292018340069": {
+    "date": "2026-11-04",
+    "status": "already_on_shelf",
+    "bot": "Parent Radar",
+    "template_url": "https://x.ai/bot/MUOdwr9N1byHBBoPC7k4y",
+    "author": "@CaliLumberJack",
+    "url": "https://x.com/CaliLumberJack/status/2117844292018340069",
+    "note": "promo post tagging Phil/Nick; already shelved"
+  },
+  "x-2118025489394839597": {
+    "date": "2026-11-04",
+    "status": "denied",
+    "bot": "Pre-Call Brief by Calix",
+    "template_url": "https://x.ai/bot/GjAx9sLjHoYK4AdKV-GxN",
+    "author": "@CaliLumberJack",
+    "url": "https://x.com/CaliLumberJack/status/2118025489394839597",
+    "note": "promo tagging Phil/Nick; template 200; not on shelf; proposed to Phil 2026-11-04 11am run; denied 2026-11-04: Phil dismissed shelf approve card (unselected = deny)",
+    "approved_by": "Phillip Holland (dismissed approve card)"
+  },
+  "x-2118010472976834728": {
+    "date": "2026-11-04",
+    "status": "denied",
+    "bot": "First Page Finder by Mark",
+    "template_url": "https://x.ai/bot/3OcMc_2Y5cKf7F00uLSv8",
+    "author": "@TheMarkGShow",
+    "url": "https://x.com/TheMarkGShow/status/2118010472976834728",
+    "note": "promo tagging Phil; template 200; not on shelf; similar purpose to Streamer's Dream; proposed to Phil 2026-11-04 11am run; denied 2026-11-04: Phil dismissed shelf approve card (unselected = deny)",
+    "approved_by": "Phillip Holland (dismissed approve card)"
+  },
+  "x-2118052163574485048-taco": {
+    "post_id": "2118052163574485048",
+    "date": "2026-11-04",
+    "status": "added",
+    "bot": "taco by Alberto",
+    "template_url": "https://x.ai/bot/kzRUNSKJpzatmaseduVUn",
+    "author": "@weeb3dev",
+    "author_handle": "@weeb3dev",
+    "url": "https://x.com/weeb3dev/status/2118052163574485048",
+    "note": "asked @thecsguy to add; templates from quoted post 2113832702994698605; template 200; not on shelf; proposed to Phil 2026-11-04 1pm run; approved & shelved 2026-11-04",
+    "added": "2026-11-04",
+    "approved_by": "Phillip Holland (approved 2026-11-04)"
+  },
+  "x-2118052163574485048-burrito": {
+    "post_id": "2118052163574485048",
+    "date": "2026-11-04",
+    "status": "added",
+    "bot": "burrito by Alberto",
+    "template_url": "https://x.ai/bot/A-u45QsGO7eyt6d1zbwuU",
+    "author": "@weeb3dev",
+    "author_handle": "@weeb3dev",
+    "url": "https://x.com/weeb3dev/status/2118052163574485048",
+    "note": "asked @thecsguy to add; templates from quoted post 2113832702994698605; template 200; not on shelf; proposed to Phil 2026-11-04 1pm run; approved & shelved 2026-11-04",
+    "added": "2026-11-04",
+    "approved_by": "Phillip Holland (approved 2026-11-04)"
   }
 }
