@@ -13030,5 +13030,18 @@
     "creator_avatar": "/avatars/calculatemyrate.webp",
     "source_post": "https://x.com/calculatemyrate/status/2117779124936651217",
     "added": "2026-11-03"
+  },
+  {
+    "name": "Jimothy Coin Check by Santa",
+    "emoji": "🪙",
+    "description": "Paste a Solana token's contract address or name and get a plain-English safety report: a 0–100 score and the biggest risks. Informational only; never asks for wallets, keys, or seed phrases and never buys or spends.",
+    "category": "Money",
+    "url": "https://x.ai/bot/RewefuqGZopszv0q3KiM6",
+    "creator_name": "Santa",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "",
+    "added": "2026-11-03"
   }
 ]
