@@ -7,7 +7,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.setViewport({ width: 390, height: 844, deviceScaleFactor: 3 });
   await p.goto(BASE + '?f=' + Date.now(), { waitUntil: 'networkidle0' });
   const s = await p.evaluate(() => {
-    const f = document.querySelector('h1 .mark');
+    const f = document.querySelector('.gbs-brand .mark');
     const a = f ? f.getAttribute('transform') : null;
     const c = f ? getComputedStyle(f).transform : '';
     return {
@@ -21,7 +21,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   });
   ok(s.n === 1, 'one shelf mark');
   ok(s.face === 0, 'no face, eyes, or eye classes');
-  ok(s.w === '36', 'mark markup size 36');
+  ok(s.w === '28', 'mark markup size 28');
   ok(s.rects === 3, 'three stacked bars');
   ok(s.fill === 'currentColor', 'mark uses currentColor');
   ok(s.still, 'mark has no transform');
