@@ -16,8 +16,8 @@ const tipCard = (v = (s) => s) => `<section class="tipcard" id="tip" aria-labell
     <p class="tc-eye">${CUP}<span>Tip jar</span><span class="tc-via">via X Money</span></p>
     <h2 id="tip-h">Buy us some Tokens</h2>
     <div class="tc-who">
-      <a class="tc-p" href="https://x.com/Phil_Holland" rel="noopener" target="_blank"><img src="${v("/avatars/phil_holland.webp")}" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Phil</b><small>@Phil_Holland</small></span></a>
-      <a class="tc-p" href="https://x.com/thecsguy" rel="noopener" target="_blank"><img src="${v("/avatars/thecsguy.webp")}" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Nick</b><small>@thecsguy</small></span></a>
+      <a class="tc-p" href="https://x.com/Phil_Holland" rel="noopener" target="_blank"><img src="${v("/avatars/48/phil_holland.webp")}" srcset="${v("/avatars/48/phil_holland.webp")} 48w, ${v("/avatars/phil_holland.webp")} 128w" sizes="36px" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Phil</b><small>@Phil_Holland</small></span></a>
+      <a class="tc-p" href="https://x.com/thecsguy" rel="noopener" target="_blank"><img src="${v("/avatars/48/thecsguy.webp")}" srcset="${v("/avatars/48/thecsguy.webp")} 48w, ${v("/avatars/thecsguy.webp")} 128w" sizes="36px" alt="" width="36" height="36" loading="lazy" decoding="async"><span><b>Nick</b><small>@thecsguy</small></span></a>
     </div>
     <p class="tc-split">Every tip is split 50/50 with @thecsguy.</p>
     <p class="tc-why">The shelf is free. If it saved you some digging, a few Tokens keep it going.</p>
