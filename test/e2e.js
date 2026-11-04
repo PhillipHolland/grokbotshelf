@@ -38,7 +38,7 @@ const ckey = (x) => x.creator_handle ? x.creator_handle.replace(/^@/, '').toLowe
   await new Promise(r => setTimeout(r, 400));
   ok(p.url().includes('q=secruity'), 'URL has q: ' + p.url());
   // name ranking
-  await p.click('#q', { clickCount: 3 }); await p.type('#q', 'mail'); await settle();
+  await p.focus('#q'); await p.$eval('#q', (e) => e.select()); await p.type('#q', 'mail'); await settle();
   const n2 = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   const named = BOTS.filter((x) => fold(x.name).includes('mail')).map((x) => x.name);
   ok(named.length >= 2 && named.includes('Grokbot Mail') && JSON.stringify(n2.slice(0, named.length).sort()) === JSON.stringify(named.slice().sort()) && n2.length > named.length,

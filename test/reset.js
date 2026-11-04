@@ -37,7 +37,7 @@ const settle = (ms = 300) => new Promise(r => setTimeout(r, ms));
   ok(await shown(), 'search shows Reset');
   const status1 = await box('.status'), res1 = await box('#results');
   ok(status1.top === status0.top && status1.h === status0.h && res1.top === res0.top, `showing Reset moves nothing (results top ${res0.top} -> ${res1.top}, row ${status0.h}px -> ${status1.h}px)`);
-  await p.click('#q', { clickCount: 3 }); await p.keyboard.press('Backspace'); await settle(500);
+  await p.focus('#q'); await p.$eval('#q', (e) => e.select()); await p.keyboard.press('Backspace'); await settle(500);
   ok(!(await shown()), 'clearing the search hides Reset again');
   const cat = BOTS[0].category;
   await p.select('#cats', cat); await settle();

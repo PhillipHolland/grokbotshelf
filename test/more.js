@@ -34,7 +34,7 @@ const settle = (ms = 250) => new Promise(r => setTimeout(r, ms));
   ok(hidden.length === by(K).length - CAP, `${K}: ${hidden.length} bots hidden on the home view`);
   await p.type('#q', hidden[hidden.length - 1].name); await settle();
   ok((await p.$$eval('.card h3', h => h.map(x => x.textContent))).includes(hidden[hidden.length - 1].name), `search finds a bot hidden by the cap: ${hidden[hidden.length - 1].name}`);
-  await p.click('#q', { clickCount: 3 }); await p.type('#q', K); await settle(); await scrollAll(p);
+  await p.focus('#q'); await p.$eval('#q', (e) => e.select()); await p.type('#q', K); await settle(); await scrollAll(p);
   const all = await p.$$eval('.card h3', h => h.map(x => x.textContent));
   ok(by(K).every((x) => all.includes(x.name)) && !(await p.$('[data-more]')), `search "${K}" shows all ${by(K).length} of their bots, no Show more`);
   await p.keyboard.press('Escape'); await scrollAll(p); // a re-render builds on demand too
