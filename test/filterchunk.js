@@ -29,17 +29,23 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
     ok(r.g >= 3 && r.g < G / 4 && r.tailing, `${label}: Reset builds ${r.g} of ${G} groups at once, the rest on demand (longest task ${Math.round(r.lt)}ms, count "${r.count}")`);
     await scrollAll(p);
     ok(await p.$$eval('#results .card', (c) => c.length) === C && await p.$$eval('#results .group', (g) => g.length) === G, `${label}: reading down after Reset reaches every group and card again`);
-    // Deep in the page: a filter toggled on and off keeps the reader's place (same group, same spot, same scrollY)
-    await p.evaluate(() => { const gs = document.querySelectorAll('#results .group'); gs[Math.floor(gs.length / 2)].scrollIntoView(); window.scrollBy(0, -40); });
+    // Deep in the page: a filter toggled on and off keeps the reader's place (same group, same spot, same scrollY).
+    // The place is the group under the dock. When the filter drops that group (no bot of it is new this week), the
+    // reader is looking at the next group the filter kept, and that is the one the reverse toggle has to keep.
+    // Start a sixth of the way down: "New this week" keeps about half the page, and a reader past everything it
+    // keeps has no place to keep (the page then starts over at the top, built on demand).
+    await p.evaluate(() => { const gs = document.querySelectorAll('#results .group'); gs[Math.floor(gs.length / 6)].scrollIntoView(); window.scrollBy(0, -40); });
     await settle(300);
     const mark = () => p.evaluate(() => { const dock = document.getElementById('dock').getBoundingClientRect().bottom; const g = [...document.querySelectorAll('#results .group')].find((x) => x.getBoundingClientRect().bottom > dock + 40); return { id: g.getAttribute('aria-labelledby'), top: g.getBoundingClientRect().top, y: scrollY }; });
     const m0 = await mark();
     await p.evaluate(() => { window.__cls = 0; new PerformanceObserver((l) => l.getEntries().forEach((e) => { if (!e.hadRecentInput) window.__cls += e.value; })).observe({ type: 'layout-shift' }); });
-    await p.click('#fresh'); await painted(p); await p.click('#fresh'); await painted(p); await settle(200);
+    await p.click('#fresh'); await painted(p);
+    const mOn = await mark(), kept = await p.$(`[aria-labelledby="${m0.id}"]`) ? m0 : mOn;
+    await p.click('#fresh'); await painted(p); await settle(200);
     const m1 = await mark(), g1 = await p.$$eval('#results .group', (g) => g.length);
     // (a filter that empties most of the page can't keep the exact spot; before round 6 this landed far up the page)
-    const r1 = await p.$eval(`[aria-labelledby="${m0.id}"]`, (g) => { const r = g.getBoundingClientRect(); return { top: r.top, on: r.bottom > 0 && r.top < innerHeight }; });
-    ok(r1.on, `${label}: mid-page, "New this week" on and off keeps ${m0.id.slice(2)} on screen (${Math.round(m0.top)}px, now ${Math.round(r1.top)}px)`);
+    const r1 = await p.$eval(`[aria-labelledby="${kept.id}"]`, (g) => { const r = g.getBoundingClientRect(); return { top: r.top, on: r.bottom > 0 && r.top < innerHeight }; });
+    ok(r1.on, `${label}: mid-page, "New this week" on and off keeps ${kept.id.slice(2)} on screen (${Math.round(kept.top)}px, now ${Math.round(r1.top)}px${kept === m0 ? '' : `; the filter dropped ${m0.id.slice(2)}`})`);
     ok(g1 < G, `${label}: that re-render built ${g1} of ${G} groups (through the one on screen, plus what comes into range)`);
     // Show more on a group in the middle of the page: focus goes to its first new card, the page does not jump
     await p.evaluate(() => { const bs = [...document.querySelectorAll('#results button.more')]; const x = bs[Math.floor(bs.length / 2)]; x.scrollIntoView({ block: 'center' }); });
