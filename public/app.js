@@ -221,6 +221,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     themeBtn.setAttribute("aria-pressed", String(t === "dark"));
   }
   applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+  let themeVt = null;
   themeBtn.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
     // Swap the theme in one frame. Per-element color transitions on every node (hundreds of cards, the blurred dock) made
@@ -228,8 +229,15 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     // Instead: freeze all transitions during the swap, and where supported cross-fade a single composited snapshot.
     const swap = () => { root.classList.add("theme-switching"); applyTheme(next); getComputedStyle(root).color; };
     const done = () => requestAnimationFrame(() => root.classList.remove("theme-switching"));
-    if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      try { document.startViewTransition(swap).finished.finally(done); } catch { swap(); done(); }
+    // One transition at a time, and never one the page waits on: a click while one is still running swaps plainly,
+    // and a transition that does not finish (headless Chrome, a hidden tab) is skipped after 400ms, so neither can
+    // swallow a toggle or leave transitions frozen.
+    if (document.startViewTransition && !matchMedia("(prefers-reduced-motion: reduce)").matches && !themeVt) {
+      try {
+        themeVt = document.startViewTransition(swap);
+        themeVt.finished.finally(() => { themeVt = null; done(); });
+        setTimeout(() => { if (themeVt) { try { themeVt.skipTransition(); } catch {} themeVt = null; done(); } }, 400);
+      } catch { themeVt = null; swap(); done(); }
     } else { swap(); done(); }
     try { localStorage.setItem("theme", next); } catch {}
   });

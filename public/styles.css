@@ -24,6 +24,7 @@ html[data-theme="light"]{color-scheme:light}
 html,body{background:var(--bg);overscroll-behavior-y:auto}
 html.theme-switching,html.theme-switching *,html.theme-switching *::before,html.theme-switching *::after{transition:none!important}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.2s;animation-timing-function:ease}
+::view-transition{pointer-events:none} /* the snapshot overlay must not eat a click (a second theme tap during the fade) */
 *,*::before,*::after{box-sizing:border-box}
 /* Clear the sticky .dock (search row + filter row + safe area); --dock-h is measured in app.js */
 html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--dock-h,calc(106px + env(safe-area-inset-top))) + 12px)}
