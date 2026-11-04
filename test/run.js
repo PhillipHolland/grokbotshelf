@@ -1,17 +1,13 @@
-// Runs the whole suite: the build smoke test, then every browser test against a local copy of the site
-// (test/serve.js on a free port) or against a base URL you pass. Prints a summary; exit code 1 if anything failed.
+// Runs the whole suite: the build smoke test, then every browser test against a fresh build of the site in a temp
+// copy (test/tempsite.js, served by test/serve.js on a free port) or against a base URL you pass. A fresh build, so
+// the suite checks what Vercel would deploy even when a bots.json commit skipped the generated output. Prints a summary; exit code 1 if anything failed.
 // Needs puppeteer-core outside the repo, e.g.  NODE_PATH=/path/to/node_modules node test/run.js [base-url]
-const { spawn, spawnSync } = require("child_process"), net = require("net"), path = require("path");
+const { spawnSync } = require("child_process"), path = require("path");
+const tempSite = require("./tempsite");
 const SUITES = ["search", "creators-refresh", "credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "font", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk", "railcls", "pagecss"];
-const freePort = () => new Promise((r) => { const s = net.createServer().listen(0, () => { const p = s.address().port; s.close(() => r(p)); }); });
 (async () => {
-  let base = process.argv[2], server;
-  if (!base) {
-    const port = await freePort();
-    server = spawn(process.execPath, [path.join(__dirname, "serve.js"), String(port)], { stdio: ["ignore", "pipe", "inherit"] });
-    await new Promise((r) => server.stdout.once("data", r));
-    base = `http://localhost:${port}/`;
-  }
+  let base = process.argv[2], site;
+  if (!base) { site = await tempSite(null, { images: true }); base = site.base; }
   const results = [];
   const run = (name, args) => {
     console.log(`== ${name}`);
@@ -22,7 +18,7 @@ const freePort = () => new Promise((r) => { const s = net.createServer().listen(
   };
   run("build", [path.join(__dirname, "build.js")]);
   for (const s of SUITES) run(s, [path.join(__dirname, s + ".js"), base]);
-  if (server) server.kill();
+  if (site) site.close();
   console.log("\n== summary (" + base + ")");
   let bad = false;
   for (const r of results) { console.log(`${r.name.padEnd(7)} ${r.pass} pass, ${r.fail} fail${r.crashed ? ", CRASHED (exit " + r.code + ")" : ""}`); if (r.fail || r.code !== 0) bad = true; }
