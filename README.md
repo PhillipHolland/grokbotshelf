@@ -39,7 +39,7 @@ Then give the new bot a pairs row and rebuild:
 node scripts/pairs-gen.js && node scripts/build.js
 ```
 
-`pairs-gen` only fills slugs that are missing from `public/pairs.json`. It never replaces a curated row. The build fails if any bot slug has no key (an empty list is fine).
+`pairs-gen` only fills slugs that are missing from `public/pairs.json`. It never replaces a curated row. The build fails if any bot slug has no key (an empty list is fine). That goes for every way a bot lands in `bots.json`, by hand or through the suggestions queue: the error names the slugs and the command, and a `pairs.json` change belongs in the same commit as the bot.
 
 ## Pairs with (Amazon)
 

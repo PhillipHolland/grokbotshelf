@@ -391,7 +391,7 @@ function assertPairKeys(bots, curated) {
     if (!Object.prototype.hasOwnProperty.call(pairs, slug)) missing.push(slug);
   }
   if (missing.length) {
-    throw new Error(`public/pairs.json is missing ${missing.length} bot slug${missing.length === 1 ? "" : "s"} (${missing.slice(0, 5).join(", ")}). Run: node scripts/pairs-gen.js`);
+    throw new Error(`public/pairs.json is missing ${missing.length} bot slug${missing.length === 1 ? "" : "s"} (${missing.slice(0, 5).join(", ")}). Every bot needs a key there, an empty list is fine. Run: node scripts/pairs-gen.js (fills new slugs only, never touches a curated row), then node scripts/build.js. See README, "Add a bot".`);
   }
 }
 
