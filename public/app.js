@@ -1142,7 +1142,9 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     const hMax = parseFloat(bs.flexGrow) > 0 ? mx : Math.min(parseFloat(bs.flexBasis) || 0, mx);
     const fit = (H) => { const h = Math.max(0, Math.min(hMax, (H - (n - 1) * g) / n)); return [h, Math.max(0, (H - n * h - (n - 1) * g) / 2)]; };
     const [h0, o0] = fit(H0), [h1, o1] = fit(H0 - (t - T0));
-    const k = (h1 + g) / (h0 + g || 1), d = t + o1 - T0 - k * o0;
+    let k = (h1 + g) / (h0 + g || 1), d = t + o1 - T0 - k * o0;
+    // Flex rounding can leave the squeezed column a hair past the bottom margin; shrink it to end inside H0.
+    if (d + k * H0 > H0) { k = Math.max(0, (H0 - d) / H0); d = t + o1 - T0 - k * o0; }
     const tf = Math.abs(k - 1) < 1e-3 && Math.abs(d) < 0.5 ? "" : `translateY(${d.toFixed(1)}px) scaleY(${k.toFixed(4)})`;
     if (tf === railTop) return;
     railTop = tf; rail.style.transform = tf;
