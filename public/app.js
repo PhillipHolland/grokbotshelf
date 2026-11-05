@@ -212,7 +212,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const mqNarrow = matchMedia("(max-width:360px)"), syncPh = () => { q.placeholder = mqNarrow.matches ? "Search" : "Search bots"; };
   syncPh(); if (mqNarrow.addEventListener) mqNarrow.addEventListener("change", syncPh);
 
-  /* ---------- Theme toggle: dark by default, choice kept in localStorage ---------- */
+  /* ---------- Theme toggle: follows the OS until the visitor toggles, then the choice is kept in localStorage ---------- */
   const root = document.documentElement, themeBtn = $("#theme");
   function applyTheme(t) {
     root.setAttribute("data-theme", t);
@@ -221,6 +221,12 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     themeBtn.setAttribute("aria-pressed", String(t === "dark"));
   }
   applyTheme(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+  // The head script picked the OS scheme when nothing was saved; keep following it until the first toggle.
+  const osLight = matchMedia("(prefers-color-scheme: light)");
+  if (osLight.addEventListener) osLight.addEventListener("change", (e) => {
+    let saved; try { saved = localStorage.getItem("theme"); } catch {}
+    if (saved !== "light" && saved !== "dark") applyTheme(e.matches ? "light" : "dark");
+  });
   let themeVt = null;
   themeBtn.addEventListener("click", () => {
     const next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
