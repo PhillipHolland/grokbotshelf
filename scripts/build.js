@@ -44,6 +44,15 @@ function clipDesc(s, n = 155) {
   const i = cut.lastIndexOf(" ");
   return (i > 80 ? cut.slice(0, i) : cut).replace(/[.,;:]+$/, "") + "...";
 }
+// The same limit, but whole sentences: as many as fit, so a meta description never stops mid-sentence. When even the
+// first sentence is too long, clipDesc's word boundary and "..." apply.
+function clipSentences(s, n = 155) {
+  const t = String(s ?? "").replace(/\s+/g, " ").trim();
+  if (t.length <= n) return t;
+  let out = "";
+  for (const m of t.matchAll(/[^.!?]+[.!?]+(?=\s|$)/g)) { const next = (out ? out + " " : "") + m[0].trim(); if (next.length > n) break; out = next; }
+  return out || clipDesc(t, n);
+}
 const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes actions" };
 const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
@@ -851,7 +860,7 @@ ${footer()}
     ] };
     const other = categories.filter((o) => o.slug !== c.slug).map((o) => `<li><a href="/category/${esc(o.slug)}">${esc(o.name)}</a></li>`);
     const jobLinks = jobs.map((j) => `<li><a href="/collection/${esc(j.slug)}"><span class="job-glyph" aria-hidden="true">${hubGlyph(j)}</span> ${esc(j.name)}</a></li>`);
-    writeJob(`category/${c.slug}/index.html`, `${head({ title: `${c.name} Grok Bot templates · Grok Bot Shelf`, desc: intro, url, img: categoryOg.get(c.slug), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${c.name}: ${n} Grok Bot templates`, creator: "@Phil_Holland", ld })}
+    writeJob(`category/${c.slug}/index.html`, `${head({ title: `${c.name} Grok Bot templates · Grok Bot Shelf`, desc: clipSentences(intro), url, img: categoryOg.get(c.slug), ogTitle: `${c.name} on Grok Bot Shelf`, alt: `${c.name}: ${n} Grok Bot templates`, creator: "@Phil_Holland", ld })}
 <body class="botpage">
 ${siteHeader({ job: `<a href="/category">Categories</a><span aria-hidden="true"> · </span><a href="/collections">Find by job</a><span aria-hidden="true"> · </span><a href="/stacks">Stacks</a>` })}
 <main class="wrap bp" id="main">

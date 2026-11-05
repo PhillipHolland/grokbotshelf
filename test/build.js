@@ -368,6 +368,11 @@ try {
     ok(catHtml.includes("<h1>Bot Tools</h1>") && catHtml.includes('aria-label="Breadcrumb"') && /\/og\/category\/bot-tools\.png/.test(catHtml) && list.numberOfItems > 0 && list.category === "Bot Tools" && list.itemListElement.length === list.numberOfItems, `category hub lists Bot Tools (${list && list.numberOfItems})`);
     ok(fitGuide.includes('"@type":"FAQPage"') && fitLd["@graph"].some((x) => x["@type"] === "FAQPage" && x.mainEntity.length === 3) && words >= 80 && words <= 150 && fitGuide.includes('href="/category/'), `job hub guide is ${words} words, with FAQPage and a category link`);
     ok(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8").includes('"trailingSlash": false'), "trailingSlash false sends /bot/slug/ to /bot/slug");
+    // round 8: a category meta description is whole sentences within 155 characters (they used to clip mid-sentence with "...")
+    const catMetas = fs.readdirSync(pub("category")).filter((d) => fs.existsSync(pub("category", d, "index.html")) && d !== "index.html")
+      .map((d) => (fs.readFileSync(pub("category", d, "index.html"), "utf8").match(/<meta name="description" content="([^"]*)"/) || [])[1] || "");
+    const clipped = catMetas.filter((m) => !m || m.length > 155 || !/[.!?]$/.test(m) || m.endsWith("..."));
+    ok(catMetas.length > 0 && !clipped.length, `category meta descriptions end on a full sentence within 155 characters (${clipped.length} of ${catMetas.length} do not)`);
   }
   {
     const { assertPairKeys, resetPairCache } = require(path.join(TMP, "scripts", "pairs"));
