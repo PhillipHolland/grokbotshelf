@@ -285,7 +285,10 @@ function siteHeader({ title = false, job = "", addCurrent = false, growth = fals
   // Homepage only. .home is the compact size used on every other page; here the link keeps the large h1.
   // In the page, not styles.css, so a title-size tweak does not rewrite every bot page's stylesheet hash.
   const homeSize = title ? `<style>.gbs-brand{display:inline-flex;align-items:center;font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:0;word-spacing:-.06em;line-height:1.1;color:inherit;gap:12px;min-width:0;text-decoration:none}h1.shelf-h1{display:block;flex:1 0 100%;margin:2px 0 0;white-space:normal;font-size:clamp(22px,3.2vw,30px);font-weight:500;letter-spacing:0;line-height:1.2}@media (max-width:640px){.gbs-brand{gap:9px;font-size:26px}h1.shelf-h1{font-size:22px}}@media (max-width:380px){.gbs-brand{gap:8px;font-size:24px}}</style>\n` : "";
-  return `${homeSize}${findStyle}<header class="wrap hero">
+  // Skip link (the home has its own "Skip to results" as the first thing in body): the header holds four controls and
+  // the search field before main, so keyboard and screen reader visitors get one Tab past them. Same .skip as the home's.
+  const skip = title ? "" : `<a class="skip" href="#main">Skip to content</a>\n`;
+  return `${skip}${homeSize}${findStyle}<header class="wrap hero">
   ${brand}
   <div class="hero-actions">${add}${gift}${THEME_BTN}</div>${find}
   <p class="affil">Not affiliated with SpaceXSI.</p>${shelfH1}${jobLine}${growthLine}

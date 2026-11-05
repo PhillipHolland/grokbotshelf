@@ -54,6 +54,19 @@ const settle = (ms = 400) => new Promise((r) => setTimeout(r, ms));
 
   const q = await open('/bot/coach/');
   ok(await q.evaluate(() => document.querySelectorAll('.vn[aria-live]').length === 0), 'bot page: the vote count is not a live region');
+  // Round 8: the skip link is on every page, not only the home. The header has four controls and the search field before main.
+  const qs = await q.evaluate(() => { const e = document.querySelector('.skip'), r = e && e.getBoundingClientRect(); return { first: !!e && document.body.firstElementChild === e, hidden: !!r && (r.bottom <= 0 || getComputedStyle(e).clipPath !== 'none'), href: e && e.getAttribute('href') }; });
+  ok(qs.first && qs.hidden && qs.href === '#main', `bot page: a hidden skip link is the first element in body (${JSON.stringify(qs)})`);
+  await q.evaluate(() => window.scrollTo(0, 0)); await q.keyboard.press('Tab');
+  const qf = await q.evaluate(() => { const e = document.activeElement, r = e.getBoundingClientRect(); return { skip: e.matches('.skip'), text: e.textContent, vis: r.top >= 0 && r.bottom <= innerHeight && r.width > 60 && getComputedStyle(e).clipPath === 'none' }; });
+  ok(qf.skip && qf.text === 'Skip to content' && qf.vis, `bot page: first Tab focuses a visible "Skip to content" (${JSON.stringify(qf)})`);
+  await q.keyboard.press('Enter'); await settle(200);
+  // html has scroll-padding-top for the home's sticky dock, so main lands just under that, not at 0
+  ok(await q.evaluate(() => location.hash === '#main' && scrollY > 0 && document.getElementById('main').getBoundingClientRect().top < 140), 'bot page: Enter on the skip link scrolls to main');
+  for (const path of ['/@thecsguy/', '/collections/', '/category/', '/stacks/', '/add/', '/nope-404']) {
+    const h = await q.evaluate(async (u) => { const t = await (await fetch(u)).text(); const i = t.indexOf('<body'); return t.slice(i, i + 400).replace(/<body[^>]*>\s*(<!-- header:start -->\s*)?/, '').startsWith('<a class="skip" href="#main">Skip to content</a>'); }, path);
+    ok(h, `${path}: the skip link opens the body`);
+  }
   await q.$eval('.bp-vote .vb.dn', (e) => e.click()); await settle(300);
   const bt = await q.evaluate(() => { const t = [...document.querySelectorAll('.toast')].pop(); return { text: t.textContent, shown: t.classList.contains('show') }; });
   ok(bt.text === 'Downvoted Coach, 2 votes' && !bt.shown, `bot page: a vote is announced once through the status toast (${JSON.stringify(bt)})`);
