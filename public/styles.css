@@ -149,6 +149,9 @@ mark{background:var(--mark);color:inherit;border-radius:3px}
 .empty-s{margin:0 0 16px;color:var(--text2)}
 /* Hold the results area open until the first render so #add starts below the fold (no layout shift) */
 #results[aria-busy="true"]{min-height:100vh}
+/* The first screen is drawn into #results at build time (scripts/home-strip.js) for the plain featured list. The head script
+   sets .nostrip when the URL or the saved view asks for something else, and app.js drops it with its first render. */
+html.nostrip #results>section,html.nostrip #pairs-note{display:none}
 .add{scroll-margin-top:8px;border:1px solid var(--line);border-radius:16px;padding:20px;margin:8px 0 max(48px,env(safe-area-inset-bottom));max-width:640px}
 .add :is(h1,h2){margin:0 0 6px;font-size:20px;font-weight:500;letter-spacing:0}
 /* /add: the form is the page */

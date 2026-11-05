@@ -334,8 +334,13 @@ try {
   const shelfUp = fs.readFileSync(pub("shelf-up.js"), "utf8");
   ok(shelfUp.includes('gtag("event", "pair_click"') && shelfUp.includes("product_id") && shelfUp.includes("position") && shelfUp.includes("bot_slug") && shelfUp.includes("surface") && pageJs.includes('gtag("event", "get_bot"') && !pageJs.includes("pair_click"), "pair_click lives in shelf-up.js with bot_slug, product_id, position, surface; get_bot still fires");
   ok(appJs.includes('data-surface="home"') && appJs.includes('data-surface="builders"') && appJs.includes('data-surface="search"') && appJs.includes("card-pairs") && appJs.includes("tag=botshelf-20") && appJs.includes("pairsHTML"), "homepage cards render compact pairs from shelf-data, with home, search, and builders surfaces");
+  // round 8: the first screen is drawn into #results at build time, so its builder cards may carry Pairs with chips; the
+  // disclosure is then shown from the first paint instead of hidden until app.js. Outside the strip the static home stays free of them.
   const homePairs = fs.readFileSync(pub("index.html"), "utf8");
-  ok(!/amazon\.com\/dp\//.test(homePairs) && !homePairs.includes("bp-pairs") && homePairs.includes('id="pairs-note"') && homePairs.includes(catalog.disclosure), "homepage static HTML has one hidden disclosure and no product links");
+  const stripHtml = (homePairs.match(/<!-- strip:start -->[\s\S]*?<!-- strip:end -->/) || [""])[0], outside = homePairs.replace(stripHtml, "");
+  const stripPairs = /amazon\.com\/dp\//.test(stripHtml), noteHidden = /<p id="pairs-note" class="assoc pairs-note" hidden>/.test(homePairs);
+  ok(!/amazon\.com\/dp\//.test(outside) && !homePairs.includes("bp-pairs") && homePairs.includes('id="pairs-note"') && homePairs.split(catalog.disclosure).length === 2 && noteHidden === !stripPairs,
+    `homepage static HTML: product links only inside the pre-drawn strip (${stripPairs ? "some" : "none"}), one disclosure, ${noteHidden ? "hidden" : "shown"} to match`);
   const creatorHtml = fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8");
   const creatorShown = creatorHtml.includes("card-pairs");
   ok(!creatorHtml.includes('class="bp-pairs"') && (!creatorShown || (creatorHtml.split(catalog.disclosure).length - 1) === 1 && creatorHtml.includes('data-surface="creator"') && creatorHtml.includes("</a><p class=\"card-pairs\"")), "creator pages use chips under the bot link, not a Pairs section");
@@ -355,7 +360,7 @@ try {
   ok(collPages.length > 1 && !collBad.length, `job hubs show chips and one disclosure only when a member has pairs (bad: ${collBad.slice(0, 3).join(", ") || "none"})`);
   const fit = fs.readFileSync(pub("collection", "fitness", "index.html"), "utf8");
   const homeSeo = fs.readFileSync(pub("index.html"), "utf8");
-  ok(fit.includes('aria-label="Breadcrumb"') && fit.includes('class="job-more"') && fit.includes("<h3>") && fit.includes('name="twitter:image:alt"') && fit.includes('property="og:locale" content="en_US"') && !homeSeo.includes("botshelf-20"), "collection hubs: breadcrumbs, sibling jobs, bot headings, share alt; the index stays free of product links");
+  ok(fit.includes('aria-label="Breadcrumb"') && fit.includes('class="job-more"') && fit.includes("<h3>") && fit.includes('name="twitter:image:alt"') && fit.includes('property="og:locale" content="en_US"') && !homeSeo.replace(/<!-- strip:start -->[\s\S]*?<!-- strip:end -->/, "").includes("botshelf-20"), "collection hubs: breadcrumbs, sibling jobs, bot headings, share alt; the home outside its pre-drawn strip stays free of product links");
   ok(/<title>Grok Bot Shelf: \d+ shared Grok Bot templates<\/title>/.test(homeSeo) && homeSeo.includes('name="twitter:image:alt"') && homeSeo.includes('name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"'), "homepage title matches the share title and asks for large image previews");
   ok(fs.readFileSync(pub("bot", "coach", "index.html"), "utf8").includes('"installUrl":"https://x.ai/bot/') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('property="og:type" content="profile"') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="cp-av"') && /alt="[^"]+"/.test(fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8")), "bot pages name an install URL; creator pages are profiles with a named avatar");
   {

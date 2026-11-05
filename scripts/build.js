@@ -9,6 +9,7 @@ const { tipCard } = require("./tip");
 const { pairsFor, productUrl, assertCatalog, assertPairKeys, pairCards, listPairSlice } = require("./pairs");
 const { lucide, lucideSprite, emojiIcon, botMark, actionSprite, markLookup, PATHS } = require("./icons");
 const { paragraphs, jobGuide, stackGuide, indexGuide, jobFaq, stacksFaq, faqLd, catsOf, cardPng } = require("./hub-copy");
+const { homeStrip } = require("./home-strip");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
@@ -147,34 +148,49 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
 // One compact file for the home page (public/shelf-data.json): bots.json plus the bot-meta.json and social.json fields
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
+const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
+const pairIcons = new Set(["bot"]);
+// The list app.js loads; scripts/home-strip.js draws the first screen from these same objects
+const shelfBots = bots.map((b) => {
+  const packed = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
+  for (const p of packed.pairs) if (p.icon) pairIcons.add(p.icon);
+  const mark = botMark(b.emoji);
+  pairIcons.add(mark);
+  return { ...b, mark, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+  collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
+  og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
+  pairs: packed.pairs.length ? packed.pairs : undefined,
+  pairsMore: packed.more || undefined,
+  creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) };
+});
+// public/config.js, run as the page would (window.BUILDERS names the "From the builders" bots, SHELFER_URL the Shelfer template)
+const CONFIG = (() => { const w = {}; try { require("vm").runInNewContext(fs.readFileSync(path.join(PUB, "config.js"), "utf8"), { window: w }); } catch {} return w; })();
+// The first home screen, drawn into #results so a phone paints it with the HTML (scripts/home-strip.js). The same
+// markup app.js draws; app.js adopts it when it matches and redraws it when it does not.
+const STRIP = homeStrip({ bots: shelfBots, builders: CONFIG.BUILDERS });
+if (!STRIP.cards) throw new Error("home strip: no \"From the builders\" bot from public/config.js BUILDERS.feature is in bots.json");
 {
-  const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
-  const pairIcons = new Set(["bot"]);
-  const shelfData = JSON.stringify({ og2: OG2, bots: bots.map((b) => {
-    const packed = pairCards(pairsFor({ ...b, slug: slugify(b.name) }, products));
-    for (const p of packed.pairs) if (p.icon) pairIcons.add(p.icon);
-    const mark = botMark(b.emoji);
-    pairIcons.add(mark);
-    return { ...b, mark, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
-    collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
-    og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
-    pairs: packed.pairs.length ? packed.pairs : undefined,
-    pairsMore: packed.more || undefined,
-    creator_avatar: versioned(b.creator_avatar), avatar_sm: avatarSm(b.creator_avatar) };
-  }) });
+  const shelfData = JSON.stringify({ og2: OG2, bots: shelfBots });
   fs.writeFileSync(path.join(PUB, "shelf-data.json"), shelfData);
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   if (!h.includes("<!-- pairs-note:end -->")) throw new Error("index.html: the <!-- pairs-note:start --> / <!-- pairs-note:end --> markers are missing");
   if (!h.includes("<!-- icons:end -->")) throw new Error("index.html: the <!-- icons:start --> / <!-- icons:end --> markers are missing");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous" fetchpriority="high"><!-- data:end -->`)
-    .replace(/<!-- pairs-note:start -->[\s\S]*?<!-- pairs-note:end -->/, `<!-- pairs-note:start -->${disclosure({ className: "assoc pairs-note", id: "pairs-note", hidden: true })}<!-- pairs-note:end -->`)
+    // the Amazon disclosure stays hidden until a card shows a chip; with a chip in the pre-drawn strip it is shown from the first paint
+    .replace(/<!-- pairs-note:start -->[\s\S]*?<!-- pairs-note:end -->/, `<!-- pairs-note:start -->${disclosure({ className: "assoc pairs-note", id: "pairs-note", hidden: !STRIP.pairs })}<!-- pairs-note:end -->`)
     .replace(/<!-- icons:start -->[\s\S]*?<!-- icons:end -->/, `<!-- icons:start -->${lucideSprite(pairIcons)}<!-- icons:end -->`)
     .replace(/<!-- roles:start -->[\s\S]*?<!-- roles:end -->/, `<!-- roles:start -->${ROLES.length ? `<div class="selwrap role">
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
       ${lucide("chevron-down")}
     </div>` : ""}<!-- roles:end -->`);
+  if (n !== h) fs.writeFileSync(f, n);
+}
+{
+  const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
+  if (!/<div id="results" aria-busy="true"><!-- strip:start -->[\s\S]*?<!-- strip:end --><\/div>/.test(h)) throw new Error("index.html: #results needs the <!-- strip:start --> / <!-- strip:end --> markers");
+  const n = h.replace(/<!-- strip:start -->[\s\S]*?<!-- strip:end -->/, () => `<!-- strip:start -->${STRIP.html}<!-- strip:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 const today = new Date().toISOString().slice(0, 10);
@@ -239,7 +255,7 @@ for (const c of jobCollections) for (const b of c.members) {
   jobBySlug.get(b.slug).push(c);
 }
 // Shelfer template link, read from public/config.js (window.SHELFER_URL) for llms.txt and the protocol copy
-const SHELFER_URL = ((() => { try { return fs.readFileSync(path.join(PUB, "config.js"), "utf8"); } catch { return ""; } })().match(/SHELFER_URL\s*=\s*"(https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+)"/) || [])[1] || "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
+const SHELFER_URL = /^https:\/\/x\.ai\/bot\/[A-Za-z0-9_-]+$/.test(CONFIG.SHELFER_URL || "") ? CONFIG.SHELFER_URL : "https://x.ai/bot/PkJM_w44LhHGmBnqCG_gi";
 // One header for every shelf page. The mark and the "Grok Bot Shelf" words are a single link to /.
 // title:true wraps that link in the page's h1 (the homepage). job is the "Find by job" line.
 // addCurrent marks the Add bot button on /add. Anything else is a copy that will drift.

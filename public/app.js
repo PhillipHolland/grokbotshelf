@@ -415,7 +415,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   }
   let topEl = null;
   function topNode() {
-    if (!topEl) { topEl = document.createElement("section"); topEl.className = "topvotes"; topEl.setAttribute("aria-labelledby", "topv-h"); topEl._inner = null; }
+    if (!topEl) { topEl = results.querySelector(":scope > section.topvotes:not(.newv)") || document.createElement("section"); topEl.className = "topvotes"; topEl.setAttribute("aria-labelledby", "topv-h"); topEl._inner = null; }
     const inner = topInner();
     if (inner !== topEl._inner) { topEl.innerHTML = inner; topEl.hidden = !inner; topEl._inner = inner; }
     return topEl;
@@ -436,7 +436,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
 <ol class="tlist">${picks.map((b) => `<li><a href="${b._page}" title="Added ${esc(fmtDay(b.added))}"><span class="em" aria-hidden="true">${mark(b)}</span><span class="nm">${esc(b.name)}<small>${esc(b.creator_name)}</small></span><span class="sc dt">${esc(fmtDay(b.added))}<span class="sr"> added</span></span></a></li>`).join("")}</ol></section>`;
   }
   let newEl;
-  function newNode() { if (newEl === undefined) { const h = newHTML(); newEl = h ? nodes(h)[0] : null; } return newEl; }
+  function newNode() { if (newEl === undefined) { const h = newHTML(); newEl = h ? adopt("section.newv", h) : null; } return newEl; }
   // Tallies arrive after a #add or #bot jump has scrolled; the strip sits above the view then, and the form
   // below the shelf opts out of scroll anchoring, so keep what is on screen still by hand.
   function paintTop() {
@@ -718,9 +718,20 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     });
     return out.map((el) => { paintTile(el.querySelector(".sc")); return el; });
   }
+  // The build draws the strip into #results (scripts/home-strip.js) so the first screen paints with the HTML. A
+  // server-drawn section is kept when it equals what this script draws now (its vote widgets painted first, since
+  // the page is built before any tally), and replaced by the fresh one otherwise. Nothing on screen moves either way.
+  function adopt(sel, html) {
+    const srv = results.querySelector(":scope > " + sel), fresh = nodes(html)[0];
+    if (!srv) return fresh;
+    srv.querySelectorAll(".vote").forEach((v) => paintVoteEl(v));
+    if (srv.isEqualNode(fresh)) return srv;
+    srv.remove();
+    return fresh;
+  }
   let buildersEl, flatEl, galEl;
   function buildersNode() {
-    if (buildersEl === undefined) { const h = buildersHTML(); buildersEl = h ? nodes(h)[0] : null; }
+    if (buildersEl === undefined) { const h = buildersHTML(); buildersEl = h ? adopt("section.builders", h) : null; }
     if (buildersEl) buildersEl.querySelectorAll(".card").forEach(reuse);
     return buildersEl;
   }
@@ -1263,7 +1274,13 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       st = readURL(); syncInputs();
       const show = () => {
         if (shelfReady) return;
-        shelfReady = true; render();
+        // the head script hid the server-drawn strip for a search, filter, sort or gallery URL; render() now draws the right view
+        shelfReady = true; root.classList.remove("nostrip");
+        // The build's strip markers are comment nodes ahead of the server-drawn sections. place() keeps a node that is
+        // already where it expects it and moves one that is not, and a moved node paints again: on a slow link that
+        // repaint of the Coach card is a later, larger LCP candidate. With the comments gone, nothing moves.
+        for (const n of [...results.childNodes]) if (n.nodeType !== 1) n.remove();
+        render();
         writeURL(false);
         if (location.hash) requestAnimationFrame(() => openHash());
       };

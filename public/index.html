@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<script>(function(){var h=location.hash,d=document.documentElement;if(location.pathname==="/"&&h==="#add"){location.replace("/add");return}if(/^#bot-/.test(h))d.classList.add("tailing");var q=new URLSearchParams(location.search),so=q.get("sort");if(!q.get("q")&&(!so||so==="featured"||so==="creator"))d.classList.add("has-rail")})()</script>
+<script>(function(){var h=location.hash,d=document.documentElement;if(location.pathname==="/"&&h==="#add"){location.replace("/add");return}if(/^#bot-/.test(h))d.classList.add("tailing");var q=new URLSearchParams(location.search),so=q.get("sort");if(!q.get("q")&&(!so||so==="featured"||so==="creator"))d.classList.add("has-rail");var g=false;try{g=localStorage.getItem("gbs_view")==="gallery"&&!/^#bot-/.test(h)}catch(e){}if(g||q.get("q")||(so&&so!=="featured")||["cat","creator","app","does","new","one_job","role","collection"].some(function(k){return q.get(k)}))d.classList.add("nostrip")})()</script>
 <title>Grok Bot Shelf: 1010 shared Grok Bot templates</title>
 <meta name="description" content="1010 shared Grok Bot templates from 204 creators. Search by category, app and what the bot does. Import in one tap.">
 <meta name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<!-- data:start --><link rel="preload" href="/shelf-data.json?v=1673906e0d" as="fetch" crossorigin="anonymous" fetchpriority="high"><!-- data:end -->
+<!-- data:start --><link rel="preload" href="/shelf-data.json?v=cc93d959b7" as="fetch" crossorigin="anonymous" fetchpriority="high"><!-- data:end -->
 <link rel="alternate" type="application/rss+xml" title="Grok Bot Shelf, newest bots" href="/feed.xml">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
@@ -36,10 +36,10 @@
 <meta name="twitter:site" content="@Phil_Holland">
 <meta name="twitter:creator" content="@Phil_Holland">
 <link rel="preload" href="/fonts/ShelfSerif-5.000.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=9dc71aaf29">
+<link rel="stylesheet" href="/styles.css?v=73e060dd11">
 <script src="/shelf-up.js?v=1d3516d0e9" defer></script>
 <script src="/config.js?v=3168513e3a" defer></script>
-<script src="/app.js?v=0fcac1aa00" defer></script>
+<script src="/app.js?v=49c07c098f" defer></script>
 <script src="/add.js?v=a2f430e723" defer></script>
 <script src="/shelfer-sheet.js?v=0004a897d2" defer></script>
 <script>
@@ -129,8 +129,154 @@
     <p class="cover" id="cover" hidden></p>
   </div>
 
-  <div id="results" aria-busy="true"></div>
-  <!-- pairs-note:start --><p id="pairs-note" class="assoc pairs-note" hidden>As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.</p><!-- pairs-note:end -->
+  <div id="results" aria-busy="true"><!-- strip:start --><section class="builders" aria-labelledby="builders-h"><div class="bhead"><h2 id="builders-h">From the builders</h2><p class="bsub"><span class="who"><img src="/avatars/48/phil_holland.webp?v=798ecc8f52" alt="" width="24" height="24" loading="lazy" decoding="async"><a class="h" href="https://x.com/Phil_Holland" rel="noopener" target="_blank">@Phil_Holland</a><a class="all" href="/@phil_holland" aria-label="All 19 bots by Phillip Holland">All 19 bots</a></span><span class="who"><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="24" height="24" loading="lazy" decoding="async"><a class="h" href="https://x.com/thecsguy" rel="noopener" target="_blank">@thecsguy</a><a class="all" href="/@thecsguy" aria-label="All 9 bots by Nick">All 9 bots</a></span></p></div>
+<div class="grid"><article class="card" id="f-bot-coach" tabindex="-1" data-url="https://x.ai/bot/3zE_2sCWH3YTIyIVw8ieK" aria-labelledby="f-bot-coach-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-dumbbell"/></svg></div><div class="ttl">
+<h3 id="f-bot-coach-t"><a href="/bot/coach">Coach</a></h3>
+<div class="sub"><a class="catlink" href="/category/health-and-fitness">Health &amp; Fitness</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/phil_holland.webp?v=798ecc8f52" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@phil_holland">Phillip Holland</a></div>
+</div></div>
+<p class="desc">Plans workouts and logs sets and meals from texts or plate photos, adjusting to WHOOP, Oura or Fitbit.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge">WHOOP</span><span class="badge">Oura</span><span class="badge">Fitbit</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-coach" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Coach"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Coach"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/3zE_2sCWH3YTIyIVw8ieK" aria-label="Copy link to Coach" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Coach%20by%20%40Phil_Holland%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fcoach" data-sharex="bot-coach" rel="noopener" target="_blank" aria-label="Share Coach on X" title="Share Coach on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+
+
+<span class="ib slot" aria-hidden="true"></span>
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=3zE_2sCWH3YTIyIVw8ieK" data-app="bot-coach" aria-label="Add to Bot app: Coach" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/3zE_2sCWH3YTIyIVw8ieK" rel="noopener" target="_blank" aria-label="Get this bot: Coach on x.ai">Get this bot</a></div></div>
+<p class="card-pairs"><span class="card-pairs-l">Pairs with</span><a class="pair pair-mini" href="https://www.amazon.com/dp/B0FLS4QVT4?tag=botshelf-20" rel="noopener sponsored" target="_blank" data-product="garmin-265" data-position="1" data-bot="coach" data-surface="builders"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-watch"/></svg> Garmin Forerunner 265</a></p>
+</article><article class="card" id="f-bot-imessage-relay" tabindex="-1" data-url="https://x.ai/bot/HeVOGnrIY9oMcgGkl3hO5" aria-labelledby="f-bot-imessage-relay-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-message-circle"/></svg></div><div class="ttl">
+<h3 id="f-bot-imessage-relay-t"><a href="/bot/imessage-relay">iMessage Relay</a></h3>
+<div class="sub"><a class="catlink" href="/category/productivity">Productivity</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/phil_holland.webp?v=798ecc8f52" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@phil_holland">Phillip Holland</a></div>
+</div></div>
+<p class="desc">Forwards your iMessages to X Chat so you can reply there, after a one-minute setup on your Mac.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-acts" title="Can take actions, usually after your OK">Takes actions</span><span class="badge">iMessage</span><span class="badge">X Chat</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-imessage-relay" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote iMessage Relay"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote iMessage Relay"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/HeVOGnrIY9oMcgGkl3hO5" aria-label="Copy link to iMessage Relay" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20iMessage%20Relay%20by%20%40Phil_Holland%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fimessage-relay" data-sharex="bot-imessage-relay" rel="noopener" target="_blank" aria-label="Share iMessage Relay on X" title="Share iMessage Relay on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+
+
+<span class="ib slot" aria-hidden="true"></span>
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=HeVOGnrIY9oMcgGkl3hO5" data-app="bot-imessage-relay" aria-label="Add to Bot app: iMessage Relay" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/HeVOGnrIY9oMcgGkl3hO5" rel="noopener" target="_blank" aria-label="Get this bot: iMessage Relay on x.ai">Get this bot</a></div></div>
+<p class="card-pairs"><span class="card-pairs-l">Pairs with</span><a class="pair pair-mini" href="https://www.amazon.com/dp/B0DLBTPDCS?tag=botshelf-20" rel="noopener sponsored" target="_blank" data-product="mac-mini-m4" data-position="1" data-bot="imessage-relay" data-surface="builders"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-apple"/></svg> Mac mini M4</a></p>
+</article><article class="card" id="f-bot-security-audit-bot" tabindex="-1" data-url="https://x.ai/bot/ksa8bHwOSris1UoZtCUhU" aria-labelledby="f-bot-security-audit-bot-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-lock"/></svg></div><div class="ttl">
+<h3 id="f-bot-security-audit-bot-t"><a href="/bot/security-audit-bot">Security Audit Bot</a></h3>
+<div class="sub"><a class="catlink" href="/category/security">Security</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/phil_holland.webp?v=798ecc8f52" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@phil_holland">Phillip Holland</a></div>
+</div></div>
+<p class="desc">Reviews code you own and returns a private security report that starts with up to five fixes.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-reads" title="Looks things up and reports back">Reads only</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-security-audit-bot" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Security Audit Bot"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Security Audit Bot"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/ksa8bHwOSris1UoZtCUhU" aria-label="Copy link to Security Audit Bot" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Security%20Audit%20Bot%20by%20%40Phil_Holland%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fsecurity-audit-bot" data-sharex="bot-security-audit-bot" rel="noopener" target="_blank" aria-label="Share Security Audit Bot on X" title="Share Security Audit Bot on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+
+<a class="ib" href="https://github.com/PhillipHolland/security-audit-bot" rel="noopener" target="_blank" aria-label="Security Audit Bot: source code" title="Source code"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-code"/></svg></a>
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=ksa8bHwOSris1UoZtCUhU" data-app="bot-security-audit-bot" aria-label="Add to Bot app: Security Audit Bot" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/ksa8bHwOSris1UoZtCUhU" rel="noopener" target="_blank" aria-label="Get this bot: Security Audit Bot on x.ai">Get this bot</a></div></div>
+
+</article><article class="card" id="f-bot-disk-doctor" tabindex="-1" data-url="https://x.ai/bot/EVQ-0yhShRgL-2qAfdD-8" aria-labelledby="f-bot-disk-doctor-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-disc-3"/></svg></div><div class="ttl">
+<h3 id="f-bot-disk-doctor-t"><a href="/bot/disk-doctor">Disk Doctor</a></h3>
+<div class="sub"><a class="catlink" href="/category/developer">Developer</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@thecsguy">Nick</a></div>
+</div></div>
+<p class="desc">Scans your Mac&#39;s storage and deletes only the groups of files you approve.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-acts" title="Can take actions, usually after your OK">Takes actions</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-disk-doctor" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Disk Doctor"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Disk Doctor"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/EVQ-0yhShRgL-2qAfdD-8" aria-label="Copy link to Disk Doctor" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Disk%20Doctor%20by%20%40thecsguy%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fdisk-doctor" data-sharex="bot-disk-doctor" rel="noopener" target="_blank" aria-label="Share Disk Doctor on X" title="Share Disk Doctor on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+<a class="ib" href="https://x.com/thecsguy/status/2113644614066520409" rel="noopener" target="_blank" aria-label="Disk Doctor: original post on X" title="Original post on X"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg></a>
+
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=EVQ-0yhShRgL-2qAfdD-8" data-app="bot-disk-doctor" aria-label="Add to Bot app: Disk Doctor" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/EVQ-0yhShRgL-2qAfdD-8" rel="noopener" target="_blank" aria-label="Get this bot: Disk Doctor on x.ai">Get this bot</a></div></div>
+<p class="card-pairs"><span class="card-pairs-l">Pairs with</span><a class="pair pair-mini" href="https://www.amazon.com/dp/B0874XN4D8?tag=botshelf-20" rel="noopener sponsored" target="_blank" data-product="samsung-t7" data-position="1" data-bot="disk-doctor" data-surface="builders"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-hard-drive"/></svg> Samsung T7 SSD</a></p>
+</article><article class="card" id="f-bot-claude-remote" tabindex="-1" data-url="https://x.ai/bot/aB0M7wQOAcFgd_G0rTEWF" aria-labelledby="f-bot-claude-remote-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-smartphone"/></svg></div><div class="ttl">
+<h3 id="f-bot-claude-remote-t"><a href="/bot/claude-remote">Claude Remote</a></h3>
+<div class="sub"><a class="catlink" href="/category/developer">Developer</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@thecsguy">Nick</a><span class="dot" aria-hidden="true">·</span><span class="bm" title="288 bookmarks on the original X post (not a rating)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bm"/></svg>288<span class="sr"> bookmarks on X</span></span></div>
+</div></div>
+<p class="desc">Sends tasks you text from your phone to Claude Code on your Mac and messages you the result.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-acts" title="Can take actions, usually after your OK">Takes actions</span><span class="badge">Claude Code</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-claude-remote" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Claude Remote"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Claude Remote"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/aB0M7wQOAcFgd_G0rTEWF" aria-label="Copy link to Claude Remote" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Claude%20Remote%20by%20%40thecsguy%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fclaude-remote" data-sharex="bot-claude-remote" rel="noopener" target="_blank" aria-label="Share Claude Remote on X" title="Share Claude Remote on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+<a class="ib" href="https://x.com/thecsguy/status/2111986186784743932" rel="noopener" target="_blank" aria-label="Claude Remote: original post on X" title="Original post on X"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg></a>
+
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=aB0M7wQOAcFgd_G0rTEWF" data-app="bot-claude-remote" aria-label="Add to Bot app: Claude Remote" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/aB0M7wQOAcFgd_G0rTEWF" rel="noopener" target="_blank" aria-label="Get this bot: Claude Remote on x.ai">Get this bot</a></div></div>
+<p class="card-pairs"><span class="card-pairs-l">Pairs with</span><a class="pair pair-mini" href="https://www.amazon.com/dp/B0DLBTPDCS?tag=botshelf-20" rel="noopener sponsored" target="_blank" data-product="mac-mini-m4" data-position="1" data-bot="claude-remote" data-surface="builders"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-apple"/></svg> Mac mini M4</a></p>
+</article><article class="card" id="f-bot-vuln-scout" tabindex="-1" data-url="https://x.ai/bot/IiV3YZZ2TAF63sPORZmWy" aria-labelledby="f-bot-vuln-scout-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-shield"/></svg></div><div class="ttl">
+<h3 id="f-bot-vuln-scout-t"><a href="/bot/vuln-scout">Vuln Scout</a></h3>
+<div class="sub"><a class="catlink" href="/category/security">Security</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@thecsguy">Nick</a><span class="dot" aria-hidden="true">·</span><span class="bm" title="2 bookmarks on the original X post (not a rating)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bm"/></svg>2<span class="sr"> bookmarks on X</span></span></div>
+</div></div>
+<p class="desc">Tracks public CVE and patch advisories and posts short digests to Pages.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-reads" title="Looks things up and reports back">Reads only</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-vuln-scout" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Vuln Scout"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Vuln Scout"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/IiV3YZZ2TAF63sPORZmWy" aria-label="Copy link to Vuln Scout" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Vuln%20Scout%20by%20%40thecsguy%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fvuln-scout" data-sharex="bot-vuln-scout" rel="noopener" target="_blank" aria-label="Share Vuln Scout on X" title="Share Vuln Scout on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+<a class="ib" href="https://x.com/thecsguy/status/2113469893115072691" rel="noopener" target="_blank" aria-label="Vuln Scout: original post on X" title="Original post on X"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg></a>
+
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=IiV3YZZ2TAF63sPORZmWy" data-app="bot-vuln-scout" aria-label="Add to Bot app: Vuln Scout" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/IiV3YZZ2TAF63sPORZmWy" rel="noopener" target="_blank" aria-label="Get this bot: Vuln Scout on x.ai">Get this bot</a></div></div>
+
+</article><article class="card" id="f-bot-archivist" tabindex="-1" data-url="https://x.ai/bot/vAgUsbH4SHOudh96KXEk0" aria-labelledby="f-bot-archivist-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-library"/></svg></div><div class="ttl">
+<h3 id="f-bot-archivist-t"><a href="/bot/archivist">Archivist</a></h3>
+<div class="sub"><a class="catlink" href="/category/bot-tools">Bot Tools</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/phil_holland.webp?v=798ecc8f52" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@phil_holland">Phillip Holland</a></div>
+</div></div>
+<p class="desc">Finds standing rules you gave your other bots and, with your OK, writes the missing ones into each bot.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-acts" title="Can take actions, usually after your OK">Takes actions</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-archivist" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Archivist"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Archivist"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/vAgUsbH4SHOudh96KXEk0" aria-label="Copy link to Archivist" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Archivist%20by%20%40Phil_Holland%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Farchivist" data-sharex="bot-archivist" rel="noopener" target="_blank" aria-label="Share Archivist on X" title="Share Archivist on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+
+
+<span class="ib slot" aria-hidden="true"></span>
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=vAgUsbH4SHOudh96KXEk0" data-app="bot-archivist" aria-label="Add to Bot app: Archivist" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/vAgUsbH4SHOudh96KXEk0" rel="noopener" target="_blank" aria-label="Get this bot: Archivist on x.ai">Get this bot</a></div></div>
+
+</article><article class="card" id="f-bot-package-pal" tabindex="-1" data-url="https://x.ai/bot/JG4RGdYlakSid0hw1woj1" aria-labelledby="f-bot-package-pal-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-package"/></svg></div><div class="ttl">
+<h3 id="f-bot-package-pal-t"><a href="/bot/package-pal">Package Pal</a></h3>
+<div class="sub"><a class="catlink" href="/category/productivity">Productivity</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@thecsguy">Nick</a></div>
+</div></div>
+<p class="desc">Reads your shipping emails and sends one daily digest of packages in transit, with change alerts.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-reads" title="Looks things up and reports back">Reads only</span><span class="badge">Email</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-package-pal" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Package Pal"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Package Pal"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/JG4RGdYlakSid0hw1woj1" aria-label="Copy link to Package Pal" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Package%20Pal%20by%20%40thecsguy%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fpackage-pal" data-sharex="bot-package-pal" rel="noopener" target="_blank" aria-label="Share Package Pal on X" title="Share Package Pal on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+<a class="ib" href="https://x.com/thecsguy/status/2113593023925981258" rel="noopener" target="_blank" aria-label="Package Pal: original post on X" title="Original post on X"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg></a>
+
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=JG4RGdYlakSid0hw1woj1" data-app="bot-package-pal" aria-label="Add to Bot app: Package Pal" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/JG4RGdYlakSid0hw1woj1" rel="noopener" target="_blank" aria-label="Get this bot: Package Pal on x.ai">Get this bot</a></div></div>
+
+</article><article class="card" id="f-bot-afterglow" tabindex="-1" data-url="https://x.ai/bot/0pfVoOQLOV4O8Ujlk27x8" aria-labelledby="f-bot-afterglow-t">
+<div class="head"><div class="icon" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-trending-up"/></svg></div><div class="ttl">
+<h3 id="f-bot-afterglow-t"><a href="/bot/afterglow">Afterglow</a></h3>
+<div class="sub"><a class="catlink" href="/category/creator-and-media">Creator &amp; Media</a><span class="dot" aria-hidden="true">·</span><img src="/avatars/48/thecsguy.webp?v=c6e9411c06" alt="" width="16" height="16" loading="lazy" decoding="async"><a class="cn" href="/@thecsguy">Nick</a><span class="dot" aria-hidden="true">·</span><span class="bm" title="10 bookmarks on the original X post (not a rating)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bm"/></svg>10<span class="sr"> bookmarks on X</span></span></div>
+</div></div>
+<p class="desc">Charts how your X posts did each morning and tells you which ones worked.</p>
+<div class="badges" title="Set by the shelf from the bot's description"><span class="badge ag-reads" title="Looks things up and reports back">Reads only</span><span class="badge">X</span></div>
+<div class="foot-row"><div class="tools">
+<span class="vote" data-vote="bot-afterglow" data-tip="Saved in this browser"><button type="button" class="ib vb up" data-v="1" aria-pressed="false" aria-label="Upvote Afterglow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-up"/></svg></button><span class="vn">0</span><span class="sr vsr"> votes</span><button type="button" class="ib vb dn" data-v="-1" aria-pressed="false" aria-label="Downvote Afterglow"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-down"/></svg></button></span>
+<button type="button" class="ib" data-copy="https://x.ai/bot/0pfVoOQLOV4O8Ujlk27x8" aria-label="Copy link to Afterglow" title="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"/></svg></button>
+<a class="ib" href="https://twitter.com/intent/tweet?text=Check%20out%20Afterglow%20by%20%40thecsguy%20on%20Grok%20Bot%20Shelf%0Ahttps%3A%2F%2Fgrokbotshelf.com%2Fbot%2Fafterglow" data-sharex="bot-afterglow" rel="noopener" target="_blank" aria-label="Share Afterglow on X" title="Share Afterglow on X"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-share"/></svg></a>
+<a class="ib" href="https://x.com/thecsguy/status/2113727912637759660" rel="noopener" target="_blank" aria-label="Afterglow: original post on X" title="Original post on X"><svg class="fill" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-x"/></svg></a>
+
+
+</div><div class="gets"><a class="app" href="grokbot://app/v1/bot-template?id=0pfVoOQLOV4O8Ujlk27x8" data-app="bot-afterglow" aria-label="Add to Bot app: Afterglow" title="Add to Bot app (opens the Grok Bot app if installed)"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-app"/></svg><span class="t">Add to Bot app</span></a><a class="get" href="https://x.ai/bot/0pfVoOQLOV4O8Ujlk27x8" rel="noopener" target="_blank" aria-label="Get this bot: Afterglow on x.ai">Get this bot</a></div></div>
+
+</article></div></section><section class="topvotes" aria-labelledby="topv-h" hidden></section><section class="topvotes newv" aria-labelledby="newv-h"><div class="thead"><h2 id="newv-h">New this week</h2><a class="tall" href="/?sort=newest&amp;new=1">See all 300</a></div>
+<ol class="tlist"><li><a href="/bot/revenue-conductor" title="Added Nov 5"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-trending-up"/></svg></span><span class="nm">Revenue Conductor<small>Igor</small></span><span class="sc dt">Nov 5<span class="sr"> added</span></span></a></li><li><a href="/bot/ultimate-rv-trip-planner" title="Added Nov 4"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-car"/></svg></span><span class="nm">Ultimate RV Trip Planner<small>Chris</small></span><span class="sc dt">Nov 4<span class="sr"> added</span></span></a></li><li><a href="/bot/x-post-reviewer" title="Added Nov 4"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-square-pen"/></svg></span><span class="nm">X Post Reviewer<small>Rob</small></span><span class="sc dt">Nov 4<span class="sr"> added</span></span></a></li><li><a href="/bot/burrito" title="Added Nov 4"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-bot"/></svg></span><span class="nm">burrito<small>Alberto Jauregui</small></span><span class="sc dt">Nov 4<span class="sr"> added</span></span></a></li><li><a href="/bot/taco" title="Added Nov 4"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-bot"/></svg></span><span class="nm">taco<small>Alberto Jauregui</small></span><span class="sc dt">Nov 4<span class="sr"> added</span></span></a></li><li><a href="/bot/pre-call-brief" title="Added Nov 4"><span class="em" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#li-clipboard-list"/></svg></span><span class="nm">Pre-Call Brief<small>Calix</small></span><span class="sc dt">Nov 4<span class="sr"> added</span></span></a></li></ol></section><!-- strip:end --></div>
+  <!-- pairs-note:start --><p id="pairs-note" class="assoc pairs-note">As an Amazon Associate, Grok Bot Shelf earns from qualifying purchases.</p><!-- pairs-note:end -->
 
   <div class="empty" id="empty" hidden>
     <div class="empty-i" aria-hidden="true"><svg class="li" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.34-4.34" /><circle cx="11" cy="11" r="8" /></svg></div>
