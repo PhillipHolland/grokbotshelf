@@ -560,7 +560,7 @@ ${HEADER}
   </section>
 </main>
 ${footer()}
-<script src="/bot-page.js" defer></script>
+<script src="${versioned("/bot-page.js")}" defer></script>
 </body>
 </html>
 `;
