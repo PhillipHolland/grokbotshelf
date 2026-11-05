@@ -1,11 +1,12 @@
 {
-  "_note": "Public install stacks at /stacks. Each bots array is the order to add them. Slugs only, from the live catalog. Free page, no membership gate. scripts/build.js fails if a slug is missing.",
+  "_note": "Public install stacks at /stacks. Each bots array is the order to add them. Slugs only, from the live catalog. guide is a few plain sentences on those bots, written from their own descriptions, shown under the steps. Free page, no membership gate. scripts/build.js fails if a slug or the guide is missing.",
   "stacks": [
     {
       "slug": "train-this-week",
       "title": "Train this week",
       "icon": "dumbbell",
       "blurb": "A plan that fits your body, a session for today, and a log of what you actually did.",
+      "guide": "Fitness Coach writes the plan around your gear and injuries. Coach is the daily log, sets and meals from a text or a plate photo, with WHOOP, Oura or Fitbit if you wear one. Mend & Move is the one that switches to gentle days when you are hurt, so add it before you need it.",
       "bots": ["fitness-coach", "coach", "mend-and-move"]
     },
     {
@@ -13,6 +14,7 @@
       "title": "Inbox to empty",
       "icon": "mail",
       "blurb": "Sort what matters, draft the replies, and keep the rest from piling back up. You still send the mail.",
+      "guide": "Inbox Zero does the triage and drafts replies you approve. Gmail Assistant is Gmail only and keeps it under control after that, with spam cleanup, auto-labels and a monthly subscription audit. Mailman handles the mail your Grok Bot itself receives and flags phishing and prompt injection before it reaches the other bots.",
       "bots": ["inbox-zero", "gmail-assistant", "mailman"]
     },
     {
@@ -20,6 +22,7 @@
       "title": "A model on your machine",
       "icon": "cpu",
       "blurb": "Stand up a local model, check the disk it lives on, then keep the terminal work in one place.",
+      "guide": "Local AI Manager sets up a model on your own computer and keeps it running. Disk Doctor comes second because local models are big. It scans a Mac's storage and deletes only the file groups you approve. Terminal Boss then runs shell jobs and coding agents like Claude Code or Codex from chat.",
       "bots": ["local-ai-manager", "disk-doctor", "terminal-boss"]
     },
     {
@@ -27,6 +30,7 @@
       "title": "A safer phone for a kid",
       "icon": "shield-check",
       "blurb": "Lock the phone and the AI apps on it, then the accounts around the family, then keep an eye on what changes.",
+      "guide": "Child Safety Coach locks down the kid's iPhone or Android and the AI apps on it, then checks back so the settings do not quietly revert. Personal Cybersecurity Coach is six weekend sessions for the adults' accounts, phone, Wi-Fi and credit. Parent Radar watches school email, class apps and grades, and leads with what to do today.",
       "bots": ["child-safety-coach", "personal-cybersecurity-coach", "parent-radar"]
     },
     {
@@ -34,6 +38,7 @@
       "title": "Dinner, decided",
       "icon": "utensils",
       "blurb": "Tonight's meal from what you have, then a kitchen that remembers, then a week of dinners.",
+      "guide": "What's for Dinner Tonight? settles tonight from what is in the kitchen, in under a minute, allergies checked first. Kitchen remembers what you have and treats allergies as hard rules. Meal Planner is the week view, with aisle-sorted grocery lists and leftovers plans. It drafts only and places no grocery order.",
       "bots": ["what-s-for-dinner-tonight", "kitchen", "meal-planner"]
     },
     {
@@ -41,6 +46,7 @@
       "title": "Look before you click",
       "icon": "shield-alert",
       "blurb": "A first read of a suspicious message, a second opinion, and the report if it is a scam.",
+      "guide": "Scam Guard gives a Safe, Caution or Scam verdict on a call, text, email, link or DM and can set up a family safe word. Scam Second Opinion is the calmer second read before you click, pay or reply, with one safe next step. FTC Report Scam Call takes the voicemail or number and files the FTC fraud report for you.",
       "bots": ["scam-guard", "scam-second-opinion", "ftc-report-scam-call"]
     },
     {
@@ -48,6 +54,7 @@
       "title": "The house list",
       "icon": "house",
       "blurb": "The repair in front of you, the maintenance you keep skipping, and a memory of the house itself.",
+      "guide": "Handyman is the repair in front of you plus the chores you keep skipping, with filter sizes and appliance models remembered. Home Maintenance Tracker keeps the seasonal checklists and the repairs and warranties log, with rough cost ranges. House Memory logs warranties, filters and paint colors from a photo or voice note into your own spreadsheet.",
       "bots": ["handyman", "home-maintenance-tracker", "house-memory"]
     }
   ]

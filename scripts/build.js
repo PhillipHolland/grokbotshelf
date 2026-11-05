@@ -1014,6 +1014,7 @@ function loadStacks(data, list) {
     const slug = String(raw.slug || "").trim();
     const title = String(raw.title || "").trim();
     const blurb = String(raw.blurb || "").trim();
+    const guide = String(raw.guide || "").trim();
     const icon = String(raw.icon || "").trim();
     const where = `stacks.json #${i + 1}${slug ? ` (${slug})` : ""}`;
     if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`${where}: slug must be lowercase words separated by dashes`);
@@ -1031,7 +1032,7 @@ function loadStacks(data, list) {
       have.add(b.slug);
       members.push(b);
     }
-    return { slug, title, blurb, icon, members };
+    return { slug, title, blurb, guide, icon, members };
   });
 }
 const stacks = loadStacks(read("stacks.json", null), items);
@@ -1059,8 +1060,8 @@ const stacks = loadStacks(read("stacks.json", null), items);
       <p class="stack-meta">${s.members.length} bots, in order${cats ? ` · ${cats}` : ""}</p>
     </div></div>
     <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${markSpan(b.emoji)}${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
-  </article></li>`;
     ${guideHtml(stackGuide(s))}
+  </article></li>`;
   }).join("");
   writeJob("stacks/index.html", `${head({ title: "Shelf stacks · Grok Bot Shelf", desc, url, img: stackOg.get(stacks[0].slug), ogTitle: "Shelf stacks", alt: "Ordered install stacks on Grok Bot Shelf", creator: "@Phil_Holland", ld })}
 <body class="botpage stackspage">
@@ -1072,8 +1073,8 @@ ${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="tr
     <p class="job-lead">${esc(desc)}</p>
   </article>
   <ol class="stack-index">${cards}</ol>
-  ${faqHtml(faqs)}
   ${guideHtml(guide)}
+  ${faqHtml(faqs)}
 </main>
 ${footer()}
 </body>
