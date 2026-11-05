@@ -97,7 +97,20 @@ try {
   if (arch) {
     const h = fs.readFileSync(pub("bot", "archivist", "index.html"), "utf8"), ch = arch.creator_handle.replace(/^@/, "").toLowerCase();
     ok(h.includes('<link rel="canonical" href="https://grokbotshelf.com/bot/archivist">') && h.includes(`href="${arch.url}"`) && h.includes(`href="/@${ch}"`), "archivist page: canonical, template link, lowercase creator link");
-    ok(h.includes("<title>Archivist: Grok Bot template by Phillip Holland · Grok Bot Shelf</title>") && !/<title>[^<]*[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(h) && h.includes(`href="/category/${slugify(arch.category)}"`) && h.includes("<h1>Archivist</h1>"), "archivist title has no emoji and the category links to its hub");
+    ok(h.includes("<title>Archivist by Phillip Holland · Grok Bot Shelf</title>") && !/<title>[^<]*[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(h) && h.includes(`href="/category/${slugify(arch.category)}"`) && h.includes("<h1>Archivist</h1>"), "archivist title has no emoji and the category links to its hub");
+  }
+  { // round 8: a bot page title is the name first, then the longest of "Grok Bot template by Creator", "by Creator",
+    // "Grok Bot template" that keeps it within 60 characters; only a name that is long on its own goes over
+    const unesc = (s) => s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+    const plainOf = (s) => s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}]/gu, "").replace(/\s+/g, " ").trim();
+    const want = (b) => {
+      const name = plainOf(b.name), who = plainOf(b.creator_name), by = name.toLowerCase().endsWith(` by ${who}`.toLowerCase()) ? "" : ` by ${who}`;
+      return [`${name}: Grok Bot template${by}`, `${name}${by}`, `${name}: Grok Bot template`].map((t) => t + " · Grok Bot Shelf").find((t) => t.length <= 60) || `${name} · Grok Bot Shelf`;
+    };
+    const titles = bots.map((b) => [b, unesc((fs.readFileSync(pub("bot", slugify(b.name), "index.html"), "utf8").match(/<title>([^<]*)<\/title>/) || [])[1] || "")]);
+    const wrong = titles.filter(([b, t]) => t !== want(b));
+    const over = titles.filter(([, t]) => t.length > 60).length, kw = titles.filter(([, t]) => t.includes("Grok Bot template")).length;
+    ok(!wrong.length && over < bots.length / 20 && kw > bots.length / 4, `bot titles: name first, the longest form within 60 characters (${wrong.length} wrong, ${over} over 60 on the name alone, ${kw} keep "Grok Bot template")`);
   }
   // JSON-LD: bot page = WebPage + SoftwareApplication + BreadcrumbList, creator page = ProfilePage + Person + ItemList,
   // home = WebSite + SearchAction. Only real fields: no ratings, vote counts or publisher, and "<" is always escaped.

@@ -181,10 +181,14 @@ const ckey = (b) => b.creator_handle ? handleOf(b).toLowerCase() : "~" + slugify
 const titled = (b) => b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_name}`;
 const STRIP_EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}]/gu;
 const plain = (s) => String(s ?? "").replace(STRIP_EMOJI, "").replace(/\s+/g, " ").trim();
+// <title>: the bot's name first, then as much of ": Grok Bot template by Creator" as fits in TITLE_MAX characters
+// (search results cut a title around 60). The first form that fits wins: both, the creator alone, the keyword alone,
+// the name alone. A name that is long on its own stays whole. og:title and the description keep the full wording.
+const TITLE_MAX = 60;
 const docTitle = (b) => {
   const name = plain(b.name), who = plain(b.creator_name);
-  const already = name.toLowerCase().endsWith(` by ${who}`.toLowerCase());
-  return already ? `${name}: Grok Bot template · Grok Bot Shelf` : `${name}: Grok Bot template by ${who} · Grok Bot Shelf`;
+  const by = name.toLowerCase().endsWith(` by ${who}`.toLowerCase()) ? "" : ` by ${who}`, site = " · Grok Bot Shelf";
+  return [`${name}: Grok Bot template${by}${site}`, `${name}${by}${site}`, `${name}: Grok Bot template${site}`].find((t) => t.length <= TITLE_MAX) || `${name}${site}`;
 };
 const catSlug = (name) => slugify(name);
 const catPath = (name) => `/category/${catSlug(name)}`;
