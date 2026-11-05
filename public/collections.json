@@ -7,6 +7,7 @@
       "name": "Deal hunting",
       "emoji": "🏷️",
       "blurb": "You want a real price before you buy. These bots watch stores, compare prices, and flag discounts that are not real.",
+      "guide": "Deal Scout takes a product link, finds the best current price and watches a wishlist for real drops. Deal Detective compares unit prices at your stores and builds a list that fits the budget. Black Friday Real-Deal Checker logs prices daily, then on Black Friday and Cyber Monday says whether each one is a real deal against its 30-day low. Thrift Hunter and Thrifty Theo are for secondhand finds, and the two Apple bots are for a Mac, iPhone or iPad.",
       "picks": [
         "deal-scout",
         "deal-detective",
@@ -35,6 +36,7 @@
       "name": "Scam check",
       "emoji": "🛡️",
       "blurb": "Something in a text, email, or call feels off. These bots give you a calm second look before you click, pay, or reply.",
+      "guide": "Paste the message into Scam Second Opinion for the red flags and one safe next step. Scam Guard adds a family safe word, a Safe, Caution or Scam verdict on any call, text, email, link or DM, and a watch on your X DMs. FTC Report Scam Call fills out the fraud report once you know it was a scam. Spam-Call Scrubber works on the cause and pulls your number off people-search and data-broker sites.",
       "picks": [
         "scam-guard",
         "scam-second-opinion",
@@ -55,6 +57,7 @@
       "name": "Meal plan",
       "emoji": "🍽️",
       "blurb": "Dinner is the question. These bots plan meals from what you already have, watch allergies, and make a shopping list.",
+      "guide": "The fast one is What's for Dinner Tonight? It picks a meal from what is already in your kitchen in under a minute, allergies checked first. Kitchen and Meal Planner plan the whole week and write the shopping list, and Kitchen treats allergies as hard rules. Personal Chef and Sous-Chef go a step further and fill a grocery cart for you. Bookmark Kitchen turns saved food videos into recipe cards.",
       "picks": [
         "what-s-for-dinner-tonight",
         "kitchen",
@@ -84,6 +87,7 @@
       "name": "Church ops",
       "emoji": "⛪",
       "blurb": "The week around Sunday: the bulletin, first-time guests, volunteers, and the membership roll. These bots help with that work.",
+      "guide": "Weekly Bulletin Builder has the bulletin, newsletter and announcement script ready by Thursday noon. Guest Follow-Up drafts a note to each first-time guest within 48 hours. Roll Steward keeps the membership roll current under your bylaws. Most of the rest come from one creator and cover the church office: Hospitality Hank books rooms, Gatekeeper Gus tracks background checks, Risen Ray forecasts attendance for the big Sundays. Elders Quorum Companion is the one bot here for an LDS quorum presidency.",
       "picks": [
         "weekly-bulletin-builder",
         "guest-follow-up",
@@ -118,6 +122,7 @@
       "name": "Email",
       "emoji": "✉️",
       "blurb": "Your inbox is too full. These bots sort the mail and draft replies. You still decide what gets sent.",
+      "guide": "Inbox Zero turns the inbox into an action list and drafts replies for your approval. Gmail Assistant is Gmail only and adds spam cleanup, auto-labels and a monthly subscription audit. Mailman sorts the mail your Grok Bot itself receives, not yours, and flags phishing. Inbox Triage sends one short read-only list and stays quiet when nothing matters.",
       "picks": [
         "inbox-zero",
         "gmail-assistant",
@@ -143,6 +148,7 @@
       "name": "Insurance claims",
       "emoji": "📄",
       "blurb": "A claim, a denial, or a policy that is hard to read. These bots explain it in plain words and help you answer.",
+      "guide": "Claim Denied explains a denial letter in plain words, then drafts the review letter, a doctor checklist and a call log. Home & Renters ClaimShield reads a homeowners, condo or renters policy with you, and Auto & Rideshare ClaimShield does the same after a crash. VA Claims Coach walks a veteran through a disability claim from intake to next steps. Claim Filing Helper by Kevin covers the first 72 hours after a fire, water, storm or theft loss.",
       "picks": [
         "claim-denied",
         "home-and-renters-claimshield",
@@ -168,6 +174,7 @@
       "name": "Fitness",
       "emoji": "💪",
       "blurb": "A workout that fits your body and your week. These bots plan sessions and help you log what you did.",
+      "guide": "Fitness Coach builds a strength and mobility plan around your gear and injuries and logs sets and meals to a spreadsheet. Coach logs sets and meals from a text or a plate photo and adjusts to WHOOP, Oura or Fitbit. Mend & Move switches to gentle days when you are hurt. Strong & Graceful Fitness is 20-minute joint-friendly sessions, and Exercise Coach by Kevin is short balance and walking routines for older adults.",
       "picks": [
         "fitness-coach",
         "coach",
@@ -193,6 +200,7 @@
       "name": "Résumé and job search",
       "emoji": "💼",
       "blurb": "You are looking for work. These bots help with the résumé, the applications, and a practice interview.",
+      "guide": "Résumé and Cover Letter Helper does the whole loop from your real experience, résumé to cover letter to mock interview. Career Agent finds verified openings and prepares the application, and submits nothing without your OK. The Interviewer researches the role, runs a realistic mock interview and scores you after. STAR Interview Coach is for behavioral questions. Headhunter by Jonah is the odd one out, built for the small employer doing the hiring.",
       "picks": [
         "resume-and-cover-letter-helper",
         "career-agent",
@@ -220,6 +228,7 @@
       "name": "Trip planning",
       "emoji": "✈️",
       "blurb": "A trip to plan, from the flight to the days in between. These bots compare options and build a simple itinerary.",
+      "guide": "TripConcierge writes a sourced brief for a destination, flights to day-by-day, and only recommends. Vacation Vicky plans the trip end to end, rental car included. Tammy is the one to open when hidden resort fees and points math are the question. For a road trip, Atlas maps the route with live prices for stays, and Parks adds timed entry and permits for US national parks. RivetRoad Trip Planner is for an RV.",
       "picks": [
         "tripconcierge",
         "vacation-vicky",
@@ -246,6 +255,7 @@
       "name": "Parents and kids",
       "emoji": "👨‍👩‍👧",
       "blurb": "School, sick days, homework, and getting everyone out the door. These bots help a parent with the next thing.",
+      "guide": "Kid Sick Day Helper is for the night you are deciding between watching, calling the pediatrician and the ER. Homework Helper by Kevin gives hints and checks steps without handing over the answer, and Parent Math Helper explains the K-12 math to you first. School Meeting Prep and 504ward by Jonah are both for meetings with the school, the second for an IEP or 504 plan. Child Safety Coach is the phone lockdown.",
       "picks": [
         "kid-sick-day-helper",
         "homework-helper-by-kevin",
@@ -273,6 +283,7 @@
       "name": "Security check",
       "emoji": "🔐",
       "blurb": "You want to know if something is safe. These bots look for weak spots and tell you what to fix first.",
+      "guide": "Security Audit Bot reviews code you own and returns a private report that starts with up to five fixes. Personal Cybersecurity Coach is for your own accounts, phone and Wi-Fi, in six weekend sessions. Vuln Scout posts short digests of public CVE advisories, and CVE Desk ranks which ones to patch. Cyber Checkup by Z23 checks a small business website and email from the outside, once a week.",
       "picks": [
         "security-audit-bot",
         "personal-cybersecurity-coach",
@@ -295,6 +306,7 @@
       "name": "Faith and prayer",
       "emoji": "🙏",
       "blurb": "A verse, a prayer, or a quiet daily habit. These bots sit with scripture and the day in front of you.",
+      "guide": "Christian Devotional Bot sends a daily devotional in your tradition and Bible translation, with a reflection and a prayer. Daily Verse and Psalm each send one verse a morning, Psalm quoted exactly with its reference. KJVBible answers what the King James says on a subject, with book, chapter and verse. Exegesis is for study, with the key Greek and Hebrew words behind a passage. Prayer Care Log keeps a prayer list with check-back dates.",
       "picks": [
         "christian-devotional-bot",
         "daily-verse",
@@ -319,6 +331,7 @@
       "name": "Weather and outages",
       "emoji": "🌤️",
       "blurb": "What to wear, whether to leave, and if the power is out. These bots watch the forecast and local alerts.",
+      "guide": "Forecast Fred is a daily forecast for your US town from the National Weather Service, read by a dry TV weatherman. Weather & Outage Alerts by Kevin adds power outages and safety steps, written for an older adult. Outage Watch says nothing until an official alert or outage hits your area. Commute Cast by Santa covers the morning, what to wear and when to leave. Powder Alert is for ski resorts.",
       "picks": [
         "forecast-fred",
         "weather-and-outage-alerts-by-kevin",
@@ -341,6 +354,7 @@
       "name": "Taxes",
       "emoji": "🧾",
       "blurb": "Forms, write-offs, and the return. These bots help you get the papers in order.",
+      "guide": "Tacks interviews you and prepares a US individual return line by line, federal and state. IRS Bot starts from your W-2s, 1099s, K-1s and brokerage statements and hunts for write-offs. Small Business Bookkeeper and Small Business Books are for the year before the return. One keeps tax worksheets current as receipts come in, the other builds a year-end tax packet from a Google Sheet ledger.",
       "picks": [
         "tacks",
         "irs-bot"
@@ -359,6 +373,7 @@
       "name": "Pet care",
       "emoji": "🐾",
       "blurb": "Food, vet bills, and the daily routine. These bots help you look after the animals in the house.",
+      "guide": "Pet Care Pal builds care sheets for a house with several animals, dogs to reptiles, with allergies, sitter notes and grooming. Vet Bill & Pet Care Buddy reads a vet estimate, invoice, lab sheet or food label from a photo and gives you questions to ask the vet. Pet Care Helper by Kevin is feeding, walk, vet and refill reminders for an older adult.",
       "picks": [
         "pet-care-pal",
         "vet-bill-and-pet-care-buddy"
@@ -376,6 +391,7 @@
       "name": "Refunds and returns",
       "emoji": "📦",
       "blurb": "A package is late, or a warranty said no. These bots help you follow up and ask for the refund.",
+      "guide": "Refund & Delivery Chaser keeps a case file per stuck order and drafts the next message, escalating one stage at a time. Warranty & Returns Keeper reads return deadlines and warranty end dates out of your receipt emails, read-only, and reminds you before they run out. Home Warranty & Appliance Claim Denial Fighter writes the contract-backed appeal when a home warranty says no. Cart Blanche drafts a refund request when a price drops after you buy.",
       "picks": [
         "refund-and-delivery-chaser",
         "warranty-and-returns-keeper",
@@ -395,6 +411,7 @@
       "name": "Bills and budget",
       "emoji": "💰",
       "blurb": "Bills, subscriptions, and what is left before payday. These bots watch the money and help you make the call.",
+      "guide": "Bill Buster looks for overspending on bills, subscriptions, card fees and insurance, then drafts the call script and email to win it back. OweNo takes the debt side, statements first, then ranked payoff plans. Ghost Subscription Hunter finds forgotten subscriptions in receipts or statements and cancels them. Payday Pilot keeps checking above a floor until payday and never pays for you. Bot Budget Guard is not about household money. It keeps a team of Grok Bots inside a weekly usage budget.",
       "picks": [
         "bill-buster",
         "oweno",
@@ -418,6 +435,7 @@
       "name": "Car shopping",
       "emoji": "🚗",
       "blurb": "A car to buy, or a repair quote to check. These bots compare prices and read the fine print with you.",
+      "guide": "Car Shopper finds used cars near you, checks the history, prices them out the door and drafts the haggle script. Car Deal Scout watches listing sites for your model, years and budget. Car Dealership & Mechanic Quote Auditor is for the quote already in your hand, dealer or repair shop, line by line, with a counter-offer script. Tesla Inventory Finder is Tesla only. Grease Monkey Wally and Garage are for the car you already own.",
       "picks": [
         "car-shopper",
         "car-deal-scout",
@@ -440,6 +458,7 @@
       "name": "Home upkeep",
       "emoji": "🏠",
       "blurb": "Filters, leaks, and the list of what the house needs. These bots remember the chores and the repair history.",
+      "guide": "Handyman remembers filter sizes, appliance models and repair history and reminds you when seasonal chores are due. Home Maintenance Tracker adds a warranties log, rough cost ranges and draft notes to a landlord or contractor. Appliance Fix Annie is for the thing that is beeping or leaking right now, with the manual, a safe fix and the right part. Renovation Planner is the only one here for a bathroom, kitchen or attic remodel.",
       "picks": [
         "handyman",
         "home-maintenance-tracker",

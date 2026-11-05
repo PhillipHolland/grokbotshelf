@@ -370,8 +370,17 @@ try {
     const fitGuide = fs.readFileSync(pub("collection", "fitness", "index.html"), "utf8");
     const fitLd = JSON.parse((fitGuide.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/) || [])[1]);
     const words = (fitGuide.match(/<div class="hub-guide">([\s\S]*?)<\/div>/) || ["", ""])[1].replace(/<[^>]+>/g, " ").trim().split(/\s+/).filter(Boolean).length;
+    const { GUIDE_MIN, GUIDE_MAX } = require(path.join(TMP, "scripts", "hub-copy"));
     ok(catHtml.includes("<h1>Bot Tools</h1>") && catHtml.includes('aria-label="Breadcrumb"') && /\/og\/category\/bot-tools\.png/.test(catHtml) && list.numberOfItems > 0 && list.category === "Bot Tools" && list.itemListElement.length === list.numberOfItems, `category hub lists Bot Tools (${list && list.numberOfItems})`);
-    ok(fitGuide.includes('"@type":"FAQPage"') && fitLd["@graph"].some((x) => x["@type"] === "FAQPage" && x.mainEntity.length === 3) && words >= 80 && words <= 150 && fitGuide.includes('href="/category/'), `job hub guide is ${words} words, with FAQPage and a category link`);
+    ok(fitGuide.includes('"@type":"FAQPage"') && fitLd["@graph"].some((x) => x["@type"] === "FAQPage" && x.mainEntity.length === 3) && words >= GUIDE_MIN && words <= GUIDE_MAX && fitGuide.includes('href="/category/'), `job hub guide is ${words} words (${GUIDE_MIN}–${GUIDE_MAX}), with FAQPage and a category link`);
+    // Picks before prose: the Start here list comes before the guide, and the guide before More like this (round 9, B1).
+    const at = (s) => fitGuide.indexOf(s);
+    ok(at('id="start-h"') > 0 && at('id="start-h"') < at('class="hub-guide"') && at('class="hub-guide"') < at('id="more-h"'), "job hub: Start here, then the guide, then More like this");
+    const fitJson = jobFile.collections.find((c) => c.slug === "fitness");
+    ok(fitJson && fitJson.guide && !fitGuide.includes("not a pile of lookalikes") && fitGuide.includes(fitJson.guide.split(". ")[0]), "job hub guide is the hand-written copy from collections.json, not the old template");
+    const stacksHtml = fs.readFileSync(pub("stacks", "index.html"), "utf8");
+    const firstStack = stacksHtml.indexOf('class="stack-steps"'), firstGuide = stacksHtml.indexOf('class="hub-guide"');
+    ok(firstStack > 0 && firstStack < firstGuide && stacksHtml.indexOf('class="stack-index"') < firstGuide, "stacks: each stack's steps come before its guide, and the index guide sits under the list");
     ok(fs.readFileSync(path.join(ROOT, "vercel.json"), "utf8").includes('"trailingSlash": false'), "trailingSlash false sends /bot/slug/ to /bot/slug");
     // round 8: a category meta description is whole sentences within 155 characters (they used to clip mid-sentence with "...")
     const catMetas = fs.readdirSync(pub("category")).filter((d) => fs.existsSync(pub("category", d, "index.html")) && d !== "index.html")
