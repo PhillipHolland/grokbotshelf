@@ -8680,12 +8680,14 @@
   },
   "form-747": {
     "date": "2026-11-04",
-    "status": "pending",
+    "status": "added",
     "bot": "Revenue Conductor by Igor",
     "template_url": "https://x.ai/bot/lEXSEF7RBIr8fHjFKEJQa",
     "author": "@holt_igor",
     "author_handle": "@holt_igor",
     "url": null,
-    "note": "site form #747; template 200; not on shelf; no name clash; money-adjacent (settlement, spends only with owner YES) so flagged; proposed to Phil Nov 4 7PM run"
+    "note": "site form #747; template 200; not on shelf; no name clash; money-adjacent (settlement, spends only with owner YES) so flagged; proposed to Phil Nov 4 7PM run; added 2026-11-05 (catalog #1010)",
+    "added": "2026-11-05",
+    "approved_by": "Phillip Holland (approved 2026-11-05)"
   }
 }
