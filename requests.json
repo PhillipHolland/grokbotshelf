@@ -8733,5 +8733,15 @@
     "status": "skipped",
     "date": "2026-11-05",
     "note": "bookmark/quote of @colindotj job-search bot; not a shelf add ask, no Phil/Nick tag"
+  },
+  "form-748": {
+    "date": "2026-11-05",
+    "status": "pending",
+    "bot": "Google Ads Manager by Dan",
+    "template_url": "https://x.ai/bot/EuApBJ4lniTVv-BAth0ru",
+    "author": "@AdPlugMCP",
+    "author_handle": "@AdPlugMCP",
+    "url": null,
+    "note": "site form #748; template 200; flagged: manages ad spend via third-party AdPlug connector; proposed to Phil Nov 5"
   }
 }
