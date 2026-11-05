@@ -5,13 +5,15 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   const b = await puppeteer.launch({ executablePath: process.env.CHROME || '/usr/bin/google-chrome', headless: 'new', args: ['--no-sandbox'] });
   const p = await (await b.createBrowserContext()).newPage();
   await p.setViewport({ width: 390, height: 844, deviceScaleFactor: 3, isMobile: true });
+  // A saved dark choice on a system-light phone: the page must paint dark edge to edge (the OS only decides when nothing is saved)
   await p.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'light' }]);
+  await p.evaluateOnNewDocument(() => { try { localStorage.setItem('theme', 'dark'); } catch (e) {} });
   const s = () => p.evaluate(() => ({ html: getComputedStyle(document.documentElement).backgroundColor, body: getComputedStyle(document.body).backgroundColor,
     rootScheme: getComputedStyle(document.documentElement).colorScheme, metas: [...document.querySelectorAll('meta[name="theme-color"]')].map(m => m.content + (m.media ? ' @' + m.media : '')),
     topEl: (() => { const e = document.elementFromPoint(5, 1); return e.tagName + '.' + e.className + ' ' + getComputedStyle(e).backgroundColor; })() }));
   await p.goto(BASE + '?c=' + Date.now(), { waitUntil: 'networkidle0' });
   let d = await s();
-  ok(d.html === 'rgb(0, 0, 0)' && d.body === 'rgb(0, 0, 0)' && d.rootScheme === 'dark' && d.metas.join() === '#000000', 'dark (system light): ' + JSON.stringify(d));
+  ok(d.html === 'rgb(0, 0, 0)' && d.body === 'rgb(0, 0, 0)' && d.rootScheme === 'dark' && d.metas.join() === '#000000', 'saved dark on a system-light phone: ' + JSON.stringify(d));
   await p.evaluate(() => window.scrollTo(0, 600)); await new Promise(r => setTimeout(r, 200));
   ok(!/255, 255, 255/.test((await s()).topEl), 'element at top when scrolled is not white: ' + (await s()).topEl);
   await p.evaluate(() => window.scrollTo(0, 0));

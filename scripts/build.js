@@ -472,7 +472,12 @@ document.addEventListener("pointerleave",function(e){if(e.target&&e.target.match
 document.addEventListener("touchstart",function(e){go(link(e))},{passive:true,capture:true})})()`;
 const BADGE = { light: `${SITE}/badge.svg`, dark: `${SITE}/badge-dark.svg` };
 const MOBILE_JS = `(function(){var m=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(m)document.documentElement.classList.add("mobile")})()`;
-const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}t=t==="light"?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
+// Theme before first paint: the saved toggle wins; with no saved choice the page follows the OS (prefers-color-scheme).
+// index.html and 404.html carry the same script inline; the check below fails the build if they drift.
+const THEME_JS = `(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";document.documentElement.setAttribute("data-theme",t);if(t==="light"){document.querySelector('meta[name="theme-color"]').content="#ffffff";document.querySelector('meta[name="color-scheme"]').content="light"}})()`;
+for (const page of ["index.html", "404.html"]) {
+  if (!fs.readFileSync(path.join(PUB, page), "utf8").includes(THEME_JS)) throw new Error(`public/${page}: inline theme script is out of step with THEME_JS in scripts/build.js`);
+}
 
 // Up/down vote pill on bot pages. public/bot-page.js loads the tally and posts to /api/votes (same cookie as the homepage).
 const SVG = (name) => `<svg viewBox="0 0 24 24" aria-hidden="true">${PATHS[name]}</svg>`;

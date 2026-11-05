@@ -95,7 +95,8 @@
   } catch (err) { if (window.console) console.error("shelf-up:", err); }
 })();
 // Bot, creator and 404 pages: the same light/dark toggle as the home page (the home page wires its own in app.js).
-// The inline head script already applied the saved theme; this keeps the button, theme-color and storage in step.
+// The inline head script already applied the saved theme, or the OS scheme when nothing was saved; this keeps the
+// button, theme-color and storage in step, and follows an OS change until the first toggle.
 (function () {
   try {
     var b = document.getElementById("theme"), root = document.documentElement;
@@ -108,6 +109,11 @@
       b.setAttribute("aria-pressed", String(t === "dark"));
     }
     apply(root.getAttribute("data-theme") === "light" ? "light" : "dark");
+    var osLight = window.matchMedia && matchMedia("(prefers-color-scheme: light)");
+    if (osLight && osLight.addEventListener) osLight.addEventListener("change", function (e) {
+      var saved; try { saved = localStorage.getItem("theme"); } catch (x) {}
+      if (saved !== "light" && saved !== "dark") apply(e.matches ? "light" : "dark");
+    });
     b.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
       root.classList.add("theme-switching"); apply(next); getComputedStyle(root).color;
