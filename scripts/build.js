@@ -189,7 +189,7 @@ const docTitle = (b) => {
 const catSlug = (name) => slugify(name);
 const catPath = (name) => `/category/${catSlug(name)}`;
 const handleCount = (list) => new Set(list.map((b) => (b.creator_handle ? handleOf(b).toLowerCase() : "")).filter(Boolean)).size;
-const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}/og.png?v=3`;
+const ogFile = (dir, name) => fs.existsSync(path.join(PUB, "og", dir, name + ".png")) ? SITE + versioned(`/og/${dir}/${name}.png`) : `${SITE}${versioned("/og.png")}`;
 const ogImg = (b) => ogFile("bot", b.slug);
 
 // Similar bots: same category, shared works_with apps, and shared description words weighted by rarity.
