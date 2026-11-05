@@ -704,6 +704,7 @@ function writeJob(rel, html) {
   fs.mkdirSync(path.dirname(f), { recursive: true });
   fs.writeFileSync(f, html);
 }
+// Hub copy sits under the list it describes (picks first on a phone), so it is plain paragraphs, no heading.
 function guideHtml(text) {
   return `<div class="hub-guide">${paragraphs(text).map((p) => `<p>${esc(p)}</p>`).join("")}</div>`;
 }
@@ -785,9 +786,9 @@ ${jobHeader(true)}
   <article class="bp-card page-intro">
     <h1>Find a bot by the job</h1>
     <p class="job-lead">${esc(desc)}</p>
-    ${guideHtml(guide)}
   </article>
   <ul class="job-index">${jobCollections.map((c) => `<li><a class="job-card" href="/collection/${esc(c.slug)}"><span class="icon" aria-hidden="true">${hubGlyph(c)}</span><span><h2>${esc(c.name)}</h2><small>${esc(c.blurb)}</small><small>${c.members.length} bots</small></span></a></li>`).join("")}</ul>
+  ${guideHtml(guide)}
   ${faqHtml(faqs)}
   ${chipNav("Categories", [catLinks])}
 </main>
@@ -822,12 +823,12 @@ ${jobHeader(false)}
       <h1>${esc(c.name)}</h1>
       <p class="sub"><a href="/collections">Find by job</a><span class="dot" aria-hidden="true">·</span><span>${n} ${n === 1 ? "bot" : "bots"}</span></p>
     </div></div>
-    ${guideHtml(guide)}
   </article>
   <section class="job-picks" aria-labelledby="start-h">
     <h2 id="start-h">Start here</h2>
     <ul class="job-bots">${c.start.map(jobBot).join("")}</ul>
   </section>
+  ${guideHtml(guide)}
   ${alts}
   ${faqHtml(faqs)}
   ${chipNav("Categories in this job", catLinks)}
@@ -1057,9 +1058,9 @@ const stacks = loadStacks(read("stacks.json", null), items);
       <h2>${esc(s.title)}</h2>
       <p class="stack-meta">${s.members.length} bots, in order${cats ? ` · ${cats}` : ""}</p>
     </div></div>
-    ${guideHtml(stackGuide(s))}
     <ol class="stack-steps">${s.members.map((b, i) => `<li><a href="${b.page}"><span class="sn">${i + 1}</span><span class="st"><span class="nm">${markSpan(b.emoji)}${esc(b.name)}</span><small>${esc(b.description)}</small></span></a></li>`).join("")}</ol>
   </article></li>`;
+    ${guideHtml(stackGuide(s))}
   }).join("");
   writeJob("stacks/index.html", `${head({ title: "Shelf stacks · Grok Bot Shelf", desc, url, img: stackOg.get(stacks[0].slug), ogTitle: "Shelf stacks", alt: "Ordered install stacks on Grok Bot Shelf", creator: "@Phil_Holland", ld })}
 <body class="botpage stackspage">
@@ -1069,10 +1070,10 @@ ${siteHeader({ job: `<a href="/collections">Find by job</a><span aria-hidden="tr
   <article class="bp-card page-intro">
     <h1>Shelf stacks</h1>
     <p class="job-lead">${esc(desc)}</p>
-    ${guideHtml(guide)}
   </article>
   <ol class="stack-index">${cards}</ol>
   ${faqHtml(faqs)}
+  ${guideHtml(guide)}
 </main>
 ${footer()}
 </body>
