@@ -24,8 +24,10 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
     });
     return p;
   }
-  // Every card on the page, in order, with its markup (minus transient classes)
-  const snap = (p) => p.evaluate(() => [...document.querySelectorAll('#results .card')].map((c) => [c.id, c.outerHTML.replace(/ class="card[^"]*"/, '')]));
+  // Every card on the page, in order, with its markup (minus transient classes, and minus the inline
+  // contain-intrinsic-size app.js writes on a card once it has rendered: that is the browser's layout memory
+  // for a skipped card, not content, and a fresh load has not rendered the same cards yet)
+  const snap = (p) => p.evaluate(() => [...document.querySelectorAll('#results .card')].map((c) => [c.id, c.outerHTML.replace(/ class="card[^"]*"/, '').replace(/ style="contain-intrinsic-size:[^"]*"/, '')]));
   // Tag every current card node so a later check can tell reused nodes from rebuilt ones
   const tag = (p, k) => p.evaluate((k) => { window[k] = new Map([...document.querySelectorAll('#results .card')].map((c) => [c.id, c])); return window[k].size; }, k);
   const same = (p, k) => p.evaluate((k) => { let s = 0, n = 0; for (const c of document.querySelectorAll('#results .card')) { const o = window[k].get(c.id); if (o) { n++; if (o === c) s++; } } return [s, n]; }, k);
