@@ -13121,5 +13121,18 @@
     "creator_avatar": "/avatars/holt_igor.webp",
     "source_post": "",
     "added": "2026-11-05"
+  },
+  {
+    "name": "Google Ads Manager",
+    "emoji": "📊",
+    "description": "Runs Google Ads through AdPlug's hosted Google Ads connector: audits, search terms and negatives, Search builds, reports and weekly checks. It recommends and waits, and changes nothing without your yes.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/EuApBJ4lniTVv-BAth0ru",
+    "creator_name": "Dan",
+    "creator_handle": "@AdPlugMCP",
+    "creator_url": "https://x.com/AdPlugMCP",
+    "creator_avatar": "/avatars/AdPlugMCP.webp",
+    "source_post": "",
+    "added": "2026-11-05"
   }
 ]

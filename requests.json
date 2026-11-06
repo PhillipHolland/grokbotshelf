@@ -8736,12 +8736,77 @@
   },
   "form-748": {
     "date": "2026-11-05",
-    "status": "pending",
+    "status": "added",
     "bot": "Google Ads Manager by Dan",
     "template_url": "https://x.ai/bot/EuApBJ4lniTVv-BAth0ru",
     "author": "@AdPlugMCP",
     "author_handle": "@AdPlugMCP",
     "url": null,
-    "note": "site form #748; template 200; flagged: manages ad spend via third-party AdPlug connector; proposed to Phil Nov 5"
+    "note": "site form #748; template 200; flagged: manages ad spend via third-party AdPlug connector; proposed to Phil Nov 5; added 2026-11-05 (catalog #1011)",
+    "added": "2026-11-05",
+    "approved_by": "Phillip Holland (approved 2026-11-05)"
+  },
+  "x-2118373180868026721": {
+    "post_id": "2118373180868026721",
+    "author_handle": "@WeddingOS",
+    "template_url": "",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/WeddingOS/status/2118373180868026721",
+    "note": "thank-you for already-shelved Wedding OS; not a new add ask"
+  },
+  "x-2118370975272374713": {
+    "post_id": "2118370975272374713",
+    "author_handle": "@GetMixtapeMaker",
+    "template_url": "",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/GetMixtapeMaker/status/2118370975272374713",
+    "note": "thank-you for already-shelved Mixtape Maker; not a new add ask"
+  },
+  "x-2118473940901466276": {
+    "post_id": "2118473940901466276",
+    "author_handle": "@AkioT315",
+    "template_url": "https://x.ai/bot/4Vl9A87B_pWPLcxeHsCKe",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/AkioT315/status/2118473940901466276",
+    "note": "announces bot already on shelf; not a new add ask (no Phil/Nick add request)"
+  },
+  "x-2117782275597410337": {
+    "post_id": "2117782275597410337",
+    "author_handle": "@beastnug8",
+    "template_url": "https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3",
+    "status": "already_on_shelf",
+    "date": "2026-11-05",
+    "url": "https://x.com/beastnug8/status/2117782275597410337",
+    "note": "X Algorithm Watch template for grokbotshelf; already live on shelf"
+  },
+  "x-2117782315661423010": {
+    "post_id": "2117782315661423010",
+    "author_handle": "@HowieMcMahan",
+    "template_url": "https://x.ai/bot/rxWL-XVViISTtji33W8cv",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/HowieMcMahan/status/2117782315661423010",
+    "note": "reply recommending Chart Signals; no Phil/Nick shelf-add ask"
+  },
+  "x-2117776361444045082": {
+    "post_id": "2117776361444045082",
+    "author_handle": "@CoachFerg25",
+    "template_url": "https://x.ai/bot/aba6Zfq3H8dXyxOwTt4Of",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/CoachFerg25/status/2117776361444045082",
+    "note": "Shelf Help promo; no Phil/Nick tag, not a shelf add ask"
+  },
+  "x-2118034763789238496": {
+    "post_id": "2118034763789238496",
+    "author_handle": "@AmericanGraceUS",
+    "template_url": "",
+    "status": "skipped",
+    "date": "2026-11-05",
+    "url": "https://x.com/AmericanGraceUS/status/2118034763789238496",
+    "note": "congrats on 1000 bots; not a new add ask"
   }
 }

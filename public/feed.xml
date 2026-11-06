@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 05 Nov 2026 16:09:24 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 03:45:15 GMT</lastBuildDate>
+  <item>
+    <title>📊 Google Ads Manager by Dan</title>
+    <link>https://grokbotshelf.com/bot/google-ads-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/EuApBJ4lniTVv-BAth0ru</guid>
+    <description>Runs Google Ads through AdPlug&apos;s hosted Google Ads connector: audits, search terms and negatives, Search builds, reports and weekly checks. It recommends and waits, and changes nothing without your yes.</description>
+    <dc:creator>Dan (@AdPlugMCP)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Thu, 05 Nov 2026 12:00:10 GMT</pubDate>
+  </item>
   <item>
     <title>📈 Revenue Conductor by Igor</title>
     <link>https://grokbotshelf.com/bot/revenue-conductor</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 02 Nov 2026 12:16:01 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌙 Bedtime Routine Builder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/bedtime-routine-builder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/wdX5jvYVioJTtfrSZlf0C</guid>
-    <description>Builds calm, age-based bedtime routines with a picture-style checklist and tips for kids who stall. For parents who want smoother nights.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:00 GMT</pubDate>
   </item>
 </channel>
 </rss>
