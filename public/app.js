@@ -646,6 +646,16 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   const tpl = document.createElement("template");
   const nodes = (html) => { tpl.innerHTML = html; return [...tpl.content.children]; };
   const cardCache = new Map(), groupCache = new Map();
+  // Chrome forgets a skipped card's last rendered size once its group leaves the DOM (a filter that drops the creator),
+  // so the card comes back at the 200px estimate from styles.css and jumps to its real height when scrolled to, moving
+  // every group under it. Keep each card's real height on the card as its own intrinsic size, so a re-attached card is
+  // laid out at the size it had. Browsers without the event keep the stylesheet estimate.
+  results.addEventListener("contentvisibilityautostatechange", (e) => {
+    const el = e.target;
+    if (e.skipped || !el.classList || !el.classList.contains("card")) return;
+    const cs = getComputedStyle(el), h = el.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    if (h > 0) el.style.containIntrinsicSize = `auto ${Math.round(h)}px`;
+  }, true);
   function reuse(el) {
     el.classList.remove("active", "flash");
     const v = el.querySelector(".vote"); if (v) paintVoteEl(v);
