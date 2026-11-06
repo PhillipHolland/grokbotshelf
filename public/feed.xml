@@ -6,7 +6,97 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 06 Nov 2026 17:18:04 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 21:17:22 GMT</lastBuildDate>
+  <item>
+    <title>🎨 ChatGPT Artist by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/chatgpt-artist</link>
+    <guid isPermaLink="false">https://x.ai/bot/Va-ieVGq0jUMCY-SVoTsT</guid>
+    <description>Guided art bot for ChatGPT image gen: writes prompts, remembers your styles, optional Codex Cloud. Runs on your account.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Design</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>💻 Claude Code by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/claude-code</link>
+    <guid isPermaLink="false">https://x.ai/bot/lX0Wfh-zyOnNFGKgwTGxN</guid>
+    <description>Runs the Claude Code CLI on its own computer with your Claude plan or API key and GitHub. Never pushes or merges without approval.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛒 Botify by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/botify</link>
+    <guid isPermaLink="false">https://x.ai/bot/d8u4VV60Ni6rtbA7H9pAE</guid>
+    <description>Migrates Shopify to self-hosted headless WooCommerce, then runs products and orders by chat.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>📂 Gmail to Drive Archiver by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/gmail-to-drive-archiver</link>
+    <guid isPermaLink="false">https://x.ai/bot/5wT0W9m-WHd6jNnH9GADM</guid>
+    <description>Saves big Gmail messages to Drive as a Doc plus attachments filed by sender. Tests first; never trashes without your yes.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>📬 Multi Gmail by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/multi-gmail</link>
+    <guid isPermaLink="false">https://x.ai/bot/UQzfeiSuWrVxAXnR4b6jP</guid>
+    <description>Connects all your Gmail inboxes so any bot can search them in one go. Self-hosted on your Vercel, read-only by default.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎞️ Flow Film Maker by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/flow-film-maker</link>
+    <guid isPermaLink="false">https://x.ai/bot/EaBu_d_aTVqQffsAheeMC</guid>
+    <description>Makes short vertical AI films in Google Flow on your account with your characters, scenes, and narration. You pick every frame.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎵 ASCII Music Video Maker by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/ascii-music-video-maker</link>
+    <guid isPermaLink="false">https://x.ai/bot/LZvkVXrXzJgJz2PsPZdqW</guid>
+    <description>Upload a song and get a beat-synced ASCII-art music video shaped by your lyrics.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧾 Receipt Ledger by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/receipt-ledger</link>
+    <guid isPermaLink="false">https://x.ai/bot/W7aHTGtfZ0kNlZVGFXYLH</guid>
+    <description>Connects email and Google Sheets to log receipts into a spending ledger, scans daily, and sends a Monday summary.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Money</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:21 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎲 D&amp;D Character Creator by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/d-and-d-character-creator</link>
+    <guid isPermaLink="false">https://x.ai/bot/svnYE1H2_kJiAdU5OBbyw</guid>
+    <description>Table-style D&amp;D character creation with visible dice rolls, cited rules, appearance-driven portraits, and a shareable character packet.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:20 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚀 Spaceship Hosting by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/spaceship-hosting</link>
+    <guid isPermaLink="false">https://x.ai/bot/-pvtsS-vNtsCnB7qfALq5</guid>
+    <description>Manage Spaceship.com domains, DNS, renewals, Hyperlift apps, and shared hosting by chat. Every change needs your yes.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:19 GMT</pubDate>
+  </item>
   <item>
     <title>📶 Feature Ranker by Jonah Anthony</title>
     <link>https://grokbotshelf.com/bot/feature-ranker</link>
@@ -366,96 +456,6 @@
     <dc:creator>Mark (@TheMarkGShow)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:16:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔗 Backlink Specialist by John Boyle</title>
-    <link>https://grokbotshelf.com/bot/backlink-specialist</link>
-    <guid isPermaLink="false">https://x.ai/bot/WDewD77F7LbUhoRElmbyK</guid>
-    <description>Finds natural backlink opportunities for your site, writes personalized outreach as Gmail drafts for you to send, logs every prospect in a Google Sheet, and drafts one follow-up. It never sends email.</description>
-    <dc:creator>John Boyle (@johnboyle)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗺️ Fern · Cartographer of the Wilds by HandsomeHank</title>
-    <link>https://grokbotshelf.com/bot/fern-cartographer-of-the-wilds</link>
-    <guid isPermaLink="false">https://x.ai/bot/EOWNaMkt5FZ57oLCLQjT2</guid>
-    <description>A creative lead for builders of worlds: lore, mood boards, concept art, shot-by-shot videos, and build prompts for Cursor cloud agents.</description>
-    <dc:creator>HandsomeHank (@HandsomeHank_)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕵️ Scam Check for X by Brett</title>
-    <link>https://grokbotshelf.com/bot/scam-check-for-x</link>
-    <guid isPermaLink="false">https://x.ai/bot/s0IwjnUv7BX_bI8Q4UR2j</guid>
-    <description>Paste any X post link and get a plain verdict on whether it&apos;s a scam, engagement bait, or legit, with the red flags spelled out.</description>
-    <dc:creator>Brett (@brflux)</dc:creator>
-    <category>Security</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎞️ Convert Bot by Brett</title>
-    <link>https://grokbotshelf.com/bot/convert-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/O77giEZSfcdxq30tfFFM1</guid>
-    <description>Converts video and audio to other formats, reframes clips to vertical or square for social, trims, compresses, and pulls out audio.</description>
-    <dc:creator>Brett (@brflux)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎛️ Switchboard by Terry</title>
-    <link>https://grokbotshelf.com/bot/switchboard</link>
-    <guid isPermaLink="false">https://x.ai/bot/v6ciPTT0-3DeyOSkDyzJR</guid>
-    <description>One free, always-on message board for all your AI agents: mention @Claude, @Cursor or any Grok Bot and that agent answers.</description>
-    <dc:creator>Terry (@Tchap248)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>⌨️ cline by Alberto Jauregui</title>
-    <link>https://grokbotshelf.com/bot/cline</link>
-    <guid isPermaLink="false">https://x.ai/bot/gL7FcTFcs1SHMCD3pozTM</guid>
-    <description>A Cline specialist that installs and drives Cline CLI and Cline Desktop, so you can hand it coding or other tasks and get verified results.</description>
-    <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔊 Echo · Audience &amp; Voice by Patrick</title>
-    <link>https://grokbotshelf.com/bot/echo-audience-and-voice-by-patrick</link>
-    <guid isPermaLink="false">https://x.ai/bot/2ZbjxQAxHPOBnKO94a0YL</guid>
-    <description>Reads your X history and stats to show who&apos;s really listening, what topics and formats land, and how you sound at your best, all on one living Page. It can also lightly polish posts you wrote so they still sound like you.</description>
-    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗓️ Family Logistics by Patrick</title>
-    <link>https://grokbotshelf.com/bot/family-logistics-by-patrick</link>
-    <guid isPermaLink="false">https://x.ai/bot/3bxkmX3cFCcu5-ZpuDSc3</guid>
-    <description>Keeps track of your kids&apos; school notices, activities, and games, keeps the family calendar right, and briefs you the evening before each event.</description>
-    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>📈 Gauge · X Payout Tracker by Patrick</title>
-    <link>https://grokbotshelf.com/bot/gauge-x-payout-tracker-by-patrick</link>
-    <guid isPermaLink="false">https://x.ai/bot/2N6kxsfRQlP_gEqvYhxIM</guid>
-    <description>A read-only analyst that tracks one X account&apos;s progress toward the creator-payout minimums every day: verified followers and verified impressions on original posts. It also reports which posts and replies drove growth and what to do more or less of.</description>
-    <dc:creator>Patrick (@JourneyDeck)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎂 Kids&apos; Birthday Party Planner by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/kids-birthday-party-planner-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/luN4xMj_HvJRsrrkSFVs0</guid>
-    <description>Plans kids&apos; birthday parties: theme, guest list, budget, timeline, games and goodie bags. For any parent hosting a party.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:09 GMT</pubDate>
   </item>
 </channel>
 </rss>
