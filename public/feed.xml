@@ -6,7 +6,79 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 06 Nov 2026 08:17:45 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 06 Nov 2026 17:18:04 GMT</lastBuildDate>
+  <item>
+    <title>📶 Feature Ranker by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/feature-ranker</link>
+    <guid isPermaLink="false">https://x.ai/bot/Z9P_YTZh-DGTxkm4JrLho</guid>
+    <description>Turns feature requests from Slack, call notes, and support tickets into one ranked demand list for a product team.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🕵️ Rival Sweep by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/rival-sweep</link>
+    <guid isPermaLink="false">https://x.ai/bot/0IzcVGP4FtY9zVuOf9ECC</guid>
+    <description>Watches named competitors and reports launches, pricing, and messaging changes, with a source for every item.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:17 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎫 Ticket Desk by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/ticket-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/N9wmmZ-EYncLJDllPUyZz</guid>
+    <description>Sorts a small team support queue and drafts replies for a human to review and send. Never sends, refunds, or edits tickets on its own.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Rep Film by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/rep-film</link>
+    <guid isPermaLink="false">https://x.ai/bot/QsxNl31chLrZVXMBcfdpg</guid>
+    <description>Turns a sales call recording or transcript into timestamped coaching notes a rep can act on next call.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>⚖️ Funnel Judge by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/funnel-judge</link>
+    <guid isPermaLink="false">https://x.ai/bot/rr145N1wHkg0WDdI2jcRO</guid>
+    <description>Clicks through a landing page like a first-time buyer and scores what helps or blocks the sale, with fixes ranked by impact.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔑 Apt Hunt by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/apt-hunt</link>
+    <guid isPermaLink="false">https://x.ai/bot/bP7MAaVMcYE0mRAEB2ZL8</guid>
+    <description>Helps a renter find a fitting apartment: filter listings, compare options, and line up tours they pick.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Home</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:13 GMT</pubDate>
+  </item>
+  <item>
+    <title>📋 QBR Desk by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/qbr-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/pqt4FsnuqbKjYIB0ijTn5</guid>
+    <description>Keeps a customer account health watch list and builds a QBR prep pack before each business review.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎯 Spend Sniper by Jonah Anthony</title>
+    <link>https://grokbotshelf.com/bot/spend-sniper</link>
+    <guid isPermaLink="false">https://x.ai/bot/h-pgCvgC_rqX0rTkktpFe</guid>
+    <description>Audits paid ad accounts for wasted spend and ranks recommended changes. Read-only: never changes bids, budgets, or campaigns.</description>
+    <dc:creator>Jonah Anthony (@ALL_Jonah)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:11 GMT</pubDate>
+  </item>
   <item>
     <title>📊 Google Ads Manager by Dan</title>
     <link>https://grokbotshelf.com/bot/google-ads-manager</link>
@@ -384,78 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Mon, 02 Nov 2026 12:16:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>💬 Tough Talks Guide by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/tough-talks-guide-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/OmO3CTbMKXwEjf8-CsJjg</guid>
-    <description>Helps parents find age-appropriate words for hard topics like divorce, a death in the family, moving, or body safety. Not therapy, and no personal data needed.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>📄 Babysitter Handoff Sheet by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/babysitter-handoff-sheet-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/Zw0iNuWVT6geq5Y0yw5I1</guid>
-    <description>Writes a one-page sitter guide with routines, allergies, house rules, and emergency steps, filled in by the parent.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎒 School Morning Launcher by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/school-morning-launcher-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/wzntwaPjElXHt1gpuJZGd</guid>
-    <description>Gets kids out the door on time with a night-before checklist, a morning timeline, and packing lists. For any parent juggling school mornings.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Sibling Peacemaker by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/sibling-peacemaker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/EVpdEsK65UDSLosfm-nKD</guid>
-    <description>Helps parents step into sibling fights fairly, set up turn-taking systems, and help kids make up afterward.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚽 Potty Training Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/potty-training-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/sW-PgV6cP58CPwb7uI5zB</guid>
-    <description>Helps parents potty train their toddler: readiness check, a step-by-step plan, a reward chart, and calm help with setbacks.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🫂 Big Feelings Coach by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/big-feelings-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/FVf1ZEHebCd4Hk84YYKbr</guid>
-    <description>Helps parents through tantrums, meltdowns and worries with short in-the-moment scripts and age-matched calming tools. Not therapy, no personal data needed.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥦 Picky Eater Helper by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/picky-eater-helper-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/sMUSA5hUoMTVv5fLl9HRS</guid>
-    <description>Helps parents of picky eaters with easy meal ideas, low-pressure ways to try new foods, and a simple tracker of what worked. Not medical advice.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Food</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>📺 Screen Time Planner by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/screen-time-planner-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/GZuFqq4IS4ViWB6skLEO6</guid>
-    <description>Builds a family media plan with daily screen limits, tech-free zones, and a kid-friendly agreement. For parents who want calmer, fairer screen rules.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:01 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -6859,6 +6859,114 @@
       "url": "https://x.com/GetMixtapeMaker/status/2118370864458518571",
       "note": "thank-you post, no new template",
       "date": "2026-11-05"
+    },
+    "form-756": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Spend Sniper",
+      "template_url": "https://x.ai/bot/h-pgCvgC_rqX0rTkktpFe",
+      "url": "https://grokbotshelf.com/bot/spend-sniper",
+      "note": "site form #756; flag: audits paid ad spend (read-only, never changes bids); template 200; added 2026-11-06 (catalog #1012)",
+      "date": "2026-11-06",
+      "description": "Audits paid ad accounts for wasted spend and ranks recommended changes. Read-only: never changes bids, budgets, or campaigns.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-755": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "QBR Desk",
+      "template_url": "https://x.ai/bot/pqt4FsnuqbKjYIB0ijTn5",
+      "url": "https://grokbotshelf.com/bot/qbr-desk",
+      "note": "site form #755; template 200; added 2026-11-06 (catalog #1013)",
+      "date": "2026-11-06",
+      "description": "Keeps a customer account health watch list and builds a QBR prep pack before each business review.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-754": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Apt Hunt",
+      "template_url": "https://x.ai/bot/bP7MAaVMcYE0mRAEB2ZL8",
+      "url": "https://grokbotshelf.com/bot/apt-hunt",
+      "note": "site form #754; template 200; added 2026-11-06 (catalog #1014)",
+      "date": "2026-11-06",
+      "description": "Helps a renter find a fitting apartment: filter listings, compare options, and line up tours they pick.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-753": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Funnel Judge",
+      "template_url": "https://x.ai/bot/rr145N1wHkg0WDdI2jcRO",
+      "url": "https://grokbotshelf.com/bot/funnel-judge",
+      "note": "site form #753; template 200; added 2026-11-06 (catalog #1015)",
+      "date": "2026-11-06",
+      "description": "Clicks through a landing page like a first-time buyer and scores what helps or blocks the sale, with fixes ranked by impact.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-752": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Rep Film",
+      "template_url": "https://x.ai/bot/QsxNl31chLrZVXMBcfdpg",
+      "url": "https://grokbotshelf.com/bot/rep-film",
+      "note": "site form #752; template 200; added 2026-11-06 (catalog #1016)",
+      "date": "2026-11-06",
+      "description": "Turns a sales call recording or transcript into timestamped coaching notes a rep can act on next call.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-751": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Ticket Desk",
+      "template_url": "https://x.ai/bot/N9wmmZ-EYncLJDllPUyZz",
+      "url": "https://grokbotshelf.com/bot/ticket-desk",
+      "note": "site form #751; template 200; added 2026-11-06 (catalog #1017)",
+      "date": "2026-11-06",
+      "description": "Sorts a small team support queue and drafts replies for a human to review and send. Never sends, refunds, or edits tickets on its own.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-750": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Rival Sweep",
+      "template_url": "https://x.ai/bot/0IzcVGP4FtY9zVuOf9ECC",
+      "url": "https://grokbotshelf.com/bot/rival-sweep",
+      "note": "site form #750; template 200; added 2026-11-06 (catalog #1018)",
+      "date": "2026-11-06",
+      "description": "Watches named competitors and reports launches, pricing, and messaging changes, with a source for every item.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-749": {
+      "status": "added",
+      "author_handle": "@ALL_Jonah",
+      "bot": "Feature Ranker",
+      "template_url": "https://x.ai/bot/Z9P_YTZh-DGTxkm4JrLho",
+      "url": "https://grokbotshelf.com/bot/feature-ranker",
+      "note": "site form #749; template 200; added 2026-11-06 (catalog #1019)",
+      "date": "2026-11-06",
+      "description": "Turns feature requests from Slack, call notes, and support tickets into one ranked demand list for a product team.",
+      "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "form-744": {
+      "status": "denied",
+      "author_handle": "@ryantyre",
+      "bot": "Appy Meal",
+      "template_url": "https://x.ai/bot/SOjmsXdLcPEBu-ctQ-kZC",
+      "url": "",
+      "note": "denied 2026-11-04: Phil dismissed shelf approve card (unselected = deny); do not re-propose",
+      "date": "2026-11-04",
+      "description": "Builds a private web app to replace one paid app you already use, or combine the 2-3 you juggle into one."
+    },
+    "x-2118584163972645287": {
+      "post_id": "2118584163972645287",
+      "author_handle": "@CaliLumberJack",
+      "bot": "Postwright",
+      "template_url": "https://x.ai/bot/h-oDlchOpuh6GYjGgK6oV",
+      "status": "already_on_shelf",
+      "date": "2026-11-06",
+      "url": "https://x.com/CaliLumberJack/status/2118584163972645287",
+      "note": "promo tag of already-shelved Postwright (added 2026-10-25); not a new add ask"
     }
   },
   "x-2114766675119886755": {
@@ -8808,5 +8916,101 @@
     "date": "2026-11-05",
     "url": "https://x.com/AmericanGraceUS/status/2118034763789238496",
     "note": "congrats on 1000 bots; not a new add ask"
+  },
+  "form-756": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Spend Sniper",
+    "template_url": "https://x.ai/bot/h-pgCvgC_rqX0rTkktpFe",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/spend-sniper",
+    "note": "site form #756; flag: audits paid ad spend (read-only, never changes bids); template 200; added 2026-11-06 (catalog #1012)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-755": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "QBR Desk",
+    "template_url": "https://x.ai/bot/pqt4FsnuqbKjYIB0ijTn5",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/qbr-desk",
+    "note": "site form #755; template 200; added 2026-11-06 (catalog #1013)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-754": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Apt Hunt",
+    "template_url": "https://x.ai/bot/bP7MAaVMcYE0mRAEB2ZL8",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/apt-hunt",
+    "note": "site form #754; template 200; added 2026-11-06 (catalog #1014)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-753": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Funnel Judge",
+    "template_url": "https://x.ai/bot/rr145N1wHkg0WDdI2jcRO",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/funnel-judge",
+    "note": "site form #753; template 200; added 2026-11-06 (catalog #1015)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-752": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Rep Film",
+    "template_url": "https://x.ai/bot/QsxNl31chLrZVXMBcfdpg",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/rep-film",
+    "note": "site form #752; template 200; added 2026-11-06 (catalog #1016)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-751": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Ticket Desk",
+    "template_url": "https://x.ai/bot/N9wmmZ-EYncLJDllPUyZz",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/ticket-desk",
+    "note": "site form #751; template 200; added 2026-11-06 (catalog #1017)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-750": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Rival Sweep",
+    "template_url": "https://x.ai/bot/0IzcVGP4FtY9zVuOf9ECC",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/rival-sweep",
+    "note": "site form #750; template 200; added 2026-11-06 (catalog #1018)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "form-749": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "Feature Ranker",
+    "template_url": "https://x.ai/bot/Z9P_YTZh-DGTxkm4JrLho",
+    "author": "@ALL_Jonah",
+    "author_handle": "@ALL_Jonah",
+    "url": "https://grokbotshelf.com/bot/feature-ranker",
+    "note": "site form #749; template 200; added 2026-11-06 (catalog #1019)",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved 2026-11-06)"
   }
 }
