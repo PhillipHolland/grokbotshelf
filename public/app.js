@@ -649,10 +649,12 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   // Chrome forgets a skipped card's last rendered size once its group leaves the DOM (a filter that drops the creator),
   // so the card comes back at the 200px estimate from styles.css and jumps to its real height when scrolled to, moving
   // every group under it. Keep each card's real height on the card as its own intrinsic size, so a re-attached card is
-  // laid out at the size it had. Browsers without the event keep the stylesheet estimate.
+  // laid out at the size it had. Browsers without the event keep the stylesheet estimate. Only cards inside a creator
+  // group: the builders strip and the Top voted / New this week sections are never detached, and the served strip is
+  // adopted by comparing its markup byte for byte with app.js's own, which an inline style would break.
   results.addEventListener("contentvisibilityautostatechange", (e) => {
     const el = e.target;
-    if (e.skipped || !el.classList || !el.classList.contains("card")) return;
+    if (e.skipped || !el.classList || !el.classList.contains("card") || !el.closest(".group")) return;
     const cs = getComputedStyle(el), h = el.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
     if (h > 0) el.style.containIntrinsicSize = `auto ${Math.round(h)}px`;
   }, true);
