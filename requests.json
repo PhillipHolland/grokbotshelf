@@ -7141,6 +7141,15 @@
       "url": "https://x.com/the_seth_ard/status/2119061185370771888",
       "note": "refresh request (not a new add); already refreshed earlier 2026-11-07 (commit 667d3d7d2, live https://grokbotshelf.com/bot/steady-hand); skip",
       "date": "2026-11-07"
+    },
+    "2119126097862549847": {
+      "status": "dead_link",
+      "author_handle": "@KillSwitchStory",
+      "bot": null,
+      "template_url": "https://x.ai/bot/",
+      "url": "https://x.com/KillSwitchStory/status/2119126097862549847",
+      "note": "bare x.ai/bot/ root, no template id; dropped 2026-11-07 1pm run",
+      "date": "2026-11-07"
     }
   },
   "x-2114766675119886755": {
@@ -9375,5 +9384,16 @@
     "author_handle": "@the_seth_ard",
     "url": "https://x.com/the_seth_ard/status/2119061185370771888",
     "note": "refresh request (not a new add); already refreshed earlier 2026-11-07 (commit 667d3d7d2, live https://grokbotshelf.com/bot/steady-hand); skip"
+  },
+  "x-2119126097862549847": {
+    "post_id": "2119126097862549847",
+    "date": "2026-11-07",
+    "status": "dead_link",
+    "bot": null,
+    "template_url": "https://x.ai/bot/",
+    "author": "@KillSwitchStory",
+    "author_handle": "@KillSwitchStory",
+    "url": "https://x.com/KillSwitchStory/status/2119126097862549847",
+    "note": "asked Phil+Nick to add bot but link expands to bare https://x.ai/bot/ (no template id); t.co/j5msr9poll -> x.ai/bot/; not a valid template; drop without proposing"
   }
 }
