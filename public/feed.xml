@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 06 Nov 2026 21:17:22 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 07 Nov 2026 05:05:31 GMT</lastBuildDate>
+  <item>
+    <title>🧠 SuperLedger by Bill by Bill French</title>
+    <link>https://grokbotshelf.com/bot/superledger-by-bill</link>
+    <guid isPermaLink="false">https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB</guid>
+    <description>Shared team memory in one Coda doc: bots propose, one steward writes, and people approve, via Grok Bot’s built-in Coda connector—no API keys.</description>
+    <dc:creator>Bill French (@bfrench)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 06 Nov 2026 12:00:29 GMT</pubDate>
+  </item>
   <item>
     <title>🎨 ChatGPT Artist by Bruce Young</title>
     <link>https://grokbotshelf.com/bot/chatgpt-artist</link>
@@ -447,15 +456,6 @@
     <dc:creator>Andy Braun (@AndyBraun520)</dc:creator>
     <category>Money</category>
     <pubDate>Mon, 02 Nov 2026 12:16:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧾 Write-Off Keeper by Mark</title>
-    <link>https://grokbotshelf.com/bot/write-off-keeper</link>
-    <guid isPermaLink="false">https://x.ai/bot/BcKKc-ZRbp6zRXQ15fnY6</guid>
-    <description>Keeps creators, freelancers and small business owners from losing deductions: sweeps email for receipts and payouts, logs them in Notion, flags quarterly tax dates, and builds a year-end pack for your tax pro.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:19 GMT</pubDate>
   </item>
 </channel>
 </rss>

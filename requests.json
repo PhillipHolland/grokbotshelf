@@ -7077,6 +7077,49 @@
       "date": "2026-11-06",
       "description": "Guided art bot for ChatGPT image gen: writes prompts, remembers your styles, optional Codex Cloud. Runs on your account.",
       "approved_by": "Phillip Holland (approved 2026-11-06)"
+    },
+    "x-2118833806857699331": {
+      "status": "already_on_shelf",
+      "author_handle": "@CaliLumberJack",
+      "bot": "Chop Bot v6",
+      "template_url": "https://x.ai/bot/3ITYjIFCSujYyq6rp5VAq",
+      "url": "https://x.com/CaliLumberJack/status/2118833806857699331",
+      "note": "same template already shelved as Chop Bot v6; new promo post 2026-11-06",
+      "date": "2026-11-06"
+    },
+    "form-767": {
+      "status": "added",
+      "author_handle": "@bfrench",
+      "bot": "SuperLedger by Bill",
+      "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+      "url": "https://x.com/bfrench/status/2118834471617319377",
+      "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+      "date": "2026-11-06",
+      "description": "Shared team memory in one Coda doc: bots propose, one steward writes, people approve, via the built-in Coda connector.",
+      "added": "2026-11-06",
+      "approved_by": "Phillip Holland (approved widget t1558s6415)"
+    },
+    "x-2118834471617319377": {
+      "status": "added",
+      "author_handle": "@bfrench",
+      "bot": "SuperLedger by Bill",
+      "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+      "url": "https://x.com/bfrench/status/2118834471617319377",
+      "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+      "date": "2026-11-06",
+      "added": "2026-11-06",
+      "approved_by": "Phillip Holland (approved widget t1558s6415)"
+    },
+    "x-2118833502783234132": {
+      "status": "added",
+      "author_handle": "@bfrench",
+      "bot": "SuperLedger by Bill",
+      "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+      "url": "https://x.com/bfrench/status/2118833502783234132",
+      "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+      "date": "2026-11-06",
+      "added": "2026-11-06",
+      "approved_by": "Phillip Holland (approved widget t1558s6415)"
     }
   },
   "x-2114766675119886755": {
@@ -9242,5 +9285,50 @@
     "note": "site form #757; template 200; added 2026-11-06 (catalog #1029)",
     "added": "2026-11-06",
     "approved_by": "Phillip Holland (approved 2026-11-06)"
+  },
+  "x-2118833806857699331": {
+    "post_id": "2118833806857699331",
+    "date": "2026-11-06",
+    "status": "already_on_shelf",
+    "bot": "Chop Bot v6",
+    "template_url": "https://x.ai/bot/3ITYjIFCSujYyq6rp5VAq",
+    "author": "@CaliLumberJack",
+    "author_handle": "@CaliLumberJack",
+    "url": "https://x.com/CaliLumberJack/status/2118833806857699331",
+    "note": "promo tagging Phil/Nick; template 200; already on shelf as Chop Bot v6 (added 2026-10-25, https://grokbotshelf.com/bot/chop-bot-v6); skipped propose 2026-11-06 9pm run"
+  },
+  "form-767": {
+    "date": "2026-11-06",
+    "status": "added",
+    "bot": "SuperLedger by Bill",
+    "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+    "author": "@bfrench",
+    "author_handle": "@bfrench",
+    "url": "https://x.com/bfrench/status/2118833502783234132",
+    "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved widget t1558s6415)"
+  },
+  "x-2118833502783234132": {
+    "status": "added",
+    "author_handle": "@bfrench",
+    "bot": "SuperLedger by Bill",
+    "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+    "url": "https://x.com/bfrench/status/2118833502783234132",
+    "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+    "date": "2026-11-06",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved widget t1558s6415)"
+  },
+  "x-2118834471617319377": {
+    "status": "added",
+    "author_handle": "@bfrench",
+    "bot": "SuperLedger by Bill",
+    "template_url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+    "url": "https://x.com/bfrench/status/2118834471617319377",
+    "note": "Added to shelf 2026-11-06; same SuperLedger template as form-767; approved by Phillip Holland.",
+    "date": "2026-11-06",
+    "added": "2026-11-06",
+    "approved_by": "Phillip Holland (approved widget t1558s6415)"
   }
 }

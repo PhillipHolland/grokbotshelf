@@ -13368,5 +13368,18 @@
     "creator_avatar": "/avatars/ecoay.webp",
     "source_post": "",
     "added": "2026-11-06"
+  },
+  {
+    "name": "SuperLedger by Bill",
+    "emoji": "🧠",
+    "description": "Shared team memory in one Coda doc: bots propose, one steward writes, and people approve, via Grok Bot’s built-in Coda connector—no API keys.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB",
+    "creator_name": "Bill French",
+    "creator_handle": "@bfrench",
+    "creator_url": "https://x.com/bfrench",
+    "creator_avatar": "/avatars/bfrench.webp",
+    "source_post": "https://x.com/bfrench/status/2118833502783234132",
+    "added": "2026-11-06"
   }
 ]
