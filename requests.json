@@ -7120,6 +7120,27 @@
       "date": "2026-11-06",
       "added": "2026-11-06",
       "approved_by": "Phillip Holland (approved widget t1558s6415)"
+    },
+    "form-768": {
+      "status": "added",
+      "author_handle": "@ErinnFL",
+      "bot": "Bring a Dish by Erinn",
+      "template_url": "https://x.ai/bot/YnB0MGcaCbUsIWKMd6oFx",
+      "url": "",
+      "note": "Added to shelf 2026-11-07; approved by Phillip Holland.",
+      "date": "2026-11-07",
+      "description": "Picks a guest dish for Thanksgiving or Christmas from destination, headcount, drive time, and dietary limits.",
+      "added": "2026-11-07",
+      "approved_by": "Phillip Holland (approved widget t1561s6439)"
+    },
+    "2119061185370771888": {
+      "status": "skipped",
+      "author_handle": "@the_seth_ard",
+      "bot": "Steady Hand",
+      "template_url": "https://x.ai/bot/WNa0UvXDfvRkZ31PmJ93r",
+      "url": "https://x.com/the_seth_ard/status/2119061185370771888",
+      "note": "refresh request (not a new add); already refreshed earlier 2026-11-07 (commit 667d3d7d2, live https://grokbotshelf.com/bot/steady-hand); skip",
+      "date": "2026-11-07"
     }
   },
   "x-2114766675119886755": {
@@ -9330,5 +9351,29 @@
     "date": "2026-11-06",
     "added": "2026-11-06",
     "approved_by": "Phillip Holland (approved widget t1558s6415)"
+  },
+  "form-768": {
+    "date": "2026-11-07",
+    "status": "added",
+    "bot": "Bring a Dish by Erinn",
+    "template_url": "https://x.ai/bot/YnB0MGcaCbUsIWKMd6oFx",
+    "author": "@ErinnFL",
+    "author_handle": "@ErinnFL",
+    "url": null,
+    "description": "Picks a guest dish for Thanksgiving or Christmas from destination, headcount, drive time, and dietary limits.",
+    "note": "Added to shelf 2026-11-07; approved by Phillip Holland.",
+    "added": "2026-11-07",
+    "approved_by": "Phillip Holland (approved widget t1561s6439)"
+  },
+  "x-2119061185370771888": {
+    "post_id": "2119061185370771888",
+    "date": "2026-11-07",
+    "status": "skipped",
+    "bot": "Steady Hand",
+    "template_url": "https://x.ai/bot/WNa0UvXDfvRkZ31PmJ93r",
+    "author": "@the_seth_ard",
+    "author_handle": "@the_seth_ard",
+    "url": "https://x.com/the_seth_ard/status/2119061185370771888",
+    "note": "refresh request (not a new add); already refreshed earlier 2026-11-07 (commit 667d3d7d2, live https://grokbotshelf.com/bot/steady-hand); skip"
   }
 }
