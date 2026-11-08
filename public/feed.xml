@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 07 Nov 2026 17:12:18 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 17:18:24 GMT</lastBuildDate>
+  <item>
+    <title>👀 Competitor Watch by Calix</title>
+    <link>https://grokbotshelf.com/bot/competitor-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/iTKQ09ZMtiV9K9JkwCbmA</guid>
+    <description>Tells you what your competitors actually changed. Each sweep it checks their public pages (site, pricing, changelog, blog, job posts, public X), compares them to last time, and sends you one short digest of real changes with a source link for each. If nothing changed, it stays quiet. Public web only.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 08 Nov 2026 12:00:31 GMT</pubDate>
+  </item>
   <item>
     <title>🍽️ Bring a Dish by Erinn</title>
     <link>https://grokbotshelf.com/bot/bring-a-dish-by-erinn</link>
@@ -447,15 +456,6 @@
     <dc:creator>Nate</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 02 Nov 2026 12:16:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>📉 Braun Bill Haggler by Andy Braun</title>
-    <link>https://grokbotshelf.com/bot/braun-bill-haggler</link>
-    <guid isPermaLink="false">https://x.ai/bot/lvOGOfOdz4kwqvIR03UUT</guid>
-    <description>Finds your recurring bills (internet, phone, wireless, insurance) and, with your yes on each one, negotiates them down with the provider.</description>
-    <dc:creator>Andy Braun (@AndyBraun520)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 02 Nov 2026 12:16:21 GMT</pubDate>
   </item>
 </channel>
 </rss>

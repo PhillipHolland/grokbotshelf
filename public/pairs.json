@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-07T17:11:51.443Z",
+ "generated": "2026-11-08T17:18:09.131Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2501,6 +2501,7 @@
   "claude-code": [],
   "chatgpt-artist": [],
   "superledger-by-bill": [],
-  "bring-a-dish-by-erinn": []
+  "bring-a-dish-by-erinn": [],
+  "competitor-watch": []
  }
 }

@@ -13394,5 +13394,18 @@
     "creator_avatar": "/avatars/erinnfl.webp",
     "source_post": "",
     "added": "2026-11-07"
+  },
+  {
+    "name": "Competitor Watch",
+    "emoji": "👀",
+    "description": "Tells you what your competitors actually changed. Each sweep it checks their public pages (site, pricing, changelog, blog, job posts, public X), compares them to last time, and sends you one short digest of real changes with a source link for each. If nothing changed, it stays quiet. Public web only.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/iTKQ09ZMtiV9K9JkwCbmA",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2119475042236981267",
+    "added": "2026-11-08"
   }
 ]

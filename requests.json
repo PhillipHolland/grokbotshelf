@@ -7150,6 +7150,19 @@
       "url": "https://x.com/KillSwitchStory/status/2119126097862549847",
       "note": "bare x.ai/bot/ root, no template id; dropped 2026-11-07 1pm run",
       "date": "2026-11-07"
+    },
+    "x-2119475042236981267": {
+      "post_id": "2119475042236981267",
+      "date": "2026-11-08",
+      "status": "added",
+      "bot": "Competitor Watch by Calix",
+      "template_url": "https://x.ai/bot/iTKQ09ZMtiV9K9JkwCbmA",
+      "author": "@CaliLumberJack",
+      "author_handle": "@CaliLumberJack",
+      "url": "https://x.com/CaliLumberJack/status/2119475042236981267",
+      "note": "Added to shelf 2026-11-08; approved by Phillip Holland.",
+      "added": "2026-11-08",
+      "approved_by": "Phillip Holland (approved widget t1562s6452)"
     }
   },
   "x-2114766675119886755": {
@@ -9399,12 +9412,14 @@
   "x-2119475042236981267": {
     "post_id": "2119475042236981267",
     "date": "2026-11-08",
-    "status": "pending",
+    "status": "added",
     "bot": "Competitor Watch by Calix",
     "template_url": "https://x.ai/bot/iTKQ09ZMtiV9K9JkwCbmA",
     "author": "@CaliLumberJack",
     "author_handle": "@CaliLumberJack",
     "url": "https://x.com/CaliLumberJack/status/2119475042236981267",
-    "note": "tagged Phil+Nick; template 200; not on shelf; proposed to Phil 2026-11-08 11:05 CT"
+    "note": "Added to shelf 2026-11-08; approved by Phillip Holland.",
+    "added": "2026-11-08",
+    "approved_by": "Phillip Holland (approved widget t1562s6452)"
   }
 }
