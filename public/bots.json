@@ -13420,5 +13420,18 @@
     "creator_avatar": "/avatars/calilumberjack.webp",
     "source_post": "https://x.com/CaliLumberJack/status/2118448270481756346",
     "added": "2026-11-08"
+  },
+  {
+    "name": "ChatGPT Quota Watch",
+    "emoji": "🔋",
+    "description": "Tracks several ChatGPT accounts' 7-day shared quota (remaining %, reset counts, next reset) from numbers you enter or from official account usage pages you open. For people juggling multiple Pro logins.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Sq6o-xOYIh3_j21B1TZB0",
+    "creator_name": "w",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-09"
   }
 ]

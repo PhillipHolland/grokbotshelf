@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 09 Nov 2026 04:44:02 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 09 Nov 2026 15:15:29 GMT</lastBuildDate>
+  <item>
+    <title>🔋 ChatGPT Quota Watch by w</title>
+    <link>https://grokbotshelf.com/bot/chatgpt-quota-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/Sq6o-xOYIh3_j21B1TZB0</guid>
+    <description>Tracks several ChatGPT accounts&apos; 7-day shared quota (remaining %, reset counts, next reset) from numbers you enter or from official account usage pages you open. For people juggling multiple Pro logins.</description>
+    <dc:creator>w</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:33 GMT</pubDate>
+  </item>
   <item>
     <title>📬 Plain Speak by Calix</title>
     <link>https://grokbotshelf.com/bot/plain-speak</link>
@@ -447,15 +456,6 @@
     <dc:creator>tavi (@tavivideo)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Tue, 03 Nov 2026 12:16:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 AI Product Video Creator (Korean) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-product-video-creator-korean-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/A3u4HsiNWOCvSTZpUZ85g</guid>
-    <description>Korean-language version (AI 상품 영상 제작자): plan scenes from your product photos and details, then make product video clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:23 GMT</pubDate>
   </item>
 </channel>
 </rss>
