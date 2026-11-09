@@ -394,6 +394,11 @@
       "source": "/bot/pc-steward",
       "destination": "/bot/prodigy-home-rig",
       "permanent": true
+    },
+    {
+      "source": "/bot/app-store-connect",
+      "destination": "/bot/app-store-desk",
+      "permanent": true
     }
   ]
 }

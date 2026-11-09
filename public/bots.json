@@ -145,11 +145,11 @@
     "creator_avatar": "/avatars/phil_holland.webp"
   },
   {
-    "name": "App Store Connect",
+    "name": "App Store Desk",
     "emoji": "📱",
-    "description": "Connects your App Store Connect key, checks TestFlight, drafts listing copy and frames screenshots.",
+    "description": "Helps indie iOS developers ship through App Store Connect. It connects a safe API key, checks TestFlight and Xcode Cloud, drafts listing copy and screenshots, and submits for review only when you ask.",
     "category": "Developer",
-    "url": "https://x.ai/bot/1kQ8p3TAKx2FgvYXir2Ta",
+    "url": "https://x.ai/bot/BYaLwjYHrWUAcUlyZVbgP",
     "creator_name": "Phillip Holland",
     "creator_handle": "@Phil_Holland",
     "creator_url": "https://x.com/Phil_Holland",

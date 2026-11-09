@@ -266,7 +266,7 @@ try {
   ok(!hasId("Sushi & Ramen", "instant-pot-duo") && idsOf("Sushi & Ramen") === "", "Sushi & Ramen has no Instant Pot");
   ok(!hasId("Christian Devotional Bot", "moleskine-classic") && !hasId("Christian Devotional Bot", "kjv-study-bible") && idsOf("Christian Devotional Bot") === "", "Christian Devotional Bot is not a notebook or a KJV");
   ok(!hasId("Apple Inventory & Deal Bot", "mac-mini-m4") && !hasId("Apple Inventory & Deal Bot", "airpods") && !hasId("Apple Inventory & Deal Bot", "airtag-4pack") && idsOf("Apple Inventory & Deal Bot") === "", "Apple Inventory & Deal Bot does not advertise those SKUs");
-  ok(!hasId("App Store Connect", "mac-mini-m4") && idsOf("App Store Connect") === "", "App Store Connect is not a Mac mini");
+  ok(!hasId("App Store Desk", "mac-mini-m4") && idsOf("App Store Desk") === "", "App Store Desk is not a Mac mini");
   ok(hasId("iBot Player", "airpods") && hasId("Coach", "garmin-265"), "iBot Player keeps AirPods and Coach keeps the Forerunner");
   const devo = bots.find((b) => b.name === "Christian Devotional Bot");
   const devoRows = proposePairs(devo, catalog);
@@ -326,7 +326,7 @@ try {
     if (s === "sushi-and-ramen" && /B00FLYWNYQ/.test(html)) badPair.push("sushi instant pot");
     if (s === "christian-devotional-bot" && /moleskine-classic|kjv-study-bible/.test(html)) badPair.push("christian stretch");
     if (s === "apple-inventory-and-deal-bot" && /mac-mini-m4|data-product="airpods"|airtag-4pack/.test(html)) badPair.push("apple inventory ads");
-    if (s === "app-store-connect" && /mac-mini-m4/.test(html)) badPair.push("app store mac mini");
+    if (s === "app-store-desk" && /mac-mini-m4/.test(html)) badPair.push("app store mac mini");
     if (s === "ibot-player" && !html.includes('data-product="airpods"')) badPair.push("ibot airpods");
     if (s === "coach" && !html.includes('data-product="garmin-265"')) badPair.push("coach garmin");
   }
