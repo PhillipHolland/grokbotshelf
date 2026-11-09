@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 09 Nov 2026 15:15:29 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 09 Nov 2026 22:00:30 GMT</lastBuildDate>
+  <item>
+    <title>🩺 Checkup · Fleet Checkup Runner by Carolina</title>
+    <link>https://grokbotshelf.com/bot/checkup-fleet-checkup-runner</link>
+    <guid isPermaLink="false">https://x.ai/bot/ffy9_7mBUraesvnoSouFC</guid>
+    <description>A cheap, read-only checkup bot for people who run many Grok Bots. It checks transcripts, routines, and the computer&apos;s health on a schedule, then sends ranked fixes without changing anything.</description>
+    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>🤝 Network Me by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/network-me</link>
+    <guid isPermaLink="false">https://x.ai/bot/ZhJV6mmms23wDCds1Foih</guid>
+    <description>Join Network Me with your X identity, answer a few short questions, and get matched with people worth meeting. It tells you when someone wants to meet you and who&apos;s suggested, with their X @username so you choose how to reach out.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:34 GMT</pubDate>
+  </item>
   <item>
     <title>🔋 ChatGPT Quota Watch by w</title>
     <link>https://grokbotshelf.com/bot/chatgpt-quota-watch</link>
@@ -438,24 +456,6 @@
     <dc:creator>tavi (@tavivideo)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Tue, 03 Nov 2026 12:16:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎌 AI Anime Director (Korean) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-anime-director-korean-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/O-HJefoeC0Gjvspa89pC7</guid>
-    <description>Korean-language version (AI 애니메이션 감독): shape characters, episode scripts and shots for your story, then make anime-style video clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>📣 AI Video Ad Creator (Korean) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-video-ad-creator-korean-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/AnhA44_PaLnz6FGQv-yis</guid>
-    <description>Korean-language version (AI 영상 광고 제작자): plan an ad from the opening shot through the script and call to action, then make video ad clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:24 GMT</pubDate>
   </item>
 </channel>
 </rss>
