@@ -13,7 +13,6 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const roleEl = $("#roles");
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
   const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
-  const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
   let bots = [], creators = [], cIdx = new Map(), cats = [], colls = [], oneJobs = 0, apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
@@ -339,11 +338,11 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     window.location.href = deep;
   }
   function badgesHTML(b) {
-    const m = b._meta || {}, coll = b._colls.map((c) => `<span class="badge coll" title="In the shelf's ${esc(c)} collection">${esc(c)}</span>`);
-    const out = coll.concat(m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
-      .concat((m.works_with || []).map((w) => `<span class="badge">${esc(w)}</span>`));
-    // Always present (empty without meta) so the tag line sits at the same height on every card
-    return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
+    // Only hand-picked collections show as chips; the agency and works_with tags guessed from the description
+    // still drive the filters but are not shown
+    const coll = b._colls.map((c) => `<span class="badge coll" title="In the shelf's ${esc(c)} collection">${esc(c)}</span>`);
+    // Always present (empty without a collection) so the tag line sits at the same height on every card
+    return `<div class="badges">${coll.join("")}</div>`;
   }
   function li(name) {
     if (!name) return "";

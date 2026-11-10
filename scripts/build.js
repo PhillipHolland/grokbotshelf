@@ -54,8 +54,6 @@ function clipSentences(s, n = 155) {
   for (const m of t.matchAll(/[^.!?]+[.!?]+(?=\s|$)/g)) { const next = (out ? out + " " : "") + m[0].trim(); if (next.length > n) break; out = next; }
   return out || clipDesc(t, n);
 }
-const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes actions" };
-const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
 // GA_MEASUREMENT_ID (G-XXXXXXXXXX) and GSC_VERIFICATION (the content value of the google-site-verification meta tag).
 // The measurement script is not a static tag. It loads only when the hostname is grokbotshelf.com or
@@ -548,7 +546,9 @@ function miniPairs(b, surface) {
 function page(b, related, similar) {
   const title = docTitle(b);
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
-  const badges = [...b.collections.map((c) => `<a class="badge coll" href="/?collection=${esc(slugify(c))}" title="In the shelf's ${esc(c)} collection">${esc(c)}</a>`), b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
+  // Only hand-picked collections show as chips; the agency and works_with tags guessed from the description stay in
+  // bot-meta.json for the home filters but are not shown
+  const badges = b.collections.map((c) => `<a class="badge coll" href="/?collection=${esc(slugify(c))}" title="In the shelf's ${esc(c)} collection">${esc(c)}</a>`).join("");
   const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} ${b.social.bookmarks === 1 ? "bookmark" : "bookmarks"} on X</span>` : "";
   const ld = botLd(b, url, img);
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
@@ -581,7 +581,6 @@ ${HEADER}
       <a href="/#bot-${b.slug}">See it on the shelf</a>
       ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}${(jobBySlug.get(b.slug) || []).map((c) => `\n      <a href="/collection/${esc(c.slug)}">Also in: ${esc(c.name)}</a>`).join("")}
     </p>
-    ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
   ${pairsSection(b)}
   ${underTheHood(b)}${sameJob(b)}
