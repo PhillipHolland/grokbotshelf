@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 09 Nov 2026 22:00:30 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 01:55:56 GMT</lastBuildDate>
+  <item>
+    <title>🌿 Mangrove by David Buttrey</title>
+    <link>https://grokbotshelf.com/bot/mangrove</link>
+    <guid isPermaLink="false">https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh</guid>
+    <description>A trading agent with guardrails. It runs the open-source mangrove-agent on its own computer for strategy research, backtesting, and paper or live trading with built-in risk management.</description>
+    <dc:creator>David Buttrey (@davidtbuttrey)</dc:creator>
+    <category>Money</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:36 GMT</pubDate>
+  </item>
   <item>
     <title>🩺 Checkup · Fleet Checkup Runner by Carolina</title>
     <link>https://grokbotshelf.com/bot/checkup-fleet-checkup-runner</link>
@@ -447,15 +456,6 @@
     <dc:creator>tavi (@tavivideo)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Tue, 03 Nov 2026 12:16:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧸 AI Children’s Animation Creator (Korean) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-children-s-animation-creator-korean-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/oAj8w0jvP66ctwp25ZkoF</guid>
-    <description>Korean-language version (AI 어린이 애니메이션 제작자): write a bedtime story, small adventure or good-habit tale together, then make children’s animation clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:26 GMT</pubDate>
   </item>
 </channel>
 </rss>

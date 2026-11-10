@@ -7227,6 +7227,32 @@
       "note": "Added to shelf 2026-11-09; approved by Phillip Holland (widget t1614s6708).",
       "added": "2026-11-09",
       "approved_by": "Phillip Holland (approved widget t1614s6708)"
+    },
+    "form-773": {
+      "date": "2026-11-09",
+      "status": "added",
+      "bot": "Mangrove by David Buttrey",
+      "template_url": "https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh",
+      "author": "@davidtbuttrey",
+      "author_handle": "@davidtbuttrey",
+      "url": "https://grokbotshelf.com/bot/mangrove",
+      "description": "A trading agent with guardrails. It runs the open-source mangrove-agent on its own computer for strategy research, backtesting, and paper or live trading with built-in risk management.",
+      "note": "Added to shelf 2026-11-09; form had no creator handle; credited poster @davidtbuttrey as creator per Phillip Holland (widget t1614s6715).",
+      "added": "2026-11-09",
+      "approved_by": "Phillip Holland (approved widget t1614s6715)"
+    },
+    "x-2119929057642959043": {
+      "post_id": "2119929057642959043",
+      "date": "2026-11-09",
+      "status": "added",
+      "bot": "Mangrove by David Buttrey",
+      "template_url": "https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh",
+      "author": "@davidtbuttrey",
+      "author_handle": "@davidtbuttrey",
+      "url": "https://x.com/davidtbuttrey/status/2119929057642959043",
+      "note": "Added to shelf 2026-11-09; same Mangrove template as form-773; credited poster @davidtbuttrey as creator per Phillip Holland (widget t1614s6715).",
+      "added": "2026-11-09",
+      "approved_by": "Phillip Holland (approved widget t1614s6715)"
     }
   },
   "x-2114766675119886755": {
@@ -9549,5 +9575,31 @@
     "note": "Added to shelf 2026-11-09; approved by Phillip Holland (widget t1614s6708).",
     "added": "2026-11-09",
     "approved_by": "Phillip Holland (approved widget t1614s6708)"
+  },
+  "form-773": {
+    "date": "2026-11-09",
+    "status": "added",
+    "bot": "Mangrove by David Buttrey",
+    "template_url": "https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh",
+    "author": "@davidtbuttrey",
+    "author_handle": "@davidtbuttrey",
+    "url": "https://grokbotshelf.com/bot/mangrove",
+    "description": "A trading agent with guardrails. It runs the open-source mangrove-agent on its own computer for strategy research, backtesting, and paper or live trading with built-in risk management.",
+    "note": "Added to shelf 2026-11-09; form had no creator handle; credited poster @davidtbuttrey as creator per Phillip Holland (widget t1614s6715).",
+    "added": "2026-11-09",
+    "approved_by": "Phillip Holland (approved widget t1614s6715)"
+  },
+  "x-2119929057642959043": {
+    "post_id": "2119929057642959043",
+    "date": "2026-11-09",
+    "status": "added",
+    "bot": "Mangrove by David Buttrey",
+    "template_url": "https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh",
+    "author": "@davidtbuttrey",
+    "author_handle": "@davidtbuttrey",
+    "url": "https://x.com/davidtbuttrey/status/2119929057642959043",
+    "note": "Added to shelf 2026-11-09; same Mangrove template as form-773; credited poster @davidtbuttrey as creator per Phillip Holland (widget t1614s6715).",
+    "added": "2026-11-09",
+    "approved_by": "Phillip Holland (approved widget t1614s6715)"
   }
 }

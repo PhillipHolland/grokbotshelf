@@ -13459,5 +13459,18 @@
     "creator_avatar": "/avatars/carolinadill.webp",
     "source_post": "",
     "added": "2026-11-09"
+  },
+  {
+    "name": "Mangrove",
+    "emoji": "🌿",
+    "description": "A trading agent with guardrails. It runs the open-source mangrove-agent on its own computer for strategy research, backtesting, and paper or live trading with built-in risk management.",
+    "category": "Money",
+    "url": "https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh",
+    "creator_name": "David Buttrey",
+    "creator_handle": "@davidtbuttrey",
+    "creator_url": "https://x.com/davidtbuttrey",
+    "creator_avatar": "/avatars/davidtbuttrey.webp",
+    "source_post": "https://x.com/davidtbuttrey/status/2119929057642959043",
+    "added": "2026-11-09"
   }
 ]
