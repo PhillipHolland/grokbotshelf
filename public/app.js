@@ -205,7 +205,8 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const fold = searchApi.fold;
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   // Group key: the lowercase handle, or "~" + name slug for creators with no X handle (they get no /@ page, avatar or share)
-  const ckey = (b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slug(b.creator_name);
+  // (kept on the bot after the first call: a grouped render asks for it once per bot)
+  const ckey = (b) => b._ck || (b._ck = b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slug(b.creator_name));
   const anonKey = (k) => k.charAt(0) === "~";
 
   // Very narrow phones (320px): a shorter search placeholder so it is not clipped next to the sort menu
@@ -786,9 +787,12 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     const strip = !gal && st.sort === "featured" && !searching && !filtering() ? [buildersNode(), topNode(), newNode()].filter(Boolean) : [];
     const cap = capNow = searching || filtering() ? Infinity : GROUP_CAP[st.sort] || 12;
     if (grouped) {
+      // One pass over the list into creator buckets (in list order), not one filter of the whole list per creator
+      const byC = new Map();
+      for (const row of list) { const k = ckey(row[0]), g = byC.get(k); if (g) g.push(row); else byC.set(k, [row]); }
       const parts = creators.map((c) => {
-        const g = list.filter(([b]) => ckey(b) === c.key);
-        if (!g.length) return null;
+        const g = byC.get(c.key);
+        if (!g) return null;
         const shown = st.more.includes(c.key) || g.length <= cap + (GROUP_SLACK[st.sort] || 0) ? g : g.slice(0, cap);
         return { L: letterOf(c.label), k: c.key, n: shown.length, f: () => groupEl(c, g, shown) };
       }).filter(Boolean);
