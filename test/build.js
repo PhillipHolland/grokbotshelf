@@ -99,18 +99,20 @@ try {
     ok(h.includes('<link rel="canonical" href="https://grokbotshelf.com/bot/archivist">') && h.includes(`href="${arch.url}"`) && h.includes(`href="/@${ch}"`), "archivist page: canonical, template link, lowercase creator link");
     ok(h.includes("<title>Archivist by Phillip Holland · Grok Bot Shelf</title>") && !/<title>[^<]*[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(h) && h.includes(`href="/category/${slugify(arch.category)}"`) && h.includes("<h1>Archivist</h1>"), "archivist title has no emoji and the category links to its hub");
   }
-  { // round 8: a bot page title is the name first, then the longest of "Grok Bot template by Creator", "by Creator",
-    // "Grok Bot template" that keeps it within 60 characters; only a name that is long on its own goes over
+  { // round 8, audit 11-09: every bot page title is "Name by Creator · Grok Bot Shelf", or "Name · Grok Bot Shelf" when
+    // the name carries its own credit ("Glow Up by Wayne"), there is no creator, or the by-clause would pass 60 characters.
+    // Never a second "by", never "by ·", never the old "Name: Grok Bot template by Creator" shape.
     const unesc = (s) => s.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
     const plainOf = (s) => s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}]/gu, "").replace(/\s+/g, " ").trim();
     const want = (b) => {
-      const name = plainOf(b.name), who = plainOf(b.creator_name), by = name.toLowerCase().endsWith(` by ${who}`.toLowerCase()) ? "" : ` by ${who}`;
-      return [`${name}: Grok Bot template${by}`, `${name}${by}`, `${name}: Grok Bot template`].map((t) => t + " · Grok Bot Shelf").find((t) => t.length <= 60) || `${name} · Grok Bot Shelf`;
+      const name = plainOf(b.name), who = plainOf(b.creator_name), by = !who || /\sby\s+\S/i.test(name) ? "" : ` by ${who}`;
+      return [`${name}${by}`].map((t) => t + " · Grok Bot Shelf").find((t) => t.length <= 60) || `${name} · Grok Bot Shelf`;
     };
     const titles = bots.map((b) => [b, unesc((fs.readFileSync(pub("bot", slugify(b.name), "index.html"), "utf8").match(/<title>([^<]*)<\/title>/) || [])[1] || "")]);
     const wrong = titles.filter(([b, t]) => t !== want(b));
     const over = titles.filter(([, t]) => t.length > 60).length, kw = titles.filter(([, t]) => t.includes("Grok Bot template")).length;
-    ok(!wrong.length && over < bots.length / 20 && kw > bots.length / 4, `bot titles: name first, the longest form within 60 characters (${wrong.length} wrong, ${over} over 60 on the name alone, ${kw} keep "Grok Bot template")`);
+    const twoBy = titles.filter(([, t]) => (t.match(/\sby\s/gi) || []).length > 1).length, emptyBy = titles.filter(([, t]) => /\sby\s*(·|$)/.test(t)).length;
+    ok(!wrong.length && over < bots.length / 20 && !kw && !twoBy && !emptyBy, `bot titles: "Name by Creator · Grok Bot Shelf" within 60 characters (${wrong.length} wrong, ${over} over 60 on the name alone, ${kw} old "Grok Bot template" shape, ${twoBy} double "by", ${emptyBy} empty "by")`);
   }
   // JSON-LD: bot page = WebPage + SoftwareApplication + BreadcrumbList, creator page = ProfilePage + Person + ItemList,
   // home = WebSite + SearchAction. Only real fields: no ratings, vote counts or publisher, and "<" is always escaped.
@@ -131,7 +133,7 @@ try {
       const desc = `${bots.length} shared Grok Bot templates from ${nc} creators. Search by category, app and what the bot does. Import in one tap.`;
       const m = (sel) => (home.match(new RegExp(`<meta ${sel} content="([^"]*)">`)) || [])[1];
       ok(m('name="description"') === desc && m('property="og:description"') === desc && m('name="twitter:description"') === desc, `homepage description: ${m('name="description"')}`);
-      ok(m('property="og:title"') === `Grok Bot Shelf: ${bots.length} shared Grok Bot templates` && m('name="twitter:title"') === m('property="og:title"') && m('name="twitter:site"') === "@Phil_Holland", `homepage share title and twitter:site (${m('property="og:title"')})`);
+      ok(m('property="og:title"') === `Grok Bot Shelf: ${bots.length.toLocaleString("en-US")} shared Grok Bot templates` && m('name="twitter:title"') === m('property="og:title"') && m('name="twitter:site"') === "@Phil_Holland", `homepage share title and twitter:site (${m('property="og:title"')})`);
       ok(/^Disallow: \/api\/$/m.test(fs.readFileSync(pub("robots.txt"), "utf8")), "robots.txt disallows /api/");
     }
     ok(app.author["@type"] === "Person" && app.author.name === arch.creator_name && app.author.sameAs === "https://x.com/" + ch, "bot JSON-LD: author Person with sameAs x.com/" + ch);
@@ -361,7 +363,7 @@ try {
   const fit = fs.readFileSync(pub("collection", "fitness", "index.html"), "utf8");
   const homeSeo = fs.readFileSync(pub("index.html"), "utf8");
   ok(fit.includes('aria-label="Breadcrumb"') && fit.includes('class="job-more"') && fit.includes("<h3>") && fit.includes('name="twitter:image:alt"') && fit.includes('property="og:locale" content="en_US"') && !homeSeo.replace(/<!-- strip:start -->[\s\S]*?<!-- strip:end -->/, "").includes("botshelf-20"), "collection hubs: breadcrumbs, sibling jobs, bot headings, share alt; the home outside its pre-drawn strip stays free of product links");
-  ok(/<title>Grok Bot Shelf: \d+ shared Grok Bot templates<\/title>/.test(homeSeo) && homeSeo.includes('name="twitter:image:alt"') && homeSeo.includes('name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"'), "homepage title matches the share title and asks for large image previews");
+  ok(/<title>Grok Bot Shelf: \d{1,3}(,\d{3})* shared Grok Bot templates<\/title>/.test(homeSeo) && homeSeo.includes('name="twitter:image:alt"') && homeSeo.includes('name="robots" content="max-image-preview:large, max-snippet:-1, max-video-preview:-1"'), "homepage title matches the share title and asks for large image previews");
   ok(fs.readFileSync(pub("bot", "coach", "index.html"), "utf8").includes('"installUrl":"https://x.ai/bot/') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('property="og:type" content="profile"') && fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8").includes('class="cp-av"') && /alt="[^"]+"/.test(fs.readFileSync(pub("@" + handles[0], "index.html"), "utf8")), "bot pages name an install URL; creator pages are profiles with a named avatar");
   {
     const catHtml = fs.readFileSync(pub("category", "bot-tools", "index.html"), "utf8");

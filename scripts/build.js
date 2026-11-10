@@ -202,18 +202,20 @@ const items = bots.map((b, i) => {
 const handleOf = (b) => b.creator_handle.replace(/^@/, "");
 // Group key: lowercase handle, or "~" + name slug for creators with no X handle (kept apart, but no /@ page)
 const ckey = (b) => b.creator_handle ? handleOf(b).toLowerCase() : "~" + slugify(b.creator_name);
-// "Fitness Coach by Jenna" by Jenna → no second " by Jenna"
-const titled = (b) => b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_name}`;
+// A name that already ends in its own credit ("Fitness Coach by Jenna", "Glow Up by Wayne" from Wayne Lowry) gets no
+// second " by ...", and a bot with no creator name gets no by-clause at all (never "by ·")
+const CREDITED = /\sby\s+\S[^]*$/i;
+const byline = (name, who) => !String(who ?? "").trim() || CREDITED.test(name) ? "" : ` by ${String(who).trim()}`;
+const titled = (b) => `${b.name}${byline(b.name, b.creator_name)}`;
 const STRIP_EMOJI = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}]/gu;
 const plain = (s) => String(s ?? "").replace(STRIP_EMOJI, "").replace(/\s+/g, " ").trim();
-// <title>: the bot's name first, then as much of ": Grok Bot template by Creator" as fits in TITLE_MAX characters
-// (search results cut a title around 60). The first form that fits wins: both, the creator alone, the keyword alone,
-// the name alone. A name that is long on its own stays whole. og:title and the description keep the full wording.
+// <title>: one shape for every bot, "Name by Creator · Grok Bot Shelf", or "Name · Grok Bot Shelf" when the name
+// carries its own credit, there is no creator, or the by-clause would push it past TITLE_MAX characters (search
+// results cut a title around 60). A name that is long on its own stays whole.
 const TITLE_MAX = 60;
 const docTitle = (b) => {
-  const name = plain(b.name), who = plain(b.creator_name);
-  const by = name.toLowerCase().endsWith(` by ${who}`.toLowerCase()) ? "" : ` by ${who}`, site = " · Grok Bot Shelf";
-  return [`${name}: Grok Bot template${by}${site}`, `${name}${by}${site}`, `${name}: Grok Bot template${site}`].find((t) => t.length <= TITLE_MAX) || `${name}${site}`;
+  const name = plain(b.name), site = " · Grok Bot Shelf", full = `${name}${byline(name, plain(b.creator_name))}${site}`;
+  return full.length <= TITLE_MAX ? full : `${name}${site}`;
 };
 const catSlug = (name) => slugify(name);
 const catPath = (name) => `/category/${catSlug(name)}`;
@@ -555,10 +557,10 @@ function page(b, related, similar) {
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
   // Share pill in the header (round 4 #2): x.com's post intent with the page link as its own url param, the bot
   // credited the same way the cards credit it
-  const shareText = `${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf`;
+  const shareText = `${b.name}${byline(b.name, b.creator_handle || b.creator_name)} on Grok Bot Shelf`;
   const share = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
   const trail = [["Grok Bot Shelf", "/"], ...(b.creator_handle ? [[b.creator_name, "/@" + ckey(b)]] : []), [b.name, ""]];
-  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template by ${b.creator_name}`, creator: b.creator_handle || "@Phil_Holland", ld, css: true })}
+  return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template${byline("", b.creator_name)}`, creator: b.creator_handle || "@Phil_Holland", ld, css: true })}
 <body class="botpage">
 ${HEADER}
 <main class="wrap bp" id="main">
@@ -969,7 +971,7 @@ const homeDesc = `${items.length} shared Grok Bot templates from ${handleCount(i
 {
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   const desc = homeDesc;
-  const title = `Grok Bot Shelf: ${items.length} shared Grok Bot templates`;
+  const title = `Grok Bot Shelf: ${items.length.toLocaleString("en-US")} shared Grok Bot templates`;
   let n = h.replace(/(<meta (?:name="description"|property="og:description"|name="twitter:description") content=")[^"]*(">)/g, `$1${esc(desc)}$2`)
     .replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]*(">)/g, `$1${esc(title)}$2`)
     .replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
