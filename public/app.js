@@ -753,11 +753,23 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     if (buildersEl) buildersEl.querySelectorAll(".card").forEach(reuse);
     return buildersEl;
   }
+  let rendered = false;
   function render() {
     cancelRender();
     const then = afterRender; afterRender = null;
     clearTimeout(tailT); tailT = 0; tail = []; tailFlat = false; tailGal = false; tailHold = false; if (io) io.unobserve(sentinel);
     const list = filtered(), searching = !!st.q.trim();
+    // A reader still at the head of the page (the top of the results below the dock, on screen) keeps their scroll,
+    // and a re-render there goes in as fresh nodes: a card or group kept from the old list would otherwise slide to
+    // its new spot in front of them (One job in and out: 0.26 / 0.21 CLS on a phone). The first render adopts the
+    // server-drawn strip in place instead. While shown, the coverage note is the first child of #results for the same
+    // reason: it comes and goes with the results it describes and never pushes the old ones down. Hidden, it goes
+    // back to the status row.
+    const top = results.getBoundingClientRect().top, dockB = dock.getBoundingClientRect().bottom;
+    const fresh = rendered && !!results.firstElementChild && top >= dockB && top < innerHeight;
+    const lead = coverEl && coverOn() ? [coverEl] : [];
+    const put = (kids) => fresh ? results.replaceChildren(...lead, ...kids) : place(results, lead.concat(kids));
+    rendered = true;
     // A typed query ranks by the search score first. The sort chip only breaks ties, and the list stays flat
     // (creator groups would hide that order).
     const bySort = {
@@ -784,14 +796,16 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       // (creator order never changes, so that is where the visitor is reading), at least FIRST_GROUPS, the rest
       // on the sentinel like on load. The results keep their old height while this builds, so the scroll position
       // is not clamped, and if the new groups are shorter the next ones go in before anything paints.
-      const was = results.offsetHeight, top = results.getBoundingClientRect().top;
+      const was = results.offsetHeight;
       // The reader's place is the group under the dock. Groups above it change height on a re-render (a filter on or
       // off), and the browser's own scroll anchoring picks whatever node it likes, which can be a screen away. So the
       // browser's anchoring is off for this one layout and the group is put back where it was by hand. A group that
       // got shorter than the reader was deep into it (a filter showed it uncapped) lands with its head under the dock.
       // A reader below every group (a filter left a short page and the scroll clamped) has no place to keep: the
       // page starts over at the top of the results, built on demand like a first load, instead of all at once.
-      const dockB = dock.getBoundingClientRect().bottom, live = results.firstElementChild && top < innerHeight;
+      // That place only exists once the reader has scrolled into the results (their top is under the dock); at the
+      // head of the page there is nothing to keep, and holding a group still meant scrolling the page under them.
+      const live = !fresh && railGroups.some((s) => s.isConnected) && top < dockB;
       const anchor = live ? railGroups.find((s) => s.isConnected && s.getBoundingClientRect().bottom > dockB + 1) : null;
       const past = !!live && !anchor && railGroups.some((s) => s.isConnected);
       const a0 = anchor ? anchor.getBoundingClientRect().top : 0;
@@ -803,11 +817,11 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       }
       // On a re-render, a small result (a few dozen cards) is cheap to build whole, so it goes in at once like before
       // round 6; the first load (empty #results) always builds on demand, so its first paint stays small.
-      const small = results.firstElementChild && parts.reduce((s, g) => s + g.n, 0) <= FLAT_STEP;
+      const small = results.childElementCount > lead.length && parts.reduce((s, g) => s + g.n, 0) <= FLAT_STEP;
       if (parts.length > keep + TAIL_GROUPS && !small) tail = parts.splice(keep);
       if (tail.length && top < innerHeight) results.style.minHeight = was + "px";
       if (anchor || past) results.style.overflowAnchor = "none";
-      place(results, strip.concat(parts.map((g) => g.f())));
+      put(strip.concat(parts.map((g) => g.f())));
       if (tail.length && top < innerHeight) {
         const until = innerHeight - results.getBoundingClientRect().top; // the viewport's bottom, inside #results
         while (tail.length && results.lastElementChild && results.lastElementChild.getBoundingClientRect().bottom - results.getBoundingClientRect().top < until) appendTail(TAIL_GROUPS);
@@ -825,11 +839,11 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     } else if (gal) {
       if (list.length) { galEl = galEl || nodes('<div class="gal"></div>')[0]; place(galEl, tileEls(list.slice(0, FLAT_STEP))); }
       if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; tailGal = true; }
-      place(results, list.length ? [galEl] : []);
+      put(list.length ? [galEl] : []);
     } else {
       if (list.length) { flatEl = flatEl || nodes('<div class="grid flat"></div>')[0]; place(flatEl, cardEls(list.slice(0, FLAT_STEP))); }
       if (list.length > FLAT_STEP) { tail = list.slice(FLAT_STEP); tailFlat = true; }
-      place(results, list.length ? [flatEl] : []);
+      put(list.length ? [flatEl] : []);
     }
     $("#empty").hidden = list.length > 0;
     // With a role on, the count says what the match is: the word is in the bot's own name or description, nothing more
@@ -883,10 +897,11 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   }
 
   // Coverage note under the count while a shelf-tag filter (Can it act?, apps, One job) is on: only tagged bots can match
-  const coverEl = $("#cover");
+  const coverEl = $("#cover"), coverHome = coverEl && coverEl.parentNode;
+  const coverOn = () => !!(st.agency || st.app || st.oneJob);
   function paintCover() {
     if (!coverEl) return;
-    const on = !!(st.agency || st.app || st.oneJob);
+    const on = coverOn();
     if (on) {
       const n = st.agency && !st.app && !st.oneJob ? tagged.agency : tagged.any;
       const what = st.agency && !st.app && !st.oneJob ? "tagged for \u201cCan it act?\u201d" : "tagged by the shelf";
@@ -894,6 +909,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       if (coverEl.dataset.msg !== msg) { coverEl.dataset.msg = msg; coverEl.innerHTML = `${esc(msg)} <button type="button" class="cover-all">Show all bots</button>`; }
     }
     coverEl.hidden = !on;
+    if (!on && coverEl.parentNode !== coverHome) coverHome.append(coverEl);
   }
   if (coverEl) coverEl.addEventListener("click", (e) => { if (e.target.closest(".cover-all")) set({ agency: "", app: "", oneJob: false }, true); });
   const pairsNote = document.getElementById("pairs-note");

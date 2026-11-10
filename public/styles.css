@@ -755,6 +755,12 @@ html.mobile .bp .sub > span[title]{flex-basis:100%;line-height:20px;margin-top:-
 .status{flex-wrap:wrap}
 .cover{flex-basis:100%;margin:0 0 4px;font-size:13px;line-height:18px;color:var(--text2)}
 .cover[hidden]{display:none}
+/* While shown, the coverage note is #results' first child (app.js), put in and taken out with the results. #results is a
+   flow-root so its first child's margin stays inside it: the box never moves when the note comes or goes. -4px undoes
+   the .status bottom margin it no longer collapses with, so the cards sit where they always did. */
+#results{display:flow-root;margin-top:-4px}
+#results>.cover{margin:12px 0 20px}
+@media (max-width:699px){#results>.cover{margin-top:4px}}
 .cover-all{border:0;padding:0;background:none;font:inherit;color:var(--blue);cursor:pointer}
 .cover-all:hover{text-decoration:underline}
 html[data-theme="light"] .cover-all{color:var(--btn-blue)}
