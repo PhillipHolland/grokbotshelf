@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 10 Nov 2026 16:19:55 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 20:30:12 GMT</lastBuildDate>
+  <item>
+    <title>📍 Nearby Reminders by Kevin</title>
+    <link>https://grokbotshelf.com/bot/nearby-reminders-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/osi4qnCsyi_E_58tQShCJ</guid>
+    <description>A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you&apos;re nearby.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 10 Nov 2026 12:00:52 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 Job Application Desk by Z23</title>
+    <link>https://grokbotshelf.com/bot/job-application-desk-by-z23</link>
+    <guid isPermaLink="false">https://x.ai/bot/cTc02RRIrpShsv4WFM1kf</guid>
+    <description>Finds open jobs that fit you, tailors your resume to each from your real experience, and fills out the applications end to end. You just give the final yes to submit.</description>
+    <dc:creator>ZyMoProfit (@ZyMoProfit)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 10 Nov 2026 12:00:51 GMT</pubDate>
+  </item>
   <item>
     <title>🧩 Multi-Agent Collaboration and Selection Strategy by w</title>
     <link>https://grokbotshelf.com/bot/multi-agent-collaboration-and-selection-strategy</link>
@@ -438,24 +456,6 @@
     <dc:creator>Santa (@JimothyRac)</dc:creator>
     <category>Money</category>
     <pubDate>Tue, 03 Nov 2026 12:00:03 GMT</pubDate>
-  </item>
-  <item>
-    <title>💌 E-Card Greetings Bot by Paige</title>
-    <link>https://grokbotshelf.com/bot/e-card-greetings-bot-by-paige</link>
-    <guid isPermaLink="false">https://x.ai/bot/gsXyaV3getUuez29IRkm_</guid>
-    <description>Personalizes and emails digital e-cards for any occasion: pick Thanksgiving, Christmas, Hanukkah, birthdays, weddings and more, type your message, and send.</description>
-    <dc:creator>Paige (@calculatemyrate)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 03 Nov 2026 12:00:02 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 X Algorithm Watch by beastnug</title>
-    <link>https://grokbotshelf.com/bot/x-algorithm-watch</link>
-    <guid isPermaLink="false">https://x.ai/bot/tVJGnGCRNiXKKnR_EKBh3</guid>
-    <description>Reads every new commit to X&apos;s open-source algorithm repo, explains it in plain English, checks viral &apos;algorithm hack&apos; claims against the code, and turns real changes into posting rules for your account.</description>
-    <dc:creator>beastnug (@beastnug8)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:00:01 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -13654,5 +13654,31 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-11-10"
+  },
+  {
+    "name": "Job Application Desk by Z23",
+    "emoji": "💼",
+    "description": "Finds open jobs that fit you, tailors your resume to each from your real experience, and fills out the applications end to end. You just give the final yes to submit.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/cTc02RRIrpShsv4WFM1kf",
+    "creator_name": "ZyMoProfit",
+    "creator_handle": "@ZyMoProfit",
+    "creator_url": "https://x.com/ZyMoProfit",
+    "creator_avatar": "/avatars/ZyMoProfit.webp",
+    "source_post": "",
+    "added": "2026-11-10"
+  },
+  {
+    "name": "Nearby Reminders by Kevin",
+    "emoji": "📍",
+    "description": "A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you're nearby.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/osi4qnCsyi_E_58tQShCJ",
+    "creator_name": "Kevin McDonald",
+    "creator_handle": "@kcmcdonald",
+    "creator_url": "https://x.com/kcmcdonald",
+    "creator_avatar": "/avatars/kcmcdonald.webp",
+    "source_post": "",
+    "added": "2026-11-10"
   }
 ]

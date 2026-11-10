@@ -7400,6 +7400,44 @@
       "note": "Added to shelf 2026-11-10; new creator avatar from the live X profile; approved by Phillip Holland (widget t1614s6723).",
       "added": "2026-11-10",
       "approved_by": "Phillip Holland (approved widget t1614s6723)"
+    },
+    "form-788": {
+      "date": "2026-11-10",
+      "status": "pending",
+      "bot": "Anti-Adfraud Bot by Markus",
+      "template_url": "https://x.ai/bot/A9PR4APmjoosYN1LAWZ_L",
+      "author": "@adfraudit",
+      "author_handle": "@adfraudit",
+      "url": "https://x.com/adfraudit/status/2120112000118489314",
+      "post_url": "https://x.com/adfraudit/status/2120112000118489314",
+      "description": "Erklärt Klickbetrug und Fake-Leads bei Google Ads verständlich, macht mit dir einen 10-Fragen-Selbst-Check und zeigt dir den Weg zum kostenlosen Audit. Bereitgestellt von adfraudit.com.",
+      "note": "Site form #788; Anti-Adfraud Bot by Markus, posted by @adfraudit. Awaiting Phillip Holland's decision; not shelved."
+    },
+    "form-789": {
+      "date": "2026-11-10",
+      "status": "added",
+      "bot": "Job Application Desk by Z23",
+      "template_url": "https://x.ai/bot/cTc02RRIrpShsv4WFM1kf",
+      "author": "@ZyMoProfit",
+      "author_handle": "@ZyMoProfit",
+      "url": "https://grokbotshelf.com/bot/job-application-desk-by-z23",
+      "description": "Finds open jobs that fit you, tailors your resume to each from your real experience, and fills out the applications end to end. You just give the final yes to submit.",
+      "note": "Added to shelf 2026-11-10; existing creator @ZyMoProfit; approved by Phillip Holland.",
+      "added": "2026-11-10",
+      "approved_by": "Phillip Holland"
+    },
+    "form-790": {
+      "date": "2026-11-10",
+      "status": "added",
+      "bot": "Nearby Reminders by Kevin",
+      "template_url": "https://x.ai/bot/osi4qnCsyi_E_58tQShCJ",
+      "author": "@kcmcdonald",
+      "author_handle": "@kcmcdonald",
+      "url": "https://grokbotshelf.com/bot/nearby-reminders-by-kevin",
+      "description": "A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you're nearby.",
+      "note": "Added to shelf 2026-11-10; existing creator Kevin McDonald @kcmcdonald; approved by Phillip Holland.",
+      "added": "2026-11-10",
+      "approved_by": "Phillip Holland"
     }
   },
   "x-2114766675119886755": {
@@ -9772,6 +9810,44 @@
     "note": "Added to shelf 2026-11-10; new creator avatar from the live X profile; approved by Phillip Holland (widget t1614s6723).",
     "added": "2026-11-10",
     "approved_by": "Phillip Holland (approved widget t1614s6723)"
+  },
+  "form-788": {
+    "date": "2026-11-10",
+    "status": "pending",
+    "bot": "Anti-Adfraud Bot by Markus",
+    "template_url": "https://x.ai/bot/A9PR4APmjoosYN1LAWZ_L",
+    "author": "@adfraudit",
+    "author_handle": "@adfraudit",
+    "url": "https://x.com/adfraudit/status/2120112000118489314",
+    "post_url": "https://x.com/adfraudit/status/2120112000118489314",
+    "description": "Erklärt Klickbetrug und Fake-Leads bei Google Ads verständlich, macht mit dir einen 10-Fragen-Selbst-Check und zeigt dir den Weg zum kostenlosen Audit. Bereitgestellt von adfraudit.com.",
+    "note": "Site form #788; Anti-Adfraud Bot by Markus, posted by @adfraudit. Awaiting Phillip Holland's decision; not shelved."
+  },
+  "form-789": {
+    "date": "2026-11-10",
+    "status": "added",
+    "bot": "Job Application Desk by Z23",
+    "template_url": "https://x.ai/bot/cTc02RRIrpShsv4WFM1kf",
+    "author": "@ZyMoProfit",
+    "author_handle": "@ZyMoProfit",
+    "url": "https://grokbotshelf.com/bot/job-application-desk-by-z23",
+    "description": "Finds open jobs that fit you, tailors your resume to each from your real experience, and fills out the applications end to end. You just give the final yes to submit.",
+    "note": "Added to shelf 2026-11-10; existing creator @ZyMoProfit; approved by Phillip Holland.",
+    "added": "2026-11-10",
+    "approved_by": "Phillip Holland"
+  },
+  "form-790": {
+    "date": "2026-11-10",
+    "status": "added",
+    "bot": "Nearby Reminders by Kevin",
+    "template_url": "https://x.ai/bot/osi4qnCsyi_E_58tQShCJ",
+    "author": "@kcmcdonald",
+    "author_handle": "@kcmcdonald",
+    "url": "https://grokbotshelf.com/bot/nearby-reminders-by-kevin",
+    "description": "A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you're nearby.",
+    "note": "Added to shelf 2026-11-10; existing creator Kevin McDonald @kcmcdonald; approved by Phillip Holland.",
+    "added": "2026-11-10",
+    "approved_by": "Phillip Holland"
   },
   "x-2119929057642959043": {
     "post_id": "2119929057642959043",
