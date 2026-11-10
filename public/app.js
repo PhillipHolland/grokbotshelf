@@ -5,24 +5,23 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   "use strict";
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
-  const appsEl = $("#apps"), agencyEl = $("#agency"), freshEl = $("#fresh"), resetEl = $("#reset");
+  const freshEl = $("#fresh"), resetEl = $("#reset");
   // Collections (round 4 #5, e.g. Family) and One job are options at the end of the category select (round 5), so the
   // select is single choice across all three: picking one clears the others. URLs stay ?collection=, ?one_job=1, ?cat=
   const COLL = "__coll:", ONE = "__onejob";
   // Role words (round 4 #6): the select is written by scripts/build.js (roles that 5+ bots name exactly); may be absent
   const roleEl = $("#roles");
   const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
-  const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
-  let bots = [], creators = [], cIdx = new Map(), cats = [], colls = [], oneJobs = 0, apps = [], st = blank(), active = -1, tagged = { any: 0, agency: 0, by: {} };
+  let bots = [], creators = [], cIdx = new Map(), cats = [], colls = [], oneJobs = 0, st = blank(), active = -1, tagged = 0;
 
-  function blank() { return { q: "", creator: "", cats: [], sort: "featured", app: "", agency: "", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
+  function blank() { return { q: "", creator: "", cats: [], sort: "featured", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
   // Unfiltered grouped views show the first few cards per creator plus a "Show N more" button; expanded groups are
   // kept in ?more=a,b. Featured (the home view) keeps it to one desktop row so the A-Z rail and scrolling stay quick;
   // Creator sort is for browsing whole catalogs, so it keeps 12 (as before). Small leftovers are shown rather than
   // hidden behind "Show 1 more". Search and filters always show every match.
   const GROUP_CAP = { featured: 3, creator: 12 }, GROUP_SLACK = { featured: 1, creator: 3 };
   let capNow = Infinity;
-  const filtering = () => !!(st.creator || st.cats.length || st.app || st.agency || st.fresh || st.oneJob || st.coll || st.role);
+  const filtering = () => !!(st.creator || st.cats.length || st.fresh || st.oneJob || st.coll || st.role);
   // Reset shows only when search, a filter or the sort differs from the default home view
   const changed = () => !!(st.q.trim() || filtering() || st.sort !== "featured");
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -271,8 +270,6 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     const c = (p.get("creator") || "").toLowerCase(); s.creator = creators.some((x) => x.key === c) ? c : "";
     s.cats = (p.get("cat") || "").split(",").map((x) => cats.find((c) => slug(c) === slug(x))).filter(Boolean);
     const so = p.get("sort"); s.sort = SORTS.includes(so) ? so : "featured";
-    const ap = p.get("app"); s.app = ap && apps.some((a) => a.key === ap) ? ap : "";
-    const ag = p.get("does"); s.agency = AGENCY[ag] ? ag : "";
     s.fresh = p.get("new") === "1";
     s.oneJob = p.get("one_job") === "1";
     const ro = p.get("role"); s.role = ro && roleEl && [...roleEl.options].some((o) => o.value && o.value === ro) ? ro : "";
@@ -290,8 +287,6 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
     if (st.q) p.set("q", st.q);
     if (st.creator && anonKey(st.creator)) p.set("creator", st.creator);
     if (st.cats.length) p.set("cat", st.cats.map(slug).join(","));
-    if (st.app) p.set("app", st.app);
-    if (st.agency) p.set("does", st.agency);
     if (st.fresh) p.set("new", "1");
     if (st.oneJob) p.set("one_job", "1");
     if (st.role) p.set("role", st.role);
@@ -552,8 +547,6 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     for (const b of bots) {
       if (ignore !== "creator" && st.creator && ckey(b) !== st.creator) continue;
       if (ignore !== "cat" && st.cats.length && !st.cats.includes(b.category)) continue;
-      if (st.app && !(b._meta && (b._meta.works_with || []).some((w) => slug(w) === st.app))) continue;
-      if (st.agency && !(b._meta && b._meta.agency === st.agency)) continue;
       if (st.fresh && !(b.added >= weekAgo())) continue;
       if (st.oneJob && !(b._meta && b._meta.one_job === true)) continue;
       if (st.coll && !b._coll.includes(st.coll)) continue;
@@ -854,8 +847,6 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       creatorEl.innerHTML = opt("", "All creators") + creators.map((c) => opt(c.key, c.short)).join("");
       const picks = colls.map((c) => opt(COLL + slug(c), c)).join("") + (oneJobs ? opt(ONE, "One job") : "");
       catsEl.innerHTML = opt("", "All categories") + cats.map((c) => opt(c, c)).join("") + (picks ? `<optgroup label="Collections">${picks}</optgroup>` : "");
-      appsEl.innerHTML = opt("", "Works with any app") + apps.map((a) => opt(a.key, `${a.label} (${a.n})`)).join("");
-      agencyEl.innerHTML = opt("", "Can it act?") + Object.entries(AGENCY).map(([k, v]) => opt(k, `${v} (${tagged.by[k] || 0})`)).join("");
     }
     const multi = st.cats.length > 1;
     let mo = catsEl.querySelector('option[value="__multi"]');
@@ -865,8 +856,6 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     } else if (mo) mo.remove();
     creatorEl.value = st.creator;
     catsEl.value = multi ? "__multi" : st.coll ? COLL + st.coll : st.oneJob ? ONE : (st.cats[0] || "");
-    appsEl.value = st.app;
-    agencyEl.value = st.agency;
     if (roleEl) roleEl.value = st.role;
     paintControls();
   }
@@ -874,27 +863,23 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
   function paintControls() {
     creatorEl.classList.toggle("on", !!st.creator);
     catsEl.classList.toggle("on", st.cats.length > 0 || !!st.coll || st.oneJob);
-    appsEl.classList.toggle("on", !!st.app);
-    agencyEl.classList.toggle("on", !!st.agency);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
     if (roleEl) roleEl.classList.toggle("on", !!st.role);
     resetEl.classList.toggle("on", changed());
   }
 
-  // Coverage note under the count while a shelf-tag filter (Can it act?, apps, One job) is on: only tagged bots can match
+  // Coverage note under the count while One job is on: only bots checked for it so far can match
   const coverEl = $("#cover");
   function paintCover() {
     if (!coverEl) return;
-    const on = !!(st.agency || st.app || st.oneJob);
+    const on = st.oneJob;
     if (on) {
-      const n = st.agency && !st.app && !st.oneJob ? tagged.agency : tagged.any;
-      const what = st.agency && !st.app && !st.oneJob ? "tagged for \u201cCan it act?\u201d" : "tagged by the shelf";
-      const msg = `Only ${n} of ${bots.length} bots are ${what} so far, so untagged bots are hidden.`;
+      const msg = `One job covers the ${tagged} of ${bots.length} bots checked so far, so some bots are not listed.`;
       if (coverEl.dataset.msg !== msg) { coverEl.dataset.msg = msg; coverEl.innerHTML = `${esc(msg)} <button type="button" class="cover-all">Show all bots</button>`; }
     }
     coverEl.hidden = !on;
   }
-  if (coverEl) coverEl.addEventListener("click", (e) => { if (e.target.closest(".cover-all")) set({ agency: "", app: "", oneJob: false }, true); });
+  if (coverEl) coverEl.addEventListener("click", (e) => { if (e.target.closest(".cover-all")) set({ oneJob: false }, true); });
   const pairsNote = document.getElementById("pairs-note");
   function paintPairsNote(show) { if (pairsNote) pairsNote.hidden = !show; }
 
@@ -913,8 +898,6 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     else if (v === ONE) set({ cats: [], coll: "", oneJob: true }, true);
     else set({ cats: v ? [v] : [], coll: "", oneJob: false }, true);
   });
-  appsEl.addEventListener("change", () => set({ app: appsEl.value }, true));
-  agencyEl.addEventListener("change", () => set({ agency: agencyEl.value }, true));
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
   if (roleEl) roleEl.addEventListener("change", () => set({ role: roleEl.value }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
@@ -1282,11 +1265,8 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       cats = [...new Set(bots.map((b) => b.category))].sort();
       colls = [...new Set(bots.flatMap((b) => b._colls))].sort(); // only collections that have bots
       oneJobs = bots.filter((b) => b._meta && b._meta.one_job === true).length;
-      const am = new Map();
-      for (const b of bots) for (const w of (b._meta && b._meta.works_with) || []) { const k = slug(w); const a = am.get(k) || { key: k, label: w, n: 0 }; a.n++; am.set(k, a); }
-      apps = [...am.values()].sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
-      // Shelf tags (bot-meta.json) cover only part of the shelf; the coverage note and the option counts say how much
-      for (const b of bots) if (b._meta) { tagged.any++; const a = b._meta.agency; if (AGENCY[a]) { tagged.agency++; tagged.by[a] = (tagged.by[a] || 0) + 1; } }
+      // bot-meta.json covers only part of the shelf; the One job note says how much
+      tagged = bots.filter((b) => b._meta).length;
       shelfDone(bots);
       st = readURL(); syncInputs();
       const show = () => {

@@ -285,7 +285,6 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
   .fb-more svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   .dock.fb-end .fb-more{opacity:0;pointer-events:none}
 }
-@media (min-width:700px){.selwrap.sm{flex:0 1 180px}}
 .meta-note{margin:4px 0 0;font-size:12px;color:var(--text2)}
 
 /* Submit form */
@@ -671,11 +670,9 @@ html.mobile .card .gets .get{height:44px;padding:0 14px}
 .filterbar{gap:8px;align-items:center}
 .filterbar .selwrap select,.filterbar .chip{height:36px;line-height:34px;padding-top:0;padding-bottom:0}
 @media (min-width:700px){
-  /* One row down to 1024: the two short selects keep a fixed width so their labels never clip; creator and category
-     share what is left (150px to 260px). Below ~925px the row wraps instead of clipping. */
+  /* One row down to 1024: creator and category share the row (150px to 260px). Below ~925px it wraps instead of clipping. */
   .filterbar{flex-wrap:wrap;row-gap:8px}
   .selwrap{flex:1 1 0;min-width:150px;max-width:260px}
-  .selwrap.sm{flex:0 0 190px;max-width:190px}
 }
 @media (max-width:699px){
   .filterbar{gap:8px}
@@ -687,8 +684,6 @@ html.mobile .card .gets .get{height:44px;padding:0 14px}
   .selwrap select{width:auto;max-width:220px}
   #creators{width:204px}
   #cats{width:190px}
-  #apps{width:216px}
-  #agency{width:170px}
 }
 
 /* ---------- 6. From the builders header and the A-Z rail ---------- */

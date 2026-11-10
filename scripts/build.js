@@ -952,7 +952,7 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
 
 // Homepage JSON-LD and the prefetch script, between the ld and prefetch markers in index.html. The SearchAction is real:
 // app.js reads ?q= on load and filters the shelf to it.
-const homeDesc = `${items.length} shared Grok Bot templates from ${handleCount(items)} creators. Search by category, app and what the bot does. Import in one tap.`;
+const homeDesc = `${items.length} shared Grok Bot templates from ${handleCount(items)} creators. Search by category, creator and role. Import in one tap.`;
 {
   const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/", description: homeDesc,
     potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" },
@@ -1137,7 +1137,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 - [pairs.json](${SITE}/pairs.json): one "Pairs with" row per bot slug, 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3. Shown on the bot page and, when a row exists, as a short chip on homepage, creator, and job-hub cards. A new auto product id is marked probation until it is promoted. Run node scripts/pairs-gen.js when a bot is added. Add --backfill after products.json changes. The build fails if a slug is missing. Curated rows (no auto flag) are never rewritten.
 - [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, none, or promote per slug. Overrides win. promote lifts probation. Bot Tools defaults to none.
 - [pair-signals.json](${SITE}/pair-signals.json): real pair_click counts (bot slug, then product id). A probation row leaves probation at min clicks (default 3). Do not invent counts.
-- [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
+- [bot-meta.json](${SITE}/bot-meta.json): optional shelf notes keyed by template id (the part after x.ai/bot/). collections lists the hand-picked shelf collections a bot is in (e.g. Family); one_job marks a short, single-purpose bot. Missing means not checked yet.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
 - [sitemap.xml](${SITE}/sitemap.xml): every bot page and creator page.
