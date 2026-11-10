@@ -6,7 +6,106 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 10 Nov 2026 01:55:56 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 03:05:55 GMT</lastBuildDate>
+  <item>
+    <title>✂️ Cut · Film Editor by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/cut-film-editor-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/pXaNwwJtU7swn1eztXTsB</guid>
+    <description>An AI film director and editor. Send raw clips and Cut pitches a shot list, then cuts an edit with punch-ins, speed ramps and voiceover.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:47 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔎 Clip Scout by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/clip-scout-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/ZW-lsfOKtX2V2ON1KXJLF</guid>
+    <description>Type a word or emotion and get the most recognizable movie and TV reaction clips for your edit, with search strings and tone options.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:46 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧪 Prompt Lab by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/prompt-lab-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/NN5pqHjmr-wC-vJ9d27EG</guid>
+    <description>Writes coding prompts you paste into several AI models to compare how well each one builds something visual in code (Three.js, canvas, SVG, HTML/CSS).</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:45 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪽 Hermes by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/hermes-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/Lg1yD7lFxLTR8BJoYt3pk</guid>
+    <description>A front end to the Nous Research Hermes Agent CLI on your computer. It runs your prompts through Hermes, keeps the CLI updated, and returns the results.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>✨ Glow Up by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/glow-up-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/NCy5afIaZzGWavZGDDHiu</guid>
+    <description>Send a selfie and get a funny, flattering, over-the-top glam makeover with big hair and dramatic makeup, in vibes like Pageant Queen or Disco.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎬 Director by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/director-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/E6NdmXG5F9O_B6nFiDIJW</guid>
+    <description>Leads a six-bot video production team: routes each video job to the right specialist, keeps one house style, and checks every cut before handing it over.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:42 GMT</pubDate>
+  </item>
+  <item>
+    <title>🥊 Gauntlet by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/gauntlet-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/V8PEtwUMDHq3kFVOcyizc</guid>
+    <description>Turns verified AI model test runs into scorecards and 1280x720 gauntlet reels with PASS stamps, a scorebug and a leaderboard.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎸 Riffrow by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/riffrow-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/2_uBthmv20DacnSl1bAAu</guid>
+    <description>MST3K-style riff bot: takes a clip, writes a three-character riff script, voices it, and renders a theater-style video in landscape and vertical.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>📱 Shorts by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/shorts-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/Gz5l1KsT-Tn0sV7D3WUyi</guid>
+    <description>Makes 35-50s vertical (720x1280) shorts of model tests and highlights: action from frame one, hook in two seconds, verified numbers only.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:39 GMT</pubDate>
+  </item>
+  <item>
+    <title>🆚 Versus by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/versus-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/9RuGvNg6YS66-crQDZ1rj</guid>
+    <description>Builds head-to-head comparison videos in one fixed look: focus model on the left, opponents cycling right, STAR WINNER stamps and a running score.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>🖼️ Thumbs by Wayne by Wayne Lowry</title>
+    <link>https://grokbotshelf.com/bot/thumbs-by-wayne</link>
+    <guid isPermaLink="false">https://x.ai/bot/9F6v_TeHcioiD9uiP6VG5</guid>
+    <description>Builds consistent 1280x720 video covers and opening slides with your real photo composited untouched; never AI-generated faces.</description>
+    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 09 Nov 2026 12:00:37 GMT</pubDate>
+  </item>
   <item>
     <title>🌿 Mangrove by David Buttrey</title>
     <link>https://grokbotshelf.com/bot/mangrove</link>
@@ -357,105 +456,6 @@
     <dc:creator>Kevin (@kcmcdonald)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 03 Nov 2026 12:16:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕶️ Shadow by Kevin</title>
-    <link>https://grokbotshelf.com/bot/shadow-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/nA14kdvTueqWdYxy6Gubt</guid>
-    <description>A silent meeting assistant for Google Meet, Zoom, and Teams that sends you private one-line notes during the call and speaks only when you say its name.</description>
-    <dc:creator>Kevin (@kcmcdonald)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>🗳️ Ballot Scout by Yossi</title>
-    <link>https://grokbotshelf.com/bot/ballot-scout</link>
-    <guid isPermaLink="false">https://x.ai/bot/tL4Rmvq9J8vcxKjaXz5G_</guid>
-    <description>Walks your real local ballot race by race with candidate and measure cards from free sources like Ballotpedia and Vote411.</description>
-    <dc:creator>Yossi (@josephstayhappy)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:36 GMT</pubDate>
-  </item>
-  <item>
-    <title>💅 Sassy Bot by Paige</title>
-    <link>https://grokbotshelf.com/bot/sassy-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/CZGWiB4CX5UM9v8Zu-MDT</guid>
-    <description>A sassy wing woman for X: drafts funny posts and helpful replies in your voice for you to approve, checks mentions and DMs, and drafts classy boundary replies to creeps.</description>
-    <dc:creator>Paige (@calculatemyrate)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:35 GMT</pubDate>
-  </item>
-  <item>
-    <title>📺 Telly by Ryan</title>
-    <link>https://grokbotshelf.com/bot/telly</link>
-    <guid isPermaLink="false">https://x.ai/bot/UC5JcnrB1O5SBT-Nq9HTw</guid>
-    <description>Builds you a daily page of what&apos;s new on your streaming services (premieres, new seasons, new movies, theatrical openings and what&apos;s coming) with posters, trailers and scores, and sends the link each morning.</description>
-    <dc:creator>Ryan (@BellverseLabs)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ Bot Trust Builder by Kevin by Kevin McDonald</title>
-    <link>https://grokbotshelf.com/bot/bot-trust-builder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/a_7jq2bwGGKWTBqaGQRqM</guid>
-    <description>Coaches individuals and businesses on using AI bots safely: what to share, how to check answers, when to require human approval, and which permissions to grant.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>📊 AI Video Analyst (Japanese) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-video-analyst-japanese-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/it7HTvLmhBPwa95gGY7rj</guid>
-    <description>Japanese-language version (AI動画分析アシスタント): analyze a video’s opening, pacing, camera work and script with Tavi, and how the cuts and story connect.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧸 AI Children’s Animation Creator (Japanese) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-children-s-animation-creator-japanese-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/ls7-6nNdTAP9CcLgkOLW4</guid>
-    <description>Japanese-language version (AI子ども向けアニメクリエイター): turn bedtime stories, small adventures or good habits into children’s animation clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎌 AI Anime Director (Japanese) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-anime-director-japanese-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/maTEnA-cTlFE5-yG6uhAd</guid>
-    <description>Japanese-language version (AIアニメ監督): plan characters, episode scripts and shot layouts for your story, then make anime-style video clips with Tavi.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>📣 AI Video Ad Creator (Japanese) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-video-ad-creator-japanese-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/_ILADyvNyfWMbRWh3nuQy</guid>
-    <description>Japanese-language version (AI動画広告クリエイター): make video ad clips with Tavi, with a strong hook, a one-message script and a clear close.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>📦 AI Product Video Creator (Japanese) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-product-video-creator-japanese-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/ptA5aSY_Cz93nmI0ITqoj</guid>
-    <description>Japanese-language version (AI商品紹介動画クリエイター): make product intro video clips with Tavi from your photos and features, showing how it’s used and why to pick it.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>📊 AI Video Analyst (Korean) by tavi</title>
-    <link>https://grokbotshelf.com/bot/ai-video-analyst-korean-by-tavi</link>
-    <guid isPermaLink="false">https://x.ai/bot/uk4eF-MQnOmXrm36wNFU2</guid>
-    <description>Korean-language version (AI 영상 분석가): analyze a video’s opening, pacing, camera work and script with Tavi and get an analysis report.</description>
-    <dc:creator>tavi (@tavivideo)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 03 Nov 2026 12:16:27 GMT</pubDate>
   </item>
 </channel>
 </rss>
