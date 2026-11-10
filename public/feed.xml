@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 10 Nov 2026 20:30:12 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 10 Nov 2026 23:18:59 GMT</lastBuildDate>
+  <item>
+    <title>📡 DEX Liquidity Radar by Igor</title>
+    <link>https://grokbotshelf.com/bot/dex-liquidity-radar-by-igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/5SmU-hS3gxAtORbkN795j</guid>
+    <description>Plain-English liquidity and volume alerts for tokens and pools you watch, from public DEX data. Read-only: no wallets, no trades, not financial advice.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Money</category>
+    <pubDate>Tue, 10 Nov 2026 12:00:54 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔌 MCP Builder Coach by Igor</title>
+    <link>https://grokbotshelf.com/bot/mcp-builder-coach-by-igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/xlV95BMVhC6tLDnQ-gFVs</guid>
+    <description>Scaffolds, tests, and documents a Model Context Protocol (MCP) server for your API so AI agents can use it.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Tue, 10 Nov 2026 12:00:53 GMT</pubDate>
+  </item>
   <item>
     <title>📍 Nearby Reminders by Kevin</title>
     <link>https://grokbotshelf.com/bot/nearby-reminders-by-kevin</link>
@@ -438,24 +456,6 @@
     <dc:creator>Alberto Jauregui (@weeb3dev)</dc:creator>
     <category>Food</category>
     <pubDate>Wed, 04 Nov 2026 12:00:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>📋 Pre-Call Brief by Calix</title>
-    <link>https://grokbotshelf.com/bot/pre-call-brief</link>
-    <guid isPermaLink="false">https://x.ai/bot/GjAx9sLjHoYK4AdKV-GxN</guid>
-    <description>Before each outside meeting on your Google or Outlook calendar, sends you a one-screen brief on who they are, what their company does and what you&apos;ve already discussed. Read-only on calendar and mail.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Wed, 04 Nov 2026 12:00:04 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪙 Jimothy Coin Check by Santa</title>
-    <link>https://grokbotshelf.com/bot/jimothy-coin-check-by-santa</link>
-    <guid isPermaLink="false">https://x.ai/bot/RewefuqGZopszv0q3KiM6</guid>
-    <description>Paste a Solana token&apos;s contract address or name and get a plain-English safety report: a 0–100 score and the biggest risks. Informational only; never asks for wallets, keys, or seed phrases and never buys or spends.</description>
-    <dc:creator>Santa (@JimothyRac)</dc:creator>
-    <category>Money</category>
-    <pubDate>Tue, 03 Nov 2026 12:00:03 GMT</pubDate>
   </item>
 </channel>
 </rss>

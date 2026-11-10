@@ -7438,6 +7438,32 @@
       "note": "Added to shelf 2026-11-10; existing creator Kevin McDonald @kcmcdonald; approved by Phillip Holland.",
       "added": "2026-11-10",
       "approved_by": "Phillip Holland"
+    },
+    "form-791": {
+      "date": "2026-11-10",
+      "status": "added",
+      "bot": "MCP Builder Coach by Igor",
+      "template_url": "https://x.ai/bot/xlV95BMVhC6tLDnQ-gFVs",
+      "author": "@holt_igor",
+      "author_handle": "@holt_igor",
+      "url": "https://grokbotshelf.com/bot/mcp-builder-coach-by-igor",
+      "description": "Scaffolds, tests, and documents a Model Context Protocol (MCP) server for your API so AI agents can use it.",
+      "note": "Added to shelf 2026-11-10; existing creator Igor Holt @holt_igor; approved by Phillip Holland.",
+      "added": "2026-11-10",
+      "approved_by": "Phillip Holland"
+    },
+    "form-792": {
+      "date": "2026-11-10",
+      "status": "added",
+      "bot": "DEX Liquidity Radar by Igor",
+      "template_url": "https://x.ai/bot/5SmU-hS3gxAtORbkN795j",
+      "author": "@holt_igor",
+      "author_handle": "@holt_igor",
+      "url": "https://grokbotshelf.com/bot/dex-liquidity-radar-by-igor",
+      "description": "Plain-English liquidity and volume alerts for tokens and pools you watch, from public DEX data. Read-only: no wallets, no trades, not financial advice.",
+      "note": "Added to shelf 2026-11-10; existing creator Igor Holt @holt_igor; approved by Phillip Holland. Description kept to the live template: read-only public DEX data, not financial advice.",
+      "added": "2026-11-10",
+      "approved_by": "Phillip Holland"
     }
   },
   "x-2114766675119886755": {
@@ -9846,6 +9872,32 @@
     "url": "https://grokbotshelf.com/bot/nearby-reminders-by-kevin",
     "description": "A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you're nearby.",
     "note": "Added to shelf 2026-11-10; existing creator Kevin McDonald @kcmcdonald; approved by Phillip Holland.",
+    "added": "2026-11-10",
+    "approved_by": "Phillip Holland"
+  },
+  "form-791": {
+    "date": "2026-11-10",
+    "status": "added",
+    "bot": "MCP Builder Coach by Igor",
+    "template_url": "https://x.ai/bot/xlV95BMVhC6tLDnQ-gFVs",
+    "author": "@holt_igor",
+    "author_handle": "@holt_igor",
+    "url": "https://grokbotshelf.com/bot/mcp-builder-coach-by-igor",
+    "description": "Scaffolds, tests, and documents a Model Context Protocol (MCP) server for your API so AI agents can use it.",
+    "note": "Added to shelf 2026-11-10; existing creator Igor Holt @holt_igor; approved by Phillip Holland.",
+    "added": "2026-11-10",
+    "approved_by": "Phillip Holland"
+  },
+  "form-792": {
+    "date": "2026-11-10",
+    "status": "added",
+    "bot": "DEX Liquidity Radar by Igor",
+    "template_url": "https://x.ai/bot/5SmU-hS3gxAtORbkN795j",
+    "author": "@holt_igor",
+    "author_handle": "@holt_igor",
+    "url": "https://grokbotshelf.com/bot/dex-liquidity-radar-by-igor",
+    "description": "Plain-English liquidity and volume alerts for tokens and pools you watch, from public DEX data. Read-only: no wallets, no trades, not financial advice.",
+    "note": "Added to shelf 2026-11-10; existing creator Igor Holt @holt_igor; approved by Phillip Holland. Description kept to the live template: read-only public DEX data, not financial advice.",
     "added": "2026-11-10",
     "approved_by": "Phillip Holland"
   },

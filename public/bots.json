@@ -13680,5 +13680,31 @@
     "creator_avatar": "/avatars/kcmcdonald.webp",
     "source_post": "",
     "added": "2026-11-10"
+  },
+  {
+    "name": "MCP Builder Coach by Igor",
+    "emoji": "🔌",
+    "description": "Scaffolds, tests, and documents a Model Context Protocol (MCP) server for your API so AI agents can use it.",
+    "category": "Developer",
+    "url": "https://x.ai/bot/xlV95BMVhC6tLDnQ-gFVs",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-11-10"
+  },
+  {
+    "name": "DEX Liquidity Radar by Igor",
+    "emoji": "📡",
+    "description": "Plain-English liquidity and volume alerts for tokens and pools you watch, from public DEX data. Read-only: no wallets, no trades, not financial advice.",
+    "category": "Money",
+    "url": "https://x.ai/bot/5SmU-hS3gxAtORbkN795j",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-11-10"
   }
 ]
