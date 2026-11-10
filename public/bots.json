@@ -13615,5 +13615,44 @@
     "creator_avatar": "/avatars/wikiwayne.webp",
     "source_post": "",
     "added": "2026-11-09"
+  },
+  {
+    "name": "Movie Actor Streak",
+    "emoji": "🍿",
+    "description": "Planning a few weeks of films with one actor? Type their name and get every feature film they've played in, oldest first, with IMDb and TMDB scores, runtime and where to stream it in your country, on a sortable page you can print as a PDF.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/JF3hJaodw9DJ6l3Kb9k7e",
+    "creator_name": "Troels Jensen",
+    "creator_handle": "@TroelsMJensen",
+    "creator_url": "https://x.com/TroelsMJensen",
+    "creator_avatar": "/avatars/troelsmjensen.webp",
+    "source_post": "",
+    "added": "2026-11-10"
+  },
+  {
+    "name": "Knowledge Animation Pipeline",
+    "emoji": "🎞️",
+    "description": "全程知识动画流水线 takes knowledge animations from topic card and script through a time contract, motion render, independent QA, and delivery. Render, dependencies, and GPU run on your own computer — no vendor machine, login, or GPU included.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/T6hJMD1N8MI8tfl06-GK-",
+    "creator_name": "w",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-10"
+  },
+  {
+    "name": "Multi-Agent Collaboration and Selection Strategy",
+    "emoji": "🧩",
+    "description": "多 Agent 协作与选型策略: a public playbook for when to split agents and how to spend on models. Don't split by default; copy only after a gold sample; require machine-checkable acceptance tests before self-evolution; spend premium models on hard work. Strategy and tier logic only — no vendor machines, logins, or private schedulers.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/ArZlxjSbX_1wbxjyu_b-a",
+    "creator_name": "w",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-10"
   }
 ]
