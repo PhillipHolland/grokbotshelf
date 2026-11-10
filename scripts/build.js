@@ -54,8 +54,6 @@ function clipSentences(s, n = 155) {
   for (const m of t.matchAll(/[^.!?]+[.!?]+(?=\s|$)/g)) { const next = (out ? out + " " : "") + m[0].trim(); if (next.length > n) break; out = next; }
   return out || clipDesc(t, n);
 }
-const AGENCY = { reads: "Reads only", drafts: "Drafts for you", acts: "Takes actions" };
-const AGENCY_TIP = { reads: "Looks things up and reports back", drafts: "Prepares things for you to send or approve", acts: "Can take actions, usually after your OK" };
 // Google Analytics 4 + Search Console. Both come from Vercel env vars and are off when unset:
 // GA_MEASUREMENT_ID (G-XXXXXXXXXX) and GSC_VERIFICATION (the content value of the google-site-verification meta tag).
 // The measurement script is not a static tag. It loads only when the hostname is grokbotshelf.com or
@@ -550,7 +548,9 @@ function miniPairs(b, surface) {
 function page(b, related, similar) {
   const title = docTitle(b);
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
-  const badges = [...b.collections.map((c) => `<a class="badge coll" href="/?collection=${esc(slugify(c))}" title="In the shelf's ${esc(c)} collection">${esc(c)}</a>`), b.agency ? `<span class="badge ag-${b.agency}" title="${esc(AGENCY_TIP[b.agency])}">${AGENCY[b.agency]}</span>` : "", ...b.works_with.map((w) => `<span class="badge">${esc(w)}</span>`)].join("");
+  // Only hand-picked collections show as chips; the agency and works_with tags guessed from the description stay in
+  // bot-meta.json for the home filters but are not shown
+  const badges = b.collections.map((c) => `<a class="badge coll" href="/?collection=${esc(slugify(c))}" title="In the shelf's ${esc(c)} collection">${esc(c)}</a>`).join("");
   const bm = b.social && b.social.bookmarks ? `<span title="Bookmarks on the original X post, not a rating">${b.social.bookmarks.toLocaleString("en-US")} ${b.social.bookmarks === 1 ? "bookmark" : "bookmarks"} on X</span>` : "";
   const ld = botLd(b, url, img);
   const snipHtml = `<a href="${url}"><img src="${BADGE.light}" alt="Featured on Grok Bot Shelf" width="220" height="44"></a>`;
@@ -583,7 +583,6 @@ ${HEADER}
       <a href="/#bot-${b.slug}">See it on the shelf</a>
       ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}${(jobBySlug.get(b.slug) || []).map((c) => `\n      <a href="/collection/${esc(c.slug)}">Also in: ${esc(c.name)}</a>`).join("")}
     </p>
-    ${badges ? `<p class="fine">Badges are set by the shelf from the bot's description.</p>` : ""}
   </article>
   ${pairsSection(b)}
   ${underTheHood(b)}${sameJob(b)}
@@ -955,7 +954,7 @@ ${jobCollections.map((c) => `<a href="/collection/${esc(c.slug)}">${esc(c.name)}
 
 // Homepage JSON-LD and the prefetch script, between the ld and prefetch markers in index.html. The SearchAction is real:
 // app.js reads ?q= on load and filters the shelf to it.
-const homeDesc = `${items.length} shared Grok Bot templates from ${handleCount(items)} creators. Search by category, app and what the bot does. Import in one tap.`;
+const homeDesc = `${items.length} shared Grok Bot templates from ${handleCount(items)} creators. Search by category, creator and role. Import in one tap.`;
 {
   const site = { "@context": "https://schema.org", "@type": "WebSite", "@id": SITE + "/#website", name: "Grok Bot Shelf", url: SITE + "/", description: homeDesc,
     potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: SITE + "/?q={search_term_string}" }, "query-input": "required name=search_term_string" },
@@ -1140,7 +1139,7 @@ fs.writeFileSync(path.join(PUB, "llms.txt"), `# Grok Bot Shelf
 - [pairs.json](${SITE}/pairs.json): one "Pairs with" row per bot slug, 0–3 product ids with score 4 or 5 and a short reason. Empty is normal. At most 3. Shown on the bot page and, when a row exists, as a short chip on homepage, creator, and job-hub cards. A new auto product id is marked probation until it is promoted. Run node scripts/pairs-gen.js when a bot is added. Add --backfill after products.json changes. The build fails if a slug is missing. Curated rows (no auto flag) are never rewritten.
 - [pairs-overrides.json](${SITE}/pairs-overrides.json): pin, block, none, or promote per slug. Overrides win. promote lifts probation. Bot Tools defaults to none.
 - [pair-signals.json](${SITE}/pair-signals.json): real pair_click counts (bot slug, then product id). A probation row leaves probation at min clicks (default 3). Do not invent counts.
-- [bot-meta.json](${SITE}/bot-meta.json): optional badges keyed by template id (the part after x.ai/bot/). agency is reads, drafts or acts; works_with lists apps the bot's description names; collections lists the shelf collections a bot is in (e.g. Family). Set by the shelf; missing means unknown.
+- [bot-meta.json](${SITE}/bot-meta.json): optional shelf notes keyed by template id (the part after x.ai/bot/). collections lists the hand-picked shelf collections a bot is in (e.g. Family); one_job marks a short, single-purpose bot. Missing means not checked yet.
 - [social.json](${SITE}/social.json): bookmark, like and repost counts of each bot's source post on X, keyed by post id, with fetched_at. These are X counts, not ratings.
 - [Search API](${SITE}/api/search?q=email): GET /api/search?q=&category=&creator=&limit= (1 to 100). CORS open.
 - [sitemap.xml](${SITE}/sitemap.xml): every bot page and creator page.

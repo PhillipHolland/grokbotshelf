@@ -9,8 +9,6 @@
 const { fold, slugify, appLink } = require("./shelf");
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const SITE = "https://grokbotshelf.com";
-const AGENCY = { acts: "Takes actions", drafts: "Drafts for you", reads: "Reads only" };
-const AGENCY_TIP = { acts: "Can take actions, usually after your OK", drafts: "Prepares things for you to send or approve", reads: "Looks things up and reports back" };
 const ckey = (b) => b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slugify(b.creator_name);
 const profilePath = (key) => "/@" + key;
 const icon = (n, cls) => `<svg${cls ? ` class="${cls}"` : ""} viewBox="0 0 24 24" aria-hidden="true"><use href="#i-${n}"/></svg>`;
@@ -24,10 +22,10 @@ function shareX(b) {
   return { web: "https://twitter.com/intent/tweet?text=" + T };
 }
 function badgesHTML(b) {
-  const m = b._meta || {}, coll = b._colls.map((c) => `<span class="badge coll" title="In the shelf's ${esc(c)} collection">${esc(c)}</span>`);
-  const out = coll.concat(m.agency && AGENCY[m.agency] ? [`<span class="badge ag-${m.agency}" title="${esc(AGENCY_TIP[m.agency])}">${AGENCY[m.agency]}</span>`] : [])
-    .concat((m.works_with || []).map((w) => `<span class="badge">${esc(w)}</span>`));
-  return `<div class="badges"${out.length ? ` title="Set by the shelf from the bot's description"` : ""}>${out.join("")}</div>`;
+  // Only hand-picked collections show as chips; the agency and works_with tags guessed from the description
+  // still drive the filters but are not shown
+  const coll = b._colls.map((c) => `<span class="badge coll" title="In the shelf's ${esc(c)} collection">${esc(c)}</span>`);
+  return `<div class="badges">${coll.join("")}</div>`;
 }
 function pairsHTML(b, surface) {
   const rows = b.pairs;

@@ -130,7 +130,7 @@ try {
     ok(app.applicationCategory === arch.category && app.operatingSystem === "Grok Bot" && app.offers && app.offers["@type"] === "Offer" && app.offers.price === "0" && app.offers.priceCurrency === "USD" && !app.aggregateRating, `bot JSON-LD: operatingSystem Grok Bot, free USD offer, no rating (${app.operatingSystem})`);
     { // round 2 #8: homepage description and share title carry the live counts, twitter:site set; robots keeps crawlers off /api/
       const home = fs.readFileSync(pub("index.html"), "utf8"), nc = new Set(bots.map((b) => (b.creator_handle || "").replace(/^@/, "").toLowerCase()).filter(Boolean)).size;
-      const desc = `${bots.length} shared Grok Bot templates from ${nc} creators. Search by category, app and what the bot does. Import in one tap.`;
+      const desc = `${bots.length} shared Grok Bot templates from ${nc} creators. Search by category, creator and role. Import in one tap.`;
       const m = (sel) => (home.match(new RegExp(`<meta ${sel} content="([^"]*)">`)) || [])[1];
       ok(m('name="description"') === desc && m('property="og:description"') === desc && m('name="twitter:description"') === desc, `homepage description: ${m('name="description"')}`);
       ok(m('property="og:title"') === `Grok Bot Shelf: ${bots.length.toLocaleString("en-US")} shared Grok Bot templates` && m('name="twitter:title"') === m('property="og:title"') && m('name="twitter:site"') === "@Phil_Holland", `homepage share title and twitter:site (${m('property="og:title"')})`);

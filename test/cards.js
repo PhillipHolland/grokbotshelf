@@ -55,7 +55,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
     const pairsH = (c) => { const e = c.querySelector('.card-pairs'); return e ? Math.round(r(e).height) : 0; };
     for (const row of rows.values()) for (const cs of Object.values(Object.groupBy(row, pairsH))) { if (cs.length < 2) continue; out.rows++; const bt = new Set(cs.map((c) => Math.round(r(c.querySelector('.badges')).bottom))), ft = new Set(cs.map((c) => Math.round(r(c.querySelector('.foot-row')).top))); if (bt.size > 1 || ft.size > 1) out.rowBad++; }
     const sel = [...document.querySelectorAll('.filterbar select, .filterbar .chip')].map((e) => Math.round(r(e).height));
-    const sm = [...document.querySelectorAll('.filterbar .selwrap.sm')].map((e) => Math.round(r(e).width));
+    const sm = document.querySelectorAll('.filterbar .selwrap.sm, #apps, #agency').length;
     out.sel = [...new Set(sel)]; out.sm = sm; out.vnW = [...out.vnW];
     return out;
   });
@@ -67,7 +67,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
   ok(c.footRows === 0, `1280: footer is one row on every card (${c.footRows} wrapped)`);
   ok(c.rows > 10 && c.rowBad === 0, `1280: tag lines and footers line up across ${c.rows} row sets, grouped by Pairs row height (${c.rowBad} off)`);
   ok(c.sel.length === 1 && c.sel[0] === 36, `1280: filter selects and chips are all 36px tall (${c.sel.join(', ')})`);
-  ok(c.sm.length === 2 && c.sm.every((w) => w === 190), `1280: "Works with" and "Can it act?" are 190px (${c.sm.join(', ')})`);
+  ok(c.sm === 0, `1280: no "Works with" or "Can it act?" select in the filter row (${c.sm} found)`);
   await p.close();
 
   const m = await open({ width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 2 });

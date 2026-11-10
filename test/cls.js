@@ -85,7 +85,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
     const sizes = () => q.evaluate(() => [...document.querySelectorAll('.filterbar select, .filterbar .chip')].map((s) => s.id + ':' + Math.round(s.getBoundingClientRect().width) + '@' + Math.round(s.getBoundingClientRect().x)).join(' '));
     const before = await sizes();
     if (held) held.continue();
-    await q.waitForFunction(() => document.querySelectorAll('#creators option').length > 1 && document.querySelectorAll('#agency option').length > 1, { timeout: 30000 }).catch(() => {});
+    await q.waitForFunction(() => document.querySelectorAll('#creators option').length > 1 && document.querySelectorAll('#cats option').length > 1, { timeout: 30000 }).catch(() => {});
     await wait(500);
     const after = await sizes(), loaded = await q.evaluate(() => document.querySelectorAll('#creators option').length > 1);
     ok(!!held && loaded && before === after, `${w}px: filter selects keep their size and place when options load (${before} -> ${after})`);

@@ -2,7 +2,7 @@
 // that has bots, then One job, is an option at the end of the category select under a "Collections" label (no pills).
 // The select is single choice: Family, One job or a category replaces the others. URLs stay ?collection=family,
 // ?one_job=1 and ?cat=, so old links still open; an old link with several keeps the collection, else One job.
-// Cards and bot pages show the badge, and a collection-only entry does not count as "tagged by the shelf".
+// Cards and bot pages show the badge, and a collection-only entry does not count as checked for One job.
 // Usage: NODE_PATH=/path/to/node_modules node test/collections.js [base-url]
 const puppeteer = require('puppeteer-core'), tempSite = require('./tempsite');
 const { templateId, slugify } = require('../scripts/shelf');
@@ -49,7 +49,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
   ok(oneJobs ? (await state(o1)).value === '__onejob' && (await state(o1)).count === `${oneJobs} bots` : true, 'an old /?one_job=1 link opens with One job picked');
   await o1.close();
 
-  // 2. A copy with three Family bots: one already tagged by the shelf, two with no other meta
+  // 2. A copy with three Family bots: one already in bot-meta.json, two with no other meta
   const bots = data.bots, withMeta = bots.find((x) => x.meta), plain = bots.filter((x) => !x.meta).slice(0, 2), fam = [withMeta, ...plain];
   const cat = withMeta.category, inCat = bots.filter((x) => x.category === cat).length;
   const site = await tempSite(({ J, W }) => { const m = J('bot-meta.json'); for (const e of Object.values(m.bots)) delete e.collections; for (const x of fam) { const id = templateId(x.url); m.bots[id] = { ...(m.bots[id] || { name: x.name }), collections: ['Family'] }; } W('bot-meta.json', m); });
@@ -82,7 +82,7 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/6
     const d = await open(site.base, '/?collection=family');
     ok((await state(d)).count === '3 bots' && (await state(d)).value === '__coll:family', 'an old /?collection=family link opens with Family picked');
     const cover = await d.evaluate(async () => { const s = document.querySelector('#cats'); s.value = '__onejob'; s.dispatchEvent(new Event('change')); await new Promise((r) => setTimeout(r, 300)); return document.querySelector('#cover').textContent; });
-    ok(cover === noneCover, `collection-only entries do not raise the "tagged by the shelf" count (${cover.match(/Only \d+ of \d+/)})`);
+    ok(cover === noneCover, `collection-only entries do not raise the One job checked count (${cover.match(/the \d+ of \d+/)})`);
     await d.close();
     const both = await open(site.base, `/?cat=${slugify(cat)}&collection=family&one_job=1`);
     const bs = await state(both);
