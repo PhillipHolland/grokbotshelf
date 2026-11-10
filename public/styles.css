@@ -129,10 +129,10 @@ html[data-theme="light"] .reset{color:var(--btn-blue)}
 .card h3 a{text-decoration:none}
 .card h3 a:hover{text-decoration:underline}
 /* Target size (WCAG 2.5.8, 24px): the title link grows up into the card's top padding and the category and creator
-   links down toward the description, as padding cancelled by a negative margin, so the hit boxes are 24px tall,
-   never overlap, and no text moves */
-.card h3 a{display:inline-block;padding-top:6px;margin-top:-6px}
-.sub :is(a.catlink,a.cn){padding-bottom:8px;margin-bottom:-8px}
+   links down toward the description, as padding cancelled by a negative margin, so the hit boxes are 24px tall, never
+   overlap, and no text moves. Phones (html.mobile) already give the title and creator links their own larger taps. */
+html:not(.mobile) .card h3 a{display:inline-block;padding-top:6px;margin-top:-6px}
+.sub a.catlink,html:not(.mobile) .sub a.cn{padding-bottom:8px;margin-bottom:-8px}
 .sub{display:flex;align-items:center;gap:5px;margin-top:2px;font-size:13px;color:var(--text2);white-space:nowrap;overflow:hidden}
 .sub img{width:16px;height:16px;border-radius:50%;flex:none}
 .desc{margin:0 0 14px;font-size:15px;line-height:1.4;color:var(--text);flex:1}
