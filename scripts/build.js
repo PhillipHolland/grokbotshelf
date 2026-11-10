@@ -557,7 +557,7 @@ function page(b, related, similar) {
   const snipMd = `[![Featured on Grok Bot Shelf](${BADGE.light})](${url})`;
   // Share pill in the header (round 4 #2): x.com's post intent with the page link as its own url param, the bot
   // credited the same way the cards credit it
-  const shareText = `${b.name}${byline(b.name, b.creator_handle || b.creator_name)} on Grok Bot Shelf`;
+  const shareText = `${b.name.toLowerCase().endsWith(` by ${b.creator_name}`.toLowerCase()) ? b.name : `${b.name} by ${b.creator_handle || b.creator_name}`} on Grok Bot Shelf`;
   const share = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`;
   const trail = [["Grok Bot Shelf", "/"], ...(b.creator_handle ? [[b.creator_name, "/@" + ckey(b)]] : []), [b.name, ""]];
   return `${head({ title, desc, url, img, ogTitle: `${b.emoji} ${titled(b)}`, alt: `${b.name}, a Grok Bot template${byline("", b.creator_name)}`, creator: b.creator_handle || "@Phil_Holland", ld, css: true })}
