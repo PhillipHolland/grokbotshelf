@@ -147,6 +147,10 @@ const OG2 = (() => { const h = require("crypto").createHash("sha256"); let n = 0
 // the cards use, so the page makes one request instead of three. The source files stay as they are (api/* reads them).
 // index.html preloads it with a content-hash ?v= between the data markers, so a new catalog is a new URL.
 const pickKeys = (o, ks) => { const r = {}; for (const k of ks) if (o && o[k] !== undefined && o[k] !== null) r[k] = o[k]; return Object.keys(r).length ? r : undefined; };
+// Only one_job reaches the browser. agency and works_with (guessed from the description) are no longer shown or
+// filtered on, so they stay in bot-meta.json for the build (similar bots) and are left out here. A bot the shelf has
+// checked still gets a meta object, {} when it has no one_job, because the One job note counts checked bots.
+const shelfMeta = (m) => pickKeys(m, ["agency", "works_with", "one_job"]) ? pickKeys(m, ["one_job"]) || {} : undefined;
 const pairIcons = new Set(["bot"]);
 // The list app.js loads; scripts/home-strip.js draws the first screen from these same objects
 const shelfBots = bots.map((b) => {
@@ -154,7 +158,7 @@ const shelfBots = bots.map((b) => {
   for (const p of packed.pairs) if (p.icon) pairIcons.add(p.icon);
   const mark = botMark(b.emoji);
   pairIcons.add(mark);
-  return { ...b, mark, meta: pickKeys(meta[templateId(b.url)], ["agency", "works_with", "one_job"]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
+  return { ...b, mark, meta: shelfMeta(meta[templateId(b.url)]), social: pickKeys(social[postId(b.source_post)], ["bookmarks", "likes"]),
   collections: collectionsOf(b).length ? collectionsOf(b) : undefined, roles: rolesOf(b).length ? rolesOf(b) : undefined,
   og: ogThumb(b), no720: ogThumb(b) && !has720(b) || undefined,
   pairs: packed.pairs.length ? packed.pairs : undefined,

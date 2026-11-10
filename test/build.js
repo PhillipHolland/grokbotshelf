@@ -164,8 +164,12 @@ try {
   const data = JSON.parse(fs.readFileSync(pub("shelf-data.json"), "utf8")).bots;
   ok(data.length === bots.length && data.every((d, i) => d.name === bots[i].name && d.url === bots[i].url && d.creator_handle === bots[i].creator_handle), `shelf-data.json has every bot in bots.json order (${data.length} of ${bots.length})`);
   const withMeta = data.filter((d) => d.meta), withSocial = data.filter((d) => d.social), only = (o, keys) => Object.keys(o).every((k) => keys.includes(k));
-  ok(withMeta.length > 0 && withSocial.length > 0 && withMeta.every((d) => only(d.meta, ["agency", "works_with", "one_job"])) && withSocial.every((d) => only(d.social, ["bookmarks", "likes"])),
+  ok(withMeta.length > 0 && withSocial.length > 0 && withMeta.every((d) => only(d.meta, ["one_job"])) && withSocial.every((d) => only(d.social, ["bookmarks", "likes"])),
     `shelf-data.json carries only the meta (${withMeta.length}) and social (${withSocial.length}) fields the cards use`);
+  // agency and works_with stay out of the browser data, but a checked bot with no one_job keeps an empty meta: the One job
+  // note counts checked bots ("covers the N of M bots checked so far").
+  ok(!data.some((d) => d.meta && ("agency" in d.meta || "works_with" in d.meta)) && withMeta.some((d) => !Object.keys(d.meta).length) && withMeta.some((d) => d.meta.one_job === true),
+    `shelf-data.json leaves out agency and works_with; checked bots without one_job keep an empty meta (${withMeta.filter((d) => !Object.keys(d.meta).length).length})`);
   const crypto = require("crypto"), raw = fs.readFileSync(pub("shelf-data.json")), v = crypto.createHash("sha256").update(raw).digest("hex").slice(0, 10);
   ok(fs.readFileSync(pub("index.html"), "utf8").includes(`<link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous" fetchpriority="high">`), "index.html preloads shelf-data.json at its content hash " + v);
   const home = fs.readFileSync(pub("index.html"), "utf8");
