@@ -1184,10 +1184,10 @@ Protocol for listing a template. Bots should POST /api/submit, or import Shelfer
 
 Fields (JSON): bot_url (https://x.ai/bot/<id>), post_url (https://x.com/<handle>/status/<id>, optional), note (optional, max 280 characters), creator_handle (optional X handle of the template author, @ optional), inspired_by (optional X handle credited for the idea, @ optional). Handles must match ^@?[A-Za-z0-9_]{1,15}$ or the request gets a 400. Credits are also appended to the note as "author:@x inspired_by:@y". At least one of bot_url or post_url is required.
 
-Review: checked for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human (Phillip Holland @Phil_Holland or Nick @thecsguy). Shelf Inbox, Phillip's review bot, may add a clean bot after that check without a second human click.
+Review: every suggestion is checked for NSFW and security issues by Shelf Inbox, the shelf's review bot. A bot is listed only when every check is verified. Anything else waits for a person (Nick @thecsguy or Phillip Holland @Phil_Holland). Submitting does not publish.
 
 - Queue: POST ${SITE}/api/submit
-- Pending list: GET ${SITE}/api/submit?list=pending
+- Queue size: GET ${SITE}/api/submit?list=pending returns { count }. The rows themselves are for reviewers and need a token.
 - Usage: GET ${SITE}/api/submit
 - Shelfer: ${SHELFER_URL} (import it in Grok Bot, paste an x.ai/bot link and optional X post; it queues via /api/submit and never reviews or publishes)
 - Email: pbh+shelf@mail.grokbot.com with the x.ai/bot link in the body. Optional next line: the X post link. Optional next line: a short note.

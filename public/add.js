@@ -95,7 +95,7 @@ const addCheck = (() => {
   return { remember };
 })();
 
-// Suggest a bot: POST /api/submit. Shelf Inbox (or Phil/Nick) reviews for NSFW and security issues. Clean bots may be added without a second human click.
+// Suggest a bot: POST /api/submit. Shelf Inbox reviews for NSFW and security issues on Nick's behalf and lists a bot only when every check is verified; anything else waits for Phil or Nick.
 (function () {
   var f = document.getElementById("sub-form");
   if (!f) return;

@@ -1,12 +1,15 @@
 // Suggest a bot for the shelf. Queues a pending row in Neon (table submissions, see db/schema.sql).
-// This route never writes bots.json. Shelf Inbox (or Phil/Nick) reviews the queue for NSFW and
-// security issues. Clean submissions may be added without a second human click; unclear ones stay pending.
+// This route never writes bots.json. Every listing is a manual call: Shelf Inbox reviews the queue for NSFW and
+// security issues on Nick's behalf and lists a bot only when every check is verified. Anything else stays pending
+// for Phil or Nick.
 //
 // POST /api/submit  { bot_url?, post_url?, note?, creator_handle?, inspired_by? }   (at least one URL)
 //   creator_handle = template author, inspired_by = optional idea credit (X handles, @ optional)
 //   -> { ok, status: "queued" | "already_queued" | "already_listed", ... }
 // GET  /api/submit                 -> usage
-// GET  /api/submit?list=pending    -> pending suggestions not yet on the shelf (public template data only)
+// GET  /api/submit?list=pending    -> pending suggestions not yet on the shelf. Rows are unreviewed, so when
+//   SUBMIT_LIST_TOKEN is set they need `Authorization: Bearer <token>`; anyone else gets { count } only.
+//   While the variable is unset the list is open (so a deploy does not lock the review bot out before it has the token).
 const crypto = require("crypto");
 const bots = require("../public/bots.json");
 
@@ -14,6 +17,14 @@ const DB = process.env.DATABASE_URL || process.env.NEON_DATABASE_URL || process.
 // Required. A missing salt used to fall back to a public string, which made IP hashes predictable.
 const SALT = (process.env.VOTE_SALT || "").trim();
 const LIMITS = { ip10m: 5, ipDay: 20, allDay: 300 };
+const LIST_TOKEN = (process.env.SUBMIT_LIST_TOKEN || "").trim();
+// Constant-time check of the reviewer token on the pending list. Hashing first makes both buffers the same length.
+const sha = (s) => crypto.createHash("sha256").update(String(s)).digest();
+const mayList = (req) => {
+  if (!LIST_TOKEN) return true;
+  const m = String(req.headers.authorization || "").match(/^Bearer\s+(\S+)$/i);
+  return !!m && crypto.timingSafeEqual(sha(m[1]), sha(LIST_TOKEN));
+};
 
 const tid = (u) => String(u || "").replace(/^https:\/\/x\.ai\/(bot\/)?/, "");
 const pidOf = (u) => (String(u || "").match(/\/status\/(\d+)/) || [])[1] || "";
@@ -139,9 +150,10 @@ module.exports = async (req, res) => {
                                   FROM submissions WHERE status = 'pending' ORDER BY created_at DESC LIMIT 200`);
         const pending = rows.filter((r) => !(r.template_id && LISTED_T.has(r.template_id)) && !(r.post_id && LISTED_P.has(r.post_id)))
           .map(({ template_id, post_id, ...r }) => r);
+        if (!mayList(req)) return send(res, 200, { count: pending.length, message: "The pending rows are for reviewers. Send Authorization: Bearer <token>." });
         return send(res, 200, { pending, count: pending.length });
       }
-      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note, creator_handle, inspired_by } with at least one URL. creator_handle (template author) and inspired_by (idea credit) are optional X handles, @ optional. Reviewed for NSFW and security issues by Shelf Inbox (or Phil/Nick). Clean submissions may be added without a second human click; anything unclear stays pending. GET ?list=pending to see the queue. Email pbh+shelf@mail.grokbot.com or ask Shelf Inbox in Grok Bot. See https://grokbotshelf.com/llms.txt." });
+      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note, creator_handle, inspired_by } with at least one URL. creator_handle (template author) and inspired_by (idea credit) are optional X handles, @ optional. Reviewed for NSFW and security issues by Shelf Inbox. A bot is listed only when every check is verified; anything else waits for Phil or Nick. GET ?list=pending returns the queue size (reviewers get the rows with a token). Email pbh+shelf@mail.grokbot.com or ask Shelf Inbox in Grok Bot. See https://grokbotshelf.com/llms.txt." });
     }
     if (req.method !== "POST") return send(res, 405, { error: "GET or POST" }, { Allow: "GET, POST" });
 
@@ -190,7 +202,7 @@ module.exports = async (req, res) => {
       [templateId, botUrl || null, postId, postUrl || null, tm.title || null, tm.description || null, pm.author || creator || null, pm.text || null, note || null, ih, creator || null, inspired || null]);
     if (!row) return send(res, 200, { ok: true, status: "already_queued", message: "Thanks! That one is already in the review queue." });
     return send(res, 200, { ok: true, status: "queued", id: +row.id, title: tm.title || null,
-      message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human." });
+      message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " Reviewed for NSFW and security issues. A bot is listed only when every check is verified. Anything else waits for a person." });
   } catch (e) {
     console.error("submit", e && e.message);
     if (e && e.code === "NO_SALT") return send(res, 500, { error: "VOTE_SALT is not configured" }, { "Cache-Control": "no-store" });

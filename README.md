@@ -297,10 +297,15 @@ The "Add your bot" form posts `{ bot_url, post_url, note }` to `/api/submit`. It
 `bots.json` and the queue, reads the template's title and description from x.ai (and the post author through X's
 public oEmbed), and stores a pending row in Neon (`submissions`, see `db/schema.sql`; the API creates the tables on
 first use). Rate limits: 5 per IP per 10 minutes, 20 per IP per day, 300 total per day. This route never writes
-`bots.json`. Shelf Inbox (Phillip's review bot), or Phil and Nick, check each row for NSFW and security issues.
-Clean ones may be added without a second human click. Anything unclear stays pending for a human.
+`bots.json`. Every listing is a manual call. Shelf Inbox (the review bot) does that review for Nick: it checks each row for NSFW
+and security issues and lists a bot only when every check is verified. Anything else stays pending for Phil or Nick.
+
 `GET /api/submit?list=pending` lists pending rows not yet on the shelf. Rows whose template lands in `bots.json`
-drop off that list automatically. The same paths are on `/#add` and in `llms.txt`: POST `/api/submit`, email
+drop off that list automatically. The rows hold unreviewed titles, descriptions and submitter notes, so they are for
+reviewers only: set `SUBMIT_LIST_TOKEN` on Vercel (Production and Preview) and send `Authorization: Bearer <token>`.
+Without the header, or with a wrong one, the reply is `{ count }` and nothing else. Give Shelf Inbox the same token.
+While `SUBMIT_LIST_TOKEN` is unset the list stays open, so that merging this does not cut Shelf Inbox off before it
+has the token. Generate one with `openssl rand -hex 32`. The same paths are on `/#add` and in `llms.txt`: POST `/api/submit`, email
 `pbh+shelf@mail.grokbot.com` with the template link, or ask Shelf Inbox in Grok Bot.
 
 ## Votes from bots (`X-Bot-Voter`)

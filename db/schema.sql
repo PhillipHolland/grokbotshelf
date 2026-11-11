@@ -32,8 +32,9 @@ SELECT bot_slug,
 FROM votes
 GROUP BY bot_slug;
 
--- Suggested bots from the #add form (POST /api/submit). Never published automatically:
--- a person reviews pending rows and adds approved ones to public/bots.json by hand.
+-- Suggested bots from the #add form (POST /api/submit). Never published by this route.
+-- Every listing is a manual call: Shelf Inbox reviews pending rows for Nick and lists a bot only when every check is
+-- verified; anything else waits for Phil or Nick. Approved bots are added to public/bots.json.
 -- api/submit.js also creates these tables on first use, so this file stays the reference.
 CREATE TABLE IF NOT EXISTS submissions (
   id             BIGSERIAL   PRIMARY KEY,
