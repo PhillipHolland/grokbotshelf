@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-10T23:18:48.944Z",
+ "generated": "2026-11-11T15:17:38.540Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2525,6 +2525,24 @@
   "job-application-desk-by-z23": [],
   "nearby-reminders-by-kevin": [],
   "mcp-builder-coach-by-igor": [],
-  "dex-liquidity-radar-by-igor": []
+  "dex-liquidity-radar-by-igor": [],
+  "lawn-and-garden-calendar-by-kevin": [],
+  "first-phone-readiness-coach-by-kevin": [],
+  "the-botfather-by-brandon": [],
+  "settlement-and-breach-payout-finder-by-kevin": [],
+  "tripwire-by-kevin": [],
+  "life-black-box-by-kevin": [],
+  "portable-ai-profile-keeper-by-kevin": [],
+  "account-lockout-rescue-by-kevin": [],
+  "digital-afterlife-planner-by-kevin": [],
+  "robotaxi-vs-car-ownership-advisor-by-kevin": [],
+  "real-or-ai-checker-by-kevin": [],
+  "home-robot-onboarding-coach-by-kevin": [],
+  "ai-agent-permission-auditor-by-kevin": [],
+  "voice-clone-defense-by-kevin": [],
+  "quiet-health-companion-by-kevin": [],
+  "new-town-insider-by-kevin": [],
+  "negotiation-sparring-partner-by-kevin": [],
+  "anti-adfraud-bot-by-markus": []
  }
 }
