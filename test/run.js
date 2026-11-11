@@ -4,7 +4,7 @@
 // Needs puppeteer-core outside the repo, e.g.  NODE_PATH=/path/to/node_modules node test/run.js [base-url]
 const { spawnSync } = require("child_process"), path = require("path");
 const tempSite = require("./tempsite");
-const SUITES = ["search", "creators-refresh", "credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "font", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk", "railcls", "pagecss", "prerender"];
+const SUITES = ["search", "submitdetails", "creators-refresh", "credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "font", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk", "railcls", "pagecss", "prerender"];
 (async () => {
   let base = process.argv[2], site;
   if (!base) { site = await tempSite(null, { images: true }); base = site.base; }

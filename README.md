@@ -268,7 +268,13 @@ An Amazon "Pairs with" link sends `pair_click` with `bot_slug`, `product_id`, `p
 
 Hidden unless the creator supplied at least one optional field on the bot in `bots.json`. Only those rows show,
 labeled "Creator-supplied": `"connectors": ["Gmail"]`, `"routines": [{ "name": "Morning digest", "schedule": "daily 8am" }]`,
-`"sends"`, `"posts"`, `"spends"` (true or false), `"permissions_note": "one plain sentence"`.
+`"sends"`, `"posts"`, `"spends"` (true or false), `"permissions_note": "one plain sentence"`,
+`"needs": "what someone needs before it works"`, `"limits": "what it can't do"`.
+
+The Add your bot form has an optional "Tell people what to expect" section that collects `connectors`, `needs`, `limits`
+and `sends` / `posts` / `spends`. `/api/submit` stores them on the queue row as `details` and returns them in the
+reviewer's pending list. Nothing is published from there: whoever approves the bot copies the fields they are satisfied
+with into its `bots.json` entry.
 
 ## Add to Bot app
 
