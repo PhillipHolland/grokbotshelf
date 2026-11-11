@@ -11,7 +11,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const COLL = "__coll:", ONE = "__onejob";
   // Role words (round 4 #6): the select is written by scripts/build.js (roles that 5+ bots name exactly); may be absent
   const roleEl = $("#roles");
-  const SORTS = ["featured", "newest", "bookmarks", "votes", "az", "creator"];
+  const SORTS = ["featured", "trending", "newest", "bookmarks", "votes", "az", "creator"];
   let bots = [], creators = [], cIdx = new Map(), cats = [], colls = [], oneJobs = 0, st = blank(), active = -1, tagged = 0;
 
   function blank() { return { q: "", creator: "", cats: [], sort: "featured", fresh: false, oneJob: false, coll: "", role: "", more: [] }; }
@@ -204,6 +204,26 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const slug = (s) => fold(s).replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   // Group key: the lowercase handle, or "~" + name slug for creators with no X handle (they get no /@ page, avatar or share)
   // (kept on the bot after the first call: a grouped render asks for it once per bot)
+  /* gbs-trend:start */
+  // Trending order (?sort=trending): shelf votes weighed against age, then spread across creators. No clicks or installs
+  // are involved; the shelf has no such feed. rows = [{ key, creator, net, added }], net = up minus down.
+  //   base = (net + 1) / (days on the shelf + 3) ^ 0.8   so a new bot with a few votes can pass an old one with many
+  //   then a creator's 2nd, 3rd, ... best bot is scaled by 0.75, 0.56, ... so one prolific creator cannot fill the top
+  // Returns Map(key -> rank), 0 first. Ties fall back to the order given (the shelf's own order).
+  function gbsTrend(rows, now) {
+    const DAY = 864e5;
+    const scored = rows.map((r, i) => {
+      const t = Date.parse(r.added + "T00:00:00Z"), age = Math.max(0, ((now || Date.now()) - (isNaN(t) ? 0 : t)) / DAY);
+      return { key: r.key, creator: r.creator, i, s: ((r.net || 0) + 1) / Math.pow(age + 3, 0.8) };
+    });
+    const order = (a, b) => b.s - a.s || a.i - b.i;
+    scored.sort(order);
+    const seen = new Map();
+    for (const r of scored) { const n = seen.get(r.creator) || 0; seen.set(r.creator, n + 1); if (r.s > 0) r.s *= Math.pow(0.75, n); }
+    scored.sort(order);
+    return new Map(scored.map((r, n) => [r.key, n]));
+  }
+  /* gbs-trend:end */
   const ckey = (b) => b._ck || (b._ck = b.creator_handle ? b.creator_handle.replace(/^@/, "").toLowerCase() : "~" + slug(b.creator_name));
   const anonKey = (k) => k.charAt(0) === "~";
 
@@ -539,7 +559,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
         if (d.mine) { vote.mine = d.mine; saveMine(); }
       }
       if (!shelfReady) return;
-      if (st.sort === "votes") render(); else if (d && d.global) { paintAll(); paintTop(); }
+      if (st.sort === "votes" || st.sort === "trending") render(); else if (d && d.global) { paintAll(); paintTop(); }
     }).catch(() => {});
   }
 
@@ -769,6 +789,11 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       featured: (a, b) => a[0]._i - b[0]._i,
       newest: (a, b) => b[0].added.localeCompare(a[0].added) || b[0]._i - a[0]._i,
       bookmarks: (a, b) => bmOf(b[0]) - bmOf(a[0]) || ((b[0]._social || {}).likes || 0) - ((a[0]._social || {}).likes || 0) || a[0]._i - b[0]._i,
+      trending: (() => {
+        if (st.sort !== "trending") return null;
+        const rank = gbsTrend(list.map(([b]) => b).sort((a, b) => a._i - b._i).map((b) => ({ key: b._slug, creator: ckey(b), net: (vote.scores[b._slug] || {}).score || 0, added: b.added })));
+        return (a, b) => rank.get(a[0]._slug) - rank.get(b[0]._slug);
+      })(),
       votes: (a, b) => ((vote.scores[b[0]._slug] || {}).score || 0) - ((vote.scores[a[0]._slug] || {}).score || 0) || ((vote.scores[b[0]._slug] || {}).up || 0) - ((vote.scores[a[0]._slug] || {}).up || 0) || a[0].name.localeCompare(b[0].name),
       az: (a, b) => a[0].name.replace(/^[^\p{L}\p{N}]+/u, "").localeCompare(b[0].name.replace(/^[^\p{L}\p{N}]+/u, "")),
       creator: (a, b) => a[0]._ci - b[0]._ci || a[0].name.localeCompare(b[0].name),
@@ -1301,8 +1326,8 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
         writeURL(false);
         if (location.hash) requestAnimationFrame(() => openHash());
       };
-      // Most upvoted needs tallies; wait briefly so the first paint is not every bot tied at 0.
-      if (st.sort === "votes") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
+      // Most upvoted and Trending need tallies; wait briefly so the first paint is not every bot tied at 0.
+      if (st.sort === "votes" || st.sort === "trending") { const t = setTimeout(show, 400); loadVotes().finally(() => { clearTimeout(t); show(); }); }
       else { show(); loadVotes(); }
     }).catch(() => {
       shelfDone(null); results.removeAttribute("aria-busy"); document.documentElement.classList.remove("tailing");
