@@ -174,6 +174,19 @@ NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/tip-qr.js
 
 ## Tests
 
+The site has no runtime dependencies. `package.json` only lists what the tests and one-off scripts need
+(`puppeteer-core`, `@electric-sql/pglite`, `qrcode`), and `.vercelignore` keeps it out of the Vercel build, which still
+runs with no install step.
+
+```sh
+npm ci
+npm test                              # build smoke test, then every suite against a fresh local build
+CHROME=/usr/bin/chromium npm test     # when Chrome is not at /usr/bin/google-chrome
+```
+
+`.github/workflows/test.yml` runs the same command on every pull request and on `master`. With `node_modules` in the
+repo folder, the `NODE_PATH=...` prefix in the commands below is not needed.
+
 `test/e2e.js` drives headless Chrome through search, filters, URL state, keyboard
 navigation and copy link. It needs `puppeteer-core` installed outside the repo:
 

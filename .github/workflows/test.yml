@@ -1,0 +1,32 @@
+name: test
+
+# Runs the build and the whole suite on every pull request and on master, so a bad bots.json edit or a broken
+# page is caught before Vercel deploys it. Vercel still deploys from the Git integration; this only reports.
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  suite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # The GitHub runner image ships Chrome at /usr/bin/google-chrome, the path the tests default to.
+      - name: Build and run the suite
+        run: node test/run.js
+        env:
+          CHROME: /usr/bin/google-chrome
