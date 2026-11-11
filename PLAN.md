@@ -23,7 +23,7 @@ Things I did not measure: Lighthouse or Core Web Vitals, a screen-reader pass, G
 | Visitor goal | What gets in the way today |
 |---|---|
 | Find a useful bot fast | 1,055 bots with one sentence each and no images. The default home view is grouped by creator in file order, so what you see first depends on who was added first, not on what is good. One creator has 151 bots (14% of the shelf) and Lifestyle holds 157, so both browse paths have a long undifferentiated middle. |
-| Trust it | A bot page is a name, one sentence, the maker and buttons. The "Can it act?" and "Works with" badges exist for 192 of 1,055 bots. "Under the hood" (connectors, routines, sends, posts, spends) exists in the build but no bot has any of those fields. 40 bots have no creator handle and 9 have no source post. Nothing says what a bot cannot do or what it needs before it works. |
+| Trust it | A bot page is a name, one sentence, the maker and buttons. The "Can it act?" and "Works with" badges exist for 192 of 1,055 bots. "Under the hood" (connectors, routines, sends, posts, spends) exists in the build but no bot has any of those fields. 40 bots have no creator handle and 516 have no source post. Nothing says what a bot cannot do or what it needs before it works. |
 | Install it | This part works: "Get this bot" and the app deep link are on every card and page. The gap is after the click. The site does not say what happens next on x.ai or what to connect first, and the 4 marketplace-link bots get no deep link. |
 
 The biggest gap is trust, then ranking. Discovery plumbing and SEO are ahead of the content they point at.
@@ -32,10 +32,10 @@ The biggest gap is trust, then ranking. Discovery plumbing and SEO are ahead of 
 
 | # | Idea | User benefit | Effort | Risk |
 |---|---|---|---|---|
-| D1 | Make the default home order a quality order: a "Trending" blend of recent votes, `get_bot` clicks from GA4 and recency, with a per-creator cap. Keep "by creator" as a sort. | First screen shows bots worth installing, not the first names in the file. | M | Ranking by votes invites gaming. The per-network vote caps help; a cap per creator and a decay keep it honest. Creators who drop will notice. |
+| D1 | Add a "Trending" order from votes and recency with a per-creator cap (no analytics data; there is no GA access). Correction: the Featured view already caps each creator at 3 bots and has a Top voted strip, so the gap is smaller than first written. Ship it as a sort, then decide on the default. | First screen shows bots worth installing, not the first names in the file. | M | Ranking by votes invites gaming. The per-network vote caps help; a cap per creator and a decay keep it honest. Creators who drop will notice. |
 | D2 | Split the catch-all categories. Lifestyle (157), Productivity (125) and Creator & Media (122) are too big to browse; add sub-tags or promote the existing role chips and job hubs on category pages. | Browsing a category ends in a short list. | M | Recategorising touches listings, which is your call per bot. Category slugs are indexed, so renames need redirects. |
 | D3 | Search by intent, not only by words. Add a small synonym map (email to Gmail and Outlook, money to budget and invoices) and include `works_with` and job-hub names in the index. Apply the same to `/api/search`, which today is plain substring matching and weaker than the site search. | "email" finds bots that say "Gmail". Bots using the API get the same results people do. | S to M | Low. A bad synonym adds noise; keep the map short and in one file. |
-| D4 | Log searches with no results (GA4 event) and show job hubs plus "suggest a bot" on that screen. | You learn what people want and cannot find. The visitor gets a next step. | S | Low. Do not log free text that could hold personal data; truncate and lowercase. |
+| D4 | Log searches with no results (Vercel Analytics event, not GA4) and show job hubs plus "suggest a bot" on that screen. | You learn what people want and cannot find. The visitor gets a next step. | S | Low. Do not log free text that could hold personal data; truncate and lowercase. |
 | D5 | Put the best job hubs and stacks on the home page above the grid. There are 19 hubs and 7 stacks, reached only through the nav. | "I want help with X" is answered in one tap. | S | Low. More above the fold pushes search down on phones; test at 390 px. |
 | D6 | Bot page: replace the overlapping "Bots for the same job" and "Similar bots" lists with one de-duplicated list, and say why each is similar. | Less repetition on the page (Fitness Coach shows twice on `/bot/coach`). | S | Low. |
 | D7 | Share cards: add the "acts / drafts / reads" badge and vote count to the per-bot image once coverage is there (T1). | A shared link says more than the name. | S | Redrawing 1,055 PNGs adds about 79 MB of churn to git unless T-debt item X2 lands first. |
@@ -48,7 +48,7 @@ The biggest gap is trust, then ranking. Discovery plumbing and SEO are ahead of 
 | T1 | Finish the "Can it act?" and "Works with" badges for the other 863 bots. Draft them from each description, then you review in batches. | Every card answers "will this send or spend on my behalf?" | M | A wrong "reads only" badge on a bot that acts is worse than no badge. Keep the README rule: leave a bot out rather than guess. |
 | T2 | Ask creators for "Under the hood" at submission: connectors, routines, whether it sends, posts or spends, and one sentence on what it needs. Add those fields to the form and the queue row. Listing still happens by hand. | Bot pages gain the facts people want before importing, in the maker's words. | M | Longer form means fewer submissions; keep every new field optional. Creator claims are unverified, so keep the "Creator-supplied" label. |
 | T3 | Add "What it can't do" and "Before you start" to the bot page, fed by T2 and by you for the bots you know. | Sets expectations, fewer disappointed installs. | S after T2 | Low. Empty sections must stay hidden. |
-| T4 | Show a demo: embed the creator's source post (1,046 bots have one) on the bot page, loaded on tap, and allow one optional screenshot per bot. | People see the bot working. Today there are no images of any bot. | M | Embeds load X scripts and cost speed, so load on tap only. Screenshots need moderation and can show private data. |
+| T4 | Show a demo: embed the creator's source post (539 bots have one) on the bot page, loaded on tap. Creator screenshots are out for now (Nick, Nov 11). | People see the bot working. Today there are no images of any bot. | M | Embeds load X scripts and cost speed, so load on tap only. Screenshots need moderation and can show private data. |
 | T5 | Decide the description rule and enforce it in the build. The README says one sentence under about 110 characters; 739 of 1,055 are longer (median 129, longest 332). Either raise the limit and add a short `tagline` for cards, or trim. | Cards scan evenly; the page keeps the longer text. | S to M | Trimming is an edit to listings and is yours to make. A hard build failure would block deploys, so start as a warning. |
 | T6 | Fix credit gaps: 40 bots have no creator handle, so no avatar, no creator page and no way to check the maker. | Maker info on every bot. | S | Needs you to find the makers. Some may not want an X link. |
 | T7 | Dead-link check: a scheduled job that requests every `x.ai/bot/...` link and reports 404s. | No dead installs. | S | Hitting x.ai 1,055 times needs polite pacing. Report only; removal stays manual. |
@@ -62,10 +62,10 @@ The biggest gap is trust, then ranking. Discovery plumbing and SEO are ahead of 
 | G1 | After a suggestion is queued, show the creator what happens next and when, and once listed give them a prefilled X post with their bot page and share card. | Creators know their status and have a reason to post. Each post is a card linking back. | S | Promising a review time you then miss. Say "usually within N days" only if true. |
 | G2 | One clear path on `/add`. Today it offers the form, Shelfer, email and Shelf Inbox. Lead with the form; put the rest under "other ways". | Fewer people stall choosing. | S | Low. |
 | G3 | "Saved" list kept in the browser (no login), with a `/saved` page and a share link. | A reason to come back, and a list to send to a friend. | M | Local storage is lost on a new device. Say so on the page. |
-| G4 | Weekly "New this week" post and email. The RSS feed and the `?new=1` view already exist; add an email signup through a hosted service and a prefilled weekly X thread for you to post. | Return visits without anyone remembering the URL. | M | Email adds a privacy duty and an unsubscribe flow. Posting stays manual so nothing goes out unseen. |
+| G4 | Weekly "New this week" post on X. The RSS feed and the `?new=1` view already exist; add a prefilled weekly X thread for you to post. No email list (Nick, Nov 11). | Return visits without anyone remembering the URL. | M | Low. Posting stays manual so nothing goes out unseen. |
 | G5 | Creator pages as a home base: total votes, a "share my shelf" card, and the existing badge embed shown more prominently. | Makers link to their shelf page from their bio, which brings their followers. | S to M | Vote totals on creator pages raise the incentive to game votes. |
 | G6 | Ask for the missing bots. Use D4's no-result searches to publish a short "wanted" list. | Makers build what visitors are searching for. | S after D4 | Low. |
-| G7 | Refresh `social.json` on a schedule. It was last fetched on Nov 5 and covers 425 of 1,046 posts, so "Most bookmarked" ignores most of the shelf. | That sort becomes trustworthy. | M | Needs X API access and its cost. If that is not available, consider hiding the sort. |
+| G7 | Refresh `social.json` on a schedule. It was last fetched on Nov 5 and covers 425 of the 539 bots with a source post, so "Most bookmarked" is stale and can never rank the 516 bots without a post. | That sort becomes trustworthy. | M | Needs X API access and its cost. If that is not available, consider hiding the sort. |
 
 ## 5. Speed, accessibility and mobile
 
@@ -103,7 +103,37 @@ The biggest gap is trust, then ranking. Discovery plumbing and SEO are ahead of 
 
 X2 (stop committing generated HTML) is the next one after these.
 
+## Decisions and status (updated 2026-11-11)
+
+Nick's answers:
+
+- Every listing is a manual call. Shelf Inbox does that review on Nick's behalf and approves only when a bot is fully verified.
+- No Google Analytics access, so nothing in this plan should depend on GA4. D1 uses votes only and D4 would use Vercel Analytics.
+- No creator screenshots for now. No email list.
+- A per-creator cap is fine.
+
+Found by checking: Vercel deploys from GitHub. Every push to `master` deploys and every pull request gets a preview, on two Vercel projects (`grokbotshelf` and `bot-hub`) in the same team. I could not see which one serves the domain; that team's Vercel settings are not open to me.
+
+Draft pull requests for the top 5:
+
+| Item | Pull request | Notes |
+|---|---|---|
+| 1. Pending queue and approval wording | #26 | Does nothing until `SUBMIT_LIST_TOKEN` is set on Vercel and given to Shelf Inbox. |
+| 2. Manifest and CI | #27 | First full run on GitHub: 1,248 pass, 1 fail (`filterchunk`, passes locally). |
+| 3. Creator-supplied details at submission | #28 | Also adds "Before you start" and "What it can't do" rows to bot pages. Badges for the other 863 bots are not done: that is editing listings. |
+| 4. Trending | #29 | A sort option, not the default. |
+| 5. Creator's post on tap | #30 | For the 539 bots with a source post. |
+
 ## Open questions for Nick
+
+Still open after the answers above:
+
+1. Which Vercel project serves grokbotshelf.com, and is the second one still needed? `SUBMIT_LIST_TOKEN` has to be set on the right one.
+2. Is X API access available for G7, or should "Most bookmarked" be hidden?
+3. The README limit for descriptions is about 110 characters and most bots are over it. Raise the limit, or add a short tagline field?
+4. Should Trending become the default view once you have seen it on real votes?
+
+Original list, for the record:
 
 1. Approvals: is every listing a manual call by you, or can Shelf Inbox add clean bots on its own as the README and the form say? The answer decides the wording in X4 and whether X3 needs a token for the bot.
 2. Does Vercel deploy from GitHub on push to `master`, or only from `vercel deploy --prod` on a local machine? That decides how CI gates production.
