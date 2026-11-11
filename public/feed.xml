@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 11 Nov 2026 15:17:55 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 11 Nov 2026 17:54:11 GMT</lastBuildDate>
+  <item>
+    <title>💳 SaaS Spend Check by Calix</title>
+    <link>https://grokbotshelf.com/bot/saas-spend-check</link>
+    <guid isPermaLink="false">https://x.ai/bot/hFnxPrJ7wOqRr3dbSnY1a</guid>
+    <description>Shows every tool you&apos;re paying for and where you may be overpaying. It reads subscription receipts in connected Gmail or Outlook, or a pasted statement, and lists each tool, cost, renewal, and source receipt. Read-only: never cancels, pays, or contacts vendors. Flags duplicates, price jumps, upcoming renewals, and unused seats.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Money</category>
+    <pubDate>Wed, 11 Nov 2026 12:01:13 GMT</pubDate>
+  </item>
   <item>
     <title>🛡️ Anti-Adfraud Bot by Markus</title>
     <link>https://grokbotshelf.com/bot/anti-adfraud-bot-by-markus</link>
@@ -447,15 +456,6 @@
     <dc:creator>Bruce Young (@ecoay)</dc:creator>
     <category>Productivity</category>
     <pubDate>Fri, 06 Nov 2026 12:00:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎞️ Flow Film Maker by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/flow-film-maker</link>
-    <guid isPermaLink="false">https://x.ai/bot/EaBu_d_aTVqQffsAheeMC</guid>
-    <description>Makes short vertical AI films in Google Flow on your account with your characters, scenes, and narration. You pick every frame.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:23 GMT</pubDate>
   </item>
 </channel>
 </rss>

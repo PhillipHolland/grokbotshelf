@@ -13940,5 +13940,18 @@
     "creator_avatar": "/avatars/adfraudit.webp",
     "source_post": "https://x.com/adfraudit/status/2120112000118489314",
     "added": "2026-11-11"
+  },
+  {
+    "name": "SaaS Spend Check",
+    "emoji": "💳",
+    "description": "Shows every tool you're paying for and where you may be overpaying. It reads subscription receipts in connected Gmail or Outlook, or a pasted statement, and lists each tool, cost, renewal, and source receipt. Read-only: never cancels, pays, or contacts vendors. Flags duplicates, price jumps, upcoming renewals, and unused seats.",
+    "category": "Money",
+    "url": "https://x.ai/bot/hFnxPrJ7wOqRr3dbSnY1a",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2120199814029697296",
+    "added": "2026-11-11"
   }
 ]

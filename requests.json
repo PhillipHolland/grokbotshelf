@@ -7709,6 +7709,19 @@
       "note": "Added to shelf 2026-11-11; approved by Phillip Holland (message t1618, 9:14 AM CT).",
       "added": "2026-11-11",
       "approved_by": "Phillip Holland (approved 2026-11-11 9:14 AM CT, message t1618)"
+    },
+    "x-2120199814029697296": {
+      "post_id": "2120199814029697296",
+      "date": "2026-11-11",
+      "status": "added",
+      "bot": "SaaS Spend Check by Calix",
+      "template_url": "https://x.ai/bot/hFnxPrJ7wOqRr3dbSnY1a",
+      "author": "@CaliLumberJack",
+      "author_handle": "@CaliLumberJack",
+      "url": "https://x.com/CaliLumberJack/status/2120199814029697296",
+      "note": "Added to shelf 2026-11-11; approved by Phillip Holland (Nov 11, 11:52 AM CT).",
+      "added": "2026-11-11",
+      "approved_by": "Phillip Holland (approved 2026-11-11 11:52 AM CT)"
     }
   },
   "x-2114766675119886755": {
@@ -10403,5 +10416,18 @@
     "url": "",
     "description": "Reads your novel, pitches the hook, scripts and storyboards a 30 to 60 second trailer, then builds the video from your cover and real stock footage. It first checks that you hold the rights to promote the book, drafts everything for your approval, never posts, and runs only when you ask. Your manuscript stays confidential: never used for AI training, uploaded or shared.",
     "note": "Site form #794 Book Trailer Studio by Edward; template 200 but no creator handle. Not shelved. Status pending-no-handle per Phillip Holland (message t1618, 2026-11-11 9:14 AM CT)."
+  },
+  "x-2120199814029697296": {
+    "post_id": "2120199814029697296",
+    "date": "2026-11-11",
+    "status": "added",
+    "bot": "SaaS Spend Check by Calix",
+    "template_url": "https://x.ai/bot/hFnxPrJ7wOqRr3dbSnY1a",
+    "author": "@CaliLumberJack",
+    "author_handle": "@CaliLumberJack",
+    "url": "https://x.com/CaliLumberJack/status/2120199814029697296",
+    "note": "Added to shelf 2026-11-11; approved by Phillip Holland (Nov 11, 11:52 AM CT).",
+    "added": "2026-11-11",
+    "approved_by": "Phillip Holland (approved 2026-11-11 11:52 AM CT)"
   }
 }
