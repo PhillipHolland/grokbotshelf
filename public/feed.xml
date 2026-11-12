@@ -6,7 +6,61 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 12 Nov 2026 02:56:05 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 15:36:06 GMT</lastBuildDate>
+  <item>
+    <title>👩‍🏫 Training Tina by Jim</title>
+    <link>https://grokbotshelf.com/bot/training-tina</link>
+    <guid isPermaLink="false">https://x.ai/bot/i-inX7Af2ipURfDp7jyJo</guid>
+    <description>Builds simple tech lessons for seniors and beginners: 3-minute video scripts, one-page large-print cheat sheets and gentle quizzes for Windows, Office, iPhone, Android and staying safe from scams. For family helpers, volunteers, librarians, church and senior-center teachers, and small computer shops.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:20 GMT</pubDate>
+  </item>
+  <item>
+    <title>💰 Profit Piper by Jim</title>
+    <link>https://grokbotshelf.com/bot/profit-piper</link>
+    <guid isPermaLink="false">https://x.ai/bot/LhY5SIoxmGNtruK9tT6IM</guid>
+    <description>A research-first helper for dropshipping and simple online stores. It tests whether a niche or product can make real profit, with live sources, honest unit economics, draft store pages and small test plans, and never spends, publishes or contacts anyone without your OK.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Money</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:19 GMT</pubDate>
+  </item>
+  <item>
+    <title>🩹 First Aid Freddie by Jim</title>
+    <link>https://grokbotshelf.com/bot/first-aid-freddie</link>
+    <guid isPermaLink="false">https://x.ai/bot/1Ple2zggzxFf5I9gLELQn</guid>
+    <description>A calm, warm first aid helper for everyday cuts, burns, stings and &quot;should we go in?&quot; moments. Gives short steps from trusted free sources, helps you choose between home care, urgent care, the ER or 911, and keeps your first aid kit ready. General information, not medical advice.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Health &amp; Fitness</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚀 Freelance Gig Launcher by Jim</title>
+    <link>https://grokbotshelf.com/bot/freelance-gig-launcher</link>
+    <guid isPermaLink="false">https://x.ai/bot/deFAUqEq7l00Mf1szKK3u</guid>
+    <description>Helps you pick a freelance service clients actually buy, then drafts a Fiverr gig or Upwork project: title, tags, packages, description, FAQs, and fee math so you know what you&apos;ll keep. Drafts only: you publish everything yourself.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:17 GMT</pubDate>
+  </item>
+  <item>
+    <title>✉️ Complaint Desk by Jim</title>
+    <link>https://grokbotshelf.com/bot/complaint-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/5hKy4J9Ks89rhjquUdVyT</guid>
+    <description>Turns a bad-purchase story into a firm, polite complaint letter with a clear ask and a deadline, then shows the next step if the company stalls: a card or bank dispute, CFPB, FTC, your state attorney general, BBB, FCC or DOT. Drafts only: you send, file and sign everything yourself. General information, not legal advice.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:16 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔐 Cloud IAM Quarantine Advisor by Igor</title>
+    <link>https://grokbotshelf.com/bot/cloud-iam-quarantine-advisor-by-igor</link>
+    <guid isPermaLink="false">https://x.ai/bot/yGa_famcoi3JAo2cq5uv3</guid>
+    <description>Finds over-privileged or risky Google Cloud service accounts and drafts least-privilege fixes and an emergency quarantine runbook. Dry-run only until you approve.</description>
+    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
+    <category>Security</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:15 GMT</pubDate>
+  </item>
   <item>
     <title>📡 Bot Radar by Steve Thoms</title>
     <link>https://grokbotshelf.com/bot/bot-radar</link>
@@ -402,60 +456,6 @@
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sun, 08 Nov 2026 12:00:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>🍽️ Bring a Dish by Erinn</title>
-    <link>https://grokbotshelf.com/bot/bring-a-dish-by-erinn</link>
-    <guid isPermaLink="false">https://x.ai/bot/YnB0MGcaCbUsIWKMd6oFx</guid>
-    <description>Not hosting Thanksgiving or Christmas? Tell it where you&apos;re going, how many people, how far you&apos;re driving, and who can&apos;t eat what. It picks a dish that travels well and disappears first, plus what to make ahead and how to pack it.</description>
-    <dc:creator>Erinn (@ErinnFL)</dc:creator>
-    <category>Food</category>
-    <pubDate>Sat, 07 Nov 2026 12:00:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧠 SuperLedger by Bill</title>
-    <link>https://grokbotshelf.com/bot/superledger-by-bill</link>
-    <guid isPermaLink="false">https://x.ai/bot/u2Eywod5aeGH3a-YU0rZB</guid>
-    <description>Shared team memory in one Coda doc: bots propose, one steward writes, and people approve, via Grok Bot’s built-in Coda connector—no API keys.</description>
-    <dc:creator>Bill French (@bfrench)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎨 ChatGPT Artist by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/chatgpt-artist</link>
-    <guid isPermaLink="false">https://x.ai/bot/Va-ieVGq0jUMCY-SVoTsT</guid>
-    <description>Guided art bot for ChatGPT image gen: writes prompts, remembers your styles, optional Codex Cloud. Runs on your account.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Design</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>💻 Claude Code by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/claude-code</link>
-    <guid isPermaLink="false">https://x.ai/bot/lX0Wfh-zyOnNFGKgwTGxN</guid>
-    <description>Runs the Claude Code CLI on its own computer with your Claude plan or API key and GitHub. Never pushes or merges without approval.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛒 Botify by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/botify</link>
-    <guid isPermaLink="false">https://x.ai/bot/d8u4VV60Ni6rtbA7H9pAE</guid>
-    <description>Migrates Shopify to self-hosted headless WooCommerce, then runs products and orders by chat.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>📂 Gmail to Drive Archiver by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/gmail-to-drive-archiver</link>
-    <guid isPermaLink="false">https://x.ai/bot/5wT0W9m-WHd6jNnH9GADM</guid>
-    <description>Saves big Gmail messages to Drive as a Doc plus attachments filed by sender. Tests first; never trashes without your yes.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:25 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -13966,5 +13966,83 @@
     "creator_avatar": "/avatars/thomstech12.webp",
     "source_post": "https://x.com/thomstech12/status/2120660342212886565",
     "added": "2026-11-11"
+  },
+  {
+    "name": "Cloud IAM Quarantine Advisor by Igor",
+    "emoji": "🔐",
+    "description": "Finds over-privileged or risky Google Cloud service accounts and drafts least-privilege fixes and an emergency quarantine runbook. Dry-run only until you approve.",
+    "category": "Security",
+    "url": "https://x.ai/bot/yGa_famcoi3JAo2cq5uv3",
+    "creator_name": "Igor Holt",
+    "creator_handle": "@holt_igor",
+    "creator_url": "https://x.com/holt_igor",
+    "creator_avatar": "/avatars/holt_igor.webp",
+    "source_post": "",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "Complaint Desk",
+    "emoji": "✉️",
+    "description": "Turns a bad-purchase story into a firm, polite complaint letter with a clear ask and a deadline, then shows the next step if the company stalls: a card or bank dispute, CFPB, FTC, your state attorney general, BBB, FCC or DOT. Drafts only: you send, file and sign everything yourself. General information, not legal advice.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/5hKy4J9Ks89rhjquUdVyT",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "Freelance Gig Launcher",
+    "emoji": "🚀",
+    "description": "Helps you pick a freelance service clients actually buy, then drafts a Fiverr gig or Upwork project: title, tags, packages, description, FAQs, and fee math so you know what you'll keep. Drafts only: you publish everything yourself.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/deFAUqEq7l00Mf1szKK3u",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "First Aid Freddie",
+    "emoji": "🩹",
+    "description": "A calm, warm first aid helper for everyday cuts, burns, stings and \"should we go in?\" moments. Gives short steps from trusted free sources, helps you choose between home care, urgent care, the ER or 911, and keeps your first aid kit ready. General information, not medical advice.",
+    "category": "Health & Fitness",
+    "url": "https://x.ai/bot/1Ple2zggzxFf5I9gLELQn",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "Profit Piper",
+    "emoji": "💰",
+    "description": "A research-first helper for dropshipping and simple online stores. It tests whether a niche or product can make real profit, with live sources, honest unit economics, draft store pages and small test plans, and never spends, publishes or contacts anyone without your OK.",
+    "category": "Money",
+    "url": "https://x.ai/bot/LhY5SIoxmGNtruK9tT6IM",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "Training Tina",
+    "emoji": "👩‍🏫",
+    "description": "Builds simple tech lessons for seniors and beginners: 3-minute video scripts, one-page large-print cheat sheets and gentle quizzes for Windows, Office, iPhone, Android and staying safe from scams. For family helpers, volunteers, librarians, church and senior-center teachers, and small computer shops.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/i-inX7Af2ipURfDp7jyJo",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-12"
   }
 ]
