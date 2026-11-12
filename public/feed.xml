@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 12 Nov 2026 15:36:06 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 17:17:43 GMT</lastBuildDate>
+  <item>
+    <title>🌿 420 Terp Bot by John</title>
+    <link>https://grokbotshelf.com/bot/420-terp-bot-by-john</link>
+    <guid isPermaLink="false">https://x.ai/bot/jQxnhTeTE4VDecArtlr90</guid>
+    <description>A science-nerd guide to cannabis terpenes for adults 21+ and budtenders, built only on public lab data. Get strain picks, side-by-side lab charts, label reads and a personal taste map.</description>
+    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:22 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛰️ Release Scout by AJ</title>
+    <link>https://grokbotshelf.com/bot/release-scout-by-aj</link>
+    <guid isPermaLink="false">https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX</guid>
+    <description>Reads the Grok Bot changelog every morning and tells you what&apos;s new for the bots you already run, including any change that could affect them. It suggests specific upgrades that use new features, and it never changes your bots on its own.</description>
+    <dc:creator>AJ Ghergich (@SEO)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:21 GMT</pubDate>
+  </item>
   <item>
     <title>👩‍🏫 Training Tina by Jim</title>
     <link>https://grokbotshelf.com/bot/training-tina</link>
@@ -438,24 +456,6 @@
     <dc:creator>w</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Mon, 09 Nov 2026 12:00:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 Plain Speak by Calix</title>
-    <link>https://grokbotshelf.com/bot/plain-speak</link>
-    <guid isPermaLink="false">https://x.ai/bot/aSGymuyF71CJHDvcpaZfG</guid>
-    <description>Never miss the date. It finds the deadline on a scary letter (with the quote and page), confirms with you before anything hits a calendar, and keeps the case folder in your Drive, OneDrive, or device. Short plain rewrite with a Don&apos;t-miss box, scam red-flag check (never calls a document &quot;safe&quot;), and optional read-aloud.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 08 Nov 2026 12:00:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>👀 Competitor Watch by Calix</title>
-    <link>https://grokbotshelf.com/bot/competitor-watch</link>
-    <guid isPermaLink="false">https://x.ai/bot/iTKQ09ZMtiV9K9JkwCbmA</guid>
-    <description>Tells you what your competitors actually changed. Each sweep it checks their public pages (site, pricing, changelog, blog, job posts, public X), compares them to last time, and sends you one short digest of real changes with a source link for each. If nothing changed, it stays quiet. Public web only.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 08 Nov 2026 12:00:31 GMT</pubDate>
   </item>
 </channel>
 </rss>

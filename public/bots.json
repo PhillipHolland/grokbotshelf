@@ -14044,5 +14044,31 @@
     "creator_avatar": "/avatars/jimaggie.webp",
     "source_post": "",
     "added": "2026-11-12"
+  },
+  {
+    "name": "Release Scout by AJ",
+    "emoji": "🛰️",
+    "description": "Reads the Grok Bot changelog every morning and tells you what's new for the bots you already run, including any change that could affect them. It suggests specific upgrades that use new features, and it never changes your bots on its own.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX",
+    "creator_name": "AJ Ghergich",
+    "creator_handle": "@SEO",
+    "creator_url": "https://x.com/SEO",
+    "creator_avatar": "/avatars/seo.webp",
+    "source_post": "https://x.com/SEO/status/2120916059033350471",
+    "added": "2026-11-12"
+  },
+  {
+    "name": "420 Terp Bot by John",
+    "emoji": "🌿",
+    "description": "A science-nerd guide to cannabis terpenes for adults 21+ and budtenders, built only on public lab data. Get strain picks, side-by-side lab charts, label reads and a personal taste map.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/jQxnhTeTE4VDecArtlr90",
+    "creator_name": "John",
+    "creator_handle": "@iamtheh0n3yp0t",
+    "creator_url": "https://x.com/iamtheh0n3yp0t",
+    "creator_avatar": "/avatars/iamtheh0n3yp0t.webp",
+    "source_post": "https://x.com/iamtheh0n3yp0t/status/2120922340330811677",
+    "added": "2026-11-12"
   }
 ]

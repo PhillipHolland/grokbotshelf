@@ -7826,6 +7826,66 @@
       "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~9:32 AM CT, card t1619s6784).",
       "added": "2026-11-12",
       "approved_by": "Phillip Holland (approved 2026-11-12 ~9:32 AM CT, card t1619s6784)"
+    },
+    "form-819": {
+      "date": "2026-11-12",
+      "status": "added",
+      "bot": "Release Scout by AJ",
+      "template_url": "https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX",
+      "author": "@SEO",
+      "author_handle": "@SEO",
+      "url": "https://grokbotshelf.com/bot/release-scout-by-aj",
+      "description": "Reads the Grok Bot changelog every morning and tells you what's new for the bots you already run, including any change that could affect them. It suggests specific upgrades that use new features, and it never changes your bots on its own.",
+      "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+      "added": "2026-11-12",
+      "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
+    },
+    "form-820": {
+      "date": "2026-11-12",
+      "status": "added",
+      "bot": "420 Terp Bot by John",
+      "template_url": "https://x.ai/bot/jQxnhTeTE4VDecArtlr90",
+      "author": "@iamtheh0n3yp0t",
+      "author_handle": "@iamtheh0n3yp0t",
+      "url": "https://grokbotshelf.com/bot/420-terp-bot-by-john",
+      "description": "A science-nerd guide to cannabis terpenes for adults 21+ and budtenders, built only on public lab data. Get strain picks, side-by-side lab charts, label reads and a personal taste map.",
+      "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+      "added": "2026-11-12",
+      "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)",
+      "flag": "cannabis, adults 21+"
+    },
+    "x-2120593327406162403": {
+      "date": "2026-11-12",
+      "status": "denied",
+      "bot": "List My Grok Bot",
+      "author_handle": "@GrokBotGod",
+      "note": "same template as denied form-291"
+    },
+    "x-2120916059033350471": {
+      "post_id": "2120916059033350471",
+      "date": "2026-11-12",
+      "status": "added",
+      "bot": "Release Scout by AJ",
+      "template_url": "https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX",
+      "author": "@SEO",
+      "author_handle": "@SEO",
+      "url": "https://x.com/SEO/status/2120916059033350471",
+      "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+      "added": "2026-11-12",
+      "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
+    },
+    "x-2120922340330811677": {
+      "post_id": "2120922340330811677",
+      "date": "2026-11-12",
+      "status": "added",
+      "bot": "420 Terp Bot by John",
+      "template_url": "https://x.ai/bot/jQxnhTeTE4VDecArtlr90",
+      "author": "@iamtheh0n3yp0t",
+      "author_handle": "@iamtheh0n3yp0t",
+      "url": "https://x.com/iamtheh0n3yp0t/status/2120922340330811677",
+      "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+      "added": "2026-11-12",
+      "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
     }
   },
   "x-2114766675119886755": {
@@ -10637,5 +10697,58 @@
     "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~9:32 AM CT, card t1619s6784).",
     "added": "2026-11-12",
     "approved_by": "Phillip Holland (approved 2026-11-12 ~9:32 AM CT, card t1619s6784)"
+  },
+  "form-819": {
+    "date": "2026-11-12",
+    "status": "added",
+    "bot": "Release Scout by AJ",
+    "template_url": "https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX",
+    "author": "@SEO",
+    "author_handle": "@SEO",
+    "url": "https://grokbotshelf.com/bot/release-scout-by-aj",
+    "description": "Reads the Grok Bot changelog every morning and tells you what's new for the bots you already run, including any change that could affect them. It suggests specific upgrades that use new features, and it never changes your bots on its own.",
+    "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+    "added": "2026-11-12",
+    "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
+  },
+  "x-2120916059033350471": {
+    "post_id": "2120916059033350471",
+    "date": "2026-11-12",
+    "status": "added",
+    "bot": "Release Scout by AJ",
+    "template_url": "https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX",
+    "author": "@SEO",
+    "author_handle": "@SEO",
+    "url": "https://x.com/SEO/status/2120916059033350471",
+    "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+    "added": "2026-11-12",
+    "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
+  },
+  "form-820": {
+    "date": "2026-11-12",
+    "status": "added",
+    "bot": "420 Terp Bot by John",
+    "template_url": "https://x.ai/bot/jQxnhTeTE4VDecArtlr90",
+    "author": "@iamtheh0n3yp0t",
+    "author_handle": "@iamtheh0n3yp0t",
+    "url": "https://grokbotshelf.com/bot/420-terp-bot-by-john",
+    "description": "A science-nerd guide to cannabis terpenes for adults 21+ and budtenders, built only on public lab data. Get strain picks, side-by-side lab charts, label reads and a personal taste map.",
+    "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+    "added": "2026-11-12",
+    "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)",
+    "flag": "cannabis, adults 21+"
+  },
+  "x-2120922340330811677": {
+    "post_id": "2120922340330811677",
+    "date": "2026-11-12",
+    "status": "added",
+    "bot": "420 Terp Bot by John",
+    "template_url": "https://x.ai/bot/jQxnhTeTE4VDecArtlr90",
+    "author": "@iamtheh0n3yp0t",
+    "author_handle": "@iamtheh0n3yp0t",
+    "url": "https://x.com/iamtheh0n3yp0t/status/2120922340330811677",
+    "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~11:15 AM CT, card t1619s6792).",
+    "added": "2026-11-12",
+    "approved_by": "Phillip Holland (approved 2026-11-12 ~11:15 AM CT, card t1619s6792)"
   }
 }
