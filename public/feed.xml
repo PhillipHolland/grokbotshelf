@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 12 Nov 2026 17:17:43 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 19:22:25 GMT</lastBuildDate>
+  <item>
+    <title>🌐 GoDaddy Domain Manager by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/godaddy-domain-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/4VahnRcDJ0RahVUSs-MWt</guid>
+    <description>Manages your domains at GoDaddy and its reseller storefronts like LuckyRegister: renewals, DNS, nameservers, forwarding, and locks. It&apos;s read-only until you approve each change.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>✂️ FilmCraft Video Editor by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/filmcraft-video-editor</link>
+    <guid isPermaLink="false">https://x.ai/bot/MITeT9w1KVty-na7QHz0I</guid>
+    <description>Cleans up short AI-generated videos (morphing, weird turns, popping limbs, jumpy cuts) using the free open-source FilmCraft editor and ffmpeg, by cutting, retiming and adding holds and transitions, without regenerating footage. For creators making AI films and shorts.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:25 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔍 Lead Finder by Bruce Young</title>
+    <link>https://grokbotshelf.com/bot/lead-finder</link>
+    <guid isPermaLink="false">https://x.ai/bot/ptKW9Qlr6VgYe28aQPZ-y</guid>
+    <description>Finds people who are publicly asking for what you sell across X, Reddit, LinkedIn, forums, and job boards, logs them in a Google Sheet, and drafts a helpful first message for the best ones. Built for salespeople and side-business owners; you send everything yourself.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:24 GMT</pubDate>
+  </item>
+  <item>
+    <title>👑 Empire Commander by John</title>
+    <link>https://grokbotshelf.com/bot/empire-commander-by-john</link>
+    <guid isPermaLink="false">https://x.ai/bot/lFsKB3YRp0kwcNa9VkASl</guid>
+    <description>One lead bot for people running several Grok Bots: it interviews you, keeps one job list, and asks before anything goes out.</description>
+    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Thu, 12 Nov 2026 12:01:23 GMT</pubDate>
+  </item>
   <item>
     <title>🌿 420 Terp Bot by John</title>
     <link>https://grokbotshelf.com/bot/420-terp-bot-by-john</link>
@@ -420,42 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌿 Mangrove by David Buttrey</title>
-    <link>https://grokbotshelf.com/bot/mangrove</link>
-    <guid isPermaLink="false">https://x.ai/bot/VOfh5y4jlFGbZQMxbGsyh</guid>
-    <description>A trading agent with guardrails. It runs the open-source mangrove-agent on its own computer for strategy research, backtesting, and paper or live trading with built-in risk management.</description>
-    <dc:creator>David Buttrey (@davidtbuttrey)</dc:creator>
-    <category>Money</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:36 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 Checkup · Fleet Checkup Runner by Carolina</title>
-    <link>https://grokbotshelf.com/bot/checkup-fleet-checkup-runner</link>
-    <guid isPermaLink="false">https://x.ai/bot/ffy9_7mBUraesvnoSouFC</guid>
-    <description>A cheap, read-only checkup bot for people who run many Grok Bots. It checks transcripts, routines, and the computer&apos;s health on a schedule, then sends ranked fixes without changing anything.</description>
-    <dc:creator>Carolina (@CarolinaDill)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:35 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Network Me by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/network-me</link>
-    <guid isPermaLink="false">https://x.ai/bot/ZhJV6mmms23wDCds1Foih</guid>
-    <description>Join Network Me with your X identity, answer a few short questions, and get matched with people worth meeting. It tells you when someone wants to meet you and who&apos;s suggested, with their X @username so you choose how to reach out.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔋 ChatGPT Quota Watch by w</title>
-    <link>https://grokbotshelf.com/bot/chatgpt-quota-watch</link>
-    <guid isPermaLink="false">https://x.ai/bot/Sq6o-xOYIh3_j21B1TZB0</guid>
-    <description>Tracks several ChatGPT accounts&apos; 7-day shared quota (remaining %, reset counts, next reset) from numbers you enter or from official account usage pages you open. For people juggling multiple Pro logins.</description>
-    <dc:creator>w</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:33 GMT</pubDate>
   </item>
 </channel>
 </rss>
