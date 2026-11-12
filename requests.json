@@ -7722,6 +7722,32 @@
       "note": "Added to shelf 2026-11-11; approved by Phillip Holland (Nov 11, 11:52 AM CT).",
       "added": "2026-11-11",
       "approved_by": "Phillip Holland (approved 2026-11-11 11:52 AM CT)"
+    },
+    "form-812": {
+      "date": "2026-11-11",
+      "status": "added",
+      "bot": "Bot Radar",
+      "template_url": "https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS",
+      "author": "@thomstech12",
+      "author_handle": "@thomstech12",
+      "url": "https://grokbotshelf.com/bot/bot-radar",
+      "description": "Keeps a live map of every Grok Bot marketplace and directory site and sends a regular report of new bots across them, deduped and ranked by how widely they're spreading. For anyone who wants to keep up with new Grok Bots without checking a dozen sites.",
+      "note": "Added to shelf 2026-11-11; approved by Phillip Holland (~8:53 PM CT, card t1619s6776).",
+      "added": "2026-11-11",
+      "approved_by": "Phillip Holland (approved 2026-11-11 ~8:53 PM CT, card t1619s6776)"
+    },
+    "x-2120660342212886565": {
+      "post_id": "2120660342212886565",
+      "date": "2026-11-11",
+      "status": "added",
+      "bot": "Bot Radar",
+      "template_url": "https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS",
+      "author": "@thomstech12",
+      "author_handle": "@thomstech12",
+      "url": "https://x.com/thomstech12/status/2120660342212886565",
+      "note": "Added to shelf 2026-11-11; approved by Phillip Holland (~8:53 PM CT, card t1619s6776).",
+      "added": "2026-11-11",
+      "approved_by": "Phillip Holland (approved 2026-11-11 ~8:53 PM CT, card t1619s6776)"
     }
   },
   "x-2114766675119886755": {
@@ -10429,5 +10455,31 @@
     "note": "Added to shelf 2026-11-11; approved by Phillip Holland (Nov 11, 11:52 AM CT).",
     "added": "2026-11-11",
     "approved_by": "Phillip Holland (approved 2026-11-11 11:52 AM CT)"
+  },
+  "form-812": {
+    "date": "2026-11-11",
+    "status": "added",
+    "bot": "Bot Radar",
+    "template_url": "https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS",
+    "author": "@thomstech12",
+    "author_handle": "@thomstech12",
+    "url": "https://grokbotshelf.com/bot/bot-radar",
+    "description": "Keeps a live map of every Grok Bot marketplace and directory site and sends a regular report of new bots across them, deduped and ranked by how widely they're spreading. For anyone who wants to keep up with new Grok Bots without checking a dozen sites.",
+    "note": "Added to shelf 2026-11-11; approved by Phillip Holland (~8:53 PM CT, card t1619s6776).",
+    "added": "2026-11-11",
+    "approved_by": "Phillip Holland (approved 2026-11-11 ~8:53 PM CT, card t1619s6776)"
+  },
+  "x-2120660342212886565": {
+    "post_id": "2120660342212886565",
+    "date": "2026-11-11",
+    "status": "added",
+    "bot": "Bot Radar",
+    "template_url": "https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS",
+    "author": "@thomstech12",
+    "author_handle": "@thomstech12",
+    "url": "https://x.com/thomstech12/status/2120660342212886565",
+    "note": "Added to shelf 2026-11-11; approved by Phillip Holland (~8:53 PM CT, card t1619s6776).",
+    "added": "2026-11-11",
+    "approved_by": "Phillip Holland (approved 2026-11-11 ~8:53 PM CT, card t1619s6776)"
   }
 }

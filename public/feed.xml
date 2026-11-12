@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 11 Nov 2026 17:54:11 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 12 Nov 2026 02:56:05 GMT</lastBuildDate>
+  <item>
+    <title>📡 Bot Radar by Steve Thoms</title>
+    <link>https://grokbotshelf.com/bot/bot-radar</link>
+    <guid isPermaLink="false">https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS</guid>
+    <description>Keeps a live map of every Grok Bot marketplace and directory site and sends a regular report of new bots across them, deduped and ranked by how widely they&apos;re spreading. For anyone who wants to keep up with new Grok Bots without checking a dozen sites.</description>
+    <dc:creator>Steve Thoms (@thomstech12)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Wed, 11 Nov 2026 12:01:14 GMT</pubDate>
+  </item>
   <item>
     <title>💳 SaaS Spend Check by Calix</title>
     <link>https://grokbotshelf.com/bot/saas-spend-check</link>
@@ -447,15 +456,6 @@
     <dc:creator>Bruce Young (@ecoay)</dc:creator>
     <category>Productivity</category>
     <pubDate>Fri, 06 Nov 2026 12:00:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 Multi Gmail by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/multi-gmail</link>
-    <guid isPermaLink="false">https://x.ai/bot/UQzfeiSuWrVxAXnR4b6jP</guid>
-    <description>Connects all your Gmail inboxes so any bot can search them in one go. Self-hosted on your Vercel, read-only by default.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 06 Nov 2026 12:00:24 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -13953,5 +13953,18 @@
     "creator_avatar": "/avatars/calilumberjack.webp",
     "source_post": "https://x.com/CaliLumberJack/status/2120199814029697296",
     "added": "2026-11-11"
+  },
+  {
+    "name": "Bot Radar",
+    "emoji": "📡",
+    "description": "Keeps a live map of every Grok Bot marketplace and directory site and sends a regular report of new bots across them, deduped and ranked by how widely they're spreading. For anyone who wants to keep up with new Grok Bots without checking a dozen sites.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS",
+    "creator_name": "Steve Thoms",
+    "creator_handle": "@thomstech12",
+    "creator_url": "https://x.com/thomstech12",
+    "creator_avatar": "/avatars/thomstech12.webp",
+    "source_post": "https://x.com/thomstech12/status/2120660342212886565",
+    "added": "2026-11-11"
   }
 ]
