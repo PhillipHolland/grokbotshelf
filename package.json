@@ -1,0 +1,15 @@
+{
+  "name": "grokbotshelf",
+  "private": true,
+  "description": "Grok Bot Shelf: a static directory of shared Grok Bot templates. The site itself has no runtime dependencies; these are for tests and one-off scripts.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node test/run.js",
+    "test:unit": "node test/build.js && node test/search.js"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.2.17",
+    "puppeteer-core": "^23.11.1",
+    "qrcode": "^1.5.4"
+  }
+}
