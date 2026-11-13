@@ -282,6 +282,13 @@ Keyed by template id (the part after `x.ai/bot/`). Fields: `agency` (`reads`, `d
 (apps the bot's own description names). The `name` field is only there for humans. Leave a bot out rather than guess;
 cards without an entry show no badges. The dock has "Works with" and "Can it act?" filters (`?app=gmail&does=acts`).
 
+## Trending (`?sort=trending`)
+
+A sort, not the default view. Each bot scores `(up - down + 1) / (days on the shelf + 3) ^ 0.8`, so a new bot with a few
+votes can pass an old one with many. Then a creator's second, third, ... best bot is scaled by 0.75, 0.56, ... so one
+prolific creator cannot fill the top. Votes are the only signal; there is no click or install feed. The function is the
+`gbs-trend` block in `public/app.js` and `test/trending.js` runs it without a browser.
+
 ## Most bookmarked and New this week (`public/social.json`)
 
 Sort "Most bookmarked" (`?sort=bookmarks`) uses X bookmark counts of each bot's `source_post`, labeled as X counts,

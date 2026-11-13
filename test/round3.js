@@ -169,7 +169,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
       let tap = true; for (let x = Math.ceil(S.left) + 2; x < S.right - 2; x += 4) for (const y of [S.top + 2, S.top + S.height / 2, S.bottom - 2]) if ((y === S.top + S.height / 2 || (x > S.left + S.height / 2 && x < S.right - S.height / 2)) && document.elementFromPoint(x, y) !== s) tap = false;
       return { inCapsule: !!s.closest('.capsule'), opts: [...s.options].map((o) => o.value).join(','), value: s.value, label: lab.join('|'), labelShown: pre && R(pre).width > 0 && getComputedStyle(pre).visibility === 'visible', h: Math.round(S.height), tapAll: tap,
         row: Math.round(S.top) === Math.round(w > 700 ? C.top : F.top), right: Math.round(S.right) <= innerWidth, cls: +window.__cls.toFixed(4) }; }, w);
-    ok(!r.inCapsule && r.opts === 'featured,newest,bookmarks,votes,az,creator' && r.value === 'votes' && r.label === 'Sort:' && r.labelShown && r.h >= 44 && r.tapAll && r.row && r.right && r.cls === 0,
+    ok(!r.inCapsule && r.opts === 'featured,trending,newest,bookmarks,votes,az,creator' && r.value === 'votes' && r.label === 'Sort:' && r.labelShown && r.h >= 44 && r.tapAll && r.row && r.right && r.cls === 0,
       `#9 ${w} ${th}: sort pill outside the search, labeled, ?sort=votes selected, ${r.h}px, ${w > 700 ? 'beside the search' : 'in front of the filters'}, CLS ${r.cls} (${JSON.stringify(r)})`);
     await p.select('#sort', 'newest'); await new Promise((x) => setTimeout(x, 300));
     ok(new URL(p.url()).searchParams.get('sort') === 'newest', `#9 ${w}: changing the pill writes ?sort=newest (${p.url()})`);
