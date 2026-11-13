@@ -428,7 +428,8 @@ ${GOOGLE_HEAD}
 </head>`;
 };
 // "Under the hood" appears only when the creator supplied at least one of these optional bots.json fields:
-// connectors, routines [{name, schedule}], sends/posts/spends (true or false), permissions_note. Only those rows show.
+// connectors, routines [{name, schedule}], sends/posts/spends (true or false), permissions_note, needs (what someone
+// needs before it works) and limits (what it can't do). Only those rows show.
 const CREATOR_SUPPLIED = `<span class="src">Creator-supplied</span>`;
 const yes = (v) => (v ? "Yes" : "No");
 function underTheHood(b) {
@@ -440,6 +441,8 @@ function underTheHood(b) {
     ["Routines and schedule", rts && `<ul>${rts.map((r) => `<li>${esc(r.name)}${r.schedule ? ` <span class="nl">· ${esc(r.schedule)}</span>` : ""}</li>`).join("")}</ul>`],
     ["Sends, posts or spends", acts.length && acts.map((k) => `${k[0].toUpperCase() + k.slice(1)}: ${yes(b[k])}`).join(" · ")],
     ["Permissions", b.permissions_note && esc(b.permissions_note)],
+    ["Before you start", typeof b.needs === "string" && b.needs.trim() && esc(b.needs.trim())],
+    ["What it can't do", typeof b.limits === "string" && b.limits.trim() && esc(b.limits.trim())],
   ].filter(([, v]) => v);
   if (!rows.length) return "";
   return `<section class="bp-panel" aria-labelledby="bi-h">

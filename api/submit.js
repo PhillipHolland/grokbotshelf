@@ -2,7 +2,9 @@
 // This route never writes bots.json. Shelf Inbox (or Phil/Nick) reviews the queue for NSFW and
 // security issues. Clean submissions may be added without a second human click; unclear ones stay pending.
 //
-// POST /api/submit  { bot_url?, post_url?, note?, creator_handle?, inspired_by? }   (at least one URL)
+// POST /api/submit  { bot_url?, post_url?, note?, creator_handle?, inspired_by?, details? }   (at least one URL)
+//   details = optional creator-supplied facts: { connectors: [..], needs, limits, permissions_note, sends, posts, spends }.
+//   They are stored with the row for the reviewer and are never published by this route.
 //   creator_handle = template author, inspired_by = optional idea credit (X handles, @ optional)
 //   -> { ok, status: "queued" | "already_queued" | "already_listed", ... }
 // GET  /api/submit                 -> usage
@@ -41,6 +43,7 @@ const ensure = () => (ready ||= (async () => {
     `CREATE INDEX IF NOT EXISTS submissions_status ON submissions (status, created_at)`,
     `ALTER TABLE submissions ADD COLUMN IF NOT EXISTS creator_handle TEXT`,
     `ALTER TABLE submissions ADD COLUMN IF NOT EXISTS inspired_by TEXT`,
+    `ALTER TABLE submissions ADD COLUMN IF NOT EXISTS details TEXT`,
     `CREATE TABLE IF NOT EXISTS submit_events (ip_hash TEXT NOT NULL, at TIMESTAMPTZ NOT NULL DEFAULT now())`,
     `CREATE INDEX IF NOT EXISTS submit_events_ip_at ON submit_events (ip_hash, at)`,
   ]) await sql(q);
@@ -80,6 +83,18 @@ const creditNote = (note, author, inspired) => {
   const body = note.length > room ? note.slice(0, Math.max(0, room)).trim() : note;
   return body ? body + " " + credit : credit;
 };
+// Optional creator-supplied "what to expect" answers. Unknown keys are dropped, text is clipped, and anything empty is
+// left out, so the stored object only holds what the creator actually said. Returns null when nothing usable was sent.
+function normDetails(d) {
+  if (!d || typeof d !== "object" || Array.isArray(d)) return null;
+  const out = {};
+  const conn = (Array.isArray(d.connectors) ? d.connectors : []).map((c) => clip(c, 30)).filter(Boolean);
+  if (conn.length) out.connectors = [...new Set(conn)].slice(0, 8);
+  for (const k of ["needs", "limits", "permissions_note"]) { const v = typeof d[k] === "string" ? clip(d[k], 160) : ""; if (v) out[k] = v; }
+  for (const k of ["sends", "posts", "spends"]) if (typeof d[k] === "boolean") out[k] = d[k];
+  return Object.keys(out).length ? out : null;
+}
+const parseDetails = (s) => { try { return s ? JSON.parse(s) : null; } catch { return null; } };
 const clip = (s, n) => { s = String(s || "").replace(/\s+/g, " ").trim(); return s.length > n ? s.slice(0, n) : s; };
 
 function normBot(u) {
@@ -135,13 +150,13 @@ module.exports = async (req, res) => {
       if (url.searchParams.get("list") === "pending") {
         if (!DB) return send(res, 200, { pending: [] });
         await ensure();
-        const rows = await sql(`SELECT id, created_at, bot_url, template_id, post_url, post_id, title, description, post_author, creator_handle, inspired_by, note
+        const rows = await sql(`SELECT id, created_at, bot_url, template_id, post_url, post_id, title, description, post_author, creator_handle, inspired_by, note, details
                                   FROM submissions WHERE status = 'pending' ORDER BY created_at DESC LIMIT 200`);
         const pending = rows.filter((r) => !(r.template_id && LISTED_T.has(r.template_id)) && !(r.post_id && LISTED_P.has(r.post_id)))
-          .map(({ template_id, post_id, ...r }) => r);
+          .map(({ template_id, post_id, details, ...r }) => ({ ...r, details: parseDetails(details) }));
         return send(res, 200, { pending, count: pending.length });
       }
-      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note, creator_handle, inspired_by } with at least one URL. creator_handle (template author) and inspired_by (idea credit) are optional X handles, @ optional. Reviewed for NSFW and security issues by Shelf Inbox (or Phil/Nick). Clean submissions may be added without a second human click; anything unclear stays pending. GET ?list=pending to see the queue. Email pbh+shelf@mail.grokbot.com or ask Shelf Inbox in Grok Bot. See https://grokbotshelf.com/llms.txt." });
+      return send(res, 200, { ok: true, usage: "POST JSON { bot_url, post_url, note, creator_handle, inspired_by, details } with at least one URL. details is optional: { connectors: [], needs, limits, sends, posts, spends } in the creator's own words. creator_handle (template author) and inspired_by (idea credit) are optional X handles, @ optional. Reviewed for NSFW and security issues by Shelf Inbox (or Phil/Nick). Clean submissions may be added without a second human click; anything unclear stays pending. GET ?list=pending to see the queue. Email pbh+shelf@mail.grokbot.com or ask Shelf Inbox in Grok Bot. See https://grokbotshelf.com/llms.txt." });
     }
     if (req.method !== "POST") return send(res, 405, { error: "GET or POST" }, { Allow: "GET, POST" });
 
@@ -155,6 +170,7 @@ module.exports = async (req, res) => {
     if (creator === null) return send(res, 400, { error: "creator_handle should be an X handle like @name (letters, numbers, _; up to 15)." });
     if (inspired === null) return send(res, 400, { error: "inspired_by should be an X handle like @name (letters, numbers, _; up to 15)." });
     const note = creditNote(clip(body.note, 280), creator, inspired);
+    const details = normDetails(body.details);
 
     // Already on the shelf? Answer before touching the database.
     const hit = (botUrl && LISTED_T.get(tid(botUrl))) || (postUrl && LISTED_P.get(pidOf(postUrl)));
@@ -185,9 +201,9 @@ module.exports = async (req, res) => {
     if (dup.length) return send(res, 200, { ok: true, status: "already_queued", message: "Thanks! That one is already in the review queue." });
 
     const [row] = await sql(
-      `INSERT INTO submissions (template_id, bot_url, post_id, post_url, title, description, post_author, post_text, note, ip_hash, creator_handle, inspired_by)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) ON CONFLICT DO NOTHING RETURNING id`,
-      [templateId, botUrl || null, postId, postUrl || null, tm.title || null, tm.description || null, pm.author || creator || null, pm.text || null, note || null, ih, creator || null, inspired || null]);
+      `INSERT INTO submissions (template_id, bot_url, post_id, post_url, title, description, post_author, post_text, note, ip_hash, creator_handle, inspired_by, details)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13) ON CONFLICT DO NOTHING RETURNING id`,
+      [templateId, botUrl || null, postId, postUrl || null, tm.title || null, tm.description || null, pm.author || creator || null, pm.text || null, note || null, ih, creator || null, inspired || null, details ? JSON.stringify(details) : null]);
     if (!row) return send(res, 200, { ok: true, status: "already_queued", message: "Thanks! That one is already in the review queue." });
     return send(res, 200, { ok: true, status: "queued", id: +row.id, title: tm.title || null,
       message: (tm.title ? `Thanks! ${tm.title} is in the review queue.` : "Thanks! It is in the review queue.") + " Reviewed for NSFW and security issues. Clean bots go live. Anything unclear is parked for a human." });

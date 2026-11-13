@@ -299,6 +299,15 @@ html.mobile .bp-actions .app{background:var(--btn-blue);border-color:var(--btn-b
 .sub-form textarea{height:64px;padding:10px 12px;resize:vertical}
 .sub-form input:focus,.sub-form textarea:focus{outline:none;border-color:var(--blue)}
 .sub-form .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sub-more summary{cursor:pointer;font-size:14px;font-weight:450;color:var(--text);padding:6px 0}
+.sub-more .fine{margin:2px 0 0}
+.sub-acts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.sub-acts>div{display:grid;gap:6px;align-content:start}
+.sub-form select{width:100%;box-sizing:border-box;height:40px;border:1px solid var(--line2);border-radius:10px;background:var(--bg);color:var(--text);font:var(--w-read) 16px var(--font);padding:0 10px}
+.sub-form select:focus{outline:none;border-color:var(--blue)}
+.sub-form .sub-more label{display:block;margin:14px 0 6px}
+.sub-form .sub-acts label{margin:0}
+.sub-acts{margin-top:14px}
 .sub-msg{margin:0;font-size:14px;color:var(--text2)}
 .sub-msg.ok{color:#00ba7c}.sub-msg.err{color:#f4212e}
 /* "Already on the shelf" line under the template link: its height is reserved so nothing below moves when it fills */

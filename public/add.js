@@ -101,13 +101,23 @@ const addCheck = (() => {
   if (!f) return;
   var msg = document.getElementById("sub-msg"), go = document.getElementById("sub-go");
   function show(t, cls) { msg.textContent = t; msg.className = "sub-msg" + (cls ? " " + cls : ""); }
+  // Optional "what to expect" answers. Only what the creator filled in is sent; "Not sure" sends nothing.
+  function details() {
+    var d = {}, val = function (n) { return f[n] ? f[n].value.trim() : ""; };
+    var conn = val("connectors").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    if (conn.length) d.connectors = conn;
+    if (val("needs")) d.needs = val("needs");
+    if (val("limits")) d.limits = val("limits");
+    ["sends", "posts", "spends"].forEach(function (k) { var v = val(k); if (v === "yes" || v === "no") d[k] = v === "yes"; });
+    return d;
+  }
   f.addEventListener("submit", function (e) {
     e.preventDefault();
     var bot = f.bot_url.value.trim(), post = f.post_url.value.trim();
     if (!bot && !post) { show("Paste an x.ai/bot link or an X post link.", "err"); f.bot_url.focus(); return; }
     go.disabled = true; show("Checking…");
     fetch("/api/submit", { method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ bot_url: bot, post_url: post, note: f.note.value.trim(), website: f.website.value }) })
+      body: JSON.stringify({ bot_url: bot, post_url: post, note: f.note.value.trim(), website: f.website.value, details: details() }) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return [r, d]; }); })
       .then(function (rd) {
         var r = rd[0], d = rd[1];

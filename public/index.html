@@ -36,11 +36,11 @@
 <meta name="twitter:site" content="@Phil_Holland">
 <meta name="twitter:creator" content="@Phil_Holland">
 <link rel="preload" href="/fonts/ShelfSerif-5.000.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=a620917dd0">
+<link rel="stylesheet" href="/styles.css?v=2a51839210">
 <script src="/shelf-up.js?v=d85f65a4a6" defer></script>
 <script src="/config.js?v=3168513e3a" defer></script>
 <script src="/app.js?v=54e8143d59" defer></script>
-<script src="/add.js?v=a2f430e723" defer></script>
+<script src="/add.js?v=59a7f6dc64" defer></script>
 <script src="/shelfer-sheet.js?v=0004a897d2" defer></script>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -288,6 +288,21 @@
       <input id="sub-post" name="post_url" type="url" inputmode="url" placeholder="https://x.com/you/status/..." autocomplete="off" autocapitalize="off" spellcheck="false">
       <label for="sub-note">Anything we should know (optional)</label>
       <textarea id="sub-note" name="note" maxlength="280" placeholder="One line about what it does"></textarea>
+      <details class="sub-more" id="sub-more">
+        <summary>Tell people what to expect (optional)</summary>
+        <p class="fine">Shown on the bot's page as creator-supplied if it is listed. Skip anything you are not sure of.</p>
+        <label for="sub-conn">Apps it connects to</label>
+        <input id="sub-conn" name="connectors" type="text" maxlength="240" placeholder="Gmail, Google Calendar" autocomplete="off">
+        <label for="sub-needs">What someone needs before it works</label>
+        <input id="sub-needs" name="needs" type="text" maxlength="160" placeholder="A Gmail account and about 5 minutes of setup" autocomplete="off">
+        <label for="sub-limits">What it can't do</label>
+        <input id="sub-limits" name="limits" type="text" maxlength="160" placeholder="It drafts replies but never sends them" autocomplete="off">
+        <div class="sub-acts">
+          <div><label for="sub-sends">Sends messages or email for you?</label><select id="sub-sends" name="sends"><option value="">Not sure</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div><label for="sub-posts">Posts in public for you?</label><select id="sub-posts" name="posts"><option value="">Not sure</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+          <div><label for="sub-spends">Spends money?</label><select id="sub-spends" name="spends"><option value="">Not sure</option><option value="yes">Yes</option><option value="no">No</option></select></div>
+        </div>
+      </details>
       <input type="text" name="website" id="sub-hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="row"><button type="submit" class="btn post" id="sub-go">Suggest this bot</button><p class="sub-msg" id="sub-msg" role="status" aria-live="polite"></p></div>
     </form>
