@@ -545,6 +545,21 @@ function miniPairs(b, surface) {
   const more = extra ? `<a class="pair-more" href="${b.page}#pairs-h">+${extra}</a>` : "";
   return `<p class="card-pairs"><span class="card-pairs-l">${esc(products.ux.label)}</span>${links}${more}</p>`;
 }
+// "See it in the creator's post": the bot's source post from X, embedded only after a tap. Nothing loads from X until
+// then (bot-page.js adds the widget script on click), and the plain link stays as the fallback. Only real status links
+// get the section; a bot without a source post gets nothing.
+function postDemo(b) {
+  const m = String(b.source_post || "").match(/^https:\/\/(?:x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/(\d{5,25})/);
+  if (!m) return "";
+  const who = b.creator_handle || b.creator_name;
+  return `<section class="bp-panel bp-post" aria-labelledby="po-h">
+    <h2 id="po-h">See it in ${esc(who)}'s post</h2>
+    <div class="po-slot" id="po-slot">
+      <button type="button" class="btn ghost" id="po-show" data-post="${esc(m[0])}" data-id="${m[1]}">Show the post from X</button>
+      <p class="fine">The post loads from X when you tap. Nothing is requested from X before that. <a href="${esc(b.source_post)}" rel="noopener" target="_blank">Open it on X instead</a></p>
+    </div>
+  </section>`;
+}
 function page(b, related, similar) {
   const title = docTitle(b);
   const desc = b.description, url = SITE + b.page, img = ogImg(b);
@@ -584,6 +599,7 @@ ${HEADER}
       ${b.creator_handle ? `<a href="${esc(b.creator_url)}" rel="noopener" target="_blank">${esc(b.creator_handle)} on X</a>` : ""}${(jobBySlug.get(b.slug) || []).map((c) => `\n      <a href="/collection/${esc(c.slug)}">Also in: ${esc(c.name)}</a>`).join("")}
     </p>
   </article>
+  ${postDemo(b)}
   ${pairsSection(b)}
   ${underTheHood(b)}${sameJob(b)}
   ${similar.length ? `<section class="bp-more"><h2>Similar bots</h2><ul>${similar.map((r) => `<li><a href="${r.page}">${markSpan(r.emoji)} ${esc(r.name)}<small>${esc(r.creator_name)}</small></a></li>`).join("")}</ul></section>` : ""}

@@ -256,6 +256,13 @@ Homepage hash links (`/#bot-archivist`) still scroll to the card. Card titles an
 
 The homepage HTML also includes a closed "All bots and creators" list (`#all`) with a real link for every `/bot/<slug>` and `/@<handle>`. `app.js` still draws the card grid and does not remove that list, so crawlers can discover every page without running JavaScript.
 
+## The creator's post on bot pages
+
+A bot with a `source_post` gets a "See it in @creator's post" section with a "Show the post from X" button. Nothing is
+requested from X until the button is tapped; then `public/bot-page.js` adds X's widget script and embeds the post. If
+the script is blocked or does not render, the section falls back to a plain link. A bot without a `source_post` has no
+section.
+
 ## Analytics
 
 `scripts/build.js` injects GA4 when `GA_MEASUREMENT_ID` is set. The tag loads only on `grokbotshelf.com` and `www.grokbotshelf.com`. Preview hosts and localhost do not load it.
