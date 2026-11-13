@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-12</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://grokbotshelf.com/bot/archivist</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/ibot-player</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/security-audit-bot</loc><lastmod>2026-10-24</lastmod></url>
@@ -1088,11 +1088,15 @@
   <url><loc>https://grokbotshelf.com/bot/lead-finder</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/filmcraft-video-editor</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/godaddy-domain-manager</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category/bot-tools</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/overwatch</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/job-hunt-loop</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/role-research-curriculum</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/usage-watch-by-jumperz</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category/bot-tools</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/business-and-marketing</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/creator-and-media</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/design</loc><lastmod>2026-11-06</lastmod></url>
@@ -1103,7 +1107,7 @@
   <url><loc>https://grokbotshelf.com/category/home</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/lifestyle</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/money</loc><lastmod>2026-11-12</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category/productivity</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category/productivity</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/security</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/shopping</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/travel</loc><lastmod>2026-11-04</lastmod></url>
@@ -1131,7 +1135,7 @@
   <url><loc>https://grokbotshelf.com/@levi_w_eck</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@jprz1321</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@greedfi</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@xenappblog</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@xenappblog</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/@kentbweber</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@kevin_logan</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@moritzkremb</loc><lastmod>2026-10-24</lastmod></url>
@@ -1336,4 +1340,5 @@
   <url><loc>https://grokbotshelf.com/@troelsmjensen</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://grokbotshelf.com/@adfraudit</loc><lastmod>2026-11-11</lastmod></url>
   <url><loc>https://grokbotshelf.com/@thomstech12</loc><lastmod>2026-11-11</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@jumperz</loc><lastmod>2026-11-13</lastmod></url>
 </urlset>

@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 12 Nov 2026 19:22:25 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 15:00:51 GMT</lastBuildDate>
+  <item>
+    <title>📊 Usage Watch by JUMPERZ</title>
+    <link>https://grokbotshelf.com/bot/usage-watch-by-jumperz</link>
+    <guid isPermaLink="false">https://x.ai/bot/Gpg5uQlTwaZI_XHISwJj_</guid>
+    <description>Keeps an eye on your Grok Bot usage. It builds you a live-updated usage dashboard, finds which bots and routines use the most, checks whether they&apos;re worth it, and suggests up to three changes, without changing anything for you.</description>
+    <dc:creator>JUMPERZ (@jumperz)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Fri, 13 Nov 2026 12:01:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎓 Role Research Curriculum by w</title>
+    <link>https://grokbotshelf.com/bot/role-research-curriculum</link>
+    <guid isPermaLink="false">https://x.ai/bot/SqKET-L6ur0LCn4HV_T3c</guid>
+    <description>Most role curricula are outlines with no sources and no practice. Name a job. It does source-backed research — JDs, employers, cases, exams, portfolios, and public competency standards — then turns it into a three-level model, a 9-subtask advanced practicum, and 30/60/80-hour curricula. Material packs stay off by default.</description>
+    <dc:creator>w</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 13 Nov 2026 12:01:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🔄 Job Hunt Loop by w</title>
+    <link>https://grokbotshelf.com/bot/job-hunt-loop</link>
+    <guid isPermaLink="false">https://x.ai/bot/K8hMUvbWVbxvZMTZxxurG</guid>
+    <description>Job hunting often dies in the loop: stale chats, resume requests, uncapped searching, and no evidence trail after you apply. An unattended cycle for seekers: refresh chats, handle resume asks, search with caps, tailor the resume, write a short opener, and review the evidence. For seekers — not employer recruiting.</description>
+    <dc:creator>w</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Fri, 13 Nov 2026 12:01:28 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧹 Overwatch by Trond Eirik Haavarstein</title>
+    <link>https://grokbotshelf.com/bot/overwatch</link>
+    <guid isPermaLink="false">https://x.ai/bot/PGEVwTjv7Q9cObVSFGRlM</guid>
+    <description>Housekeeper and token officer for a shared bot computer. Once a week it tidies and archives the disk, backs up bot configs to git, keeps a bot registry, and flags wasteful routines. It reports only and never changes another bot&apos;s work.</description>
+    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Fri, 13 Nov 2026 12:01:27 GMT</pubDate>
+  </item>
   <item>
     <title>🌐 GoDaddy Domain Manager by Bruce Young</title>
     <link>https://grokbotshelf.com/bot/godaddy-domain-manager</link>
@@ -420,42 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎸 Riffrow by Wayne</title>
-    <link>https://grokbotshelf.com/bot/riffrow-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/2_uBthmv20DacnSl1bAAu</guid>
-    <description>MST3K-style riff bot: takes a clip, writes a three-character riff script, voices it, and renders a theater-style video in landscape and vertical.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:40 GMT</pubDate>
-  </item>
-  <item>
-    <title>📱 Shorts by Wayne</title>
-    <link>https://grokbotshelf.com/bot/shorts-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/Gz5l1KsT-Tn0sV7D3WUyi</guid>
-    <description>Makes 35-50s vertical (720x1280) shorts of model tests and highlights: action from frame one, hook in two seconds, verified numbers only.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:39 GMT</pubDate>
-  </item>
-  <item>
-    <title>🆚 Versus by Wayne</title>
-    <link>https://grokbotshelf.com/bot/versus-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/9RuGvNg6YS66-crQDZ1rj</guid>
-    <description>Builds head-to-head comparison videos in one fixed look: focus model on the left, opponents cycling right, STAR WINNER stamps and a running score.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🖼️ Thumbs by Wayne</title>
-    <link>https://grokbotshelf.com/bot/thumbs-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/9F6v_TeHcioiD9uiP6VG5</guid>
-    <description>Builds consistent 1280x720 video covers and opening slides with your real photo composited untouched; never AI-generated faces.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:37 GMT</pubDate>
   </item>
 </channel>
 </rss>

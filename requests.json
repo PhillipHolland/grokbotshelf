@@ -7963,6 +7963,64 @@
       "note": "Site form #825 Follower Finder by Empress; no creator handle; follows accounts on X. Denied 2026-11-12: Phillip left it unchecked on card t1619s6800 (unchecked = deny).",
       "reason": "no creator handle; follows accounts on X",
       "denied_by": "Phillip Holland (left unchecked on card t1619s6800, ~1:20 PM CT)"
+    },
+    "x-2120593144303813007": {
+      "status": "skipped",
+      "author": "@GrokBotGod",
+      "note": "thread about card text, not an add request",
+      "date": "2026-11-12"
+    },
+    "form-826": {
+      "date": "2026-11-13",
+      "status": "added",
+      "bot": "Overwatch",
+      "template_url": "https://x.ai/bot/PGEVwTjv7Q9cObVSFGRlM",
+      "author": "@xenappblog",
+      "author_handle": "@xenappblog",
+      "url": "https://grokbotshelf.com/bot/overwatch",
+      "description": "Housekeeper and token officer for a shared bot computer. Once a week it tidies and archives the disk, backs up bot configs to git, keeps a bot registry, and flags wasteful routines. It reports only and never changes another bot's work.",
+      "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+      "added": "2026-11-13",
+      "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+    },
+    "form-827": {
+      "date": "2026-11-13",
+      "status": "added",
+      "bot": "Job Hunt Loop",
+      "template_url": "https://x.ai/bot/K8hMUvbWVbxvZMTZxxurG",
+      "author": "w",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/job-hunt-loop",
+      "description": "Job hunting often dies in the loop: stale chats, resume requests, uncapped searching, and no evidence trail after you apply. An unattended cycle for seekers: refresh chats, handle resume asks, search with caps, tailor the resume, write a short opener, and review the evidence. For seekers — not employer recruiting.",
+      "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+      "added": "2026-11-13",
+      "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+    },
+    "form-828": {
+      "date": "2026-11-13",
+      "status": "added",
+      "bot": "Role Research Curriculum",
+      "template_url": "https://x.ai/bot/SqKET-L6ur0LCn4HV_T3c",
+      "author": "w",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/role-research-curriculum",
+      "description": "Most role curricula are outlines with no sources and no practice. Name a job. It does source-backed research — JDs, employers, cases, exams, portfolios, and public competency standards — then turns it into a three-level model, a 9-subtask advanced practicum, and 30/60/80-hour curricula. Material packs stay off by default.",
+      "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816). Shelved as Role Research Curriculum (official template title), not the form's Role Curriculum Forge.",
+      "added": "2026-11-13",
+      "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+    },
+    "form-829": {
+      "date": "2026-11-13",
+      "status": "added",
+      "bot": "Usage Watch by JUMPERZ",
+      "template_url": "https://x.ai/bot/Gpg5uQlTwaZI_XHISwJj_",
+      "author": "@jumperz",
+      "author_handle": "@jumperz",
+      "url": "https://grokbotshelf.com/bot/usage-watch-by-jumperz",
+      "description": "Keeps an eye on your Grok Bot usage. It builds you a live-updated usage dashboard, finds which bots and routines use the most, checks whether they're worth it, and suggests up to three changes, without changing anything for you.",
+      "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+      "added": "2026-11-13",
+      "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
     }
   },
   "x-2114766675119886755": {
@@ -10909,5 +10967,57 @@
     "note": "Added to shelf 2026-11-12; approved by Phillip Holland (~1:20 PM CT, card t1619s6800).",
     "added": "2026-11-12",
     "approved_by": "Phillip Holland (approved 2026-11-12 ~1:20 PM CT, card t1619s6800)"
+  },
+  "form-826": {
+    "date": "2026-11-13",
+    "status": "added",
+    "bot": "Overwatch",
+    "template_url": "https://x.ai/bot/PGEVwTjv7Q9cObVSFGRlM",
+    "author": "@xenappblog",
+    "author_handle": "@xenappblog",
+    "url": "https://grokbotshelf.com/bot/overwatch",
+    "description": "Housekeeper and token officer for a shared bot computer. Once a week it tidies and archives the disk, backs up bot configs to git, keeps a bot registry, and flags wasteful routines. It reports only and never changes another bot's work.",
+    "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+    "added": "2026-11-13",
+    "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+  },
+  "form-827": {
+    "date": "2026-11-13",
+    "status": "added",
+    "bot": "Job Hunt Loop",
+    "template_url": "https://x.ai/bot/K8hMUvbWVbxvZMTZxxurG",
+    "author": "w",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/job-hunt-loop",
+    "description": "Job hunting often dies in the loop: stale chats, resume requests, uncapped searching, and no evidence trail after you apply. An unattended cycle for seekers: refresh chats, handle resume asks, search with caps, tailor the resume, write a short opener, and review the evidence. For seekers — not employer recruiting.",
+    "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+    "added": "2026-11-13",
+    "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+  },
+  "form-828": {
+    "date": "2026-11-13",
+    "status": "added",
+    "bot": "Role Research Curriculum",
+    "template_url": "https://x.ai/bot/SqKET-L6ur0LCn4HV_T3c",
+    "author": "w",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/role-research-curriculum",
+    "description": "Most role curricula are outlines with no sources and no practice. Name a job. It does source-backed research — JDs, employers, cases, exams, portfolios, and public competency standards — then turns it into a three-level model, a 9-subtask advanced practicum, and 30/60/80-hour curricula. Material packs stay off by default.",
+    "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816). Shelved as Role Research Curriculum (official template title), not the form's Role Curriculum Forge.",
+    "added": "2026-11-13",
+    "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+  },
+  "form-829": {
+    "date": "2026-11-13",
+    "status": "added",
+    "bot": "Usage Watch by JUMPERZ",
+    "template_url": "https://x.ai/bot/Gpg5uQlTwaZI_XHISwJj_",
+    "author": "@jumperz",
+    "author_handle": "@jumperz",
+    "url": "https://grokbotshelf.com/bot/usage-watch-by-jumperz",
+    "description": "Keeps an eye on your Grok Bot usage. It builds you a live-updated usage dashboard, finds which bots and routines use the most, checks whether they're worth it, and suggests up to three changes, without changing anything for you.",
+    "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
+    "added": "2026-11-13",
+    "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
   }
 }

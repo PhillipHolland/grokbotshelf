@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-12T19:22:11.104Z",
+ "generated": "2026-11-13T15:00:29.634Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2557,6 +2557,10 @@
   "empire-commander-by-john": [],
   "lead-finder": [],
   "filmcraft-video-editor": [],
-  "godaddy-domain-manager": []
+  "godaddy-domain-manager": [],
+  "overwatch": [],
+  "job-hunt-loop": [],
+  "role-research-curriculum": [],
+  "usage-watch-by-jumperz": []
  }
 }

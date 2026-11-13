@@ -14122,5 +14122,57 @@
     "creator_avatar": "/avatars/ecoay.webp",
     "source_post": "",
     "added": "2026-11-12"
+  },
+  {
+    "name": "Overwatch",
+    "emoji": "🧹",
+    "description": "Housekeeper and token officer for a shared bot computer. Once a week it tidies and archives the disk, backs up bot configs to git, keeps a bot registry, and flags wasteful routines. It reports only and never changes another bot's work.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/PGEVwTjv7Q9cObVSFGRlM",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "creator_avatar": "/avatars/xenappblog.webp",
+    "source_post": "",
+    "added": "2026-11-13"
+  },
+  {
+    "name": "Job Hunt Loop",
+    "emoji": "🔄",
+    "description": "Job hunting often dies in the loop: stale chats, resume requests, uncapped searching, and no evidence trail after you apply. An unattended cycle for seekers: refresh chats, handle resume asks, search with caps, tailor the resume, write a short opener, and review the evidence. For seekers — not employer recruiting.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/K8hMUvbWVbxvZMTZxxurG",
+    "creator_name": "w",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-13"
+  },
+  {
+    "name": "Role Research Curriculum",
+    "emoji": "🎓",
+    "description": "Most role curricula are outlines with no sources and no practice. Name a job. It does source-backed research — JDs, employers, cases, exams, portfolios, and public competency standards — then turns it into a three-level model, a 9-subtask advanced practicum, and 30/60/80-hour curricula. Material packs stay off by default.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/SqKET-L6ur0LCn4HV_T3c",
+    "creator_name": "w",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-13"
+  },
+  {
+    "name": "Usage Watch by JUMPERZ",
+    "emoji": "📊",
+    "description": "Keeps an eye on your Grok Bot usage. It builds you a live-updated usage dashboard, finds which bots and routines use the most, checks whether they're worth it, and suggests up to three changes, without changing anything for you.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/Gpg5uQlTwaZI_XHISwJj_",
+    "creator_name": "JUMPERZ",
+    "creator_handle": "@jumperz",
+    "creator_url": "https://x.com/jumperz",
+    "creator_avatar": "/avatars/jumperz.webp",
+    "source_post": "",
+    "added": "2026-11-13"
   }
 ]
