@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 13 Nov 2026 15:00:51 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 13 Nov 2026 17:10:08 GMT</lastBuildDate>
+  <item>
+    <title>👥 Solo Founder Crew by Calix</title>
+    <link>https://grokbotshelf.com/bot/solo-founder-crew</link>
+    <guid isPermaLink="false">https://x.ai/bot/LsMMqEH5tNXcsKhGteWab</guid>
+    <description>Runs up to three helper bots for inbox sweep, pre-call briefs and SaaS spend checks, then sends one short morning brief. Anything that sends, posts or spends stays a draft until you say yes.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 13 Nov 2026 12:01:31 GMT</pubDate>
+  </item>
   <item>
     <title>📊 Usage Watch by JUMPERZ</title>
     <link>https://grokbotshelf.com/bot/usage-watch-by-jumperz</link>
@@ -447,15 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>🥊 Gauntlet by Wayne</title>
-    <link>https://grokbotshelf.com/bot/gauntlet-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/V8PEtwUMDHq3kFVOcyizc</guid>
-    <description>Turns verified AI model test runs into scorecards and 1280x720 gauntlet reels with PASS stamps, a scorebug and a leaderboard.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:41 GMT</pubDate>
   </item>
 </channel>
 </rss>

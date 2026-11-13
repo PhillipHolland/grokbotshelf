@@ -14174,5 +14174,18 @@
     "creator_avatar": "/avatars/jumperz.webp",
     "source_post": "",
     "added": "2026-11-13"
+  },
+  {
+    "name": "Solo Founder Crew",
+    "emoji": "👥",
+    "description": "Runs up to three helper bots for inbox sweep, pre-call briefs and SaaS spend checks, then sends one short morning brief. Anything that sends, posts or spends stays a draft until you say yes.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/LsMMqEH5tNXcsKhGteWab",
+    "creator_name": "Calix",
+    "creator_handle": "@CaliLumberJack",
+    "creator_url": "https://x.com/CaliLumberJack",
+    "creator_avatar": "/avatars/calilumberjack.webp",
+    "source_post": "https://x.com/CaliLumberJack/status/2120924587235922160",
+    "added": "2026-11-13"
   }
 ]

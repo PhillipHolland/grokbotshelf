@@ -8021,6 +8021,20 @@
       "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
       "added": "2026-11-13",
       "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+    },
+    "x-2120924587235922160": {
+      "post_id": "2120924587235922160",
+      "date": "2026-11-13",
+      "status": "added",
+      "bot": "Solo Founder Crew",
+      "template_url": "https://x.ai/bot/LsMMqEH5tNXcsKhGteWab",
+      "author": "@CaliLumberJack",
+      "author_handle": "@CaliLumberJack",
+      "url": "https://x.com/CaliLumberJack/status/2120924587235922160",
+      "description": "Runs up to three helper bots for inbox sweep, pre-call briefs and SaaS spend checks, then sends one short morning brief. Anything that sends, posts or spends stays a draft until you say yes.",
+      "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~11:09 AM CT, card t1620s6823).",
+      "added": "2026-11-13",
+      "approved_by": "Phillip Holland (approved 2026-11-13 ~11:09 AM CT, card t1620s6823)"
     }
   },
   "x-2114766675119886755": {
@@ -11019,5 +11033,19 @@
     "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~8:58 AM CT, card t1620s6816).",
     "added": "2026-11-13",
     "approved_by": "Phillip Holland (approved 2026-11-13 ~8:58 AM CT, card t1620s6816)"
+  },
+  "x-2120924587235922160": {
+    "post_id": "2120924587235922160",
+    "date": "2026-11-13",
+    "status": "added",
+    "bot": "Solo Founder Crew",
+    "template_url": "https://x.ai/bot/LsMMqEH5tNXcsKhGteWab",
+    "author": "@CaliLumberJack",
+    "author_handle": "@CaliLumberJack",
+    "url": "https://x.com/CaliLumberJack/status/2120924587235922160",
+    "description": "Runs up to three helper bots for inbox sweep, pre-call briefs and SaaS spend checks, then sends one short morning brief. Anything that sends, posts or spends stays a draft until you say yes.",
+    "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~11:09 AM CT, card t1620s6823).",
+    "added": "2026-11-13",
+    "approved_by": "Phillip Holland (approved 2026-11-13 ~11:09 AM CT, card t1620s6823)"
   }
 }
