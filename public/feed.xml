@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 14 Nov 2026 18:09:43 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 18:52:28 GMT</lastBuildDate>
+  <item>
+    <title>✍️ Contract Signer by Julian</title>
+    <link>https://grokbotshelf.com/bot/contract-signer-by-julian</link>
+    <guid isPermaLink="false">https://x.ai/bot/emH53moZpEP8rqAECJBAd</guid>
+    <description>Drafts NDAs, service agreements and offer letters from a short brief, flags risky or missing terms in plain language, and sends the PDF out for e-signature.</description>
+    <dc:creator>Julian (@julianweber)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sat, 14 Nov 2026 12:01:34 GMT</pubDate>
+  </item>
   <item>
     <title>🎁 Noelle by Dave</title>
     <link>https://grokbotshelf.com/bot/noelle</link>
@@ -447,15 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>🪽 Hermes by Wayne</title>
-    <link>https://grokbotshelf.com/bot/hermes-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/Lg1yD7lFxLTR8BJoYt3pk</guid>
-    <description>A front end to the Nous Research Hermes Agent CLI on your computer. It runs your prompts through Hermes, keeps the CLI updated, and returns the results.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:44 GMT</pubDate>
   </item>
 </channel>
 </rss>

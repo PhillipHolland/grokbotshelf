@@ -8061,6 +8061,19 @@
       "note": "Added to shelf 2026-11-14; approved by Phillip Holland (card t1620s6837). Submitted with no creator handle (pending-no-handle).",
       "added": "2026-11-14",
       "approved_by": "Phillip Holland (approved 2026-11-14, card t1620s6837)"
+    },
+    "form-832": {
+      "date": "2026-11-14",
+      "status": "added",
+      "bot": "Contract Signer by Julian",
+      "template_url": "https://x.ai/bot/emH53moZpEP8rqAECJBAd",
+      "author": "Julian",
+      "author_handle": "@julianweber",
+      "url": "https://grokbotshelf.com/bot/contract-signer-by-julian",
+      "description": "Drafts NDAs, service agreements and offer letters from a short brief, flags risky or missing terms in plain language, and sends the PDF out for e-signature.",
+      "note": "Added to shelf 2026-11-14 by routine under standing SFW rule.",
+      "added": "2026-11-14",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
