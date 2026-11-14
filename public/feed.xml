@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 14 Nov 2026 15:05:25 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 18:09:43 GMT</lastBuildDate>
+  <item>
+    <title>🎁 Noelle by Dave</title>
+    <link>https://grokbotshelf.com/bot/noelle</link>
+    <guid isPermaLink="false">https://x.ai/bot/Q3ja7ucRHbaP8ntAXMdko</guid>
+    <description>A cheerful holiday gift helper. It finds gift ideas and links, builds a Google Sheet for everyone you&apos;re shopping for, and tracks each gift from order to arrival to wrapped. You always press buy.</description>
+    <dc:creator>Dave</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sat, 14 Nov 2026 12:01:33 GMT</pubDate>
+  </item>
   <item>
     <title>🌙 梦书 (Dream Book) by Xc</title>
     <link>https://grokbotshelf.com/bot/dream-book</link>
@@ -447,15 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>✨ Glow Up by Wayne</title>
-    <link>https://grokbotshelf.com/bot/glow-up-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/NCy5afIaZzGWavZGDDHiu</guid>
-    <description>Send a selfie and get a funny, flattering, over-the-top glam makeover with big hair and dramatic makeup, in vibes like Pageant Queen or Disco.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:43 GMT</pubDate>
   </item>
 </channel>
 </rss>

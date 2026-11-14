@@ -8048,6 +8048,19 @@
       "note": "Added to shelf 2026-11-14; approved by Phillip Holland (~9:03 AM CT, card t1620s6830). Official template title is 梦书; shelf name is 梦书 (Dream Book) so the slug is dream-book.",
       "added": "2026-11-14",
       "approved_by": "Phillip Holland (approved 2026-11-14 ~9:03 AM CT, card t1620s6830)"
+    },
+    "form-831": {
+      "date": "2026-11-14",
+      "status": "added",
+      "bot": "Noelle",
+      "template_url": "https://x.ai/bot/Q3ja7ucRHbaP8ntAXMdko",
+      "author": "Dave",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/noelle",
+      "description": "A cheerful holiday gift helper. It finds gift ideas and links, builds a Google Sheet for everyone you're shopping for, and tracks each gift from order to arrival to wrapped. You always press buy.",
+      "note": "Added to shelf 2026-11-14; approved by Phillip Holland (card t1620s6837). Submitted with no creator handle (pending-no-handle).",
+      "added": "2026-11-14",
+      "approved_by": "Phillip Holland (approved 2026-11-14, card t1620s6837)"
     }
   },
   "x-2114766675119886755": {
@@ -11073,5 +11086,18 @@
     "note": "Added to shelf 2026-11-14; approved by Phillip Holland (~9:03 AM CT, card t1620s6830). Official template title is 梦书; shelf name is 梦书 (Dream Book) so the slug is dream-book.",
     "added": "2026-11-14",
     "approved_by": "Phillip Holland (approved 2026-11-14 ~9:03 AM CT, card t1620s6830)"
+  },
+  "form-831": {
+    "date": "2026-11-14",
+    "status": "added",
+    "bot": "Noelle",
+    "template_url": "https://x.ai/bot/Q3ja7ucRHbaP8ntAXMdko",
+    "author": "Dave",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/noelle",
+    "description": "A cheerful holiday gift helper. It finds gift ideas and links, builds a Google Sheet for everyone you're shopping for, and tracks each gift from order to arrival to wrapped. You always press buy.",
+    "note": "Added to shelf 2026-11-14; approved by Phillip Holland (card t1620s6837). Submitted with no creator handle (pending-no-handle).",
+    "added": "2026-11-14",
+    "approved_by": "Phillip Holland (approved 2026-11-14, card t1620s6837)"
   }
 }
