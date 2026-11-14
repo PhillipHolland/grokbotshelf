@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 13 Nov 2026 17:10:08 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 15:05:25 GMT</lastBuildDate>
+  <item>
+    <title>🌙 梦书 (Dream Book) by Xc</title>
+    <link>https://grokbotshelf.com/bot/dream-book</link>
+    <guid isPermaLink="false">https://x.ai/bot/UpLG_O9I-O29U7Zu5DSY4</guid>
+    <description>A Chinese-language bot: tell it last night&apos;s dream and it writes a gentle short story, draws a dream image, and draws an almanac-inspired dream slip, just for fun. Over time it can turn your dream journal into a book draft or ideas for short dramas. Dreams stay in your own bot.</description>
+    <dc:creator>Xc</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sat, 14 Nov 2026 12:01:32 GMT</pubDate>
+  </item>
   <item>
     <title>👥 Solo Founder Crew by Calix</title>
     <link>https://grokbotshelf.com/bot/solo-founder-crew</link>
@@ -447,15 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎬 Director by Wayne</title>
-    <link>https://grokbotshelf.com/bot/director-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/E6NdmXG5F9O_B6nFiDIJW</guid>
-    <description>Leads a six-bot video production team: routes each video job to the right specialist, keeps one house style, and checks every cut before handing it over.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:42 GMT</pubDate>
   </item>
 </channel>
 </rss>

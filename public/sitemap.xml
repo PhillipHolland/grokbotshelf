@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-13</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-14</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://grokbotshelf.com/bot/archivist</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/ibot-player</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/security-audit-bot</loc><lastmod>2026-10-24</lastmod></url>
@@ -1093,13 +1093,14 @@
   <url><loc>https://grokbotshelf.com/bot/role-research-curriculum</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/usage-watch-by-jumperz</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/solo-founder-crew</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-13</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/dream-book</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-14</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/bot-tools</loc><lastmod>2026-11-13</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/business-and-marketing</loc><lastmod>2026-11-13</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category/creator-and-media</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category/creator-and-media</loc><lastmod>2026-11-14</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/design</loc><lastmod>2026-11-06</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/developer</loc><lastmod>2026-11-12</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/faith</loc><lastmod>2026-10-31</lastmod></url>

@@ -8035,6 +8035,19 @@
       "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~11:09 AM CT, card t1620s6823).",
       "added": "2026-11-13",
       "approved_by": "Phillip Holland (approved 2026-11-13 ~11:09 AM CT, card t1620s6823)"
+    },
+    "form-830": {
+      "date": "2026-11-14",
+      "status": "added",
+      "bot": "梦书 (Dream Book)",
+      "template_url": "https://x.ai/bot/UpLG_O9I-O29U7Zu5DSY4",
+      "author": "Xc",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/dream-book",
+      "description": "A Chinese-language bot: tell it last night's dream and it writes a gentle short story, draws a dream image, and draws an almanac-inspired dream slip, just for fun. Over time it can turn your dream journal into a book draft or ideas for short dramas. Dreams stay in your own bot.",
+      "note": "Added to shelf 2026-11-14; approved by Phillip Holland (~9:03 AM CT, card t1620s6830). Official template title is 梦书; shelf name is 梦书 (Dream Book) so the slug is dream-book.",
+      "added": "2026-11-14",
+      "approved_by": "Phillip Holland (approved 2026-11-14 ~9:03 AM CT, card t1620s6830)"
     }
   },
   "x-2114766675119886755": {
@@ -11047,5 +11060,18 @@
     "note": "Added to shelf 2026-11-13; approved by Phillip Holland (~11:09 AM CT, card t1620s6823).",
     "added": "2026-11-13",
     "approved_by": "Phillip Holland (approved 2026-11-13 ~11:09 AM CT, card t1620s6823)"
+  },
+  "form-830": {
+    "date": "2026-11-14",
+    "status": "added",
+    "bot": "梦书 (Dream Book)",
+    "template_url": "https://x.ai/bot/UpLG_O9I-O29U7Zu5DSY4",
+    "author": "Xc",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/dream-book",
+    "description": "A Chinese-language bot: tell it last night's dream and it writes a gentle short story, draws a dream image, and draws an almanac-inspired dream slip, just for fun. Over time it can turn your dream journal into a book draft or ideas for short dramas. Dreams stay in your own bot.",
+    "note": "Added to shelf 2026-11-14; approved by Phillip Holland (~9:03 AM CT, card t1620s6830). Official template title is 梦书; shelf name is 梦书 (Dream Book) so the slug is dream-book.",
+    "added": "2026-11-14",
+    "approved_by": "Phillip Holland (approved 2026-11-14 ~9:03 AM CT, card t1620s6830)"
   }
 }
