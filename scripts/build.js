@@ -165,6 +165,9 @@ const shelfBots = bots.map((b) => {
 const CONFIG = (() => { const w = {}; try { require("vm").runInNewContext(fs.readFileSync(path.join(PUB, "config.js"), "utf8"), { window: w }); } catch {} return w; })();
 // The first home screen, drawn into #results so a phone paints it with the HTML (scripts/home-strip.js). The same
 // markup app.js draws; app.js adopts it when it matches and redraws it when it does not.
+// Homepage category row. Styled here, not in styles.css, for the same reason as the header: only the homepage has it.
+// Phones scroll it sideways at the 44px touch height the filter row uses; wider screens wrap it at a smaller size.
+const CATROW_STYLE = `<style>.catrow{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px}.catrow .chip{height:30px;padding:0 12px;font-size:13px;color:var(--text2)}.catrow .chip:hover{color:var(--text)}.catrow .chip[aria-pressed="true"]{color:var(--blue)}@media (max-width:699px){.catrow{flex-wrap:nowrap;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -16px 10px;padding:0 16px}.catrow::-webkit-scrollbar{display:none}.catrow .chip{height:44px;padding:0 14px;font-size:14px}}</style>`;
 const STRIP = homeStrip({ bots: shelfBots, builders: CONFIG.BUILDERS });
 if (!STRIP.cards) throw new Error("home strip: no \"From the builders\" bot from public/config.js BUILDERS.feature is in bots.json");
 {
@@ -173,6 +176,8 @@ if (!STRIP.cards) throw new Error("home strip: no \"From the builders\" bot from
   const v = require("crypto").createHash("sha256").update(shelfData).digest("hex").slice(0, 10);
   const f = path.join(PUB, "index.html"), h = fs.readFileSync(f, "utf8");
   if (!h.includes("<!-- pairs-note:end -->")) throw new Error("index.html: the <!-- pairs-note:start --> / <!-- pairs-note:end --> markers are missing");
+  if (!h.includes("<!-- catrow:end -->")) throw new Error("index.html: the <!-- catrow:start --> / <!-- catrow:end --> markers are missing");
+  const catCounts = Object.entries(shelfBots.reduce((m, b) => ((m[b.category] = (m[b.category] || 0) + 1), m), {})).sort((x, y) => y[1] - x[1] || x[0].localeCompare(y[0]));
   if (!h.includes("<!-- icons:end -->")) throw new Error("index.html: the <!-- icons:start --> / <!-- icons:end --> markers are missing");
   const n = h.replace(/<!-- data:start -->[\s\S]*?<!-- data:end -->/, `<!-- data:start --><link rel="preload" href="/shelf-data.json?v=${v}" as="fetch" crossorigin="anonymous" fetchpriority="high"><!-- data:end -->`)
     // the Amazon disclosure stays hidden until a card shows a chip; with a chip in the pre-drawn strip it is shown from the first paint
@@ -182,7 +187,10 @@ if (!STRIP.cards) throw new Error("home strip: no \"From the builders\" bot from
       <label class="sr" for="roles">Role word</label>
       <select id="roles" title="The exact word in the bot's own name or description"><option value="">Any role</option>${ROLES.map(([r, c]) => `<option value="${esc(slugify(r))}">${esc(r)} (${c})</option>`).join("")}</select>
       ${lucide("chevron-down")}
-    </div>` : ""}<!-- roles:end -->`);
+    </div>` : ""}<!-- roles:end -->`)
+    // One tap per category, biggest first. In the page so the row paints with the HTML; app.js only wires the clicks.
+    // It sits under the count row so Reset stays the next Tab stop after the filters and right under them on phones.
+    .replace(/<!-- catrow:start -->[\s\S]*?<!-- catrow:end -->/, `<!-- catrow:start -->${CATROW_STYLE}<nav class="catrow" id="catrow" aria-label="Categories">${catCounts.map(([c]) => `<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("")}</nav><!-- catrow:end -->`);
   if (n !== h) fs.writeFileSync(f, n);
 }
 {
