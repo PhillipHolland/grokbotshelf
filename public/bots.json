@@ -14226,5 +14226,31 @@
     "creator_avatar": "",
     "source_post": "",
     "added": "2026-11-14"
+  },
+  {
+    "name": "LinkedIn Post Studio by AI4B2Day",
+    "emoji": "💼",
+    "description": "Researches what performs on LinkedIn right now and drafts daily posts in your voice. Nothing goes live until you approve the exact text.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/Aw_lTjT2D-0PE-aTQZjpx",
+    "creator_name": "AI4B2Day",
+    "creator_handle": "@ai4b2day",
+    "creator_url": "https://x.com/ai4b2day",
+    "creator_avatar": "/avatars/ai4b2day.webp",
+    "source_post": "",
+    "added": "2026-11-14"
+  },
+  {
+    "name": "Twitter Tony",
+    "emoji": "📣",
+    "description": "A friendly Twitter growth assistant for small creators. It finds fresh posts worth replying to, drafts replies and posts in your voice, catches comments you haven't answered, and tracks your progress honestly. Drafts only; you press Post.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/_mOgvEOBhJuSBpEGB-67o",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-14"
   }
 ]

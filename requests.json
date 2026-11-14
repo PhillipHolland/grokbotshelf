@@ -8074,6 +8074,32 @@
       "note": "Added to shelf 2026-11-14 by routine under standing SFW rule.",
       "added": "2026-11-14",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-833": {
+      "date": "2026-11-14",
+      "status": "added",
+      "bot": "LinkedIn Post Studio by AI4B2Day",
+      "template_url": "https://x.ai/bot/Aw_lTjT2D-0PE-aTQZjpx",
+      "author": "@ai4b2day",
+      "author_handle": "@ai4b2day",
+      "url": "https://grokbotshelf.com/bot/linkedin-post-studio-by-ai4b2day",
+      "description": "Researches what performs on LinkedIn right now and drafts daily posts in your voice. Nothing goes live until you approve the exact text.",
+      "note": "Added to shelf 2026-11-14 by routine under standing SFW rule.",
+      "added": "2026-11-14",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-834": {
+      "date": "2026-11-14",
+      "status": "added",
+      "bot": "Twitter Tony",
+      "template_url": "https://x.ai/bot/_mOgvEOBhJuSBpEGB-67o",
+      "author": "@jimaggie",
+      "author_handle": "@jimaggie",
+      "url": "https://grokbotshelf.com/bot/twitter-tony",
+      "description": "A friendly Twitter growth assistant for small creators. It finds fresh posts worth replying to, drafts replies and posts in your voice, catches comments you haven't answered, and tracks your progress honestly. Drafts only; you press Post.",
+      "note": "Added to shelf 2026-11-14 by routine under standing SFW rule. Official template title is Twitter Tony by James; shelved as Twitter Tony to match Jim's character-title pattern, credited to Jim @jimaggie.",
+      "added": "2026-11-14",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11112,5 +11138,44 @@
     "note": "Added to shelf 2026-11-14; approved by Phillip Holland (card t1620s6837). Submitted with no creator handle (pending-no-handle).",
     "added": "2026-11-14",
     "approved_by": "Phillip Holland (approved 2026-11-14, card t1620s6837)"
+  },
+  "form-832": {
+    "date": "2026-11-14",
+    "status": "added",
+    "bot": "Contract Signer by Julian",
+    "template_url": "https://x.ai/bot/emH53moZpEP8rqAECJBAd",
+    "author": "Julian",
+    "author_handle": "@julianweber",
+    "url": "https://grokbotshelf.com/bot/contract-signer-by-julian",
+    "description": "Drafts NDAs, service agreements and offer letters from a short brief, flags risky or missing terms in plain language, and sends the PDF out for e-signature.",
+    "note": "Added to shelf 2026-11-14 by routine under standing SFW rule.",
+    "added": "2026-11-14",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-833": {
+    "date": "2026-11-14",
+    "status": "added",
+    "bot": "LinkedIn Post Studio by AI4B2Day",
+    "template_url": "https://x.ai/bot/Aw_lTjT2D-0PE-aTQZjpx",
+    "author": "@ai4b2day",
+    "author_handle": "@ai4b2day",
+    "url": "https://grokbotshelf.com/bot/linkedin-post-studio-by-ai4b2day",
+    "description": "Researches what performs on LinkedIn right now and drafts daily posts in your voice. Nothing goes live until you approve the exact text.",
+    "note": "Added to shelf 2026-11-14 by routine under standing SFW rule.",
+    "added": "2026-11-14",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-834": {
+    "date": "2026-11-14",
+    "status": "added",
+    "bot": "Twitter Tony",
+    "template_url": "https://x.ai/bot/_mOgvEOBhJuSBpEGB-67o",
+    "author": "@jimaggie",
+    "author_handle": "@jimaggie",
+    "url": "https://grokbotshelf.com/bot/twitter-tony",
+    "description": "A friendly Twitter growth assistant for small creators. It finds fresh posts worth replying to, drafts replies and posts in your voice, catches comments you haven't answered, and tracks your progress honestly. Drafts only; you press Post.",
+    "note": "Added to shelf 2026-11-14 by routine under standing SFW rule. Official template title is Twitter Tony by James; shelved as Twitter Tony to match Jim's character-title pattern, credited to Jim @jimaggie.",
+    "added": "2026-11-14",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

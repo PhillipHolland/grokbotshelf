@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 14 Nov 2026 18:52:28 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 14 Nov 2026 21:25:58 GMT</lastBuildDate>
+  <item>
+    <title>📣 Twitter Tony by Jim</title>
+    <link>https://grokbotshelf.com/bot/twitter-tony</link>
+    <guid isPermaLink="false">https://x.ai/bot/_mOgvEOBhJuSBpEGB-67o</guid>
+    <description>A friendly Twitter growth assistant for small creators. It finds fresh posts worth replying to, drafts replies and posts in your voice, catches comments you haven&apos;t answered, and tracks your progress honestly. Drafts only; you press Post.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sat, 14 Nov 2026 12:01:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>💼 LinkedIn Post Studio by AI4B2Day</title>
+    <link>https://grokbotshelf.com/bot/linkedin-post-studio-by-ai4b2day</link>
+    <guid isPermaLink="false">https://x.ai/bot/Aw_lTjT2D-0PE-aTQZjpx</guid>
+    <description>Researches what performs on LinkedIn right now and drafts daily posts in your voice. Nothing goes live until you approve the exact text.</description>
+    <dc:creator>AI4B2Day (@ai4b2day)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sat, 14 Nov 2026 12:01:35 GMT</pubDate>
+  </item>
   <item>
     <title>✍️ Contract Signer by Julian</title>
     <link>https://grokbotshelf.com/bot/contract-signer-by-julian</link>
@@ -438,24 +456,6 @@
     <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Mon, 09 Nov 2026 12:00:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔎 Clip Scout by Wayne</title>
-    <link>https://grokbotshelf.com/bot/clip-scout-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/ZW-lsfOKtX2V2ON1KXJLF</guid>
-    <description>Type a word or emotion and get the most recognizable movie and TV reaction clips for your edit, with search strings and tone options.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧪 Prompt Lab by Wayne</title>
-    <link>https://grokbotshelf.com/bot/prompt-lab-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/NN5pqHjmr-wC-vJ9d27EG</guid>
-    <description>Writes coding prompts you paste into several AI models to compare how well each one builds something visual in code (Three.js, canvas, SVG, HTML/CSS).</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:45 GMT</pubDate>
   </item>
 </channel>
 </rss>
