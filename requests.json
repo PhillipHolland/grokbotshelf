@@ -8113,6 +8113,19 @@
       "note": "Added to shelf 2026-11-15; form #835. Nick approved 2026-11-15 via https://x.com/Deepusleepy/status/2121886892212003269 (form used announcement post 2121727445997081059). Share page title T3 Tots by Deepu.",
       "added": "2026-11-15",
       "approved_by": "Nick (approved 2026-11-15, post 2121886892212003269)"
+    },
+    "form-836": {
+      "date": "2026-11-15",
+      "status": "added",
+      "bot": "Snoop",
+      "template_url": "https://x.ai/bot/L4a4AB4fu9_TpT25oSc4D",
+      "author": "@Heamanth_alturi",
+      "author_handle": "@Heamanth_alturi",
+      "url": "https://grokbotshelf.com/bot/snoop",
+      "description": "Studies your Grok Bots and their chats, turns how you work into markdown playbooks, and rebuilds them into a small team of head bots, one per area of your life.",
+      "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6847). Form title said @hemanth and the note said @Heamanth_alturi, with an empty handle field; Phil chose @Heamanth_alturi. Official template title is Snoop by @hemanth; shelved as Snoop (slug was free). X display name is @hemanth; credited as Heamanth @Heamanth_alturi.",
+      "added": "2026-11-15",
+      "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6847)"
     }
   },
   "x-2114766675119886755": {
@@ -11203,5 +11216,18 @@
     "note": "Added to shelf 2026-11-15; form #835. Nick approved 2026-11-15 via https://x.com/Deepusleepy/status/2121886892212003269 (form used announcement post 2121727445997081059). Share page title T3 Tots by Deepu.",
     "added": "2026-11-15",
     "approved_by": "Nick (approved 2026-11-15, post 2121886892212003269)"
+  },
+  "form-836": {
+    "date": "2026-11-15",
+    "status": "added",
+    "bot": "Snoop",
+    "template_url": "https://x.ai/bot/L4a4AB4fu9_TpT25oSc4D",
+    "author": "@Heamanth_alturi",
+    "author_handle": "@Heamanth_alturi",
+    "url": "https://grokbotshelf.com/bot/snoop",
+    "description": "Studies your Grok Bots and their chats, turns how you work into markdown playbooks, and rebuilds them into a small team of head bots, one per area of your life.",
+    "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6847). Form title said @hemanth and the note said @Heamanth_alturi, with an empty handle field; Phil chose @Heamanth_alturi. Official template title is Snoop by @hemanth; shelved as Snoop (slug was free). X display name is @hemanth; credited as Heamanth @Heamanth_alturi.",
+    "added": "2026-11-15",
+    "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6847)"
   }
 }

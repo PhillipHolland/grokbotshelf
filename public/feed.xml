@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 15 Nov 2026 00:13:27 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 19:14:02 GMT</lastBuildDate>
+  <item>
+    <title>🕵️ Snoop by Heamanth</title>
+    <link>https://grokbotshelf.com/bot/snoop</link>
+    <guid isPermaLink="false">https://x.ai/bot/L4a4AB4fu9_TpT25oSc4D</guid>
+    <description>Studies your Grok Bots and their chats, turns how you work into markdown playbooks, and rebuilds them into a small team of head bots, one per area of your life.</description>
+    <dc:creator>Heamanth (@Heamanth_alturi)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Sun, 15 Nov 2026 12:01:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧸 T3 Tots by Deepu</title>
+    <link>https://grokbotshelf.com/bot/t3-tots</link>
+    <guid isPermaLink="false">https://x.ai/bot/MRetlu_oU5I7vmEyNQQg7</guid>
+    <description>A chat companion for T3 Code. It runs and manages your T3 Code from chat.</description>
+    <dc:creator>Deepu (@Deepusleepy)</dc:creator>
+    <category>Developer</category>
+    <pubDate>Sun, 15 Nov 2026 12:01:37 GMT</pubDate>
+  </item>
   <item>
     <title>📣 Twitter Tony by Jim</title>
     <link>https://grokbotshelf.com/bot/twitter-tony</link>
@@ -438,24 +456,6 @@
     <dc:creator>w</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Tue, 10 Nov 2026 12:00:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>🍿 Movie Actor Streak by Troels Jensen</title>
-    <link>https://grokbotshelf.com/bot/movie-actor-streak</link>
-    <guid isPermaLink="false">https://x.ai/bot/JF3hJaodw9DJ6l3Kb9k7e</guid>
-    <description>Planning a few weeks of films with one actor? Type their name and get every feature film they&apos;ve played in, oldest first, with IMDb and TMDB scores, runtime and where to stream it in your country, on a sortable page you can print as a PDF.</description>
-    <dc:creator>Troels Jensen (@TroelsMJensen)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>✂️ Cut · Film Editor by Wayne</title>
-    <link>https://grokbotshelf.com/bot/cut-film-editor-by-wayne</link>
-    <guid isPermaLink="false">https://x.ai/bot/pXaNwwJtU7swn1eztXTsB</guid>
-    <description>An AI film director and editor. Send raw clips and Cut pitches a shot list, then cuts an edit with punch-ins, speed ramps and voiceover.</description>
-    <dc:creator>Wayne Lowry (@wikiwayne)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 09 Nov 2026 12:00:47 GMT</pubDate>
   </item>
 </channel>
 </rss>
