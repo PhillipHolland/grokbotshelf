@@ -14278,5 +14278,31 @@
     "creator_avatar": "/avatars/heamanth_alturi.webp",
     "source_post": "",
     "added": "2026-11-15"
+  },
+  {
+    "name": "LinkedIn News Desk",
+    "emoji": "📰",
+    "description": "A LinkedIn news-post desk that turns timely news into sourced drafts with an infographic. It never posts without the owner's typed OK.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/NB_9IY8j6Ha9wmo1-ugiv",
+    "creator_name": "Matt",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-15"
+  },
+  {
+    "name": "POD Shop Runner",
+    "emoji": "👕",
+    "description": "Runs an Etsy + Printify print-on-demand T-shirt shop end to end: designs, listings, orders, and marketing. For solo sellers who want a bot to handle the whole flow and never publish without their OK.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/hOtID1uF5XSgpF34iyJWl",
+    "creator_name": "Matt",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-15"
   }
 ]

@@ -8126,6 +8126,32 @@
       "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6847). Form title said @hemanth and the note said @Heamanth_alturi, with an empty handle field; Phil chose @Heamanth_alturi. Official template title is Snoop by @hemanth; shelved as Snoop (slug was free). X display name is @hemanth; credited as Heamanth @Heamanth_alturi.",
       "added": "2026-11-15",
       "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6847)"
+    },
+    "form-837": {
+      "date": "2026-11-15",
+      "status": "added",
+      "bot": "POD Shop Runner",
+      "template_url": "https://x.ai/bot/hOtID1uF5XSgpF34iyJWl",
+      "author": "Matt",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/pod-shop-runner",
+      "description": "Runs an Etsy + Printify print-on-demand T-shirt shop end to end: designs, listings, orders, and marketing. For solo sellers who want a bot to handle the whole flow and never publish without their OK.",
+      "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-837). Official blurb said 'free marketing'; 'free' was dropped per approval.",
+      "added": "2026-11-15",
+      "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
+    },
+    "form-838": {
+      "date": "2026-11-15",
+      "status": "added",
+      "bot": "LinkedIn News Desk",
+      "template_url": "https://x.ai/bot/NB_9IY8j6Ha9wmo1-ugiv",
+      "author": "Matt",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/linkedin-news-desk",
+      "description": "A LinkedIn news-post desk that turns timely news into sourced drafts with an infographic. It never posts without the owner's typed OK.",
+      "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-838).",
+      "added": "2026-11-15",
+      "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
     }
   },
   "x-2114766675119886755": {
@@ -11229,5 +11255,31 @@
     "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6847). Form title said @hemanth and the note said @Heamanth_alturi, with an empty handle field; Phil chose @Heamanth_alturi. Official template title is Snoop by @hemanth; shelved as Snoop (slug was free). X display name is @hemanth; credited as Heamanth @Heamanth_alturi.",
     "added": "2026-11-15",
     "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6847)"
+  },
+  "form-837": {
+    "date": "2026-11-15",
+    "status": "added",
+    "bot": "POD Shop Runner",
+    "template_url": "https://x.ai/bot/hOtID1uF5XSgpF34iyJWl",
+    "author": "Matt",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/pod-shop-runner",
+    "description": "Runs an Etsy + Printify print-on-demand T-shirt shop end to end: designs, listings, orders, and marketing. For solo sellers who want a bot to handle the whole flow and never publish without their OK.",
+    "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-837). Official blurb said 'free marketing'; 'free' was dropped per approval.",
+    "added": "2026-11-15",
+    "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
+  },
+  "form-838": {
+    "date": "2026-11-15",
+    "status": "added",
+    "bot": "LinkedIn News Desk",
+    "template_url": "https://x.ai/bot/NB_9IY8j6Ha9wmo1-ugiv",
+    "author": "Matt",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/linkedin-news-desk",
+    "description": "A LinkedIn news-post desk that turns timely news into sourced drafts with an infographic. It never posts without the owner's typed OK.",
+    "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-838).",
+    "added": "2026-11-15",
+    "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
   }
 }

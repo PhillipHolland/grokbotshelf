@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 15 Nov 2026 19:14:02 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 15 Nov 2026 19:41:52 GMT</lastBuildDate>
+  <item>
+    <title>👕 POD Shop Runner by Matt</title>
+    <link>https://grokbotshelf.com/bot/pod-shop-runner</link>
+    <guid isPermaLink="false">https://x.ai/bot/hOtID1uF5XSgpF34iyJWl</guid>
+    <description>Runs an Etsy + Printify print-on-demand T-shirt shop end to end: designs, listings, orders, and marketing. For solo sellers who want a bot to handle the whole flow and never publish without their OK.</description>
+    <dc:creator>Matt</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Sun, 15 Nov 2026 12:01:40 GMT</pubDate>
+  </item>
+  <item>
+    <title>📰 LinkedIn News Desk by Matt</title>
+    <link>https://grokbotshelf.com/bot/linkedin-news-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/NB_9IY8j6Ha9wmo1-ugiv</guid>
+    <description>A LinkedIn news-post desk that turns timely news into sourced drafts with an infographic. It never posts without the owner&apos;s typed OK.</description>
+    <dc:creator>Matt</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Sun, 15 Nov 2026 12:01:39 GMT</pubDate>
+  </item>
   <item>
     <title>🕵️ Snoop by Heamanth</title>
     <link>https://grokbotshelf.com/bot/snoop</link>
@@ -438,24 +456,6 @@
     <dc:creator>ZyMoProfit (@ZyMoProfit)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 10 Nov 2026 12:00:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧩 Multi-Agent Collaboration and Selection Strategy by w</title>
-    <link>https://grokbotshelf.com/bot/multi-agent-collaboration-and-selection-strategy</link>
-    <guid isPermaLink="false">https://x.ai/bot/ArZlxjSbX_1wbxjyu_b-a</guid>
-    <description>多 Agent 协作与选型策略: a public playbook for when to split agents and how to spend on models. Don&apos;t split by default; copy only after a gold sample; require machine-checkable acceptance tests before self-evolution; spend premium models on hard work. Strategy and tier logic only — no vendor machines, logins, or private schedulers.</description>
-    <dc:creator>w</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎞️ Knowledge Animation Pipeline by w</title>
-    <link>https://grokbotshelf.com/bot/knowledge-animation-pipeline</link>
-    <guid isPermaLink="false">https://x.ai/bot/T6hJMD1N8MI8tfl06-GK-</guid>
-    <description>全程知识动画流水线 takes knowledge animations from topic card and script through a time contract, motion render, independent QA, and delivery. Render, dependencies, and GPU run on your own computer — no vendor machine, login, or GPU included.</description>
-    <dc:creator>w</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:49 GMT</pubDate>
   </item>
 </channel>
 </rss>
