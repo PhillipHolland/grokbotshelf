@@ -8100,6 +8100,19 @@
       "note": "Added to shelf 2026-11-14 by routine under standing SFW rule. Official template title is Twitter Tony by James; shelved as Twitter Tony to match Jim's character-title pattern, credited to Jim @jimaggie.",
       "added": "2026-11-14",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-835": {
+      "date": "2026-11-15",
+      "status": "added",
+      "bot": "T3 Tots",
+      "template_url": "https://x.ai/bot/MRetlu_oU5I7vmEyNQQg7",
+      "author": "@Deepusleepy",
+      "author_handle": "@Deepusleepy",
+      "url": "https://grokbotshelf.com/bot/t3-tots",
+      "description": "A chat companion for T3 Code. It runs and manages your T3 Code from chat.",
+      "note": "Added to shelf 2026-11-15; form #835. Nick approved 2026-11-15 via https://x.com/Deepusleepy/status/2121886892212003269 (form used announcement post 2121727445997081059). Share page title T3 Tots by Deepu.",
+      "added": "2026-11-15",
+      "approved_by": "Nick (approved 2026-11-15, post 2121886892212003269)"
     }
   },
   "x-2114766675119886755": {
@@ -11177,5 +11190,18 @@
     "note": "Added to shelf 2026-11-14 by routine under standing SFW rule. Official template title is Twitter Tony by James; shelved as Twitter Tony to match Jim's character-title pattern, credited to Jim @jimaggie.",
     "added": "2026-11-14",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-835": {
+    "date": "2026-11-15",
+    "status": "added",
+    "bot": "T3 Tots",
+    "template_url": "https://x.ai/bot/MRetlu_oU5I7vmEyNQQg7",
+    "author": "@Deepusleepy",
+    "author_handle": "@Deepusleepy",
+    "url": "https://grokbotshelf.com/bot/t3-tots",
+    "description": "A chat companion for T3 Code. It runs and manages your T3 Code from chat.",
+    "note": "Added to shelf 2026-11-15; form #835. Nick approved 2026-11-15 via https://x.com/Deepusleepy/status/2121886892212003269 (form used announcement post 2121727445997081059). Share page title T3 Tots by Deepu.",
+    "added": "2026-11-15",
+    "approved_by": "Nick (approved 2026-11-15, post 2121886892212003269)"
   }
 }
