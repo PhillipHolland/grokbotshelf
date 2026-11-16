@@ -13,12 +13,15 @@
 // lines that start "PASS " or "FAIL " and exits non-zero on failure (test/validate.js is a short example).
 //
 // Browser suites need puppeteer-core (npm ci) and Chrome at /usr/bin/google-chrome or wherever CHROME points.
+// Each suite gets SUITE_TIMEOUT seconds (default 600; pagecss alone takes 4 to 5 minutes) and is reported as TIMED OUT,
+// not as a crash, when it runs out.
 const fs = require("fs"), path = require("path"), { spawnSync } = require("child_process");
 
 // Shared code that other tests require. They print no PASS lines and are never run directly.
 const HELPERS = new Set(["run", "serve", "tempsite", "scroll-all"]);
 // build.js runs first: when the build is broken, everything after it fails for the same reason.
 const FIRST = ["build"];
+const TIMEOUT_S = Math.max(1, Number(process.env.SUITE_TIMEOUT) || 600);
 
 function discover(dir = __dirname) {
   return fs.readdirSync(dir).filter((f) => f.endsWith(".js") && !HELPERS.has(f.slice(0, -3))).map((f) => {
@@ -68,17 +71,19 @@ if (require.main === module) (async () => {
   for (const s of picked) {
     console.log(`== ${s.name}`);
     const t0 = Date.now();
-    const r = spawnSync(process.execPath, s.browser ? [s.file, base] : [s.file], { encoding: "utf8", env: process.env, timeout: 300000 });
+    const r = spawnSync(process.execPath, s.browser ? [s.file, base] : [s.file], { encoding: "utf8", env: process.env, timeout: TIMEOUT_S * 1000, maxBuffer: 64 * 1024 * 1024 });
     process.stdout.write(r.stdout || ""); process.stderr.write(r.stderr || "");
     const out = r.stdout || "", pass = (out.match(/^PASS /gm) || []).length, fail = (out.match(/^FAIL /gm) || []).length;
     // No PASS line at all counts as a failure too: a suite that silently checks nothing is broken.
-    results.push({ name: s.name, pass, fail, code: r.status, ms: Date.now() - t0, crashed: r.status !== 0 && !fail, empty: !pass && !fail });
+    const timedOut = !!(r.error && r.error.code === "ETIMEDOUT");
+    if (timedOut) console.log(`FAIL ${s.name} did not finish in ${TIMEOUT_S}s (SUITE_TIMEOUT)`);
+    results.push({ name: s.name, pass, fail: fail + (timedOut ? 1 : 0), code: r.status, ms: Date.now() - t0, timedOut, crashed: !timedOut && r.status !== 0 && !fail, empty: !timedOut && !pass && !fail });
   }
   if (site) site.close();
 
   console.log(`\n== summary${base ? " (" + base + ")" : ""}`);
   const width = Math.max(7, ...results.map((r) => r.name.length));
-  for (const r of results) console.log(`${r.name.padEnd(width)} ${r.pass} pass, ${r.fail} fail, ${(r.ms / 1000).toFixed(1)}s${r.crashed ? `, CRASHED (exit ${r.code})` : ""}${r.empty ? ", NO CHECKS RAN" : ""}`);
+  for (const r of results) console.log(`${r.name.padEnd(width)} ${r.pass} pass, ${r.fail} fail, ${(r.ms / 1000).toFixed(1)}s${r.timedOut ? ", TIMED OUT" : ""}${r.crashed ? `, CRASHED (exit ${r.code})` : ""}${r.empty ? ", NO CHECKS RAN" : ""}`);
   const t = results.reduce((a, r) => [a[0] + r.pass, a[1] + r.fail], [0, 0]);
   console.log(`${"total".padEnd(width)} ${t[0]} pass, ${t[1]} fail`);
   const bad = results.filter((r) => r.fail || r.code !== 0 || r.empty).map((r) => r.name);

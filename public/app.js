@@ -805,7 +805,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
       const live = !fresh && railGroups.some((s) => s.isConnected) && top < dockB;
       const anchor = live ? railGroups.find((s) => s.isConnected && s.getBoundingClientRect().bottom > dockB + 1) : null;
       const past = !!live && !anchor && railGroups.some((s) => s.isConnected);
-      const a0 = anchor ? anchor.getBoundingClientRect().top : 0;
+      const ar0 = anchor ? anchor.getBoundingClientRect() : null, a0 = ar0 ? ar0.top : 0;
       let keep = FIRST_GROUPS;
       if (top < innerHeight && !past) {
         let last = -1;
@@ -828,8 +828,10 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
         const r1 = anchor.getBoundingClientRect(), dy = r1.top - a0;
         if (Math.abs(dy) > 1) scrollBy(0, dy); // the same frame as the layout, so nothing on screen is seen to move
         // A group that came back shorter than the reader was deep into it would now sit above the screen: show its
-        // head under the dock, as a plain scroll in the next frame (a scroll is not a layout shift)
-        if (r1.bottom - dy < dockB + 40) requestAnimationFrame(() => { const r = anchor.getBoundingClientRect(); scrollBy(0, r.top - dock.getBoundingClientRect().bottom - 12); });
+        // head under the dock, as a plain scroll in the next frame (a scroll is not a layout shift). Only when this
+        // render is what pushed its end up there: a group whose last row was already just under the dock (Show more
+        // on the group below it) stays put, or the page jumps a screen up.
+        if (r1.bottom - dy < dockB + 40 && ar0.bottom >= dockB + 40) requestAnimationFrame(() => { const r = anchor.getBoundingClientRect(); scrollBy(0, r.top - dock.getBoundingClientRect().bottom - 12); });
       }
       if (past) scrollTo(0, Math.max(0, scrollY + results.getBoundingClientRect().top - dockB - 12));
       if (anchor || past) results.style.overflowAnchor = "";
