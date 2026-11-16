@@ -1,6 +1,6 @@
 /* Grok Bot Shelf. X styling: Lights out dark by default, X light via data-theme. */
 /* Shelf Serif, self-hosted. Bump the version in the file name for a new release: scripts/build.js and vercel.json key off it. */
-@font-face{font-family:"Shelf Serif";src:url("/fonts/ShelfSerif-5.000.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Shelf Serif";src:url("/fonts/ShelfSerif-5.002.woff2") format("woff2");font-weight:300 700;font-style:normal;font-display:swap}
 :root{
   --font:"Shelf Serif",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   /* Shelf Serif 400 has the ink of the old Bold and 300 beats the old Regular, so most text is 300 and emphasis stays low. */

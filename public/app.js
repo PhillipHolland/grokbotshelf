@@ -6,6 +6,7 @@ let shelfDone; let shelfData = new Promise((r) => { shelfDone = r; });
   const $ = (s) => document.querySelector(s);
   const q = $("#q"), sortEl = $("#sort"), results = $("#results"), creatorEl = $("#creators"), catsEl = $("#cats");
   const freshEl = $("#fresh"), resetEl = $("#reset");
+  const catRow = $("#catrow");
   // Collections (round 4 #5, e.g. Family) and One job are options at the end of the category select (round 5), so the
   // select is single choice across all three: picking one clears the others. URLs stay ?collection=, ?one_job=1, ?cat=
   const COLL = "__coll:", ONE = "__onejob";
@@ -882,6 +883,7 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     creatorEl.classList.toggle("on", !!st.creator);
     catsEl.classList.toggle("on", st.cats.length > 0 || !!st.coll || st.oneJob);
     freshEl.setAttribute("aria-pressed", String(st.fresh));
+    if (catRow) for (const b of catRow.children) b.setAttribute("aria-pressed", String(st.cats.includes(b.dataset.cat)));
     if (roleEl) roleEl.classList.toggle("on", !!st.role);
     resetEl.classList.toggle("on", changed());
   }
@@ -919,6 +921,14 @@ ${pairsHTML(b, surface || (pre === "f-" ? "builders" : "home"))}
     else set({ cats: v ? [v] : [], coll: "", oneJob: false }, true);
   });
   freshEl.addEventListener("click", () => set({ fresh: !st.fresh }, true));
+  // Category row: one tap filters to a category, a second tap on it clears it. The dropdown stays for collections.
+  if (catRow) catRow.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-cat]");
+    if (!b) return;
+    const c = b.dataset.cat, on = st.cats.length === 1 && st.cats[0] === c;
+    set({ cats: on ? [] : [c], coll: "", oneJob: false }, true);
+    renderFilters();
+  });
   if (roleEl) roleEl.addEventListener("change", () => set({ role: roleEl.value }, true));
   // Reset: clear search, filters and sort, collapse every group back to its first cards and drop ?more=
   const clearAll = () => { st = blank(); hashOpen.clear(); syncInputs(); paintControls(); writeURL(true); renderNext(); };
