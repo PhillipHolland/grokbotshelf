@@ -8165,6 +8165,19 @@
       "note": "Added to shelf 2026-11-15 by routine under standing SFW rule. Official template title is BookReader BOT by Vince.",
       "added": "2026-11-15",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "x-2122359656286716011": {
+      "date": "2026-11-16",
+      "status": "added",
+      "bot": "Regulars Book",
+      "template_url": "https://x.ai/bot/5LlCDccEApOJF7FoU7iOl",
+      "author": "@TheMarkGShow",
+      "author_handle": "@TheMarkGShow",
+      "url": "https://x.com/TheMarkGShow/status/2122359656286716011",
+      "description": "A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.",
+      "note": "Added to shelf 2026-11-16 by routine under standing SFW rule. Official template title is Regulars Book by Mark; shelved as Regulars Book to match Mark's existing no-suffix naming. Shelf page: https://grokbotshelf.com/bot/regulars-book.",
+      "added": "2026-11-16",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11306,6 +11319,19 @@
     "description": "Reads your PDF books to you as daily voice memos, a chapter a day, on the schedule you choose, with a bright \"My book: daily reading\" Page to track every book. Provided by The AI Systems Lab.",
     "note": "Added to shelf 2026-11-15 by routine under standing SFW rule. Official template title is BookReader BOT by Vince.",
     "added": "2026-11-15",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "x-2122359656286716011": {
+    "date": "2026-11-16",
+    "status": "added",
+    "bot": "Regulars Book",
+    "template_url": "https://x.ai/bot/5LlCDccEApOJF7FoU7iOl",
+    "author": "@TheMarkGShow",
+    "author_handle": "@TheMarkGShow",
+    "url": "https://x.com/TheMarkGShow/status/2122359656286716011",
+    "description": "A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.",
+    "note": "Added to shelf 2026-11-16 by routine under standing SFW rule. Official template title is Regulars Book by Mark; shelved as Regulars Book to match Mark's existing no-suffix naming. Shelf page: https://grokbotshelf.com/bot/regulars-book.",
+    "added": "2026-11-16",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 16 Nov 2026 01:21:21 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 17:26:44 GMT</lastBuildDate>
+  <item>
+    <title>📒 Regulars Book by Mark</title>
+    <link>https://grokbotshelf.com/bot/regulars-book</link>
+    <guid isPermaLink="false">https://x.ai/bot/5LlCDccEApOJF7FoU7iOl</guid>
+    <description>A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 16 Nov 2026 12:01:42 GMT</pubDate>
+  </item>
   <item>
     <title>📚 BookReader BOT by Vince</title>
     <link>https://grokbotshelf.com/bot/bookreader-bot-by-vince</link>
@@ -447,15 +456,6 @@
     <dc:creator>Igor Holt (@holt_igor)</dc:creator>
     <category>Developer</category>
     <pubDate>Tue, 10 Nov 2026 12:00:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>📍 Nearby Reminders by Kevin</title>
-    <link>https://grokbotshelf.com/bot/nearby-reminders-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/osi4qnCsyi_E_58tQShCJ</guid>
-    <description>A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you&apos;re nearby.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:52 GMT</pubDate>
   </item>
 </channel>
 </rss>

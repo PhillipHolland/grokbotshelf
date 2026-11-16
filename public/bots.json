@@ -14317,5 +14317,18 @@
     "creator_avatar": "/avatars/vince_edwardsnz.webp",
     "source_post": "",
     "added": "2026-11-15"
+  },
+  {
+    "name": "Regulars Book",
+    "emoji": "📒",
+    "description": "A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/5LlCDccEApOJF7FoU7iOl",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2122359656286716011",
+    "added": "2026-11-16"
   }
 ]
