@@ -25,6 +25,16 @@ Keys on desktop: `←` `→` change lanes, `↑` or `Space` jumps, `P` pauses, `
 
 Add `?q=0`, `?q=1` or `?q=2` to the URL to pin the graphics quality. Without it the game lowers quality on its own if frames run slow.
 
+## Tests and checks
+
+```bash
+npm test            # unit and API tests, about 2 seconds
+npm run test:e2e    # the game in headless Chromium, about 2.5 minutes
+npm run check       # everything CI runs: format, types, tests with coverage, build, e2e
+```
+
+The API tests run the real handlers against an in-memory Redis (`tests/fake-redis.ts`), so they need no database. [AGENTS.md](AGENTS.md) has the full guide for changing the code.
+
 ## Leaderboard and stats
 
 When a run ends, the game posts the score. Players type a name or @handle once and the game remembers it on that device. Names aren't verified. [/stats](https://shelfrun.vercel.app/stats) shows today's and all-time top scores, runs and players per day, when people play by hour, the score spread, and the bots and creators that end up on the most shelves.
@@ -58,4 +68,4 @@ This downloads the current list from grokbotshelf.com into `src/bots.json`, save
 
 ## Deploy
 
-`npm run build` typechecks the game and the API and writes the site to `dist/`. Vercel builds the same way and deploys the functions in `api/` next to it.
+`npm run build` typechecks the game and the API and writes the site to `dist/`. Speed and scoring numbers live in `api/_lib/balance.ts`, which both the game and the API import. Vercel builds the same way and deploys the functions in `api/` next to it.
