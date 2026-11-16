@@ -18,7 +18,8 @@ function localApi(): Plugin {
           req.url = '/stats.html';
           return next();
         }
-        if (!path.startsWith('/api/')) return next();
+        // api/_lib holds modules the game imports too (balance.ts), not routes
+        if (!path.startsWith('/api/') || path.startsWith('/api/_lib/')) return next();
         res.setHeader('content-type', 'application/json; charset=utf-8');
         res.setHeader('cache-control', 'no-store');
         if (path === '/api/stats' && req.method === 'GET') {
