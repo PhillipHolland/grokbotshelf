@@ -89,52 +89,57 @@ interface Shelf {
   match: boolean;
 }
 
-const S = {
-  on: false,
-  paused: false,
-  over: false,
-  t: 0,
-  dist: 0,
-  v: 10,
-  score: 0,
-  hearts: HEARTS,
-  combo: 0,
-  lane: 0,
-  x: 0,
-  y: 0,
-  air: -1, // seconds into a jump, -1 on the ground
-  inv: 0,
-  slow: 1, // time scale, eases back to 1
-  shake: 0,
-  squash: 0,
-  ents: [] as Ent[],
-  nextRow: 20,
-  cart: [] as Sub[],
-  shelves: [] as Shelf[],
-  grabbed: 0,
-  likes: 0,
-  dodged: 0,
-  seen: new Set<string>(),
-  lastViral: 0,
-  cause: '',
-  dying: 0,
-  rows: 0,
-  lastMove: -9,
-  lastPower: 0,
-  lastTwo: false,
-  shield: 0, // 1 while the Verified badge is up
-  magnet: 0, // seconds of magnet left
-  close: 0, // close calls this run
-  turbo: 0, // seconds of Turbo left
-  boost: 0, // extra speed, eases in and out with Turbo
-  slide: 0, // seconds of slide left
-  slideNext: false, // slide as soon as the cart lands
-  smashed: 0,
-  zone: 0,
-  zoneAt: ZONE_T, // game time the next gate reaches the cart
-  gateOut: false, // a gate is on its way
-  lastRunaway: 0,
-};
+// Everything a run changes. start() resets S to a fresh copy, so a new field
+// only needs adding here.
+function freshState() {
+  return {
+    on: false,
+    paused: false,
+    over: false,
+    t: 0,
+    dist: 0,
+    v: 10,
+    score: 0,
+    hearts: HEARTS,
+    combo: 0,
+    lane: 0,
+    x: 0,
+    y: 0,
+    air: -1, // seconds into a jump, -1 on the ground
+    inv: 0,
+    slow: 1, // time scale, eases back to 1
+    shake: 0,
+    squash: 0,
+    ents: [] as Ent[],
+    nextRow: 14,
+    cart: [] as Sub[],
+    shelves: [] as Shelf[],
+    grabbed: 0,
+    likes: 0,
+    dodged: 0,
+    seen: new Set<string>(),
+    lastViral: 0,
+    cause: '',
+    dying: 0,
+    rows: 0,
+    lastMove: -9,
+    lastPower: 0,
+    lastTwo: false,
+    shield: 0, // 1 while the Verified badge is up
+    magnet: 0, // seconds of magnet left
+    close: 0, // close calls this run
+    turbo: 0, // seconds of Turbo left
+    boost: 0, // extra speed, eases in and out with Turbo
+    slide: 0, // seconds of slide left
+    slideNext: false, // slide as soon as the cart lands
+    smashed: 0,
+    zone: 0,
+    zoneAt: ZONE_T, // game time the next gate reaches the cart
+    gateOut: false, // a gate is on its way
+    lastRunaway: 0,
+  };
+}
+const S = freshState();
 const viralDeck: Sub[] = [];
 
 const mult = () => multFor(S.combo);
@@ -819,52 +824,7 @@ function intro() {
 
 function start() {
   resetPools();
-  Object.assign(S, {
-    on: true,
-    paused: false,
-    over: false,
-    t: 0,
-    dist: 0,
-    v: 10,
-    score: 0,
-    hearts: HEARTS,
-    combo: 0,
-    lane: 0,
-    x: 0,
-    y: 0,
-    air: -1,
-    inv: 0,
-    slow: 1,
-    shake: 0,
-    squash: 0,
-    ents: [],
-    nextRow: 14,
-    cart: [],
-    shelves: [],
-    grabbed: 0,
-    likes: 0,
-    dodged: 0,
-    seen: new Set<string>(),
-    lastViral: 0,
-    cause: '',
-    dying: 0,
-    rows: 0,
-    lastMove: -9,
-    lastPower: 0,
-    lastTwo: false,
-    shield: 0,
-    magnet: 0,
-    close: 0,
-    turbo: 0,
-    boost: 0,
-    slide: 0,
-    slideNext: false,
-    smashed: 0,
-    zone: 0,
-    zoneAt: ZONE_T,
-    gateOut: false,
-    lastRunaway: 0,
-  });
+  Object.assign(S, freshState(), { on: true });
   Scene.setZone(0);
   viralDeck.length = 0;
   // the aisle starts stocked, so the first bot is a second away
