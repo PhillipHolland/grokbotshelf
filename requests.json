@@ -8152,6 +8152,19 @@
       "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-838).",
       "added": "2026-11-15",
       "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
+    },
+    "form-839": {
+      "date": "2026-11-15",
+      "status": "added",
+      "bot": "BookReader BOT by Vince",
+      "template_url": "https://x.ai/bot/bhpvN6KWImycyHkIW7xt2",
+      "author": "@Vince_edwardsnz",
+      "author_handle": "@Vince_edwardsnz",
+      "url": "https://grokbotshelf.com/bot/bookreader-bot-by-vince",
+      "description": "Reads your PDF books to you as daily voice memos, a chapter a day, on the schedule you choose, with a bright \"My book: daily reading\" Page to track every book. Provided by The AI Systems Lab.",
+      "note": "Added to shelf 2026-11-15 by routine under standing SFW rule. Official template title is BookReader BOT by Vince.",
+      "added": "2026-11-15",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11281,5 +11294,18 @@
     "note": "Added to shelf 2026-11-15; approved by Phillip Holland (card t1620s6854). Submitted with no creator handle (form-838).",
     "added": "2026-11-15",
     "approved_by": "Phillip Holland (approved 2026-11-15, card t1620s6854)"
+  },
+  "form-839": {
+    "date": "2026-11-15",
+    "status": "added",
+    "bot": "BookReader BOT by Vince",
+    "template_url": "https://x.ai/bot/bhpvN6KWImycyHkIW7xt2",
+    "author": "@Vince_edwardsnz",
+    "author_handle": "@Vince_edwardsnz",
+    "url": "https://grokbotshelf.com/bot/bookreader-bot-by-vince",
+    "description": "Reads your PDF books to you as daily voice memos, a chapter a day, on the schedule you choose, with a bright \"My book: daily reading\" Page to track every book. Provided by The AI Systems Lab.",
+    "note": "Added to shelf 2026-11-15 by routine under standing SFW rule. Official template title is BookReader BOT by Vince.",
+    "added": "2026-11-15",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }
