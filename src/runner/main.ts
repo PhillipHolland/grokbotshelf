@@ -10,21 +10,20 @@ import * as Scene from './scene';
 import { music } from './music';
 import { BOX_H, type Ent, type EKind, type Power } from './scene';
 import { ZONES, ZONE_T } from './zones';
+import { COMBO_STEP, MAX_MULT, POINTS, POWER_GAP, SLOTS, TURBO_T, TURBO_V, VIRAL_GAP, multFor, speedAt } from '../../api/_lib/balance';
 import { runStarted, runEnded, claimName, savedName, saveName, stats, type Finish } from './net';
 import type { Ranks, Board } from '../score-types';
 
 // ---------- tuning ----------
+// Speed, points and anything else the score API checks live in
+// api/_lib/balance.ts, shared with the server. Only game-feel numbers stay here.
 
 const FAR = 64; // spawn distance
 const HEARTS = 3;
-const SLOTS = 4;
 const JUMP_T = 0.62; // seconds in the air
 const JUMP_H = 1.05; // lane widths
 const SLIDE_T = 0.62; // seconds low to the floor
-const TURBO_T = 5; // seconds of Turbo
-const TURBO_V = 9; // extra m/s while Turbo is on
 const RUNAWAY_V = 9; // a runaway cart closes this much faster than the aisle
-const speedAt = (t: number) => 10 + Math.min(17, t * 0.17);
 const tierAt = (t: number): 0 | 1 | 2 => (t < 40 ? 0 : t < 80 ? (Math.random() < 0.6 ? 1 : 0) : Math.random() < 0.45 ? 2 : 1);
 
 // ---------- dom ----------
@@ -137,7 +136,7 @@ const S = {
 };
 const viralDeck: Sub[] = [];
 
-const mult = () => 1 + Math.min(3, Math.floor(S.combo / 6));
+const mult = () => multFor(S.combo);
 const cartCat = () => S.cart[0]?.cat ?? null;
 const PICKUP = new Set<EKind>(['bot', 'like', 'power']);
 const HAZARD = new Set<EKind>(['scam', 'wall', 'box', 'bar', 'barwide', 'runaway']);
@@ -234,13 +233,13 @@ function spawnRow(z: number) {
     }
   }
   // a power-up about every 30 seconds
-  if (S.t > 12 && S.t - S.lastPower > 26 + Math.random() * 8 && free.length) {
+  if (S.t > 12 && S.t - S.lastPower > POWER_GAP + Math.random() * 8 && free.length) {
     S.lastPower = S.t;
     const pool: Power[] = (['shield', 'magnet', 'turbo'] as const).filter((p) => !(p === 'shield' && S.shield) && !(p === 'turbo' && S.turbo > 0));
     S.ents.push({ kind: 'power', lane: free.shift()!, z, seed: Math.random() * 1000, power: rand(pool) });
   }
   // viral every ~25s
-  if (S.t - S.lastViral > 25 && free.length) {
+  if (S.t - S.lastViral > VIRAL_GAP && free.length) {
     S.lastViral = S.t;
     if (!viralDeck.length) viralDeck.push(...viralBots().filter((b) => !S.seen.has(b.key)));
     const v = viralDeck.pop();
@@ -381,18 +380,19 @@ function grab(e: Ent) {
     if (S.hearts < HEARTS) {
       S.hearts++;
       Scene.floater(...above(1.5), '+1 ♥', '#ff6b8a');
-    } else Scene.floater(...above(1.5), '+500', '#ffd75e');
-    if (S.hearts >= HEARTS) S.score += 500;
+    } else Scene.floater(...above(1.5), `+${POINTS.featured}`, '#ffd75e');
+    if (S.hearts >= HEARTS) S.score += POINTS.featured;
     sfx.featured();
   }
   S.combo++;
   S.grabbed++;
-  const pts = 100 * mult();
+  const pts = POINTS.bot * mult();
   S.score += pts;
   sfx.land(S.combo);
   buzz(8);
   if (S.cart.length === 0) coach('fill', '<b>4</b> Fill 4 slots to publish. Same color pays x3', 2600);
-  if (S.combo % 6 === 0 && mult() <= 4) {
+  // a banner each time the multiplier steps up, not again once it tops out
+  if (S.combo % COMBO_STEP === 0 && S.combo <= (MAX_MULT - 1) * COMBO_STEP) {
     sfx.chord(mult());
     banner(`x${mult()}`, 'mult', 800);
   }
@@ -409,7 +409,7 @@ function publish() {
   const bots = S.cart.slice();
   const cat = bots[0].cat;
   const match = bots.every((b) => b.cat === cat);
-  const pts = 400 * (match ? 3 : 1) * mult();
+  const pts = POINTS.shelf * (match ? POINTS.matchX : 1) * mult();
   S.score += pts;
   S.shelves.push({ cat, bots, pts, match });
   S.cart = [];
@@ -477,7 +477,7 @@ function collide() {
       if (S.y > 0.9 && S.magnet <= 0) continue;
       e.done = true;
       S.likes++;
-      S.score += 10 * mult();
+      S.score += POINTS.like * mult();
       tone(1400 + (S.likes % 5) * 120, 0.04, { type: 'square', vol: 0.03 });
       Scene.burst(...above(0.5), '#f91880', 6, 1.6);
       continue;
@@ -520,7 +520,7 @@ function powerUp(e: Ent) {
 function closeCall() {
   S.close++;
   S.combo++;
-  const pts = 50 * mult();
+  const pts = POINTS.close * mult();
   S.score += pts;
   Scene.floater(...above(1.4), `Close call +${pts}`, '#8bd3ff');
   tone(880, 0.06, { type: 'triangle', vol: 0.06 });
@@ -534,7 +534,7 @@ function smash(e: Ent) {
   e.smash = S.t;
   S.smashed++;
   S.combo++;
-  const pts = 50 * mult();
+  const pts = POINTS.close * mult();
   S.score += pts;
   S.shake = Math.max(S.shake, 0.12);
   Scene.burst(...above(0.6), e.kind === 'scam' ? '#f4212e' : '#ffb020', 18, 4);
@@ -579,7 +579,7 @@ function update(dt: number) {
   music.hype(mult() >= 2 || S.turbo > 0);
   const dz = S.v * dt;
   S.dist += dz;
-  if (!S.dying) S.score += dz * 0.5;
+  if (!S.dying) S.score += dz * POINTS.perMeter;
   for (const e of S.ents) {
     e.z -= dz;
     if (e.kind === 'runaway' && !e.done) e.z -= RUNAWAY_V * dt;
@@ -711,7 +711,7 @@ function hud() {
     multEl.textContent = `x${m}`;
     multEl.className = `m${m}`;
   }
-  const pips = m >= 4 ? 6 : S.combo % 6;
+  const pips = m >= MAX_MULT ? COMBO_STEP : S.combo % COMBO_STEP;
   if (changed('pips', pips)) comboEls.forEach((el, i) => el.classList.toggle('on', i < pips));
   if (changed('hearts', S.hearts))
     heartEls.forEach((el, i) => {

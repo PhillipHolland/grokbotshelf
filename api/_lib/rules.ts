@@ -5,6 +5,7 @@
 // itself, and every number in the result has to fit inside what the game
 // allows in that time. A made-up 10 million point run would have to sit open
 // for hours first.
+import { MAX_MULT, POINTS, POWER_GAP, SLOTS, SPEED, TURBO_T, TURBO_V } from './balance.js';
 import { BOT_CREATOR } from './bots.js';
 
 export interface Result {
@@ -34,13 +35,32 @@ export function parseResult(b: Record<string, unknown>): Result | null {
   return Object.values(r).some((v) => v === -1) ? null : r;
 }
 
-// Meters covered after t seconds at full speed. Mirrors speedAt() in
-// src/runner/main.ts: 10 m/s, plus 0.17 m/s every second, capped at 27 m/s.
-// Turbo adds up to 9 m/s for 5 seconds, and a power-up shows up at most
-// once every 26 seconds, so each one is worth up to 45 more meters.
+// Meters covered after t seconds at full speed, using the game's own speed
+// curve (speedAt in ./balance): a linear ramp up to top speed, then flat.
+// Turbo adds up to TURBO_V m/s for TURBO_T seconds, and a power-up shows up at
+// most once every POWER_GAP seconds, so each one is worth up to
+// TURBO_V * TURBO_T more meters.
 export function maxDist(t: number) {
-  const base = t <= 100 ? 10 * t + 0.085 * t * t : 1850 + 27 * (t - 100);
-  return base + 45 * (Math.floor(t / 26) + 1);
+  const tTop = SPEED.maxGain / SPEED.ramp; // when the ramp stops
+  const ramp = (s: number) => SPEED.start * s + (SPEED.ramp / 2) * s * s;
+  const base = t <= tTop ? ramp(t) : ramp(tTop) + (SPEED.start + SPEED.maxGain) * (t - tTop);
+  return base + TURBO_V * TURBO_T * (Math.floor(t / POWER_GAP) + 1);
+}
+
+// The most points one run can score, from its own counts. Every source is
+// counted at the top multiplier, and featured bots (one about every VIRAL_GAP
+// seconds) are counted as if they came every 20, plus two spare.
+export function maxScore(r: Result) {
+  const M = MAX_MULT;
+  return (
+    r.dist * POINTS.perMeter +
+    r.grabbed * POINTS.bot * M +
+    r.shelves * POINTS.shelf * POINTS.matchX * M +
+    r.close * POINTS.close * M +
+    r.likes * POINTS.like * M +
+    POINTS.featured * (r.t / 20 + 2) +
+    1000
+  );
 }
 
 // Returns why the run can't be real, or '' when it fits. Each limit is loose
@@ -49,15 +69,11 @@ export function implausible(r: Result, elapsed: number): string {
   if (r.t > elapsed + 3) return 'game time longer than the run';
   if (r.dist > maxDist(r.t) * 1.03 + 10) return 'too far';
   if (r.grabbed > 6 * r.t + 10) return 'too many bots';
-  if (r.shelves * 4 > r.grabbed) return 'too many shelves';
+  if (r.shelves * SLOTS > r.grabbed) return 'too many shelves';
   if (r.close > 2 * r.t + 5) return 'too many close calls'; // close calls plus Turbo smashes
   if (r.likes > 15 * r.t + 20) return 'too many likes';
-  if (r.bots.length > r.shelves * 4) return 'too many published bots';
-  // Score sources, each at the top x4 multiplier: distance, 100 per bot, 400 per
-  // shelf (x3 when the colors match), 50 per close call or smash, 10 per like, and 500
-  // for a featured bot at full hearts (one about every 25 s).
-  const most = r.dist * 0.5 + r.grabbed * 400 + r.shelves * 4800 + r.close * 200 + r.likes * 40 + 500 * (r.t / 20 + 2) + 1000;
-  if (r.score > most) return 'score too high';
+  if (r.bots.length > r.shelves * SLOTS) return 'too many published bots';
+  if (r.score > maxScore(r)) return 'score too high';
   return '';
 }
 
