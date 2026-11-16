@@ -26,6 +26,16 @@ const POST = /^https:\/\/x\.com\/([A-Za-z0-9_]{1,15}|i)\/status\/\d{5,25}$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
 const DESC_MAX = 400;
 
+// Levenshtein distance, for "did you mean" on a mistyped category.
+function editDistance(a, b) {
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length];
+}
 const label = (b, i) => `bots.json[${i}] ${JSON.stringify(b && b.name ? b.name : "(no name)")}`;
 const isText = (v) => typeof v === "string" && v.trim() !== "";
 const realDate = (s) => { if (!DATE.test(s)) return false; const d = new Date(s + "T00:00:00Z"); return !isNaN(d) && d.toISOString().slice(0, 10) === s; };
@@ -111,7 +121,7 @@ function validateBots(bots, { pub = PUB, today = new Date().toISOString().slice(
 
   // A category used by a single bot is usually a typo of an existing one ("Productivty"). A new category is allowed.
   for (const [c, list] of cats) if (list.length === 1 && cats.size > 1) {
-    const near = [...cats.keys()].find((o) => o !== c && slugify(o) === slugify(c));
+    const near = [...cats.keys()].find((o) => o !== c && cats.get(o).length > 1 && (slugify(o) === slugify(c) || editDistance(slugify(o), slugify(c)) <= 2));
     warnings.push(`${list[0]}: category ${JSON.stringify(c)} is used by this bot only${near ? ` (did you mean ${JSON.stringify(near)}?)` : ""}`);
   }
   for (const [h, set] of names) if (set.size > 1) warnings.push(`creator ${h} is credited under ${set.size} names: ${[...set].map((n) => JSON.stringify(n)).join(", ")}`);

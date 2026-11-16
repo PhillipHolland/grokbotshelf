@@ -42,7 +42,9 @@ What to run for what you changed:
 
 - **The build validates `bots.json` first** (`scripts/validate.js`). Errors stop the build and name the bot and field.
   Warnings (no creator credit, one-bot category, unknown field) do not, but read them.
-- **Every bot needs a row in `public/pairs.json`.** After adding a bot: `node scripts/pairs-gen.js && node scripts/build.js`,
+- **Add bots with `node scripts/add-bot.js new-bot.json`** (`--dry-run` first). It fills the creator fields from the
+  shelf, refuses invalid listings without writing, and runs `pairs-gen` and the build. Every bot needs a row in
+  `public/pairs.json`, so if you edit `bots.json` by hand, run `node scripts/pairs-gen.js && node scripts/build.js`
   and commit `pairs.json` with the bot.
 - **A bot's page slug and its votes come from its name** (`slugify(name)`). Renaming a bot moves its page and resets its
   votes; add a redirect in `vercel.json` for the old `/bot/<slug>`.

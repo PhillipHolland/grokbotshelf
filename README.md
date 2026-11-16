@@ -8,6 +8,16 @@ Every card comes from `public/bots.json`.
 
 ## Add a bot
 
+The short way: put the new bot (or an array of them) in a file and run
+
+```sh
+node scripts/add-bot.js new-bot.json        # or --json '{...}'; --dry-run shows the result and writes nothing
+```
+
+It fills `added`, `creator_url`, `creator_name` and `creator_avatar` from the handle and the rest of the shelf, refuses
+anything `scripts/validate.js` rejects (bots.json is left untouched), then runs `pairs-gen` and the build. Commit
+`bots.json`, `pairs.json` and the build output together. The long way, by hand:
+
 Add an object to the array in `public/bots.json`:
 
 ```json

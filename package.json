@@ -9,6 +9,7 @@
     "check": "node scripts/validate.js && node test/run.js --fast",
     "validate": "node scripts/validate.js",
     "build": "node scripts/build.js",
+    "add-bot": "node scripts/add-bot.js",
     "test": "node test/run.js",
     "test:fast": "node test/run.js --fast",
     "test:browser": "node test/run.js --browser",
