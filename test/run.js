@@ -1,28 +1,87 @@
-// Runs the whole suite: the build smoke test, then every browser test against a fresh build of the site in a temp
-// copy (test/tempsite.js, served by test/serve.js on a free port) or against a base URL you pass. A fresh build, so
-// the suite checks what Vercel would deploy even when a bots.json commit skipped the generated output. Prints a summary; exit code 1 if anything failed.
-// Needs puppeteer-core outside the repo, e.g.  NODE_PATH=/path/to/node_modules node test/run.js [base-url]
-const { spawnSync } = require("child_process"), path = require("path");
-const tempSite = require("./tempsite");
-const SUITES = ["search", "creators-refresh", "credit", "e2e", "more", "reset", "submit", "rail", "add", "chrome", "face", "font", "theme", "pages", "prefetch", "votes", "votecap", "totop", "targets", "reuse", "votepaint", "cards", "pagetargets", "a11y", "creatorlinks", "ondemand", "cover", "headers", "addpage", "retry", "cls", "round3", "round4", "votestyle", "votewords", "sharepill", "faith", "round4data", "collections", "roles", "gallery", "gallerydpr", "filterchunk", "railcls", "pagecss", "prerender"];
-(async () => {
-  let base = process.argv[2], site;
-  if (!base) { site = await tempSite(null, { images: true }); base = site.base; }
+// Runs the test suites and prints one summary. Exit code 1 if anything failed.
+//
+//   node test/run.js                     # everything: node suites, then browser suites against a fresh local build
+//   node test/run.js --fast              # node suites only (no Chrome, no server): seconds, run before every commit
+//   node test/run.js --browser           # browser suites only
+//   node test/run.js --only search,e2e   # just these suites (names are file names without .js)
+//   node test/run.js https://preview/    # browser suites against a deployment instead of a local build
+//   node test/run.js --list              # print the suites and their kind, run nothing
+//
+// Suites are discovered, not listed: every test/*.js that is not a helper (HELPERS below) is a suite, so a new test
+// file runs without editing this one. A suite that requires puppeteer-core is a browser suite and gets the base URL as
+// its first argument; anything else is a node suite and must not need a browser or the network. A suite reports with
+// lines that start "PASS " or "FAIL " and exits non-zero on failure (test/validate.js is a short example).
+//
+// Browser suites need puppeteer-core (npm ci) and Chrome at /usr/bin/google-chrome or wherever CHROME points.
+const fs = require("fs"), path = require("path"), { spawnSync } = require("child_process");
+
+// Shared code that other tests require. They print no PASS lines and are never run directly.
+const HELPERS = new Set(["run", "serve", "tempsite", "scroll-all"]);
+// build.js runs first: when the build is broken, everything after it fails for the same reason.
+const FIRST = ["build"];
+
+function discover(dir = __dirname) {
+  return fs.readdirSync(dir).filter((f) => f.endsWith(".js") && !HELPERS.has(f.slice(0, -3))).map((f) => {
+    const name = f.slice(0, -3), src = fs.readFileSync(path.join(dir, f), "utf8");
+    return { name, file: path.join(dir, f), browser: /require\(\s*['"]puppeteer-core['"]\s*\)/.test(src) };
+  }).sort((a, b) => (FIRST.includes(b.name) - FIRST.includes(a.name)) || (a.browser - b.browser) || a.name.localeCompare(b.name));
+}
+
+function parseArgs(argv) {
+  const o = { fast: false, browser: false, list: false, only: null, base: null };
+  const names = (s) => String(s || "").split(",").map((x) => x.trim().replace(/\.js$/, "")).filter(Boolean);
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === "--fast") o.fast = true;
+    else if (a === "--browser") o.browser = true;
+    else if (a === "--list") o.list = true;
+    else if (a === "--only") o.only = names(argv[++i]);
+    else if (a.startsWith("--only=")) o.only = names(a.slice(7));
+    else if (/^https?:\/\//.test(a)) o.base = a;
+    else throw new Error(`unknown argument ${JSON.stringify(a)} (see the top of test/run.js)`);
+  }
+  return o;
+}
+
+function select(suites, o) {
+  if (o.only) {
+    const known = new Set(suites.map((s) => s.name)), missing = o.only.filter((n) => !known.has(n));
+    if (missing.length) throw new Error(`no suite named ${missing.join(", ")} (node test/run.js --list)`);
+    return suites.filter((s) => o.only.includes(s.name));
+  }
+  if (o.fast) return suites.filter((s) => !s.browser);
+  if (o.browser) return suites.filter((s) => s.browser);
+  return suites;
+}
+
+module.exports = { discover, parseArgs, select, HELPERS };
+
+if (require.main === module) (async () => {
+  let o, picked;
+  try { o = parseArgs(process.argv.slice(2)); picked = select(discover(), o); }
+  catch (e) { console.error(e.message); process.exit(2); }
+  if (o.list) { for (const s of picked) console.log(`${s.browser ? "browser" : "node   "} ${s.name}`); return; }
+
+  let site, base = o.base;
+  if (!base && picked.some((s) => s.browser)) { site = await require("./tempsite")(null, { images: true }); base = site.base; }
   const results = [];
-  const run = (name, args) => {
-    console.log(`== ${name}`);
-    const r = spawnSync(process.execPath, args, { encoding: "utf8", env: process.env, timeout: 300000 });
+  for (const s of picked) {
+    console.log(`== ${s.name}`);
+    const t0 = Date.now();
+    const r = spawnSync(process.execPath, s.browser ? [s.file, base] : [s.file], { encoding: "utf8", env: process.env, timeout: 300000 });
     process.stdout.write(r.stdout || ""); process.stderr.write(r.stderr || "");
     const out = r.stdout || "", pass = (out.match(/^PASS /gm) || []).length, fail = (out.match(/^FAIL /gm) || []).length;
-    results.push({ name, pass, fail, code: r.status, crashed: r.status !== 0 && !fail });
-  };
-  run("build", [path.join(__dirname, "build.js")]);
-  for (const s of SUITES) run(s, [path.join(__dirname, s + ".js"), base]);
+    // No PASS line at all counts as a failure too: a suite that silently checks nothing is broken.
+    results.push({ name: s.name, pass, fail, code: r.status, ms: Date.now() - t0, crashed: r.status !== 0 && !fail, empty: !pass && !fail });
+  }
   if (site) site.close();
-  console.log("\n== summary (" + base + ")");
-  let bad = false;
-  for (const r of results) { console.log(`${r.name.padEnd(7)} ${r.pass} pass, ${r.fail} fail${r.crashed ? ", CRASHED (exit " + r.code + ")" : ""}`); if (r.fail || r.code !== 0) bad = true; }
+
+  console.log(`\n== summary${base ? " (" + base + ")" : ""}`);
+  const width = Math.max(7, ...results.map((r) => r.name.length));
+  for (const r of results) console.log(`${r.name.padEnd(width)} ${r.pass} pass, ${r.fail} fail, ${(r.ms / 1000).toFixed(1)}s${r.crashed ? `, CRASHED (exit ${r.code})` : ""}${r.empty ? ", NO CHECKS RAN" : ""}`);
   const t = results.reduce((a, r) => [a[0] + r.pass, a[1] + r.fail], [0, 0]);
-  console.log(`total   ${t[0]} pass, ${t[1]} fail`);
-  process.exit(bad ? 1 : 0);
+  console.log(`${"total".padEnd(width)} ${t[0]} pass, ${t[1]} fail`);
+  const bad = results.filter((r) => r.fail || r.code !== 0 || r.empty).map((r) => r.name);
+  if (bad.length) console.log(`\nfailed: ${bad.join(", ")}\nre-run just those: node test/run.js --only ${bad.join(",")}`);
+  process.exit(bad.length ? 1 : 0);
 })();

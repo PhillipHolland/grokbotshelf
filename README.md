@@ -176,40 +176,39 @@ NODE_PATH=/workspace/bot-hub-test/node_modules node scripts/tip-qr.js
 
 The site has no runtime dependencies. `package.json` only lists what the tests and one-off scripts need
 (`puppeteer-core`, `@electric-sql/pglite`, `qrcode`), and `.vercelignore` keeps it out of the Vercel build, which still
-runs with no install step.
+runs with no install step. `CLAUDE.md` is the short guide for agents: what to run for which change.
 
 ```sh
 npm ci
-npm test                              # build smoke test, then every suite against a fresh local build
+npm run check                         # bots.json validation + every node suite (no browser), about 30 seconds
+npm test                              # everything: node suites, then every browser suite against a fresh local build
+npm run test:browser                  # browser suites only
+node test/run.js --only e2e,pages     # chosen suites (file names in test/, without .js)
+node test/run.js --list               # every suite and whether it needs a browser
 CHROME=/usr/bin/chromium npm test     # when Chrome is not at /usr/bin/google-chrome
 ```
 
-`.github/workflows/test.yml` runs the same command on every pull request and on `master`. With `node_modules` in the
-repo folder, the `NODE_PATH=...` prefix in the commands below is not needed.
-
-`test/e2e.js` drives headless Chrome through search, filters, URL state, keyboard
-navigation and copy link. It needs `puppeteer-core` installed outside the repo:
-
-```sh
-NODE_PATH=/workspace/bot-hub-test/node_modules node test/e2e.js https://grokbotshelf.com/ [shots-dir]
-```
-
-`test/run.js` runs the whole suite: a build smoke test (`test/build.js`, on a temporary copy),
-then every browser test against `test/serve.js`, a small local server that follows `vercel.json`
-(clean URLs, redirects, the 404 page). Pass a URL to test a deployment instead:
+`test/run.js` finds the suites itself: every `test/*.js` except the helpers named in its `HELPERS` set. A suite that
+requires `puppeteer-core` is a browser suite and gets the base URL; the rest run with no browser and no network. Each
+suite prints `PASS ` / `FAIL ` lines. The browser suites run against `test/serve.js`, a small local server that follows
+`vercel.json` (clean URLs, redirects, the 404 page), on a fresh build in a temporary copy. Pass a URL to test a
+deployment instead:
 
 ```sh
-NODE_PATH=/path/to/node_modules node test/run.js [https://preview-url/]
+node test/run.js https://preview-url/
 ```
 
-The browser tests launch `/usr/bin/google-chrome`. On a machine where Chrome lives elsewhere (a Mac, or a
-Playwright download), point `CHROME` at the binary, the same variable `scripts/og.js` reads:
+`.github/workflows/test.yml` runs `npm run check` on every pull request and on `master`, then the browser suites when
+that passes.
 
-```sh
-CHROME="/path/to/Google Chrome for Testing" NODE_PATH=/path/to/node_modules node test/run.js
-```
+### bots.json validation
 
-`test/votes.js` also needs `@electric-sql/pglite` on `NODE_PATH`.
+`scripts/build.js` runs `scripts/validate.js` before anything else and stops on an error: a missing required field,
+a template link that is not `https://x.ai/bot/<id>` or `https://x.ai/marketplace/bots/<name>`, a date that is not
+`YYYY-MM-DD` or is in the future, a handle that is not an X handle, a `creator_url` that does not match the handle,
+an avatar file that is not in `public/avatars/`, or two bots with the same page slug or template link. Each message
+names the bot and the field. `npm run validate` prints the errors and the warnings (no creator credit, a category
+used by one bot only, an unknown field, one handle credited under two names).
 
 ## Search API (for bots)
 

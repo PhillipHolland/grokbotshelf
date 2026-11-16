@@ -13,7 +13,11 @@ const { homeStrip } = require("./home-strip");
 const PAGE_CSS_MARK = "<!-- page-css -->";
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public"), SITE = "https://grokbotshelf.com";
 const read = (f, d) => { try { return JSON.parse(fs.readFileSync(path.join(PUB, f), "utf8")); } catch { return d; } };
-const bots = read("bots.json", []);
+// bots.json is read strictly: a syntax error must stop the build, not turn into an empty shelf. scripts/validate.js
+// then checks every listing (required fields, link shapes, duplicate pages) and names the bot and field on failure.
+const { readBots, assertBots } = require("./validate");
+const bots = readBots(PUB);
+assertBots(bots, { pub: PUB });
 const products = read("products.json", null);
 if (!products) throw new Error("public/products.json is missing");
 assertCatalog(products);
