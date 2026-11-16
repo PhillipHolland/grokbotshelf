@@ -14330,5 +14330,31 @@
     "creator_avatar": "/avatars/themarkgshow.webp",
     "source_post": "https://x.com/TheMarkGShow/status/2122359656286716011",
     "added": "2026-11-16"
+  },
+  {
+    "name": "OutageCheck",
+    "emoji": "🚦",
+    "description": "Tells you in seconds if a service is really down or it's just you, with a status card, the official status link, and an alert when it's fixed.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym",
+    "creator_name": "John",
+    "creator_handle": "@johnp_creates",
+    "creator_url": "https://x.com/johnp_creates",
+    "creator_avatar": "/avatars/johnp_creates.webp",
+    "source_post": "https://x.com/johnp_creates/status/2122399972809167194",
+    "added": "2026-11-16"
+  },
+  {
+    "name": "Inbox Ida",
+    "emoji": "📬",
+    "description": "A calm inbox helper for Gmail, Outlook and Yahoo. She plans cleanups, suggests labels and filters, sends a weekly digest of what needs you, and flags scams and phishing, and never changes mail without your OK.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/XlWvzllS0K4WpFh502I-h",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-16"
   }
 ]

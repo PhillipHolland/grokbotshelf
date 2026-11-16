@@ -11333,5 +11333,29 @@
     "note": "Added to shelf 2026-11-16 by routine under standing SFW rule. Official template title is Regulars Book by Mark; shelved as Regulars Book to match Mark's existing no-suffix naming. Shelf page: https://grokbotshelf.com/bot/regulars-book.",
     "added": "2026-11-16",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-841": {
+    "date": "2026-11-16",
+    "status": "added",
+    "bot": "OutageCheck",
+    "template_url": "https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym",
+    "author": "@johnp_creates",
+    "author_handle": "@johnp_creates",
+    "url": "https://grokbotshelf.com/bot/outagecheck",
+    "note": "Added by routine under standing SFW rule.",
+    "added": "2026-11-16",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-840": {
+    "date": "2026-11-16",
+    "status": "added",
+    "bot": "Inbox Ida",
+    "template_url": "https://x.ai/bot/XlWvzllS0K4WpFh502I-h",
+    "author": "@jimaggie",
+    "author_handle": "@jimaggie",
+    "url": "https://grokbotshelf.com/bot/inbox-ida",
+    "note": "Added by routine under standing SFW rule.",
+    "added": "2026-11-16",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }
