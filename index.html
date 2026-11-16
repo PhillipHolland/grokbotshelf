@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <title>Shelf Run</title>
+    <meta name="description" content="Push your shelf down the aisle, grab real Grok bots from grokbotshelf.com and dodge the scams." />
+    <style>
+      html, body { margin: 0; background: #000; color: #71767b; }
+      #screen:not([hidden]) .loading { position: fixed; inset: 0; display: grid; place-items: center; font: 600 14px -apple-system, Helvetica, Arial, sans-serif; letter-spacing: 1px; }
+    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>" />
+  </head>
+  <body>
+    <canvas id="cv"></canvas>
+    <div id="shade" aria-hidden="true"></div>
+    <div id="vignette" aria-hidden="true"></div>
+    <div id="flash" aria-hidden="true"></div>
+    <div id="fx" aria-hidden="true"><div id="cartTag"></div></div>
+    <header id="hud">
+      <div class="l">
+        <div id="score">0</div>
+        <div id="dist">0 m</div>
+      </div>
+      <div class="c">
+        <div id="mult" class="m1">x1</div>
+        <div id="combo"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="r">
+        <div id="hearts"></div>
+        <button id="mute" type="button" aria-label="Mute"></button>
+        <button id="pause" type="button" aria-label="Pause"></button>
+      </div>
+      <div id="zone" aria-hidden="true"><span id="zoneNow"></span><i><b id="zoneBar"></b></i><span id="zoneNext"></span></div>
+    </header>
+    <div id="powers" aria-hidden="true">
+      <span class="pw shield" id="pwShield"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle class="t" cx="20" cy="20" r="17"/></svg><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.500L19 7.500"/></svg></span>
+      <span class="pw magnet" id="pwMagnet"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle class="t" cx="20" cy="20" r="17"/></svg><svg class="ic" viewBox="0 0 24 24"><path d="M6 4v8a6 6 0 0 0 12 0V4h-4v8a2 2 0 0 1-4 0V4z"/><path d="M6 8h4M14 8h4"/></svg></span>
+      <span class="pw turbo" id="pwTurbo"><svg class="ring" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><circle class="t" cx="20" cy="20" r="17"/></svg><svg class="ic" viewBox="0 0 24 24"><path d="M13 2 5 14h6l-1 8 8-12h-6z"/></svg></span>
+    </div>
+    <div id="credit"></div>
+    <div id="coach" aria-live="polite"></div>
+    <div id="banner"></div>
+    <div id="screen" role="dialog" aria-modal="true"><div class="loading">Stocking the shelves…</div></div>
+    <script type="module" src="/src/runner/main.ts"></script>
+  </body>
+</html>
