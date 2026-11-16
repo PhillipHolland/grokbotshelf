@@ -1,0 +1,5 @@
+src/bots.json
+api/_lib/bots.ts
+dist
+package-lock.json
+public

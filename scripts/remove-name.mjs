@@ -11,7 +11,10 @@ for (const line of readFileSync(new URL('../.env.local', import.meta.url), 'utf8
 }
 const args = process.argv.slice(2);
 const P = args.includes('--dev') ? 'sr-dev:' : 'sr:';
-const name = args.filter((a) => a !== '--dev').join(' ').trim();
+const name = args
+  .filter((a) => a !== '--dev')
+  .join(' ')
+  .trim();
 if (!name) {
   console.error('usage: npm run remove-name -- "the name" [--dev]');
   process.exit(1);

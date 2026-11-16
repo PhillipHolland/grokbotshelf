@@ -221,8 +221,7 @@ export const sfx = {
     nailAt(0.07);
     sfx.perfect(0.1);
   },
-  clatter: () =>
-    [2500, 1800, 2200, 1500].forEach((f, i) => noise(0.05, f, 3, 0.2 * 0.7 ** i, i * 0.06)),
+  clatter: () => [2500, 1800, 2200, 1500].forEach((f, i) => noise(0.05, f, 3, 0.2 * 0.7 ** i, i * 0.06)),
   crack: () => {
     noise(0.1, 3000, 1, 0.2);
     sfx.sad(0.05);

@@ -7,7 +7,25 @@ import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.j
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { catColor, PLAY_CATS, type Sub } from '../bots';
 import { cardVersion, drawCard, emojiTile, newCardCanvas, CARD_W, CARD_H, VIRAL } from './cards';
-import { FLOOR_W, bandTex, barTex, cardboardTex, cargoTex, ceilingTex, floorTex, forestFloorTex, glowTex, hazardTex, metalTex, moonTex, orbitFloorTex, rng, signTex, starsTex, woodTex } from './textures';
+import {
+  FLOOR_W,
+  bandTex,
+  barTex,
+  cardboardTex,
+  cargoTex,
+  ceilingTex,
+  floorTex,
+  forestFloorTex,
+  glowTex,
+  hazardTex,
+  metalTex,
+  moonTex,
+  orbitFloorTex,
+  rng,
+  signTex,
+  starsTex,
+  woodTex,
+} from './textures';
 import { ZONES, type Zone } from './zones';
 import { BLOB_COLORS, BLOB_KIND, blobGeometry, blobMaterial, blobUniforms } from './blobs';
 
@@ -84,7 +102,9 @@ const camera = new THREE.PerspectiveCamera(58, 1, 0.8, 95);
 const world = new THREE.Group(); // everything that shows up in the floor reflection
 const flat = new THREE.Group(); // floor and floor decals, not reflected
 scene.add(world, flat);
-let W = 1, H = 1, aniso = 1;
+let W = 1,
+  H = 1,
+  aniso = 1;
 // 2: reflections, sharpest. 1: no reflections. 0: lower resolution too.
 // ?q=2 pins it, for testing.
 const pinned = new URLSearchParams(location.search).get('q');
@@ -262,7 +282,7 @@ function buildAisle() {
       for (const by of BOARDS) {
         const sy = by === BOARDS[0] ? 0.12 : by;
         strips.push(colorize(box(0.015, 0.035, SEG * 0.96, xf + side * -0.005, sy - 0.03, zc), col));
-        stripGlow.push(colorize(new THREE.PlaneGeometry(SEG * 0.98, 0.3).rotateY(-side * Math.PI / 2).translate(xf - side * 0.02, sy - 0.03, zc), col));
+        stripGlow.push(colorize(new THREE.PlaneGeometry(SEG * 0.98, 0.3).rotateY((-side * Math.PI) / 2).translate(xf - side * 0.02, sy - 0.03, zc), col));
       }
       // Grok bots on each board: 0 to 2 per board in four slots, so each one
       // has room around it, turned toward the player
@@ -289,7 +309,12 @@ function buildAisle() {
           const turn = shape.turn + (pr() - 0.5) * 0.4;
           blobShapes.push(shape.kind, shape.round, side > 0 ? -Math.PI - turn : turn, side > 0 ? -seed : seed);
           blobColors.push(BLOB_COLORS[Math.floor(pr() * BLOB_COLORS.length)]);
-          botShadows.push(floorPlane.clone().scale(sx * 2.4, 1, r * 1.3).translate(side * (EDGE + DEPTH * 0.38), base + 0.004, -(gz + z)));
+          botShadows.push(
+            floorPlane
+              .clone()
+              .scale(sx * 2.4, 1, r * 1.3)
+              .translate(side * (EDGE + DEPTH * 0.38), base + 0.004, -(gz + z)),
+          );
         }
       }
       // forest: one or two trees behind the shelf, a few lanes back
@@ -313,7 +338,13 @@ function buildAisle() {
       const zc = -(gz + SEG / 2);
       // store: ceiling lights every third module
       lights.push(box(0.3, 0.04, 1.4, 0, SHELF_H + 1.75, zc));
-      lightGlow.push(floorPlane.clone().scale(1.3, 1, 2.6).rotateX(Math.PI).translate(0, SHELF_H + 1.72, zc));
+      lightGlow.push(
+        floorPlane
+          .clone()
+          .scale(1.3, 1, 2.6)
+          .rotateX(Math.PI)
+          .translate(0, SHELF_H + 1.72, zc),
+      );
       poolGeos.push(floorPlane.clone().scale(3.2, 1, 3.4).translate(0, 0.012, zc));
       // forest: a string of lanterns across the aisle
       lanterns.push(box(EDGE * 2 + DEPTH * 2, 0.015, 0.015, 0, SHELF_H + 1.05, zc));
@@ -356,7 +387,17 @@ function buildAisle() {
   // soft glow in place of bloom: a wide faint band behind each strip and a
   // halo under each ceiling light
   const band = tex(bandTex());
-  stripGlowMat = new THREE.MeshBasicMaterial({ map: band, vertexColors: true, transparent: true, opacity: 0.55, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, side: THREE.DoubleSide, forceSinglePass: true });
+  stripGlowMat = new THREE.MeshBasicMaterial({
+    map: band,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.55,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    toneMapped: false,
+    side: THREE.DoubleSide,
+    forceSinglePass: true,
+  });
   const glowBand = new THREE.Mesh(mergeGeometries(stripGlow), stripGlowMat);
   const glowLights = new THREE.Mesh(mergeGeometries(lightGlow), nearFade(additive('#cfe4ff', 0.5)));
   // Double-sided and transparent would make three.js draw it twice, back then
@@ -373,7 +414,14 @@ function buildAisle() {
   const treeMesh = new THREE.Mesh(mergeGeometries(trees), new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true }));
   // Lanterns hang low, so they fade out well before they'd pass over the lens.
   // Additive, so a faded lantern is invisible, not a black ball.
-  const lanternMesh = new THREE.Mesh(mergeGeometries(lanterns), nearFade(new THREE.MeshBasicMaterial({ color: new THREE.Color(2.6, 1.5, 0.55), toneMapped: false, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }), 9, 14));
+  const lanternMesh = new THREE.Mesh(
+    mergeGeometries(lanterns),
+    nearFade(
+      new THREE.MeshBasicMaterial({ color: new THREE.Color(2.6, 1.5, 0.55), toneMapped: false, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }),
+      9,
+      14,
+    ),
+  );
   const lanternHalo = new THREE.Mesh(mergeGeometries(lanternGlow), nearFade(additive('#ffb45e', 0.55), 9, 14));
   aisle.add(treeMesh, lanternMesh, lanternHalo);
   decor.forest.push(treeMesh, lanternMesh, lanternHalo);
@@ -408,7 +456,8 @@ function buildAisle() {
   // ceiling
   // Panels, so the top half of a phone screen has something moving in it.
   // One tile is 1.2 m, which divides the aisle's repeat, so the scroll is seamless.
-  const CEIL_W = EDGE * 2 + DEPTH * 2, CEIL_L = PERIOD * 7;
+  const CEIL_W = EDGE * 2 + DEPTH * 2,
+    CEIL_L = PERIOD * 7;
   const ceilMap = tex(ceilingTex());
   ceilMap.wrapS = ceilMap.wrapT = THREE.RepeatWrapping;
   ceilMap.repeat.set(CEIL_W / 4.8, CEIL_L / 4.8);
@@ -426,7 +475,10 @@ function buildAisle() {
 
   // forest sky: a moon over the end of the aisle and a few stars behind the trees
   const night = new THREE.Group();
-  const moon = new THREE.Mesh(unitPlane, new THREE.MeshBasicMaterial({ map: tex(moonTex()), transparent: true, fog: false, depthWrite: false, toneMapped: false, color: new THREE.Color(1.15, 1.12, 1) }));
+  const moon = new THREE.Mesh(
+    unitPlane,
+    new THREE.MeshBasicMaterial({ map: tex(moonTex()), transparent: true, fog: false, depthWrite: false, toneMapped: false, color: new THREE.Color(1.15, 1.12, 1) }),
+  );
   moon.scale.set(5.2, 5.2, 1);
   moon.position.set(3.4, 19, -88);
   const moonHalo = new THREE.Mesh(unitPlane, additive('#cfe6c8', 0.34));
@@ -453,7 +505,7 @@ function buildAisle() {
   for (const side of [-1, 1]) {
     const p = new THREE.Mesh(unitPlane, starMat);
     p.scale.set(140, 50, 1);
-    p.rotation.y = side * -Math.PI / 2;
+    p.rotation.y = (side * -Math.PI) / 2;
     p.position.set(side * 16, 10, -50);
     sky.add(p);
   }
@@ -613,8 +665,15 @@ function dressCard(c: CardView, e: Ent) {
   else fm.color.copy(col).multiplyScalar(0.9);
 }
 
-interface BoxView { g: THREE.Group; shadow: THREE.Mesh }
-interface WallView { g: THREE.Group; lamps: THREE.MeshBasicMaterial[]; shadow: THREE.Mesh }
+interface BoxView {
+  g: THREE.Group;
+  shadow: THREE.Mesh;
+}
+interface WallView {
+  g: THREE.Group;
+  lamps: THREE.MeshBasicMaterial[];
+  shadow: THREE.Mesh;
+}
 const boxFree: BoxView[] = [];
 const wallFree: WallView[] = [];
 let cardboardMat: THREE.MeshStandardMaterial;
@@ -645,10 +704,7 @@ function newBox(): BoxView {
 
 const lampGeo = new THREE.SphereGeometry(0.07, 12, 8);
 const wallFrameGeo = mergeGeometries(
-  [-0.44, 0.44].flatMap((sx) => [
-    new THREE.BoxGeometry(0.07, WALL_H, 0.07).translate(sx, WALL_H / 2, 0),
-    new THREE.BoxGeometry(0.12, 0.05, 0.42).translate(sx, 0.025, 0),
-  ]),
+  [-0.44, 0.44].flatMap((sx) => [new THREE.BoxGeometry(0.07, WALL_H, 0.07).translate(sx, WALL_H / 2, 0), new THREE.BoxGeometry(0.12, 0.05, 0.42).translate(sx, 0.025, 0)]),
 );
 function newWall(): WallView {
   const g = new THREE.Group();
@@ -684,7 +740,10 @@ function buildLikes() {
 
 // A crossbar at head height you slide under: one lane, or all three.
 export const BAR_LOW = 0.62; // underside of the bar
-interface BarView { g: THREE.Group; shadow: THREE.Mesh }
+interface BarView {
+  g: THREE.Group;
+  shadow: THREE.Mesh;
+}
 const barFree: BarView[] = [];
 const wideFree: BarView[] = [];
 let barMat: THREE.MeshStandardMaterial;
@@ -706,7 +765,13 @@ function newBar(wide: boolean): BarView {
 }
 
 // A runaway cart rolling up the aisle toward you, headlights on.
-interface RunawayView { g: THREE.Group; beam: THREE.Mesh; flare: THREE.Mesh[]; beacon: THREE.MeshBasicMaterial; shadow: THREE.Mesh }
+interface RunawayView {
+  g: THREE.Group;
+  beam: THREE.Mesh;
+  flare: THREE.Mesh[];
+  beacon: THREE.MeshBasicMaterial;
+  shadow: THREE.Mesh;
+}
 const runawayFree: RunawayView[] = [];
 let runawayBody: THREE.MeshStandardMaterial;
 function newRunaway(): RunawayView {
@@ -733,7 +798,12 @@ function newRunaway(): RunawayView {
   bc.scale.setScalar(1.3);
   const wg = new THREE.CylinderGeometry(0.1, 0.1, 0.08, 14).rotateZ(Math.PI / 2);
   const wm = new THREE.MeshStandardMaterial({ color: '#0b0d10', roughness: 0.5 });
-  for (const [x, z] of [[-0.36, 0.2], [0.36, 0.2], [-0.36, -0.2], [0.36, -0.2]]) {
+  for (const [x, z] of [
+    [-0.36, 0.2],
+    [0.36, 0.2],
+    [-0.36, -0.2],
+    [0.36, -0.2],
+  ]) {
     const w = new THREE.Mesh(wg, wm);
     w.position.set(x, 0.1, z);
     g.add(w);
@@ -747,7 +817,13 @@ function newRunaway(): RunawayView {
 
 // The gate between zones: two lit pillars, a beam with the next zone's sign,
 // and a glowing sheet you drive through.
-interface GateView { g: THREE.Group; lit: THREE.MeshBasicMaterial; sheet: THREE.MeshBasicMaterial; sign: THREE.MeshBasicMaterial; halo: THREE.Mesh }
+interface GateView {
+  g: THREE.Group;
+  lit: THREE.MeshBasicMaterial;
+  sheet: THREE.MeshBasicMaterial;
+  sign: THREE.MeshBasicMaterial;
+  halo: THREE.Mesh;
+}
 let gateView: GateView | null = null;
 function newGate(): GateView {
   const g = new THREE.Group();
@@ -775,7 +851,11 @@ function newGate(): GateView {
 
 // ---------- power-ups ----------
 
-interface PowerView { kind: Power; g: THREE.Group; halo: THREE.Mesh }
+interface PowerView {
+  kind: Power;
+  g: THREE.Group;
+  halo: THREE.Mesh;
+}
 const powerFree: Record<Power, PowerView[]> = { shield: [], magnet: [], turbo: [] };
 const powers = new Map<Ent, PowerView>();
 let badgeGeo: THREE.BufferGeometry;
@@ -923,12 +1003,16 @@ function buildCart() {
   const dark = new THREE.MeshStandardMaterial({ color: '#151a21', roughness: 0.35, metalness: 0.6 });
   const inner = new THREE.MeshStandardMaterial({ color: '#0a0d12', roughness: 0.8 });
   trimMat = new THREE.MeshBasicMaterial({ color: new THREE.Color(0.3, 1.6, 3), toneMapped: false });
-  const W = 0.9, H = 0.62, D = 0.56, Y = 0.2;
+  const W = 0.9,
+    H = 0.62,
+    D = 0.56,
+    Y = 0.2;
   const body = new THREE.Mesh(new RoundedBoxGeometry(W, H, D, 3, 0.06), dark);
   body.position.y = Y + H / 2;
   cartBody.add(body);
   // 2x2 slots on the back face, toward the camera
-  const sw = 0.36, sh = 0.23;
+  const sw = 0.36,
+    sh = 0.23;
   const wells: THREE.BufferGeometry[] = [];
   const trimGeos: THREE.BufferGeometry[] = [];
   for (let i = 0; i < 4; i++) {
@@ -959,7 +1043,12 @@ function buildCart() {
   const wg = new THREE.CylinderGeometry(0.1, 0.1, 0.08, 18).rotateZ(Math.PI / 2);
   const wm = new THREE.MeshStandardMaterial({ color: '#0b0d10', roughness: 0.5, metalness: 0.3 });
   const hubm = new THREE.MeshStandardMaterial({ color: '#8b98a5', roughness: 0.3, metalness: 0.9 });
-  for (const [x, z] of [[-0.36, 0.2], [0.36, 0.2], [-0.36, -0.2], [0.36, -0.2]]) {
+  for (const [x, z] of [
+    [-0.36, 0.2],
+    [0.36, 0.2],
+    [-0.36, -0.2],
+    [0.36, -0.2],
+  ]) {
     const w = new THREE.Mesh(wg, wm);
     w.position.set(x, 0.1, z);
     const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.085, 10).rotateZ(Math.PI / 2), hubm);
@@ -1207,7 +1296,16 @@ export function init(canvas: HTMLCanvasElement) {
   scene.add(hemi, keyLight);
 
   GLOW = tex(glowTex());
-  shadowMat = new THREE.MeshBasicMaterial({ map: GLOW, color: '#000', transparent: true, opacity: 0.75, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -4 });
+  shadowMat = new THREE.MeshBasicMaterial({
+    map: GLOW,
+    color: '#000',
+    transparent: true,
+    opacity: 0.75,
+    depthWrite: false,
+    polygonOffset: true,
+    polygonOffsetFactor: -2,
+    polygonOffsetUnits: -4,
+  });
   boxMaps = [tex(cardboardTex()), tex(woodTex(9, '#a8743e', '#5e3a1a', '#c99a5e', 3)), tex(cargoTex())];
   wallMaps = [tex(hazardTex()), tex(hazardTex('TRAIL CLOSED', '#7a4a22', '#2a170a', '#e8d6b0')), tex(hazardTex('AIRLOCK', '#3ad6ff', '#10142a', '#e8f6ff'))];
   barMaps = [tex(barTex('sale')), tex(barTex('branch')), tex(barTex('laser'))];
@@ -1278,7 +1376,7 @@ function prewarm() {
   // Whole pools, not one of each: a view built mid-run brings new materials,
   // and the renderer spends a few milliseconds checking each one the first
   // time it draws. A busy stretch shows about this many of each at once.
-  const many = <T,>(n: number, make: () => T) => Array.from({ length: n }, make);
+  const many = <T>(n: number, make: () => T) => Array.from({ length: n }, make);
   const cs = many(16, newCard);
   const bs = many(6, newBox);
   const ws = many(6, newWall);
@@ -1289,13 +1387,7 @@ function prewarm() {
   gateView = newGate();
   gateView.sign.map = signMaps[1];
   const parts = [...cs, ...bs, ...ws, ...ps, ...brs, ...bws, ...rus, gateView].map((v) => v.g);
-  const decals = [
-    ...cs.map((c) => c.halo),
-    ...[...bs, ...ws, ...brs, ...bws, ...rus].map((v) => v.shadow),
-    ...ps.map((p) => p.halo),
-    ...rus.map((r) => r.beam),
-    gateView.halo,
-  ];
+  const decals = [...cs.map((c) => c.halo), ...[...bs, ...ws, ...brs, ...bws, ...rus].map((v) => v.shadow), ...ps.map((p) => p.halo), ...rus.map((r) => r.beam), gateView.halo];
   parts.forEach((o, i) => o.position.set((i % 5) - 2, 0.5, -8 - Math.floor(i / 5) * 2));
   world.add(...parts);
   flat.add(...decals);
@@ -1727,7 +1819,15 @@ export function programs() {
 
 export function stats() {
   const r = renderer.info.render;
-  return { calls: r.calls, triangles: r.triangles, quality, programs: renderer.info.programs?.length, zone: zoneNow, decor: Object.fromEntries(Object.entries(decor).map(([k, l]) => [k, l.filter((o) => o.visible).length])), dust: dust.n };
+  return {
+    calls: r.calls,
+    triangles: r.triangles,
+    quality,
+    programs: renderer.info.programs?.length,
+    zone: zoneNow,
+    decor: Object.fromEntries(Object.entries(decor).map(([k, l]) => [k, l.filter((o) => o.visible).length])),
+    dust: dust.n,
+  };
 }
 
 const SHORT: Record<string, string> = { 'Health & Fitness': 'Health', 'Business & Marketing': 'Business' };

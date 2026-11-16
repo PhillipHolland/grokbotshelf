@@ -229,7 +229,12 @@ export function orbitFloorTex() {
       g.fillRect(i * tw + 3, j * tw + 3, tw - 6, tw - 6);
       // rivets
       g.fillStyle = 'rgba(160,170,210,0.35)';
-      for (const [dx, dy] of [[14, 14], [tw - 14, 14], [14, tw - 14], [tw - 14, tw - 14]]) {
+      for (const [dx, dy] of [
+        [14, 14],
+        [tw - 14, 14],
+        [14, tw - 14],
+        [tw - 14, tw - 14],
+      ]) {
         g.beginPath();
         g.arc(i * tw + dx, j * tw + dy, 4, 0, Math.PI * 2);
         g.fill();
@@ -275,7 +280,7 @@ export function barTex(kind: 'sale' | 'branch' | 'laser') {
     g.fillStyle = '#e8243c';
     g.fillRect(0, 0, 512, 128);
     g.fillStyle = '#fff';
-    for (let x = 0; x < 512; x += 64) g.fillRect(x, 0, 32, 10), g.fillRect(x + 32, 118, 32, 10);
+    for (let x = 0; x < 512; x += 64) (g.fillRect(x, 0, 32, 10), g.fillRect(x + 32, 118, 32, 10));
     g.font = `900 72px ${SANS}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
@@ -331,7 +336,9 @@ export function starsTex() {
   }
   // a faint nebula
   for (let i = 0; i < 6; i++) {
-    const x = r() * S, y = r() * S, rad = 120 + r() * 220;
+    const x = r() * S,
+      y = r() * S,
+      rad = 120 + r() * 220;
     const grad = g.createRadialGradient(x, y, 0, x, y, rad);
     const col = r() < 0.5 ? '140,80,255' : '60,170,255';
     grad.addColorStop(0, `rgba(${col},0.16)`);
@@ -349,7 +356,8 @@ export function ceilingTex() {
   g.fillStyle = '#0a0e15';
   g.fillRect(0, 0, S, S);
   const r = rng(31);
-  const n = 4, t = S / n;
+  const n = 4,
+    t = S / n;
   for (let y = 0; y < n; y++)
     for (let x = 0; x < n; x++) {
       const v = r();
@@ -385,7 +393,9 @@ export function moonTex() {
   g.fillRect(0, 0, S, S);
   const r = rng(9);
   for (let i = 0; i < 9; i++) {
-    const x = S * (0.2 + r() * 0.6), y = S * (0.2 + r() * 0.6), rad = 8 + r() * 22;
+    const x = S * (0.2 + r() * 0.6),
+      y = S * (0.2 + r() * 0.6),
+      rad = 8 + r() * 22;
     const cr = g.createRadialGradient(x, y, 0, x, y, rad);
     cr.addColorStop(0, 'rgba(120,118,95,0.38)');
     cr.addColorStop(1, 'rgba(120,118,95,0)');

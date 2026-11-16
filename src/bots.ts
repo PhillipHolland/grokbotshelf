@@ -183,11 +183,7 @@ export function viralBots(): Sub[] {
 
 // A creator with at least 4 unseen bots in one of `cats`. Prefers categories
 // in `prefer` (the ones with a built shelf). Adds the 4 keys to `avoid`.
-export function creatorDrop(
-  cats: string[],
-  avoid: Set<string>,
-  prefer: string[] = [],
-): { handle: string; creator: string; avatar: string | null; bots: Sub[] } | null {
+export function creatorDrop(cats: string[], avoid: Set<string>, prefer: string[] = []): { handle: string; creator: string; avatar: string | null; bots: Sub[] } | null {
   const groups = new Map<string, RawBot[]>();
   for (const b of BOTS) {
     if (!b.h || !cats.includes(b.c) || avoid.has(keyOf(b))) continue;
@@ -303,14 +299,38 @@ export const FAKE_PEOPLE: { handle: string; name: string }[] = [
 
 // Tier 0: [emoji, name, tagline (<= 44 chars), full description, what it wants]
 const SCAM_BOTS: [string, string, string, string, string][] = [
-  ['🎁', 'Grok Airdrop Claimer', 'Free $GROK. Connect your wallet to claim.', 'Claim your free $GROK tokens. Connect your wallet and approve one transaction to start.', 'your wallet'],
-  ['🔓', 'Free Premium+ Unlocker', 'Log in with your X password to upgrade.', 'Unlocks Premium+ for free. Just log in with your X password so the bot can upgrade you.', 'your X password'],
+  [
+    '🎁',
+    'Grok Airdrop Claimer',
+    'Free $GROK. Connect your wallet to claim.',
+    'Claim your free $GROK tokens. Connect your wallet and approve one transaction to start.',
+    'your wallet',
+  ],
+  [
+    '🔓',
+    'Free Premium+ Unlocker',
+    'Log in with your X password to upgrade.',
+    'Unlocks Premium+ for free. Just log in with your X password so the bot can upgrade you.',
+    'your X password',
+  ],
   ['🚀', '100x Signal Bot', '100x picks daily. Send 0.05 ETH to join.', 'Guaranteed 100x crypto picks every morning. Send 0.05 ETH to join the signal group.', 'money'],
-  ['👛', 'Wallet Sync Helper', 'Paste your seed phrase once to sync.', 'Keeps your wallets in sync. Paste your 12 word seed phrase once and it handles the rest.', 'your seed phrase'],
+  [
+    '👛',
+    'Wallet Sync Helper',
+    'Paste your seed phrase once to sync.',
+    'Keeps your wallets in sync. Paste your 12 word seed phrase once and it handles the rest.',
+    'your seed phrase',
+  ],
   ['✅', 'Instant Verified Badge', 'Gold check in 5 minutes. Pay in gift cards.', 'Get the gold check in 5 minutes. Pay a small fee in gift cards to skip the line.', 'gift cards'],
   ['💰', 'Crypto Doubler', 'Doubles any BTC you send. 100% safe.', 'Send any amount of BTC and the bot sends back double within the hour. 100% safe.', 'your BTC'],
   ['📈', '10K Followers Booster', '10K followers tonight. Needs your 2FA code.', 'Adds 10,000 followers overnight. Needs your login and 2FA code to work.', 'your 2FA code'],
-  ['🪙', 'Grok Credits Generator', 'Free Grok credits. Just enter your card.', 'Generates unlimited Grok credits. Enter your card number to verify you are human.', 'your card number'],
+  [
+    '🪙',
+    'Grok Credits Generator',
+    'Free Grok credits. Just enter your card.',
+    'Generates unlimited Grok credits. Enter your card number to verify you are human.',
+    'your card number',
+  ],
   ['🛟', 'Account Recovery Desk', 'Locked out? DM us your password.', 'Locked out? DM us your password and backup codes and we will restore your account.', 'your password'],
   ['🎰', 'Jackpot Predictor', 'AI lottery picks. Pay $9.99 in crypto.', "Predicts lottery numbers with AI. Pay $9.99 in crypto to unlock today's winning picks.", 'money'],
 ];
@@ -328,14 +348,41 @@ const ASKS: [string, string, string][] = [
 ];
 // Invented names that sound like ordinary bots.
 const ASKER_NAMES: Record<string, [string, string][]> = {
-  Productivity: [['📥', 'Inbox Zero Coach'], ['🏃', 'Task Sprinter'], ['📝', 'Meeting Notes Pro']],
-  Money: [['💵', 'Budget Buddy'], ['🧾', 'Bill Tracker'], ['🏷️', 'Coupon Scout']],
-  Lifestyle: [['🗓️', 'Weekend Planner'], ['👗', 'Style Helper'], ['🎀', 'Gift Finder']],
-  Home: [['🧹', 'Chore Chart'], ['🪴', 'Plant Minder'], ['🔧', 'Fix It Guide']],
-  'Health & Fitness': [['👟', 'Step Coach'], ['😴', 'Sleep Tracker'], ['🥗', 'Meal Prep Pal']],
-  'Business & Marketing': [['📣', 'Post Scheduler'], ['🎯', 'Lead Finder'], ['🗣️', 'Brand Voice Bot']],
+  Productivity: [
+    ['📥', 'Inbox Zero Coach'],
+    ['🏃', 'Task Sprinter'],
+    ['📝', 'Meeting Notes Pro'],
+  ],
+  Money: [
+    ['💵', 'Budget Buddy'],
+    ['🧾', 'Bill Tracker'],
+    ['🏷️', 'Coupon Scout'],
+  ],
+  Lifestyle: [
+    ['🗓️', 'Weekend Planner'],
+    ['👗', 'Style Helper'],
+    ['🎀', 'Gift Finder'],
+  ],
+  Home: [
+    ['🧹', 'Chore Chart'],
+    ['🪴', 'Plant Minder'],
+    ['🔧', 'Fix It Guide'],
+  ],
+  'Health & Fitness': [
+    ['👟', 'Step Coach'],
+    ['😴', 'Sleep Tracker'],
+    ['🥗', 'Meal Prep Pal'],
+  ],
+  'Business & Marketing': [
+    ['📣', 'Post Scheduler'],
+    ['🎯', 'Lead Finder'],
+    ['🗣️', 'Brand Voice Bot'],
+  ],
 };
-const ASKER_ANY: [string, string][] = [['🤖', 'Daily Helper'], ['✨', 'Quick Assist']];
+const ASKER_ANY: [string, string][] = [
+  ['🤖', 'Daily Helper'],
+  ['✨', 'Quick Assist'],
+];
 
 if (import.meta.env.DEV) {
   const handles = new Set((raw as RawBot[]).map((b) => b.h.toLowerCase()));

@@ -9,7 +9,6 @@ const SNAP_TTL = 120;
 const LIVE_WINDOW = 10 * 60_000; // a run counts as "playing now" for 10 minutes
 const CACHE = 'public, max-age=0, s-maxage=30, stale-while-revalidate=120';
 
-
 // If Redis hiccups while the numbers are being rebuilt, the last good answer
 // goes out instead of an error. It's kept for a week.
 export async function GET() {

@@ -3,7 +3,6 @@
 import type { Ranks } from '../../src/score-types';
 import { K, dayOf, redis } from './db.js';
 
-
 export async function postScore(name: { name: string; key: string }, score: number, now: number): Promise<Ranks> {
   const day = K.boardOn(dayOf(now));
   const p = redis.pipeline();

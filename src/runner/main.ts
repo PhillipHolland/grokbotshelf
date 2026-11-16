@@ -78,11 +78,16 @@ function fmt(n: number) {
   return `${neg ? '-' : ''}${v}${out}`;
 }
 const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
-const rand = <T,>(a: T[]) => a[Math.floor(Math.random() * a.length)];
+const rand = <T>(a: T[]) => a[Math.floor(Math.random() * a.length)];
 
 // ---------- state ----------
 
-interface Shelf { cat: string; bots: Sub[]; pts: number; match: boolean }
+interface Shelf {
+  cat: string;
+  bots: Sub[];
+  pts: number;
+  match: boolean;
+}
 
 const S = {
   on: false,
@@ -414,15 +419,9 @@ function publish() {
   if (match) sfx.featured();
   for (const b of bots) Scene.burst(...above(0.7), catColor(b.cat), 14, 4);
   Scene.publish();
-  const faces = bots
-    .map((b) => `<span>${face(b)}<i>${esc(byline(b))}</i></span>`)
-    .join('');
+  const faces = bots.map((b) => `<span>${face(b)}<i>${esc(byline(b))}</i></span>`).join('');
   const c = CATS.find((x) => x.name === cat);
-  banner(
-    `<em>Shelf published</em><div class="faces">${faces}</div><strong>+${fmt(pts)}${match ? ` <small>All ${esc(c?.short ?? cat)} x3</small>` : ''}</strong>`,
-    'pub',
-    1700,
-  );
+  banner(`<em>Shelf published</em><div class="faces">${faces}</div><strong>+${fmt(pts)}${match ? ` <small>All ${esc(c?.short ?? cat)} x3</small>` : ''}</strong>`, 'pub', 1700);
 }
 
 function hurt(cause: string, kind: EKind, e?: Ent) {
@@ -819,11 +818,50 @@ function intro() {
 function start() {
   resetPools();
   Object.assign(S, {
-    on: true, paused: false, over: false, t: 0, dist: 0, v: 10, score: 0, hearts: HEARTS, combo: 0, lane: 0, x: 0, y: 0, air: -1,
-    inv: 0, slow: 1, shake: 0, squash: 0, ents: [], nextRow: 14, cart: [], shelves: [], grabbed: 0, likes: 0, dodged: 0,
-    seen: new Set<string>(), lastViral: 0, cause: '', dying: 0,
-    rows: 0, lastMove: -9, lastPower: 0, lastTwo: false, shield: 0, magnet: 0, close: 0,
-    turbo: 0, boost: 0, slide: 0, slideNext: false, smashed: 0, zone: 0, zoneAt: ZONE_T, gateOut: false, lastRunaway: 0,
+    on: true,
+    paused: false,
+    over: false,
+    t: 0,
+    dist: 0,
+    v: 10,
+    score: 0,
+    hearts: HEARTS,
+    combo: 0,
+    lane: 0,
+    x: 0,
+    y: 0,
+    air: -1,
+    inv: 0,
+    slow: 1,
+    shake: 0,
+    squash: 0,
+    ents: [],
+    nextRow: 14,
+    cart: [],
+    shelves: [],
+    grabbed: 0,
+    likes: 0,
+    dodged: 0,
+    seen: new Set<string>(),
+    lastViral: 0,
+    cause: '',
+    dying: 0,
+    rows: 0,
+    lastMove: -9,
+    lastPower: 0,
+    lastTwo: false,
+    shield: 0,
+    magnet: 0,
+    close: 0,
+    turbo: 0,
+    boost: 0,
+    slide: 0,
+    slideNext: false,
+    smashed: 0,
+    zone: 0,
+    zoneAt: ZONE_T,
+    gateOut: false,
+    lastRunaway: 0,
   });
   Scene.setZone(0);
   viralDeck.length = 0;
@@ -876,10 +914,13 @@ function gameOver() {
   if (score > prev) localStorage.setItem(BEST, String(score));
   const shelves = S.shelves
     .map(
-      (sh) => `<div class="shelf" style="--c:${catColor(sh.cat)}"><div class="sh-h">${esc(CATS.find((c) => c.name === sh.cat)?.short ?? sh.cat)}${sh.match ? ' · x3' : ''}<span>+${fmt(sh.pts)}</span></div>
+      (
+        sh,
+      ) => `<div class="shelf" style="--c:${catColor(sh.cat)}"><div class="sh-h">${esc(CATS.find((c) => c.name === sh.cat)?.short ?? sh.cat)}${sh.match ? ' · x3' : ''}<span>+${fmt(sh.pts)}</span></div>
       ${sh.bots
         .map(
-          (b) => `<div class="row">${b.avatar ? `<img src="${esc(b.avatar)}" alt="">` : '<i></i>'}<div><a href="${esc(b.url ?? '#')}" target="_blank" rel="noopener">${esc(b.emoji)} ${esc(b.name)}</a>${b.handle ? `<a class="h" href="https://x.com/${esc(b.handle)}" target="_blank" rel="noopener">@${esc(b.handle)}</a>` : `<span class="h">${esc(byline(b))}</span>`}</div></div>`,
+          (b) =>
+            `<div class="row">${b.avatar ? `<img src="${esc(b.avatar)}" alt="">` : '<i></i>'}<div><a href="${esc(b.url ?? '#')}" target="_blank" rel="noopener">${esc(b.emoji)} ${esc(b.name)}</a>${b.handle ? `<a class="h" href="https://x.com/${esc(b.handle)}" target="_blank" rel="noopener">@${esc(b.handle)}</a>` : `<span class="h">${esc(byline(b))}</span>`}</div></div>`,
         )
         .join('')}</div>`,
     )
@@ -1051,7 +1092,16 @@ if (import.meta.env.DEV) {
     programs: () => Scene.programs(),
     perf() {
       const q = (a: number[], p: number) => [...a].sort((x, y) => x - y)[Math.floor(a.length * p)]?.toFixed(1);
-      const r = { workP50: q(work, 0.5), workP95: q(work, 0.95), workMax: q(work, 0.999), gapP50: q(gaps, 0.5), gapP95: q(gaps, 0.95), gapMax: q(gaps, 0.999), long: gaps.filter((g) => g > 25).length, n: gaps.length };
+      const r = {
+        workP50: q(work, 0.5),
+        workP95: q(work, 0.95),
+        workMax: q(work, 0.999),
+        gapP50: q(gaps, 0.5),
+        gapP95: q(gaps, 0.95),
+        gapMax: q(gaps, 0.999),
+        long: gaps.filter((g) => g > 25).length,
+        n: gaps.length,
+      };
       const sp = spikes.splice(0);
       work.length = 0;
       gaps.length = 0;
