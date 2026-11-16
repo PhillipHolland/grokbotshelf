@@ -1,7 +1,8 @@
-// Bot data for Shelf Life.
+// Bot data for Shelf Run: the real bots from src/bots.json, plus the made-up
+// scam bots and accounts the game mixes in.
 // Exports: Kind, Sub, Cat, CATS, PLAY_CATS, catColor, BOT_COUNT, CREATOR_COUNT,
-// tagline, fakeAvatar, FAKE_OFFICIAL, FAKE_PEOPLE, resetPools, realBot,
-// sameCreatorBot, viralBots, creatorDrop, tutorialBots, tutorialMoney, dupeOf, scamBot.
+// byline, tagline, fakeAvatar, FAKE_OFFICIAL, FAKE_PEOPLE, resetPools, realBot,
+// viralBots, dupeOf, scamBot.
 import raw from './bots.json';
 
 // Snapshot of the public list on grokbotshelf.com. Refresh with `npm run sync-bots`.
@@ -31,6 +32,7 @@ export interface Sub {
   creator: string;
   link: string; // shown on the card, no protocol
   url: string | null; // real bots only
+  id: string | null; // the bot's id on x.ai (the part after x.ai/bot/), real bots only. The score API counts these.
   avatar: string | null;
   likes: number;
   key: string; // name + handle of the real bot this card is (or copies)
@@ -127,6 +129,7 @@ function fromRaw(b: RawBot): Sub {
     creator: b.cn || b.h,
     link: `x.ai/bot/${b.u.slice(0, 8)}`,
     url: `https://x.ai/bot/${b.u}`,
+    id: b.u,
     avatar: avatarOf(b),
     likes: b.l,
     key: keyOf(b),
@@ -166,74 +169,9 @@ export function realBot(cat: string, avoid: Set<string>, onShelf: Set<string> = 
   return fromRaw(b);
 }
 
-// Another unseen bot by the same creator in the same category, for the creator bias.
-export function sameCreatorBot(cat: string, handle: string, avoid: Set<string>): Sub | null {
-  if (!handle) return null;
-  const opts = BOTS.filter((b) => b.c === cat && b.h === handle && !avoid.has(keyOf(b)));
-  if (!opts.length) return null;
-  const b = rand(opts);
-  avoid.add(keyOf(b));
-  return fromRaw(b);
-}
-
 // The 14 most liked bots. A Viral card is wild, so its category doesn't matter.
 export function viralBots(): Sub[] {
   return shuffle(BOTS.filter((b) => b.l >= 10)).map((b) => ({ ...fromRaw(b), viral: true }));
-}
-
-// A creator with at least 4 unseen bots in one of `cats`. Prefers categories
-// in `prefer` (the ones with a built shelf). Adds the 4 keys to `avoid`.
-export function creatorDrop(cats: string[], avoid: Set<string>, prefer: string[] = []): { handle: string; creator: string; avatar: string | null; bots: Sub[] } | null {
-  const groups = new Map<string, RawBot[]>();
-  for (const b of BOTS) {
-    if (!b.h || !cats.includes(b.c) || avoid.has(keyOf(b))) continue;
-    const k = `${b.h}|${b.c}`;
-    const g = groups.get(k);
-    if (g) g.push(b);
-    else groups.set(k, [b]);
-  }
-  let cands = [...groups.values()].filter((g) => g.length >= 4);
-  const preferred = cands.filter((g) => prefer.includes(g[0].c));
-  if (preferred.length) cands = preferred;
-  if (!cands.length) return null;
-  // pick the creator first so one prolific account doesn't take every drop
-  const handle = rand([...new Set(cands.map((g) => g[0].h))]);
-  const group = rand(cands.filter((g) => g[0].h === handle));
-  const picks = shuffle([...group]).slice(0, 4);
-  picks.forEach((b) => avoid.add(keyOf(b)));
-  const face = BOTS.find((b) => b.h === handle && b.a);
-  return {
-    handle,
-    creator: group[0].cn || handle,
-    avatar: face ? avatarOf(face) : null,
-    bots: picks.map(fromRaw),
-  };
-}
-
-// Fixed bots for the tutorial so it plays the same every time. Prefers bots
-// whose first sentence fits whole, then ones with a long readable cut.
-function tutorialPick(cat: string, n: number, skip: RawBot[]): RawBot[] {
-  const opts = BOTS.filter((b) => b.c === cat && b.a && !/\bby\b/i.test(b.n))
-    .map((b) => ({ b, t: tagline(b.d) }))
-    .sort((x, y) => Number(x.t.endsWith('…')) - Number(y.t.endsWith('…')) || y.t.length - x.t.length);
-  const out: RawBot[] = [];
-  for (const { b } of opts) {
-    if (out.length === n) break;
-    if (![...skip, ...out].some((p) => p.h === b.h)) out.push(b);
-  }
-  return out;
-}
-const TUT_PROD = tutorialPick('Productivity', 4, []);
-const TUT_MONEY = tutorialPick('Money', 1, TUT_PROD)[0] ?? BOTS.find((b) => b.c === 'Money')!;
-
-// 4 Productivity bots by 4 different creators, all with photos and short taglines.
-export function tutorialBots(): Sub[] {
-  return TUT_PROD.map(fromRaw);
-}
-
-// 1 Money bot by a fifth creator.
-export function tutorialMoney(): Sub {
-  return fromRaw(TUT_MONEY);
 }
 
 export function dupeOf(b: Sub): Sub {
@@ -420,7 +358,7 @@ function fakeId() {
 // `onShelf` (optional) keeps a copycat from copying a bot that is on the wall.
 export function scamBot(tier: 0 | 1 | 2, cats: string[], avoid: Set<string>, onShelf?: Set<string>): Sub {
   const id = ++uid;
-  const base = { uid: id, kind: 'scam' as const, url: null, likes: 0, key: `scam-${id}`, tier };
+  const base = { uid: id, kind: 'scam' as const, url: null, id: null, likes: 0, key: `scam-${id}`, tier };
   const pick = cats.length ? cats : PLAY_CATS;
   if (tier === 0) {
     const [emoji, name, tag, desc, wants] = rand(SCAM_BOTS);

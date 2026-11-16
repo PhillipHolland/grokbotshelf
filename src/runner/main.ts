@@ -910,7 +910,8 @@ function gameOver() {
     shelves: S.shelves.length,
     close: S.close + S.smashed,
     likes: S.likes,
-    bots: S.shelves.flatMap((sh) => sh.bots.map((b) => b.url?.split('/').pop() ?? '')).filter(Boolean),
+    // the full id, not the URL's last part: a few ids have slashes (marketplace/bots/name)
+    bots: S.shelves.flatMap((sh) => sh.bots.map((b) => b.id ?? '')).filter(Boolean),
   };
   void runEnded(result).then((f) => leaderboard(f, score));
 }
