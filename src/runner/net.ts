@@ -2,10 +2,11 @@
 // the game has to work offline and on the plain Vite dev server, which has no
 // /api. Use `vercel dev` to run the game with the API.
 import type { Ranks, Stats } from '../score-types';
+import { load, save } from '../storage';
 
 const NAME = 'shelf-run-name';
-export const savedName = () => localStorage.getItem(NAME) ?? '';
-export const saveName = (name: string) => localStorage.setItem(NAME, name);
+export const savedName = () => load(NAME) ?? '';
+export const saveName = (name: string) => save(NAME, name);
 
 interface Reply<T> {
   ok: boolean;

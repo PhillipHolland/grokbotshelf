@@ -4,14 +4,13 @@
 // featured, streak, post, stack, goal, builder, trend, glitch, fix, hammer, stamp,
 // warn, levelUp, fanfare, land, chord, shred, whoosh, thunk, tick, nail,
 // perfectNail, clatter, crack, siren, arp.
+import { load, save } from './storage';
+
 let ctx: AudioContext | null = null;
 let noiseBuf: AudioBuffer | null = null;
-let muted = false;
-try {
-  muted = localStorage.getItem('shelf-life-muted') === '1';
-} catch {
-  // storage can be blocked
-}
+// The key predates the Shelf Run name. Keep it so players keep their setting.
+const MUTED = 'shelf-life-muted';
+let muted = load(MUTED) === '1';
 
 interface ToneOpts {
   type?: OscillatorType;
@@ -246,10 +245,6 @@ export function isMuted() {
 
 export function toggleMute() {
   muted = !muted;
-  try {
-    localStorage.setItem('shelf-life-muted', muted ? '1' : '0');
-  } catch {
-    // storage can be blocked
-  }
+  save(MUTED, muted ? '1' : '0');
   return muted;
 }

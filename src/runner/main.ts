@@ -13,6 +13,7 @@ import { ZONES, ZONE_T } from './zones';
 import { COMBO_STEP, MAX_MULT, POINTS, POWER_GAP, SLOTS, TURBO_T, TURBO_V, VIRAL_GAP, multFor, speedAt } from '../../api/_lib/balance';
 import { runStarted, runEnded, claimName, savedName, saveName, stats, type Finish } from './net';
 import type { Ranks, Board } from '../score-types';
+import { load, loadJSON, save } from '../storage';
 
 // ---------- tuning ----------
 // Speed, points and anything else the score API checks live in
@@ -269,13 +270,14 @@ const buzz = (p: number | number[]) => navigator.vibrate?.(p);
 
 // One-time hints, the first time each thing shows up. Stored per device.
 const COACH = 'shelf-run-coached';
-const coached = new Set<string>(JSON.parse(localStorage.getItem(COACH) || '[]') as string[]);
+const coachedList = loadJSON<unknown>(COACH, []);
+const coached = new Set<string>(Array.isArray(coachedList) ? coachedList.filter((k): k is string => typeof k === 'string') : []);
 const coachEl = $('#coach');
 let coachTimer = 0;
 function coach(key: string, html: string, ms = 2600, slow = 0) {
   if (coached.has(key)) return;
   coached.add(key);
-  localStorage.setItem(COACH, JSON.stringify([...coached]));
+  save(COACH, JSON.stringify([...coached]));
   coachEl.innerHTML = html;
   coachEl.dataset.k = key;
   coachEl.classList.add('show');
@@ -790,7 +792,7 @@ document.addEventListener('visibilitychange', () => {
 // ---------- screens ----------
 
 const BEST = 'shelf-run-best';
-const best = () => Number(localStorage.getItem(BEST) || 0);
+const best = () => Number(load(BEST)) || 0;
 
 function intro() {
   screenEl.hidden = false;
@@ -911,7 +913,7 @@ function gameOver() {
   S.over = true;
   const prev = best();
   const score = Math.floor(S.score);
-  if (score > prev) localStorage.setItem(BEST, String(score));
+  if (score > prev) save(BEST, String(score));
   const shelves = S.shelves
     .map(
       (
