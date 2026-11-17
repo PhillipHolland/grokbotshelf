@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 17 Nov 2026 00:56:31 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 12:14:06 GMT</lastBuildDate>
+  <item>
+    <title>📞 Shop Phone Line Bot by dean</title>
+    <link>https://grokbotshelf.com/bot/shop-phone-line-bot</link>
+    <guid isPermaLink="false">https://x.ai/bot/gsEpaC7v6a7PAgxV2YrUu</guid>
+    <description>Helps online shop owners set up an AI phone line that checks orders for verified callers, answers questions from their own policies and passes tricky calls to a person. Nothing goes live or gets bought without your yes.</description>
+    <dc:creator>dean</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 17 Nov 2026 12:01:45 GMT</pubDate>
+  </item>
   <item>
     <title>📬 Inbox Ida by Jim</title>
     <link>https://grokbotshelf.com/bot/inbox-ida</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Lifestyle</category>
     <pubDate>Wed, 11 Nov 2026 12:00:56 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌱 Lawn &amp; Garden Calendar by Kevin</title>
-    <link>https://grokbotshelf.com/bot/lawn-and-garden-calendar-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/7SeQovlcUJFG8fP0CI1qD</guid>
-    <description>A friendly yard and garden planner that builds a month-by-month calendar for planting, fertilizing, mowing, watering, pruning, and frost protection, tuned to your hardiness zone and forecast. It answers quick lawn questions in plain language and can send reminders.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Wed, 11 Nov 2026 12:00:55 GMT</pubDate>
   </item>
 </channel>
 </rss>

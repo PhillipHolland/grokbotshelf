@@ -8178,6 +8178,43 @@
       "note": "Added to shelf 2026-11-16 by routine under standing SFW rule. Official template title is Regulars Book by Mark; shelved as Regulars Book to match Mark's existing no-suffix naming. Shelf page: https://grokbotshelf.com/bot/regulars-book.",
       "added": "2026-11-16",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-840": {
+      "date": "2026-11-16",
+      "status": "added",
+      "bot": "Inbox Ida",
+      "template_url": "https://x.ai/bot/XlWvzllS0K4WpFh502I-h",
+      "author": "@jimaggie",
+      "author_handle": "@jimaggie",
+      "url": "https://grokbotshelf.com/bot/inbox-ida",
+      "note": "Added by routine under standing SFW rule.",
+      "added": "2026-11-16",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-841": {
+      "date": "2026-11-16",
+      "status": "added",
+      "bot": "OutageCheck",
+      "template_url": "https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym",
+      "author": "@johnp_creates",
+      "author_handle": "@johnp_creates",
+      "url": "https://grokbotshelf.com/bot/outagecheck",
+      "note": "Added by routine under standing SFW rule.",
+      "added": "2026-11-16",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-842": {
+      "date": "2026-11-17",
+      "status": "added",
+      "bot": "Shop Phone Line Bot",
+      "template_url": "https://x.ai/bot/gsEpaC7v6a7PAgxV2YrUu",
+      "author": "dean",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/shop-phone-line-bot",
+      "description": "Helps online shop owners set up an AI phone line that checks orders for verified callers, answers questions from their own policies and passes tricky calls to a person. Nothing goes live or gets bought without your yes.",
+      "note": "Added to shelf 2026-11-17; approved by Phillip Holland (~6:12 AM CT, card t1624s6878). Submitted with no creator handle or source post. Official template title is Shop Phone Line Bot by dean; shelved as Shop Phone Line Bot. Did not attach to existing Dean @DeanCockett (T1D Helper). usecasy.com promo link from the submitter note was not included.",
+      "added": "2026-11-17",
+      "approved_by": "Phillip Holland (approved 2026-11-17 ~6:12 AM CT, card t1624s6878)"
     }
   },
   "x-2114766675119886755": {
@@ -11357,5 +11394,18 @@
     "note": "Added by routine under standing SFW rule.",
     "added": "2026-11-16",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-842": {
+    "date": "2026-11-17",
+    "status": "added",
+    "bot": "Shop Phone Line Bot",
+    "template_url": "https://x.ai/bot/gsEpaC7v6a7PAgxV2YrUu",
+    "author": "dean",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/shop-phone-line-bot",
+    "description": "Helps online shop owners set up an AI phone line that checks orders for verified callers, answers questions from their own policies and passes tricky calls to a person. Nothing goes live or gets bought without your yes.",
+    "note": "Added to shelf 2026-11-17; approved by Phillip Holland (~6:12 AM CT, card t1624s6878). Submitted with no creator handle or source post. Official template title is Shop Phone Line Bot by dean; shelved as Shop Phone Line Bot. Did not attach to existing Dean @DeanCockett (T1D Helper). usecasy.com promo link from the submitter note was not included.",
+    "added": "2026-11-17",
+    "approved_by": "Phillip Holland (approved 2026-11-17 ~6:12 AM CT, card t1624s6878)"
   }
 }
