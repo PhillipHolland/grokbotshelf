@@ -8228,16 +8228,6 @@
       "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Best Seat Movie Bot by Erinn. Reused existing Erinn @ErinnFL avatar.",
       "added": "2026-11-17",
       "approved_by": "Phillip Holland (standing SFW rule)"
-    },
-    "form-844": {
-      "status": "added",
-      "author": "@xenappblog",
-      "bot": "Runner · Ops Routines by Trond",
-      "template_url": "https://x.ai/bot/63dRC_WwixVaFMOcvhGEo",
-      "url": "",
-      "note": "site form #844",
-      "date": "2026-11-17",
-      "approved_by": "Phillip Holland (standing auto-shelve rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11443,5 +11433,15 @@
     "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Best Seat Movie Bot by Erinn. Reused existing Erinn @ErinnFL avatar.",
     "added": "2026-11-17",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-844": {
+    "status": "added",
+    "author": "@xenappblog",
+    "bot": "Runner · Ops Routines by Trond",
+    "template_url": "https://x.ai/bot/63dRC_WwixVaFMOcvhGEo",
+    "url": "",
+    "note": "site form #844",
+    "date": "2026-11-17",
+    "approved_by": "Phillip Holland (standing auto-shelve rule)"
   }
 }
