@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 17 Nov 2026 12:14:06 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 15:42:59 GMT</lastBuildDate>
+  <item>
+    <title>🎬 Best Seat Movie Bot by Erinn</title>
+    <link>https://grokbotshelf.com/bot/best-seat-movie-bot-by-erinn</link>
+    <guid isPermaLink="false">https://x.ai/bot/_Zz71Q1ne5H2OcDRxGulz</guid>
+    <description>Skip the movie apps. Get the best seats in the house, straight from the theater&apos;s own seat map. It books with your OK, adds it to your calendar, invites your crew, and finds deals, trailers, and spoiler free family checks.</description>
+    <dc:creator>Erinn (@ErinnFL)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 17 Nov 2026 12:01:46 GMT</pubDate>
+  </item>
   <item>
     <title>📞 Shop Phone Line Bot by dean</title>
     <link>https://grokbotshelf.com/bot/shop-phone-line-bot</link>
@@ -447,15 +456,6 @@
     <dc:creator>Brandon Barton (@BrandonBarton26)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Wed, 11 Nov 2026 12:00:57 GMT</pubDate>
-  </item>
-  <item>
-    <title>📱 First Phone Readiness Coach by Kevin</title>
-    <link>https://grokbotshelf.com/bot/first-phone-readiness-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/4D7XW8i6Iz1eBeMsbh6mx</guid>
-    <description>Helps parents decide if their child is ready for a first phone or smartwatch, then set it up well with parental controls, a family phone agreement, and 30-day check-ins.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Wed, 11 Nov 2026 12:00:56 GMT</pubDate>
   </item>
 </channel>
 </rss>

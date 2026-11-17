@@ -8215,6 +8215,19 @@
       "note": "Added to shelf 2026-11-17; approved by Phillip Holland (~6:12 AM CT, card t1624s6878). Submitted with no creator handle or source post. Official template title is Shop Phone Line Bot by dean; shelved as Shop Phone Line Bot. Did not attach to existing Dean @DeanCockett (T1D Helper). usecasy.com promo link from the submitter note was not included.",
       "added": "2026-11-17",
       "approved_by": "Phillip Holland (approved 2026-11-17 ~6:12 AM CT, card t1624s6878)"
+    },
+    "form-843": {
+      "date": "2026-11-17",
+      "status": "added",
+      "bot": "Best Seat Movie Bot by Erinn",
+      "template_url": "https://x.ai/bot/_Zz71Q1ne5H2OcDRxGulz",
+      "author": "@ErinnFL",
+      "author_handle": "@ErinnFL",
+      "url": "https://grokbotshelf.com/bot/best-seat-movie-bot-by-erinn",
+      "description": "Skip the movie apps. Get the best seats in the house, straight from the theater's own seat map. It books with your OK, adds it to your calendar, invites your crew, and finds deals, trailers, and spoiler free family checks.",
+      "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Best Seat Movie Bot by Erinn. Reused existing Erinn @ErinnFL avatar.",
+      "added": "2026-11-17",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11407,5 +11420,18 @@
     "note": "Added to shelf 2026-11-17; approved by Phillip Holland (~6:12 AM CT, card t1624s6878). Submitted with no creator handle or source post. Official template title is Shop Phone Line Bot by dean; shelved as Shop Phone Line Bot. Did not attach to existing Dean @DeanCockett (T1D Helper). usecasy.com promo link from the submitter note was not included.",
     "added": "2026-11-17",
     "approved_by": "Phillip Holland (approved 2026-11-17 ~6:12 AM CT, card t1624s6878)"
+  },
+  "form-843": {
+    "date": "2026-11-17",
+    "status": "added",
+    "bot": "Best Seat Movie Bot by Erinn",
+    "template_url": "https://x.ai/bot/_Zz71Q1ne5H2OcDRxGulz",
+    "author": "@ErinnFL",
+    "author_handle": "@ErinnFL",
+    "url": "https://grokbotshelf.com/bot/best-seat-movie-bot-by-erinn",
+    "description": "Skip the movie apps. Get the best seats in the house, straight from the theater's own seat map. It books with your OK, adds it to your calendar, invites your crew, and finds deals, trailers, and spoiler free family checks.",
+    "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Best Seat Movie Bot by Erinn. Reused existing Erinn @ErinnFL avatar.",
+    "added": "2026-11-17",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }
