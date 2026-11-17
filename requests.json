@@ -8228,6 +8228,32 @@
       "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Best Seat Movie Bot by Erinn. Reused existing Erinn @ErinnFL avatar.",
       "added": "2026-11-17",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "x-2122722531278795061": {
+      "date": "2026-11-17",
+      "status": "added",
+      "bot": "Serial Return Watch",
+      "template_url": "https://x.ai/bot/XHt4xaX22jUw6aFrRu3JH",
+      "author": "@TheMarkGShow",
+      "author_handle": "@TheMarkGShow",
+      "url": "https://x.com/TheMarkGShow/status/2122722531278795061",
+      "description": "Helps small online sellers on Shopify, Etsy, eBay, WooCommerce and TikTok Shop catch repeat returners and wardrobing before a refund goes out. It scores each return against your store's baseline, gives you an inspection checklist, and drafts calm, policy-based replies, and it never acts without your tap.",
+      "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Serial Return Watch by Mark; shelved as Serial Return Watch to match Mark's existing no-suffix naming. Reused existing Mark @TheMarkGShow avatar. Shelf page: https://grokbotshelf.com/bot/serial-return-watch.",
+      "added": "2026-11-17",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-844": {
+      "status": "added",
+      "author": "@xenappblog",
+      "author_handle": "@xenappblog",
+      "bot": "Runner · Ops Routines by Trond",
+      "template_url": "https://x.ai/bot/63dRC_WwixVaFMOcvhGEo",
+      "url": "https://grokbotshelf.com/bot/runner-ops-routines-by-trond",
+      "description": "A lean routine runner that executes your standing scheduled and webhook jobs on a short, low-usage chat and delivers each result where it belongs.",
+      "note": "Added to shelf 2026-11-17 by routine under standing SFW rule (commit c49286ab8). Official template title is Runner · Ops Routines by Trond. OG share card was missing from that commit and was drawn in the follow-up batch. site form #844.",
+      "date": "2026-11-17",
+      "added": "2026-11-17",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11437,11 +11463,27 @@
   "form-844": {
     "status": "added",
     "author": "@xenappblog",
+    "author_handle": "@xenappblog",
     "bot": "Runner · Ops Routines by Trond",
     "template_url": "https://x.ai/bot/63dRC_WwixVaFMOcvhGEo",
-    "url": "",
-    "note": "site form #844",
+    "url": "https://grokbotshelf.com/bot/runner-ops-routines-by-trond",
+    "description": "A lean routine runner that executes your standing scheduled and webhook jobs on a short, low-usage chat and delivers each result where it belongs.",
+    "note": "Added to shelf 2026-11-17 by routine under standing SFW rule (commit c49286ab8). Official template title is Runner · Ops Routines by Trond. OG share card was missing from that commit and was drawn in the follow-up batch. site form #844.",
     "date": "2026-11-17",
-    "approved_by": "Phillip Holland (standing auto-shelve rule)"
+    "added": "2026-11-17",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "x-2122722531278795061": {
+    "date": "2026-11-17",
+    "status": "added",
+    "bot": "Serial Return Watch",
+    "template_url": "https://x.ai/bot/XHt4xaX22jUw6aFrRu3JH",
+    "author": "@TheMarkGShow",
+    "author_handle": "@TheMarkGShow",
+    "url": "https://x.com/TheMarkGShow/status/2122722531278795061",
+    "description": "Helps small online sellers on Shopify, Etsy, eBay, WooCommerce and TikTok Shop catch repeat returners and wardrobing before a refund goes out. It scores each return against your store's baseline, gives you an inspection checklist, and drafts calm, policy-based replies, and it never acts without your tap.",
+    "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Serial Return Watch by Mark; shelved as Serial Return Watch to match Mark's existing no-suffix naming. Reused existing Mark @TheMarkGShow avatar. Shelf page: https://grokbotshelf.com/bot/serial-return-watch.",
+    "added": "2026-11-17",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

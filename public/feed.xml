@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 17 Nov 2026 19:25:03 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 21:24:04 GMT</lastBuildDate>
+  <item>
+    <title>🔄 Serial Return Watch by Mark</title>
+    <link>https://grokbotshelf.com/bot/serial-return-watch</link>
+    <guid isPermaLink="false">https://x.ai/bot/XHt4xaX22jUw6aFrRu3JH</guid>
+    <description>Helps small online sellers on Shopify, Etsy, eBay, WooCommerce and TikTok Shop catch repeat returners and wardrobing before a refund goes out. It scores each return against your store&apos;s baseline, gives you an inspection checklist, and drafts calm, policy-based replies, and it never acts without your tap.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Tue, 17 Nov 2026 12:01:48 GMT</pubDate>
+  </item>
   <item>
     <title>⚙️ Runner · Ops Routines by Trond</title>
     <link>https://grokbotshelf.com/bot/runner-ops-routines-by-trond</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Productivity</category>
     <pubDate>Wed, 11 Nov 2026 12:00:59 GMT</pubDate>
-  </item>
-  <item>
-    <title>💸 Settlement &amp; Breach Payout Finder by Kevin</title>
-    <link>https://grokbotshelf.com/bot/settlement-and-breach-payout-finder-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/gAecvrBvQ5hh3C7QbiWpo</guid>
-    <description>Finds open class action settlements and data breach payouts you may qualify for, with deadlines, proof needed, and payout estimates, and preps claim answers for you to submit on the official site.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Wed, 11 Nov 2026 12:00:58 GMT</pubDate>
   </item>
 </channel>
 </rss>
