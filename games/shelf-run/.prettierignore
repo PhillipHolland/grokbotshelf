@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+src/bots.json
+api/_lib/bots.ts
+public
+playwright-report
+test-results

@@ -1,0 +1,28 @@
+name: Shelf Run
+
+# Checks the game in games/shelf-run. Only runs when the game changes.
+on:
+  push:
+    branches: [master]
+    paths: ['games/shelf-run/**', '.github/workflows/shelf-run.yml']
+  pull_request:
+    paths: ['games/shelf-run/**', '.github/workflows/shelf-run.yml']
+
+defaults:
+  run:
+    working-directory: games/shelf-run
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: games/shelf-run/.nvmrc
+          cache: npm
+          cache-dependency-path: games/shelf-run/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run check
