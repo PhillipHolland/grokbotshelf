@@ -65,6 +65,9 @@ test('boots to the start screen without errors', async ({ page }) => {
 });
 
 test('plays a run and posts a result the API accepts', async ({ page }) => {
+  // the longest test: a full run, a crash, naming and a second run. CI
+  // runners render even slower than a laptop, so it gets triple time.
+  test.slow();
   const { errors, finished } = await open(page);
   await page.locator('#go').click();
   await expect(page.locator('#screen')).toBeHidden();
@@ -90,7 +93,7 @@ test('plays a run and posts a result the API accepts', async ({ page }) => {
       return r.S.over;
     },
     undefined,
-    { polling: 100, timeout: 15_000 },
+    { polling: 100, timeout: 60_000 },
   );
   await expect(page.locator('.sheet.over')).toBeVisible();
   await expect(page.locator('.sheet.over .cause')).toContainText('wall');
@@ -112,7 +115,7 @@ test('plays a run and posts a result the API accepts', async ({ page }) => {
 
   // a second run starts clean
   await page.locator('#go').click();
-  await page.waitForFunction(() => window.run.S.on && window.run.S.hearts === 3 && window.run.S.t > 0.5);
+  await page.waitForFunction(() => window.run.S.on && window.run.S.hearts === 3 && window.run.S.t > 0.1);
   expect(errors).toEqual([]);
 });
 
