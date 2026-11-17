@@ -68,4 +68,7 @@ This downloads the current list from grokbotshelf.com into `src/bots.json`, save
 
 ## Deploy
 
+The game lives in `games/shelf-run/` of the grokbotshelf repo. Its Vercel project must have **Root Directory** set to `games/shelf-run`, so Vercel finds this folder's `package.json`, `vercel.json` and `api/`.
+
+
 `npm run build` typechecks the game and the API and writes the site to `dist/`. Speed and scoring numbers live in `api/_lib/balance.ts`, which both the game and the API import. Vercel builds the same way and deploys the functions in `api/` next to it.

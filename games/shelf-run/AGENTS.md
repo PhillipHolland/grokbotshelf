@@ -1,10 +1,10 @@
 # Working on Shelf Run
 
-Guide for AI agents (and people) changing this repo. Read this before you edit anything. README.md covers what the game is and how to deploy it.
+Guide for AI agents (and people) changing the game. It lives in `games/shelf-run/` inside the grokbotshelf repo; run every command below from this folder, not the repo root (the site at the root has its own build and tests). Read this before you edit anything. README.md covers what the game is and how to deploy it.
 
 ## Before you say you're done
 
-Run the full check. It is the same thing CI runs.
+Run the full check. It is the same thing CI runs (`.github/workflows/shelf-run.yml` at the repo root, on any change under `games/shelf-run/`).
 
 ```bash
 npm ci                       # once
