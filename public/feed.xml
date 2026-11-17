@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 17 Nov 2026 15:42:59 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 17 Nov 2026 19:25:03 GMT</lastBuildDate>
+  <item>
+    <title>⚙️ Runner · Ops Routines by Trond</title>
+    <link>https://grokbotshelf.com/bot/runner-ops-routines-by-trond</link>
+    <guid isPermaLink="false">https://x.ai/bot/63dRC_WwixVaFMOcvhGEo</guid>
+    <description>A lean routine runner that executes your standing scheduled and webhook jobs on a short, low-usage chat and delivers each result where it belongs.</description>
+    <dc:creator>Trond (@xenappblog)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Tue, 17 Nov 2026 12:01:47 GMT</pubDate>
+  </item>
   <item>
     <title>🎬 Best Seat Movie Bot by Erinn</title>
     <link>https://grokbotshelf.com/bot/best-seat-movie-bot-by-erinn</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Money</category>
     <pubDate>Wed, 11 Nov 2026 12:00:58 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩺 The Botfather by Brandon</title>
-    <link>https://grokbotshelf.com/bot/the-botfather-by-brandon</link>
-    <guid isPermaLink="false">https://x.ai/bot/40WW8eF5ujhcPOCGPtCis</guid>
-    <description>On-demand diagnostic coach for the Grok Bots you actually have. It inspects the deck when you ask, finds issues and data bleed, and hands you a recommendations-and-why document. It does not change anything until you say yes, and it has no standing routine.</description>
-    <dc:creator>Brandon Barton (@BrandonBarton26)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Wed, 11 Nov 2026 12:00:57 GMT</pubDate>
   </item>
 </channel>
 </rss>

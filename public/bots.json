@@ -14382,5 +14382,18 @@
     "creator_avatar": "/avatars/erinnfl.webp",
     "source_post": "",
     "added": "2026-11-17"
+  },
+  {
+    "name": "Runner · Ops Routines by Trond",
+    "emoji": "⚙️",
+    "description": "A lean routine runner that executes your standing scheduled and webhook jobs on a short, low-usage chat and delivers each result where it belongs.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/63dRC_WwixVaFMOcvhGEo",
+    "creator_name": "Trond",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "creator_avatar": "/avatars/xenappblog.webp",
+    "source_post": "",
+    "added": "2026-11-17"
   }
 ]
