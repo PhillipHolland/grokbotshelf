@@ -1,0 +1,49 @@
+name: test
+
+# Runs on every pull request and on master, so a bad bots.json edit or a broken page is caught before Vercel deploys
+# it. Vercel still deploys from the Git integration; this only reports.
+#
+# check: bots.json validation and every node suite (no browser). About a minute, and the first thing to look at.
+# browser: the browser suites against a fresh local build. Runs only when check passes, so a broken build fails once.
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Validate bots.json and run the node suites
+        run: npm run check
+
+  browser:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      # The GitHub runner image ships Chrome at /usr/bin/google-chrome, the path the tests default to.
+      - name: Run the browser suites
+        run: npm run test:browser
+        env:
+          CHROME: /usr/bin/google-chrome

@@ -56,7 +56,7 @@ const settle = (ms = 300) => new Promise((r) => setTimeout(r, ms));
       const t0 = await p.$eval(`[aria-labelledby="g-${key}"]`, (e) => e.getBoundingClientRect().top), k0 = await p.$$eval(`[aria-labelledby="g-${key}"] .card`, (c) => c.length);
       await p.click(`[data-more="${key}"]`); await painted(p); await settle(200);
       const s = await p.evaluate((key, k0) => { const g = document.querySelector(`[aria-labelledby="g-${key}"]`), cs = g.querySelectorAll('.card'); return { top: g.getBoundingClientRect().top, n: cs.length, focus: document.activeElement === cs[k0] }; }, key, k0);
-      ok(s.n > k0 && s.focus && Math.abs(s.top - t0) < 1, `${label}: Show more mid-page on ${key} adds ${s.n - k0} cards, focuses the first new one, the group stays at ${Math.round(t0)}px`);
+      ok(s.n > k0 && s.focus && Math.abs(s.top - t0) < 1, `${label}: Show more mid-page on ${key} adds ${s.n - k0} cards, focuses the first new one, the group stays at ${Math.round(t0)}px (now ${s.top.toFixed(1)}px, focus on the new card: ${s.focus})`);
     } else ok(true, `${label}: no Show more on screen mid-page to check`);
     const cls = await p.evaluate(() => window.__cls);
     // Budget 0.01, not 0: about one run in two, half a second after Show more, the groups under it settle 15px lower (a

@@ -3,3 +3,8 @@ shots
 build
 README.md
 .env*
+package.json
+package-lock.json
+.github
+CLAUDE.md
+AGENTS.md
