@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Mon, 16 Nov 2026 01:21:21 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 16 Nov 2026 19:19:02 GMT</lastBuildDate>
+  <item>
+    <title>📬 Inbox Ida by Jim</title>
+    <link>https://grokbotshelf.com/bot/inbox-ida</link>
+    <guid isPermaLink="false">https://x.ai/bot/XlWvzllS0K4WpFh502I-h</guid>
+    <description>A calm inbox helper for Gmail, Outlook and Yahoo. She plans cleanups, suggests labels and filters, sends a weekly digest of what needs you, and flags scams and phishing, and never changes mail without your OK.</description>
+    <dc:creator>Jim (@jimaggie)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 16 Nov 2026 12:01:44 GMT</pubDate>
+  </item>
+  <item>
+    <title>🚦 OutageCheck by John</title>
+    <link>https://grokbotshelf.com/bot/outagecheck</link>
+    <guid isPermaLink="false">https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym</guid>
+    <description>Tells you in seconds if a service is really down or it&apos;s just you, with a status card, the official status link, and an alert when it&apos;s fixed.</description>
+    <dc:creator>John (@johnp_creates)</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Mon, 16 Nov 2026 12:01:43 GMT</pubDate>
+  </item>
+  <item>
+    <title>📒 Regulars Book by Mark</title>
+    <link>https://grokbotshelf.com/bot/regulars-book</link>
+    <guid isPermaLink="false">https://x.ai/bot/5LlCDccEApOJF7FoU7iOl</guid>
+    <description>A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 16 Nov 2026 12:01:42 GMT</pubDate>
+  </item>
   <item>
     <title>📚 BookReader BOT by Vince</title>
     <link>https://grokbotshelf.com/bot/bookreader-bot-by-vince</link>
@@ -429,33 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
     <pubDate>Wed, 11 Nov 2026 12:00:55 GMT</pubDate>
-  </item>
-  <item>
-    <title>📡 DEX Liquidity Radar by Igor</title>
-    <link>https://grokbotshelf.com/bot/dex-liquidity-radar-by-igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/5SmU-hS3gxAtORbkN795j</guid>
-    <description>Plain-English liquidity and volume alerts for tokens and pools you watch, from public DEX data. Read-only: no wallets, no trades, not financial advice.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
-    <category>Money</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:54 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔌 MCP Builder Coach by Igor</title>
-    <link>https://grokbotshelf.com/bot/mcp-builder-coach-by-igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/xlV95BMVhC6tLDnQ-gFVs</guid>
-    <description>Scaffolds, tests, and documents a Model Context Protocol (MCP) server for your API so AI agents can use it.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:53 GMT</pubDate>
-  </item>
-  <item>
-    <title>📍 Nearby Reminders by Kevin</title>
-    <link>https://grokbotshelf.com/bot/nearby-reminders-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/osi4qnCsyi_E_58tQShCJ</guid>
-    <description>A location-based to-do list: tie items to a store, address, or kind of place, and it nudges you when your phone shows you&apos;re nearby.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 10 Nov 2026 12:00:52 GMT</pubDate>
   </item>
 </channel>
 </rss>

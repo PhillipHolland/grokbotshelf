@@ -14317,5 +14317,44 @@
     "creator_avatar": "/avatars/vince_edwardsnz.webp",
     "source_post": "",
     "added": "2026-11-15"
+  },
+  {
+    "name": "Regulars Book",
+    "emoji": "📒",
+    "description": "A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/5LlCDccEApOJF7FoU7iOl",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2122359656286716011",
+    "added": "2026-11-16"
+  },
+  {
+    "name": "OutageCheck",
+    "emoji": "🚦",
+    "description": "Tells you in seconds if a service is really down or it's just you, with a status card, the official status link, and an alert when it's fixed.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym",
+    "creator_name": "John",
+    "creator_handle": "@johnp_creates",
+    "creator_url": "https://x.com/johnp_creates",
+    "creator_avatar": "/avatars/johnp_creates.webp",
+    "source_post": "https://x.com/johnp_creates/status/2122399972809167194",
+    "added": "2026-11-16"
+  },
+  {
+    "name": "Inbox Ida",
+    "emoji": "📬",
+    "description": "A calm inbox helper for Gmail, Outlook and Yahoo. She plans cleanups, suggests labels and filters, sends a weekly digest of what needs you, and flags scams and phishing, and never changes mail without your OK.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/XlWvzllS0K4WpFh502I-h",
+    "creator_name": "Jim",
+    "creator_handle": "@jimaggie",
+    "creator_url": "https://x.com/jimaggie",
+    "creator_avatar": "/avatars/jimaggie.webp",
+    "source_post": "",
+    "added": "2026-11-16"
   }
 ]
