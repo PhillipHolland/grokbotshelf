@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 18 Nov 2026 22:40:11 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 23:22:08 GMT</lastBuildDate>
+  <item>
+    <title>📱 iPhone Screenshot Bot by Ryan</title>
+    <link>https://grokbotshelf.com/bot/iphone-screenshot-bot-by-ryan</link>
+    <guid isPermaLink="false">https://x.ai/bot/BlzS2Llj7_9VSmi3TjX0r</guid>
+    <description>Send it app screenshots and get clean iPhone mockups back, on white, dark glow, gradient, soft light-gold, or custom-color backgrounds, with your own logo at the bottom if you want. Every phone stays the same size, with adjustable colors and spacing.</description>
+    <dc:creator>Ryan (@RyDawg42)</dc:creator>
+    <category>Design</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:55 GMT</pubDate>
+  </item>
   <item>
     <title>🎁 Personalized Gift Finder by Enigma</title>
     <link>https://grokbotshelf.com/bot/personalized-gift-finder-by-enigma</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
     <pubDate>Wed, 11 Nov 2026 12:01:06 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 Real or AI Checker by Kevin</title>
-    <link>https://grokbotshelf.com/bot/real-or-ai-checker-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/qdIo7QnsU0AQYQLLhQCSr</guid>
-    <description>Checks whether a photo, video, audio clip, screenshot, document, or link might be AI-generated or altered before you share it or act on it, and gives a plain confidence rating with reasons.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Security</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:05 GMT</pubDate>
   </item>
 </channel>
 </rss>
