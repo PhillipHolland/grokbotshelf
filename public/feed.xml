@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 18 Nov 2026 17:40:08 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 22:40:11 GMT</lastBuildDate>
+  <item>
+    <title>🎁 Personalized Gift Finder by Enigma</title>
+    <link>https://grokbotshelf.com/bot/personalized-gift-finder-by-enigma</link>
+    <guid isPermaLink="false">https://x.ai/bot/DPZTcAoW-NKyHtpsjGF4c</guid>
+    <description>Tell it who you&apos;re shopping for, the occasion and your budget, and get personalized gift picks with links, today&apos;s prices, matching gift sets, card wording and order-by dates. It remembers your people and reminds you before birthdays and holidays.</description>
+    <dc:creator>Enigma</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:54 GMT</pubDate>
+  </item>
   <item>
     <title>🛡️ Claim Fight Desk by Mark</title>
     <link>https://grokbotshelf.com/bot/claim-fight-desk</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Security</category>
     <pubDate>Wed, 11 Nov 2026 12:01:05 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚕 Robotaxi vs. Car Ownership Advisor by Kevin</title>
-    <link>https://grokbotshelf.com/bot/robotaxi-vs-car-ownership-advisor-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/gzyz_yd5BdKc8UukU-EqY</guid>
-    <description>Figures out whether your car is worth keeping by comparing the true cost of ownership with robotaxis, rideshare, and other rides where you live. Gives a keep, downsize, or switch call with the break-even point and sourced fare assumptions.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Money</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:04 GMT</pubDate>
   </item>
 </channel>
 </rss>
