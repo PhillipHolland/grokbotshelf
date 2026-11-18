@@ -14421,5 +14421,57 @@
     "creator_avatar": "/avatars/justinfredette.webp",
     "source_post": "",
     "added": "2026-11-18"
+  },
+  {
+    "name": "Jimothy's Post Helper by Santa",
+    "emoji": "📅",
+    "description": "Free social post helper for small businesses with no marketing budget (cafes, salons, food trucks, shops). Jimothy the raccoon plans your week of posts, keeps a simple post list, learns your voice, and never posts on his own. Needs a Grok Bot plan; not affiliated with Instagram, Facebook, TikTok, X, or Google.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/8ZxTxS1xgvG_SWG9KVwp_",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "https://x.com/JimothyRac/status/2122916554031718755",
+    "added": "2026-11-18"
+  },
+  {
+    "name": "Jimothy's Inventory Helper by Santa",
+    "emoji": "📦",
+    "description": "Jimothy the raccoon helps owner-run shops keep a simple stock list, update counts in chat, and flag items below the par level you set. He can draft supplier reorder lists and email drafts for you to check and send; he never sends or pays on his own. Cost figures are facts and arithmetic, not financial, tax, or pricing advice.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/qcxArHDrA0e3H_rGQwn0w",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "https://x.com/JimothyRac/status/2122916554031718755",
+    "added": "2026-11-18"
+  },
+  {
+    "name": "Giving Guide by Santa",
+    "emoji": "🎁",
+    "description": "Checks a charity against public records before you give. Tell it the causes you care about and where you live for three live-checked options, or paste a name for a plain-English report with ratings, money and red flags. It never handles your money and uses no affiliate links. Information only, not tax, legal or financial advice. Data may be out of date or wrong, so check before you give.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/KZqUt1PM741V0ly8fOr94",
+    "creator_name": "Jim",
+    "creator_handle": "@JimothyRac",
+    "creator_url": "https://x.com/JimothyRac",
+    "creator_avatar": "/avatars/jimothyrac.webp",
+    "source_post": "https://x.com/JimothyRac/status/2122916554031718755",
+    "added": "2026-11-18"
+  },
+  {
+    "name": "Claim Fight Desk",
+    "emoji": "🛡️",
+    "description": "Helps creators, streamers, YouTubers, podcasters, and comedy creators fight false Content ID claims, copyright strikes, and Twitch VOD audio mutes. It watches claim emails, logs cases with deadlines, and drafts dispute language for the owner to review and submit.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/wU5m9FJglR9nw0EHewRLO",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2123085011200995716",
+    "added": "2026-11-18"
   }
 ]
