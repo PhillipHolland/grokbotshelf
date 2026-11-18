@@ -8254,6 +8254,27 @@
       "date": "2026-11-17",
       "added": "2026-11-17",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-846": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "Fleet Credit Saver v2",
+      "template_url": "https://x.ai/bot/SjTK9SoaPKcIw-FVoThhe",
+      "author": "@justinfredette",
+      "author_handle": "@justinfredette",
+      "url": "https://grokbotshelf.com/bot/fleet-credit-saver-v2",
+      "description": "Finds which of your bots and routines use the most for the least value, including bots waking each other and group-chat pile-ons, and helps you fix them one step at a time with your yes. For anyone running several bots who keeps hitting usage limits.",
+      "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is Fleet Credit Saver v2 by Justin; shelved as Fleet Credit Saver v2. New creator; avatar from the real X profile photo of @justinfredette (not the existing Justin @iamthejustin). No source post; site form #846.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-845": {
+      "status": "pending-no-handle",
+      "author": "",
+      "bot": "Foodbot",
+      "template_url": "https://x.ai/bot/WY3FkPyLoNqwayRwtjuPu",
+      "note": "site form #845; orders food (spends money), no handle",
+      "date": "2026-11-18"
     }
   },
   "x-2114766675119886755": {
@@ -11484,6 +11505,19 @@
     "description": "Helps small online sellers on Shopify, Etsy, eBay, WooCommerce and TikTok Shop catch repeat returners and wardrobing before a refund goes out. It scores each return against your store's baseline, gives you an inspection checklist, and drafts calm, policy-based replies, and it never acts without your tap.",
     "note": "Added to shelf 2026-11-17 by routine under standing SFW rule. Official template title is Serial Return Watch by Mark; shelved as Serial Return Watch to match Mark's existing no-suffix naming. Reused existing Mark @TheMarkGShow avatar. Shelf page: https://grokbotshelf.com/bot/serial-return-watch.",
     "added": "2026-11-17",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-846": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Fleet Credit Saver v2",
+    "template_url": "https://x.ai/bot/SjTK9SoaPKcIw-FVoThhe",
+    "author": "@justinfredette",
+    "author_handle": "@justinfredette",
+    "url": "https://grokbotshelf.com/bot/fleet-credit-saver-v2",
+    "description": "Finds which of your bots and routines use the most for the least value, including bots waking each other and group-chat pile-ons, and helps you fix them one step at a time with your yes. For anyone running several bots who keeps hitting usage limits.",
+    "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is Fleet Credit Saver v2 by Justin; shelved as Fleet Credit Saver v2. New creator; avatar from the real X profile photo of @justinfredette (not the existing Justin @iamthejustin). No source post; site form #846.",
+    "added": "2026-11-18",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

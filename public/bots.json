@@ -14408,5 +14408,18 @@
     "creator_avatar": "/avatars/themarkgshow.webp",
     "source_post": "https://x.com/TheMarkGShow/status/2122722531278795061",
     "added": "2026-11-17"
+  },
+  {
+    "name": "Fleet Credit Saver v2",
+    "emoji": "⛽",
+    "description": "Finds which of your bots and routines use the most for the least value, including bots waking each other and group-chat pile-ons, and helps you fix them one step at a time with your yes. For anyone running several bots who keeps hitting usage limits.",
+    "category": "Bot Tools",
+    "url": "https://x.ai/bot/SjTK9SoaPKcIw-FVoThhe",
+    "creator_name": "Justin",
+    "creator_handle": "@justinfredette",
+    "creator_url": "https://x.com/justinfredette",
+    "creator_avatar": "/avatars/justinfredette.webp",
+    "source_post": "",
+    "added": "2026-11-18"
   }
 ]

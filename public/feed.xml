@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 17 Nov 2026 21:24:04 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 15:21:29 GMT</lastBuildDate>
+  <item>
+    <title>⛽ Fleet Credit Saver v2 by Justin</title>
+    <link>https://grokbotshelf.com/bot/fleet-credit-saver-v2</link>
+    <guid isPermaLink="false">https://x.ai/bot/SjTK9SoaPKcIw-FVoThhe</guid>
+    <description>Finds which of your bots and routines use the most for the least value, including bots waking each other and group-chat pile-ons, and helps you fix them one step at a time with your yes. For anyone running several bots who keeps hitting usage limits.</description>
+    <dc:creator>Justin (@justinfredette)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:49 GMT</pubDate>
+  </item>
   <item>
     <title>🔄 Serial Return Watch by Mark</title>
     <link>https://grokbotshelf.com/bot/serial-return-watch</link>
@@ -447,15 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Home</category>
     <pubDate>Wed, 11 Nov 2026 12:01:00 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚨 Tripwire by Kevin</title>
-    <link>https://grokbotshelf.com/bot/tripwire-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/5t71N1zy3I_uVsDjg5Vb0</guid>
-    <description>A daily pre-mortem for your life. Each morning it looks across your calendar, email, weather, and the things you own, warns you about the one or two things most likely to go wrong today or this week with a two-minute fix, and stays silent when nothing is at risk.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Wed, 11 Nov 2026 12:00:59 GMT</pubDate>
   </item>
 </channel>
 </rss>
