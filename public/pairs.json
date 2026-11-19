@@ -1,7 +1,7 @@
 {
  "version": 1,
  "tag": "botshelf-20",
- "generated": "2026-11-19T19:17:07.706Z",
+ "generated": "2026-11-19T21:19:48.326Z",
  "note": "One key per bot slug. Rows without auto are curated and pairs-gen will not replace them. auto:true rows come from scripts/pairs.js (named match only when the bot name contains the product, strong phrase, phrase plus support). A new auto product id is probation:true until pairs-overrides.json promote lists it, or pair-signals.json has min real pair_click counts. Empty is correct when nothing scores 4 or 5. Overrides in pairs-overrides.json still win at render. node scripts/pairs-gen.js after a new bot; add --backfill after products.json changes.",
  "pairs": {
   "archivist": [],
@@ -2597,6 +2597,24 @@
   "submit-bot-by-rob": [],
   "go-live-hype-man": [],
   "sitter-desk": [],
-  "delta-starlink-broken-record-by-kevin": []
+  "delta-starlink-broken-record-by-kevin": [],
+  "ultimate-weather-bot-by-kevin": [],
+  "that-s-what-she-said-by-kevin": [],
+  "waxed-bot-by-kevin": [],
+  "pow-pow-by-kevin": [],
+  "bite-report-by-kevin": [],
+  "pack-smart-by-kevin": [
+   {
+    "id": "bagail-cubes",
+    "score": 4,
+    "reason": "Mentions “packing list”.",
+    "auto": true,
+    "probation": true,
+    "since": "2026-11-19"
+   }
+  ],
+  "va-benefits-navigator-by-kevin": [],
+  "flight-delay-and-lost-bag-claims-by-kevin": [],
+  "karen-by-kevin": []
  }
 }

@@ -6,7 +6,88 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 19:18:08 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 21:20:02 GMT</lastBuildDate>
+  <item>
+    <title>✉️ Karen by Kevin</title>
+    <link>https://grokbotshelf.com/bot/karen-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/eaA1h9mWob9TvLWZL8n9q</guid>
+    <description>A complaint bot that makes sure no company gets away with treating you badly. It drafts honest, firm complaints for social media, review sites, support, and regulators, and posts or files them only with your approval.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:15 GMT</pubDate>
+  </item>
+  <item>
+    <title>✈️ Flight Delay &amp; Lost Bag Claims by Kevin</title>
+    <link>https://grokbotshelf.com/bot/flight-delay-and-lost-bag-claims-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/jn-ivtrmihGyuvWr6YGyQ</guid>
+    <description>Helps a traveler get what they&apos;re owed after a delayed or canceled flight, denied boarding, or a delayed, damaged, or lost bag: figures out which rules apply, gathers evidence, and drafts the claim for them to send.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:14 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎗️ VA Benefits Navigator by Kevin</title>
+    <link>https://grokbotshelf.com/bot/va-benefits-navigator-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/7AxNQV4s1yIRCjZTe1LO4</guid>
+    <description>Helps veterans, service members, and families find VA benefits they may qualify for, file and track disability claims, understand ratings and decision letters, and get VA paperwork right, in plain language.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:13 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧳 Pack Smart by Kevin</title>
+    <link>https://grokbotshelf.com/bot/pack-smart-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/plBmdSNU0uJhHvfx0-p5N</guid>
+    <description>Builds a personalized packing list for any trip from the destination forecast, trip type, length, bags, and travelers. Remembers packing habits, flags forgotten items, and lets you check things off.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:12 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎣 Bite Report by Kevin</title>
+    <link>https://grokbotshelf.com/bot/bite-report-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/K4IA8K7BXqeEvACpKBsZB</guid>
+    <description>Your fishing conditions buddy: tells you if the bite is worth it at your lake, river, pier or offshore spot (go / maybe / skip), and what to throw, when to go, and how to stay safe, citing official sources.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:11 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎿 Pow Pow by Kevin</title>
+    <link>https://grokbotshelf.com/bot/pow-pow-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/ws-6iGrlEsUakUAlQtQ2q</guid>
+    <description>Snow and mountain conditions for resorts or backcountry zones. Gives a plain go / maybe / skip read, plus gear, timing, and safety tips.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:10 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏄 Waxed Bot by Kevin</title>
+    <link>https://grokbotshelf.com/bot/waxed-bot-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/vKLAOxFjyQANdROqr85xq</guid>
+    <description>Pulls current swell, wind, and tide for your surf spots, gives a plain-language go / maybe / skip read, and adds practical gear, timing, and safety tips.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:09 GMT</pubDate>
+  </item>
+  <item>
+    <title>😂 That&apos;s What She Said by Kevin</title>
+    <link>https://grokbotshelf.com/bot/that-s-what-she-said-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/AY5S-IFe0yWPMA8-6wQ7U</guid>
+    <description>A humor companion that learns what actually makes you laugh, riffs on your day or the news without being mean, and knows when to stop. One good line beats five okay ones.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:08 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌦️ Ultimate Weather Bot by Kevin</title>
+    <link>https://grokbotshelf.com/bot/ultimate-weather-bot-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/qtEcFn9u_jx_Bi2uuQP5t</guid>
+    <description>A personal weather assistant that knows where you&apos;ll be and when: what to wear, when to leave, health flags when they matter, and heads-up when severe weather hits your plans.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:07 GMT</pubDate>
+  </item>
   <item>
     <title>✈️ Delta Starlink Broken Record by Kevin</title>
     <link>https://grokbotshelf.com/bot/delta-starlink-broken-record-by-kevin</link>
@@ -375,87 +456,6 @@
     <dc:creator>Bruce Young (@ecoay)</dc:creator>
     <category>Developer</category>
     <pubDate>Thu, 12 Nov 2026 12:01:26 GMT</pubDate>
-  </item>
-  <item>
-    <title>✂️ FilmCraft Video Editor by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/filmcraft-video-editor</link>
-    <guid isPermaLink="false">https://x.ai/bot/MITeT9w1KVty-na7QHz0I</guid>
-    <description>Cleans up short AI-generated videos (morphing, weird turns, popping limbs, jumpy cuts) using the free open-source FilmCraft editor and ffmpeg, by cutting, retiming and adding holds and transitions, without regenerating footage. For creators making AI films and shorts.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:25 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔍 Lead Finder by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/lead-finder</link>
-    <guid isPermaLink="false">https://x.ai/bot/ptKW9Qlr6VgYe28aQPZ-y</guid>
-    <description>Finds people who are publicly asking for what you sell across X, Reddit, LinkedIn, forums, and job boards, logs them in a Google Sheet, and drafts a helpful first message for the best ones. Built for salespeople and side-business owners; you send everything yourself.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:24 GMT</pubDate>
-  </item>
-  <item>
-    <title>👑 Empire Commander by John</title>
-    <link>https://grokbotshelf.com/bot/empire-commander-by-john</link>
-    <guid isPermaLink="false">https://x.ai/bot/lFsKB3YRp0kwcNa9VkASl</guid>
-    <description>One lead bot for people running several Grok Bots: it interviews you, keeps one job list, and asks before anything goes out.</description>
-    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:23 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌿 420 Terp Bot by John</title>
-    <link>https://grokbotshelf.com/bot/420-terp-bot-by-john</link>
-    <guid isPermaLink="false">https://x.ai/bot/jQxnhTeTE4VDecArtlr90</guid>
-    <description>A science-nerd guide to cannabis terpenes for adults 21+ and budtenders, built only on public lab data. Get strain picks, side-by-side lab charts, label reads and a personal taste map.</description>
-    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:22 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛰️ Release Scout by AJ</title>
-    <link>https://grokbotshelf.com/bot/release-scout-by-aj</link>
-    <guid isPermaLink="false">https://x.ai/bot/OjcLr9bFJIpO6G5BmitPX</guid>
-    <description>Reads the Grok Bot changelog every morning and tells you what&apos;s new for the bots you already run, including any change that could affect them. It suggests specific upgrades that use new features, and it never changes your bots on its own.</description>
-    <dc:creator>AJ Ghergich (@SEO)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:21 GMT</pubDate>
-  </item>
-  <item>
-    <title>👩‍🏫 Training Tina by Jim</title>
-    <link>https://grokbotshelf.com/bot/training-tina</link>
-    <guid isPermaLink="false">https://x.ai/bot/i-inX7Af2ipURfDp7jyJo</guid>
-    <description>Builds simple tech lessons for seniors and beginners: 3-minute video scripts, one-page large-print cheat sheets and gentle quizzes for Windows, Office, iPhone, Android and staying safe from scams. For family helpers, volunteers, librarians, church and senior-center teachers, and small computer shops.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:20 GMT</pubDate>
-  </item>
-  <item>
-    <title>💰 Profit Piper by Jim</title>
-    <link>https://grokbotshelf.com/bot/profit-piper</link>
-    <guid isPermaLink="false">https://x.ai/bot/LhY5SIoxmGNtruK9tT6IM</guid>
-    <description>A research-first helper for dropshipping and simple online stores. It tests whether a niche or product can make real profit, with live sources, honest unit economics, draft store pages and small test plans, and never spends, publishes or contacts anyone without your OK.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Money</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:19 GMT</pubDate>
-  </item>
-  <item>
-    <title>🩹 First Aid Freddie by Jim</title>
-    <link>https://grokbotshelf.com/bot/first-aid-freddie</link>
-    <guid isPermaLink="false">https://x.ai/bot/1Ple2zggzxFf5I9gLELQn</guid>
-    <description>A calm, warm first aid helper for everyday cuts, burns, stings and &quot;should we go in?&quot; moments. Gives short steps from trusted free sources, helps you choose between home care, urgent care, the ER or 911, and keeps your first aid kit ready. General information, not medical advice.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:18 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚀 Freelance Gig Launcher by Jim</title>
-    <link>https://grokbotshelf.com/bot/freelance-gig-launcher</link>
-    <guid isPermaLink="false">https://x.ai/bot/deFAUqEq7l00Mf1szKK3u</guid>
-    <description>Helps you pick a freelance service clients actually buy, then drafts a Fiverr gig or Upwork project: title, tags, packages, description, FAQs, and fee math so you know what you&apos;ll keep. Drafts only: you publish everything yourself.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:17 GMT</pubDate>
   </item>
 </channel>
 </rss>
