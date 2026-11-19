@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 01:21:18 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 03:26:21 GMT</lastBuildDate>
+  <item>
+    <title>🧾 Food Cost Checker by Chef</title>
+    <link>https://grokbotshelf.com/bot/food-cost-checker-by-chef</link>
+    <guid isPermaLink="false">https://x.ai/bot/vGxv8aUrm-y35KyRHTjWE</guid>
+    <description>A chef-built bot for restaurant owners and cooks that costs recipes, sets menu prices to hit a target food cost, and helps find where money is leaking in the kitchen.</description>
+    <dc:creator>Chef (@Chefmarkcoakley)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 18 Nov 2026 12:02:02 GMT</pubDate>
+  </item>
   <item>
     <title>📈 X Growth Coach by Chef</title>
     <link>https://grokbotshelf.com/bot/x-growth-coach-by-chef</link>
@@ -447,15 +456,6 @@
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Money</category>
     <pubDate>Wed, 11 Nov 2026 12:01:13 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ Anti-Adfraud Bot by Markus</title>
-    <link>https://grokbotshelf.com/bot/anti-adfraud-bot-by-markus</link>
-    <guid isPermaLink="false">https://x.ai/bot/A9PR4APmjoosYN1LAWZ_L</guid>
-    <description>Explains click fraud and fake leads on Google Ads in plain language, walks you through a 10-question self-check, and points you to a free audit. Provided by adfraudit.com.</description>
-    <dc:creator>Markus (@adfraudit)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:12 GMT</pubDate>
   </item>
 </channel>
 </rss>

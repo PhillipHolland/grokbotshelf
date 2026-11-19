@@ -11823,5 +11823,26 @@
     "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is X Growth Coach by Chef (distinct from the existing X Growth Coach listing). New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #853.",
     "added": "2026-11-18",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-854": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Food Cost Checker by Chef",
+    "template_url": "https://x.ai/bot/vGxv8aUrm-y35KyRHTjWE",
+    "author": "@Chefmarkcoakley",
+    "author_handle": "@Chefmarkcoakley",
+    "url": "https://grokbotshelf.com/bot/food-cost-checker-by-chef",
+    "description": "A chef-built bot for restaurant owners and cooks that costs recipes, sets menu prices to hit a target food cost, and helps find where money is leaking in the kitchen.",
+    "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Named Food Cost Checker by Chef to match the creator's other listings (no name clash). Same creator as #853; avatar from the real X profile photo of @Chefmarkcoakley. No source post; site form #854.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-855": {
+    "date": "2026-11-18",
+    "status": "pending",
+    "bot": "GTA 6 Companion (Unofficial)",
+    "template_url": "https://x.ai/bot/i16vuInn793AnN-YI7b5B",
+    "author": "Enigma",
+    "note": "no creator handle, flagged for Phillip"
   }
 }
