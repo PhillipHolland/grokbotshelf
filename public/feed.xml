@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 18 Nov 2026 23:43:32 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 01:21:18 GMT</lastBuildDate>
+  <item>
+    <title>📈 X Growth Coach by Chef</title>
+    <link>https://grokbotshelf.com/bot/x-growth-coach-by-chef</link>
+    <guid isPermaLink="false">https://x.ai/bot/ssfEtjN_VQf_v8C7fr0rv</guid>
+    <description>A daily X growth coach and engagement assistant for creators and small business owners. It coaches you each morning, finds real posts worth replying to, drafts comments and posts in your voice, and posts nothing until you approve it.</description>
+    <dc:creator>Chef (@Chefmarkcoakley)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Wed, 18 Nov 2026 12:02:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>🍽️ Restaurant Operations &amp; Chef Consulting by Chef</title>
+    <link>https://grokbotshelf.com/bot/restaurant-operations-and-chef-consulting-by-chef</link>
+    <guid isPermaLink="false">https://x.ai/bot/2uTyOIyO0LedznrsjfHGe</guid>
+    <description>A back-of-house partner for restaurant owners and chef consultants. It helps with food cost, inventory, labor, kitchen systems and staff training, and turns kitchen know-how into practical chef-to-chef content.</description>
+    <dc:creator>Chef (@Chefmarkcoakley)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 18 Nov 2026 12:02:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>📸 InstaHype AI by Chef</title>
+    <link>https://grokbotshelf.com/bot/instahype-ai-by-chef</link>
+    <guid isPermaLink="false">https://x.ai/bot/rUOHDWBrCex8-Vx3P2vF2</guid>
+    <description>An Instagram growth assistant for creators and small businesses. Every day it drafts genuine comments in your voice, scouts your niche, plans your post, and finds places where promotion is allowed, and nothing goes up without your approval.</description>
+    <dc:creator>Chef (@Chefmarkcoakley)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:59 GMT</pubDate>
+  </item>
   <item>
     <title>🍽️ Foodbot by Matt</title>
     <link>https://grokbotshelf.com/bot/foodbot-by-matt</link>
@@ -429,33 +456,6 @@
     <dc:creator>Markus (@adfraudit)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Wed, 11 Nov 2026 12:01:12 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤝 Negotiation Sparring Partner by Kevin</title>
-    <link>https://grokbotshelf.com/bot/negotiation-sparring-partner-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/mPLGHtBSTm37MD9x53D1f</guid>
-    <description>A negotiation coach that plays the other side (hiring manager, landlord, contractor, car dealer) with real pushback, then scores your moves and builds a one-page game plan for the real conversation.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:11 GMT</pubDate>
-  </item>
-  <item>
-    <title>🏘️ New Town Insider by Kevin</title>
-    <link>https://grokbotshelf.com/bot/new-town-insider-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/f9tOFs5aA5trUUNFuqgPw</guid>
-    <description>A local-knowledge guide for people relocating. Name your new town and it builds a briefing from official sources on permits, zoning, schools, trash days, utilities, registrations, and tax deadlines, citing the city or county page for every rule.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:10 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌙 Quiet Health Companion by Kevin</title>
-    <link>https://grokbotshelf.com/bot/quiet-health-companion-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/efeLXSAkz8HytLWZQqXNQ</guid>
-    <description>A private, no-nag health companion. Log sleep, mood, energy, symptoms, and meds in a few words or a photo, and it quietly spots patterns, sends a short weekly note, and builds a one-page summary for your doctor.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Health &amp; Fitness</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:09 GMT</pubDate>
   </item>
 </channel>
 </rss>

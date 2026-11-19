@@ -8384,6 +8384,45 @@
       "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Business Gift Finder by Enigma. Submitted with no creator handle or source post; same Shopping category as Personalized Gift Finder by Enigma. Site form #848.",
       "added": "2026-11-18",
       "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
+    },
+    "form-851": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "InstaHype AI by Chef",
+      "template_url": "https://x.ai/bot/rUOHDWBrCex8-Vx3P2vF2",
+      "author": "@Chefmarkcoakley",
+      "author_handle": "@Chefmarkcoakley",
+      "url": "https://grokbotshelf.com/bot/instahype-ai-by-chef",
+      "description": "An Instagram growth assistant for creators and small businesses. Every day it drafts genuine comments in your voice, scouts your niche, plans your post, and finds places where promotion is allowed, and nothing goes up without your approval.",
+      "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is InstaHype AI by Chef. New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #851.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-852": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "Restaurant Operations & Chef Consulting by Chef",
+      "template_url": "https://x.ai/bot/2uTyOIyO0LedznrsjfHGe",
+      "author": "@Chefmarkcoakley",
+      "author_handle": "@Chefmarkcoakley",
+      "url": "https://grokbotshelf.com/bot/restaurant-operations-and-chef-consulting-by-chef",
+      "description": "A back-of-house partner for restaurant owners and chef consultants. It helps with food cost, inventory, labor, kitchen systems and staff training, and turns kitchen know-how into practical chef-to-chef content.",
+      "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is Restaurant Operations & Chef Consulting by Chef. New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #852.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-853": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "X Growth Coach by Chef",
+      "template_url": "https://x.ai/bot/ssfEtjN_VQf_v8C7fr0rv",
+      "author": "@Chefmarkcoakley",
+      "author_handle": "@Chefmarkcoakley",
+      "url": "https://grokbotshelf.com/bot/x-growth-coach-by-chef",
+      "description": "A daily X growth coach and engagement assistant for creators and small business owners. It coaches you each morning, finds real posts worth replying to, drafts comments and posts in your voice, and posts nothing until you approve it.",
+      "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is X Growth Coach by Chef (distinct from the existing X Growth Coach listing). New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #853.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -11745,5 +11784,44 @@
     "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Foodbot by Matt. Changed from pending-no-handle to added. Submitted with no creator handle or source post; did not attach a handle to the existing no-handle Matt listings. Site form #845.",
     "added": "2026-11-18",
     "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
+  },
+  "form-851": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "InstaHype AI by Chef",
+    "template_url": "https://x.ai/bot/rUOHDWBrCex8-Vx3P2vF2",
+    "author": "@Chefmarkcoakley",
+    "author_handle": "@Chefmarkcoakley",
+    "url": "https://grokbotshelf.com/bot/instahype-ai-by-chef",
+    "description": "An Instagram growth assistant for creators and small businesses. Every day it drafts genuine comments in your voice, scouts your niche, plans your post, and finds places where promotion is allowed, and nothing goes up without your approval.",
+    "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is InstaHype AI by Chef. New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #851.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-852": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Restaurant Operations & Chef Consulting by Chef",
+    "template_url": "https://x.ai/bot/2uTyOIyO0LedznrsjfHGe",
+    "author": "@Chefmarkcoakley",
+    "author_handle": "@Chefmarkcoakley",
+    "url": "https://grokbotshelf.com/bot/restaurant-operations-and-chef-consulting-by-chef",
+    "description": "A back-of-house partner for restaurant owners and chef consultants. It helps with food cost, inventory, labor, kitchen systems and staff training, and turns kitchen know-how into practical chef-to-chef content.",
+    "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is Restaurant Operations & Chef Consulting by Chef. New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #852.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-853": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "X Growth Coach by Chef",
+    "template_url": "https://x.ai/bot/ssfEtjN_VQf_v8C7fr0rv",
+    "author": "@Chefmarkcoakley",
+    "author_handle": "@Chefmarkcoakley",
+    "url": "https://grokbotshelf.com/bot/x-growth-coach-by-chef",
+    "description": "A daily X growth coach and engagement assistant for creators and small business owners. It coaches you each morning, finds real posts worth replying to, drafts comments and posts in your voice, and posts nothing until you approve it.",
+    "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is X Growth Coach by Chef (distinct from the existing X Growth Coach listing). New creator; avatar from the real X profile photo of @Chefmarkcoakley. Distinct from existing @ChefMcMakin and not merged. No source post; site form #853.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }
