@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 21:20:02 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 23:25:39 GMT</lastBuildDate>
+  <item>
+    <title>📚 Query Desk by Calix</title>
+    <link>https://grokbotshelf.com/bot/query-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/9GyfrtfzIzY_yr-Ylf7Ab</guid>
+    <description>Free querying desk for novelists: finds fitting literary agents, checks your query against each agent&apos;s live rules, and tracks every query until it closes. Your book, your words. Nothing sends without your yes.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:16 GMT</pubDate>
+  </item>
   <item>
     <title>✉️ Karen by Kevin</title>
     <link>https://grokbotshelf.com/bot/karen-by-kevin</link>
@@ -447,15 +456,6 @@
     <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Fri, 13 Nov 2026 12:01:27 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌐 GoDaddy Domain Manager by Bruce Young</title>
-    <link>https://grokbotshelf.com/bot/godaddy-domain-manager</link>
-    <guid isPermaLink="false">https://x.ai/bot/4VahnRcDJ0RahVUSs-MWt</guid>
-    <description>Manages your domains at GoDaddy and its reseller storefronts like LuckyRegister: renewals, DNS, nameservers, forwarding, and locks. It&apos;s read-only until you approve each change.</description>
-    <dc:creator>Bruce Young (@ecoay)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:26 GMT</pubDate>
   </item>
 </channel>
 </rss>
