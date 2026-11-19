@@ -11871,7 +11871,7 @@
     "bot": "GTA 6 Companion (Unofficial)",
     "template_url": "https://x.ai/bot/i16vuInn793AnN-YI7b5B",
     "author": "Enigma",
-    "note": "no creator handle, flagged for Phillip"
+    "note": "no creator handle, stays pending; flagged for Phillip"
   },
   "x-2123447577144156599": {
     "date": "2026-11-19",
@@ -11885,5 +11885,38 @@
     "note": "Added to shelf 2026-11-19 by routine under standing SFW rule. Official template title is Go-Live Hype Man by Mark; shelved as Go-Live Hype Man (Mark no-suffix pattern). Reused existing /avatars/themarkgshow.webp. Source post https://x.com/TheMarkGShow/status/2123447577144156599. Forms #855 and #857 were left untouched.",
     "added": "2026-11-19",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-858": {
+    "date": "2026-11-19",
+    "status": "added",
+    "bot": "Sitter Desk",
+    "template_url": "https://x.ai/bot/A9GKt372b4ITa09hXVZWT",
+    "author": "@CaliLumberJack",
+    "author_handle": "@CaliLumberJack",
+    "url": "https://grokbotshelf.com/bot/sitter-desk",
+    "note": "Added under standing SFW rule; source post https://x.com/CaliLumberJack/status/2123476399688147368",
+    "added": "2026-11-19",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-859": {
+    "date": "2026-11-19",
+    "status": "added",
+    "bot": "Delta Starlink Broken Record by Kevin",
+    "template_url": "https://x.ai/bot/jyFLWSlfXmE0bqt7l9S4_",
+    "author": "@kcmcdonald",
+    "author_handle": "@kcmcdonald",
+    "url": "https://grokbotshelf.com/bot/delta-starlink-broken-record-by-kevin",
+    "note": "Added under standing SFW rule.",
+    "added": "2026-11-19",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-857": {
+    "date": "2026-11-19",
+    "status": "pending",
+    "bot": "Private Chat Guard by Igor",
+    "template_url": "https://x.ai/bot/nm16PBqjOT2kSKgPVRwJB",
+    "author": "@holt_igor",
+    "author_handle": "@holt_igor",
+    "note": "Not shelved: live template page is titled 'Grok Bot by Igor' with a generic primary-bot description, not the submitted Private Chat Guard text. Flagged for Phillip."
   }
 }

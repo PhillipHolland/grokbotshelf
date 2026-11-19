@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 17:21:48 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 19:18:08 GMT</lastBuildDate>
+  <item>
+    <title>✈️ Delta Starlink Broken Record by Kevin</title>
+    <link>https://grokbotshelf.com/bot/delta-starlink-broken-record-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/jyFLWSlfXmE0bqt7l9S4_</guid>
+    <description>Asks Delta Air Lines once a day, with one email and one call, to add Starlink Wi-Fi with SkyMiles login on your routes, politely or firmly.</description>
+    <dc:creator>Kevin (@kcmcdonald)</dc:creator>
+    <category>Travel</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:06 GMT</pubDate>
+  </item>
+  <item>
+    <title>👶 Sitter Desk by Calix</title>
+    <link>https://grokbotshelf.com/bot/sitter-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/A9GKt372b4ITa09hXVZWT</guid>
+    <description>Helps parents make a one-page care sheet for the sitter in about 5 minutes, with allergies and meds in your exact words and the emergency info on the page.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:05 GMT</pubDate>
+  </item>
   <item>
     <title>🔴 Go-Live Hype Man by Mark</title>
     <link>https://grokbotshelf.com/bot/go-live-hype-man</link>
@@ -438,24 +456,6 @@
     <dc:creator>Jim (@jimaggie)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Thu, 12 Nov 2026 12:01:17 GMT</pubDate>
-  </item>
-  <item>
-    <title>✉️ Complaint Desk by Jim</title>
-    <link>https://grokbotshelf.com/bot/complaint-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/5hKy4J9Ks89rhjquUdVyT</guid>
-    <description>Turns a bad-purchase story into a firm, polite complaint letter with a clear ask and a deadline, then shows the next step if the company stalls: a card or bank dispute, CFPB, FTC, your state attorney general, BBB, FCC or DOT. Drafts only: you send, file and sign everything yourself. General information, not legal advice.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:16 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔐 Cloud IAM Quarantine Advisor by Igor</title>
-    <link>https://grokbotshelf.com/bot/cloud-iam-quarantine-advisor-by-igor</link>
-    <guid isPermaLink="false">https://x.ai/bot/yGa_famcoi3JAo2cq5uv3</guid>
-    <description>Finds over-privileged or risky Google Cloud service accounts and drafts least-privilege fixes and an emergency quarantine runbook. Dry-run only until you approve.</description>
-    <dc:creator>Igor Holt (@holt_igor)</dc:creator>
-    <category>Security</category>
-    <pubDate>Thu, 12 Nov 2026 12:01:15 GMT</pubDate>
   </item>
 </channel>
 </rss>
