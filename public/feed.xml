@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 15:21:10 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 17:21:48 GMT</lastBuildDate>
+  <item>
+    <title>🔴 Go-Live Hype Man by Mark</title>
+    <link>https://grokbotshelf.com/bot/go-live-hype-man</link>
+    <guid isPermaLink="false">https://x.ai/bot/Hkk39UC8pe7RT6ffVp3Y3</guid>
+    <description>Never forget to tell people you&apos;re live. For streamers: plans your stream week, writes fresh heads-up and live-now posts per platform, saves them to Buffer (drafts by default), and sends a pre-live checklist with talking points.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:04 GMT</pubDate>
+  </item>
   <item>
     <title>📮 Submit Bot by Rob</title>
     <link>https://grokbotshelf.com/bot/submit-bot-by-rob</link>
@@ -447,15 +456,6 @@
     <dc:creator>Igor Holt (@holt_igor)</dc:creator>
     <category>Security</category>
     <pubDate>Thu, 12 Nov 2026 12:01:15 GMT</pubDate>
-  </item>
-  <item>
-    <title>📡 Bot Radar by Steve Thoms</title>
-    <link>https://grokbotshelf.com/bot/bot-radar</link>
-    <guid isPermaLink="false">https://x.ai/bot/Q9MEyfxLd9MSkEMz1lYWS</guid>
-    <description>Keeps a live map of every Grok Bot marketplace and directory site and sends a regular report of new bots across them, deduped and ranked by how widely they&apos;re spreading. For anyone who wants to keep up with new Grok Bots without checking a dozen sites.</description>
-    <dc:creator>Steve Thoms (@thomstech12)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:14 GMT</pubDate>
   </item>
 </channel>
 </rss>
