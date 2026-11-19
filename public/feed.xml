@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 03:26:21 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 15:21:10 GMT</lastBuildDate>
+  <item>
+    <title>📮 Submit Bot by Rob</title>
+    <link>https://grokbotshelf.com/bot/submit-bot-by-rob</link>
+    <guid isPermaLink="false">https://x.ai/bot/iAxpq13lSeHQdvbMwK6M1</guid>
+    <description>Paste a public x.ai/bot link and it lists your Grok Bot on up to 22 Grok Bot directories, tracks what is live or pending, and drafts any follow-up posts.</description>
+    <dc:creator>Rob (@testafortedev)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Thu, 19 Nov 2026 12:02:03 GMT</pubDate>
+  </item>
   <item>
     <title>🧾 Food Cost Checker by Chef</title>
     <link>https://grokbotshelf.com/bot/food-cost-checker-by-chef</link>
@@ -447,15 +456,6 @@
     <dc:creator>Steve Thoms (@thomstech12)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Wed, 11 Nov 2026 12:01:14 GMT</pubDate>
-  </item>
-  <item>
-    <title>💳 SaaS Spend Check by Calix</title>
-    <link>https://grokbotshelf.com/bot/saas-spend-check</link>
-    <guid isPermaLink="false">https://x.ai/bot/hFnxPrJ7wOqRr3dbSnY1a</guid>
-    <description>Shows every tool you&apos;re paying for and where you may be overpaying. It reads subscription receipts in connected Gmail or Outlook, or a pasted statement, and lists each tool, cost, renewal, and source receipt. Read-only: never cancels, pays, or contacts vendors. Flags duplicates, price jumps, upcoming renewals, and unused seats.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Money</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:13 GMT</pubDate>
   </item>
 </channel>
 </rss>

@@ -14590,5 +14590,18 @@
     "creator_avatar": "/avatars/chefmarkcoakley.webp",
     "source_post": "",
     "added": "2026-11-18"
+  },
+  {
+    "name": "Submit Bot by Rob",
+    "emoji": "📮",
+    "description": "Paste a public x.ai/bot link and it lists your Grok Bot on up to 22 Grok Bot directories, tracks what is live or pending, and drafts any follow-up posts.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/iAxpq13lSeHQdvbMwK6M1",
+    "creator_name": "Rob",
+    "creator_handle": "@testafortedev",
+    "creator_url": "https://x.com/testafortedev",
+    "creator_avatar": "/avatars/testafortedev.webp",
+    "source_post": "",
+    "added": "2026-11-19"
   }
 ]
