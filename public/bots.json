@@ -14499,5 +14499,44 @@
     "creator_avatar": "/avatars/rydawg42.webp",
     "source_post": "",
     "added": "2026-11-18"
+  },
+  {
+    "name": "Instagram Analyst by Andrey",
+    "emoji": "📊",
+    "description": "Instagram research for social media managers. A weekly competitor report with follower growth, posting pace and engagement; creator search by example accounts, niche or city; a check of any account before a collaboration. Public data only: never posts or signs in to Instagram. Add the Apify plugin and sign in. A free Apify account is enough to start; each analyzed profile costs $0.01 on Apify.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/-vJU4ERAYJyTlcrMCSvfz",
+    "creator_name": "Andrey",
+    "creator_handle": "@Afanasenko",
+    "creator_url": "https://x.com/Afanasenko",
+    "creator_avatar": "/avatars/afanasenko.webp",
+    "source_post": "",
+    "added": "2026-11-18"
+  },
+  {
+    "name": "Business Gift Finder by Enigma",
+    "emoji": "🎁",
+    "description": "Tell it who the gifts are for, how many, the occasion and the budget per person, and get client gifts, employee and team gifts, branded swag and business stationery with links, today's prices, branded set ideas, print wording and order-by dates. It remembers your brand details and reminds you before holiday client gifts and other recurring dates.",
+    "category": "Shopping",
+    "url": "https://x.ai/bot/c6uJXnPCVFRAhHs0XuMYa",
+    "creator_name": "Enigma",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-18"
+  },
+  {
+    "name": "Foodbot by Matt",
+    "emoji": "🍽️",
+    "description": "Orders food and groceries for you on any app or restaurant site, including DoorDash, Uber Eats, Grubhub, Instacart, Toast, and chain sites. A one-time setup saves your card, addresses, and logins, so each order is just say what you want and tap Pay.",
+    "category": "Food",
+    "url": "https://x.ai/bot/WY3FkPyLoNqwayRwtjuPu",
+    "creator_name": "Matt",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-18"
   }
 ]

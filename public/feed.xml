@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 18 Nov 2026 23:22:08 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 18 Nov 2026 23:43:32 GMT</lastBuildDate>
+  <item>
+    <title>🍽️ Foodbot by Matt</title>
+    <link>https://grokbotshelf.com/bot/foodbot-by-matt</link>
+    <guid isPermaLink="false">https://x.ai/bot/WY3FkPyLoNqwayRwtjuPu</guid>
+    <description>Orders food and groceries for you on any app or restaurant site, including DoorDash, Uber Eats, Grubhub, Instacart, Toast, and chain sites. A one-time setup saves your card, addresses, and logins, so each order is just say what you want and tap Pay.</description>
+    <dc:creator>Matt</dc:creator>
+    <category>Food</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:58 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎁 Business Gift Finder by Enigma</title>
+    <link>https://grokbotshelf.com/bot/business-gift-finder-by-enigma</link>
+    <guid isPermaLink="false">https://x.ai/bot/c6uJXnPCVFRAhHs0XuMYa</guid>
+    <description>Tell it who the gifts are for, how many, the occasion and the budget per person, and get client gifts, employee and team gifts, branded swag and business stationery with links, today&apos;s prices, branded set ideas, print wording and order-by dates. It remembers your brand details and reminds you before holiday client gifts and other recurring dates.</description>
+    <dc:creator>Enigma</dc:creator>
+    <category>Shopping</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:57 GMT</pubDate>
+  </item>
+  <item>
+    <title>📊 Instagram Analyst by Andrey</title>
+    <link>https://grokbotshelf.com/bot/instagram-analyst-by-andrey</link>
+    <guid isPermaLink="false">https://x.ai/bot/-vJU4ERAYJyTlcrMCSvfz</guid>
+    <description>Instagram research for social media managers. A weekly competitor report with follower growth, posting pace and engagement; creator search by example accounts, niche or city; a check of any account before a collaboration. Public data only: never posts or signs in to Instagram. Add the Apify plugin and sign in. A free Apify account is enough to start; each analyzed profile costs $0.01 on Apify.</description>
+    <dc:creator>Andrey (@Afanasenko)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 18 Nov 2026 12:01:56 GMT</pubDate>
+  </item>
   <item>
     <title>📱 iPhone Screenshot Bot by Ryan</title>
     <link>https://grokbotshelf.com/bot/iphone-screenshot-bot-by-ryan</link>
@@ -429,33 +456,6 @@
     <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
     <category>Health &amp; Fitness</category>
     <pubDate>Wed, 11 Nov 2026 12:01:09 GMT</pubDate>
-  </item>
-  <item>
-    <title>📞 Voice Clone Defense by Kevin</title>
-    <link>https://grokbotshelf.com/bot/voice-clone-defense-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/ozTUKbyF8TzN3Hj1W1rDB</guid>
-    <description>Helps families guard against AI voice-clone and deepfake scam calls with a private code question, a calm call-back script, a printable card for grandparents and kids, and practice drills.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Security</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:08 GMT</pubDate>
-  </item>
-  <item>
-    <title>🛡️ AI Agent Permission Auditor by Kevin</title>
-    <link>https://grokbotshelf.com/bot/ai-agent-permission-auditor-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/9fO__IJ9sA1XI_wWdfFih</guid>
-    <description>Shows what your AI apps, assistants, browser extensions, and bots can see and do, flags access that&apos;s too broad, stale, or overlapping, and walks you through trimming it in each app&apos;s own settings. It never changes settings itself or asks for passwords.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Security</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:07 GMT</pubDate>
-  </item>
-  <item>
-    <title>🤖 Home Robot Onboarding Coach by Kevin</title>
-    <link>https://grokbotshelf.com/bot/home-robot-onboarding-coach-by-kevin</link>
-    <guid isPermaLink="false">https://x.ai/bot/nEKlUcLAnoFQfkNJSbJZg</guid>
-    <description>Gets your home and family ready for a household robot, whether it&apos;s a robot vacuum, lawn robot, security robot, or humanoid helper. It maps safety zones, sets camera and microphone privacy rules, builds a starter schedule, explains the robot to kids, and lists the questions to ask your insurer.</description>
-    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
-    <category>Home</category>
-    <pubDate>Wed, 11 Nov 2026 12:01:06 GMT</pubDate>
   </item>
 </channel>
 </rss>

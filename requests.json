@@ -8269,12 +8269,17 @@
       "approved_by": "Phillip Holland (standing SFW rule)"
     },
     "form-845": {
-      "status": "pending-no-handle",
-      "author": "",
-      "bot": "Foodbot",
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "Foodbot by Matt",
       "template_url": "https://x.ai/bot/WY3FkPyLoNqwayRwtjuPu",
-      "note": "site form #845; orders food (spends money), no handle",
-      "date": "2026-11-18"
+      "author": "Matt",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/foodbot-by-matt",
+      "description": "Orders food and groceries for you on any app or restaurant site, including DoorDash, Uber Eats, Grubhub, Instacart, Toast, and chain sites. A one-time setup saves your card, addresses, and logins, so each order is just say what you want and tap Pay.",
+      "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Foodbot by Matt. Changed from pending-no-handle to added. Submitted with no creator handle or source post; did not attach a handle to the existing no-handle Matt listings. Site form #845.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
     },
     "x-2122916554031718755-8ZxTxS1xgvG_SWG9KVwp_": {
       "date": "2026-11-18",
@@ -8353,6 +8358,32 @@
       "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is iPhone Screenshot Bot by Ryan. New creator; avatar from the real X profile photo of @RyDawg42. No source post; site form #849. Forms #845, #848, and #850 were left untouched.",
       "added": "2026-11-18",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-850": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "Instagram Analyst by Andrey",
+      "template_url": "https://x.ai/bot/-vJU4ERAYJyTlcrMCSvfz",
+      "author": "@Afanasenko",
+      "author_handle": "@Afanasenko",
+      "url": "https://grokbotshelf.com/bot/instagram-analyst-by-andrey",
+      "description": "Instagram research for social media managers. A weekly competitor report with follower growth, posting pace and engagement; creator search by example accounts, niche or city; a check of any account before a collaboration. Public data only: never posts or signs in to Instagram. Add the Apify plugin and sign in. A free Apify account is enough to start; each analyzed profile costs $0.01 on Apify.",
+      "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Instagram Analyst by Andrey. New creator; avatar from the real X profile photo of @Afanasenko. Official description was 432 characters and was tightened to 396 to keep the Apify paid note (free account to start; $0.01 per analyzed profile on Apify). No source post; site form #850.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
+    },
+    "form-848": {
+      "date": "2026-11-18",
+      "status": "added",
+      "bot": "Business Gift Finder by Enigma",
+      "template_url": "https://x.ai/bot/c6uJXnPCVFRAhHs0XuMYa",
+      "author": "Enigma",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/business-gift-finder-by-enigma",
+      "description": "Tell it who the gifts are for, how many, the occasion and the budget per person, and get client gifts, employee and team gifts, branded swag and business stationery with links, today's prices, branded set ideas, print wording and order-by dates. It remembers your brand details and reminds you before holiday client gifts and other recurring dates.",
+      "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Business Gift Finder by Enigma. Submitted with no creator handle or source post; same Shopping category as Personalized Gift Finder by Enigma. Site form #848.",
+      "added": "2026-11-18",
+      "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
     }
   },
   "x-2114766675119886755": {
@@ -11675,5 +11706,44 @@
     "note": "Added to shelf 2026-11-18 by routine under standing SFW rule. Official template title is iPhone Screenshot Bot by Ryan. New creator; avatar from the real X profile photo of @RyDawg42. No source post; site form #849. Forms #845, #848, and #850 were left untouched.",
     "added": "2026-11-18",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-850": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Instagram Analyst by Andrey",
+    "template_url": "https://x.ai/bot/-vJU4ERAYJyTlcrMCSvfz",
+    "author": "@Afanasenko",
+    "author_handle": "@Afanasenko",
+    "url": "https://grokbotshelf.com/bot/instagram-analyst-by-andrey",
+    "description": "Instagram research for social media managers. A weekly competitor report with follower growth, posting pace and engagement; creator search by example accounts, niche or city; a check of any account before a collaboration. Public data only: never posts or signs in to Instagram. Add the Apify plugin and sign in. A free Apify account is enough to start; each analyzed profile costs $0.01 on Apify.",
+    "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Instagram Analyst by Andrey. New creator; avatar from the real X profile photo of @Afanasenko. Official description was 432 characters and was tightened to 396 to keep the Apify paid note (free account to start; $0.01 per analyzed profile on Apify). No source post; site form #850.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
+  },
+  "form-848": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Business Gift Finder by Enigma",
+    "template_url": "https://x.ai/bot/c6uJXnPCVFRAhHs0XuMYa",
+    "author": "Enigma",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/business-gift-finder-by-enigma",
+    "description": "Tell it who the gifts are for, how many, the occasion and the budget per person, and get client gifts, employee and team gifts, branded swag and business stationery with links, today's prices, branded set ideas, print wording and order-by dates. It remembers your brand details and reminds you before holiday client gifts and other recurring dates.",
+    "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Business Gift Finder by Enigma. Submitted with no creator handle or source post; same Shopping category as Personalized Gift Finder by Enigma. Site form #848.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
+  },
+  "form-845": {
+    "date": "2026-11-18",
+    "status": "added",
+    "bot": "Foodbot by Matt",
+    "template_url": "https://x.ai/bot/WY3FkPyLoNqwayRwtjuPu",
+    "author": "Matt",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/foodbot-by-matt",
+    "description": "Orders food and groceries for you on any app or restaurant site, including DoorDash, Uber Eats, Grubhub, Instacart, Toast, and chain sites. A one-time setup saves your card, addresses, and logins, so each order is just say what you want and tap Pay.",
+    "note": "Added to shelf 2026-11-18; approved by Phillip Holland (card t1627s6917). Official template title is Foodbot by Matt. Changed from pending-no-handle to added. Submitted with no creator handle or source post; did not attach a handle to the existing no-handle Matt listings. Site form #845.",
+    "added": "2026-11-18",
+    "approved_by": "Phillip Holland (approved 2026-11-18, card t1627s6917)"
   }
 }
