@@ -12256,5 +12256,18 @@
     "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate PA Study Guide by Kevin. Reused existing /avatars/kcmcdonald.webp. No source post; site form #872. Forms #855 and #857 were left untouched.",
     "added": "2026-11-20",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-873": {
+    "date": "2026-11-20",
+    "status": "added",
+    "bot": "SEO and AEO Boss by ecoay",
+    "template_url": "https://x.ai/bot/D1qq0J32L5E46cypmA3Xg",
+    "author": "@ecoay",
+    "author_handle": "@ecoay",
+    "url": "https://grokbotshelf.com/bot/seo-and-aeo-boss-by-ecoay",
+    "description": "An SEO and AI-answer desk for your websites. It drafts the copy, metas, sitemaps, llms.txt and schema that rank in Google and get cited by AI assistants.",
+    "note": "Added by routine under standing SFW rule. Site form #873. No source post.",
+    "added": "2026-11-20",
+    "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

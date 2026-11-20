@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 20 Nov 2026 15:25:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 17:18:31 GMT</lastBuildDate>
+  <item>
+    <title>🔎 SEO and AEO Boss by ecoay</title>
+    <link>https://grokbotshelf.com/bot/seo-and-aeo-boss-by-ecoay</link>
+    <guid isPermaLink="false">https://x.ai/bot/D1qq0J32L5E46cypmA3Xg</guid>
+    <description>An SEO and AI-answer desk for your websites. It drafts the copy, metas, sitemaps, llms.txt and schema that rank in Google and get cited by AI assistants.</description>
+    <dc:creator>Bruce Young (@ecoay)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 20 Nov 2026 12:02:20 GMT</pubDate>
+  </item>
   <item>
     <title>📚 The Ultimate PA Study Guide by Kevin</title>
     <link>https://grokbotshelf.com/bot/the-ultimate-pa-study-guide-by-kevin</link>
@@ -447,15 +456,6 @@
     <dc:creator>Calix (@CaliLumberJack)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Fri, 13 Nov 2026 12:01:31 GMT</pubDate>
-  </item>
-  <item>
-    <title>📊 Usage Watch by JUMPERZ</title>
-    <link>https://grokbotshelf.com/bot/usage-watch-by-jumperz</link>
-    <guid isPermaLink="false">https://x.ai/bot/Gpg5uQlTwaZI_XHISwJj_</guid>
-    <description>Keeps an eye on your Grok Bot usage. It builds you a live-updated usage dashboard, finds which bots and routines use the most, checks whether they&apos;re worth it, and suggests up to three changes, without changing anything for you.</description>
-    <dc:creator>JUMPERZ (@jumperz)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Fri, 13 Nov 2026 12:01:30 GMT</pubDate>
   </item>
 </channel>
 </rss>
