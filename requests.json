@@ -8581,6 +8581,45 @@
       "note": "Added to shelf 2026-11-19 by routine under standing SFW rule. Official template title is Query Desk by Calix; shelved as Query Desk (Calix no-suffix pattern, same as Sitter Desk). Reused existing /avatars/calilumberjack.webp. Source post https://x.com/CaliLumberJack/status/2123540572208070923. Site form #869. Forms #855 and #857 were left untouched.",
       "added": "2026-11-19",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-870": {
+      "date": "2026-11-20",
+      "status": "added",
+      "bot": "Pet Sitter Desk",
+      "template_url": "https://x.ai/bot/-Ii6UgdasA-_rwIFcuoO0",
+      "author": "@CaliLumberJack",
+      "author_handle": "@CaliLumberJack",
+      "url": "https://grokbotshelf.com/bot/pet-sitter-desk",
+      "description": "Back office for solo pet sitters: client roster, visit reports from your photos, weekly invoices with your own pay link. Works with nothing connected. Nothing sends without your yes.",
+      "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is Pet Sitter Desk by Calix; shelved as Pet Sitter Desk (Calix no-suffix pattern). Reused existing /avatars/calilumberjack.webp. Official description started with Free; that word was dropped for the shelf listing. Source post https://x.com/CaliLumberJack/status/2123650044171596135. Site form #870. Forms #855 and #857 were left untouched.",
+      "added": "2026-11-20",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-871": {
+      "date": "2026-11-20",
+      "status": "added",
+      "bot": "The Ultimate Guide to Creating Your Christmas Cards by Kevin",
+      "template_url": "https://x.ai/bot/wND7ZiEgSj6kr2smETHCD",
+      "author": "@kcmcdonald",
+      "author_handle": "@kcmcdonald",
+      "url": "https://grokbotshelf.com/bot/the-ultimate-guide-to-creating-your-christmas-cards-by-kevin",
+      "description": "Walks anyone through their holiday card project, from picking a printer and finding working promo codes to the photo, design, wording, address list, and mailing deadlines.",
+      "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate Guide to Creating Your Christmas Cards by Kevin. Distinct from the existing Christmas Card Bot listing. Reused existing /avatars/kcmcdonald.webp. No source post; site form #871. Forms #855 and #857 were left untouched.",
+      "added": "2026-11-20",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-872": {
+      "date": "2026-11-20",
+      "status": "added",
+      "bot": "The Ultimate PA Study Guide by Kevin",
+      "template_url": "https://x.ai/bot/WD7deesXjNxEUmZOnp9bS",
+      "author": "@kcmcdonald",
+      "author_handle": "@kcmcdonald",
+      "url": "https://grokbotshelf.com/bot/the-ultimate-pa-study-guide-by-kevin",
+      "description": "A study coach for physician assistant students and new grads. It builds blueprint-based plans for EORs, PACKRAT, and the PANCE, quizzes you with original board-style questions, and tracks your weak areas.",
+      "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate PA Study Guide by Kevin. Reused existing /avatars/kcmcdonald.webp. No source post; site form #872. Forms #855 and #857 were left untouched.",
+      "added": "2026-11-20",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12177,6 +12216,45 @@
     "description": "Free querying desk for novelists: finds fitting literary agents, checks your query against each agent's live rules, and tracks every query until it closes. Your book, your words. Nothing sends without your yes.",
     "note": "Added to shelf 2026-11-19 by routine under standing SFW rule. Official template title is Query Desk by Calix; shelved as Query Desk (Calix no-suffix pattern, same as Sitter Desk). Reused existing /avatars/calilumberjack.webp. Source post https://x.com/CaliLumberJack/status/2123540572208070923. Site form #869. Forms #855 and #857 were left untouched.",
     "added": "2026-11-19",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-870": {
+    "date": "2026-11-20",
+    "status": "added",
+    "bot": "Pet Sitter Desk",
+    "template_url": "https://x.ai/bot/-Ii6UgdasA-_rwIFcuoO0",
+    "author": "@CaliLumberJack",
+    "author_handle": "@CaliLumberJack",
+    "url": "https://grokbotshelf.com/bot/pet-sitter-desk",
+    "description": "Back office for solo pet sitters: client roster, visit reports from your photos, weekly invoices with your own pay link. Works with nothing connected. Nothing sends without your yes.",
+    "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is Pet Sitter Desk by Calix; shelved as Pet Sitter Desk (Calix no-suffix pattern). Reused existing /avatars/calilumberjack.webp. Official description started with Free; that word was dropped for the shelf listing. Source post https://x.com/CaliLumberJack/status/2123650044171596135. Site form #870. Forms #855 and #857 were left untouched.",
+    "added": "2026-11-20",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-871": {
+    "date": "2026-11-20",
+    "status": "added",
+    "bot": "The Ultimate Guide to Creating Your Christmas Cards by Kevin",
+    "template_url": "https://x.ai/bot/wND7ZiEgSj6kr2smETHCD",
+    "author": "@kcmcdonald",
+    "author_handle": "@kcmcdonald",
+    "url": "https://grokbotshelf.com/bot/the-ultimate-guide-to-creating-your-christmas-cards-by-kevin",
+    "description": "Walks anyone through their holiday card project, from picking a printer and finding working promo codes to the photo, design, wording, address list, and mailing deadlines.",
+    "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate Guide to Creating Your Christmas Cards by Kevin. Distinct from the existing Christmas Card Bot listing. Reused existing /avatars/kcmcdonald.webp. No source post; site form #871. Forms #855 and #857 were left untouched.",
+    "added": "2026-11-20",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-872": {
+    "date": "2026-11-20",
+    "status": "added",
+    "bot": "The Ultimate PA Study Guide by Kevin",
+    "template_url": "https://x.ai/bot/WD7deesXjNxEUmZOnp9bS",
+    "author": "@kcmcdonald",
+    "author_handle": "@kcmcdonald",
+    "url": "https://grokbotshelf.com/bot/the-ultimate-pa-study-guide-by-kevin",
+    "description": "A study coach for physician assistant students and new grads. It builds blueprint-based plans for EORs, PACKRAT, and the PANCE, quizzes you with original board-style questions, and tracks your weak areas.",
+    "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate PA Study Guide by Kevin. Reused existing /avatars/kcmcdonald.webp. No source post; site form #872. Forms #855 and #857 were left untouched.",
+    "added": "2026-11-20",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

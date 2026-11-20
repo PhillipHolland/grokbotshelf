@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 19 Nov 2026 23:25:39 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 20 Nov 2026 15:25:00 GMT</lastBuildDate>
+  <item>
+    <title>📚 The Ultimate PA Study Guide by Kevin</title>
+    <link>https://grokbotshelf.com/bot/the-ultimate-pa-study-guide-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/WD7deesXjNxEUmZOnp9bS</guid>
+    <description>A study coach for physician assistant students and new grads. It builds blueprint-based plans for EORs, PACKRAT, and the PANCE, quizzes you with original board-style questions, and tracks your weak areas.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Fri, 20 Nov 2026 12:02:19 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎄 The Ultimate Guide to Creating Your Christmas Cards by Kevin</title>
+    <link>https://grokbotshelf.com/bot/the-ultimate-guide-to-creating-your-christmas-cards-by-kevin</link>
+    <guid isPermaLink="false">https://x.ai/bot/wND7ZiEgSj6kr2smETHCD</guid>
+    <description>Walks anyone through their holiday card project, from picking a printer and finding working promo codes to the photo, design, wording, address list, and mailing deadlines.</description>
+    <dc:creator>Kevin McDonald (@kcmcdonald)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Fri, 20 Nov 2026 12:02:18 GMT</pubDate>
+  </item>
+  <item>
+    <title>🐾 Pet Sitter Desk by Calix</title>
+    <link>https://grokbotshelf.com/bot/pet-sitter-desk</link>
+    <guid isPermaLink="false">https://x.ai/bot/-Ii6UgdasA-_rwIFcuoO0</guid>
+    <description>Back office for solo pet sitters: client roster, visit reports from your photos, weekly invoices with your own pay link. Works with nothing connected. Nothing sends without your yes.</description>
+    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 20 Nov 2026 12:02:17 GMT</pubDate>
+  </item>
   <item>
     <title>📚 Query Desk by Calix</title>
     <link>https://grokbotshelf.com/bot/query-desk</link>
@@ -429,33 +456,6 @@
     <dc:creator>JUMPERZ (@jumperz)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Fri, 13 Nov 2026 12:01:30 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎓 Role Research Curriculum by w</title>
-    <link>https://grokbotshelf.com/bot/role-research-curriculum</link>
-    <guid isPermaLink="false">https://x.ai/bot/SqKET-L6ur0LCn4HV_T3c</guid>
-    <description>Most role curricula are outlines with no sources and no practice. Name a job. It does source-backed research — JDs, employers, cases, exams, portfolios, and public competency standards — then turns it into a three-level model, a 9-subtask advanced practicum, and 30/60/80-hour curricula. Material packs stay off by default.</description>
-    <dc:creator>w</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 13 Nov 2026 12:01:29 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔄 Job Hunt Loop by w</title>
-    <link>https://grokbotshelf.com/bot/job-hunt-loop</link>
-    <guid isPermaLink="false">https://x.ai/bot/K8hMUvbWVbxvZMTZxxurG</guid>
-    <description>Job hunting often dies in the loop: stale chats, resume requests, uncapped searching, and no evidence trail after you apply. An unattended cycle for seekers: refresh chats, handle resume asks, search with caps, tailor the resume, write a short opener, and review the evidence. For seekers — not employer recruiting.</description>
-    <dc:creator>w</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Fri, 13 Nov 2026 12:01:28 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧹 Overwatch by Trond Eirik Haavarstein</title>
-    <link>https://grokbotshelf.com/bot/overwatch</link>
-    <guid isPermaLink="false">https://x.ai/bot/PGEVwTjv7Q9cObVSFGRlM</guid>
-    <description>Housekeeper and token officer for a shared bot computer. Once a week it tidies and archives the disk, backs up bot configs to git, keeps a bot registry, and flags wasteful routines. It reports only and never changes another bot&apos;s work.</description>
-    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Fri, 13 Nov 2026 12:01:27 GMT</pubDate>
   </item>
 </channel>
 </rss>
