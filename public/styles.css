@@ -359,6 +359,9 @@ html.mobile .bp-actions .get{justify-content:center;background:transparent;color
 .cp-list a small{white-space:normal}
 .cp-av{flex:none;width:56px;height:56px;border-radius:50%;border:1px solid var(--line)}
 .bp-embed .fine{margin:0 0 12px}
+.bp-post .fine{margin:10px 0 0}
+.bp-post .po-slot{min-height:44px}
+.bp-post .twitter-tweet{margin:0 auto!important}
 .em-prev{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
 .em-prev img{max-width:100%;height:auto}
 .snip{border:1px solid var(--line);border-radius:12px;margin:0 0 10px;overflow:hidden}

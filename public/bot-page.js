@@ -119,3 +119,39 @@
     }
   }).catch(function () {});
 })();
+
+// "Show the post from X": embeds the creator's source post on tap. X's widget script is added only then, once.
+// If it does not load (blocked, offline) the slot falls back to a plain link, so the button never leaves a dead end.
+(function () {
+  var btn = document.getElementById("po-show"), slot = document.getElementById("po-slot");
+  if (!btn || !slot) return;
+  btn.addEventListener("click", function () {
+    var url = btn.getAttribute("data-post");
+    if (!/^https:\/\/(x|twitter)\.com\/[A-Za-z0-9_]{1,15}\/status\/\d{5,25}$/.test(url)) return;
+    var fallback = function () {
+      slot.textContent = "";
+      var p = document.createElement("p"), a = document.createElement("a");
+      p.className = "fine"; p.textContent = "The post did not load here. ";
+      a.href = url; a.rel = "noopener"; a.target = "_blank"; a.textContent = "Open it on X";
+      p.appendChild(a); slot.appendChild(p);
+    };
+    btn.disabled = true; btn.textContent = "Loading the post…";
+    var q = document.createElement("blockquote"), link = document.createElement("a");
+    q.className = "twitter-tweet"; q.setAttribute("data-dnt", "true");
+    q.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+    link.href = url.replace(/^https:\/\/x\.com\//, "https://twitter.com/"); link.textContent = "The post on X";
+    q.appendChild(link);
+    var done = function () {
+      slot.textContent = ""; slot.appendChild(q);
+      try { window.twttr.widgets.load(slot); } catch (e) { fallback(); return; }
+      // The widget swaps the blockquote for an iframe. Still a bare blockquote after 8s means it was blocked.
+      setTimeout(function () { if (slot.querySelector("blockquote.twitter-tweet") && !slot.querySelector("iframe")) fallback(); }, 8000);
+    };
+    if (window.twttr && window.twttr.widgets) return done();
+    var s = document.createElement("script");
+    s.src = "https://platform.twitter.com/widgets.js"; s.async = true;
+    s.onload = function () { if (window.twttr && window.twttr.ready) window.twttr.ready(done); else fallback(); };
+    s.onerror = fallback;
+    document.head.appendChild(s);
+  });
+})();
