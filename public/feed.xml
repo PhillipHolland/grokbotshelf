@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 20 Nov 2026 17:18:31 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 21 Nov 2026 01:19:53 GMT</lastBuildDate>
+  <item>
+    <title>🤝 TeamMate Starter BOT by Vince</title>
+    <link>https://grokbotshelf.com/bot/teammate-starter-bot-by-vince</link>
+    <guid isPermaLink="false">https://x.ai/bot/mmqNfkeB53tVoT0lVaVlC</guid>
+    <description>Your first AI teammate, set up in one chat. Pick its name, job, personality and look, and it takes real work off your plate.</description>
+    <dc:creator>Vince (@Vince_edwardsnz)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Fri, 20 Nov 2026 12:02:21 GMT</pubDate>
+  </item>
   <item>
     <title>🔎 SEO and AEO Boss by ecoay</title>
     <link>https://grokbotshelf.com/bot/seo-and-aeo-boss-by-ecoay</link>
@@ -447,15 +456,6 @@
     <dc:creator>Xc</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Sat, 14 Nov 2026 12:01:32 GMT</pubDate>
-  </item>
-  <item>
-    <title>👥 Solo Founder Crew by Calix</title>
-    <link>https://grokbotshelf.com/bot/solo-founder-crew</link>
-    <guid isPermaLink="false">https://x.ai/bot/LsMMqEH5tNXcsKhGteWab</guid>
-    <description>Runs up to three helper bots for inbox sweep, pre-call briefs and SaaS spend checks, then sends one short morning brief. Anything that sends, posts or spends stays a draft until you say yes.</description>
-    <dc:creator>Calix (@CaliLumberJack)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Fri, 13 Nov 2026 12:01:31 GMT</pubDate>
   </item>
 </channel>
 </rss>

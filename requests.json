@@ -8620,6 +8620,19 @@
       "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is The Ultimate PA Study Guide by Kevin. Reused existing /avatars/kcmcdonald.webp. No source post; site form #872. Forms #855 and #857 were left untouched.",
       "added": "2026-11-20",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-874": {
+      "date": "2026-11-20",
+      "status": "added",
+      "bot": "TeamMate Starter BOT by Vince",
+      "template_url": "https://x.ai/bot/mmqNfkeB53tVoT0lVaVlC",
+      "author": "@Vince_edwardsnz",
+      "author_handle": "@Vince_edwardsnz",
+      "url": "https://grokbotshelf.com/bot/teammate-starter-bot-by-vince",
+      "description": "Your first AI teammate, set up in one chat. Pick its name, job, personality and look, and it takes real work off your plate.",
+      "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is 🔷 TeamMate Starter BOT by Vince; shelved as TeamMate Starter BOT by Vince (emoji dropped from the name, matching BookReader BOT by Vince). Official description used. Reused existing /avatars/vince_edwardsnz.webp. No source post; site form #874. Forms #855 and #857 were left untouched.",
+      "added": "2026-11-20",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12267,6 +12280,19 @@
     "url": "https://grokbotshelf.com/bot/seo-and-aeo-boss-by-ecoay",
     "description": "An SEO and AI-answer desk for your websites. It drafts the copy, metas, sitemaps, llms.txt and schema that rank in Google and get cited by AI assistants.",
     "note": "Added by routine under standing SFW rule. Site form #873. No source post.",
+    "added": "2026-11-20",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-874": {
+    "date": "2026-11-20",
+    "status": "added",
+    "bot": "TeamMate Starter BOT by Vince",
+    "template_url": "https://x.ai/bot/mmqNfkeB53tVoT0lVaVlC",
+    "author": "@Vince_edwardsnz",
+    "author_handle": "@Vince_edwardsnz",
+    "url": "https://grokbotshelf.com/bot/teammate-starter-bot-by-vince",
+    "description": "Your first AI teammate, set up in one chat. Pick its name, job, personality and look, and it takes real work off your plate.",
+    "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is 🔷 TeamMate Starter BOT by Vince; shelved as TeamMate Starter BOT by Vince (emoji dropped from the name, matching BookReader BOT by Vince). Official description used. Reused existing /avatars/vince_edwardsnz.webp. No source post; site form #874. Forms #855 and #857 were left untouched.",
     "added": "2026-11-20",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
