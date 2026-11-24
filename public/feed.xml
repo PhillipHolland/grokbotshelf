@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sat, 21 Nov 2026 01:19:53 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 01:23:41 GMT</lastBuildDate>
+  <item>
+    <title>🛟 LIVE Ban Bailout by Mark</title>
+    <link>https://grokbotshelf.com/bot/live-ban-bailout</link>
+    <guid isPermaLink="false">https://x.ai/bot/obOFFf1oJT97K5qZEeGA4</guid>
+    <description>Gets live streamers on TikTok LIVE, YouTube Live, Twitch, Kick, and Instagram/Facebook Live through LIVE bans, strikes, and restrictions. Logs every notice with real end dates, drafts calm evidence-based appeals and second appeals tied to official policies, tracks when access returns, and runs pre-live checks so the same issue doesn&apos;t get you banned twice.</description>
+    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
+    <category>Creator &amp; Media</category>
+    <pubDate>Mon, 23 Nov 2026 12:02:23 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛒 Household Manager by Trond Eirik Haavarstein</title>
+    <link>https://grokbotshelf.com/bot/household-manager</link>
+    <guid isPermaLink="false">https://x.ai/bot/5neNYlifCm89Yqh1uvmOM</guid>
+    <description>Tracks what your household buys at your regular store, keeps a product catalog with typical prices and buying intervals, and has a restock list with bulk-savings flags ready for you to review every week. It never checks out for you.</description>
+    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
+    <category>Home</category>
+    <pubDate>Mon, 23 Nov 2026 12:02:22 GMT</pubDate>
+  </item>
   <item>
     <title>🤝 TeamMate Starter BOT by Vince</title>
     <link>https://grokbotshelf.com/bot/teammate-starter-bot-by-vince</link>
@@ -438,24 +456,6 @@
     <dc:creator>Julian (@julianweber)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Sat, 14 Nov 2026 12:01:34 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎁 Noelle by Dave</title>
-    <link>https://grokbotshelf.com/bot/noelle</link>
-    <guid isPermaLink="false">https://x.ai/bot/Q3ja7ucRHbaP8ntAXMdko</guid>
-    <description>A cheerful holiday gift helper. It finds gift ideas and links, builds a Google Sheet for everyone you&apos;re shopping for, and tracks each gift from order to arrival to wrapped. You always press buy.</description>
-    <dc:creator>Dave</dc:creator>
-    <category>Shopping</category>
-    <pubDate>Sat, 14 Nov 2026 12:01:33 GMT</pubDate>
-  </item>
-  <item>
-    <title>🌙 梦书 (Dream Book) by Xc</title>
-    <link>https://grokbotshelf.com/bot/dream-book</link>
-    <guid isPermaLink="false">https://x.ai/bot/UpLG_O9I-O29U7Zu5DSY4</guid>
-    <description>A Chinese-language bot: tell it last night&apos;s dream and it writes a gentle short story, draws a dream image, and draws an almanac-inspired dream slip, just for fun. Over time it can turn your dream journal into a book draft or ideas for short dramas. Dreams stay in your own bot.</description>
-    <dc:creator>Xc</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sat, 14 Nov 2026 12:01:32 GMT</pubDate>
   </item>
 </channel>
 </rss>

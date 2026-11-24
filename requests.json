@@ -8633,6 +8633,32 @@
       "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is 🔷 TeamMate Starter BOT by Vince; shelved as TeamMate Starter BOT by Vince (emoji dropped from the name, matching BookReader BOT by Vince). Official description used. Reused existing /avatars/vince_edwardsnz.webp. No source post; site form #874. Forms #855 and #857 were left untouched.",
       "added": "2026-11-20",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-877": {
+      "date": "2026-11-22",
+      "status": "added",
+      "bot": "Household Manager",
+      "template_url": "https://x.ai/bot/5neNYlifCm89Yqh1uvmOM",
+      "author": "@xenappblog",
+      "author_handle": "@xenappblog",
+      "url": "https://grokbotshelf.com/bot/household-manager",
+      "description": "Tracks what your household buys at your regular store, keeps a product catalog with typical prices and buying intervals, and has a restock list with bulk-savings flags ready for you to review every week. It never checks out for you.",
+      "note": "Added to shelf 2026-11-23 by routine under standing SFW rule (Phil was told Nov 22 it was being added; it had not actually been shelved). Official template title is Household Manager by Trond; shelved as Household Manager (xenappblog no-suffix pattern). Official description used. Reused existing /avatars/xenappblog.webp. No source post; site form #877. Pending/held items including Enigma no-handle forms, Channel Lockdown, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
+      "added": "2026-11-23",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "x-2124895855786246211": {
+      "date": "2026-11-23",
+      "status": "added",
+      "bot": "LIVE Ban Bailout",
+      "template_url": "https://x.ai/bot/obOFFf1oJT97K5qZEeGA4",
+      "author": "@TheMarkGShow",
+      "author_handle": "@TheMarkGShow",
+      "url": "https://grokbotshelf.com/bot/live-ban-bailout",
+      "description": "Gets live streamers on TikTok LIVE, YouTube Live, Twitch, Kick, and Instagram/Facebook Live through LIVE bans, strikes, and restrictions. Logs every notice with real end dates, drafts calm evidence-based appeals and second appeals tied to official policies, tracks when access returns, and runs pre-live checks so the same issue doesn't get you banned twice.",
+      "note": "Added to shelf 2026-11-23 by routine under standing SFW rule. Official template title is LIVE Ban Bailout by Mark; shelved as LIVE Ban Bailout (TheMarkGShow no-suffix pattern). Official description used. Reused existing /avatars/themarkgshow.webp. Source post https://x.com/TheMarkGShow/status/2124895855786246211. Logged pending under bare key 2124895855786246211 in an uncommitted ingest; recorded as x-2124895855786246211 to match current request keys. Pending/held items including Channel Lockdown, Enigma no-handle forms, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
+      "added": "2026-11-23",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12294,6 +12320,98 @@
     "description": "Your first AI teammate, set up in one chat. Pick its name, job, personality and look, and it takes real work off your plate.",
     "note": "Added to shelf 2026-11-20 by routine under standing SFW rule. Official template title is 🔷 TeamMate Starter BOT by Vince; shelved as TeamMate Starter BOT by Vince (emoji dropped from the name, matching BookReader BOT by Vince). Official description used. Reused existing /avatars/vince_edwardsnz.webp. No source post; site form #874. Forms #855 and #857 were left untouched.",
     "added": "2026-11-20",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-875": {
+    "status": "pending-no-handle",
+    "bot": "One Grok Bot by Enigma",
+    "template_url": "https://x.ai/bot/tFAG_vhmiNa6k-LPb-W-v",
+    "date": "2026-11-21"
+  },
+  "form-876": {
+    "status": "pending-no-handle",
+    "bot": "Pocket Pet",
+    "template_url": "https://x.ai/bot/QL7k3vGgoJ87MK2uZHPjS",
+    "date": "2026-11-22"
+  },
+  "form-878": {
+    "status": "pending",
+    "bot": "Event Planner Gift Finder by Enigma",
+    "template_url": "https://x.ai/bot/0qqPa8Rtf7CYr1Zeic1L8",
+    "date": "2026-11-22"
+  },
+  "form-879": {
+    "status": "pending",
+    "bot": "Wedding Gift & Stationery Helper by Enigma",
+    "template_url": "https://x.ai/bot/9XIMRuiqVTQoMEKLiFXv5",
+    "date": "2026-11-22"
+  },
+  "form-880": {
+    "status": "pending",
+    "bot": "Party Theme Planner by Enigma",
+    "template_url": "https://x.ai/bot/hBiFpNEus3B-gMp7vLfdi",
+    "date": "2026-11-22"
+  },
+  "form-881": {
+    "status": "pending",
+    "bot": "Real Estate Closing Gift Finder by Enigma",
+    "template_url": "https://x.ai/bot/x4IaJE_-RRI6OANSVKFtb",
+    "date": "2026-11-22"
+  },
+  "form-882": {
+    "status": "pending",
+    "bot": "Cozy & Glow Gift Finder by Enigma",
+    "template_url": "https://x.ai/bot/3MOQo86NFu9-JrlU76GDQ",
+    "date": "2026-11-22"
+  },
+  "x-2122916787549258110-U2iAqCj-InwvoOGA0mY9I": {
+    "status": "pending",
+    "author": "@JimothyRac",
+    "bot": "Jimothy Wallet",
+    "template_url": "https://x.ai/bot/U2iAqCj-InwvoOGA0mY9I",
+    "url": "https://x.com/JimothyRac/status/2122916787549258110",
+    "date": "2026-11-20"
+  },
+  "x-2123863448299909148": {
+    "status": "pending",
+    "author": "@beastnug8",
+    "bot": "UFC Fight Picker",
+    "template_url": "https://x.ai/bot/6bC17wrr08h2KNunWkPTb",
+    "url": "https://x.com/beastnug8/status/2123863448299909148",
+    "date": "2026-11-20"
+  },
+  "x-2124171429788668190": {
+    "status": "pending",
+    "author": "@TheMarkGShow",
+    "bot": "Channel Lockdown",
+    "template_url": "https://x.ai/bot/mf31AjqM_OBsF1hNSmsZU",
+    "url": "https://x.com/TheMarkGShow/status/2124171429788668190",
+    "date": "2026-11-21"
+  },
+  "form-877": {
+    "date": "2026-11-22",
+    "status": "added",
+    "bot": "Household Manager",
+    "template_url": "https://x.ai/bot/5neNYlifCm89Yqh1uvmOM",
+    "author": "@xenappblog",
+    "author_handle": "@xenappblog",
+    "url": "https://grokbotshelf.com/bot/household-manager",
+    "description": "Tracks what your household buys at your regular store, keeps a product catalog with typical prices and buying intervals, and has a restock list with bulk-savings flags ready for you to review every week. It never checks out for you.",
+    "note": "Added to shelf 2026-11-23 by routine under standing SFW rule (Phil was told Nov 22 it was being added; it had not actually been shelved). Official template title is Household Manager by Trond; shelved as Household Manager (xenappblog no-suffix pattern). Official description used. Reused existing /avatars/xenappblog.webp. No source post; site form #877. Pending/held items including Enigma no-handle forms, Channel Lockdown, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
+    "added": "2026-11-23",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "x-2124895855786246211": {
+    "date": "2026-11-23",
+    "status": "added",
+    "bot": "LIVE Ban Bailout",
+    "template_url": "https://x.ai/bot/obOFFf1oJT97K5qZEeGA4",
+    "author": "@TheMarkGShow",
+    "author_handle": "@TheMarkGShow",
+    "url": "https://grokbotshelf.com/bot/live-ban-bailout",
+    "description": "Gets live streamers on TikTok LIVE, YouTube Live, Twitch, Kick, and Instagram/Facebook Live through LIVE bans, strikes, and restrictions. Logs every notice with real end dates, drafts calm evidence-based appeals and second appeals tied to official policies, tracks when access returns, and runs pre-live checks so the same issue doesn't get you banned twice.",
+    "note": "Added to shelf 2026-11-23 by routine under standing SFW rule. Official template title is LIVE Ban Bailout by Mark; shelved as LIVE Ban Bailout (TheMarkGShow no-suffix pattern). Official description used. Reused existing /avatars/themarkgshow.webp. Source post https://x.com/TheMarkGShow/status/2124895855786246211. Logged pending under bare key 2124895855786246211 in an uncommitted ingest; recorded as x-2124895855786246211 to match current request keys. Pending/held items including Channel Lockdown, Enigma no-handle forms, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
+    "added": "2026-11-23",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

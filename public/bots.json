@@ -14837,5 +14837,31 @@
     "creator_avatar": "/avatars/vince_edwardsnz.webp",
     "source_post": "",
     "added": "2026-11-20"
+  },
+  {
+    "name": "Household Manager",
+    "emoji": "🛒",
+    "description": "Tracks what your household buys at your regular store, keeps a product catalog with typical prices and buying intervals, and has a restock list with bulk-savings flags ready for you to review every week. It never checks out for you.",
+    "category": "Home",
+    "url": "https://x.ai/bot/5neNYlifCm89Yqh1uvmOM",
+    "creator_name": "Trond Eirik Haavarstein",
+    "creator_handle": "@xenappblog",
+    "creator_url": "https://x.com/xenappblog",
+    "creator_avatar": "/avatars/xenappblog.webp",
+    "source_post": "",
+    "added": "2026-11-23"
+  },
+  {
+    "name": "LIVE Ban Bailout",
+    "emoji": "🛟",
+    "description": "Gets live streamers on TikTok LIVE, YouTube Live, Twitch, Kick, and Instagram/Facebook Live through LIVE bans, strikes, and restrictions. Logs every notice with real end dates, drafts calm evidence-based appeals and second appeals tied to official policies, tracks when access returns, and runs pre-live checks so the same issue doesn't get you banned twice.",
+    "category": "Creator & Media",
+    "url": "https://x.ai/bot/obOFFf1oJT97K5qZEeGA4",
+    "creator_name": "Mark",
+    "creator_handle": "@TheMarkGShow",
+    "creator_url": "https://x.com/TheMarkGShow",
+    "creator_avatar": "/avatars/themarkgshow.webp",
+    "source_post": "https://x.com/TheMarkGShow/status/2124895855786246211",
+    "added": "2026-11-23"
   }
 ]
