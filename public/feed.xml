@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 24 Nov 2026 01:23:41 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 24 Nov 2026 15:22:11 GMT</lastBuildDate>
+  <item>
+    <title>🔨 Bot Builder Extraordinaire by John</title>
+    <link>https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john</link>
+    <guid isPermaLink="false">https://x.ai/bot/mzJavdOpts1mtaz6JnnOO</guid>
+    <description>Want to build an effective Grok bot? Bot Builder Extraordinaire walks you from the job it should hold to the first task you give it, and checks bot drafts before they go live.</description>
+    <dc:creator>John (@iamtheh0n3yp0t)</dc:creator>
+    <category>Bot Tools</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:24 GMT</pubDate>
+  </item>
   <item>
     <title>🛟 LIVE Ban Bailout by Mark</title>
     <link>https://grokbotshelf.com/bot/live-ban-bailout</link>
@@ -447,15 +456,6 @@
     <dc:creator>AI4B2Day (@ai4b2day)</dc:creator>
     <category>Creator &amp; Media</category>
     <pubDate>Sat, 14 Nov 2026 12:01:35 GMT</pubDate>
-  </item>
-  <item>
-    <title>✍️ Contract Signer by Julian</title>
-    <link>https://grokbotshelf.com/bot/contract-signer-by-julian</link>
-    <guid isPermaLink="false">https://x.ai/bot/emH53moZpEP8rqAECJBAd</guid>
-    <description>Drafts NDAs, service agreements and offer letters from a short brief, flags risky or missing terms in plain language, and sends the PDF out for e-signature.</description>
-    <dc:creator>Julian (@julianweber)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sat, 14 Nov 2026 12:01:34 GMT</pubDate>
   </item>
 </channel>
 </rss>

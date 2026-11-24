@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-23</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://grokbotshelf.com/</loc><lastmod>2026-11-24</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
   <url><loc>https://grokbotshelf.com/bot/archivist</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/ibot-player</loc><lastmod>2026-10-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/security-audit-bot</loc><lastmod>2026-10-24</lastmod></url>
@@ -1145,11 +1145,12 @@
   <url><loc>https://grokbotshelf.com/bot/teammate-starter-bot-by-vince</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/household-manager</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://grokbotshelf.com/bot/live-ban-bailout</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-23</lastmod></url>
-  <url><loc>https://grokbotshelf.com/category/bot-tools</loc><lastmod>2026-11-20</lastmod></url>
+  <url><loc>https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/add</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/collections</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/stacks</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://grokbotshelf.com/category/bot-tools</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/business-and-marketing</loc><lastmod>2026-11-20</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/creator-and-media</loc><lastmod>2026-11-23</lastmod></url>
   <url><loc>https://grokbotshelf.com/category/design</loc><lastmod>2026-11-18</lastmod></url>
@@ -1336,7 +1337,7 @@
   <url><loc>https://grokbotshelf.com/@ashleighewrites</loc><lastmod>2026-10-28</lastmod></url>
   <url><loc>https://grokbotshelf.com/@gooper</loc><lastmod>2026-10-27</lastmod></url>
   <url><loc>https://grokbotshelf.com/@cattois2pure</loc><lastmod>2026-10-27</lastmod></url>
-  <url><loc>https://grokbotshelf.com/@iamtheh0n3yp0t</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://grokbotshelf.com/@iamtheh0n3yp0t</loc><lastmod>2026-11-24</lastmod></url>
   <url><loc>https://grokbotshelf.com/@tnvolman</loc><lastmod>2026-10-30</lastmod></url>
   <url><loc>https://grokbotshelf.com/@johnp_creates</loc><lastmod>2026-11-16</lastmod></url>
   <url><loc>https://grokbotshelf.com/@needmoremanas</loc><lastmod>2026-10-28</lastmod></url>

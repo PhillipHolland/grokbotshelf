@@ -8659,6 +8659,32 @@
       "note": "Added to shelf 2026-11-23 by routine under standing SFW rule. Official template title is LIVE Ban Bailout by Mark; shelved as LIVE Ban Bailout (TheMarkGShow no-suffix pattern). Official description used. Reused existing /avatars/themarkgshow.webp. Source post https://x.com/TheMarkGShow/status/2124895855786246211. Logged pending under bare key 2124895855786246211 in an uncommitted ingest; recorded as x-2124895855786246211 to match current request keys. Pending/held items including Channel Lockdown, Enigma no-handle forms, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
       "added": "2026-11-23",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-883": {
+      "date": "2026-11-24",
+      "status": "added",
+      "bot": "Bot Builder Extraordinaire by John",
+      "template_url": "https://x.ai/bot/mzJavdOpts1mtaz6JnnOO",
+      "author": "@iamtheh0n3yp0t",
+      "author_handle": "@iamtheh0n3yp0t",
+      "url": "https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john",
+      "description": "Want to build an effective Grok bot? Bot Builder Extraordinaire walks you from the job it should hold to the first task you give it, and checks bot drafts before they go live.",
+      "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is truncated on x.ai as “Bot Builder Extraordinaire 🔨 by J” (h1 is Bot Builder Extraordinaire 🔨); shelved as Bot Builder Extraordinaire by John to match his X by John house style, emoji dropped from the name. Official description used. Reused existing /avatars/iamtheh0n3yp0t.webp. Source post https://x.com/iamtheh0n3yp0t/status/2125104448359796864; site form #883. form-873 was also copied into the seen map (it had been top-only). Pending/held items were left untouched.",
+      "added": "2026-11-24",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-873": {
+      "date": "2026-11-20",
+      "status": "added",
+      "bot": "SEO and AEO Boss by ecoay",
+      "template_url": "https://x.ai/bot/D1qq0J32L5E46cypmA3Xg",
+      "author": "@ecoay",
+      "author_handle": "@ecoay",
+      "url": "https://grokbotshelf.com/bot/seo-and-aeo-boss-by-ecoay",
+      "description": "An SEO and AI-answer desk for your websites. It drafts the copy, metas, sitemaps, llms.txt and schema that rank in Google and get cited by AI assistants.",
+      "note": "Added by routine under standing SFW rule. Site form #873. No source post.",
+      "added": "2026-11-20",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12412,6 +12438,19 @@
     "description": "Gets live streamers on TikTok LIVE, YouTube Live, Twitch, Kick, and Instagram/Facebook Live through LIVE bans, strikes, and restrictions. Logs every notice with real end dates, drafts calm evidence-based appeals and second appeals tied to official policies, tracks when access returns, and runs pre-live checks so the same issue doesn't get you banned twice.",
     "note": "Added to shelf 2026-11-23 by routine under standing SFW rule. Official template title is LIVE Ban Bailout by Mark; shelved as LIVE Ban Bailout (TheMarkGShow no-suffix pattern). Official description used. Reused existing /avatars/themarkgshow.webp. Source post https://x.com/TheMarkGShow/status/2124895855786246211. Logged pending under bare key 2124895855786246211 in an uncommitted ingest; recorded as x-2124895855786246211 to match current request keys. Pending/held items including Channel Lockdown, Enigma no-handle forms, UFC Fight Picker, Jimothy Wallet, #857, and #855 were left untouched.",
     "added": "2026-11-23",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-883": {
+    "date": "2026-11-24",
+    "status": "added",
+    "bot": "Bot Builder Extraordinaire by John",
+    "template_url": "https://x.ai/bot/mzJavdOpts1mtaz6JnnOO",
+    "author": "@iamtheh0n3yp0t",
+    "author_handle": "@iamtheh0n3yp0t",
+    "url": "https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john",
+    "description": "Want to build an effective Grok bot? Bot Builder Extraordinaire walks you from the job it should hold to the first task you give it, and checks bot drafts before they go live.",
+    "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is truncated on x.ai as “Bot Builder Extraordinaire 🔨 by J” (h1 is Bot Builder Extraordinaire 🔨); shelved as Bot Builder Extraordinaire by John to match his X by John house style, emoji dropped from the name. Official description used. Reused existing /avatars/iamtheh0n3yp0t.webp. Source post https://x.com/iamtheh0n3yp0t/status/2125104448359796864; site form #883. form-873 was also copied into the seen map (it had been top-only). Pending/held items were left untouched.",
+    "added": "2026-11-24",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }
