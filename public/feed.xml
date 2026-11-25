@@ -6,7 +6,52 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 25 Nov 2026 01:19:47 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 25 Nov 2026 03:18:39 GMT</lastBuildDate>
+  <item>
+    <title>🌱 Skill a Day by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/skill-a-day</link>
+    <guid isPermaLink="false">https://x.ai/bot/grMXflwRfN3chpV8Y88c5</guid>
+    <description>Pick a skill and get better in 15 minutes a day. Choose touch typing, drawing, chess, spreadsheets, public speaking, mental math, knots or juggling, or name your own, and get a dated practice plan with a warm-up, a focused drill and a quick wrap-up. Weekly progress checks adjust your level, and a dashboard tracks your streak and results.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:32 GMT</pubDate>
+  </item>
+  <item>
+    <title>🎭 Sonnet a Day by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/sonnet-a-day</link>
+    <guid isPermaLink="false">https://x.ai/bot/NwixIgbYNYR5oxSHDcrC8</guid>
+    <description>One Shakespeare sonnet a day, about ten minutes. 151 of the 154 sonnets in their original 1609 order, each with a plain-English paraphrase, a short close reading, a couplet to learn by heart and two questions, plus optional bonus days from the plays and poems. A dashboard tracks your streak, the lines you know and your way through the Fair Youth, Rival Poet and Dark Lady sonnets.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:31 GMT</pubDate>
+  </item>
+  <item>
+    <title>🏛️ Founders&apos; Reading Plan by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/founders-reading-plan</link>
+    <guid isPermaLink="false">https://x.ai/bot/OiJ2yft0AxrfrCdRAgFYu</guid>
+    <description>America&apos;s founding texts, about fifteen minutes a day. Read the Declaration, the Constitution, all 85 Federalist Papers with the Anti-Federalists who answered them, Tocqueville&apos;s Democracy in America and Lincoln&apos;s great speeches across one year, each day with an excerpt, full-text link, short reflection and a non-partisan civics question, plus a dashboard for your streak and progress.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:30 GMT</pubDate>
+  </item>
+  <item>
+    <title>🪶 Poem a Day by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/poem-a-day</link>
+    <guid isPermaLink="false">https://x.ai/bot/wtyqNmjwY8PLAoXeB6YQd</guid>
+    <description>A classic poem every morning, about ten minutes a day. Dickinson, Keats, Whitman, early Frost, the Romantics and more: 365 public-domain poems, each with a short close reading, a line to learn by heart and two questions, plus a dashboard for your streak, your poets and the lines you know.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:29 GMT</pubDate>
+  </item>
+  <item>
+    <title>🌙 Bedtime Story Night by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/bedtime-story-night</link>
+    <guid isPermaLink="false">https://x.ai/bot/JjKgjNN2mXkU7gRDYBCiF</guid>
+    <description>A classic bedtime story every night at story time, ready to read aloud: Aesop&apos;s fables, fairy tales from the Brothers Grimm and Hans Christian Andersen, and Kipling&apos;s Just So Stories, word for word from old public-domain editions, matched to your child&apos;s age and your story length, gentle stories only unless you choose otherwise, with a Bookshelf of everything you&apos;ve read.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:28 GMT</pubDate>
+  </item>
   <item>
     <title>🗽 Citizenship Civics Coach by John Bianchi</title>
     <link>https://grokbotshelf.com/bot/citizenship-civics-coach</link>
@@ -411,51 +456,6 @@
     <dc:creator>John (@johnp_creates)</dc:creator>
     <category>Productivity</category>
     <pubDate>Mon, 16 Nov 2026 12:01:43 GMT</pubDate>
-  </item>
-  <item>
-    <title>📒 Regulars Book by Mark</title>
-    <link>https://grokbotshelf.com/bot/regulars-book</link>
-    <guid isPermaLink="false">https://x.ai/bot/5LlCDccEApOJF7FoU7iOl</guid>
-    <description>A community memory for small live streamers on Twitch, YouTube Live, TikTok LIVE and Kick. It remembers who showed up, drafts thank-you posts for raiders, gifters and first-timers, and hands you a welcome-back cheat sheet before every stream.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Mon, 16 Nov 2026 12:01:42 GMT</pubDate>
-  </item>
-  <item>
-    <title>📚 BookReader BOT by Vince</title>
-    <link>https://grokbotshelf.com/bot/bookreader-bot-by-vince</link>
-    <guid isPermaLink="false">https://x.ai/bot/bhpvN6KWImycyHkIW7xt2</guid>
-    <description>Reads your PDF books to you as daily voice memos, a chapter a day, on the schedule you choose, with a bright &quot;My book: daily reading&quot; Page to track every book. Provided by The AI Systems Lab.</description>
-    <dc:creator>Vince (@Vince_edwardsnz)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Sun, 15 Nov 2026 12:01:41 GMT</pubDate>
-  </item>
-  <item>
-    <title>👕 POD Shop Runner by Matt</title>
-    <link>https://grokbotshelf.com/bot/pod-shop-runner</link>
-    <guid isPermaLink="false">https://x.ai/bot/hOtID1uF5XSgpF34iyJWl</guid>
-    <description>Runs an Etsy + Printify print-on-demand T-shirt shop end to end: designs, listings, orders, and marketing. For solo sellers who want a bot to handle the whole flow and never publish without their OK.</description>
-    <dc:creator>Matt</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Sun, 15 Nov 2026 12:01:40 GMT</pubDate>
-  </item>
-  <item>
-    <title>📰 LinkedIn News Desk by Matt</title>
-    <link>https://grokbotshelf.com/bot/linkedin-news-desk</link>
-    <guid isPermaLink="false">https://x.ai/bot/NB_9IY8j6Ha9wmo1-ugiv</guid>
-    <description>A LinkedIn news-post desk that turns timely news into sourced drafts with an infographic. It never posts without the owner&apos;s typed OK.</description>
-    <dc:creator>Matt</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sun, 15 Nov 2026 12:01:39 GMT</pubDate>
-  </item>
-  <item>
-    <title>🕵️ Snoop by Heamanth</title>
-    <link>https://grokbotshelf.com/bot/snoop</link>
-    <guid isPermaLink="false">https://x.ai/bot/L4a4AB4fu9_TpT25oSc4D</guid>
-    <description>Studies your Grok Bots and their chats, turns how you work into markdown playbooks, and rebuilds them into a small team of head bots, one per area of your life.</description>
-    <dc:creator>Heamanth (@Heamanth_alturi)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Sun, 15 Nov 2026 12:01:38 GMT</pubDate>
   </item>
 </channel>
 </rss>
