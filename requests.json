@@ -8789,6 +8789,58 @@
       "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 🌱 Skill a Day by John; shelved as Skill a Day (plain title, no clash). Official description used, minus the contact email (339 characters). Reused existing /avatars/btcjohnnyb.webp (real X profile photo; distinct from @iamtheh0n3yp0t). No source post; site form form-891. Pending/held items were left untouched.",
       "added": "2026-11-24",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-893": {
+      "date": "2026-11-25",
+      "status": "added",
+      "bot": "Daily Puzzle Break",
+      "template_url": "https://x.ai/bot/94sNs4l02n5bzdldeDIk7",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/daily-puzzle-break",
+      "description": "A fresh puzzle break, every day. Pick your time, puzzle types and difficulty, and get original word ladders, anagrams, logic grids and number puzzles in chat, with hints when you want them and a dashboard for your streak and score.",
+      "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🧩 Daily Puzzle Break by John; shelved as Daily Puzzle Break (plain title, no clash with Reading & Puzzles Buddy by Kevin). Official description used, minus the contact email (231 characters). Category Lifestyle. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-893. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-25",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-894": {
+      "date": "2026-11-25",
+      "status": "added",
+      "bot": "Website Checkup",
+      "template_url": "https://x.ai/bot/wZ1ieQSX2me3geOoBbHz8",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/website-checkup",
+      "description": "A weekly checkup for your small business website, in plain English. Every week it checks that your site is up, your security certificate and domain are current, your links work, search engines can read your pages and the site loads quickly, then gives you a short fix list with step-by-step how-tos and a dashboard. Strictly read-only: it never logs in or changes anything.",
+      "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🛠️ Website Checkup by John; shelved as Website Checkup (plain title, no clash with Cyber Checkup by Z23 or Checkup · Fleet Checkup Runner). Official description used, minus the contact email (373 characters). Category Business & Marketing. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-894. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-25",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-895": {
+      "date": "2026-11-25",
+      "status": "added",
+      "bot": "Event Planner for Small Business",
+      "template_url": "https://x.ai/bot/dJpGno64GSp3Fzi0dirnL",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/event-planner-for-small-business",
+      "description": "Plan a launch party, workshop, open house, pop-up or fundraiser without the stress. Answer a few quick questions and get a dated plan that works back from your event date, a budget tracker and a checklist dashboard, plus weekly check-ins that tell you exactly what to do next. It drafts your invites, posts and vendor emails in your voice, and you send everything yourself.",
+      "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 📋 Event Planner for Small Business by John; shelved as Event Planner for Small Business (plain title, no clash). Official description used, minus the contact email (373 characters). Category Business & Marketing. Document title will omit the by-clause because “Event Planner for Small Business by John Bianchi · Grok Bot Shelf” is 65 characters, over the 60-character title cap. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-895. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-25",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-896": {
+      "date": "2026-11-25",
+      "status": "added",
+      "bot": "Indie Launch Coach",
+      "template_url": "https://x.ai/bot/algXbk1HvHqu0YDOa7IWO",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/indie-launch-coach",
+      "description": "Launch your indie game with a plan that fits your week. Answer a few quick questions and get a dated launch plan for Steam and other stores, a live dashboard, festival deadline alerts, and drafts of your posts, store copy and creator emails, nothing posted or sent without your OK.",
+      "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🚀 Indie Launch Coach by John; shelved as Indie Launch Coach (plain title; distinct from existing Launch Coach and Launch Coach (Apprentice), which are GED/trade apprenticeship coaches). Official description used, minus the contact email (281 characters). Category Business & Marketing, like Freelance Gig Launcher. There is no Games category. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-896. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-25",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12659,6 +12711,58 @@
     "description": "Pick a skill and get better in 15 minutes a day. Choose touch typing, drawing, chess, spreadsheets, public speaking, mental math, knots or juggling, or name your own, and get a dated practice plan with a warm-up, a focused drill and a quick wrap-up. Weekly progress checks adjust your level, and a dashboard tracks your streak and results.",
     "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 🌱 Skill a Day by John; shelved as Skill a Day (plain title, no clash). Official description used, minus the contact email (339 characters). Reused existing /avatars/btcjohnnyb.webp (real X profile photo; distinct from @iamtheh0n3yp0t). No source post; site form form-891. Pending/held items were left untouched.",
     "added": "2026-11-24",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-893": {
+    "date": "2026-11-25",
+    "status": "added",
+    "bot": "Daily Puzzle Break",
+    "template_url": "https://x.ai/bot/94sNs4l02n5bzdldeDIk7",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/daily-puzzle-break",
+    "description": "A fresh puzzle break, every day. Pick your time, puzzle types and difficulty, and get original word ladders, anagrams, logic grids and number puzzles in chat, with hints when you want them and a dashboard for your streak and score.",
+    "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🧩 Daily Puzzle Break by John; shelved as Daily Puzzle Break (plain title, no clash with Reading & Puzzles Buddy by Kevin). Official description used, minus the contact email (231 characters). Category Lifestyle. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-893. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-25",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-894": {
+    "date": "2026-11-25",
+    "status": "added",
+    "bot": "Website Checkup",
+    "template_url": "https://x.ai/bot/wZ1ieQSX2me3geOoBbHz8",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/website-checkup",
+    "description": "A weekly checkup for your small business website, in plain English. Every week it checks that your site is up, your security certificate and domain are current, your links work, search engines can read your pages and the site loads quickly, then gives you a short fix list with step-by-step how-tos and a dashboard. Strictly read-only: it never logs in or changes anything.",
+    "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🛠️ Website Checkup by John; shelved as Website Checkup (plain title, no clash with Cyber Checkup by Z23 or Checkup · Fleet Checkup Runner). Official description used, minus the contact email (373 characters). Category Business & Marketing. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-894. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-25",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-895": {
+    "date": "2026-11-25",
+    "status": "added",
+    "bot": "Event Planner for Small Business",
+    "template_url": "https://x.ai/bot/dJpGno64GSp3Fzi0dirnL",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/event-planner-for-small-business",
+    "description": "Plan a launch party, workshop, open house, pop-up or fundraiser without the stress. Answer a few quick questions and get a dated plan that works back from your event date, a budget tracker and a checklist dashboard, plus weekly check-ins that tell you exactly what to do next. It drafts your invites, posts and vendor emails in your voice, and you send everything yourself.",
+    "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 📋 Event Planner for Small Business by John; shelved as Event Planner for Small Business (plain title, no clash). Official description used, minus the contact email (373 characters). Category Business & Marketing. Document title will omit the by-clause because “Event Planner for Small Business by John Bianchi · Grok Bot Shelf” is 65 characters, over the 60-character title cap. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-895. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-25",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-896": {
+    "date": "2026-11-25",
+    "status": "added",
+    "bot": "Indie Launch Coach",
+    "template_url": "https://x.ai/bot/algXbk1HvHqu0YDOa7IWO",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/indie-launch-coach",
+    "description": "Launch your indie game with a plan that fits your week. Answer a few quick questions and get a dated launch plan for Steam and other stores, a live dashboard, festival deadline alerts, and drafts of your posts, store copy and creator emails, nothing posted or sent without your OK.",
+    "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🚀 Indie Launch Coach by John; shelved as Indie Launch Coach (plain title; distinct from existing Launch Coach and Launch Coach (Apprentice), which are GED/trade apprenticeship coaches). Official description used, minus the contact email (281 characters). Category Business & Marketing, like Freelance Gig Launcher. There is no Games category. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-896. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-25",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
 }

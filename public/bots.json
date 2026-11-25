@@ -14980,5 +14980,57 @@
     "creator_avatar": "/avatars/btcjohnnyb.webp",
     "source_post": "",
     "added": "2026-11-24"
+  },
+  {
+    "name": "Daily Puzzle Break",
+    "emoji": "🧩",
+    "description": "A fresh puzzle break, every day. Pick your time, puzzle types and difficulty, and get original word ladders, anagrams, logic grids and number puzzles in chat, with hints when you want them and a dashboard for your streak and score.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/94sNs4l02n5bzdldeDIk7",
+    "creator_name": "John Bianchi",
+    "creator_handle": "@BTCJohnnyB",
+    "creator_url": "https://x.com/BTCJohnnyB",
+    "creator_avatar": "/avatars/btcjohnnyb.webp",
+    "source_post": "",
+    "added": "2026-11-25"
+  },
+  {
+    "name": "Website Checkup",
+    "emoji": "🛠️",
+    "description": "A weekly checkup for your small business website, in plain English. Every week it checks that your site is up, your security certificate and domain are current, your links work, search engines can read your pages and the site loads quickly, then gives you a short fix list with step-by-step how-tos and a dashboard. Strictly read-only: it never logs in or changes anything.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/wZ1ieQSX2me3geOoBbHz8",
+    "creator_name": "John Bianchi",
+    "creator_handle": "@BTCJohnnyB",
+    "creator_url": "https://x.com/BTCJohnnyB",
+    "creator_avatar": "/avatars/btcjohnnyb.webp",
+    "source_post": "",
+    "added": "2026-11-25"
+  },
+  {
+    "name": "Event Planner for Small Business",
+    "emoji": "📋",
+    "description": "Plan a launch party, workshop, open house, pop-up or fundraiser without the stress. Answer a few quick questions and get a dated plan that works back from your event date, a budget tracker and a checklist dashboard, plus weekly check-ins that tell you exactly what to do next. It drafts your invites, posts and vendor emails in your voice, and you send everything yourself.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/dJpGno64GSp3Fzi0dirnL",
+    "creator_name": "John Bianchi",
+    "creator_handle": "@BTCJohnnyB",
+    "creator_url": "https://x.com/BTCJohnnyB",
+    "creator_avatar": "/avatars/btcjohnnyb.webp",
+    "source_post": "",
+    "added": "2026-11-25"
+  },
+  {
+    "name": "Indie Launch Coach",
+    "emoji": "🚀",
+    "description": "Launch your indie game with a plan that fits your week. Answer a few quick questions and get a dated launch plan for Steam and other stores, a live dashboard, festival deadline alerts, and drafts of your posts, store copy and creator emails, nothing posted or sent without your OK.",
+    "category": "Business & Marketing",
+    "url": "https://x.ai/bot/algXbk1HvHqu0YDOa7IWO",
+    "creator_name": "John Bianchi",
+    "creator_handle": "@BTCJohnnyB",
+    "creator_url": "https://x.com/BTCJohnnyB",
+    "creator_avatar": "/avatars/btcjohnnyb.webp",
+    "source_post": "",
+    "added": "2026-11-25"
   }
 ]

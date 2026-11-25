@@ -7,7 +7,7 @@ const ok = (c, m) => { console.log((c ? "PASS " : "FAIL ") + m); if (!c) process
 
 const ROOT = path.join(__dirname, ".."), PUB = path.join(ROOT, "public");
 const shelf = JSON.parse(fs.readFileSync(path.join(PUB, "bots.json"), "utf8"));
-const opts = { pub: PUB, today: "2026-11-24" };
+const opts = { pub: PUB, today: "2026-11-25" };
 const known = shelf.find((b) => b.creator_handle && b.creator_avatar && b.creator_name);
 const fresh = { name: "Zz Test Listing", emoji: "🧪", description: "Checks the add-bot script.", category: shelf[0].category, url: "https://x.ai/bot/ZzTestListing01" };
 
@@ -18,7 +18,7 @@ const fresh = { name: "Zz Test Listing", emoji: "🧪", description: "Checks the
   ok(b.creator_url === "https://x.com/" + known.creator_handle.slice(1), "creator_url comes from the handle");
   ok(b.creator_name && shelf.some((x) => x.creator_handle.toLowerCase() === known.creator_handle.toLowerCase() && x.creator_name === b.creator_name), `creator_name comes from the shelf (${b.creator_name})`);
   ok(b.creator_avatar && fs.existsSync(path.join(PUB, b.creator_avatar)), `creator_avatar is an existing file (${b.creator_avatar})`);
-  ok(b.added === "2026-11-24" && b.source_post === "", "added defaults to today and source_post to empty");
+  ok(b.added === "2026-11-25" && b.source_post === "", "added defaults to today and source_post to empty");
   ok(Object.keys(b).slice(0, 5).join() === "name,emoji,description,category,url", "keys are in the file's usual order");
 }
 {

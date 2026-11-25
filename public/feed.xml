@@ -6,7 +6,43 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 25 Nov 2026 03:18:39 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 25 Nov 2026 15:25:42 GMT</lastBuildDate>
+  <item>
+    <title>🚀 Indie Launch Coach by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/indie-launch-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/algXbk1HvHqu0YDOa7IWO</guid>
+    <description>Launch your indie game with a plan that fits your week. Answer a few quick questions and get a dated launch plan for Steam and other stores, a live dashboard, festival deadline alerts, and drafts of your posts, store copy and creator emails, nothing posted or sent without your OK.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 25 Nov 2026 12:02:36 GMT</pubDate>
+  </item>
+  <item>
+    <title>📋 Event Planner for Small Business by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/event-planner-for-small-business</link>
+    <guid isPermaLink="false">https://x.ai/bot/dJpGno64GSp3Fzi0dirnL</guid>
+    <description>Plan a launch party, workshop, open house, pop-up or fundraiser without the stress. Answer a few quick questions and get a dated plan that works back from your event date, a budget tracker and a checklist dashboard, plus weekly check-ins that tell you exactly what to do next. It drafts your invites, posts and vendor emails in your voice, and you send everything yourself.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 25 Nov 2026 12:02:35 GMT</pubDate>
+  </item>
+  <item>
+    <title>🛠️ Website Checkup by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/website-checkup</link>
+    <guid isPermaLink="false">https://x.ai/bot/wZ1ieQSX2me3geOoBbHz8</guid>
+    <description>A weekly checkup for your small business website, in plain English. Every week it checks that your site is up, your security certificate and domain are current, your links work, search engines can read your pages and the site loads quickly, then gives you a short fix list with step-by-step how-tos and a dashboard. Strictly read-only: it never logs in or changes anything.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Wed, 25 Nov 2026 12:02:34 GMT</pubDate>
+  </item>
+  <item>
+    <title>🧩 Daily Puzzle Break by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/daily-puzzle-break</link>
+    <guid isPermaLink="false">https://x.ai/bot/94sNs4l02n5bzdldeDIk7</guid>
+    <description>A fresh puzzle break, every day. Pick your time, puzzle types and difficulty, and get original word ladders, anagrams, logic grids and number puzzles in chat, with hints when you want them and a dashboard for your streak and score.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Wed, 25 Nov 2026 12:02:33 GMT</pubDate>
+  </item>
   <item>
     <title>🌱 Skill a Day by John Bianchi</title>
     <link>https://grokbotshelf.com/bot/skill-a-day</link>
@@ -420,42 +456,6 @@
     <dc:creator>Trond (@xenappblog)</dc:creator>
     <category>Productivity</category>
     <pubDate>Tue, 17 Nov 2026 12:01:47 GMT</pubDate>
-  </item>
-  <item>
-    <title>🎬 Best Seat Movie Bot by Erinn</title>
-    <link>https://grokbotshelf.com/bot/best-seat-movie-bot-by-erinn</link>
-    <guid isPermaLink="false">https://x.ai/bot/_Zz71Q1ne5H2OcDRxGulz</guid>
-    <description>Skip the movie apps. Get the best seats in the house, straight from the theater&apos;s own seat map. It books with your OK, adds it to your calendar, invites your crew, and finds deals, trailers, and spoiler free family checks.</description>
-    <dc:creator>Erinn (@ErinnFL)</dc:creator>
-    <category>Lifestyle</category>
-    <pubDate>Tue, 17 Nov 2026 12:01:46 GMT</pubDate>
-  </item>
-  <item>
-    <title>📞 Shop Phone Line Bot by dean</title>
-    <link>https://grokbotshelf.com/bot/shop-phone-line-bot</link>
-    <guid isPermaLink="false">https://x.ai/bot/gsEpaC7v6a7PAgxV2YrUu</guid>
-    <description>Helps online shop owners set up an AI phone line that checks orders for verified callers, answers questions from their own policies and passes tricky calls to a person. Nothing goes live or gets bought without your yes.</description>
-    <dc:creator>dean</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 17 Nov 2026 12:01:45 GMT</pubDate>
-  </item>
-  <item>
-    <title>📬 Inbox Ida by Jim</title>
-    <link>https://grokbotshelf.com/bot/inbox-ida</link>
-    <guid isPermaLink="false">https://x.ai/bot/XlWvzllS0K4WpFh502I-h</guid>
-    <description>A calm inbox helper for Gmail, Outlook and Yahoo. She plans cleanups, suggests labels and filters, sends a weekly digest of what needs you, and flags scams and phishing, and never changes mail without your OK.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 16 Nov 2026 12:01:44 GMT</pubDate>
-  </item>
-  <item>
-    <title>🚦 OutageCheck by John</title>
-    <link>https://grokbotshelf.com/bot/outagecheck</link>
-    <guid isPermaLink="false">https://x.ai/bot/FTCdRKGRlHNqGz4FZpqym</guid>
-    <description>Tells you in seconds if a service is really down or it&apos;s just you, with a status card, the official status link, and an alert when it&apos;s fixed.</description>
-    <dc:creator>John (@johnp_creates)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Mon, 16 Nov 2026 12:01:43 GMT</pubDate>
   </item>
 </channel>
 </rss>
