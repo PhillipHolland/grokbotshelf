@@ -6,7 +6,34 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Tue, 24 Nov 2026 15:22:11 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 25 Nov 2026 01:19:47 GMT</lastBuildDate>
+  <item>
+    <title>🗽 Citizenship Civics Coach by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/citizenship-civics-coach</link>
+    <guid isPermaLink="false">https://x.ai/bot/84FqrmosTNnY-z_T2pbJ_</guid>
+    <description>Get ready for the U.S. citizenship civics test in a few minutes a day. Practice official USCIS questions for the 2025 or 2008 test with spaced repetition, take a weekly mock test in official format, and watch your progress on a readiness Page. Answers that change, like your senators or governor, are checked live from official sources. Study aid only, not legal advice, not affiliated with USCIS.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:27 GMT</pubDate>
+  </item>
+  <item>
+    <title>📰 100 Years Ago Today by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/100-years-ago-today</link>
+    <guid isPermaLink="false">https://x.ai/bot/5QXnAseS4QUrUnawaXEei</guid>
+    <description>Every morning, a real American newspaper front page from exactly 100 years ago today, from the Library of Congress. You get the day&apos;s headlines, things to spot on the page, a then-vs-now fact with its source and a question to talk about, plus a scrapbook of every page you&apos;ve seen. Family mode keeps it kid-friendly.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:26 GMT</pubDate>
+  </item>
+  <item>
+    <title>📜 Story of America by John Bianchi</title>
+    <link>https://grokbotshelf.com/bot/story-of-america</link>
+    <guid isPermaLink="false">https://x.ai/bot/xkJs5oOBYvS1yMpIlFvwa</guid>
+    <description>America&apos;s story read aloud at bedtime, ten minutes a night or five for little listeners, word for word from classic children&apos;s books. Start with Famous Stories, then the Viking voyages to 1917. Readings end with a question or two. A Library Card Page tracks progress. Grown-ups get a note before old-fashioned, one-sided, or frightening chapters, and can skip the hardest with a one-line summary.</description>
+    <dc:creator>John Bianchi (@BTCJohnnyB)</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Tue, 24 Nov 2026 12:02:25 GMT</pubDate>
+  </item>
   <item>
     <title>🔨 Bot Builder Extraordinaire by John</title>
     <link>https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john</link>
@@ -429,33 +456,6 @@
     <dc:creator>Heamanth (@Heamanth_alturi)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Sun, 15 Nov 2026 12:01:38 GMT</pubDate>
-  </item>
-  <item>
-    <title>🧸 T3 Tots by Deepu</title>
-    <link>https://grokbotshelf.com/bot/t3-tots</link>
-    <guid isPermaLink="false">https://x.ai/bot/MRetlu_oU5I7vmEyNQQg7</guid>
-    <description>A chat companion for T3 Code. It runs and manages your T3 Code from chat.</description>
-    <dc:creator>Deepu (@Deepusleepy)</dc:creator>
-    <category>Developer</category>
-    <pubDate>Sun, 15 Nov 2026 12:01:37 GMT</pubDate>
-  </item>
-  <item>
-    <title>📣 Twitter Tony by Jim</title>
-    <link>https://grokbotshelf.com/bot/twitter-tony</link>
-    <guid isPermaLink="false">https://x.ai/bot/_mOgvEOBhJuSBpEGB-67o</guid>
-    <description>A friendly Twitter growth assistant for small creators. It finds fresh posts worth replying to, drafts replies and posts in your voice, catches comments you haven&apos;t answered, and tracks your progress honestly. Drafts only; you press Post.</description>
-    <dc:creator>Jim (@jimaggie)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sat, 14 Nov 2026 12:01:36 GMT</pubDate>
-  </item>
-  <item>
-    <title>💼 LinkedIn Post Studio by AI4B2Day</title>
-    <link>https://grokbotshelf.com/bot/linkedin-post-studio-by-ai4b2day</link>
-    <guid isPermaLink="false">https://x.ai/bot/Aw_lTjT2D-0PE-aTQZjpx</guid>
-    <description>Researches what performs on LinkedIn right now and drafts daily posts in your voice. Nothing goes live until you approve the exact text.</description>
-    <dc:creator>AI4B2Day (@ai4b2day)</dc:creator>
-    <category>Creator &amp; Media</category>
-    <pubDate>Sat, 14 Nov 2026 12:01:35 GMT</pubDate>
   </item>
 </channel>
 </rss>

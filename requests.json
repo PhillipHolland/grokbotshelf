@@ -8685,6 +8685,45 @@
       "note": "Added by routine under standing SFW rule. Site form #873. No source post.",
       "added": "2026-11-20",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-884": {
+      "date": "2026-11-24",
+      "status": "added",
+      "bot": "Story of America",
+      "template_url": "https://x.ai/bot/xkJs5oOBYvS1yMpIlFvwa",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/story-of-america",
+      "description": "America's story read aloud at bedtime, ten minutes a night or five for little listeners, word for word from classic children's books. Start with Famous Stories, then the Viking voyages to 1917. Readings end with a question or two. A Library Card Page tracks progress. Grown-ups get a note before old-fashioned, one-sided, or frightening chapters, and can skip the hardest with a one-line summary.",
+      "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 📜 Story of America by John; shelved as Story of America (plain title, no clash; matches existing BTCJohnnyB listings Great Books: Reading Paths and Harvard Classics: 15 Minutes a Day). Official description tightened to 396 characters for the 400-char cap; contact email and Omega Home Library line dropped. Reused existing /avatars/btcjohnnyb.webp (same real X profile photo as provided; distinct from @iamtheh0n3yp0t). No source post; site form #884. Pending/held items were left untouched.",
+      "added": "2026-11-24",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-885": {
+      "date": "2026-11-24",
+      "status": "added",
+      "bot": "100 Years Ago Today",
+      "template_url": "https://x.ai/bot/5QXnAseS4QUrUnawaXEei",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/100-years-ago-today",
+      "description": "Every morning, a real American newspaper front page from exactly 100 years ago today, from the Library of Congress. You get the day's headlines, things to spot on the page, a then-vs-now fact with its source and a question to talk about, plus a scrapbook of every page you've seen. Family mode keeps it kid-friendly.",
+      "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 📰 100 Years Ago Today by John; shelved as 100 Years Ago Today (plain title, no clash). Official description used, minus the contact email and Omega Home Library line (316 characters). Reused existing /avatars/btcjohnnyb.webp. No source post; site form #885. Pending/held items were left untouched.",
+      "added": "2026-11-24",
+      "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-886": {
+      "date": "2026-11-24",
+      "status": "added",
+      "bot": "Citizenship Civics Coach",
+      "template_url": "https://x.ai/bot/84FqrmosTNnY-z_T2pbJ_",
+      "author": "@BTCJohnnyB",
+      "author_handle": "@BTCJohnnyB",
+      "url": "https://grokbotshelf.com/bot/citizenship-civics-coach",
+      "description": "Get ready for the U.S. citizenship civics test in a few minutes a day. Practice official USCIS questions for the 2025 or 2008 test with spaced repetition, take a weekly mock test in official format, and watch your progress on a readiness Page. Answers that change, like your senators or governor, are checked live from official sources. Study aid only, not legal advice, not affiliated with USCIS.",
+      "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 🗽 Citizenship Civics Coach by John; shelved as Citizenship Civics Coach (plain title, no clash with Civics Clara). Official description tightened to 397 characters for the 400-char cap; contact email and Omega Home Library line dropped; USCIS disclaimer kept. Reused existing /avatars/btcjohnnyb.webp. No source post; site form #886. Pending/held items were left untouched.",
+      "added": "2026-11-24",
+      "approved_by": "Phillip Holland (standing SFW rule)"
     }
   },
   "x-2114766675119886755": {
@@ -12450,6 +12489,45 @@
     "url": "https://grokbotshelf.com/bot/bot-builder-extraordinaire-by-john",
     "description": "Want to build an effective Grok bot? Bot Builder Extraordinaire walks you from the job it should hold to the first task you give it, and checks bot drafts before they go live.",
     "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is truncated on x.ai as “Bot Builder Extraordinaire 🔨 by J” (h1 is Bot Builder Extraordinaire 🔨); shelved as Bot Builder Extraordinaire by John to match his X by John house style, emoji dropped from the name. Official description used. Reused existing /avatars/iamtheh0n3yp0t.webp. Source post https://x.com/iamtheh0n3yp0t/status/2125104448359796864; site form #883. form-873 was also copied into the seen map (it had been top-only). Pending/held items were left untouched.",
+    "added": "2026-11-24",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-884": {
+    "date": "2026-11-24",
+    "status": "added",
+    "bot": "Story of America",
+    "template_url": "https://x.ai/bot/xkJs5oOBYvS1yMpIlFvwa",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/story-of-america",
+    "description": "America's story read aloud at bedtime, ten minutes a night or five for little listeners, word for word from classic children's books. Start with Famous Stories, then the Viking voyages to 1917. Readings end with a question or two. A Library Card Page tracks progress. Grown-ups get a note before old-fashioned, one-sided, or frightening chapters, and can skip the hardest with a one-line summary.",
+    "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 📜 Story of America by John; shelved as Story of America (plain title, no clash; matches existing BTCJohnnyB listings Great Books: Reading Paths and Harvard Classics: 15 Minutes a Day). Official description tightened to 396 characters for the 400-char cap; contact email and Omega Home Library line dropped. Reused existing /avatars/btcjohnnyb.webp (same real X profile photo as provided; distinct from @iamtheh0n3yp0t). No source post; site form #884. Pending/held items were left untouched.",
+    "added": "2026-11-24",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-885": {
+    "date": "2026-11-24",
+    "status": "added",
+    "bot": "100 Years Ago Today",
+    "template_url": "https://x.ai/bot/5QXnAseS4QUrUnawaXEei",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/100-years-ago-today",
+    "description": "Every morning, a real American newspaper front page from exactly 100 years ago today, from the Library of Congress. You get the day's headlines, things to spot on the page, a then-vs-now fact with its source and a question to talk about, plus a scrapbook of every page you've seen. Family mode keeps it kid-friendly.",
+    "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 📰 100 Years Ago Today by John; shelved as 100 Years Ago Today (plain title, no clash). Official description used, minus the contact email and Omega Home Library line (316 characters). Reused existing /avatars/btcjohnnyb.webp. No source post; site form #885. Pending/held items were left untouched.",
+    "added": "2026-11-24",
+    "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-886": {
+    "date": "2026-11-24",
+    "status": "added",
+    "bot": "Citizenship Civics Coach",
+    "template_url": "https://x.ai/bot/84FqrmosTNnY-z_T2pbJ_",
+    "author": "@BTCJohnnyB",
+    "author_handle": "@BTCJohnnyB",
+    "url": "https://grokbotshelf.com/bot/citizenship-civics-coach",
+    "description": "Get ready for the U.S. citizenship civics test in a few minutes a day. Practice official USCIS questions for the 2025 or 2008 test with spaced repetition, take a weekly mock test in official format, and watch your progress on a readiness Page. Answers that change, like your senators or governor, are checked live from official sources. Study aid only, not legal advice, not affiliated with USCIS.",
+    "note": "Added to shelf 2026-11-24 by routine under standing SFW rule. Official template title is 🗽 Citizenship Civics Coach by John; shelved as Citizenship Civics Coach (plain title, no clash with Civics Clara). Official description tightened to 397 characters for the 400-char cap; contact email and Omega Home Library line dropped; USCIS disclaimer kept. Reused existing /avatars/btcjohnnyb.webp. No source post; site form #886. Pending/held items were left untouched.",
     "added": "2026-11-24",
     "approved_by": "Phillip Holland (standing SFW rule)"
   }
