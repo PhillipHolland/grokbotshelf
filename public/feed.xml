@@ -6,7 +6,25 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 25 Nov 2026 15:25:42 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 26 Nov 2026 17:44:55 GMT</lastBuildDate>
+  <item>
+    <title>🎧 Audible Author Watch by Leonard</title>
+    <link>https://grokbotshelf.com/bot/audible-author-watch-by-leonard</link>
+    <guid isPermaLink="false">https://x.ai/bot/so8IDeT56OnL7cjx5sCX9</guid>
+    <description>A weekly check of public Audible pages for new audiobooks and preorders from authors you name. Type your list in chat in any format and get one short report; no Audible login needed.</description>
+    <dc:creator>Leonard</dc:creator>
+    <category>Lifestyle</category>
+    <pubDate>Thu, 26 Nov 2026 12:02:38 GMT</pubDate>
+  </item>
+  <item>
+    <title>☀️ Daily Brief Command Center by Leonard</title>
+    <link>https://grokbotshelf.com/bot/daily-brief-command-center-by-leonard</link>
+    <guid isPermaLink="false">https://x.ai/bot/KTPAAJnYkCQUlVyiNs2tR</guid>
+    <description>A private one-page morning brief, rebuilt every weekday and published to a Cloudflare Pages link that never changes, behind a one-time PIN sign-in for your email. Pick your tiles: weather, calendar, inbox, money due, packages, newsletters, social metrics, plan usage and bot status.</description>
+    <dc:creator>Leonard</dc:creator>
+    <category>Productivity</category>
+    <pubDate>Thu, 26 Nov 2026 12:02:37 GMT</pubDate>
+  </item>
   <item>
     <title>🚀 Indie Launch Coach by John Bianchi</title>
     <link>https://grokbotshelf.com/bot/indie-launch-coach</link>
@@ -438,24 +456,6 @@
     <dc:creator>Justin (@justinfredette)</dc:creator>
     <category>Bot Tools</category>
     <pubDate>Wed, 18 Nov 2026 12:01:49 GMT</pubDate>
-  </item>
-  <item>
-    <title>🔄 Serial Return Watch by Mark</title>
-    <link>https://grokbotshelf.com/bot/serial-return-watch</link>
-    <guid isPermaLink="false">https://x.ai/bot/XHt4xaX22jUw6aFrRu3JH</guid>
-    <description>Helps small online sellers on Shopify, Etsy, eBay, WooCommerce and TikTok Shop catch repeat returners and wardrobing before a refund goes out. It scores each return against your store&apos;s baseline, gives you an inspection checklist, and drafts calm, policy-based replies, and it never acts without your tap.</description>
-    <dc:creator>Mark (@TheMarkGShow)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Tue, 17 Nov 2026 12:01:48 GMT</pubDate>
-  </item>
-  <item>
-    <title>⚙️ Runner · Ops Routines by Trond</title>
-    <link>https://grokbotshelf.com/bot/runner-ops-routines-by-trond</link>
-    <guid isPermaLink="false">https://x.ai/bot/63dRC_WwixVaFMOcvhGEo</guid>
-    <description>A lean routine runner that executes your standing scheduled and webhook jobs on a short, low-usage chat and delivers each result where it belongs.</description>
-    <dc:creator>Trond (@xenappblog)</dc:creator>
-    <category>Productivity</category>
-    <pubDate>Tue, 17 Nov 2026 12:01:47 GMT</pubDate>
   </item>
 </channel>
 </rss>

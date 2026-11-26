@@ -8841,6 +8841,32 @@
       "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🚀 Indie Launch Coach by John; shelved as Indie Launch Coach (plain title; distinct from existing Launch Coach and Launch Coach (Apprentice), which are GED/trade apprenticeship coaches). Official description used, minus the contact email (281 characters). Category Business & Marketing, like Freelance Gig Launcher. There is no Games category. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-896. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
       "added": "2026-11-25",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-897": {
+      "date": "2026-11-26",
+      "status": "added",
+      "bot": "Daily Brief Command Center by Leonard",
+      "template_url": "https://x.ai/bot/KTPAAJnYkCQUlVyiNs2tR",
+      "author": "Leonard",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/daily-brief-command-center-by-leonard",
+      "description": "A private one-page morning brief, rebuilt every weekday and published to a Cloudflare Pages link that never changes, behind a one-time PIN sign-in for your email. Pick your tiles: weather, calendar, inbox, money due, packages, newsletters, social metrics, plan usage and bot status.",
+      "note": "Added to shelf 2026-11-26; approved by Phillip Holland in chat. Official template title is Daily Brief Command Center by Leonard; listed under that title (no-handle “X by Leonard” pattern). Official description used (282 characters). Category Productivity. No creator handle, url, avatar, or source post. Site form #897. form-892 YouSellIt Seller was left untouched, still waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-26",
+      "approved_by": "Phillip Holland (approved in chat, 2026-11-26)"
+    },
+    "form-898": {
+      "date": "2026-11-26",
+      "status": "added",
+      "bot": "Audible Author Watch by Leonard",
+      "template_url": "https://x.ai/bot/so8IDeT56OnL7cjx5sCX9",
+      "author": "Leonard",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/audible-author-watch-by-leonard",
+      "description": "A weekly check of public Audible pages for new audiobooks and preorders from authors you name. Type your list in chat in any format and get one short report; no Audible login needed.",
+      "note": "Added to shelf 2026-11-26; approved by Phillip Holland in chat. Official template title is Audible Author Watch by Leonard; listed under that title (no-handle “X by Leonard” pattern). Official description used (182 characters). Category Lifestyle. No creator handle, url, avatar, or source post. Site form #898. form-892 YouSellIt Seller was left untouched, still waiting on Phil. Pending/held items were left untouched.",
+      "added": "2026-11-26",
+      "approved_by": "Phillip Holland (approved in chat, 2026-11-26)"
     }
   },
   "x-2114766675119886755": {
@@ -12764,5 +12790,31 @@
     "note": "Added to shelf 2026-11-25 by routine under standing SFW rule. Official template title is 🚀 Indie Launch Coach by John; shelved as Indie Launch Coach (plain title; distinct from existing Launch Coach and Launch Coach (Apprentice), which are GED/trade apprenticeship coaches). Official description used, minus the contact email (281 characters). Category Business & Marketing, like Freelance Gig Launcher. There is no Games category. Reused existing /avatars/btcjohnnyb.webp. No source post; site form form-896. form-892 YouSellIt Seller was left untouched, waiting on Phil. Pending/held items were left untouched.",
     "added": "2026-11-25",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-897": {
+    "date": "2026-11-26",
+    "status": "added",
+    "bot": "Daily Brief Command Center by Leonard",
+    "template_url": "https://x.ai/bot/KTPAAJnYkCQUlVyiNs2tR",
+    "author": "Leonard",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/daily-brief-command-center-by-leonard",
+    "description": "A private one-page morning brief, rebuilt every weekday and published to a Cloudflare Pages link that never changes, behind a one-time PIN sign-in for your email. Pick your tiles: weather, calendar, inbox, money due, packages, newsletters, social metrics, plan usage and bot status.",
+    "note": "Added to shelf 2026-11-26; approved by Phillip Holland in chat. Official template title is Daily Brief Command Center by Leonard; listed under that title (no-handle “X by Leonard” pattern). Official description used (282 characters). Category Productivity. No creator handle, url, avatar, or source post. Site form #897. form-892 YouSellIt Seller was left untouched, still waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-26",
+    "approved_by": "Phillip Holland (approved in chat, 2026-11-26)"
+  },
+  "form-898": {
+    "date": "2026-11-26",
+    "status": "added",
+    "bot": "Audible Author Watch by Leonard",
+    "template_url": "https://x.ai/bot/so8IDeT56OnL7cjx5sCX9",
+    "author": "Leonard",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/audible-author-watch-by-leonard",
+    "description": "A weekly check of public Audible pages for new audiobooks and preorders from authors you name. Type your list in chat in any format and get one short report; no Audible login needed.",
+    "note": "Added to shelf 2026-11-26; approved by Phillip Holland in chat. Official template title is Audible Author Watch by Leonard; listed under that title (no-handle “X by Leonard” pattern). Official description used (182 characters). Category Lifestyle. No creator handle, url, avatar, or source post. Site form #898. form-892 YouSellIt Seller was left untouched, still waiting on Phil. Pending/held items were left untouched.",
+    "added": "2026-11-26",
+    "approved_by": "Phillip Holland (approved in chat, 2026-11-26)"
   }
 }

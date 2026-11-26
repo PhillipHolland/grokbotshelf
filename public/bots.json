@@ -15032,5 +15032,31 @@
     "creator_avatar": "/avatars/btcjohnnyb.webp",
     "source_post": "",
     "added": "2026-11-25"
+  },
+  {
+    "name": "Daily Brief Command Center by Leonard",
+    "emoji": "☀️",
+    "description": "A private one-page morning brief, rebuilt every weekday and published to a Cloudflare Pages link that never changes, behind a one-time PIN sign-in for your email. Pick your tiles: weather, calendar, inbox, money due, packages, newsletters, social metrics, plan usage and bot status.",
+    "category": "Productivity",
+    "url": "https://x.ai/bot/KTPAAJnYkCQUlVyiNs2tR",
+    "creator_name": "Leonard",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-26"
+  },
+  {
+    "name": "Audible Author Watch by Leonard",
+    "emoji": "🎧",
+    "description": "A weekly check of public Audible pages for new audiobooks and preorders from authors you name. Type your list in chat in any format and get one short report; no Audible login needed.",
+    "category": "Lifestyle",
+    "url": "https://x.ai/bot/so8IDeT56OnL7cjx5sCX9",
+    "creator_name": "Leonard",
+    "creator_handle": "",
+    "creator_url": "",
+    "creator_avatar": "",
+    "source_post": "",
+    "added": "2026-11-26"
   }
 ]
