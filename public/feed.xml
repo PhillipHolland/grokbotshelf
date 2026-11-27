@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 26 Nov 2026 17:44:55 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 27 Nov 2026 15:23:56 GMT</lastBuildDate>
+  <item>
+    <title>🧭 Market Validator by Trond</title>
+    <link>https://grokbotshelf.com/bot/market-validator-by-trond</link>
+    <guid isPermaLink="false">https://x.ai/bot/P6Uop6aZYtyF4xr0gZhge</guid>
+    <description>Mines unfiltered buyer complaints across Reddit, X, and product reviews, cross-checks verified-MRR and acquisition listings (TrustMRR, ListaMRR, Microns, Acquire.com, Flippa), and writes a Kill Memo backed by real incumbents and proof of spend. Ideas that survive get a 3 to 7 day Minimum Viable Test; it never moves to an offer, landing page, or spend until real demand shows up.</description>
+    <dc:creator>Trond Eirik Haavarstein (@xenappblog)</dc:creator>
+    <category>Business &amp; Marketing</category>
+    <pubDate>Fri, 27 Nov 2026 12:02:39 GMT</pubDate>
+  </item>
   <item>
     <title>🎧 Audible Author Watch by Leonard</title>
     <link>https://grokbotshelf.com/bot/audible-author-watch-by-leonard</link>
@@ -447,15 +456,6 @@
     <dc:creator>Jim (@JimothyRac)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Wed, 18 Nov 2026 12:01:50 GMT</pubDate>
-  </item>
-  <item>
-    <title>⛽ Fleet Credit Saver v2 by Justin</title>
-    <link>https://grokbotshelf.com/bot/fleet-credit-saver-v2</link>
-    <guid isPermaLink="false">https://x.ai/bot/SjTK9SoaPKcIw-FVoThhe</guid>
-    <description>Finds which of your bots and routines use the most for the least value, including bots waking each other and group-chat pile-ons, and helps you fix them one step at a time with your yes. For anyone running several bots who keeps hitting usage limits.</description>
-    <dc:creator>Justin (@justinfredette)</dc:creator>
-    <category>Bot Tools</category>
-    <pubDate>Wed, 18 Nov 2026 12:01:49 GMT</pubDate>
   </item>
 </channel>
 </rss>
