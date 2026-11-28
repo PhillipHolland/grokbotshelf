@@ -6,7 +6,16 @@
   <description>Newest Grok Bot templates on Grok Bot Shelf.</description>
   <language>en</language>
   <atom:link href="https://grokbotshelf.com/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 27 Nov 2026 15:23:56 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 28 Nov 2026 15:44:57 GMT</lastBuildDate>
+  <item>
+    <title>📦 Goji</title>
+    <link>https://grokbotshelf.com/bot/goji</link>
+    <guid isPermaLink="false">https://x.ai/bot/bNxBQz-UXRPzuMlarnmEN</guid>
+    <description>A collector shopping scout and parcel tracker. It watches your wish lists, hunts special, deluxe and collector editions of what you collect, and tracks orders to your door.</description>
+    <dc:creator></dc:creator>
+    <category>Shopping</category>
+    <pubDate>Sat, 28 Nov 2026 12:02:40 GMT</pubDate>
+  </item>
   <item>
     <title>🧭 Market Validator by Trond</title>
     <link>https://grokbotshelf.com/bot/market-validator-by-trond</link>
@@ -447,15 +456,6 @@
     <dc:creator>Jim (@JimothyRac)</dc:creator>
     <category>Business &amp; Marketing</category>
     <pubDate>Wed, 18 Nov 2026 12:01:51 GMT</pubDate>
-  </item>
-  <item>
-    <title>📅 Jimothy&apos;s Post Helper by Santa</title>
-    <link>https://grokbotshelf.com/bot/jimothy-s-post-helper-by-santa</link>
-    <guid isPermaLink="false">https://x.ai/bot/8ZxTxS1xgvG_SWG9KVwp_</guid>
-    <description>Free social post helper for small businesses with no marketing budget (cafes, salons, food trucks, shops). Jimothy the raccoon plans your week of posts, keeps a simple post list, learns your voice, and never posts on his own. Needs a Grok Bot plan; not affiliated with Instagram, Facebook, TikTok, X, or Google.</description>
-    <dc:creator>Jim (@JimothyRac)</dc:creator>
-    <category>Business &amp; Marketing</category>
-    <pubDate>Wed, 18 Nov 2026 12:01:50 GMT</pubDate>
   </item>
 </channel>
 </rss>

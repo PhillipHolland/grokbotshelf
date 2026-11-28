@@ -8880,6 +8880,19 @@
       "note": "Added to shelf 2026-11-27 by routine under standing SFW rule. Official template title is Market Validator by Trond; listed under that title (already carries \"by Trond\"). Description tightened from official copy to 380 characters (dropped the opening hook and plugin/affiliation lines; no em dashes, no \"free\"). Category Business & Marketing. Reused existing /avatars/xenappblog.webp. No source post; site form #899. form-892 YouSellIt Seller and pending/held items were left untouched.",
       "added": "2026-11-27",
       "approved_by": "Phillip Holland (standing SFW rule)"
+    },
+    "form-900": {
+      "date": "2026-11-28",
+      "status": "added",
+      "bot": "Goji",
+      "template_url": "https://x.ai/bot/bNxBQz-UXRPzuMlarnmEN",
+      "author": "",
+      "author_handle": "",
+      "url": "https://grokbotshelf.com/bot/goji",
+      "description": "A collector shopping scout and parcel tracker. It watches your wish lists, hunts special, deluxe and collector editions of what you collect, and tracks orders to your door.",
+      "note": "Added to shelf 2026-11-28; approved by Phillip Holland in chat (t1632s7003: Add Goji with no handle). Official template title is Goji. Official description used (172 characters). Category Shopping. No creator name, handle, url, avatar, or source post; template sharerName was null. Site form #900. form-892 YouSellIt Seller and pending/held items were left untouched.",
+      "added": "2026-11-28",
+      "approved_by": "Phillip Holland (approved in chat, 2026-11-28)"
     }
   },
   "x-2114766675119886755": {
@@ -12842,5 +12855,18 @@
     "note": "Added to shelf 2026-11-27 by routine under standing SFW rule. Official template title is Market Validator by Trond; listed under that title (already carries \"by Trond\"). Description tightened from official copy to 380 characters (dropped the opening hook and plugin/affiliation lines; no em dashes, no \"free\"). Category Business & Marketing. Reused existing /avatars/xenappblog.webp. No source post; site form #899. form-892 YouSellIt Seller and pending/held items were left untouched.",
     "added": "2026-11-27",
     "approved_by": "Phillip Holland (standing SFW rule)"
+  },
+  "form-900": {
+    "date": "2026-11-28",
+    "status": "added",
+    "bot": "Goji",
+    "template_url": "https://x.ai/bot/bNxBQz-UXRPzuMlarnmEN",
+    "author": "",
+    "author_handle": "",
+    "url": "https://grokbotshelf.com/bot/goji",
+    "description": "A collector shopping scout and parcel tracker. It watches your wish lists, hunts special, deluxe and collector editions of what you collect, and tracks orders to your door.",
+    "note": "Added to shelf 2026-11-28; approved by Phillip Holland in chat (t1632s7003: Add Goji with no handle). Official template title is Goji. Official description used (172 characters). Category Shopping. No creator name, handle, url, avatar, or source post; template sharerName was null. Site form #900. form-892 YouSellIt Seller and pending/held items were left untouched.",
+    "added": "2026-11-28",
+    "approved_by": "Phillip Holland (approved in chat, 2026-11-28)"
   }
 }
